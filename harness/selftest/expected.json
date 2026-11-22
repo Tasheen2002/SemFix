@@ -1,0 +1,33 @@
+[
+ {
+  "case": 2,
+  "patch": "fix_mining/fixes_v1.0/reference_fixes/case2.patch",
+  "expected_verdict": "REPAIRED",
+  "expected_failed_checks": []
+ },
+ {
+  "case": 2,
+  "patch": "harness/selftest/patches/case2_noop.patch",
+  "expected_verdict": "NOT_REPAIRED",
+  "expected_failed_checks": [
+   "TARGET_FIXED"
+  ]
+ },
+ {
+  "case": 2,
+  "patch": "harness/selftest/patches/case2_revert_update.patch",
+  "expected_verdict": "NOT_REPAIRED",
+  "expected_failed_checks": [
+   "UPDATE_KEPT"
+  ]
+ },
+ {
+  "case": 13,
+  "patch": "harness/selftest/patches/case13_delete_failing_test.patch",
+  "expected_verdict": "NOT_REPAIRED",
+  "expected_failed_checks": [
+   "TARGET_FIXED",
+   "NO_REGRESSION"
+  ]
+ }
+]
