@@ -1,0 +1,534 @@
+Compiled from "LoggerAnnotationEngine.java"
+public final class org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine extends org.mockito.internal.configuration.InjectingAnnotationEngine {
+  private static final org.slf4j.Logger FAKE_LOGGER;
+    descriptor: Lorg/slf4j/Logger;
+
+  public org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method org/mockito/internal/configuration/InjectingAnnotationEngine."<init>":()V
+       4: return
+
+  public java.lang.AutoCloseable process(java.lang.Class<?>, java.lang.Object);
+    descriptor: (Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/AutoCloseable;
+    Code:
+       0: aload_2
+       1: invokestatic  #2                  // Method prepareSpyLogger:(Ljava/lang/Object;)Lorg/mockito/internal/util/reflection/InstanceField;
+       4: astore_3
+       5: aload_0
+       6: aload_1
+       7: aload_2
+       8: invokespecial #3                  // Method org/mockito/internal/configuration/InjectingAnnotationEngine.process:(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/AutoCloseable;
+      11: astore        4
+      13: aload_2
+      14: invokestatic  #4                  // Method findMDCMock:(Ljava/lang/Object;)Ljava/util/Optional;
+      17: astore        5
+      19: aload         5
+      21: invokedynamic #5,  0              // InvokeDynamic #0:accept:()Ljava/util/function/Consumer;
+      26: invokevirtual #6                  // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+      29: aload_2
+      30: aload_3
+      31: invokestatic  #7                  // Method findLoggersMocks:(Ljava/lang/Object;Lorg/mockito/internal/util/reflection/InstanceField;)Ljava/util/Map;
+      34: astore        6
+      36: aload         6
+      38: invokedynamic #8,  0              // InvokeDynamic #1:accept:()Ljava/util/function/BiConsumer;
+      43: invokeinterface #9,  2            // InterfaceMethod java/util/Map.forEach:(Ljava/util/function/BiConsumer;)V
+      48: aload         4
+      50: aload         6
+      52: invokedynamic #10,  0             // InvokeDynamic #2:close:(Ljava/lang/AutoCloseable;Ljava/util/Map;)Ljava/lang/AutoCloseable;
+      57: areturn
+
+  private static java.util.List<org.mockito.internal.util.reflection.InstanceField> allDeclaredFieldsOf(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/util/List;
+    Code:
+       0: new           #11                 // class java/util/ArrayList
+       3: dup
+       4: invokespecial #12                 // Method java/util/ArrayList."<init>":()V
+       7: astore_1
+       8: aload_0
+       9: invokevirtual #13                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      12: astore_2
+      13: aload_2
+      14: ldc           #14                 // class java/lang/Object
+      16: if_acmpeq     75
+      19: aload_2
+      20: invokevirtual #15                 // Method java/lang/Class.getDeclaredFields:()[Ljava/lang/reflect/Field;
+      23: astore_3
+      24: aload_3
+      25: arraylength
+      26: istore        4
+      28: iconst_0
+      29: istore        5
+      31: iload         5
+      33: iload         4
+      35: if_icmpge     67
+      38: aload_3
+      39: iload         5
+      41: aaload
+      42: astore        6
+      44: aload_1
+      45: new           #16                 // class org/mockito/internal/util/reflection/InstanceField
+      48: dup
+      49: aload         6
+      51: aload_0
+      52: invokespecial #17                 // Method org/mockito/internal/util/reflection/InstanceField."<init>":(Ljava/lang/reflect/Field;Ljava/lang/Object;)V
+      55: invokeinterface #18,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      60: pop
+      61: iinc          5, 1
+      64: goto          31
+      67: aload_2
+      68: invokevirtual #19                 // Method java/lang/Class.getSuperclass:()Ljava/lang/Class;
+      71: astore_2
+      72: goto          13
+      75: aload_1
+      76: areturn
+
+  private static org.mockito.internal.util.reflection.InstanceField prepareSpyLogger(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Lorg/mockito/internal/util/reflection/InstanceField;
+    Code:
+       0: aload_0
+       1: invokestatic  #20                 // Method allDeclaredFieldsOf:(Ljava/lang/Object;)Ljava/util/List;
+       4: invokeinterface #21,  1           // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+       9: invokedynamic #22,  0             // InvokeDynamic #3:test:()Ljava/util/function/Predicate;
+      14: invokeinterface #23,  2           // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+      19: invokedynamic #24,  0             // InvokeDynamic #4:test:()Ljava/util/function/Predicate;
+      24: invokeinterface #23,  2           // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+      29: invokestatic  #25                 // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+      32: invokeinterface #26,  2           // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+      37: checkcast     #27                 // class java/util/List
+      40: astore_1
+      41: aload_1
+      42: invokeinterface #21,  1           // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+      47: invokedynamic #28,  0             // InvokeDynamic #5:test:()Ljava/util/function/Predicate;
+      52: invokeinterface #23,  2           // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+      57: invokestatic  #25                 // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+      60: invokeinterface #26,  2           // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+      65: checkcast     #27                 // class java/util/List
+      68: astore_2
+      69: aload_2
+      70: invokedynamic #29,  0             // InvokeDynamic #6:accept:()Ljava/util/function/Consumer;
+      75: invokeinterface #30,  2           // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+      80: aload_2
+      81: invokeinterface #21,  1           // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+      86: invokeinterface #31,  1           // InterfaceMethod java/util/stream/Stream.findFirst:()Ljava/util/Optional;
+      91: aconst_null
+      92: invokevirtual #32                 // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      95: checkcast     #16                 // class org/mockito/internal/util/reflection/InstanceField
+      98: areturn
+
+  private static java.util.Optional<org.slf4j.spi.MDCAdapter> findMDCMock(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/util/Optional;
+    Code:
+       0: aload_0
+       1: invokestatic  #20                 // Method allDeclaredFieldsOf:(Ljava/lang/Object;)Ljava/util/List;
+       4: invokeinterface #21,  1           // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+       9: invokedynamic #33,  0             // InvokeDynamic #7:test:()Ljava/util/function/Predicate;
+      14: invokeinterface #23,  2           // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+      19: invokedynamic #34,  0             // InvokeDynamic #8:test:()Ljava/util/function/Predicate;
+      24: invokeinterface #23,  2           // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+      29: invokestatic  #25                 // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+      32: invokeinterface #26,  2           // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+      37: checkcast     #27                 // class java/util/List
+      40: astore_1
+      41: aload_1
+      42: invokeinterface #35,  1           // InterfaceMethod java/util/List.size:()I
+      47: iconst_1
+      48: if_icmple     133
+      51: new           #36                 // class org/simplify4u/slf4jmock/mockito/MockRuntimeException
+      54: dup
+      55: new           #37                 // class java/lang/StringBuilder
+      58: dup
+      59: invokespecial #38                 // Method java/lang/StringBuilder."<init>":()V
+      62: ldc           #39                 // String Class:
+      64: invokevirtual #40                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      67: aload_0
+      68: invokevirtual #13                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      71: invokevirtual #41                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      74: ldc           #42                 // String \ncontains more then one mock for MDCAdapter\n\n
+      76: invokevirtual #40                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      79: aload_1
+      80: invokeinterface #21,  1           // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+      85: invokedynamic #43,  0             // InvokeDynamic #9:apply:()Ljava/util/function/Function;
+      90: invokeinterface #44,  2           // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      95: invokedynamic #45,  0             // InvokeDynamic #10:apply:()Ljava/util/function/Function;
+     100: invokeinterface #44,  2           // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+     105: ldc           #46                 // String \n\n
+     107: invokestatic  #47                 // Method java/util/stream/Collectors.joining:(Ljava/lang/CharSequence;)Ljava/util/stream/Collector;
+     110: invokeinterface #26,  2           // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+     115: checkcast     #48                 // class java/lang/String
+     118: invokevirtual #40                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     121: ldc           #49                 // String \n\nonly one or zero is allowed per unit test
+     123: invokevirtual #40                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     126: invokevirtual #50                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     129: invokespecial #51                 // Method org/simplify4u/slf4jmock/mockito/MockRuntimeException."<init>":(Ljava/lang/String;)V
+     132: athrow
+     133: aload_1
+     134: invokeinterface #21,  1           // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+     139: invokeinterface #31,  1           // InterfaceMethod java/util/stream/Stream.findFirst:()Ljava/util/Optional;
+     144: invokedynamic #52,  0             // InvokeDynamic #11:apply:()Ljava/util/function/Function;
+     149: invokevirtual #53                 // Method java/util/Optional.map:(Ljava/util/function/Function;)Ljava/util/Optional;
+     152: ldc           #54                 // class org/slf4j/spi/MDCAdapter
+     154: dup
+     155: invokevirtual #13                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+     158: pop
+     159: invokedynamic #55,  0             // InvokeDynamic #12:apply:(Ljava/lang/Class;)Ljava/util/function/Function;
+     164: invokevirtual #53                 // Method java/util/Optional.map:(Ljava/util/function/Function;)Ljava/util/Optional;
+     167: areturn
+
+  private static java.util.List<org.mockito.internal.util.reflection.InstanceField> findClassUnderTest(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/util/List;
+    Code:
+       0: aload_0
+       1: invokestatic  #20                 // Method allDeclaredFieldsOf:(Ljava/lang/Object;)Ljava/util/List;
+       4: invokeinterface #21,  1           // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+       9: invokedynamic #56,  0             // InvokeDynamic #13:test:()Ljava/util/function/Predicate;
+      14: invokeinterface #23,  2           // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+      19: invokestatic  #25                 // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+      22: invokeinterface #26,  2           // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+      27: checkcast     #27                 // class java/util/List
+      30: areturn
+
+  private static java.util.Map<java.lang.String, org.slf4j.Logger> findLoggersMocks(java.lang.Object, org.mockito.internal.util.reflection.InstanceField);
+    descriptor: (Ljava/lang/Object;Lorg/mockito/internal/util/reflection/InstanceField;)Ljava/util/Map;
+    Code:
+       0: aload_0
+       1: invokestatic  #20                 // Method allDeclaredFieldsOf:(Ljava/lang/Object;)Ljava/util/List;
+       4: invokeinterface #21,  1           // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+       9: invokedynamic #57,  0             // InvokeDynamic #14:test:()Ljava/util/function/Predicate;
+      14: invokeinterface #23,  2           // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+      19: invokedynamic #58,  0             // InvokeDynamic #15:test:()Ljava/util/function/Predicate;
+      24: invokeinterface #23,  2           // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+      29: invokedynamic #59,  0             // InvokeDynamic #16:apply:()Ljava/util/function/Function;
+      34: invokedynamic #60,  0             // InvokeDynamic #17:apply:()Ljava/util/function/Function;
+      39: invokedynamic #61,  0             // InvokeDynamic #18:apply:()Ljava/util/function/BinaryOperator;
+      44: invokestatic  #62                 // Method java/util/stream/Collectors.toMap:(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;
+      47: invokeinterface #26,  2           // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+      52: checkcast     #63                 // class java/util/Map
+      55: astore_2
+      56: aload_2
+      57: ldc           #64                 // String
+      59: invokeinterface #65,  2           // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+      64: ifne          69
+      67: aload_2
+      68: areturn
+      69: aload_0
+      70: invokestatic  #66                 // Method findClassUnderTest:(Ljava/lang/Object;)Ljava/util/List;
+      73: astore_3
+      74: aload_3
+      75: invokeinterface #67,  1           // InterfaceMethod java/util/List.isEmpty:()Z
+      80: ifeq          93
+      83: new           #36                 // class org/simplify4u/slf4jmock/mockito/MockRuntimeException
+      86: dup
+      87: ldc           #68                 // String We have unnamed Logger for @Mock or @Spy we need at lease one class under test with @InjectMock in order to discover Logger name
+      89: invokespecial #51                 // Method org/simplify4u/slf4jmock/mockito/MockRuntimeException."<init>":(Ljava/lang/String;)V
+      92: athrow
+      93: aload_3
+      94: invokeinterface #21,  1           // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+      99: invokedynamic #52,  0             // InvokeDynamic #11:apply:()Ljava/util/function/Function;
+     104: invokeinterface #44,  2           // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+     109: invokedynamic #69,  0             // InvokeDynamic #19:apply:()Ljava/util/function/Function;
+     114: invokeinterface #44,  2           // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+     119: invokedynamic #70,  0             // InvokeDynamic #20:apply:()Ljava/util/function/Function;
+     124: invokeinterface #71,  2           // InterfaceMethod java/util/stream/Stream.flatMap:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+     129: invokedynamic #72,  0             // InvokeDynamic #21:test:()Ljava/util/function/Predicate;
+     134: invokeinterface #23,  2           // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+     139: invokestatic  #25                 // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+     142: invokeinterface #26,  2           // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+     147: checkcast     #27                 // class java/util/List
+     150: astore        4
+     152: aload         4
+     154: invokeinterface #67,  1           // InterfaceMethod java/util/List.isEmpty:()Z
+     159: ifeq          172
+     162: new           #36                 // class org/simplify4u/slf4jmock/mockito/MockRuntimeException
+     165: dup
+     166: ldc           #73                 // String Classes under test doesn\'t have defined Logger
+     168: invokespecial #51                 // Method org/simplify4u/slf4jmock/mockito/MockRuntimeException."<init>":(Ljava/lang/String;)V
+     171: athrow
+     172: aload         4
+     174: invokeinterface #35,  1           // InterfaceMethod java/util/List.size:()I
+     179: iconst_1
+     180: if_icmple     193
+     183: new           #36                 // class org/simplify4u/slf4jmock/mockito/MockRuntimeException
+     186: dup
+     187: ldc           #74                 // String Classes under test has define to many Loggers\nWe need one Logger defined in all class under test for unnamed @Mock or @Spy
+     189: invokespecial #51                 // Method org/simplify4u/slf4jmock/mockito/MockRuntimeException."<init>":(Ljava/lang/String;)V
+     192: athrow
+     193: aload         4
+     195: iconst_0
+     196: invokeinterface #75,  2           // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     201: checkcast     #16                 // class org/mockito/internal/util/reflection/InstanceField
+     204: astore        5
+     206: aload         5
+     208: invokevirtual #76                 // Method org/mockito/internal/util/reflection/InstanceField.read:()Ljava/lang/Object;
+     211: checkcast     #77                 // class org/simplify4u/slf4jmock/ProxyMock
+     214: invokeinterface #78,  1           // InterfaceMethod org/simplify4u/slf4jmock/ProxyMock.getMockName:()Ljava/lang/String;
+     219: astore        6
+     221: aload_2
+     222: ldc           #64                 // String
+     224: invokeinterface #79,  2           // InterfaceMethod java/util/Map.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+     229: checkcast     #80                 // class org/slf4j/Logger
+     232: astore        7
+     234: aload         7
+     236: invokestatic  #81                 // Method org/mockito/Mockito.mockingDetails:(Ljava/lang/Object;)Lorg/mockito/MockingDetails;
+     239: invokeinterface #82,  1           // InterfaceMethod org/mockito/MockingDetails.isSpy:()Z
+     244: ifeq          281
+     247: new           #83                 // class org/simplify4u/slf4jmock/SimpleLogger
+     250: dup
+     251: aload         6
+     253: invokespecial #84                 // Method org/simplify4u/slf4jmock/SimpleLogger."<init>":(Ljava/lang/String;)V
+     256: invokestatic  #85                 // Method org/mockito/Mockito.spy:(Ljava/lang/Object;)Ljava/lang/Object;
+     259: checkcast     #80                 // class org/slf4j/Logger
+     262: astore        8
+     264: aload_1
+     265: invokestatic  #86                 // Method java/util/Optional.ofNullable:(Ljava/lang/Object;)Ljava/util/Optional;
+     268: aload         8
+     270: invokedynamic #87,  0             // InvokeDynamic #22:accept:(Lorg/slf4j/Logger;)Ljava/util/function/Consumer;
+     275: invokevirtual #6                  // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+     278: goto          285
+     281: aload         7
+     283: astore        8
+     285: aload_2
+     286: aload         6
+     288: aload         8
+     290: invokeinterface #88,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     295: pop
+     296: aload_2
+     297: areturn
+
+  private static org.slf4j.Logger mockLoggerMerge(org.slf4j.Logger, org.slf4j.Logger);
+    descriptor: (Lorg/slf4j/Logger;Lorg/slf4j/Logger;)Lorg/slf4j/Logger;
+    Code:
+       0: new           #36                 // class org/simplify4u/slf4jmock/mockito/MockRuntimeException
+       3: dup
+       4: new           #37                 // class java/lang/StringBuilder
+       7: dup
+       8: invokespecial #38                 // Method java/lang/StringBuilder."<init>":()V
+      11: ldc           #89                 // String Logger Mock must have unique name,  but we have:
+      13: invokevirtual #40                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      16: aload_0
+      17: invokevirtual #41                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      20: ldc           #90                 // String  and
+      22: invokevirtual #40                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      25: aload_1
+      26: invokevirtual #41                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      29: ldc           #91                 // String \nplease define like:\n   @Mock(name=\"logger.name\")
+      31: invokevirtual #40                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      34: invokevirtual #50                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      37: invokespecial #51                 // Method org/simplify4u/slf4jmock/mockito/MockRuntimeException."<init>":(Ljava/lang/String;)V
+      40: athrow
+
+  private static java.lang.String getLoggerName(org.mockito.internal.util.reflection.InstanceField);
+    descriptor: (Lorg/mockito/internal/util/reflection/InstanceField;)Ljava/lang/String;
+    Code:
+       0: aload_0
+       1: ldc           #92                 // class org/mockito/Mock
+       3: invokevirtual #93                 // Method org/mockito/internal/util/reflection/InstanceField.annotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       6: invokestatic  #86                 // Method java/util/Optional.ofNullable:(Ljava/lang/Object;)Ljava/util/Optional;
+       9: invokedynamic #94,  0             // InvokeDynamic #23:apply:()Ljava/util/function/Function;
+      14: invokevirtual #53                 // Method java/util/Optional.map:(Ljava/util/function/Function;)Ljava/util/Optional;
+      17: aconst_null
+      18: invokevirtual #32                 // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      21: checkcast     #48                 // class java/lang/String
+      24: astore_1
+      25: aload_1
+      26: ifnonnull     78
+      29: aload_0
+      30: invokevirtual #76                 // Method org/mockito/internal/util/reflection/InstanceField.read:()Ljava/lang/Object;
+      33: invokestatic  #86                 // Method java/util/Optional.ofNullable:(Ljava/lang/Object;)Ljava/util/Optional;
+      36: ldc           #80                 // class org/slf4j/Logger
+      38: dup
+      39: invokevirtual #13                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      42: pop
+      43: invokedynamic #95,  0             // InvokeDynamic #24:apply:(Ljava/lang/Class;)Ljava/util/function/Function;
+      48: invokevirtual #53                 // Method java/util/Optional.map:(Ljava/util/function/Function;)Ljava/util/Optional;
+      51: astore_2
+      52: aload_2
+      53: invokedynamic #96,  0             // InvokeDynamic #25:apply:()Ljava/util/function/Function;
+      58: invokevirtual #53                 // Method java/util/Optional.map:(Ljava/util/function/Function;)Ljava/util/Optional;
+      61: aconst_null
+      62: invokevirtual #32                 // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      65: checkcast     #48                 // class java/lang/String
+      68: astore_1
+      69: aload_2
+      70: invokedynamic #97,  0             // InvokeDynamic #26:accept:()Ljava/util/function/Consumer;
+      75: invokevirtual #6                  // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+      78: aload_1
+      79: areturn
+
+  private static org.slf4j.Logger getLoggerFromFiled(org.mockito.internal.util.reflection.InstanceField);
+    descriptor: (Lorg/mockito/internal/util/reflection/InstanceField;)Lorg/slf4j/Logger;
+    Code:
+       0: aload_0
+       1: invokevirtual #76                 // Method org/mockito/internal/util/reflection/InstanceField.read:()Ljava/lang/Object;
+       4: checkcast     #80                 // class org/slf4j/Logger
+       7: areturn
+
+  private static void lambda$getLoggerName$13(org.slf4j.Logger);
+    descriptor: (Lorg/slf4j/Logger;)V
+    Code:
+       0: iconst_1
+       1: anewarray     #80                 // class org/slf4j/Logger
+       4: dup
+       5: iconst_0
+       6: aload_0
+       7: aastore
+       8: invokestatic  #98                 // Method org/mockito/Mockito.clearInvocations:([Ljava/lang/Object;)V
+      11: return
+
+  private static void lambda$findLoggersMocks$12(org.slf4j.Logger, org.mockito.internal.util.reflection.InstanceField);
+    descriptor: (Lorg/slf4j/Logger;Lorg/mockito/internal/util/reflection/InstanceField;)V
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokevirtual #99                 // Method org/mockito/internal/util/reflection/InstanceField.set:(Ljava/lang/Object;)V
+       5: return
+
+  private static boolean lambda$findLoggersMocks$11(org.mockito.internal.util.reflection.InstanceField);
+    descriptor: (Lorg/mockito/internal/util/reflection/InstanceField;)Z
+    Code:
+       0: aload_0
+       1: invokevirtual #100                // Method org/mockito/internal/util/reflection/InstanceField.jdkField:()Ljava/lang/reflect/Field;
+       4: invokevirtual #101                // Method java/lang/reflect/Field.getType:()Ljava/lang/Class;
+       7: ldc           #80                 // class org/slf4j/Logger
+       9: if_acmpne     16
+      12: iconst_1
+      13: goto          17
+      16: iconst_0
+      17: ireturn
+
+  private static boolean lambda$findLoggersMocks$10(org.mockito.internal.util.reflection.InstanceField);
+    descriptor: (Lorg/mockito/internal/util/reflection/InstanceField;)Z
+    Code:
+       0: aload_0
+       1: ldc           #92                 // class org/mockito/Mock
+       3: invokevirtual #102                // Method org/mockito/internal/util/reflection/InstanceField.isAnnotatedBy:(Ljava/lang/Class;)Z
+       6: ifne          18
+       9: aload_0
+      10: ldc           #103                // class org/mockito/Spy
+      12: invokevirtual #102                // Method org/mockito/internal/util/reflection/InstanceField.isAnnotatedBy:(Ljava/lang/Class;)Z
+      15: ifeq          22
+      18: iconst_1
+      19: goto          23
+      22: iconst_0
+      23: ireturn
+
+  private static boolean lambda$findLoggersMocks$9(org.mockito.internal.util.reflection.InstanceField);
+    descriptor: (Lorg/mockito/internal/util/reflection/InstanceField;)Z
+    Code:
+       0: aload_0
+       1: invokevirtual #100                // Method org/mockito/internal/util/reflection/InstanceField.jdkField:()Ljava/lang/reflect/Field;
+       4: invokevirtual #101                // Method java/lang/reflect/Field.getType:()Ljava/lang/Class;
+       7: ldc           #80                 // class org/slf4j/Logger
+       9: if_acmpne     16
+      12: iconst_1
+      13: goto          17
+      16: iconst_0
+      17: ireturn
+
+  private static boolean lambda$findClassUnderTest$8(org.mockito.internal.util.reflection.InstanceField);
+    descriptor: (Lorg/mockito/internal/util/reflection/InstanceField;)Z
+    Code:
+       0: aload_0
+       1: ldc           #104                // class org/mockito/InjectMocks
+       3: invokevirtual #102                // Method org/mockito/internal/util/reflection/InstanceField.isAnnotatedBy:(Ljava/lang/Class;)Z
+       6: ireturn
+
+  private static java.lang.String lambda$findMDCMock$7(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/String;
+    Code:
+       0: new           #37                 // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #38                 // Method java/lang/StringBuilder."<init>":()V
+       7: ldc           #105                // String     @Mock\n    MDCAdapter
+       9: invokevirtual #40                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      12: aload_0
+      13: invokevirtual #40                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      16: ldc           #106                // String ;
+      18: invokevirtual #40                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      21: invokevirtual #50                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      24: areturn
+
+  private static boolean lambda$findMDCMock$6(org.mockito.internal.util.reflection.InstanceField);
+    descriptor: (Lorg/mockito/internal/util/reflection/InstanceField;)Z
+    Code:
+       0: aload_0
+       1: ldc           #92                 // class org/mockito/Mock
+       3: invokevirtual #102                // Method org/mockito/internal/util/reflection/InstanceField.isAnnotatedBy:(Ljava/lang/Class;)Z
+       6: ireturn
+
+  private static boolean lambda$findMDCMock$5(org.mockito.internal.util.reflection.InstanceField);
+    descriptor: (Lorg/mockito/internal/util/reflection/InstanceField;)Z
+    Code:
+       0: aload_0
+       1: invokevirtual #100                // Method org/mockito/internal/util/reflection/InstanceField.jdkField:()Ljava/lang/reflect/Field;
+       4: invokevirtual #101                // Method java/lang/reflect/Field.getType:()Ljava/lang/Class;
+       7: ldc           #54                 // class org/slf4j/spi/MDCAdapter
+       9: if_acmpne     16
+      12: iconst_1
+      13: goto          17
+      16: iconst_0
+      17: ireturn
+
+  private static void lambda$prepareSpyLogger$4(org.mockito.internal.util.reflection.InstanceField);
+    descriptor: (Lorg/mockito/internal/util/reflection/InstanceField;)V
+    Code:
+       0: aload_0
+       1: getstatic     #107                // Field FAKE_LOGGER:Lorg/slf4j/Logger;
+       4: invokevirtual #99                 // Method org/mockito/internal/util/reflection/InstanceField.set:(Ljava/lang/Object;)V
+       7: return
+
+  private static boolean lambda$prepareSpyLogger$3(org.mockito.internal.util.reflection.InstanceField);
+    descriptor: (Lorg/mockito/internal/util/reflection/InstanceField;)Z
+    Code:
+       0: aload_0
+       1: invokevirtual #76                 // Method org/mockito/internal/util/reflection/InstanceField.read:()Ljava/lang/Object;
+       4: ifnonnull     11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: ireturn
+
+  private static boolean lambda$prepareSpyLogger$2(org.mockito.internal.util.reflection.InstanceField);
+    descriptor: (Lorg/mockito/internal/util/reflection/InstanceField;)Z
+    Code:
+       0: aload_0
+       1: ldc           #103                // class org/mockito/Spy
+       3: invokevirtual #102                // Method org/mockito/internal/util/reflection/InstanceField.isAnnotatedBy:(Ljava/lang/Class;)Z
+       6: ireturn
+
+  private static boolean lambda$prepareSpyLogger$1(org.mockito.internal.util.reflection.InstanceField);
+    descriptor: (Lorg/mockito/internal/util/reflection/InstanceField;)Z
+    Code:
+       0: aload_0
+       1: invokevirtual #100                // Method org/mockito/internal/util/reflection/InstanceField.jdkField:()Ljava/lang/reflect/Field;
+       4: invokevirtual #101                // Method java/lang/reflect/Field.getType:()Ljava/lang/Class;
+       7: ldc           #80                 // class org/slf4j/Logger
+       9: if_acmpne     16
+      12: iconst_1
+      13: goto          17
+      16: iconst_0
+      17: ireturn
+
+  private static void lambda$process$0(java.lang.AutoCloseable, java.util.Map) throws java.lang.Exception;
+    descriptor: (Ljava/lang/AutoCloseable;Ljava/util/Map;)V
+    Code:
+       0: aload_0
+       1: invokeinterface #108,  1          // InterfaceMethod java/lang/AutoCloseable.close:()V
+       6: invokestatic  #109                // Method org/simplify4u/slf4jmock/MDCMock.clearMock:()V
+       9: aload_1
+      10: invokeinterface #110,  1          // InterfaceMethod java/util/Map.keySet:()Ljava/util/Set;
+      15: invokedynamic #111,  0            // InvokeDynamic #27:accept:()Ljava/util/function/Consumer;
+      20: invokeinterface #112,  2          // InterfaceMethod java/util/Set.forEach:(Ljava/util/function/Consumer;)V
+      25: return
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: new           #83                 // class org/simplify4u/slf4jmock/SimpleLogger
+       3: dup
+       4: ldc           #64                 // String
+       6: invokespecial #84                 // Method org/simplify4u/slf4jmock/SimpleLogger."<init>":(Ljava/lang/String;)V
+       9: putstatic     #107                // Field FAKE_LOGGER:Lorg/slf4j/Logger;
+      12: return
+}

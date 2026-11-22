@@ -1,0 +1,139 @@
+{
+  "case_id": "c46623986f77fdd0a206e3be2fae7e283b157be3",
+  "phase": "breaking",
+  "rule": "Count each class/method once; retain both request and teardown error entries in raw XML.",
+  "raw_xml_counts": {
+    "tests": 22,
+    "failures": 0,
+    "errors": 16,
+    "skipped": 0
+  },
+  "aggregate_counts": {
+    "tests": 16,
+    "failures": 0,
+    "errors": 10,
+    "skipped": 0
+  },
+  "test_identities": [
+    [
+      "org.pac4j.dropwizard.bundle.BundleFactoryTest",
+      "emptyPac4jInConfig"
+    ],
+    [
+      "org.pac4j.dropwizard.bundle.BundleFactoryTest",
+      "noPac4jInConfig"
+    ],
+    [
+      "org.pac4j.dropwizard.bundle.BundleFactoryTest",
+      "sessionEnabledForced"
+    ],
+    [
+      "org.pac4j.dropwizard.bundle.BundleFactoryTest",
+      "sessiondisabledForced"
+    ],
+    [
+      "org.pac4j.dropwizard.e2e.EndToEndServletTest",
+      "grantsAccessToResources"
+    ],
+    [
+      "org.pac4j.dropwizard.e2e.EndToEndServletTest",
+      "grantsAccessToResourcesForm"
+    ],
+    [
+      "org.pac4j.dropwizard.e2e.EndToEndServletTest",
+      "restrictsAccessToResources"
+    ],
+    [
+      "org.pac4j.dropwizard.e2e.EndToEndTest",
+      "grantsAccessToResources"
+    ],
+    [
+      "org.pac4j.dropwizard.e2e.EndToEndTest",
+      "grantsAccessToResourcesForm"
+    ],
+    [
+      "org.pac4j.dropwizard.e2e.EndToEndTest",
+      "restrictsAccessToResources"
+    ],
+    [
+      "org.pac4j.dropwizard.factory.DefaultConfigurationTest",
+      "allOptionsClients"
+    ],
+    [
+      "org.pac4j.dropwizard.factory.DefaultConfigurationTest",
+      "clients"
+    ],
+    [
+      "org.pac4j.dropwizard.factory.DefaultConfigurationTest",
+      "clientsAndProperties"
+    ],
+    [
+      "org.pac4j.dropwizard.factory.DefaultConfigurationTest",
+      "clientsProperties"
+    ],
+    [
+      "org.pac4j.dropwizard.factory.DefaultConfigurationTest",
+      "defaultsUnset"
+    ],
+    [
+      "org.pac4j.dropwizard.factory.DefaultConfigurationTest",
+      "matchers"
+    ]
+  ],
+  "duplicate_test_entries": [
+    {
+      "test_class": "org.pac4j.dropwizard.e2e.EndToEndServletTest",
+      "test_name": "grantsAccessToResources",
+      "reported_entries": 2,
+      "types": [
+        "javax.ws.rs.ProcessingException",
+        "java.lang.RuntimeException"
+      ]
+    },
+    {
+      "test_class": "org.pac4j.dropwizard.e2e.EndToEndServletTest",
+      "test_name": "grantsAccessToResourcesForm",
+      "reported_entries": 2,
+      "types": [
+        "javax.ws.rs.ProcessingException",
+        "java.lang.RuntimeException"
+      ]
+    },
+    {
+      "test_class": "org.pac4j.dropwizard.e2e.EndToEndServletTest",
+      "test_name": "restrictsAccessToResources",
+      "reported_entries": 2,
+      "types": [
+        "javax.ws.rs.ProcessingException",
+        "java.lang.RuntimeException"
+      ]
+    },
+    {
+      "test_class": "org.pac4j.dropwizard.e2e.EndToEndTest",
+      "test_name": "grantsAccessToResources",
+      "reported_entries": 2,
+      "types": [
+        "javax.ws.rs.ProcessingException",
+        "java.lang.RuntimeException"
+      ]
+    },
+    {
+      "test_class": "org.pac4j.dropwizard.e2e.EndToEndTest",
+      "test_name": "grantsAccessToResourcesForm",
+      "reported_entries": 2,
+      "types": [
+        "javax.ws.rs.ProcessingException",
+        "java.lang.RuntimeException"
+      ]
+    },
+    {
+      "test_class": "org.pac4j.dropwizard.e2e.EndToEndTest",
+      "test_name": "restrictsAccessToResources",
+      "reported_entries": 2,
+      "types": [
+        "javax.ws.rs.ProcessingException",
+        "java.lang.RuntimeException"
+      ]
+    }
+  ]
+}

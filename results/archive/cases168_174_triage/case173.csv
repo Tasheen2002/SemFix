@@ -1,0 +1,34 @@
+candidate_number,case_id,project,organisation,dependency_group,dependency_artifact,previous_version,new_version,dependency_scope,version_update_type,java_version,bump_failure_category,pull_request_url,pre_exit_code,pre_timeout,pre_duration_seconds,pre_build_success,pre_build_failure,pre_compilation_error,pre_tests,pre_failures,pre_errors,pre_skipped,pre_all_test_summaries,pre_log,breaking_exit_code,breaking_timeout,breaking_duration_seconds,breaking_build_success,breaking_build_failure,breaking_compilation_error,breaking_tests,breaking_failures,breaking_errors,breaking_skipped,breaking_all_test_summaries,assertion_signal,binary_linkage_signal,linkage_types,runtime_exception_signal,runtime_exception_types,exception_names,important_log_lines,breaking_log,auto_triage,human_review_status,reviewer_1_label,reviewer_2_label,final_label,notes
+173,e3b288f3a1507baf36451c4844d6f360b472e3d1,dropwizard-pac4j,pac4j,org.eclipse.jetty,jetty-server,9.4.35.v20201120,10.0.10,compile,other,11,TEST_FAILURE,https://github.com/pac4j/dropwizard-pac4j/pull/303,0,False,253.24,True,False,False,16,0,0,0,"[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 52.488 s - in org.pac4j.dropwizard.e2e.EndToEndServletTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.891 s - in org.pac4j.dropwizard.e2e.EndToEndTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.04 s - in org.pac4j.dropwizard.factory.DefaultConfigurationTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.954 s - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0",C:\Users\TASHEEN\Desktop\Research Implementation\logs\batch_triage\e3b288f3_pre.log,0,False,153.95,False,True,False,16,0,10,0,"[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 18.652 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndServletTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 1.69 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.178 s - in org.pac4j.dropwizard.factory.DefaultConfigurationTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 1.336 s <<< FAILURE! - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+[ERROR] Tests run: 16, Failures: 0, Errors: 10, Skipped: 0",False,True,ClassNotFoundException,False,,"java.lang.NoClassDefFoundError, AbstractLifeCycle$StopException, java.lang.ClassNotFoundException, org.eclipse.jetty.util.component.AbstractLifeCycle$StopException, MojoFailureException","[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 18.652 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndServletTest
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources  Time elapsed: 15.988 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/eclipse/jetty/util/component/AbstractLifeCycle$StopException
+Caused by: java.lang.ClassNotFoundException: org.eclipse.jetty.util.component.AbstractLifeCycle$StopException
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResourcesForm  Time elapsed: 0.6 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.restrictsAccessToResources  Time elapsed: 0.7 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 1.69 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndTest
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.grantsAccessToResources  Time elapsed: 0.465 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.grantsAccessToResourcesForm  Time elapsed: 0.651 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.restrictsAccessToResources  Time elapsed: 0.529 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 1.336 s <<< FAILURE! - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+[ERROR] org.pac4j.dropwizard.bundle.BundleFactoryTest.emptyPac4jInConfig  Time elapsed: 0.442 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+[ERROR] org.pac4j.dropwizard.bundle.BundleFactoryTest.sessiondisabledForced  Time elapsed: 0.325 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+[ERROR] org.pac4j.dropwizard.bundle.BundleFactoryTest.noPac4jInConfig  Time elapsed: 0.23 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+[ERROR] org.pac4j.dropwizard.bundle.BundleFactoryTest.sessionEnabledForced  Time elapsed: 0.293 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+[INFO] BUILD FAILURE",C:\Users\TASHEEN\Desktop\Research Implementation\logs\batch_triage\e3b288f3_breaking.log,AUTO_NON_BEHAVIORAL_CANDIDATE,PENDING_MANUAL_REVIEW,,,,

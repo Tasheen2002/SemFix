@@ -1,0 +1,111 @@
+=== CASE 94 8776fe7cd60bd309daf843bc70608ebf963c6761
+  project=versly/wsdoc dep=com.fasterxml.jackson.core:jackson-databind 2.4.2 -> 2.12.6.1 scope=compile type=other java=11
+  PR=https://github.com/versly/wsdoc/pull/77
+  PRE log logs/batch_triage/8776fe7c_pre.log:
+  lines=436
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 59, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: log4j:WARN No appenders could be found for logger (freemarker.cache). | log4j:WARN Please initialize the log4j system properly. | log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+  BREAKING log logs/batch_triage/8776fe7c_breaking.log:
+  lines=2079
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 59, Failures: 33, Errors: 0, Skipped: 0
+  failing classes: Tests run: 59, Failures: 33, Errors: 0, Skipped: 0, Time elapsed: 32.286 s <<< FAILURE! - in TestSuite
+  section: Failures: | JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertGenericResponse:237->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonMerge | JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertJavaDocComments:146->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper | JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertNoRedundantUriParametersForResource:275->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationPr
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project versly-wsdoc: There are test failures.
+  FAILBLOCK: [ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.assertGenericResponse  Time elapsed: 0.46 s  <<< FAILURE!
+      java.lang.RuntimeException: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonMerge
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:94)
+      at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:140)
+      at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:113)
+      Caused by: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonMerge
+      Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.annotation.JsonMerge
+  FAILBLOCK: [ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.assertJavaDocComments  Time elapsed: 0.25 s  <<< FAILURE!
+      java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:94)
+      at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:140)
+      at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:113)
+      Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+  distinct fail signatures (count): 1x java.lang.RuntimeException: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonMerge || 32x java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.Ob
+  provider/console lines: log4j:WARN No appenders could be found for logger (freemarker.cache). | log4j:WARN Please initialize the log4j system properly. | log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx99, java.lang.RuntimeExceptionx33, java.lang.ClassNotFoundExceptionx1
+  EVIDENCE logs/case94_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/jackson-annotations-2.4.1.jar, breaking/jackson-databind-2.12.6.1.jar, databind_jsonmerge_references.txt, pre/archive_summary.json, pre/artifacts.tar, pre/jackson-annotations-2.4.1.jar, pre/jackson-databind-2.4.2.jar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=3 sum(t,f,e,s)=[118, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=3 sum(t,f,e,s)=[118, 66, 0, 0]
+  archived non-report files: pre=71 breaking=71 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -111,3 +111,3 @@
+                 <artifactId>jackson-databind</artifactId>
+    -            <version>2.4.2</version>
+    +            <version>2.12.6.1</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#assertGenericResponse type=java.lang.RuntimeException msg=java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonMerge
+       Caused by: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonMerge
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.annotation.JsonMerge
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:94)
+       at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:140)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#assertJavaDocComments type=java.lang.RuntimeException msg=java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:94)
+       at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:140)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#assertNoRedundantUriParametersForResource type=java.lang.RuntimeException msg=java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:94)
+       at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:140)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#assertOverriddenPaths type=java.lang.RuntimeException msg=java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:94)
+       at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:140)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#assertParams type=java.lang.RuntimeException msg=java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:94)
+       at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:140)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#assertPathVariableWithOverriddenName type=java.lang.RuntimeException msg=java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:94)
+       at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:140)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#assertReturnValueComments type=java.lang.RuntimeException msg=java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:94)
+       at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:140)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#assertUuidIsNotTraversedInto type=java.lang.RuntimeException msg=java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:94)
+       at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:140)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#genericTypeResolution type=java.lang.RuntimeException msg=java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:94)
+       at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:140)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#testEnumsTypesInPathForRaml type=java.lang.RuntimeException msg=java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+       at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:94)
+    ... truncated (398 lines)
+  LOG databind_jsonmerge_references.txt (1 lines): 
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"jackson-annotations-2.4.1.jar","entries":{"com/fasterxml/jackson/annotation/JsonMerge.class":[]}},{"phase":"pre","jar":"jackson-databind-2.4.2.jar","entries":{"com/fasterxml/jackson/annotation/JsonMerge.class":[]}},{"phase":"breaking","jar":"jackson-annotations-2.4.1.jar","entries":{"com/fasterxml/jackson/annotation/JsonMerge.class":[]}},{"phase":"breaking","jar":"jackson-databind-2.12.6.1.jar","entries":{"com/fasterxml/jackson/annotation/JsonMerge.class":[]}}]

@@ -1,0 +1,111 @@
+Compiled from "DateConverter.java"
+public class ch.qos.logback.classic.pattern.DateConverter extends ch.qos.logback.classic.pattern.ClassicConverter {
+  long lastTimestamp;
+    descriptor: J
+
+  java.lang.String timestampStrCache;
+    descriptor: Ljava/lang/String;
+
+  ch.qos.logback.core.util.CachingDateFormatter cachingDateFormatter;
+    descriptor: Lch/qos/logback/core/util/CachingDateFormatter;
+
+  public ch.qos.logback.classic.pattern.DateConverter();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method ch/qos/logback/classic/pattern/ClassicConverter."<init>":()V
+       4: aload_0
+       5: ldc2_w        #7                  // long -1l
+       8: putfield      #9                  // Field lastTimestamp:J
+      11: aload_0
+      12: aconst_null
+      13: putfield      #15                 // Field timestampStrCache:Ljava/lang/String;
+      16: aload_0
+      17: aconst_null
+      18: putfield      #19                 // Field cachingDateFormatter:Lch/qos/logback/core/util/CachingDateFormatter;
+      21: return
+
+  public void start();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokevirtual #23                 // Method getFirstOption:()Ljava/lang/String;
+       4: astore_1
+       5: aload_1
+       6: ifnonnull     12
+       9: ldc           #29                 // String yyyy-MM-dd HH:mm:ss,SSS
+      11: astore_1
+      12: aload_1
+      13: ldc           #31                 // String ISO8601
+      15: invokevirtual #33                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      18: ifeq          24
+      21: ldc           #29                 // String yyyy-MM-dd HH:mm:ss,SSS
+      23: astore_1
+      24: aload_0
+      25: invokevirtual #39                 // Method getOptionList:()Ljava/util/List;
+      28: astore_2
+      29: aconst_null
+      30: astore_3
+      31: aload_2
+      32: ifnull        63
+      35: aload_2
+      36: invokeinterface #43,  1           // InterfaceMethod java/util/List.size:()I
+      41: iconst_1
+      42: if_icmple     63
+      45: aload_2
+      46: iconst_1
+      47: invokeinterface #49,  2           // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+      52: checkcast     #34                 // class java/lang/String
+      55: astore        4
+      57: aload         4
+      59: invokestatic  #53                 // Method java/time/ZoneId.of:(Ljava/lang/String;)Ljava/time/ZoneId;
+      62: astore_3
+      63: aload_0
+      64: new           #59                 // class ch/qos/logback/core/util/CachingDateFormatter
+      67: dup
+      68: aload_1
+      69: aload_3
+      70: invokespecial #61                 // Method ch/qos/logback/core/util/CachingDateFormatter."<init>":(Ljava/lang/String;Ljava/time/ZoneId;)V
+      73: putfield      #19                 // Field cachingDateFormatter:Lch/qos/logback/core/util/CachingDateFormatter;
+      76: goto          107
+      79: astore        4
+      81: aload_0
+      82: aload_1
+      83: invokedynamic #66,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      88: aload         4
+      90: invokevirtual #70                 // Method addWarn:(Ljava/lang/String;Ljava/lang/Throwable;)V
+      93: aload_0
+      94: new           #59                 // class ch/qos/logback/core/util/CachingDateFormatter
+      97: dup
+      98: ldc           #29                 // String yyyy-MM-dd HH:mm:ss,SSS
+     100: aload_3
+     101: invokespecial #61                 // Method ch/qos/logback/core/util/CachingDateFormatter."<init>":(Ljava/lang/String;Ljava/time/ZoneId;)V
+     104: putfield      #19                 // Field cachingDateFormatter:Lch/qos/logback/core/util/CachingDateFormatter;
+     107: aload_0
+     108: invokespecial #74                 // Method ch/qos/logback/classic/pattern/ClassicConverter.start:()V
+     111: return
+    Exception table:
+       from    to  target type
+          63    76    79   Class java/lang/IllegalArgumentException
+
+  public java.lang.String convert(ch.qos.logback.classic.spi.ILoggingEvent);
+    descriptor: (Lch/qos/logback/classic/spi/ILoggingEvent;)Ljava/lang/String;
+    Code:
+       0: aload_1
+       1: invokeinterface #77,  1           // InterfaceMethod ch/qos/logback/classic/spi/ILoggingEvent.getTimeStamp:()J
+       6: lstore_2
+       7: aload_0
+       8: getfield      #19                 // Field cachingDateFormatter:Lch/qos/logback/core/util/CachingDateFormatter;
+      11: lload_2
+      12: invokevirtual #83                 // Method ch/qos/logback/core/util/CachingDateFormatter.format:(J)Ljava/lang/String;
+      15: areturn
+
+  public java.lang.String convert(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/String;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: checkcast     #78                 // class ch/qos/logback/classic/spi/ILoggingEvent
+       5: invokevirtual #87                 // Method convert:(Lch/qos/logback/classic/spi/ILoggingEvent;)Ljava/lang/String;
+       8: areturn
+}

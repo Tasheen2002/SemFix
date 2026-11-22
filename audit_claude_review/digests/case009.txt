@@ -1,0 +1,28 @@
+=== CASE 9 0ee8b9376b967938e8efd89a0959214a30d1b3fb
+  project=pholser/junit-quickcheck dep=org.mockito:mockito-core 4.11.0 -> 5.1.1 scope=compile type=major java=11
+  PR=https://github.com/pholser/junit-quickcheck/pull/483
+  PRE log logs/0ee8b937_pre.log:
+  lines=1378
+  status: [INFO] BUILD SUCCESS
+  reactor: junit-quickcheck   SUCCESS [  0.286 s]; junit-quickcheck-core   SUCCESS [ 10.853 s]; junit-quickcheck-generators   SUCCESS [ 26.978 s]; junit-quickcheck-guava   SUCCESS [  6.803 s]; junit-quickcheck-examples   SUCCESS [  2.033 s]; BUILD SUCCESS
+  aggregate summaries: Tests run: 510, Failures: 0, Errors: 0, Skipped: 18 || Tests run: 561, Failures: 0, Errors: 0, Skipped: 1 || Tests run: 11, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 32, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+  BREAKING log logs/0ee8b937_breaking.log:
+  lines=401
+  status: [INFO] BUILD FAILURE
+  reactor: junit-quickcheck   SUCCESS [  0.485 s]; junit-quickcheck-core   FAILURE [ 12.416 s]; junit-quickcheck-generators   SKIPPED; junit-quickcheck-guava   SKIPPED; junit-quickcheck-examples   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 510, Failures: 1, Errors: 0, Skipped: 18
+  failing classes: Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.157 s <<< FAILURE! - in com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest
+  section: Failures: | CompositeGeneratorTest.shrinkingChoosesAComponentCapableOfShrinkingTheValue:90 expected:<[3, 6]> but was:<[]> | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] Reactor Summary for junit-quickcheck 1.1-SNAPSHOT: | [INFO] | [INFO] junit-quickcheck ................................... SUCCESS [  0.485 s] | [INFO] junit-quickcheck-core .............................. FAILURE [ 12.416 s] | [INFO] junit-quickcheck-generators ........................ SKIPPED | [INFO] junit-quickcheck-guava ............................. SKIPPED | [INFO] junit-quickcheck-examples .......................... SKIPPED | [INFO] ------------------------------------------------------------------------
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M8:test (default-test) on project junit-quickcheck-core: There are test failures.
+  FAILBLOCK: [ERROR] com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest.shrinkingChoosesAComponentCapableOfShrinkingTheValue  Time elapsed: 0.013 s  <<< FAILURE!
+      java.lang.AssertionError: expected:<[3, 6]> but was:<[]>
+      at org.junit.Assert.fail(Assert.java:89)
+      at org.junit.Assert.failNotEquals(Assert.java:835)
+      at org.junit.Assert.assertEquals(Assert.java:120)
+      at org.junit.Assert.assertEquals(Assert.java:146)
+      at com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest.shrinkingChoosesAComponentCapableOfShrinkingTheValue(CompositeGeneratorTest.java:90)
+  distinct fail signatures (count): 1x java.lang.AssertionError: expected:<[3, 6]> but was:<[]>
+  exception names: java.lang.AssertionErrorx1
+  EVIDENCE: no logs/case9_evidence directory

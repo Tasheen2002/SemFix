@@ -1,0 +1,37 @@
+﻿
+=== Case 7  0c088ff435224b168f93d2a20b829af940bb67dd ===
+Project : fmtn/a
+Update  : org.graalvm.js:js-scriptengine  22.3.2 -> 23.0.1
+Image not present locally, pulling ghcr.io/chains-project/breaking-updates:0c088ff435224b168f93d2a20b829af940bb67dd-breaking ...
+Running breaking in container manual-case7-breaking (this can take several minutes) ...
+Finished in 30 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case7_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 80, Failures: 0, Errors: 79, Skipped: 1
+First failing tests / errors:
+  [ERROR] co.nordlander.a.AOpenWireTest.jndiConnectTest  Time elapsed: 0.318 s  <<< ERROR!
+      java.lang.UnsupportedClassVersionError: com/oracle/truffle/js/scriptengine/GraalJSEngineFactory has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+      at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+      at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+  [ERROR] co.nordlander.a.AOpenWireTest.testCopyQueue  Time elapsed: 0.035 s  <<< ERROR!
+      java.lang.UnsupportedClassVersionError: com/oracle/truffle/js/scriptengine/GraalJSEngineFactory has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+      at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+      at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+  [ERROR] co.nordlander.a.AOpenWireTest.testPutBytesQueue  Time elapsed: 0.034 s  <<< ERROR!
+      java.lang.UnsupportedClassVersionError: com/oracle/truffle/js/scriptengine/GraalJSEngineFactory has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+      at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+      at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  UnsupportedClassVersionError x79
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : js-scriptengine 23.0.1 compiled for a newer Java than the image's Java 11: UnsupportedClassVersionError GraalJSEngineFactory
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

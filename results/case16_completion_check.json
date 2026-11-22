@@ -1,0 +1,40 @@
+{
+  "checks": {
+    "classification_count_16": true,
+    "first_16_candidate_ids_match": true,
+    "original_15_records_unchanged": true,
+    "original_classification_bytes_preserved_as_prefix": true,
+    "no_duplicate_classification_ids": true,
+    "case16_non_behavioral_pending_human_review": true,
+    "case16_human_labels_empty": true,
+    "earlier_batch_rows_unchanged": true,
+    "one_new_batch_row": true,
+    "case16_auto_triage_preserved": true,
+    "case14_patch_unchanged": true,
+    "verified_repairs_unchanged": true,
+    "verified_repairs_still_one": true,
+    "case16_script_and_status_saved": true
+  },
+  "classification_counts": {
+    "PROVISIONAL_BEHAVIORAL": 8,
+    "NON_BEHAVIORAL": 8
+  },
+  "evidence_files_hashed": 90,
+  "pre_run_backup": "results/backups/before_case16_20261108_184650_132",
+  "next_candidate": {
+    "case_id": "18102f7a87e7ab8308a86208d47696c060110d0c",
+    "project": "ORCID-Source",
+    "organisation": "ORCID",
+    "dependency_group": "com.fasterxml.jackson.core",
+    "dependency_artifact": "jackson-databind",
+    "previous_version": "2.10.0",
+    "new_version": "2.12.6.1",
+    "dependency_scope": "compile",
+    "version_update_type": "other",
+    "java_version": "11",
+    "failure_category": "TEST_FAILURE",
+    "pre_command": "docker run ghcr.io/chains-project/breaking-updates:18102f7a87e7ab8308a86208d47696c060110d0c-pre",
+    "breaking_command": "docker run ghcr.io/chains-project/breaking-updates:18102f7a87e7ab8308a86208d47696c060110d0c-breaking",
+    "pull_request_url": "https://github.com/ORCID/ORCID-Source/pull/6501"
+  }
+}

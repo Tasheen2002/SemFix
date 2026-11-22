@@ -1,0 +1,98 @@
+{
+  "case_id": "9d450e88e8744638ba37037d6f41e65d9067aa3b",
+  "phase": "pre",
+  "path_filter": "/org/apache/poi/(poi|poi-ooxml|poi-scratchpad|poi-ooxml-lite)/",
+  "path_source": "Fresh test report classpaths or retained runner events; Cases 111/115 PRE uses explicit POM versions because successful runner events are deleted",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/poi/poi-ooxml/4.1.2/poi-ooxml-4.1.2.jar",
+      "sha256": "0aaaeeee3f5831b036b7053f8048b0f83aa9fa8897771ffd871ddfc84653eba1",
+      "classes": {
+        "org.apache.poi.extractor.POITextExtractor": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.poi.ooxml.extractor.POIXMLTextExtractor": {
+          "present": true,
+          "major_version": 52
+        },
+        "org.apache.poi.poifs.crypt.agile.AgileEncryptionInfoBuilder": {
+          "present": true,
+          "major_version": 52
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.apache.poi.ooxml.extractor.POIXMLTextExtractor",
+          "file": "poi-ooxml-4.1.2_POIXMLTextExtractor_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case115_evidence\\pre\\jars\\poi-ooxml-4.1.2.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.apache.poi.ooxml.extractor.POIXMLTextExtractor"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/poi/poi-scratchpad/4.1.2/poi-scratchpad-4.1.2.jar",
+      "sha256": "4ad6a0579a0a216ff951a80f11c648792268189591fe86015b9d197d650424f3",
+      "classes": {
+        "org.apache.poi.extractor.POITextExtractor": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.poi.ooxml.extractor.POIXMLTextExtractor": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.poi.poifs.crypt.agile.AgileEncryptionInfoBuilder": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/poi/poi/4.1.2/poi-4.1.2.jar",
+      "sha256": "ab1612406541968434044b2defad58aa8b657cad073baa22a04faaf9d7fb9d1c",
+      "classes": {
+        "org.apache.poi.extractor.POITextExtractor": {
+          "present": true,
+          "major_version": 52
+        },
+        "org.apache.poi.ooxml.extractor.POIXMLTextExtractor": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.poi.poifs.crypt.agile.AgileEncryptionInfoBuilder": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.apache.poi.extractor.POITextExtractor",
+          "file": "poi-4.1.2_POITextExtractor_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case115_evidence\\pre\\jars\\poi-4.1.2.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.apache.poi.extractor.POITextExtractor"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

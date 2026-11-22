@@ -1,0 +1,30 @@
+=== CASE 4 0671a30e3673989830ed7f4aa345b867c29547f0
+  project=International-Data-Spaces-Association/IDS-Messaging-Services dep=org.junit.platform:junit-platform-surefire-provider 1.0.3 -> 1.3.2 scope=compile type=minor java=11
+  PR=https://github.com/International-Data-Spaces-Association/IDS-Messaging-Services/pull/492
+  PRE log logs/0671a30e_pre.log:
+  lines=753
+  status: [INFO] BUILD SUCCESS
+  reactor: messaging-services   SUCCESS [  2.390 s]; core   SUCCESS [ 24.730 s]; messaging   SUCCESS [ 11.199 s]; clearinghouse   SUCCESS [  6.280 s]; broker   SUCCESS [  5.091 s]; vocol   SUCCESS [  0.473 s]; paris   SUCCESS [  4.521 s]; appstore   SUCCESS [  4.825 s]; BUILD SUCCESS
+  aggregate summaries: Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 12, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 2, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 3, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions prior to 1.8. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.10/logback-classic-1.2.10.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See http://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+  exception names: java.net.ConnectExceptionx2
+  BREAKING log logs/0671a30e_breaking.log:
+  lines=735
+  status: [INFO] BUILD FAILURE
+  reactor: messaging-services   SUCCESS [  1.916 s]; core   SUCCESS [ 24.485 s]; messaging   SUCCESS [ 12.823 s]; clearinghouse   SUCCESS [  5.874 s]; broker   SUCCESS [  5.907 s]; vocol   SUCCESS [  0.608 s]; paris   FAILURE [  1.192 s]; appstore   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 12, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 2, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project paris: Execution default-test of goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test failed: An API incompatibility was encountered 
+    [ERROR] -----------------------------------------------------
+    [ERROR] realm =    plugin>org.apache.maven.plugins:maven-surefire-plugin:2.19.1-919449188
+    [ERROR] strategy = org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy
+    [ERROR] urls[0] = file:/root/.m2/repository/org/apache/maven/plugins/maven-surefire-plugin/2.19.1/maven-surefire-plugin-2.19.1.jar
+    [ERROR] urls[1] = file:/root/.m2/repository/org/junit/platform/junit-platform-surefire-provider/1.3.2/junit-platform-surefire-provider-1.3.2.jar
+    [ERROR] urls[2] = file:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar
+    [ERROR] urls[3] = file:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar
+    [ERROR] urls[4] = file:/root/.m2/repository/org/apache/maven/surefire/common-java5/2.22.0/common-java5-2.22.0.jar
+    [ERROR] urls[5] = file:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions prior to 1.8. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.10/logback-classic-1.2.10.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See http://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+  linkage/compile signals: NoSuchMethodError
+  exception names: java.net.ConnectExceptionx2, java.lang.NoSuchMethodErrorx1
+  EVIDENCE: no logs/case4_evidence directory

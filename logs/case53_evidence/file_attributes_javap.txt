@@ -1,0 +1,1073 @@
+PRE
+Compiled from "FileAttributes.java"
+public class org.codehaus.plexus.components.io.attributes.FileAttributes implements org.codehaus.plexus.components.io.attributes.PlexusIoResourceAttributes {
+  private final java.lang.Integer groupId;
+
+  private final java.lang.String groupName;
+
+  private final java.lang.Integer userId;
+
+  private final java.lang.String userName;
+
+  private final boolean symbolicLink;
+
+  private final int octalMode;
+
+  private final java.util.Set<java.nio.file.attribute.PosixFilePermission> permissions;
+
+  public org.codehaus.plexus.components.io.attributes.FileAttributes(java.io.File, java.util.Map<java.lang.Integer, java.lang.String>, java.util.Map<java.lang.Integer, java.lang.String>) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_1
+       5: invokevirtual #2                  // Method java/io/File.toPath:()Ljava/nio/file/Path;
+       8: astore        4
+      10: aload         4
+      12: invokestatic  #3                  // Method org/codehaus/plexus/components/io/attributes/AttributeUtils.isUnix:(Ljava/nio/file/Path;)Z
+      15: ifeq          284
+      18: aload         4
+      20: ldc           #4                  // String unix:permissions,gid,uid,isSymbolicLink,mode
+      22: iconst_1
+      23: anewarray     #5                  // class java/nio/file/LinkOption
+      26: dup
+      27: iconst_0
+      28: getstatic     #6                  // Field java/nio/file/LinkOption.NOFOLLOW_LINKS:Ljava/nio/file/LinkOption;
+      31: aastore
+      32: invokestatic  #7                  // Method java/nio/file/Files.readAttributes:(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;
+      35: astore        5
+      37: aload_0
+      38: aload         5
+      40: ldc           #8                  // String permissions
+      42: invokeinterface #9,  2            // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      47: checkcast     #10                 // class java/util/Set
+      50: putfield      #11                 // Field permissions:Ljava/util/Set;
+      53: aload_0
+      54: aload         5
+      56: ldc           #12                 // String gid
+      58: invokeinterface #9,  2            // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      63: checkcast     #13                 // class java/lang/Integer
+      66: putfield      #14                 // Field groupId:Ljava/lang/Integer;
+      69: aload_3
+      70: aload_0
+      71: getfield      #14                 // Field groupId:Ljava/lang/Integer;
+      74: invokeinterface #9,  2            // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      79: checkcast     #15                 // class java/lang/String
+      82: astore        6
+      84: aload         6
+      86: ifnull        98
+      89: aload_0
+      90: aload         6
+      92: putfield      #16                 // Field groupName:Ljava/lang/String;
+      95: goto          146
+      98: aload         4
+     100: ldc           #17                 // String unix:group
+     102: iconst_1
+     103: anewarray     #5                  // class java/nio/file/LinkOption
+     106: dup
+     107: iconst_0
+     108: getstatic     #6                  // Field java/nio/file/LinkOption.NOFOLLOW_LINKS:Ljava/nio/file/LinkOption;
+     111: aastore
+     112: invokestatic  #18                 // Method java/nio/file/Files.getAttribute:(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/lang/Object;
+     115: astore        7
+     117: aload_0
+     118: aload         7
+     120: checkcast     #19                 // class java/security/Principal
+     123: invokeinterface #20,  1           // InterfaceMethod java/security/Principal.getName:()Ljava/lang/String;
+     128: putfield      #16                 // Field groupName:Ljava/lang/String;
+     131: aload_3
+     132: aload_0
+     133: getfield      #14                 // Field groupId:Ljava/lang/Integer;
+     136: aload_0
+     137: getfield      #16                 // Field groupName:Ljava/lang/String;
+     140: invokeinterface #21,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     145: pop
+     146: aload_0
+     147: aload         5
+     149: ldc           #22                 // String uid
+     151: invokeinterface #9,  2            // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     156: checkcast     #13                 // class java/lang/Integer
+     159: putfield      #23                 // Field userId:Ljava/lang/Integer;
+     162: aload_2
+     163: aload_0
+     164: getfield      #23                 // Field userId:Ljava/lang/Integer;
+     167: invokeinterface #9,  2            // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     172: checkcast     #15                 // class java/lang/String
+     175: astore        7
+     177: aload         7
+     179: ifnull        191
+     182: aload_0
+     183: aload         7
+     185: putfield      #24                 // Field userName:Ljava/lang/String;
+     188: goto          239
+     191: aload         4
+     193: ldc           #25                 // String unix:owner
+     195: iconst_1
+     196: anewarray     #5                  // class java/nio/file/LinkOption
+     199: dup
+     200: iconst_0
+     201: getstatic     #6                  // Field java/nio/file/LinkOption.NOFOLLOW_LINKS:Ljava/nio/file/LinkOption;
+     204: aastore
+     205: invokestatic  #18                 // Method java/nio/file/Files.getAttribute:(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/lang/Object;
+     208: astore        8
+     210: aload_0
+     211: aload         8
+     213: checkcast     #19                 // class java/security/Principal
+     216: invokeinterface #20,  1           // InterfaceMethod java/security/Principal.getName:()Ljava/lang/String;
+     221: putfield      #24                 // Field userName:Ljava/lang/String;
+     224: aload_2
+     225: aload_0
+     226: getfield      #23                 // Field userId:Ljava/lang/Integer;
+     229: aload_0
+     230: getfield      #24                 // Field userName:Ljava/lang/String;
+     233: invokeinterface #21,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     238: pop
+     239: aload_0
+     240: aload         5
+     242: ldc           #26                 // String mode
+     244: invokeinterface #9,  2            // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     249: checkcast     #13                 // class java/lang/Integer
+     252: invokevirtual #27                 // Method java/lang/Integer.intValue:()I
+     255: sipush        4095
+     258: iand
+     259: putfield      #28                 // Field octalMode:I
+     262: aload_0
+     263: aload         5
+     265: ldc           #29                 // String isSymbolicLink
+     267: invokeinterface #9,  2            // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     272: checkcast     #30                 // class java/lang/Boolean
+     275: invokevirtual #31                 // Method java/lang/Boolean.booleanValue:()Z
+     278: putfield      #32                 // Field symbolicLink:Z
+     281: goto          342
+     284: aload_1
+     285: invokestatic  #33                 // Method org/codehaus/plexus/components/io/attributes/AttributeUtils.getFileOwnershipInfo:(Ljava/io/File;)Ljava/nio/file/attribute/FileOwnerAttributeView;
+     288: astore        5
+     290: aload_0
+     291: aload         5
+     293: invokeinterface #34,  1           // InterfaceMethod java/nio/file/attribute/FileOwnerAttributeView.getOwner:()Ljava/nio/file/attribute/UserPrincipal;
+     298: invokeinterface #35,  1           // InterfaceMethod java/nio/file/attribute/UserPrincipal.getName:()Ljava/lang/String;
+     303: putfield      #24                 // Field userName:Ljava/lang/String;
+     306: aload_0
+     307: aconst_null
+     308: putfield      #23                 // Field userId:Ljava/lang/Integer;
+     311: aload_0
+     312: aconst_null
+     313: putfield      #16                 // Field groupName:Ljava/lang/String;
+     316: aload_0
+     317: aconst_null
+     318: putfield      #14                 // Field groupId:Ljava/lang/Integer;
+     321: aload_0
+     322: iconst_m1
+     323: putfield      #28                 // Field octalMode:I
+     326: aload_0
+     327: invokestatic  #36                 // Method java/util/Collections.emptySet:()Ljava/util/Set;
+     330: putfield      #11                 // Field permissions:Ljava/util/Set;
+     333: aload_0
+     334: aload         4
+     336: invokestatic  #37                 // Method java/nio/file/Files.isSymbolicLink:(Ljava/nio/file/Path;)Z
+     339: putfield      #32                 // Field symbolicLink:Z
+     342: return
+
+  public static org.codehaus.plexus.components.io.attributes.PlexusIoResourceAttributes uncached(java.io.File) throws java.io.IOException;
+    Code:
+       0: new           #38                 // class org/codehaus/plexus/components/io/attributes/FileAttributes
+       3: dup
+       4: aload_0
+       5: new           #39                 // class java/util/HashMap
+       8: dup
+       9: invokespecial #40                 // Method java/util/HashMap."<init>":()V
+      12: new           #39                 // class java/util/HashMap
+      15: dup
+      16: invokespecial #40                 // Method java/util/HashMap."<init>":()V
+      19: invokespecial #41                 // Method "<init>":(Ljava/io/File;Ljava/util/Map;Ljava/util/Map;)V
+      22: areturn
+
+  public java.lang.Integer getGroupId();
+    Code:
+       0: aload_0
+       1: getfield      #14                 // Field groupId:Ljava/lang/Integer;
+       4: areturn
+
+  public boolean hasGroupId();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public boolean hasUserId();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public java.lang.String getGroupName();
+    Code:
+       0: aload_0
+       1: getfield      #16                 // Field groupName:Ljava/lang/String;
+       4: areturn
+
+  public java.lang.Integer getUserId();
+    Code:
+       0: aload_0
+       1: getfield      #23                 // Field userId:Ljava/lang/Integer;
+       4: areturn
+
+  public java.lang.String getUserName();
+    Code:
+       0: aload_0
+       1: getfield      #24                 // Field userName:Ljava/lang/String;
+       4: areturn
+
+  public boolean isGroupExecutable();
+    Code:
+       0: aload_0
+       1: getstatic     #42                 // Field java/nio/file/attribute/PosixFilePermission.GROUP_EXECUTE:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #43                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  private boolean containsPermission(java.nio.file.attribute.PosixFilePermission);
+    Code:
+       0: aload_0
+       1: getfield      #11                 // Field permissions:Ljava/util/Set;
+       4: aload_1
+       5: invokeinterface #44,  2           // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+      10: ireturn
+
+  public boolean isGroupReadable();
+    Code:
+       0: aload_0
+       1: getstatic     #45                 // Field java/nio/file/attribute/PosixFilePermission.GROUP_READ:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #43                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  public boolean isGroupWritable();
+    Code:
+       0: aload_0
+       1: getstatic     #46                 // Field java/nio/file/attribute/PosixFilePermission.GROUP_WRITE:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #43                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  public boolean isOwnerExecutable();
+    Code:
+       0: aload_0
+       1: getstatic     #47                 // Field java/nio/file/attribute/PosixFilePermission.OWNER_EXECUTE:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #43                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  public boolean isOwnerReadable();
+    Code:
+       0: aload_0
+       1: getstatic     #48                 // Field java/nio/file/attribute/PosixFilePermission.OWNER_READ:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #43                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  public boolean isOwnerWritable();
+    Code:
+       0: aload_0
+       1: getstatic     #49                 // Field java/nio/file/attribute/PosixFilePermission.OWNER_WRITE:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #43                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  public boolean isWorldExecutable();
+    Code:
+       0: aload_0
+       1: getstatic     #50                 // Field java/nio/file/attribute/PosixFilePermission.OTHERS_EXECUTE:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #43                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  public boolean isWorldReadable();
+    Code:
+       0: aload_0
+       1: getstatic     #51                 // Field java/nio/file/attribute/PosixFilePermission.OTHERS_READ:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #43                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  public boolean isWorldWritable();
+    Code:
+       0: aload_0
+       1: getstatic     #52                 // Field java/nio/file/attribute/PosixFilePermission.OTHERS_WRITE:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #43                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  public java.lang.String toString();
+    Code:
+       0: new           #53                 // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #54                 // Method java/lang/StringBuilder."<init>":()V
+       7: astore_1
+       8: aload_1
+       9: invokestatic  #55                 // Method java/lang/System.lineSeparator:()Ljava/lang/String;
+      12: invokevirtual #56                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      15: pop
+      16: aload_1
+      17: ldc           #57                 // String File Attributes:
+      19: invokevirtual #56                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      22: pop
+      23: aload_1
+      24: invokestatic  #55                 // Method java/lang/System.lineSeparator:()Ljava/lang/String;
+      27: invokevirtual #56                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      30: pop
+      31: aload_1
+      32: ldc           #58                 // String ------------------------------
+      34: invokevirtual #56                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      37: pop
+      38: aload_1
+      39: invokestatic  #55                 // Method java/lang/System.lineSeparator:()Ljava/lang/String;
+      42: invokevirtual #56                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      45: pop
+      46: aload_1
+      47: ldc           #59                 // String user:
+      49: invokevirtual #56                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      52: pop
+      53: aload_1
+      54: aload_0
+      55: getfield      #24                 // Field userName:Ljava/lang/String;
+      58: ifnonnull     66
+      61: ldc           #60                 // String
+      63: goto          70
+      66: aload_0
+      67: getfield      #24                 // Field userName:Ljava/lang/String;
+      70: invokevirtual #56                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      73: pop
+      74: aload_1
+      75: invokestatic  #55                 // Method java/lang/System.lineSeparator:()Ljava/lang/String;
+      78: invokevirtual #56                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      81: pop
+      82: aload_1
+      83: ldc           #61                 // String group:
+      85: invokevirtual #56                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      88: pop
+      89: aload_1
+      90: aload_0
+      91: getfield      #16                 // Field groupName:Ljava/lang/String;
+      94: ifnonnull     102
+      97: ldc           #60                 // String
+      99: goto          106
+     102: aload_0
+     103: getfield      #16                 // Field groupName:Ljava/lang/String;
+     106: invokevirtual #56                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     109: pop
+     110: aload_1
+     111: invokestatic  #55                 // Method java/lang/System.lineSeparator:()Ljava/lang/String;
+     114: invokevirtual #56                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     117: pop
+     118: aload_1
+     119: ldc           #62                 // String uid:
+     121: invokevirtual #56                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     124: pop
+     125: aload_1
+     126: aload_0
+     127: invokevirtual #63                 // Method hasUserId:()Z
+     130: ifeq          146
+     133: aload_0
+     134: getfield      #23                 // Field userId:Ljava/lang/Integer;
+     137: invokevirtual #27                 // Method java/lang/Integer.intValue:()I
+     140: invokestatic  #64                 // Method java/lang/Integer.toString:(I)Ljava/lang/String;
+     143: goto          148
+     146: ldc           #60                 // String
+     148: invokevirtual #56                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     151: pop
+     152: aload_1
+     153: invokestatic  #55                 // Method java/lang/System.lineSeparator:()Ljava/lang/String;
+     156: invokevirtual #56                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     159: pop
+     160: aload_1
+     161: ldc           #65                 // String gid:
+     163: invokevirtual #56                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     166: pop
+     167: aload_1
+     168: aload_0
+     169: invokevirtual #66                 // Method hasGroupId:()Z
+     172: ifeq          188
+     175: aload_0
+     176: getfield      #14                 // Field groupId:Ljava/lang/Integer;
+     179: invokevirtual #27                 // Method java/lang/Integer.intValue:()I
+     182: invokestatic  #64                 // Method java/lang/Integer.toString:(I)Ljava/lang/String;
+     185: goto          190
+     188: ldc           #60                 // String
+     190: invokevirtual #56                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     193: pop
+     194: aload_1
+     195: invokevirtual #67                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     198: areturn
+
+  public int getOctalMode();
+    Code:
+       0: aload_0
+       1: getfield      #28                 // Field octalMode:I
+       4: ireturn
+
+  public int calculatePosixOctalMode();
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: aload_0
+       3: invokevirtual #68                 // Method isOwnerReadable:()Z
+       6: ifeq          15
+       9: iload_1
+      10: sipush        256
+      13: ior
+      14: istore_1
+      15: aload_0
+      16: invokevirtual #69                 // Method isOwnerWritable:()Z
+      19: ifeq          28
+      22: iload_1
+      23: sipush        128
+      26: ior
+      27: istore_1
+      28: aload_0
+      29: invokevirtual #70                 // Method isOwnerExecutable:()Z
+      32: ifeq          40
+      35: iload_1
+      36: bipush        64
+      38: ior
+      39: istore_1
+      40: aload_0
+      41: invokevirtual #71                 // Method isGroupReadable:()Z
+      44: ifeq          52
+      47: iload_1
+      48: bipush        32
+      50: ior
+      51: istore_1
+      52: aload_0
+      53: invokevirtual #72                 // Method isGroupWritable:()Z
+      56: ifeq          64
+      59: iload_1
+      60: bipush        16
+      62: ior
+      63: istore_1
+      64: aload_0
+      65: invokevirtual #73                 // Method isGroupExecutable:()Z
+      68: ifeq          76
+      71: iload_1
+      72: bipush        8
+      74: ior
+      75: istore_1
+      76: aload_0
+      77: invokevirtual #74                 // Method isWorldReadable:()Z
+      80: ifeq          87
+      83: iload_1
+      84: iconst_4
+      85: ior
+      86: istore_1
+      87: aload_0
+      88: invokevirtual #75                 // Method isWorldWritable:()Z
+      91: ifeq          98
+      94: iload_1
+      95: iconst_2
+      96: ior
+      97: istore_1
+      98: aload_0
+      99: invokevirtual #76                 // Method isWorldExecutable:()Z
+     102: ifeq          109
+     105: iload_1
+     106: iconst_1
+     107: ior
+     108: istore_1
+     109: iload_1
+     110: ireturn
+
+  public java.lang.String getOctalModeString();
+    Code:
+       0: aload_0
+       1: invokevirtual #77                 // Method getOctalMode:()I
+       4: bipush        8
+       6: invokestatic  #78                 // Method java/lang/Integer.toString:(II)Ljava/lang/String;
+       9: areturn
+
+  public boolean isSymbolicLink();
+    Code:
+       0: aload_0
+       1: getfield      #32                 // Field symbolicLink:Z
+       4: ireturn
+}
+BREAKING
+Compiled from "FileAttributes.java"
+public class org.codehaus.plexus.components.io.attributes.FileAttributes implements org.codehaus.plexus.components.io.attributes.PlexusIoResourceAttributes {
+  private final java.lang.Integer groupId;
+
+  private final java.lang.String groupName;
+
+  private final java.lang.Integer userId;
+
+  private final java.lang.String userName;
+
+  private final boolean symbolicLink;
+
+  private final boolean regularFile;
+
+  private final boolean directory;
+
+  private final boolean other;
+
+  private final int octalMode;
+
+  private final java.util.Set<java.nio.file.attribute.PosixFilePermission> permissions;
+
+  private final long size;
+
+  private final java.nio.file.attribute.FileTime lastModifiedTime;
+
+  public org.codehaus.plexus.components.io.attributes.FileAttributes(java.io.File, java.util.Map<java.lang.Integer, java.lang.String>, java.util.Map<java.lang.Integer, java.lang.String>) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_1
+       5: invokevirtual #2                  // Method java/io/File.toPath:()Ljava/nio/file/Path;
+       8: astore        4
+      10: aload         4
+      12: invokeinterface #3,  1            // InterfaceMethod java/nio/file/Path.getFileSystem:()Ljava/nio/file/FileSystem;
+      17: invokevirtual #4                  // Method java/nio/file/FileSystem.supportedFileAttributeViews:()Ljava/util/Set;
+      20: astore        5
+      22: aload         5
+      24: ldc           #5                  // String unix
+      26: invokeinterface #6,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+      31: ifeq          41
+      34: ldc           #7                  // String unix:*
+      36: astore        6
+      38: goto          64
+      41: aload         5
+      43: ldc           #8                  // String posix
+      45: invokeinterface #6,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+      50: ifeq          60
+      53: ldc           #9                  // String posix:*
+      55: astore        6
+      57: goto          64
+      60: ldc           #10                 // String basic:*
+      62: astore        6
+      64: aload         4
+      66: aload         6
+      68: iconst_1
+      69: anewarray     #11                 // class java/nio/file/LinkOption
+      72: dup
+      73: iconst_0
+      74: getstatic     #12                 // Field java/nio/file/LinkOption.NOFOLLOW_LINKS:Ljava/nio/file/LinkOption;
+      77: aastore
+      78: invokestatic  #13                 // Method java/nio/file/Files.readAttributes:(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;
+      81: astore        7
+      83: aload         7
+      85: ldc           #14                 // String group
+      87: invokeinterface #15,  2           // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+      92: ifne          162
+      95: aload         7
+      97: ldc           #16                 // String owner
+      99: invokeinterface #15,  2           // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+     104: ifne          162
+     107: aload         5
+     109: ldc           #16                 // String owner
+     111: invokeinterface #6,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     116: ifeq          162
+     119: aload         4
+     121: ldc           #17                 // String owner:*
+     123: iconst_1
+     124: anewarray     #11                 // class java/nio/file/LinkOption
+     127: dup
+     128: iconst_0
+     129: getstatic     #12                 // Field java/nio/file/LinkOption.NOFOLLOW_LINKS:Ljava/nio/file/LinkOption;
+     132: aastore
+     133: invokestatic  #13                 // Method java/nio/file/Files.readAttributes:(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;
+     136: astore        8
+     138: new           #18                 // class java/util/HashMap
+     141: dup
+     142: aload         7
+     144: invokespecial #19                 // Method java/util/HashMap."<init>":(Ljava/util/Map;)V
+     147: astore        9
+     149: aload         9
+     151: aload         8
+     153: invokeinterface #20,  2           // InterfaceMethod java/util/Map.putAll:(Ljava/util/Map;)V
+     158: aload         9
+     160: astore        7
+     162: aload_0
+     163: aload         7
+     165: ldc           #21                 // String gid
+     167: invokeinterface #22,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     172: checkcast     #23                 // class java/lang/Integer
+     175: putfield      #24                 // Field groupId:Ljava/lang/Integer;
+     178: aload_0
+     179: aload         7
+     181: ldc           #14                 // String group
+     183: invokeinterface #15,  2           // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+     188: ifeq          211
+     191: aload         7
+     193: ldc           #14                 // String group
+     195: invokeinterface #22,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     200: checkcast     #25                 // class java/security/Principal
+     203: invokeinterface #26,  1           // InterfaceMethod java/security/Principal.getName:()Ljava/lang/String;
+     208: goto          212
+     211: aconst_null
+     212: putfield      #27                 // Field groupName:Ljava/lang/String;
+     215: aload_0
+     216: aload         7
+     218: ldc           #28                 // String uid
+     220: invokeinterface #22,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     225: checkcast     #23                 // class java/lang/Integer
+     228: putfield      #29                 // Field userId:Ljava/lang/Integer;
+     231: aload_0
+     232: aload         7
+     234: ldc           #16                 // String owner
+     236: invokeinterface #15,  2           // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+     241: ifeq          264
+     244: aload         7
+     246: ldc           #16                 // String owner
+     248: invokeinterface #22,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     253: checkcast     #25                 // class java/security/Principal
+     256: invokeinterface #26,  1           // InterfaceMethod java/security/Principal.getName:()Ljava/lang/String;
+     261: goto          265
+     264: aconst_null
+     265: putfield      #30                 // Field userName:Ljava/lang/String;
+     268: aload_0
+     269: aload         7
+     271: ldc           #31                 // String isSymbolicLink
+     273: invokeinterface #22,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     278: checkcast     #32                 // class java/lang/Boolean
+     281: invokevirtual #33                 // Method java/lang/Boolean.booleanValue:()Z
+     284: putfield      #34                 // Field symbolicLink:Z
+     287: aload_0
+     288: aload         7
+     290: ldc           #35                 // String isRegularFile
+     292: invokeinterface #22,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     297: checkcast     #32                 // class java/lang/Boolean
+     300: invokevirtual #33                 // Method java/lang/Boolean.booleanValue:()Z
+     303: putfield      #36                 // Field regularFile:Z
+     306: aload_0
+     307: aload         7
+     309: ldc           #37                 // String isDirectory
+     311: invokeinterface #22,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     316: checkcast     #32                 // class java/lang/Boolean
+     319: invokevirtual #33                 // Method java/lang/Boolean.booleanValue:()Z
+     322: putfield      #38                 // Field directory:Z
+     325: aload_0
+     326: aload         7
+     328: ldc           #39                 // String isOther
+     330: invokeinterface #22,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     335: checkcast     #32                 // class java/lang/Boolean
+     338: invokevirtual #33                 // Method java/lang/Boolean.booleanValue:()Z
+     341: putfield      #40                 // Field other:Z
+     344: aload_0
+     345: aload         7
+     347: ldc           #41                 // String mode
+     349: invokeinterface #15,  2           // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+     354: ifeq          379
+     357: aload         7
+     359: ldc           #41                 // String mode
+     361: invokeinterface #22,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     366: checkcast     #23                 // class java/lang/Integer
+     369: invokevirtual #42                 // Method java/lang/Integer.intValue:()I
+     372: sipush        4095
+     375: iand
+     376: goto          380
+     379: iconst_m1
+     380: putfield      #44                 // Field octalMode:I
+     383: aload_0
+     384: aload         7
+     386: ldc           #45                 // String permissions
+     388: invokeinterface #15,  2           // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+     393: ifeq          411
+     396: aload         7
+     398: ldc           #45                 // String permissions
+     400: invokeinterface #22,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     405: checkcast     #46                 // class java/util/Set
+     408: goto          414
+     411: invokestatic  #47                 // Method java/util/Collections.emptySet:()Ljava/util/Set;
+     414: putfield      #48                 // Field permissions:Ljava/util/Set;
+     417: aload_0
+     418: aload         7
+     420: ldc           #49                 // String size
+     422: invokeinterface #22,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     427: checkcast     #50                 // class java/lang/Long
+     430: invokevirtual #51                 // Method java/lang/Long.longValue:()J
+     433: putfield      #52                 // Field size:J
+     436: aload_0
+     437: aload         7
+     439: ldc           #53                 // String lastModifiedTime
+     441: invokeinterface #22,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+     446: checkcast     #54                 // class java/nio/file/attribute/FileTime
+     449: putfield      #55                 // Field lastModifiedTime:Ljava/nio/file/attribute/FileTime;
+     452: return
+
+  public org.codehaus.plexus.components.io.attributes.FileAttributes(java.lang.Integer, java.lang.String, java.lang.Integer, java.lang.String, int, boolean, boolean, boolean, boolean, java.util.Set<java.nio.file.attribute.PosixFilePermission>, long, java.nio.file.attribute.FileTime);
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #29                 // Field userId:Ljava/lang/Integer;
+       9: aload_0
+      10: aload_2
+      11: putfield      #30                 // Field userName:Ljava/lang/String;
+      14: aload_0
+      15: aload_3
+      16: putfield      #24                 // Field groupId:Ljava/lang/Integer;
+      19: aload_0
+      20: aload         4
+      22: putfield      #27                 // Field groupName:Ljava/lang/String;
+      25: aload_0
+      26: iload         5
+      28: putfield      #44                 // Field octalMode:I
+      31: aload_0
+      32: iload         6
+      34: putfield      #34                 // Field symbolicLink:Z
+      37: aload_0
+      38: iload         7
+      40: putfield      #36                 // Field regularFile:Z
+      43: aload_0
+      44: iload         8
+      46: putfield      #38                 // Field directory:Z
+      49: aload_0
+      50: iload         9
+      52: putfield      #40                 // Field other:Z
+      55: aload_0
+      56: aload         10
+      58: putfield      #48                 // Field permissions:Ljava/util/Set;
+      61: aload_0
+      62: lload         11
+      64: putfield      #52                 // Field size:J
+      67: aload_0
+      68: aload         13
+      70: putfield      #55                 // Field lastModifiedTime:Ljava/nio/file/attribute/FileTime;
+      73: return
+
+  public static org.codehaus.plexus.components.io.attributes.PlexusIoResourceAttributes uncached(java.io.File) throws java.io.IOException;
+    Code:
+       0: new           #56                 // class org/codehaus/plexus/components/io/attributes/FileAttributes
+       3: dup
+       4: aload_0
+       5: new           #18                 // class java/util/HashMap
+       8: dup
+       9: invokespecial #57                 // Method java/util/HashMap."<init>":()V
+      12: new           #18                 // class java/util/HashMap
+      15: dup
+      16: invokespecial #57                 // Method java/util/HashMap."<init>":()V
+      19: invokespecial #58                 // Method "<init>":(Ljava/io/File;Ljava/util/Map;Ljava/util/Map;)V
+      22: areturn
+
+  public java.lang.Integer getGroupId();
+    Code:
+       0: aload_0
+       1: getfield      #24                 // Field groupId:Ljava/lang/Integer;
+       4: areturn
+
+  public boolean hasGroupId();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public boolean hasUserId();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public java.lang.String getGroupName();
+    Code:
+       0: aload_0
+       1: getfield      #27                 // Field groupName:Ljava/lang/String;
+       4: areturn
+
+  public java.lang.Integer getUserId();
+    Code:
+       0: aload_0
+       1: getfield      #29                 // Field userId:Ljava/lang/Integer;
+       4: areturn
+
+  public java.lang.String getUserName();
+    Code:
+       0: aload_0
+       1: getfield      #30                 // Field userName:Ljava/lang/String;
+       4: areturn
+
+  public boolean isGroupExecutable();
+    Code:
+       0: aload_0
+       1: getstatic     #59                 // Field java/nio/file/attribute/PosixFilePermission.GROUP_EXECUTE:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #60                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  private boolean containsPermission(java.nio.file.attribute.PosixFilePermission);
+    Code:
+       0: aload_0
+       1: getfield      #48                 // Field permissions:Ljava/util/Set;
+       4: aload_1
+       5: invokeinterface #6,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+      10: ireturn
+
+  public boolean isGroupReadable();
+    Code:
+       0: aload_0
+       1: getstatic     #61                 // Field java/nio/file/attribute/PosixFilePermission.GROUP_READ:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #60                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  public boolean isGroupWritable();
+    Code:
+       0: aload_0
+       1: getstatic     #62                 // Field java/nio/file/attribute/PosixFilePermission.GROUP_WRITE:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #60                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  public boolean isOwnerExecutable();
+    Code:
+       0: aload_0
+       1: getstatic     #63                 // Field java/nio/file/attribute/PosixFilePermission.OWNER_EXECUTE:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #60                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  public boolean isOwnerReadable();
+    Code:
+       0: aload_0
+       1: getstatic     #64                 // Field java/nio/file/attribute/PosixFilePermission.OWNER_READ:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #60                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  public boolean isOwnerWritable();
+    Code:
+       0: aload_0
+       1: getstatic     #65                 // Field java/nio/file/attribute/PosixFilePermission.OWNER_WRITE:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #60                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  public boolean isWorldExecutable();
+    Code:
+       0: aload_0
+       1: getstatic     #66                 // Field java/nio/file/attribute/PosixFilePermission.OTHERS_EXECUTE:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #60                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  public boolean isWorldReadable();
+    Code:
+       0: aload_0
+       1: getstatic     #67                 // Field java/nio/file/attribute/PosixFilePermission.OTHERS_READ:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #60                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  public boolean isWorldWritable();
+    Code:
+       0: aload_0
+       1: getstatic     #68                 // Field java/nio/file/attribute/PosixFilePermission.OTHERS_WRITE:Ljava/nio/file/attribute/PosixFilePermission;
+       4: invokespecial #60                 // Method containsPermission:(Ljava/nio/file/attribute/PosixFilePermission;)Z
+       7: ireturn
+
+  public java.lang.String toString();
+    Code:
+       0: new           #69                 // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #70                 // Method java/lang/StringBuilder."<init>":()V
+       7: astore_1
+       8: aload_1
+       9: invokestatic  #71                 // Method java/lang/System.lineSeparator:()Ljava/lang/String;
+      12: invokevirtual #72                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      15: pop
+      16: aload_1
+      17: ldc           #73                 // String File Attributes:
+      19: invokevirtual #72                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      22: pop
+      23: aload_1
+      24: invokestatic  #71                 // Method java/lang/System.lineSeparator:()Ljava/lang/String;
+      27: invokevirtual #72                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      30: pop
+      31: aload_1
+      32: ldc           #74                 // String ------------------------------
+      34: invokevirtual #72                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      37: pop
+      38: aload_1
+      39: invokestatic  #71                 // Method java/lang/System.lineSeparator:()Ljava/lang/String;
+      42: invokevirtual #72                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      45: pop
+      46: aload_1
+      47: ldc           #75                 // String user:
+      49: invokevirtual #72                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      52: pop
+      53: aload_1
+      54: aload_0
+      55: getfield      #30                 // Field userName:Ljava/lang/String;
+      58: ifnonnull     66
+      61: ldc           #76                 // String
+      63: goto          70
+      66: aload_0
+      67: getfield      #30                 // Field userName:Ljava/lang/String;
+      70: invokevirtual #72                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      73: pop
+      74: aload_1
+      75: invokestatic  #71                 // Method java/lang/System.lineSeparator:()Ljava/lang/String;
+      78: invokevirtual #72                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      81: pop
+      82: aload_1
+      83: ldc           #77                 // String group:
+      85: invokevirtual #72                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      88: pop
+      89: aload_1
+      90: aload_0
+      91: getfield      #27                 // Field groupName:Ljava/lang/String;
+      94: ifnonnull     102
+      97: ldc           #76                 // String
+      99: goto          106
+     102: aload_0
+     103: getfield      #27                 // Field groupName:Ljava/lang/String;
+     106: invokevirtual #72                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     109: pop
+     110: aload_1
+     111: invokestatic  #71                 // Method java/lang/System.lineSeparator:()Ljava/lang/String;
+     114: invokevirtual #72                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     117: pop
+     118: aload_1
+     119: ldc           #78                 // String uid:
+     121: invokevirtual #72                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     124: pop
+     125: aload_1
+     126: aload_0
+     127: invokevirtual #79                 // Method hasUserId:()Z
+     130: ifeq          146
+     133: aload_0
+     134: getfield      #29                 // Field userId:Ljava/lang/Integer;
+     137: invokevirtual #42                 // Method java/lang/Integer.intValue:()I
+     140: invokestatic  #80                 // Method java/lang/Integer.toString:(I)Ljava/lang/String;
+     143: goto          148
+     146: ldc           #76                 // String
+     148: invokevirtual #72                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     151: pop
+     152: aload_1
+     153: invokestatic  #71                 // Method java/lang/System.lineSeparator:()Ljava/lang/String;
+     156: invokevirtual #72                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     159: pop
+     160: aload_1
+     161: ldc           #81                 // String gid:
+     163: invokevirtual #72                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     166: pop
+     167: aload_1
+     168: aload_0
+     169: invokevirtual #82                 // Method hasGroupId:()Z
+     172: ifeq          188
+     175: aload_0
+     176: getfield      #24                 // Field groupId:Ljava/lang/Integer;
+     179: invokevirtual #42                 // Method java/lang/Integer.intValue:()I
+     182: invokestatic  #80                 // Method java/lang/Integer.toString:(I)Ljava/lang/String;
+     185: goto          190
+     188: ldc           #76                 // String
+     190: invokevirtual #72                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     193: pop
+     194: aload_1
+     195: invokevirtual #83                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     198: areturn
+
+  public int getOctalMode();
+    Code:
+       0: aload_0
+       1: getfield      #44                 // Field octalMode:I
+       4: ireturn
+
+  public int calculatePosixOctalMode();
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: aload_0
+       3: invokevirtual #84                 // Method isOwnerReadable:()Z
+       6: ifeq          15
+       9: iload_1
+      10: sipush        256
+      13: ior
+      14: istore_1
+      15: aload_0
+      16: invokevirtual #86                 // Method isOwnerWritable:()Z
+      19: ifeq          28
+      22: iload_1
+      23: sipush        128
+      26: ior
+      27: istore_1
+      28: aload_0
+      29: invokevirtual #87                 // Method isOwnerExecutable:()Z
+      32: ifeq          40
+      35: iload_1
+      36: bipush        64
+      38: ior
+      39: istore_1
+      40: aload_0
+      41: invokevirtual #88                 // Method isGroupReadable:()Z
+      44: ifeq          52
+      47: iload_1
+      48: bipush        32
+      50: ior
+      51: istore_1
+      52: aload_0
+      53: invokevirtual #89                 // Method isGroupWritable:()Z
+      56: ifeq          64
+      59: iload_1
+      60: bipush        16
+      62: ior
+      63: istore_1
+      64: aload_0
+      65: invokevirtual #90                 // Method isGroupExecutable:()Z
+      68: ifeq          76
+      71: iload_1
+      72: bipush        8
+      74: ior
+      75: istore_1
+      76: aload_0
+      77: invokevirtual #91                 // Method isWorldReadable:()Z
+      80: ifeq          87
+      83: iload_1
+      84: iconst_4
+      85: ior
+      86: istore_1
+      87: aload_0
+      88: invokevirtual #92                 // Method isWorldWritable:()Z
+      91: ifeq          98
+      94: iload_1
+      95: iconst_2
+      96: ior
+      97: istore_1
+      98: aload_0
+      99: invokevirtual #93                 // Method isWorldExecutable:()Z
+     102: ifeq          109
+     105: iload_1
+     106: iconst_1
+     107: ior
+     108: istore_1
+     109: iload_1
+     110: ireturn
+
+  public java.lang.String getOctalModeString();
+    Code:
+       0: aload_0
+       1: invokevirtual #94                 // Method getOctalMode:()I
+       4: bipush        8
+       6: invokestatic  #95                 // Method java/lang/Integer.toString:(II)Ljava/lang/String;
+       9: areturn
+
+  public boolean isSymbolicLink();
+    Code:
+       0: aload_0
+       1: getfield      #34                 // Field symbolicLink:Z
+       4: ireturn
+
+  public boolean isRegularFile();
+    Code:
+       0: aload_0
+       1: getfield      #36                 // Field regularFile:Z
+       4: ireturn
+
+  public boolean isDirectory();
+    Code:
+       0: aload_0
+       1: getfield      #38                 // Field directory:Z
+       4: ireturn
+
+  public boolean isOther();
+    Code:
+       0: aload_0
+       1: getfield      #40                 // Field other:Z
+       4: ireturn
+
+  public long getSize();
+    Code:
+       0: aload_0
+       1: getfield      #52                 // Field size:J
+       4: lreturn
+
+  public java.nio.file.attribute.FileTime getLastModifiedTime();
+    Code:
+       0: aload_0
+       1: getfield      #55                 // Field lastModifiedTime:Ljava/nio/file/attribute/FileTime;
+       4: areturn
+
+  protected java.util.Set<java.nio.file.attribute.PosixFilePermission> getPermissions();
+    Code:
+       0: aload_0
+       1: getfield      #48                 // Field permissions:Ljava/util/Set;
+       4: areturn
+}

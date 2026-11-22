@@ -1,0 +1,62 @@
+=== CASE 34 2f9d75d4b01cd18afcb4676d134142882f9e0034
+  project=apache/directory-scimple dep=javax:javaee-api 7.0 -> 8.0.1 scope=provided type=major java=11
+  PR=https://github.com/apache/directory-scimple/pull/49
+  PRE log logs/batch_triage/2f9d75d4_pre.log:
+  lines=2865
+  status: [INFO] BUILD SUCCESS
+  reactor: SCIM - Parent   SUCCESS [  1.235 s]; SCIM - Specification   SUCCESS [  0.051 s]; SCIM - Specification - Schema   SUCCESS [ 17.888 s]; SCIM - Specification - Protocol   SUCCESS [  9.301 s]; SCIM - Common   SUCCESS [  0.967 s]; SCIM - Client   SUCCESS [  4.135 s]; SCIM - Server   SUCCESS [  0.041 s]; SCIM - Server - Common   SUCCESS [ 11.239 s]; SCIM - Server - Examples   SUCCESS [  0.045 s]; SCIM - Server - Memory   SUCCESS [  0.817 s]; SCIM - Tools   SUCCESS [  0.046 s]; SCIM - Tools - Common   SUCCESS [  3.155 s]; SCIM - Compliance   SUCCESS [  0.043 s]; SCIM - Compliance - Client   SUCCESS [  0.073 s]; SCIM - Compliance - Server   SUCCESS [  0.753 s]; SCIM - Total Test Coverage   SUCCESS [  0.394 s]; BUILD SUCCESS
+  aggregate summaries: Tests run: 448, Failures: 0, Errors: 0, Skipped: 8 || Tests run: 46, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 125, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 67, Failures: 0, Errors: 0, Skipped: 7 || Tests run: 31, Failures: 0, Errors: 0, Skipped: 2
+  BREAKING log logs/batch_triage/2f9d75d4_breaking.log:
+  lines=2604
+  status: [INFO] BUILD FAILURE
+  reactor: SCIM - Parent   SUCCESS [  2.620 s]; SCIM - Specification   SUCCESS [  0.079 s]; SCIM - Specification - Schema   SUCCESS [ 16.403 s]; SCIM - Specification - Protocol   SUCCESS [  5.230 s]; SCIM - Common   SUCCESS [  0.428 s]; SCIM - Client   SUCCESS [  4.151 s]; SCIM - Server   SUCCESS [  0.044 s]; SCIM - Server - Common   FAILURE [ 10.356 s]; SCIM - Server - Examples   SKIPPED; SCIM - Server - Memory   SKIPPED; SCIM - Tools   SKIPPED; SCIM - Tools - Common   SKIPPED; SCIM - Compliance   SKIPPED; SCIM - Compliance - Client   SKIPPED; SCIM - Compliance - Server   SKIPPED; SCIM - Total Test Coverage   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 448, Failures: 0, Errors: 0, Skipped: 8 || Tests run: 46, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 125, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 67, Failures: 0, Errors: 10, Skipped: 7
+  failing classes: Tests run: 7, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 2.708 s <<< FAILURE! - in org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest || Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.345 s <<< FAILURE! - in org.apache.directory.scim.server.rest.SelfResourceImplTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in org.apache.directory.scim.server.provider.ProviderTest
+  section: Errors: | ProviderTest.handleException_jaxrsExceptionTest:28 » AbstractMethod Receiver c... | ProviderTest.handleException_nullExceptionTest:45 » AbstractMethod Receiver cl... | ProviderTest.handleException_runtimeExceptionTest:37 » AbstractMethod Receiver... | BaseResourceTypeResourceImplTest.testCreate_ErrorIfBothAttributesAndExcludedAttributesExist:139 » AbstractMethod | BaseResourceTypeResourceImplTest.testFind_ErrorIfBothAttributesAndExcludedAttributesExist:161 » AbstractMethod | BaseResourceTypeResourceImplTest.testGetById_ForbiddenIfNoFilter:93 » AbstractMethod | BaseResourceTypeResourceImplTest.testPatch_ErrorIfBothAttributesAndExcludedAttributesExist:206 » AbstractMethod | BaseResourceTypeResourceImplTest.testQuery_NullParametersValid:110 » AbstractMethod | BaseResourceTypeResourceImplTest.testUpdate_ErrorIfBothAttributesAndExcludedAttributesExist:186 » AbstractMethod | SelfResourceImplTest.noSelfIdResolverTest:36 UnfinishedStubbing | Unfinished st... | [INFO]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project scim-server-common: There are test failures.
+  FAILBLOCK: [ERROR] org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testUpdate_ErrorIfBothAttributesAndExcludedAttributesExist  Time elapsed: 2.331 s  <<< ERROR!
+      java.lang.AbstractMethodError: Receiver class org.jboss.resteasy.specimpl.ResponseBuilderImpl does not define or inherit an implementation of the resolved method 'abstract javax.ws.rs.core.Response$ResponseBuilder status(int, java.lang.String)' of abstract cla
+      at org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testUpdate_ErrorIfBothAttributesAndExcludedAttributesExist(BaseResourceTypeResourceImplTest.java:186)
+      [ERROR] org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testPatch_ErrorIfBothAttributesAndExcludedAttributesExist  Time elapsed: 0.003 s  <<< ERROR!
+      java.lang.AbstractMethodError: Receiver class org.jboss.resteasy.specimpl.ResponseBuilderImpl does not define or inherit an implementation of the resolved method 'abstract javax.ws.rs.core.Response$ResponseBuilder status(int, java.lang.String)' of abstract cla
+      at org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testPatch_ErrorIfBothAttributesAndExcludedAttributesExist(BaseResourceTypeResourceImplTest.java:206)
+  FAILBLOCK: [ERROR] org.apache.directory.scim.server.rest.SelfResourceImplTest.noSelfIdResolverTest  Time elapsed: 0.116 s  <<< ERROR!
+      org.mockito.exceptions.misusing.UnfinishedStubbingException:
+      Unfinished stubbing detected here:
+      -> at org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testQuery_NullParametersValid(BaseResourceTypeResourceImplTest.java:110)
+      E.g. thenReturn() may be missing.
+  distinct fail signatures (count): 9x java.lang.AbstractMethodError: Receiver class org.jboss.resteasy.specimpl.ResponseBuilderImpl does not define or inherit || 1x org.mockito.exceptions.misusing.UnfinishedStubbingException:
+  linkage/compile signals: AbstractMethodError
+  exception names: java.lang.AbstractMethodErrorx9, org.mockito.exceptions.misusing.UnfinishedStubbingExceptionx1
+  EVIDENCE logs/case34_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/javaee-api-8.0.1.jar, breaking/resteasy-jaxrs-3.0.11.Final.jar, pre/archive_summary.json, pre/artifacts.tar, pre/javaee-api-7.0.jar, response_builder_javap.txt, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=20 sum(t,f,e,s)=[717, 0, 0, 17]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=18 sum(t,f,e,s)=[686, 0, 10, 15]
+  archived non-report files: pre=219 breaking=219 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -150,3 +150,3 @@
+             <artifactId>javaee-api</artifactId>
+    -        <version>7.0</version>
+    +        <version>8.0.1</version>
+             <scope>provided</scope>
+  BREAKING surefire failures/errors:
+    ERROR org.apache.directory.scim.server.provider.ProviderTest#handleException_runtimeExceptionTest type=java.lang.AbstractMethodError msg=
+       at org.apache.directory.scim.server.provider.ProviderTest.handleException_runtimeExceptionTest(ProviderTest.java:37)
+    ERROR org.apache.directory.scim.server.provider.ProviderTest#handleException_nullExceptionTest type=java.lang.AbstractMethodError msg=
+       at org.apache.directory.scim.server.provider.ProviderTest.handleException_nullExceptionTest(ProviderTest.java:45)
+    ERROR org.apache.directory.scim.server.provider.ProviderTest#handleException_jaxrsExceptionTest type=java.lang.AbstractMethodError msg=
+       at org.apache.directory.scim.server.provider.ProviderTest.handleException_jaxrsExceptionTest(ProviderTest.java:28)
+    ERROR org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest#testUpdate_ErrorIfBothAttributesAndExcludedAttributesExist type=java.lang.AbstractMethodError msg=
+       at org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testUpdate_ErrorIfBothAttributesAndExcludedAttributesExist(BaseResourceTypeResourceImplTest.java:186)
+    ERROR org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest#testPatch_ErrorIfBothAttributesAndExcludedAttributesExist type=java.lang.AbstractMethodError msg=
+       at org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testPatch_ErrorIfBothAttributesAndExcludedAttributesExist(BaseResourceTypeResourceImplTest.java:206)
+    ERROR org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest#testFind_ErrorIfBothAttributesAndExcludedAttributesExist type=java.lang.AbstractMethodError msg=
+       at org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testFind_ErrorIfBothAttributesAndExcludedAttributesExist(BaseResourceTypeResourceImplTest.java:161)
+    ERROR org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest#testCreate_ErrorIfBothAttributesAndExcludedAttributesExist type=java.lang.AbstractMethodError msg=
+       at org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testCreate_ErrorIfBothAttributesAndExcludedAttributesExist(BaseResourceTypeResourceImplTest.java:139)
+    ERROR org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest#testGetById_ForbiddenIfNoFilter type=java.lang.AbstractMethodError msg=
+       at org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testGetById_ForbiddenIfNoFilter(BaseResourceTypeResourceImplTest.java:93)
+    ERROR org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest#testQuery_NullParametersValid type=java.lang.AbstractMethodError msg=
+       at org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testQuery_NullParametersValid(BaseResourceTypeResourceImplTest.java:110)
+    ERROR org.apache.directory.scim.server.rest.SelfResourceImplTest#noSelfIdResolverTest type=org.mockito.exceptions.misusing.UnfinishedStubbingException msg=
+       at org.apache.directory.scim.server.rest.SelfResourceImplTest.noSelfIdResolverTest(SelfResourceImplTest.java:36)

@@ -1,0 +1,41 @@
+Compiled from "ClassLoaderContextSelector.java"
+public class org.apache.logging.log4j.core.selector.ClassLoaderContextSelector implements org.apache.logging.log4j.core.selector.ContextSelector {
+  private static final java.util.concurrent.atomic.AtomicReference<org.apache.logging.log4j.core.LoggerContext> DEFAULT_CONTEXT;
+    descriptor: Ljava/util/concurrent/atomic/AtomicReference;
+  protected static final org.apache.logging.log4j.status.StatusLogger LOGGER;
+    descriptor: Lorg/apache/logging/log4j/status/StatusLogger;
+  protected static final java.util.concurrent.ConcurrentMap<java.lang.String, java.util.concurrent.atomic.AtomicReference<java.lang.ref.WeakReference<org.apache.logging.log4j.core.LoggerContext>>> CONTEXT_MAP;
+    descriptor: Ljava/util/concurrent/ConcurrentMap;
+  public org.apache.logging.log4j.core.selector.ClassLoaderContextSelector();
+    descriptor: ()V
+
+  public org.apache.logging.log4j.core.LoggerContext getContext(java.lang.String, java.lang.ClassLoader, boolean);
+    descriptor: (Ljava/lang/String;Ljava/lang/ClassLoader;Z)Lorg/apache/logging/log4j/core/LoggerContext;
+
+  public org.apache.logging.log4j.core.LoggerContext getContext(java.lang.String, java.lang.ClassLoader, boolean, java.net.URI);
+    descriptor: (Ljava/lang/String;Ljava/lang/ClassLoader;ZLjava/net/URI;)Lorg/apache/logging/log4j/core/LoggerContext;
+
+  public void removeContext(org.apache.logging.log4j.core.LoggerContext);
+    descriptor: (Lorg/apache/logging/log4j/core/LoggerContext;)V
+
+  public java.util.List<org.apache.logging.log4j.core.LoggerContext> getLoggerContexts();
+    descriptor: ()Ljava/util/List;
+
+  private org.apache.logging.log4j.core.LoggerContext locateContext(java.lang.ClassLoader, java.net.URI);
+    descriptor: (Ljava/lang/ClassLoader;Ljava/net/URI;)Lorg/apache/logging/log4j/core/LoggerContext;
+
+  protected org.apache.logging.log4j.core.LoggerContext createContext(java.lang.String, java.net.URI);
+    descriptor: (Ljava/lang/String;Ljava/net/URI;)Lorg/apache/logging/log4j/core/LoggerContext;
+
+  protected java.lang.String toContextMapKey(java.lang.ClassLoader);
+    descriptor: (Ljava/lang/ClassLoader;)Ljava/lang/String;
+
+  protected org.apache.logging.log4j.core.LoggerContext getDefault();
+    descriptor: ()Lorg/apache/logging/log4j/core/LoggerContext;
+
+  protected java.lang.String defaultContextName();
+    descriptor: ()Ljava/lang/String;
+
+  static {};
+    descriptor: ()V
+}

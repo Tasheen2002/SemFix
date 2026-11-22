@@ -1,0 +1,36 @@
+﻿
+=== Case 19  19249139eb66616953c389242c22edde60c4ac2f ===
+Project : s4u/pgpverify-maven-plugin
+Update  : org.junit.jupiter:junit-jupiter-params  5.9.3 -> 5.10.0
+Running breaking in container manual-case19-breaking (this can take several minutes) ...
+Finished in 40 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case19_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 161, Failures: 0, Errors: 15, Skipped: 0
+First failing tests / errors:
+  [ERROR] org.simplify4u.plugins.ArtifactResolverTest.testEnablingValidatingPluginDependenciesEnablesPlugins(boolean, boolean, boolean, boolean)  Time elapsed: 0.876 s  <<< ERROR!
+      java.lang.NoSuchMethodError: 'java.lang.ClassLoader org.junit.platform.commons.util.ClassLoaderUtils.getClassLoader(java.lang.Class)'
+      at org.junit.jupiter.params.provider.MethodArgumentsProvider.findFactoryMethodByFullyQualifiedName(MethodArgumentsProvider.java:114)
+      at org.junit.jupiter.params.provider.MethodArgumentsProvider.findFactoryMethod(MethodArgumentsProvider.java:77)
+  [ERROR] org.simplify4u.plugins.pgp.SignatureUtilsTest.testCheckWeakHashAlgorithmAllAlgorithms(int, boolean)  Time elapsed: 0.001 s  <<< ERROR!
+      java.lang.NoSuchMethodError: 'java.lang.ClassLoader org.junit.platform.commons.util.ClassLoaderUtils.getClassLoader(java.lang.Class)'
+      at org.junit.jupiter.params.provider.MethodArgumentsProvider.findFactoryMethodByFullyQualifiedName(MethodArgumentsProvider.java:114)
+      at org.junit.jupiter.params.provider.MethodArgumentsProvider.findFactoryMethod(MethodArgumentsProvider.java:77)
+  [ERROR] org.simplify4u.plugins.pgp.SignatureUtilsTest.keyAlgorithmNameShouldBeResolved(int)  Time elapsed: 0.357 s  <<< ERROR!
+      java.lang.NoSuchMethodError: 'java.lang.ClassLoader org.junit.platform.commons.util.ClassLoaderUtils.getClassLoader(java.lang.Class)'
+      at org.junit.jupiter.params.provider.MethodArgumentsProvider.findFactoryMethodByFullyQualifiedName(MethodArgumentsProvider.java:114)
+      at org.junit.jupiter.params.provider.MethodArgumentsProvider.findFactoryMethod(MethodArgumentsProvider.java:77)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  NoSuchMethodError x15
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : junit-jupiter-params 5.10.0 run against junit-platform-commons 1.9.3 (archived jar) -> NoSuchMethodError ClassLoaderUtils.getClassLoader(Class)
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

@@ -1,0 +1,35 @@
+{
+  "case_id": "98ac85f955abc4b64ec714a011375aa5338d95c2",
+  "phase": "breaking",
+  "path_filter": "/org/springframework/spring-tx/",
+  "path_source": "Fresh test report classpaths or retained runner events; Case 106 PRE uses explicit POM versions because successful runner events are deleted",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/springframework/spring-tx/6.0.0/spring-tx-6.0.0.jar",
+      "sha256": "a898c5eece00a473c10419924a1c77ee2f24c276768baadfcd08068b375b88c0",
+      "classes": {
+        "org.springframework.transaction.TransactionDefinition": {
+          "present": true,
+          "major_version": 61
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.springframework.transaction.TransactionDefinition",
+          "file": "spring-tx-6.0.0_TransactionDefinition_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case110_evidence\\breaking\\jars\\spring-tx-6.0.0.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.springframework.transaction.TransactionDefinition"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

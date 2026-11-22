@@ -1,0 +1,158 @@
+Compiled from "PICFAndOfficeArtData.java"
+public class org.apache.poi.hwpf.model.PICFAndOfficeArtData {
+  private static final int MAX_RECORD_LENGTH;
+    descriptor: I
+
+  private java.util.List<org.apache.poi.ddf.EscherRecord> _blipRecords;
+    descriptor: Ljava/util/List;
+
+  private short _cchPicName;
+    descriptor: S
+
+  private org.apache.poi.hwpf.model.PICF _picf;
+    descriptor: Lorg/apache/poi/hwpf/model/PICF;
+
+  private org.apache.poi.ddf.EscherContainerRecord _shape;
+    descriptor: Lorg/apache/poi/ddf/EscherContainerRecord;
+
+  private byte[] _stPicName;
+    descriptor: [B
+
+  public org.apache.poi.hwpf.model.PICFAndOfficeArtData(byte[], int);
+    descriptor: ([BI)V
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: iload_2
+       5: istore_3
+       6: aload_0
+       7: new           #2                  // class org/apache/poi/hwpf/model/PICF
+      10: dup
+      11: aload_1
+      12: iload_3
+      13: invokespecial #3                  // Method org/apache/poi/hwpf/model/PICF."<init>":([BI)V
+      16: putfield      #4                  // Field _picf:Lorg/apache/poi/hwpf/model/PICF;
+      19: iload_3
+      20: invokestatic  #5                  // Method org/apache/poi/hwpf/model/PICF.getSize:()I
+      23: iadd
+      24: istore_3
+      25: aload_0
+      26: getfield      #4                  // Field _picf:Lorg/apache/poi/hwpf/model/PICF;
+      29: invokevirtual #6                  // Method org/apache/poi/hwpf/model/PICF.getMm:()S
+      32: bipush        102
+      34: if_icmpne     71
+      37: aload_0
+      38: aload_1
+      39: iload_3
+      40: invokestatic  #7                  // Method org/apache/poi/util/LittleEndian.getUByte:([BI)S
+      43: putfield      #8                  // Field _cchPicName:S
+      46: iinc          3, 1
+      49: aload_0
+      50: aload_1
+      51: iload_3
+      52: aload_0
+      53: getfield      #8                  // Field _cchPicName:S
+      56: ldc           #10                 // int 100000
+      58: invokestatic  #11                 // Method org/apache/poi/util/LittleEndian.getByteArray:([BIII)[B
+      61: putfield      #12                 // Field _stPicName:[B
+      64: iload_3
+      65: aload_0
+      66: getfield      #8                  // Field _cchPicName:S
+      69: iadd
+      70: istore_3
+      71: new           #13                 // class org/apache/poi/ddf/DefaultEscherRecordFactory
+      74: dup
+      75: invokespecial #14                 // Method org/apache/poi/ddf/DefaultEscherRecordFactory."<init>":()V
+      78: astore        4
+      80: aload_0
+      81: new           #15                 // class org/apache/poi/ddf/EscherContainerRecord
+      84: dup
+      85: invokespecial #16                 // Method org/apache/poi/ddf/EscherContainerRecord."<init>":()V
+      88: putfield      #17                 // Field _shape:Lorg/apache/poi/ddf/EscherContainerRecord;
+      91: aload_0
+      92: getfield      #17                 // Field _shape:Lorg/apache/poi/ddf/EscherContainerRecord;
+      95: aload_1
+      96: iload_3
+      97: aload         4
+      99: invokevirtual #18                 // Method org/apache/poi/ddf/EscherContainerRecord.fillFields:([BILorg/apache/poi/ddf/EscherRecordFactory;)I
+     102: istore        5
+     104: iload_3
+     105: iload         5
+     107: iadd
+     108: istore_3
+     109: aload_0
+     110: new           #19                 // class java/util/LinkedList
+     113: dup
+     114: invokespecial #20                 // Method java/util/LinkedList."<init>":()V
+     117: putfield      #21                 // Field _blipRecords:Ljava/util/List;
+     120: iload_3
+     121: iload_2
+     122: isub
+     123: aload_0
+     124: getfield      #4                  // Field _picf:Lorg/apache/poi/hwpf/model/PICF;
+     127: invokevirtual #22                 // Method org/apache/poi/hwpf/model/PICF.getLcb:()I
+     130: if_icmpge     209
+     133: aload         4
+     135: aload_1
+     136: iload_3
+     137: invokevirtual #23                 // Method org/apache/poi/ddf/DefaultEscherRecordFactory.createRecord:([BI)Lorg/apache/poi/ddf/EscherRecord;
+     140: astore        6
+     142: aload         6
+     144: invokevirtual #24                 // Method org/apache/poi/ddf/EscherRecord.getRecordId:()S
+     147: sipush        -4089
+     150: if_icmpeq     178
+     153: aload         6
+     155: invokevirtual #24                 // Method org/apache/poi/ddf/EscherRecord.getRecordId:()S
+     158: sipush        -4072
+     161: if_icmplt     209
+     164: aload         6
+     166: invokevirtual #24                 // Method org/apache/poi/ddf/EscherRecord.getRecordId:()S
+     169: sipush        -3817
+     172: if_icmple     178
+     175: goto          209
+     178: aload         6
+     180: aload_1
+     181: iload_3
+     182: aload         4
+     184: invokevirtual #25                 // Method org/apache/poi/ddf/EscherRecord.fillFields:([BILorg/apache/poi/ddf/EscherRecordFactory;)I
+     187: istore        7
+     189: iload_3
+     190: iload         7
+     192: iadd
+     193: istore_3
+     194: aload_0
+     195: getfield      #21                 // Field _blipRecords:Ljava/util/List;
+     198: aload         6
+     200: invokeinterface #26,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     205: pop
+     206: goto          120
+     209: return
+
+  public java.util.List<org.apache.poi.ddf.EscherRecord> getBlipRecords();
+    descriptor: ()Ljava/util/List;
+    Code:
+       0: aload_0
+       1: getfield      #21                 // Field _blipRecords:Ljava/util/List;
+       4: areturn
+
+  public org.apache.poi.hwpf.model.PICF getPicf();
+    descriptor: ()Lorg/apache/poi/hwpf/model/PICF;
+    Code:
+       0: aload_0
+       1: getfield      #4                  // Field _picf:Lorg/apache/poi/hwpf/model/PICF;
+       4: areturn
+
+  public org.apache.poi.ddf.EscherContainerRecord getShape();
+    descriptor: ()Lorg/apache/poi/ddf/EscherContainerRecord;
+    Code:
+       0: aload_0
+       1: getfield      #17                 // Field _shape:Lorg/apache/poi/ddf/EscherContainerRecord;
+       4: areturn
+
+  public byte[] getStPicName();
+    descriptor: ()[B
+    Code:
+       0: aload_0
+       1: getfield      #12                 // Field _stPicName:[B
+       4: areturn
+}

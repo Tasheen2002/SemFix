@@ -1,0 +1,54 @@
+{
+  "fixture_sha256": "050bd0ba34c57aedf267cb0fcc5bafe31f67c620e95277ff5780c1a85354f375",
+  "class_sha256": "8fec0d6fa1be8e79a7da2e5ab97c2a8f203a11cf7a8d32f6004ff97561ef074d",
+  "runs": [
+    {
+      "phase": "pre",
+      "image_id": "sha256:9a8b4bc0996d81d1490b5ade7027ddc21d7ed8e1250d2e7950942ac667e41ac2",
+      "jar_sha256": "a601ba7ce2e2c6e744d4eac793a76707c0121576170ef717ef7a81f2343ada1a",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--network",
+        "none",
+        "--mount",
+        "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case181_evidence\\text_probe_by_element,target=/probe,readonly",
+        "--mount",
+        "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case181_evidence\\pre\\jars\\jsoup-1.14.2.jar,target=/jsoup.jar,readonly",
+        "--entrypoint",
+        "java",
+        "sha256:9a8b4bc0996d81d1490b5ade7027ddc21d7ed8e1250d2e7950942ac667e41ac2",
+        "-cp",
+        "/probe:/jsoup.jar",
+        "JsoupTextProbe",
+        "/probe/Microdata1.html"
+      ],
+      "output": "html=Avatar Director: James Cameron (born August 16, 1954)  Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)\nbody=Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)\ndiv=Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)\nh1=Avatar\nspan=Director: James Cameron (born August 16, 1954)"
+    },
+    {
+      "phase": "breaking",
+      "image_id": "sha256:341995fb5bdd7e301fc235a04646322ccb4823a36f47f806b7be9130ebf9a9d3",
+      "jar_sha256": "e20a5e78b1372f2a4e620832db4442d5077e5cbde280b24c666a3770844999bc",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--network",
+        "none",
+        "--mount",
+        "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case181_evidence\\text_probe_by_element,target=/probe,readonly",
+        "--mount",
+        "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case181_evidence\\breaking\\jars\\jsoup-1.15.3.jar,target=/jsoup.jar,readonly",
+        "--entrypoint",
+        "java",
+        "sha256:341995fb5bdd7e301fc235a04646322ccb4823a36f47f806b7be9130ebf9a9d3",
+        "-cp",
+        "/probe:/jsoup.jar",
+        "JsoupTextProbe",
+        "/probe/Microdata1.html"
+      ],
+      "output": "html=Avatar Director: James Cameron (born August 16, 1954)  Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)\nbody=Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)\ndiv=Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)\nh1=Avatar\nspan=Director: James Cameron (born August 16, 1954)"
+    }
+  ]
+}

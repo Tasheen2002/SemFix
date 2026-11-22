@@ -1,0 +1,105 @@
+=== CASE 53 46698497759b188a97830330dfebaf718beb5573
+  project=codehaus-plexus/plexus-archiver dep=org.codehaus.plexus:plexus-io 3.2.0 -> 3.3.0 scope=compile type=minor java=11
+  PR=https://github.com/codehaus-plexus/plexus-archiver/pull/207
+  PRE log logs/batch_triage/46698497_pre.log:
+  lines=410
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 177, Failures: 0, Errors: 0, Skipped: 2
+  BREAKING log logs/batch_triage/46698497_breaking.log:
+  lines=535
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 177, Failures: 0, Errors: 22, Skipped: 2
+  failing classes: Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.958 s <<< FAILURE! - in org.codehaus.plexus.archiver.snappy.SnappyArchiverTest || Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.445 s <<< FAILURE! - in org.codehaus.plexus.archiver.bzip2.BZip2ArchiverTest || Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.786 s <<< FAILURE! - in org.codehaus.plexus.archiver.xz.XzArchiverTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.237 s <<< FAILURE! - in org.codehaus.plexus.archiver.tar.TarFileTest || Tests run: 11, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 1.011 s <<< FAILURE! - in org.codehaus.plexus.archiver.tar.TarArchiverTest || Tests run: 21, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.793 s <<< FAILURE! - in org.codehaus.plexus.archiver.zip.ZipArchiverTest || Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.138 s <<< FAILURE! - in org.codehaus.plexus.archiver.gzip.GZipArchiverTest || Tests run: 6, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.049 s <<< FAILURE! - in org.codehaus.plexus.archiver.SymlinkTest
+  section: Errors: | SymlinkTest.testSymlinkDirArchiver:107 » Archiver Not a directory: symLinkToDi... | SymlinkTest.testSymlinkTar:64 » Archiver Not a directory: symLinkToDirOnTheOut... | SymlinkTest.testSymlinkZip:83 » Archiver Not a directory: symLinkToDirOnTheOut... | BZip2ArchiverTest.testCreateArchive:53 » Archiver Not a directory: test/resour... | GZipArchiverTest.testCreateArchive:53 » Archiver Not a directory: test/resourc... | SnappyArchiverTest.testCreateArchive:53 » Archiver Not a directory: test/resou... | TarArchiverTest.testBzip2CompressedResourceCollection:540->testCreateResourceCollection:557 » Archiver | TarArchiverTest.testGzipCompressedResourceCollection:508->testCreateResourceCollection:557 » Archiver | TarArchiverTest.testGzipFIleHandleLeak:515 » Archiver Not a directory: test/re... | TarArchiverTest.testTarFileNotClosingInputStream:548 » Archiver Not a director... | TarArchiverTest.testUncompressedResourceCollection:502->testCreateResourceCollection:557 » Archiver | TarFileTest.testBZip2TarFile:77->testTarFile:100 » Archiver Not a directory: t... | TarFileTest.testGZipTarFile:58->testTarFile:100 » Archiver Not a directory: te...
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project plexus-archiver: There are test failures.
+  FAILBLOCK: [ERROR] testCreateArchive(org.codehaus.plexus.archiver.snappy.SnappyArchiverTest)  Time elapsed: 0.269 s  <<< ERROR!
+      org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+      at org.codehaus.plexus.archiver.snappy.SnappyArchiverTest.testCreateArchive(SnappyArchiverTest.java:53)
+      [INFO] Running org.codehaus.plexus.archiver.rar.RarArchiverTest
+      [INFO] Building jar: /plexus-archiver/target/rartest/test.rar
+      [INFO] Building jar: /plexus-archiver/target/output/pom.xml.rar
+  FAILBLOCK: [ERROR] testSymlinkFileSet(org.codehaus.plexus.archiver.zip.ZipArchiverTest)  Time elapsed: 0.042 s  <<< ERROR!
+      org.codehaus.plexus.archiver.ArchiverException: Not a directory: bzz/symLinkToDirOnTheOutside
+      at org.codehaus.plexus.archiver.zip.ZipArchiverTest.testSymlinkFileSet(ZipArchiverTest.java:604)
+      [ERROR] testCreateResourceCollection(org.codehaus.plexus.archiver.zip.ZipArchiverTest)  Time elapsed: 0.05 s  <<< ERROR!
+      org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+      at org.codehaus.plexus.archiver.zip.ZipArchiverTest.testCreateResourceCollection(ZipArchiverTest.java:770)
+  FAILBLOCK: [ERROR] testSymlinkZip(org.codehaus.plexus.archiver.zip.ZipArchiverTest)  Time elapsed: 0.015 s  <<< ERROR!
+      org.codehaus.plexus.archiver.ArchiverException: Not a directory: plexus/src/symLinkToDirOnTheOutside
+      at org.codehaus.plexus.archiver.zip.ZipArchiverTest.testSymlinkZip(ZipArchiverTest.java:580)
+      [ERROR] testCreateArchiveWithStreamTransformer(org.codehaus.plexus.archiver.zip.ZipArchiverTest)  Time elapsed: 0.042 s  <<< ERROR!
+      org.codehaus.plexus.archiver.ArchiverException: Not a directory: plexus/symlinks/src/symLinkToDirOnTheOutside
+      at org.codehaus.plexus.archiver.zip.ZipArchiverTest.testCreateArchiveWithStreamTransformer(ZipArchiverTest.java:485)
+  FAILBLOCK: [ERROR] testCreateArchiveWithStreamTransformer(org.codehaus.plexus.archiver.zip.ZipArchiverTest)  Time elapsed: 0.042 s  <<< ERROR!
+      org.codehaus.plexus.archiver.ArchiverException: Not a directory: plexus/symlinks/src/symLinkToDirOnTheOutside
+      at org.codehaus.plexus.archiver.zip.ZipArchiverTest.testCreateArchiveWithStreamTransformer(ZipArchiverTest.java:485)
+      [ERROR] testOveriddenPermissions(org.codehaus.plexus.archiver.zip.ZipArchiverTest)  Time elapsed: 0.029 s  <<< ERROR!
+      org.codehaus.plexus.archiver.ArchiverException: Not a directory: symLinkToDirOnTheOutside
+      at org.codehaus.plexus.archiver.zip.ZipArchiverTest.testOveriddenPermissions(ZipArchiverTest.java:130)
+  distinct fail signatures (count): 13x org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside || 1x org.codehaus.plexus.archiver.ArchiverException: Not a directory: bzz/symLinkToDirOnTheOutside || 1x org.codehaus.plexus.archiver.ArchiverException: Not a directory: plexus/src/symLinkToDirOnTheOutside || 1x org.codehaus.plexus.archiver.ArchiverException: Not a directory: plexus/symlinks/src/symLinkToDirOnTheOutside
+  exception names: org.codehaus.plexus.archiver.ArchiverExceptionx22
+  EVIDENCE logs/case53_evidence: DirectoryProbe.java, breaking/archive_summary.json, breaking/artifacts.tar, breaking/plexus-io-3.3.0.jar, directory_probe.log, file_attributes_javap.txt, pre/archive_summary.json, pre/artifacts.tar, pre/plexus-io-3.2.0.jar, run_probe.sh, sha256_manifest.json, symlink_resources_javap.txt
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=37 sum(t,f,e,s)=[177, 0, 0, 2]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=37 sum(t,f,e,s)=[177, 0, 22, 2]
+  archived non-report files: pre=212 breaking=212 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -66,3 +66,3 @@
+           <artifactId>plexus-io</artifactId>
+    -      <version>3.2.0</version>
+    +      <version>3.3.0</version>
+         </dependency>
+  BREAKING surefire failures/errors:
+    ERROR org.codehaus.plexus.archiver.SymlinkTest#testSymlinkDirArchiver type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.SymlinkTest.testSymlinkDirArchiver(SymlinkTest.java:107)
+    ERROR org.codehaus.plexus.archiver.SymlinkTest#testSymlinkTar type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.SymlinkTest.testSymlinkTar(SymlinkTest.java:64)
+    ERROR org.codehaus.plexus.archiver.SymlinkTest#testSymlinkZip type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.SymlinkTest.testSymlinkZip(SymlinkTest.java:83)
+    ERROR org.codehaus.plexus.archiver.bzip2.BZip2ArchiverTest#testCreateArchive type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.bzip2.BZip2ArchiverTest.testCreateArchive(BZip2ArchiverTest.java:53)
+    ERROR org.codehaus.plexus.archiver.gzip.GZipArchiverTest#testCreateArchive type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.gzip.GZipArchiverTest.testCreateArchive(GZipArchiverTest.java:53)
+    ERROR org.codehaus.plexus.archiver.snappy.SnappyArchiverTest#testCreateArchive type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.snappy.SnappyArchiverTest.testCreateArchive(SnappyArchiverTest.java:53)
+    ERROR org.codehaus.plexus.archiver.tar.TarArchiverTest#testGzipFIleHandleLeak type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.tar.TarArchiverTest.testGzipFIleHandleLeak(TarArchiverTest.java:515)
+    ERROR org.codehaus.plexus.archiver.tar.TarArchiverTest#testGzipCompressedResourceCollection type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.tar.TarArchiverTest.testCreateResourceCollection(TarArchiverTest.java:557)
+       at org.codehaus.plexus.archiver.tar.TarArchiverTest.testGzipCompressedResourceCollection(TarArchiverTest.java:508)
+    ERROR org.codehaus.plexus.archiver.tar.TarArchiverTest#testBzip2CompressedResourceCollection type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.tar.TarArchiverTest.testCreateResourceCollection(TarArchiverTest.java:557)
+       at org.codehaus.plexus.archiver.tar.TarArchiverTest.testBzip2CompressedResourceCollection(TarArchiverTest.java:540)
+    ERROR org.codehaus.plexus.archiver.tar.TarArchiverTest#testTarFileNotClosingInputStream type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.tar.TarArchiverTest.testTarFileNotClosingInputStream(TarArchiverTest.java:548)
+    ERROR org.codehaus.plexus.archiver.tar.TarArchiverTest#testUncompressedResourceCollection type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.tar.TarArchiverTest.testCreateResourceCollection(TarArchiverTest.java:557)
+       at org.codehaus.plexus.archiver.tar.TarArchiverTest.testUncompressedResourceCollection(TarArchiverTest.java:502)
+    ERROR org.codehaus.plexus.archiver.tar.TarFileTest#testTarFile type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.tar.TarFileTest.testTarFile(TarFileTest.java:100)
+       at org.codehaus.plexus.archiver.tar.TarFileTest.testTarFile(TarFileTest.java:39)
+    ERROR org.codehaus.plexus.archiver.tar.TarFileTest#testBZip2TarFile type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.tar.TarFileTest.testTarFile(TarFileTest.java:100)
+       at org.codehaus.plexus.archiver.tar.TarFileTest.testBZip2TarFile(TarFileTest.java:77)
+    ERROR org.codehaus.plexus.archiver.tar.TarFileTest#testGZipTarFile type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.tar.TarFileTest.testTarFile(TarFileTest.java:100)
+       at org.codehaus.plexus.archiver.tar.TarFileTest.testGZipTarFile(TarFileTest.java:58)
+    ERROR org.codehaus.plexus.archiver.xz.XzArchiverTest#testCreateArchive type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.xz.XzArchiverTest.testCreateArchive(XzArchiverTest.java:49)
+    ERROR org.codehaus.plexus.archiver.zip.ZipArchiverTest#testSymlinkFileSet type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: bzz/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.zip.ZipArchiverTest.testSymlinkFileSet(ZipArchiverTest.java:604)
+    ERROR org.codehaus.plexus.archiver.zip.ZipArchiverTest#testCreateResourceCollection type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.zip.ZipArchiverTest.testCreateResourceCollection(ZipArchiverTest.java:770)
+    ERROR org.codehaus.plexus.archiver.zip.ZipArchiverTest#testCreateArchive type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.zip.ZipArchiverTest.createArchive(ZipArchiverTest.java:521)
+       at org.codehaus.plexus.archiver.zip.ZipArchiverTest.testCreateArchive(ZipArchiverTest.java:364)
+    ERROR org.codehaus.plexus.archiver.zip.ZipArchiverTest#testSymlinkZip type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: plexus/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.zip.ZipArchiverTest.testSymlinkZip(ZipArchiverTest.java:580)
+    ERROR org.codehaus.plexus.archiver.zip.ZipArchiverTest#testCreateArchiveWithStreamTransformer type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: plexus/symlinks/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.zip.ZipArchiverTest.testCreateArchiveWithStreamTransformer(ZipArchiverTest.java:485)
+    ERROR org.codehaus.plexus.archiver.zip.ZipArchiverTest#testOveriddenPermissions type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.zip.ZipArchiverTest.testOveriddenPermissions(ZipArchiverTest.java:130)
+    ERROR org.codehaus.plexus.archiver.zip.ZipArchiverTest#testForced type=org.codehaus.plexus.archiver.ArchiverException msg=Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+       at org.codehaus.plexus.archiver.zip.ZipArchiverTest.createArchive(ZipArchiverTest.java:521)
+       at org.codehaus.plexus.archiver.zip.ZipArchiverTest.testForced(ZipArchiverTest.java:671)
+  LOG directory_probe.log (4 lines): File.isDirectory=true resource.isDirectory=true resource.isSymbolicLink=true | File.isDirectory=true resource.isDirectory=false resource.isSymbolicLink=true

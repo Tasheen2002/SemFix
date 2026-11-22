@@ -1,0 +1,165 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Quarkus Micrometer Registry - Parent                               [pom]
+[INFO] Quarkus Micrometer Registry - Azure Monitor - Parent               [pom]
+[INFO] Quarkus Micrometer Registry - Azure Monitor - Runtime              [jar]
+[INFO] Quarkus Micrometer Registry - Azure Monitor - Deployment           [jar]
+[INFO] Quarkus Micrometer Registry - Datadog - Parent                     [pom]
+[INFO] Quarkus Micrometer Registry - Datadog - Runtime                    [jar]
+[INFO] Quarkus Micrometer Registry - Datadog - Deployment                 [jar]
+[INFO] Quarkus Micrometer Registry - JMX - Parent                         [pom]
+[INFO] Quarkus Micrometer Registry - JMX - Runtime                        [jar]
+[INFO] Quarkus Micrometer Registry - JMX - Deployment                     [jar]
+[INFO] Quarkus Micrometer Registry - New Relic - Parent                   [pom]
+[INFO] Quarkus Micrometer Registry - New Relic - Runtime                  [jar]
+[INFO] Quarkus Micrometer Registry - New Relic - Deployment               [jar]
+[INFO] Quarkus Micrometer Registry - SignalFX - Parent                    [pom]
+[INFO] Quarkus Micrometer Registry - SignalFX - Runtime                   [jar]
+[INFO] Quarkus Micrometer Registry - SignalFX - Deployment                [jar]
+[INFO] Quarkus Micrometer Registry - Stackdriver - Parent                 [pom]
+[INFO] Quarkus Micrometer Registry - Stackdriver - Runtime                [jar]
+[INFO] Quarkus Micrometer Registry - Stackdriver - Deployment             [jar]
+[INFO] Quarkus Micrometer Registry - StatsD - Parent                      [pom]
+[INFO] Quarkus Micrometer Registry - StatsD - Runtime                     [jar]
+[INFO] Quarkus Micrometer Registry - StatsD - Deployment                  [jar]
+[INFO] Quarkus Micrometer Registry - Documentation                        [jar]
+[INFO] Quarkus Micrometer Registry - Integration Test - Parent            [pom]
+[INFO] Quarkus Micrometer Registry - Integration Test - JMX               [jar]
+[INFO] Quarkus Micrometer Registry - Integration Test - Native            [jar]
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-parent >--
+[INFO] Building Quarkus Micrometer Registry - Parent 199-SNAPSHOT        [1/26]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-parent ---
+[INFO] Deleting /quarkus-micrometer-registry/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-parent ---
+[INFO] Executing: /bin/sh -c cd '/quarkus-micrometer-registry' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /quarkus-micrometer-registry
+[INFO] Storing buildNumber: UNKNOWN at timestamp: 1795151740892
+[INFO] Executing: /bin/sh -c cd '/quarkus-micrometer-registry' && 'git' 'symbolic-ref' 'HEAD'
+[INFO] Working directory: /quarkus-micrometer-registry
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: not a git repository (or any of the parent directories): .git
+
+[INFO] Executing: /bin/sh -c cd '/quarkus-micrometer-registry' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /quarkus-micrometer-registry
+[INFO] Storing scmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-parent ---
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-parent ---
+[INFO] Processed 0 files in 00:00.029 (Already Sorted: 0, Needed Sorting: 0)
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-azure-monitor-parent >--
+[INFO] Building Quarkus Micrometer Registry - Azure Monitor - Parent 199-SNAPSHOT [2/26]
+[INFO]   from micrometer-registry-azure-monitor/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-azure-monitor-parent ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-azure-monitor/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-azure-monitor-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-azure-monitor-parent ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-azure-monitor-parent ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-azure-monitor-parent ---
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-azure-monitor-parent ---
+[INFO] Processed 0 files in 00:00.000 (Already Sorted: 0, Needed Sorting: 0)
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-azure-monitor >--
+[INFO] Building Quarkus Micrometer Registry - Azure Monitor - Runtime 199-SNAPSHOT [3/26]
+[INFO]   from micrometer-registry-azure-monitor/runtime/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-azure-monitor/runtime/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] Processed 2 files in 10s405ms (Formatted: 0, Skipped: 0, Unchanged: 2, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] Processed 2 files in 00:01.857 (Already Sorted: 2, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 2 source files with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- quarkus-bootstrap:1.13.7.Final:extension-descriptor (default) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/micrometer-registry-azure-monitor/runtime/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-azure-monitor ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --< io.quarkiverse.micrometer.registry:quarkus-micrometer-registry-azure-monitor-deployment >--
+[INFO] Building Quarkus Micrometer Registry - Azure Monitor - Deployment 199-SNAPSHOT [4/26]
+[INFO]   from micrometer-registry-azure-monitor/deployment/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] Deleting /quarkus-micrometer-registry/micrometer-registry-azure-monitor/deployment/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.BannedRepositories passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] 
+[INFO] --- buildnumber:3.2.0:create (get-scm-revision) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] 
+[INFO] --- formatter:2.23.0:format (format-sources) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] Processed 4 files in 1s465ms (Formatted: 0, Skipped: 0, Unchanged: 4, Failed: 0, Readonly: 0)
+[INFO] 
+[INFO] --- impsort:1.9.0:sort (sort-imports) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] Processed 4 files in 00:00.661 (Already Sorted: 4, Needed Sorting: 0)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] skip non existing resourceDirectory /quarkus-micrometer-registry/micrometer-registry-azure-monitor/deployment/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 1 source file with javac [debug deprecation release 11] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] Copying 1 resource from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 3 source files with javac [debug deprecation release 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ quarkus-micrometer-registry-azure-monitor-deployment ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.quarkiverse.micrometer.registry.azuremonitor.deployment.AzureMonitorEnabledInvalidTest

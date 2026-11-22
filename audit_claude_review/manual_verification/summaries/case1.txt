@@ -1,0 +1,41 @@
+﻿
+=== Case 1  02363207c365b3befd6426f6dda5c8eac904d760 ===
+Project : retest/recheck
+Update  : org.slf4j:slf4j-api  1.7.36 -> 2.0.3
+Running breaking in container manual-case1-breaking (this can take several minutes) ...
+Finished in 46 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case1_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 737, Failures: 0, Errors: 30, Skipped: 4
+First failing tests / errors:
+  [ERROR] de.retest.recheck.ui.diff.AttributeDifferenceTest.should_warn_if_attributes_dont_match(String, String)[1]  Time elapsed: 0.008 s  <<< ERROR!
+      java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+      at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToType(LogbackLogProvider.java:69)
+      at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToLoggingSources(LogbackLogProvider.java:52)
+  [ERROR] de.retest.recheck.ui.diff.AttributeDifferenceTest.should_warn_if_attributes_dont_match(String, String)[2]  Time elapsed: 0.001 s  <<< ERROR!
+      java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+      at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToType(LogbackLogProvider.java:69)
+      at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToLoggingSources(LogbackLogProvider.java:52)
+  [ERROR] de.retest.recheck.ui.diff.AttributeDifferenceTest.should_warn_if_attributes_dont_match(String, String)[3]  Time elapsed: 0 s  <<< ERROR!
+      java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+      at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToType(LogbackLogProvider.java:69)
+      at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToLoggingSources(LogbackLogProvider.java:52)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  none
+SLF4J console:
+  SLF4J: No SLF4J providers were found.
+  SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+
+--- Proposed classification ---
+Label   : BEHAVIORAL   (rule R5: Provider selection changed while old provider present)
+Category: PROVIDER_OR_IMPLEMENTATION_SELECTION
+Cause   : slf4j-api 2.0.3 provider discovery (ServiceLoader) ignores the logback-classic 1.2.11 StaticLoggerBinder still on the test classpath and falls back to NOPLogger; logunit LogbackLogProvider casts the logger to ch.qos.logback.classic.Logger -> ClassCastException
+Change  : Logger implementation returned by LoggerFactory changed from logback Logger to NOPLogger (provider-selection policy change; old binding present and explicitly ignored per SLF4J console)
+Codex   : PROVISIONAL_BEHAVIORAL   Claude blind: BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

@@ -1,0 +1,99 @@
+=== CASE 157 d3c95ff17d26fa7a708166828672ed5de280f029
+  project=tokuhirom/avans dep=com.fasterxml.jackson.core:jackson-databind 2.3.3 -> 2.13.3 scope=compile type=minor java=11
+  PR=https://github.com/tokuhirom/avans/pull/87
+  PRE log logs/batch_triage/d3c95ff1_pre.log:
+  lines=1386
+  status: [INFO] BUILD SUCCESS
+  reactor: avans :: parent   SUCCESS [  0.433 s]; avans   SUCCESS [ 16.421 s]; avans-jmh   SUCCESS [  2.104 s]; avans-freemarker   SUCCESS [  4.134 s]; avans-tinyvalidator   SUCCESS [  3.533 s]; avans-session   SUCCESS [  4.478 s]; avans-session-spymemcached   SUCCESS [  5.513 s]; avans-setup   SUCCESS [  0.128 s]; BUILD SUCCESS
+  aggregate summaries: Tests run: 57, Failures: 0, Errors: 0, Skipped: 2 || Tests run: 1, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 3, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 4, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+  exception names: java.io.IOExceptionx1
+  BREAKING log logs/batch_triage/d3c95ff1_breaking.log:
+  lines=881
+  status: [INFO] BUILD FAILURE
+  reactor: avans :: parent   SUCCESS [  0.468 s]; avans   FAILURE [ 14.547 s]; avans-jmh   SKIPPED; avans-freemarker   SKIPPED; avans-tinyvalidator   SKIPPED; avans-session   SKIPPED; avans-session-spymemcached   SKIPPED; avans-setup   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 57, Failures: 4, Errors: 46, Skipped: 2
+  failing classes: Tests run: 2, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 1.826 sec <<< FAILURE! || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.059 sec <<< FAILURE! || Tests run: 14, Failures: 3, Errors: 7, Skipped: 0, Time elapsed: 0.476 sec <<< FAILURE! || Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.021 sec <<< FAILURE! || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.011 sec <<< FAILURE! || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.028 sec <<< FAILURE! || Tests run: 4, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.08 sec <<< FAILURE! || Tests run: 25, Failures: 0, Errors: 23, Skipped: 2, Time elapsed: 0.621 sec <<< FAILURE! || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.026 sec <<< FAILURE! || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.096 sec <<< FAILURE!
+  section: Failed tests: | test(me.geso.avans.annotationbased.AnnotationBasedDispatcherTest) | testJsonEasy(me.geso.avans.AvansWebApplicationTest) | test(me.geso.avans.AvansWebApplicationTest) | testEscapeHTMLCharacters(me.geso.avans.AvansWebApplicationTest) | Tests in error: | testPostForm(me.geso.avans.annotationbased.AnnotationBasedDispatcherTest) | test(me.geso.avans.trigger.ResponseConverterTest) | testUploadFile(me.geso.avans.AvansWebApplicationTest) | testNg(me.geso.avans.AvansWebApplicationTest) | testUploadFileArray(me.geso.avans.AvansWebApplicationTest) | testPostMultipart(me.geso.avans.AvansWebApplicationTest) | testJsonParam(me.geso.avans.AvansWebApplicationTest)
+  section: Tests in error: | testPostForm(me.geso.avans.annotationbased.AnnotationBasedDispatcherTest) | test(me.geso.avans.trigger.ResponseConverterTest) | testUploadFile(me.geso.avans.AvansWebApplicationTest) | testNg(me.geso.avans.AvansWebApplicationTest) | testUploadFileArray(me.geso.avans.AvansWebApplicationTest) | testPostMultipart(me.geso.avans.AvansWebApplicationTest) | testJsonParam(me.geso.avans.AvansWebApplicationTest) | testUploadOptionalFile(me.geso.avans.AvansWebApplicationTest) | testPostForm(me.geso.avans.AvansWebApplicationTest) | testOverridableObjectMapper(me.geso.avans.jackson.JacksonJsonViewTest) | test0(me.geso.avans.jackson.JacksonJsonViewTest) | test0(me.geso.avans.jackson.JacksonJsonParamReaderTest) | test(me.geso.avans.trigger.HTMLFilterTest)
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.5:test (default-test) on project avans: There are test failures.
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx16, java.lang.reflect.InvocationTargetExceptionx10, java.lang.RuntimeExceptionx3, java.lang.ClassNotFoundExceptionx1
+  EVIDENCE logs/case157_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jackson-databind-2.13.3_DeserializationContext_javap.txt, breaking/jackson-databind-2.13.3_TokenBuffer$Parser_javap.txt, breaking/jackson-databind-2.13.3_TokenBuffer_javap.txt, breaking/jackson-databind-2.13.3_TreeTraversingParser_javap.txt, breaking/jar_inspection.json, breaking/jars/jackson-annotations-2.13.3.jar, breaking/jars/jackson-core-2.4.2.jar, breaking/jars/jackson-databind-2.13.3.jar, missing_class_references.json, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jackson-databind-2.3.3_DeserializationContext_javap.txt, pre/jar_inspection.json, pre/jars/jackson-annotations-2.3.0.jar, pre/jars/jackson-core-2.4.2.jar, pre/jars/jackson-databind-2.3.3.jar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=18 sum(t,f,e,s)=[69, 0, 0, 2]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=11 sum(t,f,e,s)=[57, 4, 46, 2]
+  archived non-report files: pre=201 breaking=201 changed=1 added=0 removed=0
+  DIFF avans/pom.xml (7 lines):
+    @@ -60,3 +60,3 @@
+     			<artifactId>jackson-databind</artifactId>
+    -			<version>2.3.3</version>
+    +			<version>2.13.3</version>
+     		</dependency>
+  BREAKING surefire failures/errors:
+    FAILURE me.geso.avans.AvansWebApplicationTest#testJsonEasy type=java.lang.AssertionError msg=expected:<500> but was:<200>
+       at org.junit.Assert.fail(Assert.java:89)
+       at org.junit.Assert.failNotEquals(Assert.java:835)
+       at org.junit.Assert.assertEquals(Assert.java:647)
+       at org.junit.Assert.assertEquals(Assert.java:633)
+    ERROR me.geso.avans.AvansWebApplicationTest#testUploadFile type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:673)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at me.geso.mech.Mech.postMultipart(Mech.java:202)
+       at me.geso.avans.AvansWebApplicationTest.testUploadFile(AvansWebApplicationTest.java:289)
+    ERROR me.geso.avans.AvansWebApplicationTest#testNg type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:673)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at me.geso.mech.Mech.post(Mech.java:189)
+       at me.geso.avans.AvansWebApplicationTest.testNg(AvansWebApplicationTest.java:140)
+    ERROR me.geso.avans.AvansWebApplicationTest#testUploadFileArray type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:673)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at me.geso.mech.Mech.postMultipart(Mech.java:202)
+       at me.geso.avans.AvansWebApplicationTest.testUploadFileArray(AvansWebApplicationTest.java:319)
+    ERROR me.geso.avans.AvansWebApplicationTest#testPostMultipart type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:673)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at me.geso.mech.Mech.postMultipart(Mech.java:202)
+       at me.geso.avans.AvansWebApplicationTest.testPostMultipart(AvansWebApplicationTest.java:229)
+    ERROR me.geso.avans.AvansWebApplicationTest#testJsonParam type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:673)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at me.geso.mech.Mech.createObjectMapper(Mech.java:163)
+       at me.geso.mech.Mech.postJSON(Mech.java:147)
+    FAILURE me.geso.avans.AvansWebApplicationTest#test type=java.lang.AssertionError msg=expected:<500> but was:<200>
+       at org.junit.Assert.fail(Assert.java:89)
+       at org.junit.Assert.failNotEquals(Assert.java:835)
+       at org.junit.Assert.assertEquals(Assert.java:647)
+       at org.junit.Assert.assertEquals(Assert.java:633)
+    ERROR me.geso.avans.AvansWebApplicationTest#testUploadOptionalFile type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:673)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at me.geso.mech.Mech.postMultipart(Mech.java:202)
+       at me.geso.avans.AvansWebApplicationTest.testUploadOptionalFile(AvansWebApplicationTest.java:300)
+    FAILURE me.geso.avans.AvansWebApplicationTest#testEscapeHTMLCharacters type=java.lang.AssertionError msg=expected:<500> but was:<200>
+       at org.junit.Assert.fail(Assert.java:89)
+       at org.junit.Assert.failNotEquals(Assert.java:835)
+       at org.junit.Assert.assertEquals(Assert.java:647)
+       at org.junit.Assert.assertEquals(Assert.java:633)
+    ERROR me.geso.avans.AvansWebApplicationTest#testPostForm type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:673)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at me.geso.mech.Mech.post(Mech.java:189)
+       at me.geso.avans.AvansWebApplicationTest.testPostForm(AvansWebApplicationTest.java:180)
+    ERROR me.geso.avans.ControllerBaseTest$TestForBadNumberFormatExeption#shouldGetBigIntegerParam type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:673)
+    ... truncated (296 lines)
+  all_poms: count=11 changed=['avans/pom.xml']
+    avans/pom.xml: -			<version>2.3.3</version> / +			<version>2.13.3</version>
+  JSON breaking/jar_inspection.json: {"case_id":"d3c95ff17d26fa7a708166828672ed5de280f029","phase":"breaking","path_filter":"/jackson-(core|databind|annotations)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.3/jackson-annotations-2.13.3.jar","classes":{"com.fasterxml.jackson.core.util.JacksonFeature":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.4.2/jackson-core-2.4.2.jar","classes":{"com.fasterxml.jackson.core.util.JacksonFeature":{"present":false,"major_version":null}},"services":{"META-INF/services/com.fasterxml.jackson.core.JsonFactory":"com.fasterxml.jackson.core.JsonFactory\n"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.3/jackson-databind-2.13.3.jar","classes":{"com.fasterxml.jackson.core.util.JacksonFeature":{"present":false,"major_version":null}},"services":{"META-INF/services/com.fasterxml.jackson.core.ObjectCodec":"com.fasterxml.jackson.databind.ObjectMapper\n"},"disassemblies":[{"class":"com.fasterxml.jackson.databind.DeserializationContext","file":"jackson-databind-2.13.3_DeserializationContext_javap.txt","exit_code":0}]}]}
+  JSON missing_class_references.json: {"pre":{"jar_sha256":"46b5cdab6f8d6aad830ead3acafc9cd4970bd0054d12a4d9b5f4eb6efa70cf4a","referring_classes":[]},"breaking":{"jar_sha256":"6444bf08d8cd4629740afc3db1276938f494728deb663ce585c4e91f6b45eb84","referring_classes":["com/fasterxml/jackson/databind/DeserializationContext.class","com/fasterxml/jackson/databind/node/TreeTraversingParser.class","com/fasterxml/jackson/databind/util/TokenBuffer$Parser.class","com/fasterxml/jackson/databind/util/TokenBuffer.class"]}}
+  JSON pre/jar_inspection.json: {"case_id":"d3c95ff17d26fa7a708166828672ed5de280f029","phase":"pre","path_filter":"/jackson-(core|databind|annotations)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.3.0/jackson-annotations-2.3.0.jar","classes":{"com.fasterxml.jackson.core.util.JacksonFeature":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.4.2/jackson-core-2.4.2.jar","classes":{"com.fasterxml.jackson.core.util.JacksonFeature":{"present":false,"major_version":null}},"services":{"META-INF/services/com.fasterxml.jackson.core.JsonFactory":"com.fasterxml.jackson.core.JsonFactory\n"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.3.3/jackson-databind-2.3.3.jar","classes":{"com.fasterxml.jackson.core.util.JacksonFeature":{"present":false,"major_version":null}},"services":{"META-INF/services/com.fasterxml.jackson.core.ObjectCodec":"com.fasterxml.jackson.databind.ObjectMapper\n"},"disassemblies":[{"class":"com.fasterxml.jackson.databind.DeserializationContext","file":"jackson-databind-2.3.3_DeserializationContext_javap.txt","exit_code":0}]}]}
+  JARS: breaking/jars/jackson-annotations-2.13.3.jar, breaking/jars/jackson-core-2.4.2.jar, breaking/jars/jackson-databind-2.13.3.jar, pre/jars/jackson-annotations-2.3.0.jar, pre/jars/jackson-core-2.4.2.jar, pre/jars/jackson-databind-2.3.3.jar

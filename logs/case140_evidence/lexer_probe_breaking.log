@@ -1,0 +1,15 @@
+runtime=file:/root/.m2/repository/org/antlr/antlr4-runtime/4.10.1/antlr4-runtime-4.10.1.jar
+method=public org.antlr.v4.runtime.atn.ATN org.antlr.v4.runtime.atn.ATNDeserializer.deserialize(char[])
+ANTLR Tool version 4.9.3 used for code generation does not match the current runtime version 4.10.1
+ANTLR Runtime version 4.9.3 used for parser compilation does not match the current runtime version 4.10.1
+Exception in thread "main" java.lang.ExceptionInInitializerError
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:315)
+	at LexerCompatibilityProbe.main(LexerCompatibilityProbe.java:6)
+Caused by: java.lang.UnsupportedOperationException: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+	at org.antlr.v4.runtime.atn.ATNDeserializer.deserialize(ATNDeserializer.java:56)
+	at org.antlr.v4.runtime.atn.ATNDeserializer.deserialize(ATNDeserializer.java:48)
+	at org.btrplace.safeplace.spec.antlr.CstrSpecLexer.<clinit>(CstrSpecLexer.java:196)
+	... 3 more
+Caused by: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+	... 6 more

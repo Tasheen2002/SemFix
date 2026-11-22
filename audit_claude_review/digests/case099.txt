@@ -1,0 +1,116 @@
+=== CASE 99 8b372dfe79625ff585c5b0392913b6b152cc7c22
+  project=pac4j/dropwizard-pac4j dep=org.eclipse.jetty:jetty-server 9.4.35.v20201120 -> 9.4.48.v20220622 scope=compile type=other java=11
+  PR=https://github.com/pac4j/dropwizard-pac4j/pull/299
+  PRE log logs/batch_triage/8b372dfe_pre.log:
+  lines=463
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/8b372dfe_breaking.log:
+  lines=1729
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 16, Failures: 0, Errors: 10, Skipped: 0
+  failing classes: Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 7.562 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndServletTest || Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 1.098 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.861 s <<< FAILURE! - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+  section: Errors: | BundleFactoryTest>AbstractApplicationTest.tearDown:36 » Runtime MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener., java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)' of interface org.eclipse.jetty.util.component.LifeCycle$Listener.] | BundleFactoryTest>AbstractApplicationTest.tearDown:36 » Runtime MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lang.Throwable)'
+  first [ERROR] lines:
+    [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources
+    [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResourcesForm
+    [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.restrictsAccessToResources
+    [ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.grantsAccessToResources
+    [ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.grantsAccessToResourcesForm
+    [ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.restrictsAccessToResources
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project dropwizard-pac4j: 
+  FAILBLOCK: [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources  Time elapsed: 6.219 s  <<< ERROR!
+      javax.ws.rs.ProcessingException: java.net.SocketException: Unexpected end of file from server
+      at org.glassfish.jersey.client.internal.HttpUrlConnector.apply(HttpUrlConnector.java:261)
+      at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:297)
+      at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$1(JerseyInvocation.java:632)
+      at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:654)
+      at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:648)
+      Caused by: java.net.SocketException: Unexpected end of file from server
+  FAILBLOCK: [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources  Time elapsed: 6.223 s  <<< ERROR!
+      java.lang.RuntimeException: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void l
+      at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+      at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+      at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+      Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(o
+      Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFai
+  distinct fail signatures (count): 6x javax.ws.rs.ProcessingException: java.net.SocketException: Unexpected end of file from server || 10x java.lang.RuntimeException: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.Allowe
+  linkage/compile signals: AbstractMethodError
+  exception names: java.lang.AbstractMethodErrorx90, java.net.SocketExceptionx18, java.lang.RuntimeExceptionx10, org.eclipse.jetty.util.MultiExceptionx10, javax.ws.rs.ProcessingExceptionx6
+  EVIDENCE logs/case99_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/jetty-server-9.4.48.v20220622.jar, breaking/jetty-util-9.4.35.v20201120.jar, breaking/unique_test_counts.json, jetty_lifecycle_javap.txt, pre/archive_summary.json, pre/artifacts.tar, pre/jetty-server-9.4.35.v20201120.jar, pre/jetty-util-9.4.35.v20201120.jar, pre/unique_test_counts.json, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[16, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[22, 0, 16, 0]
+  archived non-report files: pre=27 breaking=27 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -153,3 +153,3 @@
+             <artifactId>jetty-server</artifactId>
+    -        <version>9.4.35.v20201120</version>
+    +        <version>9.4.48.v20220622</version>
+           </dependency>
+  BREAKING surefire failures/errors:
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#emptyPac4jInConfig type=java.lang.RuntimeException msg=MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lan
+       Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycl
+       Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void li
+       at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+       at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+       at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#sessiondisabledForced type=java.lang.RuntimeException msg=MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lan
+       Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycl
+       Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void li
+       at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+       at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+       at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#noPac4jInConfig type=java.lang.RuntimeException msg=MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lan
+       Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycl
+       Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void li
+       at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+       at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+       at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#sessionEnabledForced type=java.lang.RuntimeException msg=MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lan
+       Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycl
+       Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void li
+       at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+       at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+       at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#grantsAccessToResources type=javax.ws.rs.ProcessingException msg=java.net.SocketException: Unexpected end of file from server
+       Caused by: java.net.SocketException: Unexpected end of file from server
+       at org.glassfish.jersey.client.internal.HttpUrlConnector.apply(HttpUrlConnector.java:261)
+       at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:297)
+       at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$1(JerseyInvocation.java:632)
+       at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:654)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#grantsAccessToResources type=java.lang.RuntimeException msg=MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lan
+       Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycl
+       Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void li
+       at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+       at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+       at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#grantsAccessToResourcesForm type=javax.ws.rs.ProcessingException msg=java.net.SocketException: Unexpected end of file from server
+       Caused by: java.net.SocketException: Unexpected end of file from server
+       at org.glassfish.jersey.client.internal.HttpUrlConnector.apply(HttpUrlConnector.java:261)
+       at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:297)
+       at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$1(JerseyInvocation.java:632)
+       at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:654)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#grantsAccessToResourcesForm type=java.lang.RuntimeException msg=MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycleFailure(org.eclipse.jetty.util.component.LifeCycle, java.lan
+       Caused by: MultiException[java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void lifeCycl
+       Caused by: [CIRCULAR REFERENCE: java.lang.AbstractMethodError: Receiver class org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener does not define or inherit an implementation of the resolved method 'abstract void li
+       at io.dropwizard.testing.DropwizardTestSupport.stopIfRequired(DropwizardTestSupport.java:257)
+       at io.dropwizard.testing.DropwizardTestSupport.after(DropwizardTestSupport.java:237)
+       at org.pac4j.dropwizard.AbstractApplicationTest.tearDown(AbstractApplicationTest.java:36)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#restrictsAccessToResources type=javax.ws.rs.ProcessingException msg=java.net.SocketException: Unexpected end of file from server
+       Caused by: java.net.SocketException: Unexpected end of file from server
+       at org.glassfish.jersey.client.internal.HttpUrlConnector.apply(HttpUrlConnector.java:261)
+       at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:297)
+       at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:619)
+       at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:654)
+    ... truncated (106 lines)
+  JSON breaking/unique_test_counts.json: {"aggregate_counts":{"tests":16,"failures":0,"errors":10,"skipped":0},"raw_xml_counts":{"tests":22,"failures":0,"errors":16,"skipped":0},"duplicate_test_entries":[{"report":"target/surefire-reports/TEST-org.pac4j.dropwizard.e2e.EndToEndServletTest.xml","class":"org.pac4j.dropwizard.e2e.EndToEndServletTest","test":"grantsAccessToResources","statuses":["errors","errors"]},{"report":"target/surefire-reports/TEST-org.pac4j.dropwizard.e2e.EndToEndServletTest.xml","class":"org.pac4j.dropwizard.e2e.EndToEndServletTest","test":"grantsAccessToResourcesForm","statuses":["errors","errors"]},{"report":"target/surefire-reports/TEST-org.pac4j.dropwizard.e2e.EndToEndServletTest.xml","class":"org.pac4j.dropwizard.e2e.EndToEndServletTest","test":"restrictsAccessToResources","statuses":["errors","errors"]},{"report":"target/surefire-reports/TEST-org.pac4j.dropwizard.e2e.EndToEndTest.xml","class":"org.pac4j.dropwizard.e2e.EndToEndTest","test":"grantsAccessToResources","statuses":["errors","errors"]},{"report":"target/surefire-reports/TEST-org.pac4j.dropwizard.e2e.EndToEndTest.xml","class":"org.pac4j.dropwizard.e2e.EndToEndTest","test":"grantsAccessToResourcesForm","statuses":["errors","errors"]},{"report":"target/surefire-reports/TEST-org.pac4j.dropwizard.e2e.EndToEndTest.xml","class":"org.pac4j.dropwizard.e2e.EndToEndTest","test":"restrictsAccessToResources","statuses":["errors","errors"]}]}
+  JSON pre/unique_test_counts.json: {"aggregate_counts":{"tests":16,"failures":0,"errors":0,"skipped":0},"raw_xml_counts":{"tests":16,"failures":0,"errors":0,"skipped":0},"duplicate_test_entries":[]}
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"jetty-server-9.4.35.v20201120.jar","entries":{"AllowedResourceAliasCheckListener.class":[],"LifeCycle$Listener.class":[]}},{"phase":"pre","jar":"jetty-util-9.4.35.v20201120.jar","entries":{"AllowedResourceAliasCheckListener.class":[],"LifeCycle$Listener.class":["org/eclipse/jetty/util/component/LifeCycle$Listener.class"]}},{"phase":"breaking","jar":"jetty-server-9.4.48.v20220622.jar","entries":{"AllowedResourceAliasCheckListener.class":["org/eclipse/jetty/server/AllowedResourceAliasChecker$AllowedResourceAliasCheckListener.class"],"LifeCycle$Listener.class":[]}},{"phase":"breaking","jar":"jetty-util-9.4.35.v20201120.jar","entries":{"AllowedResourceAliasCheckListener.class":[],"LifeCycle$Listener.class":["org/eclipse/jetty/util/component/LifeCycle$Listener.class"]}}]

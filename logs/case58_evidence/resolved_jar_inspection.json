@@ -1,0 +1,79 @@
+[
+  {
+    "phase": "pre",
+    "jar": "jaxb-api-2.3.1.jar",
+    "services": {},
+    "classes": {
+      "com/sun/xml/bind/v2/ContextFactory.class": false,
+      "com/sun/xml/internal/bind/v2/ContextFactory.class": false,
+      "org/glassfish/jaxb/runtime/v2/ContextFactory.class": false,
+      "javax/xml/bind/JAXBContext.class": true,
+      "jakarta/xml/bind/JAXBContext.class": false
+    }
+  },
+  {
+    "phase": "pre",
+    "jar": "jaxb-core-2.3.0.1.jar",
+    "services": {},
+    "classes": {
+      "com/sun/xml/bind/v2/ContextFactory.class": false,
+      "com/sun/xml/internal/bind/v2/ContextFactory.class": false,
+      "org/glassfish/jaxb/runtime/v2/ContextFactory.class": false,
+      "javax/xml/bind/JAXBContext.class": false,
+      "jakarta/xml/bind/JAXBContext.class": false
+    }
+  },
+  {
+    "phase": "pre",
+    "jar": "jaxb-impl-2.3.3.jar",
+    "services": {
+      "META-INF/services/javax.xml.bind.JAXBContext": "com.sun.xml.bind.v2.ContextFactory\n",
+      "META-INF/services/javax.xml.bind.JAXBContextFactory": "com.sun.xml.bind.v2.JAXBContextFactory\n"
+    },
+    "classes": {
+      "com/sun/xml/bind/v2/ContextFactory.class": true,
+      "com/sun/xml/internal/bind/v2/ContextFactory.class": false,
+      "org/glassfish/jaxb/runtime/v2/ContextFactory.class": false,
+      "javax/xml/bind/JAXBContext.class": false,
+      "jakarta/xml/bind/JAXBContext.class": false
+    }
+  },
+  {
+    "phase": "breaking",
+    "jar": "jaxb-api-2.3.1.jar",
+    "services": {},
+    "classes": {
+      "com/sun/xml/bind/v2/ContextFactory.class": false,
+      "com/sun/xml/internal/bind/v2/ContextFactory.class": false,
+      "org/glassfish/jaxb/runtime/v2/ContextFactory.class": false,
+      "javax/xml/bind/JAXBContext.class": true,
+      "jakarta/xml/bind/JAXBContext.class": false
+    }
+  },
+  {
+    "phase": "breaking",
+    "jar": "jaxb-core-2.3.0.1.jar",
+    "services": {},
+    "classes": {
+      "com/sun/xml/bind/v2/ContextFactory.class": false,
+      "com/sun/xml/internal/bind/v2/ContextFactory.class": false,
+      "org/glassfish/jaxb/runtime/v2/ContextFactory.class": false,
+      "javax/xml/bind/JAXBContext.class": false,
+      "jakarta/xml/bind/JAXBContext.class": false
+    }
+  },
+  {
+    "phase": "breaking",
+    "jar": "jaxb-impl-4.0.0.jar",
+    "services": {
+      "META-INF/services/jakarta.xml.bind.JAXBContextFactory": "org.glassfish.jaxb.runtime.v2.JAXBContextFactory\n"
+    },
+    "classes": {
+      "com/sun/xml/bind/v2/ContextFactory.class": false,
+      "com/sun/xml/internal/bind/v2/ContextFactory.class": false,
+      "org/glassfish/jaxb/runtime/v2/ContextFactory.class": true,
+      "javax/xml/bind/JAXBContext.class": false,
+      "jakarta/xml/bind/JAXBContext.class": false
+    }
+  }
+]

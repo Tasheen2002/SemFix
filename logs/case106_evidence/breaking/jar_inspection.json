@@ -1,0 +1,124 @@
+{
+  "case_id": "90df9018630b8f8248f332e747d88254d99da1c9",
+  "phase": "breaking",
+  "path_filter": "/org/apache/poi/(poi|poi-ooxml|poi-scratchpad|poi-ooxml-lite)/",
+  "path_source": "Fresh test report classpaths or retained runner events; Case 106 PRE uses explicit POM versions because successful runner events are deleted",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/poi/poi-ooxml-lite/5.2.0/poi-ooxml-lite-5.2.0.jar",
+      "sha256": "97133fdf1d1f7ae5fc18369c1ab32e28164057e2e3602416e322ff4e887e7d52",
+      "classes": {
+        "org.apache.poi.extractor.POITextExtractor": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.poi.ooxml.extractor.POIXMLTextExtractor": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.poi.poifs.crypt.agile.AgileEncryptionInfoBuilder": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/poi/poi-ooxml/5.2.0/poi-ooxml-5.2.0.jar",
+      "sha256": "e4cd8ca11c7958675df366d7d33ad29146f04ea1de837ccd0c4d80ae1a2ff376",
+      "classes": {
+        "org.apache.poi.extractor.POITextExtractor": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.poi.ooxml.extractor.POIXMLTextExtractor": {
+          "present": true,
+          "major_version": 52
+        },
+        "org.apache.poi.poifs.crypt.agile.AgileEncryptionInfoBuilder": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/org.apache.poi.extractor.ExtractorProvider": "# ====================================================================\n#  Licensed to the Apache Software Foundation (ASF) under one or more\n#  contributor license agreements.  See the NOTICE file distributed with\n#  this work for additional information regarding copyright ownership.\n#  The ASF licenses this file to You under the Apache License, Version 2.0\n#  (the \"License\"); you may not use this file except in compliance with\n#  the License.  You may obtain a copy of the License at\n#\n#      http://www.apache.org/licenses/LICENSE-2.0\n#\n#  Unless required by applicable law or agreed to in writing, software\n#  distributed under the License is distributed on an \"AS IS\" BASIS,\n#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n#  See the License for the specific language governing permissions and\n#  limitations under the License.\n# ====================================================================\n\norg.apache.poi.ooxml.extractor.POIXMLExtractorFactory",
+        "META-INF/services/org.apache.poi.sl.draw.ImageRenderer": "# ====================================================================\n#  Licensed to the Apache Software Foundation (ASF) under one or more\n#  contributor license agreements.  See the NOTICE file distributed with\n#  this work for additional information regarding copyright ownership.\n#  The ASF licenses this file to You under the Apache License, Version 2.0\n#  (the \"License\"); you may not use this file except in compliance with\n#  the License.  You may obtain a copy of the License at\n#\n#      http://www.apache.org/licenses/LICENSE-2.0\n#\n#  Unless required by applicable law or agreed to in writing, software\n#  distributed under the License is distributed on an \"AS IS\" BASIS,\n#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n#  See the License for the specific language governing permissions and\n#  limitations under the License.\n# ====================================================================\n\norg.apache.poi.xslf.draw.SVGImageRenderer",
+        "META-INF/services/org.apache.poi.sl.usermodel.MetroShapeProvider": "# ====================================================================\n#  Licensed to the Apache Software Foundation (ASF) under one or more\n#  contributor license agreements.  See the NOTICE file distributed with\n#  this work for additional information regarding copyright ownership.\n#  The ASF licenses this file to You under the Apache License, Version 2.0\n#  (the \"License\"); you may not use this file except in compliance with\n#  the License.  You may obtain a copy of the License at\n#\n#      http://www.apache.org/licenses/LICENSE-2.0\n#\n#  Unless required by applicable law or agreed to in writing, software\n#  distributed under the License is distributed on an \"AS IS\" BASIS,\n#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n#  See the License for the specific language governing permissions and\n#  limitations under the License.\n# ====================================================================\n\norg.apache.poi.xslf.usermodel.XSLFMetroShape",
+        "META-INF/services/org.apache.poi.sl.usermodel.SlideShowProvider": "# ====================================================================\n#  Licensed to the Apache Software Foundation (ASF) under one or more\n#  contributor license agreements.  See the NOTICE file distributed with\n#  this work for additional information regarding copyright ownership.\n#  The ASF licenses this file to You under the Apache License, Version 2.0\n#  (the \"License\"); you may not use this file except in compliance with\n#  the License.  You may obtain a copy of the License at\n#\n#      http://www.apache.org/licenses/LICENSE-2.0\n#\n#  Unless required by applicable law or agreed to in writing, software\n#  distributed under the License is distributed on an \"AS IS\" BASIS,\n#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n#  See the License for the specific language governing permissions and\n#  limitations under the License.\n# ====================================================================\n\norg.apache.poi.xslf.usermodel.XSLFSlideShowFactory",
+        "META-INF/services/org.apache.poi.ss.usermodel.WorkbookProvider": "# ====================================================================\n#  Licensed to the Apache Software Foundation (ASF) under one or more\n#  contributor license agreements.  See the NOTICE file distributed with\n#  this work for additional information regarding copyright ownership.\n#  The ASF licenses this file to You under the Apache License, Version 2.0\n#  (the \"License\"); you may not use this file except in compliance with\n#  the License.  You may obtain a copy of the License at\n#\n#      http://www.apache.org/licenses/LICENSE-2.0\n#\n#  Unless required by applicable law or agreed to in writing, software\n#  distributed under the License is distributed on an \"AS IS\" BASIS,\n#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n#  See the License for the specific language governing permissions and\n#  limitations under the License.\n# ====================================================================\n\norg.apache.poi.xssf.usermodel.XSSFWorkbookFactory"
+      },
+      "disassemblies": [
+        {
+          "class": "org.apache.poi.ooxml.extractor.POIXMLTextExtractor",
+          "file": "poi-ooxml-5.2.0_POIXMLTextExtractor_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case106_evidence\\breaking\\jars\\poi-ooxml-5.2.0.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.apache.poi.ooxml.extractor.POIXMLTextExtractor"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/poi/poi-scratchpad/4.1.2/poi-scratchpad-4.1.2.jar",
+      "sha256": "4ad6a0579a0a216ff951a80f11c648792268189591fe86015b9d197d650424f3",
+      "classes": {
+        "org.apache.poi.extractor.POITextExtractor": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.poi.ooxml.extractor.POIXMLTextExtractor": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.poi.poifs.crypt.agile.AgileEncryptionInfoBuilder": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/poi/poi/4.1.2/poi-4.1.2.jar",
+      "sha256": "ab1612406541968434044b2defad58aa8b657cad073baa22a04faaf9d7fb9d1c",
+      "classes": {
+        "org.apache.poi.extractor.POITextExtractor": {
+          "present": true,
+          "major_version": 52
+        },
+        "org.apache.poi.ooxml.extractor.POIXMLTextExtractor": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.poi.poifs.crypt.agile.AgileEncryptionInfoBuilder": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.apache.poi.extractor.POITextExtractor",
+          "file": "poi-4.1.2_POITextExtractor_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case106_evidence\\breaking\\jars\\poi-4.1.2.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.apache.poi.extractor.POITextExtractor"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+=== CASE 50 44a15fa526c10b0c39d8d7337b833d42448fcca4
+  project=dadoonet/fscrawler dep=org.apache.poi:poi 4.1.2 -> 5.2.1 scope=compile type=major java=11
+  PR=https://github.com/dadoonet/fscrawler/pull/1398
+  PRE log logs/batch_triage/44a15fa5_pre.log:
+  lines=763
+  status: [INFO] BUILD SUCCESS
+  reactor: FSCrawler   SUCCESS [  0.264 s]; FSCrawler Test Framework   SUCCESS [  8.379 s]; FSCrawler Framework   SUCCESS [  2.063 s]; FSCrawler Settings   SUCCESS [  7.755 s]; FSCrawler Test Documents   SUCCESS [  0.050 s]; FSCrawler Beans   SUCCESS [  3.565 s]; FSCrawler 3rd Party libraries   SUCCESS [  0.003 s]; FSCrawler Workplace Search Client   SUCCESS [  0.428 s]; FSCrawler Elasticsearch Client   SUCCESS [  4.499 s]; FSCrawler Tika   SUCCESS [ 18.445 s]; FSCrawler Crawlers   SUCCESS [  0.012 s]; FSCrawler Abstract Crawler   SUCCESS [  0.155 s]; FSCrawler Crawlers: FS   SUCCESS [  0.251 s]; FSCrawler Crawlers: FTP   SUCCESS [  4.173 s]; FSCrawler Crawlers: SSH   SUCCESS [  3.015 s]; FSCrawler Core   SUCCESS [  4.563 s]; FSCrawler Rest Server   SUCCESS [  0.928 s]; FSCrawler Integration Tests   SUCCESS [  2.117 s]; FSCrawler Cli   SUCCESS [  1.083 s]; FSCrawler ZIP Distribution   SUCCESS [  0.
+  BREAKING log logs/batch_triage/44a15fa5_breaking.log:
+  lines=579
+  status: [INFO] BUILD FAILURE
+  reactor: FSCrawler   SUCCESS [  0.276 s]; FSCrawler Test Framework   SUCCESS [  6.237 s]; FSCrawler Framework   SUCCESS [  1.776 s]; FSCrawler Settings   SUCCESS [  7.304 s]; FSCrawler Test Documents   SUCCESS [  0.051 s]; FSCrawler Beans   SUCCESS [  2.708 s]; FSCrawler 3rd Party libraries   SUCCESS [  0.003 s]; FSCrawler Workplace Search Client   SUCCESS [  0.269 s]; FSCrawler Elasticsearch Client   SUCCESS [  3.793 s]; FSCrawler Tika   FAILURE [ 17.435 s]; FSCrawler Crawlers   SKIPPED; FSCrawler Abstract Crawler   SKIPPED; FSCrawler Crawlers: FS   SKIPPED; FSCrawler Crawlers: FTP   SKIPPED; FSCrawler Crawlers: SSH   SKIPPED; FSCrawler Core   SKIPPED; FSCrawler Rest Server   SKIPPED; FSCrawler Integration Tests   SKIPPED; FSCrawler Cli   SKIPPED; FSCrawler ZIP Distribution   SKIPPED; FSCrawler Documentation   SKIPPED; BUILD FAILURE
+  exception names: java.lang.AssertionErrorx4
+  EVIDENCE logs/case50_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/poi-5.2.1.jar, breaking/poi-ooxml-4.1.2.jar, breaking/poi-scratchpad-4.1.2.jar, breaking/runner-events/tika__junit4-J0-20261109_082232_96411516642312224328097.events, breaking/runner-events/tika__junit4-J0-20261109_082232_9641672300532960774704.suites, breaking/runner-events/tika__junit4-J1-20261109_082232_96517794782328130680562.suites, breaking/runner-events/tika__junit4-J1-20261109_082232_9656202367359566050762.events, poi_field_javap.txt, poi_type_javap.txt, pre/archive_summary.json, pre/artifacts.tar, pre/poi-4.1.2.jar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=0 sum(t,f,e,s)=[0, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=0 sum(t,f,e,s)=[0, 0, 0, 0]
+  archived non-report files: pre=347 breaking=347 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -658,3 +658,3 @@
+                     <artifactId>poi</artifactId>
+    -                <version>4.1.2</version>
+    +                <version>5.2.1</version>
+                 </dependency>

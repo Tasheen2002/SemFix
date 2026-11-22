@@ -1,0 +1,105 @@
+=== CASE 42 3b26e04706e255544d99886b643936cfff6e2aeb
+  project=camunda-community-hub/camunda-platform-7-camel dep=jakarta.xml.bind:jakarta.xml.bind-api 2.3.2 -> 4.0.0 scope=compile type=major java=11
+  PR=https://github.com/camunda-community-hub/camunda-platform-7-camel/pull/114
+  PRE log logs/batch_triage/3b26e047_pre.log:
+  lines=182
+  status: [INFO] BUILD SUCCESS
+  reactor: camunda BPM - Apache Camel Integration   SUCCESS [  0.422 s]; camunda BPM - Apache Camel Integration (Common)   SUCCESS [ 27.835 s]; camunda BPM - Apache Camel Integration (Common Test Resources) SUCCESS [  0.439 s]; camunda BPM - Apache Camel Integration (Spring)   SUCCESS [ 53.940 s]; BUILD SUCCESS
+  aggregate summaries: Tests run: 25, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 17, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: WARNING: An illegal reflective access operation has occurred
+  BREAKING log logs/batch_triage/3b26e047_breaking.log:
+  lines=1347
+  status: [INFO] BUILD FAILURE
+  reactor: camunda BPM - Apache Camel Integration   SUCCESS [  0.298 s]; camunda BPM - Apache Camel Integration (Common)   SUCCESS [ 18.434 s]; camunda BPM - Apache Camel Integration (Common Test Resources) SUCCESS [  0.866 s]; camunda BPM - Apache Camel Integration (Spring)   FAILURE [ 28.622 s]; BUILD FAILURE
+  aggregate summaries: Tests run: 25, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 17, Failures: 0, Errors: 16, Skipped: 0
+  failing classes: Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 5.094 s <<< FAILURE! - in org.camunda.bpm.camel.spring.StartProcessFromRouteTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.329 s <<< FAILURE! - in org.camunda.bpm.camel.spring.SendToCamelTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.171 s <<< FAILURE! - in org.camunda.bpm.camel.spring.ReceiveFromCamelTest || Tests run: 10, Failures: 0, Errors: 10, Skipped: 0, Time elapsed: 1.793 s <<< FAILURE! - in org.camunda.bpm.camel.spring.ConsumeExternalTasksTest
+  section: Errors: | ConsumeExternalTasksTest.testAsyncIsTrueAndLockDuration » IllegalState Failed ... | ConsumeExternalTasksTest.testBpmnError » IllegalState Failed to load Applicati... | ConsumeExternalTasksTest.testCompleteTaskFailure » IllegalState Failed to load... | ConsumeExternalTasksTest.testCompleteTaskOnCompletionFailure » IllegalState Fa... | ConsumeExternalTasksTest.testCompleteTaskOnCompletionSucessfully » IllegalState | ConsumeExternalTasksTest.testCompleteTaskSucessfully » IllegalState Failed to ... | ConsumeExternalTasksTest.testIncidentAndRetryTimeouts » IllegalState Failed to... | ConsumeExternalTasksTest.testLoadNoProcessVariablesAndAsyncIsFalse » IllegalState | ConsumeExternalTasksTest.testSetExternalTaskRetriesAnnotation » IllegalState F... | ConsumeExternalTasksTest.testSetProcessVariables » IllegalState Failed to load... | ReceiveFromCamelTest.doTest » IllegalState Failed to load ApplicationContext | SendToCamelTest.doTest » IllegalState Failed to load ApplicationContext | StartProcessFromRouteTest.doTest » IllegalState Failed to load ApplicationCont...
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project camunda-bpm-camel-spring: There are test failures.
+  FAILBLOCK: [ERROR] doTest(org.camunda.bpm.camel.spring.StartProcessFromRouteTest)  Time elapsed: 0.041 s  <<< ERROR!
+      java.lang.IllegalStateException: Failed to load ApplicationContext
+      at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
+      at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
+      at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+      at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+      at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:244)
+      Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: Unexpected exception parsing XML document from class path resource [start-process-from-route-config.xml]; nested exception is org.springframework.beans.BeanInstantiationException: Faile
+      Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.camel.spring.xml.handler.CamelNamespaceHandler]: Unresolvable class definition; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+      Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+      Caused by: java.lang.ClassNotFoundException: javax.xml.bind.JAXBException
+  distinct fail signatures (count): 16x java.lang.IllegalStateException: Failed to load ApplicationContext
+  provider/console lines: WARNING: An illegal reflective access operation has occurred
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx48, org.springframework.beans.BeanInstantiationExceptionx32, java.lang.IllegalStateExceptionx16, org.springframework.beans.factory.BeanDefinitionStoreExceptionx16, java.lang.ClassNotFoundExceptionx16, javax.xml.bind.JAXBExceptionx16
+  EVIDENCE logs/case42_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/jakarta.xml.bind-api-4.0.0.jar, pre/archive_summary.json, pre/artifacts.tar, pre/jakarta.xml.bind-api-2.3.2.jar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=10 sum(t,f,e,s)=[42, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=10 sum(t,f,e,s)=[42, 0, 16, 0]
+  archived non-report files: pre=94 breaking=94 changed=1 added=0 removed=0
+  DIFF camunda-bpm-camel-spring/pom.xml (7 lines):
+    @@ -169,3 +169,3 @@
+           <artifactId>jakarta.xml.bind-api</artifactId>
+    -      <version>2.3.2</version>
+    +      <version>4.0.0</version>
+         </dependency>
+  BREAKING surefire failures/errors:
+    ERROR org.camunda.bpm.camel.spring.ConsumeExternalTasksTest#testSetExternalTaskRetriesAnnotation type=java.lang.IllegalStateException msg=Failed to load ApplicationContext
+       Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: Unexpected exception parsing XML document from class path resource [consume-external-tasks-config.xml]; nested exception is org.springframework.beans.BeanInstantiationExceptio
+       Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.camel.spring.xml.handler.CamelNamespaceHandler]: Unresolvable class definition; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXB
+       Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
+       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+    ERROR org.camunda.bpm.camel.spring.ConsumeExternalTasksTest#testBpmnError type=java.lang.IllegalStateException msg=Failed to load ApplicationContext
+       Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: Unexpected exception parsing XML document from class path resource [consume-external-tasks-config.xml]; nested exception is org.springframework.beans.BeanInstantiationExceptio
+       Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.camel.spring.xml.handler.CamelNamespaceHandler]: Unresolvable class definition; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXB
+       Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
+       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+    ERROR org.camunda.bpm.camel.spring.ConsumeExternalTasksTest#testCompleteTaskSucessfully type=java.lang.IllegalStateException msg=Failed to load ApplicationContext
+       Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: Unexpected exception parsing XML document from class path resource [consume-external-tasks-config.xml]; nested exception is org.springframework.beans.BeanInstantiationExceptio
+       Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.camel.spring.xml.handler.CamelNamespaceHandler]: Unresolvable class definition; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXB
+       Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
+       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+    ERROR org.camunda.bpm.camel.spring.ConsumeExternalTasksTest#testSetProcessVariables type=java.lang.IllegalStateException msg=Failed to load ApplicationContext
+       Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: Unexpected exception parsing XML document from class path resource [consume-external-tasks-config.xml]; nested exception is org.springframework.beans.BeanInstantiationExceptio
+       Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.camel.spring.xml.handler.CamelNamespaceHandler]: Unresolvable class definition; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXB
+       Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
+       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+    ERROR org.camunda.bpm.camel.spring.ConsumeExternalTasksTest#testCompleteTaskOnCompletionFailure type=java.lang.IllegalStateException msg=Failed to load ApplicationContext
+       Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: Unexpected exception parsing XML document from class path resource [consume-external-tasks-config.xml]; nested exception is org.springframework.beans.BeanInstantiationExceptio
+       Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.camel.spring.xml.handler.CamelNamespaceHandler]: Unresolvable class definition; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXB
+       Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
+       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+    ERROR org.camunda.bpm.camel.spring.ConsumeExternalTasksTest#testAsyncIsTrueAndLockDuration type=java.lang.IllegalStateException msg=Failed to load ApplicationContext
+       Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: Unexpected exception parsing XML document from class path resource [consume-external-tasks-config.xml]; nested exception is org.springframework.beans.BeanInstantiationExceptio
+       Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.camel.spring.xml.handler.CamelNamespaceHandler]: Unresolvable class definition; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXB
+       Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
+       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+    ERROR org.camunda.bpm.camel.spring.ConsumeExternalTasksTest#testCompleteTaskFailure type=java.lang.IllegalStateException msg=Failed to load ApplicationContext
+       Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: Unexpected exception parsing XML document from class path resource [consume-external-tasks-config.xml]; nested exception is org.springframework.beans.BeanInstantiationExceptio
+       Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.camel.spring.xml.handler.CamelNamespaceHandler]: Unresolvable class definition; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXB
+       Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
+       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+    ERROR org.camunda.bpm.camel.spring.ConsumeExternalTasksTest#testLoadNoProcessVariablesAndAsyncIsFalse type=java.lang.IllegalStateException msg=Failed to load ApplicationContext
+       Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: Unexpected exception parsing XML document from class path resource [consume-external-tasks-config.xml]; nested exception is org.springframework.beans.BeanInstantiationExceptio
+       Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.camel.spring.xml.handler.CamelNamespaceHandler]: Unresolvable class definition; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXB
+       Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+    ... truncated (128 lines)

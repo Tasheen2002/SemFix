@@ -1,0 +1,181 @@
+Unable to find image 'ghcr.io/chains-project/breaking-updates:3b26e04706e255544d99886b643936cfff6e2aeb-pre' locally
+3b26e04706e255544d99886b643936cfff6e2aeb-pre: Pulling from chains-project/breaking-updates
+e0363623f0ec: Pulling fs layer
+7941be9dba29: Pulling fs layer
+7941be9dba29: Download complete
+7941be9dba29: Pull complete
+e0363623f0ec: Download complete
+e0363623f0ec: Pull complete
+Digest: sha256:313269c5a012a81fba4c3e7681aa445d07b3771e1e3fb9d6d1b72682bb76a958
+Status: Downloaded newer image for ghcr.io/chains-project/breaking-updates:3b26e04706e255544d99886b643936cfff6e2aeb-pre
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 4 modules...
+[INFO] Not installing Nexus Staging features:
+[INFO]  * Preexisting staging related goal bindings found in 4 modules.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] camunda BPM - Apache Camel Integration                             [pom]
+[INFO] camunda BPM - Apache Camel Integration (Common)                    [jar]
+[INFO] camunda BPM - Apache Camel Integration (Common Test Resources)     [jar]
+[INFO] camunda BPM - Apache Camel Integration (Spring)                    [jar]
+[INFO] 
+[INFO] ---------< org.camunda.bpm.extension.camel:camunda-bpm-camel >----------
+[INFO] Building camunda BPM - Apache Camel Integration 0.9.0-SNAPSHOT     [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ camunda-bpm-camel ---
+[INFO] 
+[INFO] ------< org.camunda.bpm.extension.camel:camunda-bpm-camel-common >------
+[INFO] Building camunda BPM - Apache Camel Integration (Common) 0.9.0-SNAPSHOT [2/4]
+[INFO]   from camunda-bpm-camel-common/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ camunda-bpm-camel-common ---
+[INFO] Deleting /camunda-platform-7-camel/camunda-bpm-camel-common/target
+[INFO] 
+[INFO] --- bundle:5.1.2:cleanVersions (default) @ camunda-bpm-camel-common ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ camunda-bpm-camel-common ---
+[INFO] skip non existing resourceDirectory /camunda-platform-7-camel/camunda-bpm-camel-common/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ camunda-bpm-camel-common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to /camunda-platform-7-camel/camunda-bpm-camel-common/target/classes
+[INFO] /camunda-platform-7-camel/camunda-bpm-camel-common/src/main/java/org/camunda/bpm/camel/component/producer/StartProcessProducer.java: Some input files use or override a deprecated API.
+[INFO] /camunda-platform-7-camel/camunda-bpm-camel-common/src/main/java/org/camunda/bpm/camel/component/producer/StartProcessProducer.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- bundle:5.1.2:manifest (bundle-manifest) @ camunda-bpm-camel-common ---
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ camunda-bpm-camel-common ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ camunda-bpm-camel-common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /camunda-platform-7-camel/camunda-bpm-camel-common/target/test-classes
+[INFO] /camunda-platform-7-camel/camunda-bpm-camel-common/src/test/java/org/camunda/bpm/camel/component/producer/MessageProducerTest.java: Some input files use or override a deprecated API.
+[INFO] /camunda-platform-7-camel/camunda-bpm-camel-common/src/test/java/org/camunda/bpm/camel/component/producer/MessageProducerTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ camunda-bpm-camel-common ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.camunda.bpm.camel.component.producer.MessageProducerTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.424 s - in org.camunda.bpm.camel.component.producer.MessageProducerTest
+[INFO] Running org.camunda.bpm.camel.component.producer.SignalProcessProducerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.camunda.bpm.camel.component.producer.SignalProcessProducerTest
+[INFO] Running org.camunda.bpm.camel.component.producer.StartProcessProducerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 s - in org.camunda.bpm.camel.component.producer.StartProcessProducerTest
+[INFO] Running org.camunda.bpm.camel.common.UriParsingTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.camunda.bpm.camel.common.UriParsingTest
+[INFO] Running org.camunda.bpm.camel.common.CamelServiceTest
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.powermock.reflect.internal.WhiteboxImpl (file:/root/.m2/repository/org/powermock/powermock-reflect/2.0.9/powermock-reflect-2.0.9.jar) to method java.lang.Object.clone()
+WARNING: Please consider reporting this to the maintainers of org.powermock.reflect.internal.WhiteboxImpl
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.912 s - in org.camunda.bpm.camel.common.CamelServiceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ---< org.camunda.bpm.extension.camel:camunda-bpm-camel-common-tests >---
+[INFO] Building camunda BPM - Apache Camel Integration (Common Test Resources) 0.9.0-SNAPSHOT [3/4]
+[INFO]   from camunda-bpm-camel-common-tests/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ camunda-bpm-camel-common-tests ---
+[INFO] Deleting /camunda-platform-7-camel/camunda-bpm-camel-common-tests/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ camunda-bpm-camel-common-tests ---
+[INFO] Copying 9 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ camunda-bpm-camel-common-tests ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /camunda-platform-7-camel/camunda-bpm-camel-common-tests/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ camunda-bpm-camel-common-tests ---
+[INFO] skip non existing resourceDirectory /camunda-platform-7-camel/camunda-bpm-camel-common-tests/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ camunda-bpm-camel-common-tests ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ camunda-bpm-camel-common-tests ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] ------< org.camunda.bpm.extension.camel:camunda-bpm-camel-spring >------
+[INFO] Building camunda BPM - Apache Camel Integration (Spring) 0.9.0-SNAPSHOT [4/4]
+[INFO]   from camunda-bpm-camel-spring/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact org.slf4j:slf4j-log4j12:jar:1.7.36 has been relocated to org.slf4j:slf4j-reload4j:jar:1.7.36
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ camunda-bpm-camel-spring ---
+[INFO] Deleting /camunda-platform-7-camel/camunda-bpm-camel-spring/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ camunda-bpm-camel-spring ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ camunda-bpm-camel-spring ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /camunda-platform-7-camel/camunda-bpm-camel-spring/target/classes
+[INFO] /camunda-platform-7-camel/camunda-bpm-camel-spring/src/main/java/org/camunda/bpm/camel/spring/CamelServiceImpl.java: /camunda-platform-7-camel/camunda-bpm-camel-spring/src/main/java/org/camunda/bpm/camel/spring/CamelServiceImpl.java uses or overrides a deprecated API.
+[INFO] /camunda-platform-7-camel/camunda-bpm-camel-spring/src/main/java/org/camunda/bpm/camel/spring/CamelServiceImpl.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ camunda-bpm-camel-spring ---
+[INFO] Copying 15 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ camunda-bpm-camel-spring ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 14 source files to /camunda-platform-7-camel/camunda-bpm-camel-spring/target/test-classes
+[INFO] /camunda-platform-7-camel/camunda-bpm-camel-spring/src/test/java/org/camunda/bpm/camel/spring/StartProcessFromRouteTest.java: /camunda-platform-7-camel/camunda-bpm-camel-spring/src/test/java/org/camunda/bpm/camel/spring/StartProcessFromRouteTest.java uses unchecked or unsafe operations.
+[INFO] /camunda-platform-7-camel/camunda-bpm-camel-spring/src/test/java/org/camunda/bpm/camel/spring/StartProcessFromRouteTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ camunda-bpm-camel-spring ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.camunda.bpm.camel.spring.StartProcessFromRouteTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.984 s - in org.camunda.bpm.camel.spring.StartProcessFromRouteTest
+[INFO] Running org.camunda.bpm.camel.spring.SmokeTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.364 s - in org.camunda.bpm.camel.spring.SmokeTest
+[INFO] Running org.camunda.bpm.camel.spring.SendToCamelTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.01 s - in org.camunda.bpm.camel.spring.SendToCamelTest
+[INFO] Running org.camunda.bpm.camel.spring.ReceiveFromCamelTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.322 s - in org.camunda.bpm.camel.spring.ReceiveFromCamelTest
+[INFO] Running org.camunda.bpm.camel.spring.ConsumeExternalTasksTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.791 s - in org.camunda.bpm.camel.spring.ConsumeExternalTasksTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for camunda BPM - Apache Camel Integration 0.9.0-SNAPSHOT:
+[INFO] 
+[INFO] camunda BPM - Apache Camel Integration ............. SUCCESS [  0.422 s]
+[INFO] camunda BPM - Apache Camel Integration (Common) .... SUCCESS [ 27.835 s]
+[INFO] camunda BPM - Apache Camel Integration (Common Test Resources) SUCCESS [  0.439 s]
+[INFO] camunda BPM - Apache Camel Integration (Spring) .... SUCCESS [ 53.940 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:27 min
+[INFO] Finished at: 2026-11-09T07:49:37Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-clean-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.2
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING]  * org.apache.felix:maven-bundle-plugin:5.1.2
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 

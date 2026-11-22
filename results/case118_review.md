@@ -1,0 +1,9 @@
+# Case 118 review
+
+pay-cardid updates dropwizard-sentry from 2.1.2-4 to 4.0.1-3. The root POM version is the sole archived source/POM change. The update also changes Sentry and sentry-logback from 6.5.0 to 6.24.0. Dropwizard Logging remains at 2.1.6, and the unchanged YAML requests the sentry appender.
+
+Both original images were run. PRE succeeds with 47 tests and no failures, errors or skips. BREAKING reports 37 tests, no failures, one error and no skips. Maven and six fresh Surefire XML reports per phase agree. CardIdResourceITest aborts during setup with ConfigurationParsingException wrapping InvalidTypeIdException: sentry cannot be resolved as a subtype of io.dropwizard.logging.AppenderFactory. The smaller reported count reflects initialization aborting, not passing or skipped tests.
+
+The actual old Sentry JAR registers META-INF/services/io.dropwizard.logging.AppenderFactory. The updated JAR registers META-INF/services/io.dropwizard.logging.common.AppenderFactory instead, and disassembly shows SentryAppenderFactory extends the newer common.AbstractAppenderFactory. Retained Dropwizard Logging 2.1.6 exposes the older interface and discovery descriptor. The upgraded provider does not match that interface/registration contract, preventing subtype discovery.
+
+This supports a NON_BEHAVIORAL assessment for a missing compatible provider across incompatible Dropwizard generations. The binary flag is NO because the observed initiating error is subtype lookup, not an executed missing-class/method linkage failure. Independent human review remains pending; reviewer/final labels are blank. Service descriptors, class signatures, both original runs, source and fresh reports are preserved. Explicit Maven output establishes outcomes because the tee pipeline masks Maven failures in Docker's exit code. No repair was attempted.

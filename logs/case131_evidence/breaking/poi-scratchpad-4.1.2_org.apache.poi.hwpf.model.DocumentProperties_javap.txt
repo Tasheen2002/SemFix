@@ -1,0 +1,78 @@
+Compiled from "DocumentProperties.java"
+public final class org.apache.poi.hwpf.model.DocumentProperties extends org.apache.poi.hwpf.model.types.DOPAbstractType {
+  private static final int MAX_RECORD_LENGTH;
+    descriptor: I
+
+  private byte[] _preserved;
+    descriptor: [B
+
+  public org.apache.poi.hwpf.model.DocumentProperties(byte[], int);
+    descriptor: ([BI)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: invokestatic  #1                  // Method org/apache/poi/hwpf/model/types/DOPAbstractType.getSize:()I
+       6: invokespecial #2                  // Method "<init>":([BII)V
+       9: return
+
+  public org.apache.poi.hwpf.model.DocumentProperties(byte[], int, int);
+    descriptor: ([BII)V
+    Code:
+       0: aload_0
+       1: invokespecial #3                  // Method org/apache/poi/hwpf/model/types/DOPAbstractType."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: iload_2
+       7: invokespecial #4                  // Method org/apache/poi/hwpf/model/types/DOPAbstractType.fillFields:([BI)V
+      10: invokestatic  #1                  // Method org/apache/poi/hwpf/model/types/DOPAbstractType.getSize:()I
+      13: istore        4
+      15: iload_3
+      16: iload         4
+      18: if_icmpeq     42
+      21: aload_0
+      22: aload_1
+      23: iload_2
+      24: iload         4
+      26: iadd
+      27: iload_3
+      28: iload         4
+      30: isub
+      31: ldc           #6                  // int 100000
+      33: invokestatic  #7                  // Method org/apache/poi/util/LittleEndian.getByteArray:([BIII)[B
+      36: putfield      #8                  // Field _preserved:[B
+      39: goto          49
+      42: aload_0
+      43: iconst_0
+      44: newarray       byte
+      46: putfield      #8                  // Field _preserved:[B
+      49: return
+
+  public void serialize(byte[], int);
+    descriptor: ([BI)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iload_2
+       3: invokespecial #9                  // Method org/apache/poi/hwpf/model/types/DOPAbstractType.serialize:([BI)V
+       6: return
+
+  public void writeTo(java.io.ByteArrayOutputStream) throws java.io.IOException;
+    descriptor: (Ljava/io/ByteArrayOutputStream;)V
+    Code:
+       0: invokestatic  #10                 // Method getSize:()I
+       3: newarray       byte
+       5: astore_2
+       6: aload_0
+       7: aload_2
+       8: iconst_0
+       9: invokevirtual #11                 // Method serialize:([BI)V
+      12: aload_1
+      13: aload_2
+      14: invokevirtual #12                 // Method java/io/ByteArrayOutputStream.write:([B)V
+      17: aload_1
+      18: aload_0
+      19: getfield      #8                  // Field _preserved:[B
+      22: invokevirtual #12                 // Method java/io/ByteArrayOutputStream.write:([B)V
+      25: return
+}

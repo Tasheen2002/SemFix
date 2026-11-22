@@ -1,0 +1,674 @@
+candidate_number,case_id,project,organisation,dependency_group,dependency_artifact,previous_version,new_version,dependency_scope,version_update_type,java_version,bump_failure_category,pull_request_url,pre_exit_code,pre_timeout,pre_duration_seconds,pre_build_success,pre_build_failure,pre_compilation_error,pre_tests,pre_failures,pre_errors,pre_skipped,pre_all_test_summaries,pre_log,breaking_exit_code,breaking_timeout,breaking_duration_seconds,breaking_build_success,breaking_build_failure,breaking_compilation_error,breaking_tests,breaking_failures,breaking_errors,breaking_skipped,breaking_all_test_summaries,assertion_signal,binary_linkage_signal,linkage_types,runtime_exception_signal,runtime_exception_types,exception_names,important_log_lines,breaking_log,auto_triage,human_review_status,reviewer_1_label,reviewer_2_label,final_label,notes
+12,1266a8c84cd04cedfa316bed94b1e9b014da872f,pay-adminusers,alphagov,org.slf4j,slf4j-api,1.7.36,2.0.1,compile,major,11,TEST_FAILURE,https://github.com/alphagov/pay-adminusers/pull/1591,0,False,36.86,True,False,False,757,0,0,0,"[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s - in uk.gov.pay.adminusers.persistence.entity.InviteTypeConverterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in uk.gov.pay.adminusers.persistence.entity.InviteExpiryTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in uk.gov.pay.adminusers.persistence.entity.SecondFactorMethodConverterTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in uk.gov.pay.adminusers.persistence.entity.ServiceEntityTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.219 s - in uk.gov.pay.adminusers.resources.ResetPasswordValidatorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.493 s - in uk.gov.pay.adminusers.resources.StripeAgreementRequestTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in uk.gov.pay.adminusers.resources.ForgottenPasswordValidatorTest
+[INFO] Tests run: 131, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.405 s - in uk.gov.pay.adminusers.resources.ServiceUpdateOperationValidatorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in uk.gov.pay.adminusers.resources.EmailRequestParserTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.236 s - in uk.gov.pay.adminusers.resources.HealthCheckResourceTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in uk.gov.pay.adminusers.resources.ServiceRequestValidatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in uk.gov.pay.adminusers.resources.RequestValidationsTest
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.114 s - in uk.gov.pay.adminusers.resources.UserRequestValidatorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in uk.gov.pay.adminusers.resources.EmailTemplateTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in uk.gov.pay.adminusers.resources.GovUkPayAgreementRequestValidatorTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in uk.gov.pay.adminusers.resources.InviteUserRequestValidatorTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.118 s - in uk.gov.pay.adminusers.service.ExistingUserOtpDispatcherTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.26 s - in uk.gov.pay.adminusers.service.NotificationServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in uk.gov.pay.adminusers.service.GovUkPayAgreementServiceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in uk.gov.pay.adminusers.service.AdminUsersExceptionsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.122 s - in uk.gov.pay.adminusers.service.UserCreatorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.122 s - in uk.gov.pay.adminusers.service.ForgottenPasswordServicesTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in uk.gov.pay.adminusers.service.SendLiveAccountCreatedEmailServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in uk.gov.pay.adminusers.service.LinksBuilderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in uk.gov.pay.adminusers.service.StripeAgreementServiceTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in uk.gov.pay.adminusers.service.InviteRouterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in uk.gov.pay.adminusers.service.ResetPasswordServiceTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in uk.gov.pay.adminusers.service.InviteFinderTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in uk.gov.pay.adminusers.service.ServiceRoleUpdaterTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 s - in uk.gov.pay.adminusers.service.ServiceUpdaterTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in uk.gov.pay.adminusers.service.ServiceFinderTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.403 s - in uk.gov.pay.adminusers.service.PasswordHasherTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in uk.gov.pay.adminusers.service.UserInviteCreatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in uk.gov.pay.adminusers.service.EmailServiceTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in uk.gov.pay.adminusers.service.UserInviteCompleterTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.1 s - in uk.gov.pay.adminusers.service.SecondFactorAuthenticatorTest
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.155 s - in uk.gov.pay.adminusers.service.UserServicesTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in uk.gov.pay.adminusers.service.ServiceUserRemoverTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in uk.gov.pay.adminusers.service.ServiceInviteCreatorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in uk.gov.pay.adminusers.service.ServiceCreatorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in uk.gov.pay.adminusers.service.ServiceRoleCreatorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in uk.gov.pay.adminusers.service.ServiceInviteCompleterTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in uk.gov.pay.adminusers.service.ServiceOtpDispatcherTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in uk.gov.pay.adminusers.service.UserOtpDispatcherTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in uk.gov.pay.adminusers.service.InviteServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in uk.gov.pay.adminusers.model.UpdateMerchantDetailsRequestTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in uk.gov.pay.adminusers.model.ServiceUpdateRequestTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in uk.gov.pay.adminusers.model.UserEntityTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in uk.gov.pay.adminusers.model.CreateUserRequestTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in uk.gov.pay.adminusers.model.ServiceSearchRequestTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in uk.gov.pay.adminusers.model.ServiceNameTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in uk.gov.pay.adminusers.queue.model.event.DisputeWonDetailsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in uk.gov.pay.adminusers.queue.model.event.DisputeEvidenceSubmittedDetailsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in uk.gov.pay.adminusers.queue.model.event.DisputeCreatedDetailsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in uk.gov.pay.adminusers.queue.model.event.DisputeLostDetailsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in uk.gov.pay.adminusers.queue.model.EventTypeTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 s - in uk.gov.pay.adminusers.queue.event.EventSubscriberQueueTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.31 s - in uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.178 s - in uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.388 s - in uk.gov.pay.adminusers.unit.service.ServiceResourceCreateTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.19 s - in uk.gov.pay.adminusers.unit.service.ServiceResourceSearchTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.663 s - in uk.gov.pay.adminusers.unit.service.ServiceResourceUpdateTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in uk.gov.pay.adminusers.utils.DateTimeUtilsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in uk.gov.pay.adminusers.utils.ComparatorsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in uk.gov.pay.adminusers.utils.currency.ConvertToCurrencyTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in uk.gov.pay.adminusers.utils.ErrorsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in uk.gov.pay.adminusers.utils.CountryConverterTest
+[INFO] Tests run: 121, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 s - in uk.gov.pay.adminusers.utils.email.EmailValidatorIsPublicSectorEmailTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in uk.gov.pay.adminusers.utils.date.DisputeEvidenceDueByDateUtilTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in uk.gov.pay.adminusers.utils.dispute.DisputeReasonMapperTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in uk.gov.pay.adminusers.utils.telephonenumber.TelephoneNumberUtilityFormatToE164ValidUnitedKingdomDataTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in uk.gov.pay.adminusers.utils.telephonenumber.TelephoneNumberUtilityFormatToE164InvalidDataTest
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s - in uk.gov.pay.adminusers.utils.telephonenumber.TelephoneNumberUtilityIsValidPhoneNumberTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in uk.gov.pay.adminusers.utils.telephonenumber.TelephoneNumberUtilityFormatToE164ValidDataTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.132 s - in uk.gov.pay.adminusers.client.ledger.service.LedgerServiceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.452 s - in uk.gov.pay.adminusers.client.ledger.service.LedgerServiceConsumerTest
+[INFO] Tests run: 757, Failures: 0, Errors: 0, Skipped: 0",C:\Users\TASHEEN\Desktop\Research Implementation\logs\batch_triage\1266a8c8_pre.log,0,False,93.94,False,True,False,726,0,12,0,"[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.1 s - in uk.gov.pay.adminusers.persistence.entity.InviteTypeConverterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in uk.gov.pay.adminusers.persistence.entity.InviteExpiryTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in uk.gov.pay.adminusers.persistence.entity.SecondFactorMethodConverterTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in uk.gov.pay.adminusers.persistence.entity.ServiceEntityTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.097 s - in uk.gov.pay.adminusers.resources.ResetPasswordValidatorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.555 s - in uk.gov.pay.adminusers.resources.StripeAgreementRequestTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in uk.gov.pay.adminusers.resources.ForgottenPasswordValidatorTest
+[INFO] Tests run: 131, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.667 s - in uk.gov.pay.adminusers.resources.ServiceUpdateOperationValidatorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in uk.gov.pay.adminusers.resources.EmailRequestParserTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.315 s - in uk.gov.pay.adminusers.resources.HealthCheckResourceTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s - in uk.gov.pay.adminusers.resources.ServiceRequestValidatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in uk.gov.pay.adminusers.resources.RequestValidationsTest
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.178 s - in uk.gov.pay.adminusers.resources.UserRequestValidatorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in uk.gov.pay.adminusers.resources.EmailTemplateTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in uk.gov.pay.adminusers.resources.GovUkPayAgreementRequestValidatorTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s - in uk.gov.pay.adminusers.resources.InviteUserRequestValidatorTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.189 s - in uk.gov.pay.adminusers.service.ExistingUserOtpDispatcherTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.475 s - in uk.gov.pay.adminusers.service.NotificationServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in uk.gov.pay.adminusers.service.GovUkPayAgreementServiceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in uk.gov.pay.adminusers.service.AdminUsersExceptionsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.17 s - in uk.gov.pay.adminusers.service.UserCreatorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.154 s - in uk.gov.pay.adminusers.service.ForgottenPasswordServicesTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in uk.gov.pay.adminusers.service.SendLiveAccountCreatedEmailServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 s - in uk.gov.pay.adminusers.service.LinksBuilderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s - in uk.gov.pay.adminusers.service.StripeAgreementServiceTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s - in uk.gov.pay.adminusers.service.InviteRouterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in uk.gov.pay.adminusers.service.ResetPasswordServiceTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in uk.gov.pay.adminusers.service.InviteFinderTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in uk.gov.pay.adminusers.service.ServiceRoleUpdaterTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.103 s - in uk.gov.pay.adminusers.service.ServiceUpdaterTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in uk.gov.pay.adminusers.service.ServiceFinderTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.514 s - in uk.gov.pay.adminusers.service.PasswordHasherTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in uk.gov.pay.adminusers.service.UserInviteCreatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in uk.gov.pay.adminusers.service.EmailServiceTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in uk.gov.pay.adminusers.service.UserInviteCompleterTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.088 s - in uk.gov.pay.adminusers.service.SecondFactorAuthenticatorTest
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.131 s - in uk.gov.pay.adminusers.service.UserServicesTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in uk.gov.pay.adminusers.service.ServiceUserRemoverTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in uk.gov.pay.adminusers.service.ServiceInviteCreatorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in uk.gov.pay.adminusers.service.ServiceCreatorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in uk.gov.pay.adminusers.service.ServiceRoleCreatorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in uk.gov.pay.adminusers.service.ServiceInviteCompleterTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in uk.gov.pay.adminusers.service.ServiceOtpDispatcherTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in uk.gov.pay.adminusers.service.UserOtpDispatcherTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 s - in uk.gov.pay.adminusers.service.InviteServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in uk.gov.pay.adminusers.model.UpdateMerchantDetailsRequestTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in uk.gov.pay.adminusers.model.ServiceUpdateRequestTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in uk.gov.pay.adminusers.model.UserEntityTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in uk.gov.pay.adminusers.model.CreateUserRequestTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in uk.gov.pay.adminusers.model.ServiceSearchRequestTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in uk.gov.pay.adminusers.model.ServiceNameTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in uk.gov.pay.adminusers.queue.model.event.DisputeWonDetailsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in uk.gov.pay.adminusers.queue.model.event.DisputeEvidenceSubmittedDetailsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in uk.gov.pay.adminusers.queue.model.event.DisputeCreatedDetailsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in uk.gov.pay.adminusers.queue.model.event.DisputeLostDetailsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in uk.gov.pay.adminusers.queue.model.EventTypeTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 s - in uk.gov.pay.adminusers.queue.event.EventSubscriberQueueTest
+[ERROR] Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.1 s <<< FAILURE! - in uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.263 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.081 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceCreateTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.054 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceSearchTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.046 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceUpdateTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in uk.gov.pay.adminusers.utils.DateTimeUtilsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in uk.gov.pay.adminusers.utils.ComparatorsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in uk.gov.pay.adminusers.utils.currency.ConvertToCurrencyTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in uk.gov.pay.adminusers.utils.ErrorsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in uk.gov.pay.adminusers.utils.CountryConverterTest
+[INFO] Tests run: 121, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 s - in uk.gov.pay.adminusers.utils.email.EmailValidatorIsPublicSectorEmailTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in uk.gov.pay.adminusers.utils.date.DisputeEvidenceDueByDateUtilTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in uk.gov.pay.adminusers.utils.dispute.DisputeReasonMapperTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in uk.gov.pay.adminusers.utils.telephonenumber.TelephoneNumberUtilityFormatToE164ValidUnitedKingdomDataTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in uk.gov.pay.adminusers.utils.telephonenumber.TelephoneNumberUtilityFormatToE164InvalidDataTest
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 s - in uk.gov.pay.adminusers.utils.telephonenumber.TelephoneNumberUtilityIsValidPhoneNumberTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in uk.gov.pay.adminusers.utils.telephonenumber.TelephoneNumberUtilityFormatToE164ValidDataTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s - in uk.gov.pay.adminusers.client.ledger.service.LedgerServiceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.209 s - in uk.gov.pay.adminusers.client.ledger.service.LedgerServiceConsumerTest
+[ERROR] Tests run: 726, Failures: 0, Errors: 12, Skipped: 0",False,False,,True,"ClassCastException, IllegalStateException","java.lang.ClassCastException, java.lang.ExceptionInInitializerError, java.lang.NoClassDefFoundError, java.lang.IllegalStateException, MojoFailureException","[ERROR] Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.1 s <<< FAILURE! - in uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest
+[ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldNotCallNotificationServiceWhenNoAdminUsersExist  Time elapsed: 0.072 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+[ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldHandleDisputeCreatedEvent  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+[ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldHandleDisputeWonEvent  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+[ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldNotCallNotificationServiceWhenTransactionDoesNotExist  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+[ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldHandleDisputeLostEvent  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+[ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldNotCallNotificationServiceWhenServiceDoesNotExist  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+[ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldMarkMessageAsProcessed  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+[ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldHandleDisputeEvidenceSubmittedEvent  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.263 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest
+[ERROR] uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest  Time elapsed: 10.263 s  <<< ERROR!
+Suppressed: java.lang.Exception: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest
+Caused by: java.lang.ExceptionInInitializerError
+Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.081 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceCreateTest
+[ERROR] uk.gov.pay.adminusers.unit.service.ServiceResourceCreateTest  Time elapsed: 10.081 s  <<< ERROR!
+Suppressed: java.lang.Exception: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceCreateTest
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceCreateTest
+Caused by: java.lang.ExceptionInInitializerError
+Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.054 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceSearchTest
+[ERROR] uk.gov.pay.adminusers.unit.service.ServiceResourceSearchTest  Time elapsed: 10.054 s  <<< ERROR!
+Suppressed: java.lang.Exception: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceSearchTest
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceSearchTest
+Caused by: java.lang.ExceptionInInitializerError
+Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.046 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceUpdateTest
+[ERROR] uk.gov.pay.adminusers.unit.service.ServiceResourceUpdateTest  Time elapsed: 10.046 s  <<< ERROR!
+Suppressed: java.lang.Exception: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceUpdateTest
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceUpdateTest
+Caused by: java.lang.ExceptionInInitializerError
+Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+[INFO] BUILD FAILURE",C:\Users\TASHEEN\Desktop\Research Implementation\logs\batch_triage\1266a8c8_breaking.log,AUTO_RUNTIME_REVIEW_REQUIRED,PENDING_MANUAL_REVIEW,,,,
+13,12684ee6cfd293b27c08495f97900bcd849b452c,cucumber-reporting,damianszczepanik,commons-io,commons-io,2.7,2.11.0,compile,minor,11,TEST_FAILURE,https://github.com/damianszczepanik/cucumber-reporting/pull/1098,0,False,46.23,True,False,False,345,0,0,2,"Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.856 sec - in net.masterthought.cucumber.ReportBuilderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in net.masterthought.cucumber.EmptyReportableTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 sec - in net.masterthought.cucumber.reducers.ElementComparatorTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.287 sec - in net.masterthought.cucumber.reducers.ReportFeatureWithRetestMergerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 sec - in net.masterthought.cucumber.reducers.ReportFeatureByIdMergerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.masterthought.cucumber.reducers.ReportFeatureAppendableMergerTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.masterthought.cucumber.reducers.ReportFeatureMergerFactoryTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.13 sec - in net.masterthought.cucumber.util.UtilTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.245 sec - in net.masterthought.cucumber.util.StepNameFormatterTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.masterthought.cucumber.util.CounterTest
+Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec - in net.masterthought.cucumber.ConfigurationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.masterthought.cucumber.sorting.StepObjectAlphabeticalComparatorTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.18 sec - in net.masterthought.cucumber.sorting.SortingFactoryTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 sec - in net.masterthought.cucumber.sorting.FeaturesAlphabeticalComparatorTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.masterthought.cucumber.sorting.TagObjectAlphabeticalComparatorTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 sec - in net.masterthought.cucumber.ReportResultMergeTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.masterthought.cucumber.ValidationExceptionTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.193 sec - in net.masterthought.cucumber.ReportParserTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in net.masterthought.cucumber.TrendsTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 sec - in net.masterthought.cucumber.json.HookTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.8 sec - in net.masterthought.cucumber.json.deserializers.CommentsDeserializerTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.642 sec - in net.masterthought.cucumber.json.deserializers.TagsDeserializerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.409 sec - in net.masterthought.cucumber.json.deserializers.EmbeddingDeserializerTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.561 sec - in net.masterthought.cucumber.json.deserializers.StatusDeserializerTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 sec - in net.masterthought.cucumber.json.TagTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 sec - in net.masterthought.cucumber.json.EmbeddingTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.248 sec - in net.masterthought.cucumber.json.ElementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in net.masterthought.cucumber.json.DocStringTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.masterthought.cucumber.json.OutputTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.204 sec - in net.masterthought.cucumber.json.StepTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in net.masterthought.cucumber.json.RowTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 sec - in net.masterthought.cucumber.json.EmbeddingWithNameTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.215 sec - in net.masterthought.cucumber.json.FeatureTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 sec - in net.masterthought.cucumber.json.ResultTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec - in net.masterthought.cucumber.json.MatchTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.787 sec - in net.masterthought.cucumber.json.ArgumentTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.masterthought.cucumber.json.support.comparators.StatusCounterTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.masterthought.cucumber.json.support.StatusTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 sec - in net.masterthought.cucumber.json.support.TagObjectTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.masterthought.cucumber.json.support.StepObjectTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 sec - in net.masterthought.cucumber.generators.StepsOverviewPageTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.masterthought.cucumber.generators.OverviewReportTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in net.masterthought.cucumber.generators.EscapeHtmlReferenceTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec - in net.masterthought.cucumber.generators.FailuresOverviewPageTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in net.masterthought.cucumber.generators.FeaturesOverviewPageTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in net.masterthought.cucumber.generators.ErrorPageTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec - in net.masterthought.cucumber.generators.TrendsOverviewPageTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in net.masterthought.cucumber.generators.TagReportPageTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.375 sec - in net.masterthought.cucumber.generators.AbstractPageTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec - in net.masterthought.cucumber.generators.FeatureReportPageTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 sec - in net.masterthought.cucumber.generators.TagsOverviewPageTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 sec - in net.masterthought.cucumber.ReportResultTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.239 sec - in LiveDemoTest
+Tests run: 345, Failures: 0, Errors: 0, Skipped: 2",C:\Users\TASHEEN\Desktop\Research Implementation\logs\batch_triage\12684ee6_pre.log,0,False,40.11,False,True,False,345,0,1,2,"Tests run: 25, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.004 sec <<< FAILURE! - in net.masterthought.cucumber.ReportBuilderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.masterthought.cucumber.EmptyReportableTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 sec - in net.masterthought.cucumber.reducers.ElementComparatorTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.362 sec - in net.masterthought.cucumber.reducers.ReportFeatureWithRetestMergerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 sec - in net.masterthought.cucumber.reducers.ReportFeatureByIdMergerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.masterthought.cucumber.reducers.ReportFeatureAppendableMergerTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.masterthought.cucumber.reducers.ReportFeatureMergerFactoryTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.175 sec - in net.masterthought.cucumber.util.UtilTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.261 sec - in net.masterthought.cucumber.util.StepNameFormatterTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.masterthought.cucumber.util.CounterTest
+Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec - in net.masterthought.cucumber.ConfigurationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.masterthought.cucumber.sorting.StepObjectAlphabeticalComparatorTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.194 sec - in net.masterthought.cucumber.sorting.SortingFactoryTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 sec - in net.masterthought.cucumber.sorting.FeaturesAlphabeticalComparatorTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in net.masterthought.cucumber.sorting.TagObjectAlphabeticalComparatorTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.113 sec - in net.masterthought.cucumber.ReportResultMergeTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.masterthought.cucumber.ValidationExceptionTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.738 sec - in net.masterthought.cucumber.ReportParserTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in net.masterthought.cucumber.TrendsTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.149 sec - in net.masterthought.cucumber.json.HookTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.16 sec - in net.masterthought.cucumber.json.deserializers.CommentsDeserializerTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.113 sec - in net.masterthought.cucumber.json.deserializers.TagsDeserializerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.848 sec - in net.masterthought.cucumber.json.deserializers.EmbeddingDeserializerTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.851 sec - in net.masterthought.cucumber.json.deserializers.StatusDeserializerTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 sec - in net.masterthought.cucumber.json.TagTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 sec - in net.masterthought.cucumber.json.EmbeddingTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.274 sec - in net.masterthought.cucumber.json.ElementTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in net.masterthought.cucumber.json.DocStringTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in net.masterthought.cucumber.json.OutputTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.295 sec - in net.masterthought.cucumber.json.StepTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in net.masterthought.cucumber.json.RowTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 sec - in net.masterthought.cucumber.json.EmbeddingWithNameTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.248 sec - in net.masterthought.cucumber.json.FeatureTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 sec - in net.masterthought.cucumber.json.ResultTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec - in net.masterthought.cucumber.json.MatchTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 sec - in net.masterthought.cucumber.json.ArgumentTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in net.masterthought.cucumber.json.support.comparators.StatusCounterTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in net.masterthought.cucumber.json.support.StatusTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.188 sec - in net.masterthought.cucumber.json.support.TagObjectTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in net.masterthought.cucumber.json.support.StepObjectTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec - in net.masterthought.cucumber.generators.StepsOverviewPageTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in net.masterthought.cucumber.generators.OverviewReportTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec - in net.masterthought.cucumber.generators.EscapeHtmlReferenceTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 sec - in net.masterthought.cucumber.generators.FailuresOverviewPageTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec - in net.masterthought.cucumber.generators.FeaturesOverviewPageTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in net.masterthought.cucumber.generators.ErrorPageTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 sec - in net.masterthought.cucumber.generators.TrendsOverviewPageTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec - in net.masterthought.cucumber.generators.TagReportPageTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.676 sec - in net.masterthought.cucumber.generators.AbstractPageTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 sec - in net.masterthought.cucumber.generators.FeatureReportPageTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 sec - in net.masterthought.cucumber.generators.TagsOverviewPageTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 sec - in net.masterthought.cucumber.ReportResultTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.443 sec - in LiveDemoTest
+Tests run: 345, Failures: 0, Errors: 1, Skipped: 2",False,False,,True,IllegalArgumentException,"java.lang.IllegalArgumentException, MojoFailureException","Tests run: 25, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.004 sec <<< FAILURE! - in net.masterthought.cucumber.ReportBuilderTest
+copyCustomResources_OnDirAsFile_ThrowsIOException(net.masterthought.cucumber.ReportBuilderTest)  Time elapsed: 0.023 sec  <<< ERROR!
+java.lang.IllegalArgumentException: Parameter 'srcFile' is not a file: src/test/resources/js
+Tests in error:
+[INFO] BUILD FAILURE",C:\Users\TASHEEN\Desktop\Research Implementation\logs\batch_triage\12684ee6_breaking.log,AUTO_RUNTIME_REVIEW_REQUIRED,PENDING_MANUAL_REVIEW,,,,
+14,12e237710199fafa086fd2299edefd5f8f05a63c,geostore,geosolutions-it,com.h2database,h2,1.3.175,2.0.206,compile,major,11,TEST_FAILURE,https://github.com/geosolutions-it/geostore/pull/245,0,False,191.72,True,False,False,1,0,0,0,"Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.493 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.352 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.114 sec
+/geostore/src/core/security/geostore.jceks@SLTests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.581 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 sec
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.491 sec
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.236 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.895 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.866 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.19 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.414 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.265 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.55 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.278 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.128 sec
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.714 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 sec
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.663 sec
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.6 sec
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.132 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.967 sec
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.145 sec
+Tests run: 41, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.64 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.69 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 sec
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.782 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.711 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 sec
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 0.004 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.116 sec
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Tests run: 42, Failures: 0, Errors: 0, Skipped: 4
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.334 sec - in it.geosolutions.geostore.services.rest.AutoCreateUsersTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 19, Time elapsed: 3.632 sec - in it.geosolutions.geostore.services.rest.AdministratorGeostoreClientTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 12, Time elapsed: 0.683 sec - in it.geosolutions.geostore.services.rest.GeoStoreClientTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 32
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.3 sec - in it.geosolutions.geostore.services.rest.impl.RESTExtJsServiceImplTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.578 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.337 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.487 sec
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.782 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0",C:\Users\TASHEEN\Desktop\Research Implementation\logs\batch_triage\12e23771_pre.log,0,False,51.62,False,True,False,32,0,22,0,"Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.638 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.128 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.353 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.121 sec
+/geostore/src/core/security/geostore.jceks@SLTests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.626 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.362 sec <<< FAILURE!
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.129 sec
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.024 sec <<< FAILURE!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.038 sec <<< FAILURE!
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.024 sec <<< FAILURE!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.031 sec <<< FAILURE!
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.022 sec <<< FAILURE!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.04 sec <<< FAILURE!
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.023 sec <<< FAILURE!
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.021 sec <<< FAILURE!
+Tests run: 32, Failures: 0, Errors: 22, Skipped: 0",False,False,,False,,"org.hibernate.tool.schema.spi.CommandAcceptanceException, org.h2.jdbc.JdbcSQLSyntaxErrorException, org.h2.message.DbException, DbException, MojoFailureException","Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Precision (""10000000"") must be between ""1"" and ""1048576"" inclusive; SQL statement:
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table ""GS_STORED_DATA"" not found; SQL statement:
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table ""GS_STORED_DATA"" not found; SQL statement:
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.362 sec <<< FAILURE!
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.024 sec <<< FAILURE!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.038 sec <<< FAILURE!
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.024 sec <<< FAILURE!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.031 sec <<< FAILURE!
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.022 sec <<< FAILURE!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.04 sec <<< FAILURE!
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.023 sec <<< FAILURE!
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.021 sec <<< FAILURE!
+Tests in error:
+[INFO] BUILD FAILURE",C:\Users\TASHEEN\Desktop\Research Implementation\logs\batch_triage\12e23771_breaking.log,AUTO_RUNTIME_REVIEW_REQUIRED,PENDING_MANUAL_REVIEW,,,,
+15,14e2c8d47384137d1fff33d9a1441af3d1ef29a3,pay-adminusers,alphagov,org.slf4j,slf4j-api,1.7.36,2.0.5,compile,major,11,TEST_FAILURE,https://github.com/alphagov/pay-adminusers/pull/1763,0,False,1044.4,True,False,False,747,0,0,0,"[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.742 s - in uk.gov.pay.adminusers.persistence.entity.InviteTypeConverterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.144 s - in uk.gov.pay.adminusers.persistence.entity.InviteExpiryTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.183 s - in uk.gov.pay.adminusers.persistence.entity.SecondFactorMethodConverterTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.711 s - in uk.gov.pay.adminusers.persistence.entity.ServiceEntityTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.975 s - in uk.gov.pay.adminusers.resources.ResetPasswordValidatorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.076 s - in uk.gov.pay.adminusers.resources.StripeAgreementRequestTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.207 s - in uk.gov.pay.adminusers.resources.ForgottenPasswordValidatorTest
+[INFO] Tests run: 134, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.667 s - in uk.gov.pay.adminusers.resources.ServiceUpdateOperationValidatorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.095 s - in uk.gov.pay.adminusers.resources.EmailRequestParserTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.169 s - in uk.gov.pay.adminusers.resources.HealthCheckResourceTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.613 s - in uk.gov.pay.adminusers.resources.ServiceRequestValidatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.108 s - in uk.gov.pay.adminusers.resources.RequestValidationsTest
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.284 s - in uk.gov.pay.adminusers.resources.UserRequestValidatorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s - in uk.gov.pay.adminusers.resources.EmailTemplateTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.19 s - in uk.gov.pay.adminusers.resources.GovUkPayAgreementRequestValidatorTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.694 s - in uk.gov.pay.adminusers.resources.InviteUserRequestValidatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.22 s - in uk.gov.pay.adminusers.service.ExistingUserOtpDispatcherTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.118 s - in uk.gov.pay.adminusers.service.NotificationServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.15 s - in uk.gov.pay.adminusers.service.GovUkPayAgreementServiceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.212 s - in uk.gov.pay.adminusers.service.AdminUsersExceptionsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.559 s - in uk.gov.pay.adminusers.service.UserCreatorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.45 s - in uk.gov.pay.adminusers.service.ForgottenPasswordServicesTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.724 s - in uk.gov.pay.adminusers.service.SendLiveAccountCreatedEmailServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.285 s - in uk.gov.pay.adminusers.service.LinksBuilderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.957 s - in uk.gov.pay.adminusers.service.StripeAgreementServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.743 s - in uk.gov.pay.adminusers.service.InviteRouterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.207 s - in uk.gov.pay.adminusers.service.ResetPasswordServiceTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.519 s - in uk.gov.pay.adminusers.service.InviteFinderTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.032 s - in uk.gov.pay.adminusers.service.ServiceRoleUpdaterTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.698 s - in uk.gov.pay.adminusers.service.ServiceUpdaterTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.409 s - in uk.gov.pay.adminusers.service.ServiceFinderTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.181 s - in uk.gov.pay.adminusers.service.PasswordHasherTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.867 s - in uk.gov.pay.adminusers.service.UserInviteCreatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.948 s - in uk.gov.pay.adminusers.service.EmailServiceTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.334 s - in uk.gov.pay.adminusers.service.SecondFactorAuthenticatorTest
+[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.124 s - in uk.gov.pay.adminusers.service.UserServicesTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.914 s - in uk.gov.pay.adminusers.service.ServiceUserRemoverTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.144 s - in uk.gov.pay.adminusers.service.ServiceInviteCreatorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.674 s - in uk.gov.pay.adminusers.service.ServiceCreatorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.245 s - in uk.gov.pay.adminusers.service.ServiceRoleCreatorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.249 s - in uk.gov.pay.adminusers.service.ServiceOtpDispatcherTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s - in uk.gov.pay.adminusers.service.UserOtpDispatcherTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.238 s - in uk.gov.pay.adminusers.service.InviteServiceTest$complete
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.246 s - in uk.gov.pay.adminusers.service.InviteServiceTest$updateInvite
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.196 s - in uk.gov.pay.adminusers.service.InviteServiceTest$validateOtp
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.215 s - in uk.gov.pay.adminusers.service.InviteServiceTest$sendOtp
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.273 s - in uk.gov.pay.adminusers.service.InviteServiceTest$generateOtp
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.43 s - in uk.gov.pay.adminusers.service.InviteServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 s - in uk.gov.pay.adminusers.model.UpdateMerchantDetailsRequestTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.376 s - in uk.gov.pay.adminusers.model.ServiceUpdateRequestTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.86 s - in uk.gov.pay.adminusers.model.UserEntityTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 s - in uk.gov.pay.adminusers.model.CreateUserRequestTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 s - in uk.gov.pay.adminusers.model.ServiceSearchRequestTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.2 s - in uk.gov.pay.adminusers.model.ServiceNameTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.683 s - in uk.gov.pay.adminusers.queue.model.event.DisputeWonDetailsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 s - in uk.gov.pay.adminusers.queue.model.event.DisputeEvidenceSubmittedDetailsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.352 s - in uk.gov.pay.adminusers.queue.model.event.DisputeCreatedDetailsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 s - in uk.gov.pay.adminusers.queue.model.event.DisputeLostDetailsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.275 s - in uk.gov.pay.adminusers.queue.model.EventTypeTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.836 s - in uk.gov.pay.adminusers.queue.event.EventSubscriberQueueTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.068 s - in uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 113.745 s - in uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.864 s - in uk.gov.pay.adminusers.unit.service.ServiceResourceCreateTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.448 s - in uk.gov.pay.adminusers.unit.service.ServiceResourceSearchTest
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 23.677 s - in uk.gov.pay.adminusers.unit.service.ServiceResourceUpdateTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 s - in uk.gov.pay.adminusers.utils.DateTimeUtilsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in uk.gov.pay.adminusers.utils.ComparatorsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.404 s - in uk.gov.pay.adminusers.utils.currency.ConvertToCurrencyTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.288 s - in uk.gov.pay.adminusers.utils.ErrorsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.584 s - in uk.gov.pay.adminusers.utils.CountryConverterTest
+[INFO] Tests run: 123, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.568 s - in uk.gov.pay.adminusers.utils.email.EmailValidatorIsPublicSectorEmailTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.61 s - in uk.gov.pay.adminusers.utils.date.DisputeEvidenceDueByDateUtilTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.127 s - in uk.gov.pay.adminusers.utils.dispute.DisputeReasonMapperTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.144 s - in uk.gov.pay.adminusers.utils.telephonenumber.TelephoneNumberUtilityFormatToE164ValidUnitedKingdomDataTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.485 s - in uk.gov.pay.adminusers.utils.telephonenumber.TelephoneNumberUtilityFormatToE164InvalidDataTest
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.619 s - in uk.gov.pay.adminusers.utils.telephonenumber.TelephoneNumberUtilityIsValidPhoneNumberTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.219 s - in uk.gov.pay.adminusers.utils.telephonenumber.TelephoneNumberUtilityFormatToE164ValidDataTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.295 s - in uk.gov.pay.adminusers.client.ledger.service.LedgerServiceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 40.323 s - in uk.gov.pay.adminusers.client.ledger.service.LedgerServiceConsumerTest
+[INFO] Tests run: 747, Failures: 0, Errors: 0, Skipped: 0",C:\Users\TASHEEN\Desktop\Research Implementation\logs\batch_triage\14e2c8d4_pre.log,1,False,825.61,False,True,False,715,0,12,0,"[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.276 s - in uk.gov.pay.adminusers.persistence.entity.InviteTypeConverterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 s - in uk.gov.pay.adminusers.persistence.entity.InviteExpiryTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.236 s - in uk.gov.pay.adminusers.persistence.entity.SecondFactorMethodConverterTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.028 s - in uk.gov.pay.adminusers.persistence.entity.ServiceEntityTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.41 s - in uk.gov.pay.adminusers.resources.ResetPasswordValidatorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.095 s - in uk.gov.pay.adminusers.resources.StripeAgreementRequestTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.115 s - in uk.gov.pay.adminusers.resources.ForgottenPasswordValidatorTest
+[INFO] Tests run: 134, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.732 s - in uk.gov.pay.adminusers.resources.ServiceUpdateOperationValidatorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.332 s - in uk.gov.pay.adminusers.resources.EmailRequestParserTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.606 s - in uk.gov.pay.adminusers.resources.HealthCheckResourceTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.957 s - in uk.gov.pay.adminusers.resources.ServiceRequestValidatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 s - in uk.gov.pay.adminusers.resources.RequestValidationsTest
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.592 s - in uk.gov.pay.adminusers.resources.UserRequestValidatorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s - in uk.gov.pay.adminusers.resources.EmailTemplateTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.13 s - in uk.gov.pay.adminusers.resources.GovUkPayAgreementRequestValidatorTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.076 s - in uk.gov.pay.adminusers.resources.InviteUserRequestValidatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.414 s - in uk.gov.pay.adminusers.service.ExistingUserOtpDispatcherTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.245 s - in uk.gov.pay.adminusers.service.NotificationServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.066 s - in uk.gov.pay.adminusers.service.GovUkPayAgreementServiceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in uk.gov.pay.adminusers.service.AdminUsersExceptionsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.982 s - in uk.gov.pay.adminusers.service.UserCreatorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.042 s - in uk.gov.pay.adminusers.service.ForgottenPasswordServicesTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.44 s - in uk.gov.pay.adminusers.service.SendLiveAccountCreatedEmailServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.666 s - in uk.gov.pay.adminusers.service.LinksBuilderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.528 s - in uk.gov.pay.adminusers.service.StripeAgreementServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.201 s - in uk.gov.pay.adminusers.service.InviteRouterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 s - in uk.gov.pay.adminusers.service.ResetPasswordServiceTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.507 s - in uk.gov.pay.adminusers.service.InviteFinderTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.367 s - in uk.gov.pay.adminusers.service.ServiceRoleUpdaterTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.1 s - in uk.gov.pay.adminusers.service.ServiceUpdaterTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.226 s - in uk.gov.pay.adminusers.service.ServiceFinderTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.792 s - in uk.gov.pay.adminusers.service.PasswordHasherTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.361 s - in uk.gov.pay.adminusers.service.UserInviteCreatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.736 s - in uk.gov.pay.adminusers.service.EmailServiceTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.008 s - in uk.gov.pay.adminusers.service.SecondFactorAuthenticatorTest
+[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.877 s - in uk.gov.pay.adminusers.service.UserServicesTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.712 s - in uk.gov.pay.adminusers.service.ServiceUserRemoverTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.396 s - in uk.gov.pay.adminusers.service.ServiceInviteCreatorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.285 s - in uk.gov.pay.adminusers.service.ServiceCreatorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 s - in uk.gov.pay.adminusers.service.ServiceRoleCreatorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.33 s - in uk.gov.pay.adminusers.service.ServiceOtpDispatcherTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.137 s - in uk.gov.pay.adminusers.service.UserOtpDispatcherTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.674 s - in uk.gov.pay.adminusers.service.InviteServiceTest$complete
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.155 s - in uk.gov.pay.adminusers.service.InviteServiceTest$updateInvite
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.313 s - in uk.gov.pay.adminusers.service.InviteServiceTest$validateOtp
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.227 s - in uk.gov.pay.adminusers.service.InviteServiceTest$sendOtp
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.233 s - in uk.gov.pay.adminusers.service.InviteServiceTest$generateOtp
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.803 s - in uk.gov.pay.adminusers.service.InviteServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s - in uk.gov.pay.adminusers.model.UpdateMerchantDetailsRequestTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.242 s - in uk.gov.pay.adminusers.model.ServiceUpdateRequestTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.335 s - in uk.gov.pay.adminusers.model.UserEntityTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in uk.gov.pay.adminusers.model.CreateUserRequestTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in uk.gov.pay.adminusers.model.ServiceSearchRequestTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.167 s - in uk.gov.pay.adminusers.model.ServiceNameTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.659 s - in uk.gov.pay.adminusers.queue.model.event.DisputeWonDetailsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in uk.gov.pay.adminusers.queue.model.event.DisputeEvidenceSubmittedDetailsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.36 s - in uk.gov.pay.adminusers.queue.model.event.DisputeCreatedDetailsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s - in uk.gov.pay.adminusers.queue.model.event.DisputeLostDetailsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.359 s - in uk.gov.pay.adminusers.queue.model.EventTypeTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.702 s - in uk.gov.pay.adminusers.queue.event.EventSubscriberQueueTest
+[ERROR] Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 2.216 s <<< FAILURE! - in uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 19.39 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.732 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceCreateTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.288 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceSearchTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.149 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceUpdateTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in uk.gov.pay.adminusers.utils.DateTimeUtilsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in uk.gov.pay.adminusers.utils.ComparatorsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s - in uk.gov.pay.adminusers.utils.currency.ConvertToCurrencyTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.153 s - in uk.gov.pay.adminusers.utils.ErrorsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.133 s - in uk.gov.pay.adminusers.utils.CountryConverterTest
+[INFO] Tests run: 123, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.114 s - in uk.gov.pay.adminusers.utils.email.EmailValidatorIsPublicSectorEmailTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 s - in uk.gov.pay.adminusers.utils.date.DisputeEvidenceDueByDateUtilTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in uk.gov.pay.adminusers.utils.dispute.DisputeReasonMapperTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.241 s - in uk.gov.pay.adminusers.utils.telephonenumber.TelephoneNumberUtilityFormatToE164ValidUnitedKingdomDataTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in uk.gov.pay.adminusers.utils.telephonenumber.TelephoneNumberUtilityFormatToE164InvalidDataTest
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.82 s - in uk.gov.pay.adminusers.utils.telephonenumber.TelephoneNumberUtilityIsValidPhoneNumberTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.33 s - in uk.gov.pay.adminusers.utils.telephonenumber.TelephoneNumberUtilityFormatToE164ValidDataTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.957 s - in uk.gov.pay.adminusers.client.ledger.service.LedgerServiceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 39.189 s - in uk.gov.pay.adminusers.client.ledger.service.LedgerServiceConsumerTest
+[ERROR] Tests run: 715, Failures: 0, Errors: 12, Skipped: 0",False,False,,True,"ClassCastException, IllegalStateException","java.lang.ClassCastException, java.lang.ExceptionInInitializerError, java.lang.NoClassDefFoundError, java.lang.IllegalStateException, MojoFailureException","[ERROR] Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 2.216 s <<< FAILURE! - in uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest
+[ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldNotCallNotificationServiceWhenNoAdminUsersExist  Time elapsed: 1.72 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+[ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldHandleDisputeCreatedEvent  Time elapsed: 0.112 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+[ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldHandleDisputeWonEvent  Time elapsed: 0.019 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+[ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldNotCallNotificationServiceWhenTransactionDoesNotExist  Time elapsed: 0.025 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+[ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldHandleDisputeLostEvent  Time elapsed: 0.019 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+[ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldNotCallNotificationServiceWhenServiceDoesNotExist  Time elapsed: 0.016 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+[ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldMarkMessageAsProcessed  Time elapsed: 0.013 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+[ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldHandleDisputeEvidenceSubmittedEvent  Time elapsed: 0.013 s  <<< ERROR!
+java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 19.39 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest
+[ERROR] uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest  Time elapsed: 19.39 s  <<< ERROR!
+Suppressed: java.lang.Exception: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest
+Caused by: java.lang.ExceptionInInitializerError
+Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.732 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceCreateTest
+[ERROR] uk.gov.pay.adminusers.unit.service.ServiceResourceCreateTest  Time elapsed: 10.732 s  <<< ERROR!
+Suppressed: java.lang.Exception: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceCreateTest
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceCreateTest
+Caused by: java.lang.ExceptionInInitializerError
+Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.288 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceSearchTest
+[ERROR] uk.gov.pay.adminusers.unit.service.ServiceResourceSearchTest  Time elapsed: 10.288 s  <<< ERROR!
+Suppressed: java.lang.Exception: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceSearchTest
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceSearchTest
+Caused by: java.lang.ExceptionInInitializerError
+Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.149 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceUpdateTest
+[ERROR] uk.gov.pay.adminusers.unit.service.ServiceResourceUpdateTest  Time elapsed: 10.149 s  <<< ERROR!
+Suppressed: java.lang.Exception: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceUpdateTest
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceUpdateTest
+Caused by: java.lang.ExceptionInInitializerError
+Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+[INFO] BUILD FAILURE",C:\Users\TASHEEN\Desktop\Research Implementation\logs\batch_triage\14e2c8d4_breaking.log,AUTO_RUNTIME_REVIEW_REQUIRED,PENDING_MANUAL_REVIEW,,,,
+16,1750bac074c30b06ae5cdff7a25db401a4f45de2,dropwizard-pac4j,pac4j,com.fasterxml.jackson.core,jackson-databind,2.10.5.1,2.13.4,compile,other,11,TEST_FAILURE,https://github.com/pac4j/dropwizard-pac4j/pull/317,0,False,29.49,True,False,False,16,0,0,0,"[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.573 s - in org.pac4j.dropwizard.e2e.EndToEndServletTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.729 s - in org.pac4j.dropwizard.e2e.EndToEndTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.707 s - in org.pac4j.dropwizard.factory.DefaultConfigurationTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.562 s - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0",C:\Users\TASHEEN\Desktop\Research Implementation\logs\batch_triage\1750bac0_pre.log,0,False,32.64,False,True,False,16,0,16,0,"[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.76 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndServletTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndTest
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.pac4j.dropwizard.factory.DefaultConfigurationTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+[ERROR] Tests run: 16, Failures: 0, Errors: 16, Skipped: 0",False,True,"NoClassDefFoundError, ClassNotFoundException",False,,"java.lang.NoClassDefFoundError, java.lang.ClassNotFoundException, MojoFailureException","[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.76 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndServletTest
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources  Time elapsed: 0.468 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResourcesForm  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.restrictsAccessToResources  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndTest
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.grantsAccessToResources  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.grantsAccessToResourcesForm  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.restrictsAccessToResources  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.pac4j.dropwizard.factory.DefaultConfigurationTest
+[ERROR] org.pac4j.dropwizard.factory.DefaultConfigurationTest.matchers  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+[ERROR] org.pac4j.dropwizard.factory.DefaultConfigurationTest.allOptionsClients  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+[ERROR] org.pac4j.dropwizard.factory.DefaultConfigurationTest.clientsAndProperties  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+[ERROR] org.pac4j.dropwizard.factory.DefaultConfigurationTest.clients  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+[ERROR] org.pac4j.dropwizard.factory.DefaultConfigurationTest.clientsProperties  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+[ERROR] org.pac4j.dropwizard.factory.DefaultConfigurationTest.defaultsUnset  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+[ERROR] org.pac4j.dropwizard.bundle.BundleFactoryTest.emptyPac4jInConfig  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+[ERROR] org.pac4j.dropwizard.bundle.BundleFactoryTest.sessiondisabledForced  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+[ERROR] org.pac4j.dropwizard.bundle.BundleFactoryTest.noPac4jInConfig  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+[ERROR] org.pac4j.dropwizard.bundle.BundleFactoryTest.sessionEnabledForced  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+[INFO] BUILD FAILURE",C:\Users\TASHEEN\Desktop\Research Implementation\logs\batch_triage\1750bac0_breaking.log,AUTO_NON_BEHAVIORAL_CANDIDATE,PENDING_MANUAL_REVIEW,,,,

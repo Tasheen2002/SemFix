@@ -1,0 +1,39 @@
+=== CASE 46 41164ec5392b2c853ae871f10a9541c055028b36
+  project=retest/recheck.cli dep=ch.qos.logback:logback-classic 1.2.11 -> 1.4.3 scope=compile type=minor java=11
+  PR=https://github.com/retest/recheck.cli/pull/349
+  PRE log logs/batch_triage/41164ec5_pre.log:
+  lines=112
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 12, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/41164ec5_breaking.log:
+  lines=131
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 12, Failures: 2, Errors: 0, Skipped: 0
+  failing classes: Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.051 s <<< FAILURE! - in de.retest.recheck.cli.PreConditionTest || Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in de.retest.recheck.cli.utils.SystemInUtilTest
+  section: Failures: | PreConditionTest.should_warn_when_not_a_recheck_project:24 | Expecting actual: | "" | to contain: | "Not a recheck project." | SystemInUtilTest.should_repeatedly_ask_yes_or_no_when_input_is_invalid:42 | Expecting actual: | "" | to contain: | "Invalid input, please only use (y)es or (n)o:" | [INFO] | [INFO]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project recheck.cli: There are test failures.
+  FAILBLOCK: [ERROR] should_warn_when_not_a_recheck_project  Time elapsed: 0.042 s  <<< FAILURE!
+      java.lang.AssertionError:
+      Expecting actual:
+      ""
+      to contain:
+      "Not a recheck project."
+  distinct fail signatures (count): 2x java.lang.AssertionError:
+  provider/console lines: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+  exception names: java.lang.AssertionErrorx2
+  EVIDENCE logs/case46_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/logback-classic-1.4.3.jar, breaking/slf4j-api-1.7.36.jar, breaking/slf4j_factory_javap.txt, pre/archive_summary.json, pre/artifacts.tar, pre/logback-classic-1.2.11.jar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=5 sum(t,f,e,s)=[12, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=5 sum(t,f,e,s)=[12, 2, 0, 0]
+  archived non-report files: pre=45 breaking=45 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -96,3 +96,3 @@
+     			<artifactId>logback-classic</artifactId>
+    -			<version>1.2.11</version>
+    +			<version>1.4.3</version>
+     		</dependency>
+  BREAKING surefire failures/errors:
+    FAILURE de.retest.recheck.cli.PreConditionTest#should_warn_when_not_a_recheck_project type=java.lang.AssertionError msg= Expecting actual:   "" to contain:   "Not a recheck project." 
+       at de.retest.recheck.cli.PreConditionTest.should_warn_when_not_a_recheck_project(PreConditionTest.java:24)
+    FAILURE de.retest.recheck.cli.utils.SystemInUtilTest#should_repeatedly_ask_yes_or_no_when_input_is_invalid type=java.lang.AssertionError msg= Expecting actual:   "" to contain:   "Invalid input, please only use (y)es or (n)o:" 
+       at de.retest.recheck.cli.utils.SystemInUtilTest.should_repeatedly_ask_yes_or_no_when_input_is_invalid(SystemInUtilTest.java:42)

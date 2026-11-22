@@ -1,0 +1,120 @@
+=== CASE 69 56b1cde573f7b411a3a831bed30c624ddfdbdf3d
+  project=fmtn/a dep=org.graalvm.js:js-scriptengine 22.0.0 -> 22.1.0 scope=compile type=minor java=11
+  PR=https://github.com/fmtn/a/pull/138
+  PRE log logs/batch_triage/56b1cde5_pre.log:
+  lines=591
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 80, Failures: 0, Errors: 0, Skipped: 1
+  exception names: org.graalvm.polyglot.PolyglotExceptionx3
+  BREAKING log logs/batch_triage/56b1cde5_breaking.log:
+  lines=1222
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 80, Failures: 3, Errors: 9, Skipped: 1
+  failing classes: Tests run: 27, Failures: 1, Errors: 3, Skipped: 1, Time elapsed: 17.901 s <<< FAILURE! - in co.nordlander.a.AOpenWireTest || Tests run: 26, Failures: 1, Errors: 3, Skipped: 0, Time elapsed: 19.532 s <<< FAILURE! - in co.nordlander.a.AMQPTest || Tests run: 25, Failures: 1, Errors: 3, Skipped: 0, Time elapsed: 15.123 s <<< FAILURE! - in co.nordlander.a.ArtemisJmsTest
+  section: Failures: | AMQPTest>BaseTest.testBatch:749 A message is expected | AOpenWireTest>BaseTest.testBatch:749 A message is expected | ArtemisJmsTest>BaseTest.testBatch:749 A message is expected | Errors: | AMQPTest>BaseTest.testCopyQueueWithTransformer:277 » IllegalArgument Could not find option with name js.charset. | AMQPTest>BaseTest.testDumpMessagesAndTransform:719 » FileNotFound /tmp/junit13296129974579511850/junit13862701101166121204/dump.json (No such file or directory) | AMQPTest>BaseTest.testMoveQueueWithTransformer:322 » IllegalArgument Could not find option with name js.charset. | AOpenWireTest>BaseTest.testCopyQueueWithTransformer:277 » IllegalArgument Could not find option with name js.charset. | AOpenWireTest>BaseTest.testDumpMessagesAndTransform:719 » FileNotFound /tmp/junit13164462012255806981/junit16038784913987111075/dump.json (No such file or directory) | AOpenWireTest>BaseTest.testMoveQueueWithTransformer:322 » IllegalArgument Could not find option with name js.charset. | ArtemisJmsTest>BaseTest.testCopyQueueWithTransformer:277 » IllegalArgument Could not find option with name js.charset. | ArtemisJmsTest>BaseTest.testDumpMessagesAndTransform:719 » FileNotFound /tmp/
+  section: Errors: | AMQPTest>BaseTest.testCopyQueueWithTransformer:277 » IllegalArgument Could not find option with name js.charset. | AMQPTest>BaseTest.testDumpMessagesAndTransform:719 » FileNotFound /tmp/junit13296129974579511850/junit13862701101166121204/dump.json (No such file or directory) | AMQPTest>BaseTest.testMoveQueueWithTransformer:322 » IllegalArgument Could not find option with name js.charset. | AOpenWireTest>BaseTest.testCopyQueueWithTransformer:277 » IllegalArgument Could not find option with name js.charset. | AOpenWireTest>BaseTest.testDumpMessagesAndTransform:719 » FileNotFound /tmp/junit13164462012255806981/junit16038784913987111075/dump.json (No such file or directory) | AOpenWireTest>BaseTest.testMoveQueueWithTransformer:322 » IllegalArgument Could not find option with name js.charset. | ArtemisJmsTest>BaseTest.testCopyQueueWithTransformer:277 » IllegalArgument Could not find option with name js.charset. | ArtemisJmsTest>BaseTest.testDumpMessagesAndTransform:719 » FileNotFound /tmp/junit4005230493826572990/junit15478803095371701219/dump.json (No such file or directory) | ArtemisJmsTest>BaseTest.testMoveQueueWithTransformer:322 » IllegalArgument Could not find option wit
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project a: There are test failures.
+  FAILBLOCK: [ERROR] co.nordlander.a.AOpenWireTest.testBatch  Time elapsed: 2.289 s  <<< FAILURE!
+      java.lang.AssertionError: A message is expected
+      at org.junit.Assert.fail(Assert.java:89)
+      at org.junit.Assert.assertTrue(Assert.java:42)
+      at org.junit.Assert.assertNotNull(Assert.java:713)
+      at co.nordlander.a.BaseTest.testBatch(BaseTest.java:749)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  FAILBLOCK: [ERROR] co.nordlander.a.AOpenWireTest.testCopyQueueWithTransformer  Time elapsed: 0.21 s  <<< ERROR!
+      java.lang.IllegalArgumentException: Could not find option with name js.charset.
+      at com.oracle.truffle.polyglot.PolyglotEngineException.illegalArgument(PolyglotEngineException.java:125)
+      at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:274)
+      at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:254)
+      at com.oracle.truffle.polyglot.OptionValuesImpl.findDescriptor(OptionValuesImpl.java:231)
+      at com.oracle.truffle.polyglot.OptionValuesImpl.put(OptionValuesImpl.java:134)
+  FAILBLOCK: [ERROR] co.nordlander.a.AOpenWireTest.testDumpMessagesAndTransform  Time elapsed: 0.182 s  <<< ERROR!
+      java.io.FileNotFoundException: /tmp/junit13164462012255806981/junit16038784913987111075/dump.json (No such file or directory)
+      at java.base/java.io.FileInputStream.open0(Native Method)
+      at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+      at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+      at org.apache.commons.io.FileUtils.openInputStream(FileUtils.java:2388)
+      at org.apache.commons.io.FileUtils.readFileToString(FileUtils.java:2506)
+  FAILBLOCK: [ERROR] co.nordlander.a.AMQPTest.testDumpMessagesAndTransform  Time elapsed: 0.445 s  <<< ERROR!
+      java.io.FileNotFoundException: /tmp/junit13296129974579511850/junit13862701101166121204/dump.json (No such file or directory)
+      at java.base/java.io.FileInputStream.open0(Native Method)
+      at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+      at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+      at org.apache.commons.io.FileUtils.openInputStream(FileUtils.java:2388)
+      at org.apache.commons.io.FileUtils.readFileToString(FileUtils.java:2506)
+  distinct fail signatures (count): 2x java.lang.AssertionError: A message is expected || 3x java.lang.IllegalArgumentException: Could not find option with name js.charset. || 1x java.io.FileNotFoundException: /tmp/junit13164462012255806981/junit16038784913987111075/dump.json (No such file or direc || 1x java.io.FileNotFoundException: /tmp/junit13296129974579511850/junit13862701101166121204/dump.json (No such file or direc
+  exception names: java.lang.IllegalArgumentExceptionx6, com.oracle.truffle.polyglot.PolyglotEngineExceptionx6, java.lang.AssertionErrorx3, java.io.FileNotFoundExceptionx3
+  EVIDENCE logs/case69_evidence: ScriptEngineProbe.java, breaking/archive_summary.json, breaking/artifacts.tar, breaking/graal-sdk-22.0.0.jar, breaking/js-22.0.0.jar, breaking/js-scriptengine-22.1.0.jar, pre/archive_summary.json, pre/artifacts.tar, pre/graal-sdk-22.0.0.jar, pre/js-22.0.0.jar, pre/js-scriptengine-22.0.0.jar, resolved_jar_inspection.json, run_probe.sh, scriptengine_javap.txt, scriptengine_probe.log, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[80, 0, 0, 1]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[80, 3, 9, 1]
+  archived non-report files: pre=30 breaking=30 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -99,3 +99,3 @@
+           <artifactId>js-scriptengine</artifactId>
+    -      <version>22.0.0</version>
+    +      <version>22.1.0</version>
+         </dependency>
+  BREAKING surefire failures/errors:
+    FAILURE co.nordlander.a.AMQPTest#testBatch type=java.lang.AssertionError msg=A message is expected
+       at org.junit.Assert.fail(Assert.java:89)
+       at org.junit.Assert.assertTrue(Assert.java:42)
+       at org.junit.Assert.assertNotNull(Assert.java:713)
+       at co.nordlander.a.BaseTest.testBatch(BaseTest.java:749)
+    ERROR co.nordlander.a.AMQPTest#testCopyQueueWithTransformer type=java.lang.IllegalArgumentException msg=Could not find option with name js.charset.
+       at com.oracle.truffle.polyglot.PolyglotEngineException.illegalArgument(PolyglotEngineException.java:125)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:274)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:254)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.findDescriptor(OptionValuesImpl.java:231)
+    ERROR co.nordlander.a.AMQPTest#testDumpMessagesAndTransform type=java.io.FileNotFoundException msg=/tmp/junit13296129974579511850/junit13862701101166121204/dump.json (No such file or directory)
+       at java.base/java.io.FileInputStream.open0(Native Method)
+       at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+       at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+       at org.apache.commons.io.FileUtils.openInputStream(FileUtils.java:2388)
+    ERROR co.nordlander.a.AMQPTest#testMoveQueueWithTransformer type=java.lang.IllegalArgumentException msg=Could not find option with name js.charset.
+       at com.oracle.truffle.polyglot.PolyglotEngineException.illegalArgument(PolyglotEngineException.java:125)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:274)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:254)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.findDescriptor(OptionValuesImpl.java:231)
+    FAILURE co.nordlander.a.AOpenWireTest#testBatch type=java.lang.AssertionError msg=A message is expected
+       at org.junit.Assert.fail(Assert.java:89)
+       at org.junit.Assert.assertTrue(Assert.java:42)
+       at org.junit.Assert.assertNotNull(Assert.java:713)
+       at co.nordlander.a.BaseTest.testBatch(BaseTest.java:749)
+    ERROR co.nordlander.a.AOpenWireTest#testCopyQueueWithTransformer type=java.lang.IllegalArgumentException msg=Could not find option with name js.charset.
+       at com.oracle.truffle.polyglot.PolyglotEngineException.illegalArgument(PolyglotEngineException.java:125)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:274)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:254)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.findDescriptor(OptionValuesImpl.java:231)
+    ERROR co.nordlander.a.AOpenWireTest#testDumpMessagesAndTransform type=java.io.FileNotFoundException msg=/tmp/junit13164462012255806981/junit16038784913987111075/dump.json (No such file or directory)
+       at java.base/java.io.FileInputStream.open0(Native Method)
+       at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+       at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+       at org.apache.commons.io.FileUtils.openInputStream(FileUtils.java:2388)
+    ERROR co.nordlander.a.AOpenWireTest#testMoveQueueWithTransformer type=java.lang.IllegalArgumentException msg=Could not find option with name js.charset.
+       at com.oracle.truffle.polyglot.PolyglotEngineException.illegalArgument(PolyglotEngineException.java:125)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:274)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:254)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.findDescriptor(OptionValuesImpl.java:231)
+    FAILURE co.nordlander.a.ArtemisJmsTest#testBatch type=java.lang.AssertionError msg=A message is expected
+       at org.junit.Assert.fail(Assert.java:89)
+       at org.junit.Assert.assertTrue(Assert.java:42)
+       at org.junit.Assert.assertNotNull(Assert.java:713)
+       at co.nordlander.a.BaseTest.testBatch(BaseTest.java:749)
+    ERROR co.nordlander.a.ArtemisJmsTest#testCopyQueueWithTransformer type=java.lang.IllegalArgumentException msg=Could not find option with name js.charset.
+       at com.oracle.truffle.polyglot.PolyglotEngineException.illegalArgument(PolyglotEngineException.java:125)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:274)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:254)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.findDescriptor(OptionValuesImpl.java:231)
+    ERROR co.nordlander.a.ArtemisJmsTest#testDumpMessagesAndTransform type=java.io.FileNotFoundException msg=/tmp/junit4005230493826572990/junit15478803095371701219/dump.json (No such file or directory)
+       at java.base/java.io.FileInputStream.open0(Native Method)
+       at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+       at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+       at org.apache.commons.io.FileUtils.openInputStream(FileUtils.java:2388)
+    ERROR co.nordlander.a.ArtemisJmsTest#testMoveQueueWithTransformer type=java.lang.IllegalArgumentException msg=Could not find option with name js.charset.
+       at com.oracle.truffle.polyglot.PolyglotEngineException.illegalArgument(PolyglotEngineException.java:125)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:274)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:254)
+       at com.oracle.truffle.polyglot.OptionValuesImpl.findDescriptor(OptionValuesImpl.java:231)
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"js-22.0.0.jar","entries":{"GraalJSScriptEngine.class":[],"JSContextOptionsOptionDescriptors.class":["com/oracle/truffle/js/runtime/JSContextOptionsOptionDescriptors.class"]}},{"phase":"pre","jar":"graal-sdk-22.0.0.jar","entries":{"GraalJSScriptEngine.class":[],"JSContextOptionsOptionDescriptors.class":[]}},{"phase":"pre","jar":"js-scriptengine-22.0.0.jar","entries":{"GraalJSScriptEngine.class":["com/oracle/truffle/js/scriptengine/GraalJSScriptEngine.class"],"JSContextOptionsOptionDescriptors.class":[]}},{"phase":"breaking","jar":"js-22.0.0.jar","entries":{"GraalJSScriptEngine.class":[],"JSContextOptionsOptionDescriptors.class":["com/oracle/truffle/js/runtime/JSContextOptionsOptionDescriptors.class"]}},{"phase":"breaking","jar":"graal-sdk-22.0.0.jar","entries":{"GraalJSScriptEngine.class":[],"JSContextOptionsOptionDescriptors.class":[]}},{"phase":"breaking","jar":"js-scriptengine-22.1.0.jar","entries":{"GraalJSScriptEngine.class":["com/oracle/truffle/js/scriptengine/GraalJSScriptEngine.class"],"JSContextOptionsOptionDescriptors.class":[]}}]
+  LOG scriptengine_probe.log (34 lines): * '--log.file=<path>' if the option is passed using a guest language launcher. | * '-Dpolyglot.log.file=<path>' if the option is passed using the host Java launcher. | To disable this warning the '--engine.WarnInterpreterOnly=false' option or use the '-Dpolyglot.engine.WarnInterpreterOnly=false' system property. | exit=0 | Exception in thread "main" java.lang.IllegalArgumentException: Could not find option with name js.charset. | at com.oracle.truffle.polyglot.PolyglotEngineException.illegalArgument(PolyglotEngineException.java:125) | exit=1

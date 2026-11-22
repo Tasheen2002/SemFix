@@ -1,0 +1,36 @@
+case_id:
+02363207c365b3befd6426f6dda5c8eac904d760
+
+project:
+recheck
+
+dependency:
+org.slf4j:slf4j-api
+
+old_version:
+1.7.36
+
+new_version:
+2.0.3
+
+is_semantic:
+YES
+
+category:
+OTHER_RUNTIME_BEHAVIOR_CHANGE
+
+exception:
+java.lang.ClassCastException
+
+root_cause:
+After upgrading to SLF4J 2.0.3, the existing
+Logback 1.2.11 binding is ignored. SLF4J falls
+back to NOPLogger. LogUnit expects a Logback
+Logger and fails when it casts NOPLogger to
+ch.qos.logback.classic.Logger.
+
+confidence:
+HIGH
+
+manual_verified:
+YES

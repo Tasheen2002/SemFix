@@ -1,0 +1,53 @@
+=== CASE 58 4d4a773e3498e14932bfaf82f957c2a3f5c2cfe3
+  project=pmckeown/dependency-track-maven-plugin dep=com.sun.xml.bind:jaxb-impl 2.3.3 -> 4.0.0 scope=compile type=major java=11
+  PR=https://github.com/pmckeown/dependency-track-maven-plugin/pull/290
+  PRE log logs/batch_triage/4d4a773e_pre.log:
+  lines=1053
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 163, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+  exception names: io.github.pmckeown.dependencytrack.DependencyTrackExceptionx21, java.net.UnknownHostExceptionx9, kong.unirest.UnirestExceptionx3, unirest.shaded.org.apache.http.client.ClientProtocolExceptionx2
+  BREAKING log logs/batch_triage/4d4a773e_breaking.log:
+  lines=1302
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 163, Failures: 3, Errors: 0, Skipped: 0
+  failing classes: Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.593 s <<< FAILURE! - in io.github.pmckeown.dependencytrack.finding.FindingsMojoIntegrationTest || Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in io.github.pmckeown.dependencytrack.finding.report.FindingsReportIntegrationTest
+  section: Failures: | FindingsMojoIntegrationTest.thatBuildFailsWhenFindingsNumberBreachesDefinedThresholds:115 Exception expected | FindingsReportIntegrationTest.thatXmlFileCanBeGenerated:41 Exception not expected | FindingsReportIntegrationTest.thatXmlFileCanBeTransformed:54 Exception not expected | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  41.655 s | [INFO] Finished at: 2026-11-09T09:14:26Z | [INFO] ------------------------------------------------------------------------ | [WARNING]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project dependency-track-maven-plugin: There are test failures.
+  FAILBLOCK: [ERROR] thatBuildFailsWhenFindingsNumberBreachesDefinedThresholds(io.github.pmckeown.dependencytrack.finding.FindingsMojoIntegrationTest)  Time elapsed: 0.376 s  <<< FAILURE!
+      java.lang.AssertionError: Exception expected
+      at io.github.pmckeown.dependencytrack.finding.FindingsMojoIntegrationTest.thatBuildFailsWhenFindingsNumberBreachesDefinedThresholds(FindingsMojoIntegrationTest.java:115)
+      [INFO] Running io.github.pmckeown.dependencytrack.finding.FindingsClientTest
+      [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.16 s - in io.github.pmckeown.dependencytrack.finding.FindingsClientTest
+      [INFO] Running io.github.pmckeown.dependencytrack.finding.FindingsMojoTest
+      Caused by: javax.xml.bind.JAXBException: Implementation of JAXB-API has not been found on module path or classpath.
+      Caused by: java.lang.ClassNotFoundException: com.sun.xml.internal.bind.v2.ContextFactory
+  FAILBLOCK: [ERROR] thatXmlFileCanBeGenerated(io.github.pmckeown.dependencytrack.finding.report.FindingsReportIntegrationTest)  Time elapsed: 0 s  <<< FAILURE!
+      java.lang.AssertionError: Exception not expected
+      at io.github.pmckeown.dependencytrack.finding.report.FindingsReportIntegrationTest.thatXmlFileCanBeGenerated(FindingsReportIntegrationTest.java:41)
+      [ERROR] thatXmlFileCanBeTransformed(io.github.pmckeown.dependencytrack.finding.report.FindingsReportIntegrationTest)  Time elapsed: 0.011 s  <<< FAILURE!
+      java.lang.AssertionError: Exception not expected
+      at io.github.pmckeown.dependencytrack.finding.report.FindingsReportIntegrationTest.thatXmlFileCanBeTransformed(FindingsReportIntegrationTest.java:54)
+  distinct fail signatures (count): 1x java.lang.AssertionError: Exception expected || 2x java.lang.AssertionError: Exception not expected
+  provider/console lines: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+  linkage/compile signals: ClassNotFoundException
+  exception names: io.github.pmckeown.dependencytrack.DependencyTrackExceptionx25, java.net.UnknownHostExceptionx9, java.lang.ClassNotFoundExceptionx8, javax.xml.bind.JAXBExceptionx4, kong.unirest.UnirestExceptionx3, java.lang.AssertionErrorx3, unirest.shaded.org.apache.http.client.ClientProtocolExceptionx2
+  EVIDENCE logs/case58_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/jaxb-api-2.3.1.jar, breaking/jaxb-core-2.3.0.1.jar, breaking/jaxb-impl-4.0.0.jar, pre/archive_summary.json, pre/artifacts.tar, pre/jaxb-api-2.3.1.jar, pre/jaxb-core-2.3.0.1.jar, pre/jaxb-impl-2.3.3.jar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=32 sum(t,f,e,s)=[163, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=32 sum(t,f,e,s)=[163, 3, 0, 0]
+  archived non-report files: pre=105 breaking=105 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -157,3 +157,3 @@
+                 <artifactId>jaxb-impl</artifactId>
+    -            <version>2.3.3</version>
+    +            <version>4.0.0</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    FAILURE io.github.pmckeown.dependencytrack.finding.FindingsMojoIntegrationTest#thatBuildFailsWhenFindingsNumberBreachesDefinedThresholds type=java.lang.AssertionError msg=Exception expected
+       at io.github.pmckeown.dependencytrack.finding.FindingsMojoIntegrationTest.thatBuildFailsWhenFindingsNumberBreachesDefinedThresholds(FindingsMojoIntegrationTest.java:115)
+    FAILURE io.github.pmckeown.dependencytrack.finding.report.FindingsReportIntegrationTest#thatXmlFileCanBeGenerated type=java.lang.AssertionError msg=Exception not expected
+       at io.github.pmckeown.dependencytrack.finding.report.FindingsReportIntegrationTest.thatXmlFileCanBeGenerated(FindingsReportIntegrationTest.java:41)
+    FAILURE io.github.pmckeown.dependencytrack.finding.report.FindingsReportIntegrationTest#thatXmlFileCanBeTransformed type=java.lang.AssertionError msg=Exception not expected
+       at io.github.pmckeown.dependencytrack.finding.report.FindingsReportIntegrationTest.thatXmlFileCanBeTransformed(FindingsReportIntegrationTest.java:54)
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"jaxb-api-2.3.1.jar","services":{},"classes":{"com/sun/xml/bind/v2/ContextFactory.class":false,"com/sun/xml/internal/bind/v2/ContextFactory.class":false,"org/glassfish/jaxb/runtime/v2/ContextFactory.class":false,"javax/xml/bind/JAXBContext.class":true,"jakarta/xml/bind/JAXBContext.class":false}},{"phase":"pre","jar":"jaxb-core-2.3.0.1.jar","services":{},"classes":{"com/sun/xml/bind/v2/ContextFactory.class":false,"com/sun/xml/internal/bind/v2/ContextFactory.class":false,"org/glassfish/jaxb/runtime/v2/ContextFactory.class":false,"javax/xml/bind/JAXBContext.class":false,"jakarta/xml/bind/JAXBContext.class":false}},{"phase":"pre","jar":"jaxb-impl-2.3.3.jar","services":{"META-INF/services/javax.xml.bind.JAXBContext":"com.sun.xml.bind.v2.ContextFactory\n","META-INF/services/javax.xml.bind.JAXBContextFactory":"com.sun.xml.bind.v2.JAXBContextFactory\n"},"classes":{"com/sun/xml/bind/v2/ContextFactory.class":true,"com/sun/xml/internal/bind/v2/ContextFactory.class":false,"org/glassfish/jaxb/runtime/v2/ContextFactory.class":false,"javax/xml/bind/JAXBContext.class":false,"jakarta/xml/bind/JAXBContext.class":false}},{"phase":"breaking","jar":"jaxb-api-2.3.1.jar","services":{},"classes":{"com/sun/xml/bind/v2/ContextFactory.class":false,"com/sun/xml/internal/bind/v2/ContextFactory.class":false,"org/glassfish/jaxb/runtime/v2/ContextFactory.class":false,"javax/xml/bind/JAXB...

@@ -1,0 +1,113 @@
+{
+  "case_id": "93ac5faf37905e0fb4b44f5401271f2d3d76f57a",
+  "phase": "pre",
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-10T09:06:17.386045104Z",
+    "FinishedAt": "2026-11-10T09:06:42.682944813Z"
+  },
+  "working_directory": "/jcabi-ssh",
+  "command": [
+    "sh",
+    "-c",
+    "mvn clean test -B | tee %s.log"
+  ],
+  "image_id": "sha256:b911d699e3eb9fbe194700fc57c5c4ce5ec622afde0900875e1208fca4cc12e5",
+  "image_digests": [
+    "ghcr.io/chains-project/breaking-updates@sha256:b911d699e3eb9fbe194700fc57c5c4ce5ec622afde0900875e1208fca4cc12e5"
+  ],
+  "platform": "linux/amd64",
+  "cleaned_modules": [
+    "."
+  ],
+  "freshness_rule": "Only report directories under a target explicitly deleted in this run are included",
+  "report_count": 3,
+  "reports": [
+    {
+      "path": "target/surefire-reports/TEST-com.jcabi.ssh.ExecutionTest.xml",
+      "module": ".",
+      "test_class": "com.jcabi.ssh.ExecutionTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jcabi-ssh/target/test-classes:/jcabi-ssh/target/classes:/root/.m2/repository/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar:/root/.m2/repository/com/jcabi/jcabi-aspects/0.24.1/jcabi-aspects-0.24.1.jar:/root/.m2/repository/org/aspectj/aspectjrt/1.9.9.1/aspectjrt-1.9.9.1.jar:/root/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar:/root/.m2/repository/com/jcabi/jcabi-log/0.23.0/jcabi-log-0.23.0.jar:/root/.m2/repository/org/cactoos/cactoos/0.55.0/cactoos-0.55.0.jar:/root/.m2/repository/com/google/guava/guava/32.0.0-jre/guava-32.0.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar:/root/.m2/repository/com/github/mwiede/jsch/0.2.9/jsch-0.2.9.jar:/root/.m2/repository/org/apache/sshd/sshd-core/2.9.2/sshd-core-2.9.2.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.32/jcl-over-slf4j-1.7.32.jar:/root/.m2/repository/org/apache/sshd/sshd-common/2.9.2/sshd-common-2.9.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7.jar:/root/.m2/repository/org/slf4j/slf4j-reload4j/2.0.7/slf4j-reload4j-2.0.7.jar:/root/.m2/repository/ch/qos/reload4j/reload4j/1.2.22/reload4j-1.2.22.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.0/junit-jupiter-api-5.9.0.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.9.0/junit-platform-commons-1.9.0.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/testcontainers/testcontainers/1.18.1/testcontainers-1.18.1.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.23.0/commons-compress-1.23.0.jar:/root/.m2/repository/org/rnorth/duct-tape/duct-tape/1.0.8/duct-tape-1.0.8.jar:/root/.m2/repository/org/jetbrains/annotations/17.0.0/annotations-17.0.0.jar:/root/.m2/repository/com/github/docker-java/docker-java-api/3.3.0/docker-java-api-3.3.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3.jar:/root/.m2/repository/com/github/docker-java/docker-java-transport-zerodep/3.3.0/docker-java-transport-zerodep-3.3.0.jar:/root/.m2/repository/com/github/docker-java/docker-java-transport/3.3.0/docker-java-transport-3.3.0.jar:/root/.m2/repository/net/java/dev/jna/jna/5.12.1/jna-5.12.1.jar:/root/.m2/repository/org/testcontainers/junit-jupiter/1.18.1/junit-jupiter-1.18.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.0/junit-jupiter-engine-5.9.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.9.0/junit-platform-engine-1.9.0.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.0/junit-jupiter-params-5.9.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/mockito/mockito-core/4.7.0/mockito-core-4.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.13/byte-buddy-1.12.13.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.13/byte-buddy-agent-1.12.13.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.jcabi.ssh.SshByPasswordTest.xml",
+      "module": ".",
+      "test_class": "com.jcabi.ssh.SshByPasswordTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jcabi-ssh/target/test-classes:/jcabi-ssh/target/classes:/root/.m2/repository/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar:/root/.m2/repository/com/jcabi/jcabi-aspects/0.24.1/jcabi-aspects-0.24.1.jar:/root/.m2/repository/org/aspectj/aspectjrt/1.9.9.1/aspectjrt-1.9.9.1.jar:/root/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar:/root/.m2/repository/com/jcabi/jcabi-log/0.23.0/jcabi-log-0.23.0.jar:/root/.m2/repository/org/cactoos/cactoos/0.55.0/cactoos-0.55.0.jar:/root/.m2/repository/com/google/guava/guava/32.0.0-jre/guava-32.0.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar:/root/.m2/repository/com/github/mwiede/jsch/0.2.9/jsch-0.2.9.jar:/root/.m2/repository/org/apache/sshd/sshd-core/2.9.2/sshd-core-2.9.2.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.32/jcl-over-slf4j-1.7.32.jar:/root/.m2/repository/org/apache/sshd/sshd-common/2.9.2/sshd-common-2.9.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7.jar:/root/.m2/repository/org/slf4j/slf4j-reload4j/2.0.7/slf4j-reload4j-2.0.7.jar:/root/.m2/repository/ch/qos/reload4j/reload4j/1.2.22/reload4j-1.2.22.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.0/junit-jupiter-api-5.9.0.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.9.0/junit-platform-commons-1.9.0.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/testcontainers/testcontainers/1.18.1/testcontainers-1.18.1.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.23.0/commons-compress-1.23.0.jar:/root/.m2/repository/org/rnorth/duct-tape/duct-tape/1.0.8/duct-tape-1.0.8.jar:/root/.m2/repository/org/jetbrains/annotations/17.0.0/annotations-17.0.0.jar:/root/.m2/repository/com/github/docker-java/docker-java-api/3.3.0/docker-java-api-3.3.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3.jar:/root/.m2/repository/com/github/docker-java/docker-java-transport-zerodep/3.3.0/docker-java-transport-zerodep-3.3.0.jar:/root/.m2/repository/com/github/docker-java/docker-java-transport/3.3.0/docker-java-transport-3.3.0.jar:/root/.m2/repository/net/java/dev/jna/jna/5.12.1/jna-5.12.1.jar:/root/.m2/repository/org/testcontainers/junit-jupiter/1.18.1/junit-jupiter-1.18.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.0/junit-jupiter-engine-5.9.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.9.0/junit-platform-engine-1.9.0.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.0/junit-jupiter-params-5.9.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/mockito/mockito-core/4.7.0/mockito-core-4.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.13/byte-buddy-1.12.13.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.13/byte-buddy-agent-1.12.13.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.jcabi.ssh.SshTest.xml",
+      "module": ".",
+      "test_class": "com.jcabi.ssh.SshTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jcabi-ssh/target/test-classes:/jcabi-ssh/target/classes:/root/.m2/repository/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar:/root/.m2/repository/com/jcabi/jcabi-aspects/0.24.1/jcabi-aspects-0.24.1.jar:/root/.m2/repository/org/aspectj/aspectjrt/1.9.9.1/aspectjrt-1.9.9.1.jar:/root/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar:/root/.m2/repository/com/jcabi/jcabi-log/0.23.0/jcabi-log-0.23.0.jar:/root/.m2/repository/org/cactoos/cactoos/0.55.0/cactoos-0.55.0.jar:/root/.m2/repository/com/google/guava/guava/32.0.0-jre/guava-32.0.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar:/root/.m2/repository/com/github/mwiede/jsch/0.2.9/jsch-0.2.9.jar:/root/.m2/repository/org/apache/sshd/sshd-core/2.9.2/sshd-core-2.9.2.jar:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.32/jcl-over-slf4j-1.7.32.jar:/root/.m2/repository/org/apache/sshd/sshd-common/2.9.2/sshd-common-2.9.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7.jar:/root/.m2/repository/org/slf4j/slf4j-reload4j/2.0.7/slf4j-reload4j-2.0.7.jar:/root/.m2/repository/ch/qos/reload4j/reload4j/1.2.22/reload4j-1.2.22.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.0/junit-jupiter-api-5.9.0.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.9.0/junit-platform-commons-1.9.0.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/testcontainers/testcontainers/1.18.1/testcontainers-1.18.1.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.23.0/commons-compress-1.23.0.jar:/root/.m2/repository/org/rnorth/duct-tape/duct-tape/1.0.8/duct-tape-1.0.8.jar:/root/.m2/repository/org/jetbrains/annotations/17.0.0/annotations-17.0.0.jar:/root/.m2/repository/com/github/docker-java/docker-java-api/3.3.0/docker-java-api-3.3.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3.jar:/root/.m2/repository/com/github/docker-java/docker-java-transport-zerodep/3.3.0/docker-java-transport-zerodep-3.3.0.jar:/root/.m2/repository/com/github/docker-java/docker-java-transport/3.3.0/docker-java-transport-3.3.0.jar:/root/.m2/repository/net/java/dev/jna/jna/5.12.1/jna-5.12.1.jar:/root/.m2/repository/org/testcontainers/junit-jupiter/1.18.1/junit-jupiter-1.18.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.0/junit-jupiter-engine-5.9.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.9.0/junit-platform-engine-1.9.0.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.0/junit-jupiter-params-5.9.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/mockito/mockito-core/4.7.0/mockito-core-4.7.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.13/byte-buddy-1.12.13.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.13/byte-buddy-agent-1.12.13.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:",
+      "errors": [],
+      "failures": []
+    }
+  ],
+  "source_and_pom_sha256": {
+    "pom.xml": "195e10783aa647f291e71e25f155736d33cada7090606aa4d7086a4f87e7349a",
+    "src/main/java/com/jcabi/ssh/AbstractSshShell.java": "3729c808e505e4c13e9b58fc165c65e22424ec69eb9447a63b2373081566c1bb",
+    "src/main/java/com/jcabi/ssh/EasyRepo.java": "bfff74370c405cc329192e305fccc473bd78125c3771caf2ff3cd09904c90987",
+    "src/main/java/com/jcabi/ssh/Execution.java": "f1cbc9f21c7f3bb24d39bad34dd48a5ac7813b7718e6bf2410da888f2e7a4acd",
+    "src/main/java/com/jcabi/ssh/JschLogger.java": "6cb5f0b189b701160bf259167eb0c21e33fb33edd264152e81897911162e9dc1",
+    "src/main/java/com/jcabi/ssh/Shell.java": "38cb23ab301428d8ba52155f09780bf7f27b4eb76fb906af84a7b243b23ce4c8",
+    "src/main/java/com/jcabi/ssh/Ssh.java": "a94d9980c8c82b8f3d3db9934e1e1cc008c690d437c1886b2a5f5c91ac0b4c32",
+    "src/main/java/com/jcabi/ssh/SshByPassword.java": "c37d28e195b7c88010fc50afefb8ee224410488f54ffc5af786394b51b7e66fc",
+    "src/main/java/com/jcabi/ssh/package-info.java": "6702f2d6f639a5072650bb43f14f63980d7b5294e709f011c69c62585518374b",
+    "src/site/apt/index.apt.vm": "94c97957fdf6f9cbde76e9e19555757c4914c5ddfde8b98d40e57ab15a771180",
+    "src/site/resources/CNAME": "1c725d93ecc86585f327a0f27cf54eb69aea3a858528f1789c1600017abd22df",
+    "src/site/site.xml": "ec244da529f8cb09349138f8b8e20b6abf208cfb0153d838b1012fcc90b27c85",
+    "src/test/java/com/jcabi/ssh/ExecutionTest.java": "9b9d76e78a849265dac6d1cebe62ba0d82de0c06e8d78d55dcebe7bcc165ce9d",
+    "src/test/java/com/jcabi/ssh/MkCommand.java": "9633b5275343091ec82d178b516a350be1acda2de968e3bf126cc33ee690a35f",
+    "src/test/java/com/jcabi/ssh/MkCommandFactory.java": "b6ac7c418f164c1bdb212362e1d5a19405b79e7f7211998c65c84104c320a76c",
+    "src/test/java/com/jcabi/ssh/MockSshServerBuilder.java": "b6e3175fac40f61949edaaa3d228d06468f10447f2dac54187e0bc2eac833d11",
+    "src/test/java/com/jcabi/ssh/SshByPasswordITCase.java": "9cc397d5ea8f95aad231137c5071fdac6e9d98d8afcd6112ab321d7ca9106f17",
+    "src/test/java/com/jcabi/ssh/SshByPasswordTest.java": "ff6ede2dd7fdde072db6a3186c051a9423f0952037cef27e8823cec3c0d99502",
+    "src/test/java/com/jcabi/ssh/SshITCase.java": "2c30181e09cae81ac864fb68a4ee5a1abd5d5ab05eed91ec27743d1b227f59e3",
+    "src/test/java/com/jcabi/ssh/SshITCaseTemplate.java": "9f1126e6fb1b686b6d64e3a9cd1a1423631c062aafc5fa92a8321148d169bfbc",
+    "src/test/java/com/jcabi/ssh/SshTest.java": "3221fb3eee8aba0d0798cf223531e2599c6d0d87a7bed625b000788241599379",
+    "src/test/java/com/jcabi/ssh/package-info.java": "e65c8be67b039669dc8c5a0ceeec22ee494a2672c16a56f10f4e258910065255",
+    "src/test/resources/com/jcabi/ssh/encrypted_private.key": "c7b21e3dc79a067ac1dbb833eb67e44ae41c468225da6c028dcb21b27f300950",
+    "src/test/resources/com/jcabi/ssh/private.key": "4d76346fcb37de533bee67f0d14419a0446fdfa88a6b33887958bfc92c099246",
+    "src/test/resources/log4j.properties": "535f05ceba00adbf6a968de7844f3cba867854e38a923fbe3ece068bed6153d4"
+  },
+  "aggregate_counts": {
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

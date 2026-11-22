@@ -1,0 +1,7 @@
+# Case 140 review
+
+Both original scheduler images ran. PRE passed 944 tests. BREAKING stopped in safeplace after 904 tests with one failure in SpecScannerTest and no errors or skips according to Maven and suite-level Surefire XML. Reconciliation matches repeated TestNG executions by module, class, method and multiplicity. The nested export labels the same failure as an error and includes a source-disabled CSplitTest method. Those extra entries are recorded separately, with the original XML preserved.
+
+The sole archived source/POM change is the ANTLR runtime version in safeplace/pom.xml. The safeplace test classpath changes only ANTLR Runtime from 4.9.3 to 4.10.1. Fresh generated CstrSpecLexer files copied from both containers have identical hashes and identify ANTLR 4.9.3 as the generator. The same compiled lexer and diagnostic bytecode initialize successfully with 4.9.3. With 4.10.1 the same deserialize(char[]) method resolves, executes and rejects serialized ATN version 3 because it expects 4. The runtime exception is wrapped by ExceptionInInitializerError.
+
+The changed acceptance of serialized input supports PROVISIONAL_BEHAVIORAL with no binary linkage failure. Independent review remains pending, including adjudication of the generated-data compatibility boundary. Case 67 reproduced the mechanism with runtime 4.10. Case 140 has its own original images, results and probe evidence.

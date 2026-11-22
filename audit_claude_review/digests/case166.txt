@@ -1,0 +1,44 @@
+=== CASE 166 dd75e8070babe8916e4907885fce513d9cb26b80
+  project=alphagov/pay-cardid dep=org.dhatim:dropwizard-sentry 2.0.22 -> 2.0.25-2 scope=compile type=other java=11
+  PR=https://github.com/alphagov/pay-cardid/pull/675
+  PRE log logs/batch_triage/dd75e807_pre.log:
+  lines=179
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 44, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/dd75e807_breaking.log:
+  lines=113
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 34, Failures: 0, Errors: 1, Skipped: 0
+  failing classes: Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.004 s <<< FAILURE! - in uk.gov.pay.card.it.resources.CardIdResourceITest
+  section: Errors: | CardIdResourceITest » ConfigurationParsing /pay-cardid/target/classes/config/c... | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  32.061 s | [INFO] Finished at: 2026-11-20T04:55:31Z | [INFO] ------------------------------------------------------------------------ | [WARNING] | [WARNING] Plugin validation issues were detected in 4 plugin(s) | [WARNING]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project pay-cardid: There are test failures.
+  FAILBLOCK: [ERROR] uk.gov.pay.card.it.resources.CardIdResourceITest  Time elapsed: 5.004 s  <<< ERROR!
+      io.dropwizard.configuration.ConfigurationParsingException:
+      /pay-cardid/target/classes/config/config.yaml has an error:
+      * Unrecognized field at: logging.appenders.[1].stacktraceAppPackages
+      Did you mean?:
+      - inAppExcludes
+      - inAppIncludes
+      Caused by: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException:
+  distinct fail signatures (count): 1x io.dropwizard.configuration.ConfigurationParsingException:
+  exception names: io.dropwizard.configuration.ConfigurationParsingExceptionx1, com.fasterxml.jackson.databind.exc.UnrecognizedPropertyExceptionx1
+  EVIDENCE logs/case166_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/dropwizard-sentry-2.0.25-2_SentryAppenderFactory_javap.txt, breaking/jar_inspection.json, breaking/jars/dropwizard-sentry-2.0.25-2.jar, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/dropwizard-sentry-2.0.22_SentryAppenderFactory_javap.txt, pre/jar_inspection.json, pre/jars/dropwizard-sentry-2.0.22.jar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=6 sum(t,f,e,s)=[44, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=6 sum(t,f,e,s)=[34, 0, 1, 0]
+  archived non-report files: pre=31 breaking=31 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -52,3 +52,3 @@
+                 <artifactId>dropwizard-sentry</artifactId>
+    -            <version>2.0.22</version>
+    +            <version>2.0.25-2</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    ERROR uk.gov.pay.card.it.resources.CardIdResourceITest#uk.gov.pay.card.it.resources.CardIdResourceITest type=io.dropwizard.configuration.ConfigurationParsingException msg=/pay-cardid/target/classes/config/config.yaml has an error:   * Unrecognized field at: logging.appenders.[1].stacktraceAppPackages     Did you mean?:       - inAppExcludes       - inAppIncludes       - serverName       - filterFactories       - messageRate         [13 more] 
+       Caused by: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException:
+       at [Source: UNKNOWN; byte offset: #UNKNOWN] (through reference chain: uk.gov.pay.card.app.config.CardConfiguration["logging"]->io.dropwizard.logging.DefaultLoggingFactory["appenders"]->java.util.Array
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -            <version>2.0.22</version> / +            <version>2.0.25-2</version>
+  JSON breaking/jar_inspection.json: {"case_id":"dd75e8070babe8916e4907885fce513d9cb26b80","phase":"breaking","path_filter":"/dropwizard-sentry/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/org/dhatim/dropwizard-sentry/2.0.25-2/dropwizard-sentry-2.0.25-2.jar","classes":{"org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory":{"present":true,"major_version":52}},"services":{"META-INF/services/io.dropwizard.logging.AppenderFactory":"org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory\n"},"disassemblies":[{"class":"org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory","file":"dropwizard-sentry-2.0.25-2_SentryAppenderFactory_javap.txt","exit_code":0}]}]}
+  JSON pre/jar_inspection.json: {"case_id":"dd75e8070babe8916e4907885fce513d9cb26b80","phase":"pre","path_filter":"/dropwizard-sentry/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/org/dhatim/dropwizard-sentry/2.0.22/dropwizard-sentry-2.0.22.jar","classes":{"org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory":{"present":true,"major_version":52}},"services":{"META-INF/services/io.dropwizard.logging.AppenderFactory":"org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory\n"},"disassemblies":[{"class":"org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory","file":"dropwizard-sentry-2.0.22_SentryAppenderFactory_javap.txt","exit_code":0}]}]}
+  JARS: breaking/jars/dropwizard-sentry-2.0.25-2.jar, pre/jars/dropwizard-sentry-2.0.22.jar

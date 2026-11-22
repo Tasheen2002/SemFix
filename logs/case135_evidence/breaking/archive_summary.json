@@ -1,0 +1,508 @@
+{
+  "case_id": "b7e4be7e46c5360726104023156ae726da6c972e",
+  "phase": "breaking",
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-10T11:08:34.718988356Z",
+    "FinishedAt": "2026-11-10T11:09:31.824534254Z"
+  },
+  "working_directory": "/IDS-Messaging-Services",
+  "command": [
+    "sh",
+    "-c",
+    "mvn clean test -B | tee %s.log"
+  ],
+  "image_id": "sha256:cb214231a9487f02240c076048670304dedf9f5ae08e13de94d1541824b7e722",
+  "image_digests": [
+    "ghcr.io/chains-project/breaking-updates@sha256:cb214231a9487f02240c076048670304dedf9f5ae08e13de94d1541824b7e722"
+  ],
+  "platform": "linux/amd64",
+  "cleaned_modules": [
+    "core",
+    "messaging"
+  ],
+  "freshness_rule": "Only report directories under a target explicitly deleted in this run are included",
+  "report_count": 15,
+  "reports": [
+    {
+      "path": "core/target/surefire-reports/TEST-de.fraunhofer.ids.messaging.core.config.ConfigProducerTest.xml",
+      "module": "core",
+      "test_class": "de.fraunhofer.ids.messaging.core.config.ConfigProducerTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/usr/share/java/maven-3/boot/plexus-classworlds-2.7.0.jar",
+      "classpath_property": "java.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "core/target/surefire-reports/TEST-de.fraunhofer.ids.messaging.core.daps.DapsValidatorTest.xml",
+      "module": "core",
+      "test_class": "de.fraunhofer.ids.messaging.core.daps.DapsValidatorTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/usr/share/java/maven-3/boot/plexus-classworlds-2.7.0.jar",
+      "classpath_property": "java.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "core/target/surefire-reports/TEST-de.fraunhofer.ids.messaging.core.daps.DapsVerifierTest.xml",
+      "module": "core",
+      "test_class": "de.fraunhofer.ids.messaging.core.daps.DapsVerifierTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/usr/share/java/maven-3/boot/plexus-classworlds-2.7.0.jar",
+      "classpath_property": "java.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "messaging/target/surefire-reports/TEST-de.fraunhofer.ids.messaging.dispatcher.MessageDispatcherTest.xml",
+      "module": "messaging",
+      "test_class": "de.fraunhofer.ids.messaging.dispatcher.MessageDispatcherTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/usr/share/java/maven-3/boot/plexus-classworlds-2.7.0.jar",
+      "classpath_property": "java.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "messaging/target/surefire-reports/TEST-de.fraunhofer.ids.messaging.endpoint.EndpointServiceTest.xml",
+      "module": "messaging",
+      "test_class": "de.fraunhofer.ids.messaging.endpoint.EndpointServiceTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/usr/share/java/maven-3/boot/plexus-classworlds-2.7.0.jar",
+      "classpath_property": "java.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "messaging/target/surefire-reports/TEST-de.fraunhofer.ids.messaging.endpoint.MessageControllerTest.xml",
+      "module": "messaging",
+      "test_class": "de.fraunhofer.ids.messaging.endpoint.MessageControllerTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 1,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/usr/share/java/maven-3/boot/plexus-classworlds-2.7.0.jar",
+      "classpath_property": "java.class.path",
+      "errors": [
+        {
+          "test_name": "testGetValidMultipartReturn",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/annotation/JsonKey",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey\n\tat de.fraunhofer.ids.messaging.endpoint.MessageControllerTest.testGetValidMultipartReturn(MessageControllerTest.java:151)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "messaging/target/surefire-reports/TEST-de.fraunhofer.ids.messaging.protocol.http.IdsHttpServiceTest.xml",
+      "module": "messaging",
+      "test_class": "de.fraunhofer.ids.messaging.protocol.http.IdsHttpServiceTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/usr/share/java/maven-3/boot/plexus-classworlds-2.7.0.jar",
+      "classpath_property": "java.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "messaging/target/surefire-reports/TEST-de.fraunhofer.ids.messaging.protocol.multipart.MultipartResponseConverterTest.xml",
+      "module": "messaging",
+      "test_class": "de.fraunhofer.ids.messaging.protocol.multipart.MultipartResponseConverterTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 1,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/usr/share/java/maven-3/boot/plexus-classworlds-2.7.0.jar",
+      "classpath_property": "java.class.path",
+      "errors": [
+        {
+          "test_name": "testConvertResponse",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/annotation/JsonKey",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey\n\tat de.fraunhofer.ids.messaging.protocol.multipart.MultipartResponseConverterTest.buildMultipart(MultipartResponseConverterTest.java:205)\n\tat de.fraunhofer.ids.messaging.protocol.multipart.MultipartResponseConverterTest.testConvertResponse(MultipartResponseConverterTest.java:100)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "messaging/target/surefire-reports/TEST-de.fraunhofer.ids.messaging.protocol.multipart.parser.MultipartParserTest.xml",
+      "module": "messaging",
+      "test_class": "de.fraunhofer.ids.messaging.protocol.multipart.parser.MultipartParserTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/usr/share/java/maven-3/boot/plexus-classworlds-2.7.0.jar",
+      "classpath_property": "java.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "messaging/target/surefire-reports/TEST-de.fraunhofer.ids.messaging.requests.InfrastructureServiceTest.xml",
+      "module": "messaging",
+      "test_class": "de.fraunhofer.ids.messaging.requests.InfrastructureServiceTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 1,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/usr/share/java/maven-3/boot/plexus-classworlds-2.7.0.jar",
+      "classpath_property": "java.class.path",
+      "errors": [
+        {
+          "test_name": "testInfrastructureService",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/annotation/JsonKey",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey\n\tat de.fraunhofer.ids.messaging.requests.InfrastructureServiceTest.testInfrastructureService(InfrastructureServiceTest.java:154)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "messaging/target/surefire-reports/TEST-de.fraunhofer.ids.messaging.response.MessageResponseTest.xml",
+      "module": "messaging",
+      "test_class": "de.fraunhofer.ids.messaging.response.MessageResponseTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 1,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/usr/share/java/maven-3/boot/plexus-classworlds-2.7.0.jar",
+      "classpath_property": "java.class.path",
+      "errors": [
+        {
+          "test_name": "testResponses",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/annotation/JsonKey",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey\n\tat de.fraunhofer.ids.messaging.response.MessageResponseTest.testResponses(MessageResponseTest.java:44)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "messaging/target/surefire-reports/TEST-de.fraunhofer.ids.messaging.util.IdsMessageUtilsTest.xml",
+      "module": "messaging",
+      "test_class": "de.fraunhofer.ids.messaging.util.IdsMessageUtilsTest",
+      "counts": {
+        "tests": 1,
+        "failures": 1,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/usr/share/java/maven-3/boot/plexus-classworlds-2.7.0.jar",
+      "classpath_property": "java.class.path",
+      "errors": [],
+      "failures": [
+        {
+          "test_name": "testUtils",
+          "type": "org.opentest4j.AssertionFailedError",
+          "message": "Unexpected exception thrown: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey",
+          "stacktrace": "org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey\n\tat de.fraunhofer.ids.messaging.util.IdsMessageUtilsTest.testUtils(IdsMessageUtilsTest.java:54)\nCaused by: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey\n\tat de.fraunhofer.ids.messaging.util.IdsMessageUtilsTest.lambda$testUtils$0(IdsMessageUtilsTest.java:54)\n\tat de.fraunhofer.ids.messaging.util.IdsMessageUtilsTest.testUtils(IdsMessageUtilsTest.java:54)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.annotation.JsonKey\n\tat de.fraunhofer.ids.messaging.util.IdsMessageUtilsTest.lambda$testUtils$0(IdsMessageUtilsTest.java:54)\n\tat de.fraunhofer.ids.messaging.util.IdsMessageUtilsTest.testUtils(IdsMessageUtilsTest.java:54)\n"
+        }
+      ]
+    },
+    {
+      "path": "messaging/target/surefire-reports/TEST-de.fraunhofer.ids.messaging.util.InfomodelMessageBuilderTest.xml",
+      "module": "messaging",
+      "test_class": "de.fraunhofer.ids.messaging.util.InfomodelMessageBuilderTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 1,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/usr/share/java/maven-3/boot/plexus-classworlds-2.7.0.jar",
+      "classpath_property": "java.class.path",
+      "errors": [
+        {
+          "test_name": "testBuildMessage",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/annotation/JsonKey",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey\n\tat de.fraunhofer.ids.messaging.util.InfomodelMessageBuilderTest.testBuildMessage(InfomodelMessageBuilderTest.java:35)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "messaging/target/surefire-reports/TEST-de.fraunhofer.ids.messaging.util.RequestUtilsTest.xml",
+      "module": "messaging",
+      "test_class": "de.fraunhofer.ids.messaging.util.RequestUtilsTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/usr/share/java/maven-3/boot/plexus-classworlds-2.7.0.jar",
+      "classpath_property": "java.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "messaging/target/surefire-reports/TEST-de.fraunhofer.ids.messaging.util.SerializerProviderTest.xml",
+      "module": "messaging",
+      "test_class": "de.fraunhofer.ids.messaging.util.SerializerProviderTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/usr/share/java/maven-3/boot/plexus-classworlds-2.7.0.jar",
+      "classpath_property": "java.class.path",
+      "errors": [],
+      "failures": []
+    }
+  ],
+  "source_and_pom_sha256": {
+    "appstore/pom.xml": "ea6894be0d1b8718fd5e56efa2c2d85de3e6ac40f1261f34c473c3c4c629e198",
+    "appstore/src/main/java/de/fraunhofer/ids/messaging/appstore/AppStoreService.java": "9bf64e396cef1f355fe699ef3faedb64a1813e4b54815670c4fa015e2c9d6ed3",
+    "appstore/src/main/java/de/fraunhofer/ids/messaging/appstore/IDSAppStoreService.java": "7bc7076b657e9257d3c46f3926d35b04936ad337a6a0bc92ef6289c490e93a8f",
+    "appstore/src/test/java/de/fraunhofer/ids/messaging/appstore/AppStoreServiceTest.java": "38237959a2e26853aa546caaffe001047b48e85a04cd3b43a40c628dfe0c6ded",
+    "broker/pom.xml": "2fc98ed5fe07493a0814143bd3907c468d286d5db9bd75cb0a58d0754986172a",
+    "broker/src/main/java/de/fraunhofer/ids/messaging/broker/BrokerService.java": "9434886fbb11255ddf549683902bfc1a96dcd55343010b73069c840a3821eb1b",
+    "broker/src/main/java/de/fraunhofer/ids/messaging/broker/IDSBrokerService.java": "297bbd30cc64cad268c58197dfb339d45efc17d216fbc0b37516bb250559610a",
+    "broker/src/main/java/de/fraunhofer/ids/messaging/broker/util/FullTextQueryTemplate.java": "82214d54ac083b60fd61875e488e722be57c75d140bd581f751cf2b0105b9d01",
+    "broker/src/test/java/de/fraunhofer/ids/messaging/broker/BrokerServiceTest.java": "359b8e66297e20ae6129f8a29e7bdfc411984f3dd11c41b77e28e468580b444e",
+    "clearinghouse/pom.xml": "8ed5850e6c95279d8d13c52737ac94e24887d64166f2d91c535612c081e132fb",
+    "clearinghouse/src/main/java/de/fraunhofer/ids/messaging/clearinghouse/ClearingHouseService.java": "5ba3bf803eec5a66f07a8d9c14c706c1ff55c3d75459acd194eb88f09f9dffe1",
+    "clearinghouse/src/main/java/de/fraunhofer/ids/messaging/clearinghouse/IDSClearingHouseService.java": "c57a7d55891e08ace8cb77d0b60ff082d6a9fff4be2dd324693ae29887895254",
+    "clearinghouse/src/test/java/de/fraunhofer/ids/messaging/clearinghouse/ClearingHouseServiceTest.java": "ef28393ab31c41ed8a4818a0a3f312bbff928e6bffe9d5587e39990b0553ac99",
+    "clearinghouse/src/test/resources/application.properties": "1650af61ddbb6426fcba85cf29dbbe9572d21dd533580c5065efb904cc20a4cb",
+    "core/pom.xml": "630d33b1e986f3bd8fde4912a916985c8a3900bcca8980fb5805228be0a77e65",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/config/ClientProvider.java": "82f4eca698e7154a8f74949119a325c5acc76db87bbbdb5847b4a05314a47866",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/config/ConfigContainer.java": "4b07d119150ef993b8d30507ca379a15130f096d8f9c1bf611770a4b6b61c03f",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/config/ConfigProducer.java": "ccf48547118b00fc36eb284ee36c8bd3818b4bd467f40b499fc5140ed3665a31",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/config/ConfigProducerInterceptorException.java": "30aec6ee519377b6ead7e2552d8b01bc11794cd737a759f8fb70d97a020efb58",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/config/ConfigProperties.java": "5f6da44e9e444bc9ecae8bbc63ae5056718e4161d83a6a5e28f77e051388ff03",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/config/ConfigUpdateException.java": "0f8fe8d9e62de258312f08432f84fe7a1b70412ea185df610e2df6539b4ecf4a",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/config/PostConfigProducerInterceptor.java": "36150691a1780e7607ad7275e9b47f75e98d2bb2ef1ef2e9194c4d963faed784",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/config/PreConfigProducerInterceptor.java": "9ed18105430dc44ea0cc9a0960c7369868e3279b65698237da7c8efe2b541fb1",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/config/ssl/keystore/KeyStoreManager.java": "14cb8141bd5caaca4171a22e1068994091b5cb59878741df0fa74afa7befabb0",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/config/ssl/keystore/KeyStoreManagerInitializationException.java": "11c2c872e16fed1c125d6d4735f67800863caf4800529ab961c781a7c729f6d1",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/config/ssl/truststore/TrustStoreManager.java": "9ecf8c5f597cb7dc8d8a17ca0d7fa3041a24426f59ae252b627efb01c60665e6",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/config/util/CertificateSubjectCnProvider.java": "4f92b7bc081c006b10c65cee912de6ecab70cdd2ef9007598ea8ce0b6acd9e46",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/config/util/ConnectorFingerprintProvider.java": "1d97a2120665e19002e24d677ad5e3c81e1831e274b03743064693efcee092c9",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/daps/ClaimsException.java": "f3d1cf0b0389b53c25b6755d39934760aba60ada97bcdfecd58f38d8c61764c8",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/daps/ConnectorMissingCertExtensionException.java": "489682f74d8a56e911c3604f6df02bcf312723527f7805f1c9986f295f54e63b",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/daps/DapsConnectionException.java": "19353adbef4983b2915bd3b119587382a5b20f3734ceb1a0ad3ccb2e83cf72d8",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/daps/DapsEmptyResponseException.java": "986eb497e08be0c391d20172ae04b52e6f318de9f118a9fbdbeffd860c363ccc",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/daps/DapsPublicKeyProvider.java": "3bf44f33376095c2fafe21602e96c4ed4d648955de261ed614f0cbc180bd1ee0",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/daps/DapsTokenManagerException.java": "b84dafe76150858c89710a905be6e096e5a2f8de0ab95744fdd369ac57eb9f8f",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/daps/DapsTokenProvider.java": "d15112f1f306e834ec4c94f20e5ed11560746cd647a48d7d593b90f926212bdb",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/daps/DapsValidator.java": "53f22e4624a7839d673fd3b12317a83f5b439d4c4c72f4b14596a0e4577fedc3",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/daps/DapsVerifier.java": "33700c461050eb6da54fd193ed94d51054390b4c67920422b249d9b4b6b02588",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/daps/TokenManagerService.java": "22f78c6290be557b8c767441325da374ffd8cef7663ed1854a441e00db0cdf69",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/daps/TokenProviderService.java": "c2719ed6c2a4f09914e38e168a96acc2a18284aeb7524b2e50dec70c5b62da42",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/daps/aisec/AisecTokenManagerService.java": "4535d3d22a763209570530dc613fc64ca3d474d20bc46aa3299bb1058c478c23",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/daps/customvalidation/DatValidationRule.java": "3efdad8d339ff1cbf5cd6d3851d940c1f2a0290d64cce4759aa5b66708befd8b",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/daps/customvalidation/ValidationRuleException.java": "c7a7946301e84859e62ea900092800cc607891a95a8efc0e4422455fc100e06b",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/daps/customvalidation/ValidationRuleResult.java": "a40438e032b230c9e0f89185455a12605ffcc162c647b7857a875ee05e157f37",
+    "core/src/main/java/de/fraunhofer/ids/messaging/core/daps/orbiter/OrbiterTokenManagerService.java": "4be04736339d03c8c8b540f8fd741797173c4fd93eedf98e770784abea2e954d",
+    "core/src/test/java/de/fraunhofer/ids/messaging/core/config/ConfigProducerTest.java": "6033daa41f22e04c7eef672ca1533f32dab70c6ee5605aadd46249faa641c7e9",
+    "core/src/test/java/de/fraunhofer/ids/messaging/core/config/PostConfigInterceptor.java": "e87d2b06063d669db5d7c5e00ee0aab5e91a06ae4d3f4bb51baa16da2d0a98c6",
+    "core/src/test/java/de/fraunhofer/ids/messaging/core/config/PreConfigInterceptor.java": "1df59195a5e6c4c5c57427ab60306a62f453ab5e2885336cd935ac78910daccb",
+    "core/src/test/java/de/fraunhofer/ids/messaging/core/config/TestSpringApp.java": "45f89e6ad31452221d7bb4ab3fc8e4d4a35cb6b6d317bcf4741853ee2f1bae2b",
+    "core/src/test/java/de/fraunhofer/ids/messaging/core/daps/DapsValidatorTest.java": "9f7489e1831273226c695339cecd03132079e5e0d8964e25836d2721cd55c70d",
+    "core/src/test/java/de/fraunhofer/ids/messaging/core/daps/DapsVerifierTest.java": "f1dd6f28bd756c2d1727724dcaa247e20af2896426062a59fd80fa6237ba2f09",
+    "core/src/test/resources/application.properties": "51c807e5cf91de5a4ace219deb2b533381e1b7e49b29752decaef0c810690613",
+    "core/src/test/resources/configmodel.json": "51287f027bc9af8f4aab379dfe8ffd1eab8a23ddcef426770e449794405b00fd",
+    "core/src/test/resources/ids-keystore.p12": "b6c1a9c194cf4a3cdc046b53424ab3d3351cf398843becc6a5209ea14ace1d15",
+    "core/src/test/resources/server-truststore.p12": "98bf2a83ad683e1508b0042df19b184c4062046c5bc8ea03075e77c616a429e2",
+    "messaging/pom.xml": "0af7d7737f517f981728ca8af71262cacfd2e9bd425846626aab327bd60a1415",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/common/DeserializeException.java": "bcc83a195a887de6d740a4eb7ea6a30572c3425e58e376852e0ea30c045b58b1",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/common/MessageBuilderException.java": "66f4cbaf744f94ee58c3729f1f49b72f2fb18f08c6a9d250f11e929b450a5f7f",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/common/SerializeException.java": "4165643b2d6218c26d8470c37627f9840f8e59125e5e819bb3940721fc47191b",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/dispatcher/MessageDispatcher.java": "f54203b92c78c922d47e96186538299b1277d823a40e9804745b5d0cabe0b8bf",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/dispatcher/MessageDispatcherProvider.java": "f59674649ae4438660a783ed52bc56899d46f78cf5a3b5e7317563a2407342cc",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/dispatcher/filter/PreDispatchingFilter.java": "a3a3cc99e96e134bbf3fdd1caca9f9aab90ab0b7aa6674a886e2833fb7d4b447",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/dispatcher/filter/PreDispatchingFilterException.java": "73cc6493bc7f2fb96324c5ce4059957cb3a53aa47f42a1172fca358f7b013e93",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/dispatcher/filter/PreDispatchingFilterResult.java": "ceddee3300de59de1363f47e78ccd6b6051f7e2b8872d9db036b4846dee646e4",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/dispatcher/filter/PreDispatchingFilterResultBuilder.java": "77026c6b820835402f0dbab033895a247d0a333263e96d690a70a9602c0ec8dd",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/endpoint/EndpointService.java": "8c8f925bf7b1264aa41d9a559aeaeeb7d6e6313b44bd953ba37c2dcfe59cee9b",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/endpoint/MessageController.java": "e0ae004c8b98767f3a968f1bfb6b8b0c79ba28bf2db2f37bf46fc4307724ac18",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/handler/message/MessageAndClaimsHandler.java": "e5c5d1fa2b57b7209c3cd7be8b4f672698c7f9d8ee5d1a4b98bb8bae31055402",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/handler/message/MessageHandler.java": "6abb8298e596eb3c472602c40bf3e692c02a2c239c85737436510c45396244da",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/handler/message/MessageHandlerException.java": "712b013f4ae196151a7507421ea274a3aeb87045fb8247acde3dca867d1d1415",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/handler/message/MessagePayload.java": "d762eb2e541e355db2b3fe8d2e98029ea0be7641e47e910c3bbe6147421f968a",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/handler/message/MessagePayloadInputstream.java": "500c47fbfb868f65841c0eb678fd02527fe0d3025027b37c91c9d29440a3eb0f",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/handler/message/SupportedMessageType.java": "91965aa81672d443ddf2aa1ac9b0dcfb2a6d67fa9832385a99df86af2f726d00",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/handler/message/SupportedMessageTypes.java": "b62c90749347240b8f71a6a999c22abe02de90b77711b52c4f9ff8fa0bea2877",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/handler/request/RequestMessageHandler.java": "a0591edf2bccd40b0dbcf614b3fc73e9dae9a34e3b312ad56fdfe5c39179e476",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/handler/request/RequestMessageHandlerService.java": "0e6d592306a5b0093caf9b271025c846fc992cb22093d991077d3b19c93c2f16",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/IDSQueryService.java": "500b8ec379e0ab1b4d6e7ea6052fcdeece3c9cac9546533519e6c1046355701d",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/MessageService.java": "84c415beeffb576dd83f64a9f72a5a364d6d9b9b7df0ae3788859b1dd00fb958",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/ProtocolType.java": "f493546980a4e6fb2a2ef2789203539702f587cf0d4aec78551c5297d393ac3b",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/RequestBuilder.java": "28dcbf9e51b74cd1ed0995ff0ba33f6ae8e6b4f3e1565a3196acdcf12733796e",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/UnexpectedResponseException.java": "b037ba835d725f42fdee92a069899219781f90e5aa7f4c0ed8e80c7ecb6291cf",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/http/HttpService.java": "d39460d876c978347328d7ef2b49c877a0e86a127e873b14d9de7954c8e7b2ae",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/http/IdsHttpService.java": "0bd6ade107a13a5727271f6bb29e32a1692a42e1a43f4fcaf53a409fb083ff61",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/http/SendMessageException.java": "cd815e08db131f11cc1ef75c58eaa54ce57697f84f60fa0a1cd2eaa43f3bf131",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/http/ShaclValidatorException.java": "6a4caf248fbe4c715a225b9767a7d011399a18f2f6aeea34b55589995872abd0",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/MessageAndPayload.java": "022ec5d2c427f8fc3c848dd0770caa325c8464299c27beafd9a59f39028ff372",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/MultipartRequestBuilder.java": "866ecfa1cc3c58d2bdf0b471fd4e1dfa0fa49305367932ea1798c4bb6b5a07d4",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/MultipartResponseConverter.java": "3a4a39818c9e3556914105ae6a0b76cbe3dbf1b765b5ba5d99b6878f819fd99c",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/SerializedPayload.java": "c26cce976444c75877ec4a553fb388516c0077ef0bbb44f0b3329bc42508f8aa",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/UnknownResponseException.java": "299360fd63c0a67c75a93726d96204c195239c4b8a1c4084874ac53eff2b3f62",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/AbstractContractMAP.java": "431656682b2bbf57920250e6927e3bbe4cbf4afdc52a93d8c309e87f6e928d10",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/ArtifactRequestMAP.java": "e5c7277cc1e99b885997ab5c8de3152b950493ae07dda8563660c9a949f33e82",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/ArtifactResponseMAP.java": "8fe6a0f5da7df4bf7850ec33d836e40963171e85668a58ceb8a4014b6075f886",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/ContractAgreementMAP.java": "5a4dc56e4a554b6a614aeed95273646ab7c70845a46d77dedf4d27810449b180",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/ContractOfferMAP.java": "fd1022144af835060ed9a2da058924246bbd3d488eabf456f32be842e921f219",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/ContractRejectionMAP.java": "b988138339f577c4aeb6231c00b312d441f2e716721f39da91c6b56f3cba862d",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/ContractRequestMAP.java": "f8b1b30be24c6e826b3b829da2428d23d37f50e66b16d32337e3b2c8b2b9f5de",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/ContractResponseMAP.java": "dadd5a0ee93fb26216585ae05ddada76279a72a7e8abffc65a921509e1868d99",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/DescriptionRequestMAP.java": "c6df240a94c96b81824a5c6f18cf6a06e8824e448095858b1a1a9b926ef01dd8",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/DescriptionResponseMAP.java": "1984c987ca368e46de52c2d59120594a3f4d653abe6aae56d04fbfcfbd910c97",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/GenericMessageAndPayload.java": "b292863f91e81b28474be4464e7852c4f53b10f3e6e953dbcb3ba7164fbde5c6",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/InfrastructurePayloadMAP.java": "3831f9c282332c5621bb3e4d265e769abbfc3bdb2255e7d7372bf56a62802682",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/MessageProcessedNotificationMAP.java": "0c75955b002938f966b9231f71af863801056efa689cb1eac03d2003e3442cea",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/ParticipantNotificationMAP.java": "bf696f359609e610bb768d3f8ff1a32492ea3cbcf145896efd3a8bd9f6d7721b",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/ParticipantRequestMAP.java": "909b1906caefb7b475d5e7041466661bbf214ece80f5d8bfae8b1fdf97686df9",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/QueryMAP.java": "d2cb8b886ea1f92b4ab00dbf265fbd820295716781c56b7260c464dafe2fa336",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/RejectionMAP.java": "38c1cc7c99ac972a2b757b4cf882f2dadd477997cca8bb308334bbf120088e11",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/ResourceMAP.java": "d76eb9ada5c462252678918e7d95f95dbfae60f712677683f22ec12942366609",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/mapping/ResultMAP.java": "c9c24e46058f04bc0c620d7f7d0100cd1ea842fe941ceff67f6af18164e60010",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/parser/MultipartDatapart.java": "6b37629ec615e57a05f66178a004fdfa8ecff913e964bd9752ef1d041e05377d",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/parser/MultipartParseException.java": "aab0675a1e757dc05c46aecd873dd6f39f8c7397fbdad93fc518b05bac7546a3",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/parser/MultipartParser.java": "22533fa6759c6f1d4354e5d188ec6c9e014da4b9b2a40408a146e5da04633628",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/HeaderContainer.java": "7f8edf12069af7a4cfec697ac07005905a4a9d5d5b89862cc9750250c1e621e1",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/IDSInfrastructureService.java": "7e1e90de733665c537a9e86e0ce4970824ea4fc30f31232ed91a5406cfbb8aae",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/InfrastructureService.java": "d31092bc23cca441a5bc05f85c357006bc5400abf4cf4cacba1cdb2b7b8e3466",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/MessageContainer.java": "93ae9bacb5cb222281548d7646e1f6578ce26fbb54a8261f7c10029c9c1fc0da",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/MessageTemplate.java": "b74c218f8870a5919dc99c438b56816c3395c9ddd106a2863730fcef73de951b",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/NotificationTemplateProvider.java": "b410b3e1dfb6dad3c3f9b86b55bdf626ad3c870a2ed772fbddb0cd5add0b4509",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/QueryService.java": "4265986f2ea09a79262fa42ea404e1fdc01ddefa27f89e32a9f7d6bb171d4118",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/RequestTemplateProvider.java": "3f7fe5039be7a99fde6962ce2af0f13e0608da77199cced7324b8665efc6fddb",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/AccessTokenRequestBuilder.java": "510dadfb3269f67e119a033f7ff30a25fd12d45de04d76d1ab600066c856ba56",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/AppRequestBuilder.java": "c9cead370fbab25bb59304c1189d9e4812db3200b7b49bdb3ddc83ff4b3b53ec",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/ArtifactRequestBuilder.java": "10e2e368349c0efe9f02ab0b3987f575a2ee4cb0f55da262826dcfcd740ce492",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/CommandRequestBuilder.java": "aa49e0ee1839f14db2d956ac388f773b02f68a1e68c69e3f940c47fcc1fc207c",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/ConnectorCertificateRequestBuilder.java": "b0cf03276fcc9cf3a07ade986520ace645fad69c6899b38a60fa12ec6bd9c0b7",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/ConnectorRequestBuilder.java": "225a807dad7cc335b082407e7ae2e395cf6ecdfc9d07ff6f272ae6af30e10e45",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/ContractOfferRequestBuilder.java": "e1fdd6edbb6440992d0383469bfe5e7222bf0ad00a7f41104657ebb490890d49",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/ContractRequestBuilder.java": "8d53f9c60f4cce896fdc9a1d2094f42b19836bfadc748de0bfe819d9dd3ff67f",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/ContractSupplementRequestBuilder.java": "f34cc84f2959c23192d03641bd2de54e43b9b0827db2197e102c08fc918197c5",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/DescriptionRequestBuilder.java": "0dd60a3496c4222dc6922bb7de23aae2874bbbdb507fb1a9d2accc2c68d7d2ec",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/ExecutableBuilder.java": "ba4073f8e33dd2f0d4d71f0659e1e0b2204bb2c050ef329ac56f3be9ede31396",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/IdsRequestBuilder.java": "558f2545a38ffc73fa31317d10fc5d79f6cba3137b2eda5890aeaee699b5dcd0",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/IdsRequestBuilderService.java": "dea701a11a7b2a8fe9850a9e30e7b5ca13119a083734213c9270535eb48a5746",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/LogRequestBuilder.java": "747c43ba5a2cde6f9644d78a4e205670edb821dd1b2d0165e5309c3dacd397c9",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/ParticipantCertificateRequestBuilder.java": "c81c23e0cda1d3067bbac1d2dd7d2104bf5c44cc95257af3b099b8b790831b64",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/ParticipantRequestBuilder.java": "5556ea8b3c4e11e12f8f1e59a245f5ae9125cd42da22a904d3a29f9ef5ecb808",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/QueryRequestBuilder.java": "8b03fc8f5fdbb19375f4304d1ccd87bd791f20f46b0f96784c74e2cd922ee6b7",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/ResourceRequestBuilder.java": "ecb25d1502d28a0496c10d41bf76ff236cde14b83cfaca04274e47794947e009",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/SupportsAllProtocols.java": "a286dba85a4fd258a40174755546aecb4d91dec17a095f1607de00d8fb9787b5",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/SupportsIDSCP.java": "ae4c4a3038e601dd628db45b1d27fa040c889321483a1621fea683dabedb75ae",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/SupportsLDP.java": "6a09727200428323dfd4dd8af3b854a3a5b873c9e2f3bd413e03c1057ecb1ccb",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/SupportsMultipart.java": "a809e1d1100a054b15c39b061fda158212a93b97f485b6c23eff0c5855761f80",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/enums/Crud.java": "d5c0cc9d538b9effcf3c4a133194ade5ad411964b6919c2debf4d6677849d15e",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/enums/ProtocolType.java": "691e2f290608bc78cffe7cc674dbb3156c3b38037fcee7097edfd4d3a2600ba6",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/enums/Subject.java": "2822c5974756a4f774090d7240f8e7a654cba1fc8c69f42939a104732e61dee2",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/exceptions/IdsRequestException.java": "3409d5771fc303874cac2dd9c31e660b826838711181dc3048979718730d160c",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/exceptions/NoTemplateProvidedException.java": "56eb818bedfabb589a39012f20678cc92f62e6d79195d275318a4ded687e9ba7",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/exceptions/RejectionException.java": "57fc37ea8142719f7236e1265c7119122015a3e333d1dd5ab8e737dc002eeb76",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/requests/exceptions/UnexpectedPayloadException.java": "9aa07712dc6428ca3cd96255185e9c3330252c8352ea2041400d42b5bda4ef44",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/response/Base64EncodedFileBodyResponse.java": "5bd62ae19f370eddb335bc1b417ab64fc7c29deb09a217ab760d4c281db6726b",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/response/BodyResponse.java": "f6919a4523fc1c802c13a65a2ad934fc8efdcbefb3ea27631fb2f4bb3680dbac",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/response/ErrorResponse.java": "2341c614a0850dc72bac03551602e35a15103c00cd133158a32fa7991147c38b",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/response/MessageResponse.java": "9d454428d6c667d6cb0e653daa5b4cde62299471d75800bddec32130bdf9dccb",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/util/FullTextQueryTemplate.java": "16dff05192114532b278bbb8c125500c19fbfa172b95628ccf777f4c85372441",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/util/IdsMessageUtils.java": "dfcf69215b560fa999803e55d0e3edf0c20fcab02fb41754bd41549824385952",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/util/InfomodelMessageBuilder.java": "4d92b82c3766976b86ab2ff1baa58097c53ec8543c58183f4f88dec5e0e19386",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/util/RequestUtils.java": "7aa2fcda2fe4a615b7a42e1fc45b0569e792927acc1ca8ed18bca072cc7a80a0",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/util/ResourceIDGenerator.java": "edf376848d4da26fd4a6ee2f785420ceb8eb85a2205718dc4a6216152b52a2db",
+    "messaging/src/main/java/de/fraunhofer/ids/messaging/util/SerializerProvider.java": "3ee0fc6b8ee8153377d5a63b0aab68b85cb3e8870857fdabc026d12a085c85aa",
+    "messaging/src/test/java/de/fraunhofer/ids/messaging/dispatcher/MessageDispatcherTest.java": "a9949cecaab4e1a312ba7b672f7cb98724b669867aa5744ebd7377f68df7f6e5",
+    "messaging/src/test/java/de/fraunhofer/ids/messaging/dispatcher/testhandlers/NotificationMessageHandler.java": "b7ffa9bf02cb883fb0d1bf171ef4c9b013d7050171318cb0c6e92c3a002d9e5c",
+    "messaging/src/test/java/de/fraunhofer/ids/messaging/dispatcher/testhandlers/RequestMessageHandler.java": "89d0fe137308e5b9a987845018022275829d065e2e196ad2a8bad6e2dcb38f99",
+    "messaging/src/test/java/de/fraunhofer/ids/messaging/endpoint/EndpointServiceTest.java": "ead0380605a99d386a0c1106dab554255142c5327943b89a69693a25379fd0a8",
+    "messaging/src/test/java/de/fraunhofer/ids/messaging/endpoint/MessageControllerTest.java": "0b2ee80cf026e5ffa66a72ccf557bcb041f90d75228d700c8d82982449a51fb8",
+    "messaging/src/test/java/de/fraunhofer/ids/messaging/protocol/http/IdsHttpServiceTest.java": "dbc03fadee47dbf6a5a1315a88f2afdf7853242227539ab365179b37054be5b7",
+    "messaging/src/test/java/de/fraunhofer/ids/messaging/protocol/multipart/MultipartResponseConverterTest.java": "bd382136ec87cd68155d252b9ea3edc9583cd6becb51909015b2c5fcb70592f5",
+    "messaging/src/test/java/de/fraunhofer/ids/messaging/protocol/multipart/parser/MultipartParserTest.java": "23e37c3016868503ef61083dc0ae2d0a6a3259d042d16384803561d5c54ca11a",
+    "messaging/src/test/java/de/fraunhofer/ids/messaging/requests/IdsRequestBuilderServiceTest.java": "9360db054c69475e06aa3fd1df9d4209a4216f08a7a3cbd186255270b730c8ea",
+    "messaging/src/test/java/de/fraunhofer/ids/messaging/requests/InfrastructureServiceTest.java": "f115ecca9c188728568d2260245bcb72c44e4b497560dfd8c3fb726bc8058348",
+    "messaging/src/test/java/de/fraunhofer/ids/messaging/response/MessageResponseTest.java": "e7a2af09e589816c3039f06461556761e8bd6b7644ab8f4881d73119fd0ecee7",
+    "messaging/src/test/java/de/fraunhofer/ids/messaging/util/IdsMessageUtilsTest.java": "7ab4a0edaa1ce1eebcfa88e5001de3513144e38f6409334807a737696bbe3460",
+    "messaging/src/test/java/de/fraunhofer/ids/messaging/util/InfomodelMessageBuilderTest.java": "2dfbbb775653f2f9eb9d19cad497cffeeef3ea6eb11cfde8f4f40c25b04e38ba",
+    "messaging/src/test/java/de/fraunhofer/ids/messaging/util/RequestUtilsTest.java": "8be1b5411fb88e4702a1267bdd89932d9f4f9f005f4cf2dd6f3ddbdcdfac7232",
+    "messaging/src/test/java/de/fraunhofer/ids/messaging/util/SerializerProviderTest.java": "0189856849edf38fe79451bfbdd5615860eaf623295e5ab1e8d75f36c45380a6",
+    "messaging/src/test/resources/application.properties": "c010b8058908a289aeb5e831939d06684d0fa4fd60c99d166d8ceb2a46978c42",
+    "paris/pom.xml": "3a7aa7b9db91f20178c1ea16b21e7a44395cd426cd59dc1fff93b9c603d9bb0a",
+    "paris/src/main/java/de/fraunhofer/ids/messaging/paris/IDSParisService.java": "82928a540c89c368cdd9d1ec216e27f0165a18b460b14093456e7686df8b520a",
+    "paris/src/main/java/de/fraunhofer/ids/messaging/paris/ParisService.java": "f38f85c3da59e78be5ff611d845e411bb7d7f006563bc8a8a7d977d62395e81d",
+    "paris/src/test/java/de/fraunhofer/ids/messaging/paris/ParisServiceTest.java": "4e0da9c1a7dadb0a2e36b136f6a77e96b306194e5167a07331b54639e8d97482",
+    "pom.xml": "752614228013bf73b96df4817c0af65a79e489534761f798bebfc6815b817a22",
+    "vocol/pom.xml": "59af0ea088684b1c2f6ae2467c9b19ad3779d748631d709478a31fd86a1d0538",
+    "vocol/src/main/java/de/fraunhofer/ids/messaging/vocol/IDSVocolService.java": "cd001cd48bd3b643e6d061e93b71cadd6a8a439a15685932ee0048ec52c1a39e",
+    "vocol/src/main/java/de/fraunhofer/ids/messaging/vocol/VocolService.java": "1fe262fc4bf98eab68765424a0ab8ad1726f336fd33a6f731c0b2e76c643343b"
+  },
+  "aggregate_counts": {
+    "tests": 18,
+    "failures": 1,
+    "errors": 5,
+    "skipped": 0
+  }
+}

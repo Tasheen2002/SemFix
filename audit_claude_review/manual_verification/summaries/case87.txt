@@ -1,0 +1,30 @@
+﻿
+=== Case 87  770174eb3091f7a6cf44cc533db18246d7d8e241 ===
+Project : alphagov/pay-cardid
+Update  : org.dhatim:dropwizard-sentry  2.1.2-4 -> 4.0.1-2
+Image not present locally, pulling ghcr.io/chains-project/breaking-updates:770174eb3091f7a6cf44cc533db18246d7d8e241-breaking ...
+Running breaking in container manual-case87-breaking (this can take several minutes) ...
+Finished in 28 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case87_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 37, Failures: 0, Errors: 1, Skipped: 0
+First failing tests / errors:
+  [ERROR] uk.gov.pay.card.it.resources.CardIdResourceITest  Time elapsed: 1.647 s  <<< ERROR!
+      io.dropwizard.configuration.ConfigurationParsingException:
+      /pay-cardid/target/classes/config/config.yaml has an error:
+      * Failed to parse configuration at: logging.appenders.[1]; Could not resolve type id 'sentry' as a subtype of `io.dropwizard.logging.AppenderFactory<ch.qos.logback.classic.spi.ILoggingEvent>`: known type ids = [console, file, logstash-console, syslog, tcp, tls, udp] (for POJO property 'appenders')
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+  Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'sentry' as a subtype of `io.dropwizard.logging.AppenderFactory<ch.qos.logback.classic.spi.ILoggingEvent>`: known type ids = [console, file, logstash-console, syslog, tcp, tls, udp] (for POJO property 'appenders')
+Linkage / bytecode signals:
+  none
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R4: Framework-generation mismatch)
+Cause   : dropwizard-sentry 4.0.1-2 targets Dropwizard 4: its service file registers io.dropwizard.logging.common.AppenderFactory, while the app uses dropwizard-logging 2.1.6 (io.dropwizard.logging.AppenderFactory), so type id 'sentry' cannot be resolved -> InvalidTypeIdException -> ConfigurationParsingException
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

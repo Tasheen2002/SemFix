@@ -1,0 +1,39 @@
+﻿
+=== Case 44  3b7f524a09d711bc5af151086de48db940455e6a ===
+Project : pac4j/dropwizard-pac4j
+Update  : org.glassfish.jersey.core:jersey-server  2.32 -> 2.36
+Image not present locally, pulling ghcr.io/chains-project/breaking-updates:3b7f524a09d711bc5af151086de48db940455e6a-breaking ...
+Running breaking in container manual-case44-breaking (this can take several minutes) ...
+Finished in 35 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case44_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 16, Failures: 0, Errors: 10, Skipped: 0
+First failing tests / errors:
+  [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources  Time elapsed: 2.906 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: org/glassfish/jersey/internal/DynamicFeatureConfigurator
+      at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:273)
+      at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:261)
+  [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResourcesForm  Time elapsed: 0.267 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: org/glassfish/jersey/internal/DynamicFeatureConfigurator
+      at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:273)
+      at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:261)
+  [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.restrictsAccessToResources  Time elapsed: 0.21 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: org/glassfish/jersey/internal/DynamicFeatureConfigurator
+      at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:273)
+      at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:261)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+  Caused by: java.lang.ClassNotFoundException: org.glassfish.jersey.internal.DynamicFeatureConfigurator
+Linkage / bytecode signals:
+  NoClassDefFoundError x10
+  ClassNotFoundException x1
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : jersey-server 2.36 with jersey-common 2.32 (archived jars) -> NoClassDefFoundError org.glassfish.jersey.internal.DynamicFeatureConfigurator
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

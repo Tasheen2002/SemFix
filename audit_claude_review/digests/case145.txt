@@ -1,0 +1,108 @@
+=== CASE 145 bdbdd72d9988aa736bde515d46d3990527c92fee
+  project=retest/recheck dep=org.slf4j:slf4j-api 1.7.36 -> 2.0.6 scope=compile type=major java=11
+  PR=https://github.com/retest/recheck/pull/1056
+  PRE log logs/batch_triage/bdbdd72d_pre.log:
+  lines=1319
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 737, Failures: 0, Errors: 0, Skipped: 4
+  provider/console lines: WARNING: An illegal reflective access operation has occurred
+  linkage/compile signals: ClassNotFoundException
+  exception names: org.mozilla.javascript.EcmaErrorx2, com.esotericsoftware.kryo.kryo5.KryoExceptionx1, java.lang.ClassNotFoundExceptionx1, org.mozilla.javascript.JavaScriptExceptionx1, com.sun.phobos.script.util.ExtendedScriptExceptionx1, java.lang.IllegalArgumentExceptionx1
+  BREAKING log logs/batch_triage/bdbdd72d_breaking.log:
+  lines=3027
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 737, Failures: 0, Errors: 30, Skipped: 4
+  failing classes: Tests run: 13, Failures: 0, Errors: 13, Skipped: 0, Time elapsed: 0.098 s <<< FAILURE! - in de.retest.recheck.ui.diff.AttributeDifferenceTest || Tests run: 13, Failures: 0, Errors: 13, Skipped: 0, Time elapsed: 0.048 s <<< FAILURE! - in de.retest.recheck.ignore.JSFilterImplTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in de.retest.recheck.review.workers.MigrateIgnoreFileTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in de.retest.recheck.review.workers.LoadAndSaveFilterWorkerTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in DefaultRecheckIgnoreTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in DefaultRecheckIgnoreJsTest
+  section: Errors: | DefaultRecheckIgnoreJsTest.default_recheck_ignore_should_load_without_exception » ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app') | DefaultRecheckIgnoreTest.default_recheck_ignore_should_load_without_exception » ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app') | JSFilterImplTest.calling_erroneous_method_twice_with_different_args_should_actually_call_method » ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app') | JSFilterImplTest.invalid_matches_function_should_not_cause_exception » ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app') | JSFilterImplTest.matches_example_implementation » C
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M6:test (default-test) on project recheck: 
+  FAILBLOCK: [ERROR] de.retest.recheck.ui.diff.AttributeDifferenceTest.should_warn_if_attributes_dont_match(String, String)[1]  Time elapsed: 0.012 s  <<< ERROR!
+      java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+      at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToType(LogbackLogProvider.java:69)
+      at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToLoggingSources(LogbackLogProvider.java:52)
+      at io.github.netmikey.logunit.logback.LogbackLogProvider.beforeTestExecution(LogbackLogProvider.java:40)
+      at io.github.netmikey.logunit.api.LogCapturer.beforeTestExecution(LogCapturer.java:201)
+      at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeBeforeTestExecutionCallbacks$5(TestMethodTestDescriptor.java:188)
+  distinct fail signatures (count): 30x java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (o
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation. | WARNING: An illegal reflective access operation has occurred
+  exception names: java.lang.ClassCastExceptionx60
+  EVIDENCE logs/case145_evidence: LoggerSelectionProbe.java, all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/logback-classic-1.2.11.jar, breaking/jars/logback-core-1.2.11.jar, breaking/jars/logunit-core-1.1.3.jar, breaking/jars/logunit-logback-1.1.3.jar, breaking/jars/slf4j-api-2.0.6.jar, breaking/logunit-logback-1.1.3_LogbackLogProvider_javap.txt, breaking/slf4j-api-2.0.6_LoggerFactory_javap.txt, logger_probe_breaking.log, logger_probe_classes/LoggerSelectionProbe.class, logger_probe_pre.log, logger_probe_results.json, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/logback-classic-1.2.11.jar, pre/jars/logback-core-1.2.11.jar, pre/jars/logunit-core-1.1.3.jar, pre/jars/logunit-logback-1.1.3.jar, pre/jars/slf4j-api-1.7.36.jar, pre/logunit-logback-1.1.3_LogbackLogProvider_javap.txt, pre/slf4j-api-1.7.36_LoggerFactory_javap.txt, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=134 sum(t,f,e,s)=[737, 0, 0, 4]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=134 sum(t,f,e,s)=[737, 0, 30, 4]
+  archived non-report files: pre=596 breaking=596 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -78,3 +78,3 @@
+     			<artifactId>slf4j-api</artifactId>
+    -			<version>1.7.36</version>
+    +			<version>2.0.6</version>
+     		</dependency>
+  BREAKING surefire failures/errors:
+    ERROR DefaultRecheckIgnoreJsTest#default_recheck_ignore_should_load_without_exception type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToType(LogbackLogProvider.java:69)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToLoggingSources(LogbackLogProvider.java:52)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.beforeTestExecution(LogbackLogProvider.java:40)
+       at io.github.netmikey.logunit.api.LogCapturer.beforeTestExecution(LogCapturer.java:201)
+    ERROR DefaultRecheckIgnoreTest#default_recheck_ignore_should_load_without_exception type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToType(LogbackLogProvider.java:69)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToLoggingSources(LogbackLogProvider.java:52)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.beforeTestExecution(LogbackLogProvider.java:40)
+       at io.github.netmikey.logunit.api.LogCapturer.beforeTestExecution(LogCapturer.java:201)
+    ERROR de.retest.recheck.ignore.JSFilterImplTest#nonexistent_file_should_not_cause_exception type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToType(LogbackLogProvider.java:69)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToLoggingSources(LogbackLogProvider.java:52)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.beforeTestExecution(LogbackLogProvider.java:40)
+       at io.github.netmikey.logunit.api.LogCapturer.beforeTestExecution(LogCapturer.java:201)
+    ERROR de.retest.recheck.ignore.JSFilterImplTest#matches_should_be_called type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToType(LogbackLogProvider.java:69)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToLoggingSources(LogbackLogProvider.java:52)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.beforeTestExecution(LogbackLogProvider.java:40)
+       at io.github.netmikey.logunit.api.LogCapturer.beforeTestExecution(LogCapturer.java:201)
+    ERROR de.retest.recheck.ignore.JSFilterImplTest#matches_filter_URL_example_implementation type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToType(LogbackLogProvider.java:69)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToLoggingSources(LogbackLogProvider.java:52)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.beforeTestExecution(LogbackLogProvider.java:40)
+       at io.github.netmikey.logunit.api.LogCapturer.beforeTestExecution(LogCapturer.java:201)
+    ERROR de.retest.recheck.ignore.JSFilterImplTest#no_matches_function_should_not_cause_exception type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToType(LogbackLogProvider.java:69)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToLoggingSources(LogbackLogProvider.java:52)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.beforeTestExecution(LogbackLogProvider.java:40)
+       at io.github.netmikey.logunit.api.LogCapturer.beforeTestExecution(LogCapturer.java:201)
+    ERROR de.retest.recheck.ignore.JSFilterImplTest#matches_should_be_called_with_element_param type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToType(LogbackLogProvider.java:69)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToLoggingSources(LogbackLogProvider.java:52)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.beforeTestExecution(LogbackLogProvider.java:40)
+       at io.github.netmikey.logunit.api.LogCapturer.beforeTestExecution(LogCapturer.java:201)
+    ERROR de.retest.recheck.ignore.JSFilterImplTest#matches_example_implementation type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToType(LogbackLogProvider.java:69)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToLoggingSources(LogbackLogProvider.java:52)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.beforeTestExecution(LogbackLogProvider.java:40)
+       at io.github.netmikey.logunit.api.LogCapturer.beforeTestExecution(LogCapturer.java:201)
+    ERROR de.retest.recheck.ignore.JSFilterImplTest#no_method_warning_should_only_be_printed_once_for_element type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToType(LogbackLogProvider.java:69)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToLoggingSources(LogbackLogProvider.java:52)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.beforeTestExecution(LogbackLogProvider.java:40)
+       at io.github.netmikey.logunit.api.LogCapturer.beforeTestExecution(LogCapturer.java:201)
+    ERROR de.retest.recheck.ignore.JSFilterImplTest#matches_return_null_should_be_false type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToType(LogbackLogProvider.java:69)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToLoggingSources(LogbackLogProvider.java:52)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.beforeTestExecution(LogbackLogProvider.java:40)
+       at io.github.netmikey.logunit.api.LogCapturer.beforeTestExecution(LogCapturer.java:201)
+    ERROR de.retest.recheck.ignore.JSFilterImplTest#no_method_warning_should_only_be_printed_once_for_element_and_diff type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToType(LogbackLogProvider.java:69)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToLoggingSources(LogbackLogProvider.java:52)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.beforeTestExecution(LogbackLogProvider.java:40)
+       at io.github.netmikey.logunit.api.LogCapturer.beforeTestExecution(LogCapturer.java:201)
+    ERROR de.retest.recheck.ignore.JSFilterImplTest#matches_with_changetype_should_be_called type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToType(LogbackLogProvider.java:69)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.addAppenderToLoggingSources(LogbackLogProvider.java:52)
+       at io.github.netmikey.logunit.logback.LogbackLogProvider.beforeTestExecution(LogbackLogProvider.java:40)
+       at io.github.netmikey.logunit.api.LogCapturer.beforeTestExecution(LogCapturer.java:201)
+    ... truncated (150 lines)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -			<version>1.7.36</version> / +			<version>2.0.6</version>
+  JSON breaking/jar_inspection.json: {"case_id":"bdbdd72d9988aa736bde515d46d3990527c92fee","phase":"breaking","path_filter":"/(slf4j-api|logback-classic|logback-core|logunit[^/]*)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":true,"major_version":50},"ch.qos.logback.classic.Logger":{"present":true,"major_version":50}},"services":{"META-INF/services/javax.servlet.ServletContainerInitializer":"ch.qos.logback.classic.servlet.LogbackServletContainerInitializer"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":false,"major_version":null},"ch.qos.logback.classic.Logger":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/io/github/netmikey/logunit/logunit-core/1.1.3/logunit-core-1.1.3.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":false,"major_version":null},"ch.qos.logback.classic.Logger":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/io/github/netmikey/logunit/logunit-logback/1.1.3/logunit-logback-1.1.3.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":fal...
+  LOG logger_probe_breaking.log (8 lines): factory=org.slf4j.helpers.NOPLoggerFactory | logger=org.slf4j.helpers.NOPLogger
+  LOG logger_probe_pre.log (2 lines): factory=ch.qos.logback.classic.LoggerContext | logger=ch.qos.logback.classic.Logger
+  JSON logger_probe_results.json: {"test_classpath_source":"DefaultRecheckIgnoreJsTest","runs":[{"phase":"pre","exit_code":0,"stdout":"factory=ch.qos.logback.classic.LoggerContext\nlogger=ch.qos.logback.classic.Logger\n","stderr":""},{"phase":"breaking","exit_code":0,"stdout":"factory=org.slf4j.helpers.NOPLoggerFactory\nlogger=org.slf4j.helpers.NOPLogger\n","stderr":"SLF4J: No SLF4J providers were found.\nSLF4J: Defaulting to no-operation (NOP) logger implementation\nSLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.\nSLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.\nSLF4J: Ignoring binding found at [..."}]}
+  JSON pre/jar_inspection.json: {"case_id":"bdbdd72d9988aa736bde515d46d3990527c92fee","phase":"pre","path_filter":"/(slf4j-api|logback-classic|logback-core|logunit[^/]*)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":true,"major_version":50},"ch.qos.logback.classic.Logger":{"present":true,"major_version":50}},"services":{"META-INF/services/javax.servlet.ServletContainerInitializer":"ch.qos.logback.classic.servlet.LogbackServletContainerInitializer"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":false,"major_version":null},"ch.qos.logback.classic.Logger":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/io/github/netmikey/logunit/logunit-core/1.1.3/logunit-core-1.1.3.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":false,"major_version":null},"ch.qos.logback.classic.Logger":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/io/github/netmikey/logunit/logunit-logback/1.1.3/logunit-logback-1.1.3.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":false,"m...
+  JARS: breaking/jars/logback-classic-1.2.11.jar, breaking/jars/logback-core-1.2.11.jar, breaking/jars/logunit-core-1.1.3.jar, breaking/jars/logunit-logback-1.1.3.jar, breaking/jars/slf4j-api-2.0.6.jar, pre/jars/logback-classic-1.2.11.jar, pre/jars/logback-core-1.2.11.jar, pre/jars/logunit-core-1.1.3.jar, pre/jars/logunit-logback-1.1.3.jar, pre/jars/slf4j-api-1.7.36.jar

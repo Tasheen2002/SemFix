@@ -1,0 +1,54 @@
+{
+  "case_id": "e59bf2313ed8a7a196c271ba1c9ea0e5a4b66f24",
+  "phase": "breaking",
+  "path_filter": "/jersey-(server|common)/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/glassfish/jersey/core/jersey-common/2.32/jersey-common-2.32.jar",
+      "sha256": "33c3b1af9ebc8cb48332aecb532b87b8e4124d64af9875ba93dca64660689dbf",
+      "classes": {
+        "org.glassfish.jersey.internal.DynamicFeatureConfigurator": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/org.glassfish.jersey.internal.spi.AutoDiscoverable": "org.glassfish.jersey.logging.LoggingFeatureAutoDiscoverable\norg.glassfish.jersey.internal.config.ExternalPropertiesAutoDiscoverable\n"
+      },
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/glassfish/jersey/core/jersey-server/2.37/jersey-server-2.37.jar",
+      "sha256": "4f725c872c9955464e5d60bfd1904a2d99a33d616830040133e75c0ba6e421f6",
+      "classes": {
+        "org.glassfish.jersey.internal.DynamicFeatureConfigurator": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/javax.ws.rs.ext.RuntimeDelegate": "org.glassfish.jersey.server.internal.RuntimeDelegateImpl",
+        "META-INF/services/org.glassfish.jersey.internal.spi.AutoDiscoverable": "org.glassfish.jersey.server.filter.internal.ServerFiltersAutoDiscoverable",
+        "META-INF/services/org.glassfish.jersey.internal.spi.ForcedAutoDiscoverable": "org.glassfish.jersey.server.wadl.internal.WadlAutoDiscoverable\norg.glassfish.jersey.server.internal.monitoring.MonitoringAutodiscoverable",
+        "META-INF/services/org.glassfish.jersey.model.internal.spi.ParameterServiceProvider": "org.glassfish.jersey.server.model.Parameter$ServerParameterService"
+      },
+      "disassemblies": [
+        {
+          "class": "org.glassfish.jersey.server.ApplicationHandler",
+          "file": "jersey-server-2.37_ApplicationHandler_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case175_evidence\\breaking\\jars\\jersey-server-2.37.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.glassfish.jersey.server.ApplicationHandler"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

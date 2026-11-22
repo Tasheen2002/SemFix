@@ -1,0 +1,78 @@
+=== CASE 122 a950450686c4c136567f3ba7333da8ffaaa84326
+  project=simplelocalize/simplelocalize-cli dep=com.fasterxml.jackson.core:jackson-databind 2.9.10.5 -> 2.12.6.1 scope=compile type=other java=11
+  PR=https://github.com/simplelocalize/simplelocalize-cli/pull/53
+  PRE log logs/batch_triage/a9504506_pre.log:
+  lines=1985
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 48, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: SLF4J: Class path contains multiple SLF4J bindings. | SLF4J: Found binding in [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: Found binding in [jar:file:/root/.m2/repository/org/slf4j/slf4j-nop/1.5.3/slf4j-nop-1.5.3.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: Found binding in [jar:file:/root/.m2/repository/org/slf4j/slf4j-jdk14/1.5.6/slf4j-jdk14-1.5.6.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation. | SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+  exception names: sun.nio.fs.UnixExceptionx3, java.nio.file.NoSuchFileExceptionx1
+  BREAKING log logs/batch_triage/a9504506_breaking.log:
+  lines=259
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 40, Failures: 0, Errors: 7, Skipped: 0
+  failing classes: Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.755 s <<< FAILURE! - in io.simplelocalize.cli.client.ClientBodyBuildersTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.118 s <<< FAILURE! - in io.simplelocalize.cli.client.SimpleLocalizeClientTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.029 s <<< FAILURE! - in io.simplelocalize.cli.command.ExtractCommandTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in io.simplelocalize.cli.command.DownloadCommandTest || Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in io.simplelocalize.cli.command.UploadCommandTest
+  section: Errors: | ClientBodyBuildersTest.ofKeysBody:23 NoClassDefFound Could not initialize clas... | ClientBodyBuildersTest.ofMimeMultipartData:40 » NoClassDefFound com/fasterxml/... | SimpleLocalizeClientTest.startServer:39 » NoClassDefFound com/fasterxml/jackso... | DownloadCommandTest.<init>:20 » NoClassDefFound com/fasterxml/jackson/core/uti... | ExtractCommandTest.<init>:21 » NoClassDefFound com/fasterxml/jackson/core/util... | UploadCommandTest.<init>:19 » NoClassDefFound com/fasterxml/jackson/core/util/... | UploadCommandTest.<init>:19 » NoClassDefFound com/fasterxml/jackson/core/util/... | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project simplelocalize-cli: There are test failures.
+  FAILBLOCK: [ERROR] ofMimeMultipartData  Time elapsed: 0.75 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+      at io.simplelocalize.cli.client.ClientBodyBuildersTest.ofMimeMultipartData(ClientBodyBuildersTest.java:40)
+      Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+      at io.simplelocalize.cli.client.ClientBodyBuildersTest.ofMimeMultipartData(ClientBodyBuildersTest.java:40)
+      [ERROR] ofKeysBody  Time elapsed: 0.003 s  <<< ERROR!
+      Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+  FAILBLOCK: [ERROR] ofKeysBody  Time elapsed: 0.003 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class io.simplelocalize.cli.client.ClientBodyBuilders
+      at io.simplelocalize.cli.client.ClientBodyBuildersTest.ofKeysBody(ClientBodyBuildersTest.java:23)
+      [INFO] Running io.simplelocalize.cli.client.SimpleLocalizeClientTest
+      SLF4J: Class path contains multiple SLF4J bindings.
+      SLF4J: Found binding in [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+  distinct fail signatures (count): 6x java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature || 1x java.lang.NoClassDefFoundError: Could not initialize class io.simplelocalize.cli.client.ClientBodyBuilders
+  provider/console lines: SLF4J: Class path contains multiple SLF4J bindings. | SLF4J: Found binding in [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: Found binding in [jar:file:/root/.m2/repository/org/slf4j/slf4j-nop/1.5.3/slf4j-nop-1.5.3.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: Found binding in [jar:file:/root/.m2/repository/org/slf4j/slf4j-jdk14/1.5.6/slf4j-jdk14-1.5.6.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation. | SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx7, java.lang.ClassNotFoundExceptionx6, sun.nio.fs.UnixExceptionx3, java.nio.file.NoSuchFileExceptionx1
+  EVIDENCE logs/case122_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jackson-databind-2.12.6.1_ConfigFeature_javap.txt, breaking/jackson-databind-2.12.6.1_DeserializationContext_JacksonFeature_javap.txt, breaking/jackson-databind-2.12.6.1_TokenBuffer$Parser_JacksonFeature_javap.txt, breaking/jackson-databind-2.12.6.1_TokenBuffer_JacksonFeature_javap.txt, breaking/jackson-databind-2.12.6.1_TreeTraversingParser_JacksonFeature_javap.txt, breaking/jar_inspection.json, breaking/jars/jackson-annotations-2.11.0.jar, breaking/jars/jackson-core-2.9.8.jar, breaking/jars/jackson-databind-2.12.6.1.jar, jackson_feature_references.before_match_rule_clarification.json, jackson_feature_references.json, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jackson-databind-2.9.10.5_ConfigFeature_javap.txt, pre/jar_inspection.json, pre/jars/jackson-annotations-2.11.0.jar, pre/jars/jackson-core-2.9.8.jar, pre/jars/jackson-databind-2.9.10.5.jar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=19 sum(t,f,e,s)=[48, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=19 sum(t,f,e,s)=[40, 0, 7, 0]
+  archived non-report files: pre=92 breaking=92 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -119,3 +119,3 @@
+                 <artifactId>jackson-databind</artifactId>
+    -            <version>2.9.10.5</version>
+    +            <version>2.12.6.1</version>
+                 <scope>compile</scope>
+  BREAKING surefire failures/errors:
+    ERROR io.simplelocalize.cli.client.ClientBodyBuildersTest#ofMimeMultipartData type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at io.simplelocalize.cli.client.ClientBodyBuildersTest.ofMimeMultipartData(ClientBodyBuildersTest.java:40)
+       at io.simplelocalize.cli.client.ClientBodyBuildersTest.ofMimeMultipartData(ClientBodyBuildersTest.java:40)
+    ERROR io.simplelocalize.cli.client.ClientBodyBuildersTest#ofKeysBody type=java.lang.NoClassDefFoundError msg=Could not initialize class io.simplelocalize.cli.client.ClientBodyBuilders
+       at io.simplelocalize.cli.client.ClientBodyBuildersTest.ofKeysBody(ClientBodyBuildersTest.java:23)
+    ERROR io.simplelocalize.cli.client.SimpleLocalizeClientTest#io.simplelocalize.cli.client.SimpleLocalizeClientTest type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at io.simplelocalize.cli.client.SimpleLocalizeClientTest.startServer(SimpleLocalizeClientTest.java:39)
+       at io.simplelocalize.cli.client.SimpleLocalizeClientTest.startServer(SimpleLocalizeClientTest.java:39)
+    ERROR io.simplelocalize.cli.command.DownloadCommandTest#shouldDownloadMultipleFiles type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at io.simplelocalize.cli.command.DownloadCommandTest.<init>(DownloadCommandTest.java:20)
+       at io.simplelocalize.cli.command.DownloadCommandTest.<init>(DownloadCommandTest.java:20)
+    ERROR io.simplelocalize.cli.command.ExtractCommandTest#invoke type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at io.simplelocalize.cli.command.ExtractCommandTest.<init>(ExtractCommandTest.java:21)
+       at io.simplelocalize.cli.command.ExtractCommandTest.<init>(ExtractCommandTest.java:21)
+    ERROR io.simplelocalize.cli.command.UploadCommandTest#shouldUploadZeroFiles type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at io.simplelocalize.cli.command.UploadCommandTest.<init>(UploadCommandTest.java:19)
+       at io.simplelocalize.cli.command.UploadCommandTest.<init>(UploadCommandTest.java:19)
+    ERROR io.simplelocalize.cli.command.UploadCommandTest#shouldUploadTwelveFiles type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at io.simplelocalize.cli.command.UploadCommandTest.<init>(UploadCommandTest.java:19)
+       at io.simplelocalize.cli.command.UploadCommandTest.<init>(UploadCommandTest.java:19)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -            <version>2.9.10.5</version> / +            <version>2.12.6.1</version>
+  JSON breaking/jar_inspection.json: {"case_id":"a950450686c4c136567f3ba7333da8ffaaa84326","phase":"breaking","path_filter":"/com/fasterxml/jackson/core/(jackson-core|jackson-databind|jackson-annotations)/","path_source":"Fresh test report effective classpaths, preferring surefire.test.class.path when present","artifacts":[{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.11.0/jackson-annotations-2.11.0.jar","classes":{"com.fasterxml.jackson.core.util.JacksonFeature":{"present":false,"major_version":null},"com.fasterxml.jackson.databind.cfg.ConfigFeature":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.8/jackson-core-2.9.8.jar","classes":{"com.fasterxml.jackson.core.util.JacksonFeature":{"present":false,"major_version":null},"com.fasterxml.jackson.databind.cfg.ConfigFeature":{"present":false,"major_version":null}},"services":{"META-INF/services/com.fasterxml.jackson.core.JsonFactory":"com.fasterxml.jackson.core.JsonFactory\n"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar","classes":{"com.fasterxml.jackson.core.util.JacksonFeature":{"present":false,"major_version":null},"com.fasterxml.jackson.databind.cfg.ConfigFeature":{"present":true,"major_version":51}},"services":{"META-I...
+  JSON jackson_feature_references.before_match_rule_clarification.json: {"referenced_binary_type":"com/fasterxml/jackson/core/util/JacksonFeature","artifact":"jackson-databind-2.12.6.1.jar","references":[{"class":"com.fasterxml.jackson.databind.DeserializationContext","file":"jackson-databind-2.12.6.1_DeserializationContext_JacksonFeature_javap.txt","exit_code":0},{"class":"com.fasterxml.jackson.databind.node.TreeTraversingParser","file":"jackson-databind-2.12.6.1_TreeTraversingParser_JacksonFeature_javap.txt","exit_code":0},{"class":"com.fasterxml.jackson.databind.util.TokenBuffer$Parser","file":"jackson-databind-2.12.6.1_TokenBuffer$Parser_JacksonFeature_javap.txt","exit_code":0},{"class":"com.fasterxml.jackson.databind.util.TokenBuffer","file":"jackson-databind-2.12.6.1_TokenBuffer_JacksonFeature_javap.txt","exit_code":0}]}
+  JSON jackson_feature_references.json: {"searched_type_name_prefix":"com/fasterxml/jackson/core/util/JacksonFeature","match_note":"The prefix also matches JacksonFeatureSet; the direct descriptor flag distinguishes exact JacksonFeature parameters/types.","artifact":"jackson-databind-2.12.6.1.jar","references":[{"class":"com.fasterxml.jackson.databind.DeserializationContext","file":"jackson-databind-2.12.6.1_DeserializationContext_JacksonFeature_javap.txt","exit_code":0,"direct_JacksonFeature_descriptor":true},{"class":"com.fasterxml.jackson.databind.node.TreeTraversingParser","file":"jackson-databind-2.12.6.1_TreeTraversingParser_JacksonFeature_javap.txt","exit_code":0,"direct_JacksonFeature_descriptor":false},{"class":"com.fasterxml.jackson.databind.util.TokenBuffer$Parser","file":"jackson-databind-2.12.6.1_TokenBuffer$Parser_JacksonFeature_javap.txt","exit_code":0,"direct_JacksonFeature_descriptor":false},{"class":"com.fasterxml.jackson.databind.util.TokenBuffer","file":"jackson-databind-2.12.6.1_TokenBuffer_JacksonFeature_javap.txt","exit_code":0,"direct_JacksonFeature_descriptor":false}]}
+  JSON pre/jar_inspection.json: {"case_id":"a950450686c4c136567f3ba7333da8ffaaa84326","phase":"pre","path_filter":"/com/fasterxml/jackson/core/(jackson-core|jackson-databind|jackson-annotations)/","path_source":"Fresh test report effective classpaths, preferring surefire.test.class.path when present","artifacts":[{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.11.0/jackson-annotations-2.11.0.jar","classes":{"com.fasterxml.jackson.core.util.JacksonFeature":{"present":false,"major_version":null},"com.fasterxml.jackson.databind.cfg.ConfigFeature":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.8/jackson-core-2.9.8.jar","classes":{"com.fasterxml.jackson.core.util.JacksonFeature":{"present":false,"major_version":null},"com.fasterxml.jackson.databind.cfg.ConfigFeature":{"present":false,"major_version":null}},"services":{"META-INF/services/com.fasterxml.jackson.core.JsonFactory":"com.fasterxml.jackson.core.JsonFactory\n"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.10.5/jackson-databind-2.9.10.5.jar","classes":{"com.fasterxml.jackson.core.util.JacksonFeature":{"present":false,"major_version":null},"com.fasterxml.jackson.databind.cfg.ConfigFeature":{"present":true,"major_version":51}},"services":{"META-INF/se...
+  JARS: breaking/jars/jackson-annotations-2.11.0.jar, breaking/jars/jackson-core-2.9.8.jar, breaking/jars/jackson-databind-2.12.6.1.jar, pre/jars/jackson-annotations-2.11.0.jar, pre/jars/jackson-core-2.9.8.jar, pre/jars/jackson-databind-2.9.10.5.jar

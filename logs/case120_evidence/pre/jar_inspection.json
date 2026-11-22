@@ -1,0 +1,62 @@
+{
+  "case_id": "a1b247aa03bcc0131d0646b2adaf434de18dcf80",
+  "phase": "pre",
+  "path_filter": "/org/apache/logging/log4j/(log4j-api|log4j-core)/",
+  "path_source": "Fresh test report effective classpaths, preferring surefire.test.class.path when present",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.2/log4j-api-2.17.2.jar",
+      "sha256": "09351b5a03828f369cdcff76f4ed39e6a6fc20f24f046935d0b28ef5152f8ce4",
+      "classes": {
+        "org.apache.logging.log4j.util.ServiceLoaderUtil": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.logging.log4j.core.impl.ThreadContextDataInjector": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/org.apache.logging.log4j.util.PropertySource": "# Licensed to the Apache Software Foundation (ASF) under one or more\n# contributor license agreements. See the NOTICE file distributed with\n# this work for additional information regarding copyright ownership.\n# The ASF licenses this file to You under the Apache license, Version 2.0\n# (the \"License\"); you may not use this file except in compliance with\n# the License. You may obtain a copy of the License at\n#\n#      http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the license for the specific language governing permissions and\n# limitations under the license.\norg.apache.logging.log4j.util.EnvironmentPropertySource\norg.apache.logging.log4j.util.SystemPropertiesPropertySource"
+      },
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.2/log4j-core-2.17.2.jar",
+      "sha256": "5adb34ff4197cd16a8d24f63035856a933cb59562a6888dde86e9450fcfef646",
+      "classes": {
+        "org.apache.logging.log4j.util.ServiceLoaderUtil": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.logging.log4j.core.impl.ThreadContextDataInjector": {
+          "present": true,
+          "major_version": 52
+        }
+      },
+      "services": {
+        "META-INF/services/javax.annotation.processing.Processor": "#\n# Licensed to the Apache Software Foundation (ASF) under one or more\n# contributor license agreements. See the NOTICE file distributed with\n# this work for additional information regarding copyright ownership.\n# The ASF licenses this file to You under the Apache license, Version 2.0\n# (the \"License\"); you may not use this file except in compliance with\n# the License. You may obtain a copy of the License at\n#\n#      http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the license for the specific language governing permissions and\n# limitations under the license.\n#\norg.apache.logging.log4j.core.config.plugins.processor.PluginProcessor\n",
+        "META-INF/services/org.apache.logging.log4j.core.util.ContextDataProvider": "org.apache.logging.log4j.core.impl.ThreadContextDataProvider",
+        "META-INF/services/org.apache.logging.log4j.message.ThreadDumpMessage$ThreadInfoFactory": "org.apache.logging.log4j.core.message.ExtendedThreadInfoFactory\n",
+        "META-INF/services/org.apache.logging.log4j.spi.Provider": "org.apache.logging.log4j.core.impl.Log4jProvider"
+      },
+      "disassemblies": [
+        {
+          "class": "org.apache.logging.log4j.core.impl.ThreadContextDataInjector",
+          "file": "log4j-core-2.17.2_ThreadContextDataInjector_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case120_evidence\\pre\\jars\\log4j-core-2.17.2.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.apache.logging.log4j.core.impl.ThreadContextDataInjector"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

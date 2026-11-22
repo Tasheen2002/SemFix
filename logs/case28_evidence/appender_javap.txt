@@ -1,0 +1,57 @@
+PRE
+Compiled from "SentryAppenderFactory.java"
+public class org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory extends io.dropwizard.logging.AbstractAppenderFactory<ch.qos.logback.classic.spi.ILoggingEvent> {
+  private static final java.lang.String APPENDER_NAME;
+  private java.lang.String dsn;
+  private java.util.Optional<java.lang.String> environment;
+  private java.util.Optional<java.util.Map<java.lang.String, java.lang.String>> tags;
+  private java.util.Optional<java.util.Set<java.lang.String>> mdcTags;
+  private java.util.Optional<java.lang.String> sentryClientFactory;
+  private java.util.Optional<java.lang.String> release;
+  private java.util.Optional<java.lang.String> serverName;
+  private java.util.Optional<java.util.Map<java.lang.String, java.lang.Object>> extra;
+  private java.util.Optional<java.util.List<java.lang.String>> stacktraceAppPackages;
+  public org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory();
+  public java.lang.String getDsn();
+  public void setDsn(java.lang.String);
+  public java.util.Optional<java.lang.String> getEnvironment();
+  public void setEnvironment(java.util.Optional<java.lang.String>);
+  public java.util.Optional<java.util.Map<java.lang.String, java.lang.String>> getTags();
+  public void setTags(java.util.Optional<java.util.Map<java.lang.String, java.lang.String>>);
+  public java.util.Optional<java.util.Set<java.lang.String>> getMdcTags();
+  public void setMdcTags(java.util.Optional<java.util.Set<java.lang.String>>);
+  public java.util.Optional<java.lang.String> getSentryClientFactory();
+  public void setSentryClientFactory(java.util.Optional<java.lang.String>);
+  public java.util.Optional<java.lang.String> getRelease();
+  public void setRelease(java.util.Optional<java.lang.String>);
+  public java.util.Optional<java.lang.String> getServerName();
+  public void setServerName(java.util.Optional<java.lang.String>);
+  public java.util.Optional<java.util.Map<java.lang.String, java.lang.Object>> getExtra();
+  public void setExtra(java.util.Optional<java.util.Map<java.lang.String, java.lang.Object>>);
+  public java.util.Optional<java.util.List<java.lang.String>> getStacktraceAppPackages();
+  public void setStacktraceAppPackages(java.util.Optional<java.util.List<java.lang.String>>);
+  public ch.qos.logback.core.Appender<ch.qos.logback.classic.spi.ILoggingEvent> build(ch.qos.logback.classic.LoggerContext, java.lang.String, io.dropwizard.logging.layout.LayoutFactory<ch.qos.logback.classic.spi.ILoggingEvent>, io.dropwizard.logging.filter.LevelFilterFactory<ch.qos.logback.classic.spi.ILoggingEvent>, io.dropwizard.logging.async.AsyncAppenderFactory<ch.qos.logback.classic.spi.ILoggingEvent>);
+  private void addDroppingSentryLoggingFilter(ch.qos.logback.core.Appender<ch.qos.logback.classic.spi.ILoggingEvent>);
+  private static void lambda$build$1(io.sentry.logback.SentryAppender, io.dropwizard.logging.filter.FilterFactory);
+  private static java.lang.String lambda$build$0(java.util.List);
+}
+BREAKING
+Compiled from "SentryAppenderFactory.java"
+public class org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory extends io.dropwizard.logging.AbstractAppenderFactory<ch.qos.logback.classic.spi.ILoggingEvent> {
+  private static final java.lang.String APPENDER_NAME;
+  public java.lang.String dsn;
+  public java.lang.String environment;
+  public java.util.Map<java.lang.String, java.lang.String> tags;
+  public java.lang.String release;
+  public java.lang.String serverName;
+  public java.util.List<java.lang.String> inAppIncludes;
+  public java.util.List<java.lang.String> inAppExcludes;
+  public java.lang.String configurator;
+  public org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory();
+  public ch.qos.logback.core.Appender<ch.qos.logback.classic.spi.ILoggingEvent> build(ch.qos.logback.classic.LoggerContext, java.lang.String, io.dropwizard.logging.layout.LayoutFactory<ch.qos.logback.classic.spi.ILoggingEvent>, io.dropwizard.logging.filter.LevelFilterFactory<ch.qos.logback.classic.spi.ILoggingEvent>, io.dropwizard.logging.async.AsyncAppenderFactory<ch.qos.logback.classic.spi.ILoggingEvent>);
+  private static void lambda$build$4(io.sentry.logback.SentryAppender, io.dropwizard.logging.filter.FilterFactory);
+  private static void lambda$build$3(io.sentry.SentryOptions, java.lang.String);
+  private static void lambda$build$2(io.sentry.SentryOptions, java.util.List);
+  private static void lambda$build$1(io.sentry.SentryOptions, java.util.List);
+  private static void lambda$build$0(io.sentry.SentryOptions, java.util.Map);
+}

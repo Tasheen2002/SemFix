@@ -1,0 +1,9 @@
+# Case 158 review
+
+PRE: BUILD SUCCESS, 26 tests, no failures/errors/skips. BREAKING: BUILD FAILURE, 26 tests, one ComparisonFailure, no errors/skips. SardineExceptionTest.testMessage expects 'm (400 response phrase)' but receives 'status code: 400, reason phrase: m (400 response phrase)'.
+
+Both original Docker images were run. All archived client source hashes match; only pom.xml changes httpclient 4.5.1 to 4.5.13. SardineException's unchanged constructor calls super(statusCode, msg), and its getMessage appends statusCode/responsePhrase to super.getMessage(). The original Surefire XML exposes only Maven's launcher classpath, so it cannot by itself establish resolved HTTP dependency versions.
+
+A separately named diagnostic container for each original image mounts and selects one additional JUnit test, leaving original production source and dependency versions intact. Each diagnostic passes its one test; its counts are kept separate from the original 26 tests. Code-source URLs identify actual HttpClient 4.5.1/4.5.13 and transitive HttpCore 4.4.3/4.4.13. Copies of those exact JAR paths are obtained from the original stopped containers. The diagnostic prints direct superclass and client messages: PRE parent 'm', client 'm (400 response phrase)'; BREAKING parent 'status code: 400, reason phrase: m', client 'status code: 400, reason phrase: m (400 response phrase)'. Both constructor/getMessage calls execute successfully. HttpResponseException disassembly records the unchanged constructor descriptor and changed message construction.
+
+Agent assessment: PROVISIONAL_BEHAVIORAL, binary linkage flag NO, based on changed exception message content. Evidence: logs/case158_evidence/ including message_probe_results.json, separate diagnostic logs/report archives and resolved-JAR inspection; original logs logs/batch_triage/d4aade95_*.log. Independent human review pending; final label blank. No repair attempted.

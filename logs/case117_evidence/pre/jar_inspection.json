@@ -1,0 +1,63 @@
+{
+  "case_id": "a05bfd52ed33fb68c5edb2b53d9424d82ac60fa8",
+  "phase": "pre",
+  "path_filter": "/(slf4j-api|slf4j-test)/",
+  "path_source": "Fresh test report effective classpaths, preferring surefire.test.class.path when present",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar",
+      "sha256": "3624f8474c1af46d75f98bc097d7864a323c81b3808aa43689a6e1c601c027be",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": false,
+          "major_version": null
+        },
+        "org.slf4j.spi.SLF4JServiceProvider": {
+          "present": false,
+          "major_version": null
+        },
+        "uk.org.lidalia.slf4jtest.TestLoggerFactory": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/uk/org/lidalia/slf4j-test/1.2.0/slf4j-test-1.2.0.jar",
+      "sha256": "ba7004db2ef5e431711b8a11af87d1e4b1b574c66aedc21a06c225f762b5befd",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": true,
+          "major_version": 51
+        },
+        "org.slf4j.spi.SLF4JServiceProvider": {
+          "present": false,
+          "major_version": null
+        },
+        "uk.org.lidalia.slf4jtest.TestLoggerFactory": {
+          "present": true,
+          "major_version": 51
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "uk.org.lidalia.slf4jtest.TestLoggerFactory",
+          "file": "slf4j-test-1.2.0_TestLoggerFactory_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case117_evidence\\pre\\jars\\slf4j-test-1.2.0.jar",
+            "-p",
+            "-s",
+            "-c",
+            "uk.org.lidalia.slf4jtest.TestLoggerFactory"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

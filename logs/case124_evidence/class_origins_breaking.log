@@ -1,0 +1,139 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 4 modules...
+[INFO] Not installing Nexus Staging features:
+[INFO]  * Preexisting staging related goal bindings found in 4 modules.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] camunda BPM - Apache Camel Integration                             [pom]
+[INFO] camunda BPM - Apache Camel Integration (Common)                    [jar]
+[INFO] camunda BPM - Apache Camel Integration (Common Test Resources)     [jar]
+[INFO] camunda BPM - Apache Camel Integration (Spring)                    [jar]
+[INFO] 
+[INFO] ---------< org.camunda.bpm.extension.camel:camunda-bpm-camel >----------
+[INFO] Building camunda BPM - Apache Camel Integration 0.9.0-SNAPSHOT     [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ camunda-bpm-camel ---
+[INFO] 
+[INFO] ------< org.camunda.bpm.extension.camel:camunda-bpm-camel-common >------
+[INFO] Building camunda BPM - Apache Camel Integration (Common) 0.9.0-SNAPSHOT [2/4]
+[INFO]   from camunda-bpm-camel-common/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ camunda-bpm-camel-common ---
+[INFO] Deleting /camunda-platform-7-camel/camunda-bpm-camel-common/target
+[INFO] 
+[INFO] --- bundle:5.1.2:cleanVersions (default) @ camunda-bpm-camel-common ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ camunda-bpm-camel-common ---
+[INFO] skip non existing resourceDirectory /camunda-platform-7-camel/camunda-bpm-camel-common/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.9.0:compile (default-compile) @ camunda-bpm-camel-common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to /camunda-platform-7-camel/camunda-bpm-camel-common/target/classes
+[INFO] /camunda-platform-7-camel/camunda-bpm-camel-common/src/main/java/org/camunda/bpm/camel/component/producer/StartProcessProducer.java: Some input files use or override a deprecated API.
+[INFO] /camunda-platform-7-camel/camunda-bpm-camel-common/src/main/java/org/camunda/bpm/camel/component/producer/StartProcessProducer.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- bundle:5.1.2:manifest (bundle-manifest) @ camunda-bpm-camel-common ---
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ camunda-bpm-camel-common ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.9.0:testCompile (default-testCompile) @ camunda-bpm-camel-common ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /camunda-platform-7-camel/camunda-bpm-camel-common/target/test-classes
+[INFO] /camunda-platform-7-camel/camunda-bpm-camel-common/src/test/java/org/camunda/bpm/camel/component/producer/MessageProducerTest.java: Some input files use or override a deprecated API.
+[INFO] /camunda-platform-7-camel/camunda-bpm-camel-common/src/test/java/org/camunda/bpm/camel/component/producer/MessageProducerTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ camunda-bpm-camel-common ---
+[INFO] 
+[INFO] ---< org.camunda.bpm.extension.camel:camunda-bpm-camel-common-tests >---
+[INFO] Building camunda BPM - Apache Camel Integration (Common Test Resources) 0.9.0-SNAPSHOT [3/4]
+[INFO]   from camunda-bpm-camel-common-tests/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ camunda-bpm-camel-common-tests ---
+[INFO] Deleting /camunda-platform-7-camel/camunda-bpm-camel-common-tests/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ camunda-bpm-camel-common-tests ---
+[INFO] Copying 9 resources
+[INFO] 
+[INFO] --- compiler:3.9.0:compile (default-compile) @ camunda-bpm-camel-common-tests ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /camunda-platform-7-camel/camunda-bpm-camel-common-tests/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ camunda-bpm-camel-common-tests ---
+[INFO] skip non existing resourceDirectory /camunda-platform-7-camel/camunda-bpm-camel-common-tests/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.9.0:testCompile (default-testCompile) @ camunda-bpm-camel-common-tests ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ camunda-bpm-camel-common-tests ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] ------< org.camunda.bpm.extension.camel:camunda-bpm-camel-spring >------
+[INFO] Building camunda BPM - Apache Camel Integration (Spring) 0.9.0-SNAPSHOT [4/4]
+[INFO]   from camunda-bpm-camel-spring/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact org.slf4j:slf4j-log4j12:jar:1.7.35 has been relocated to org.slf4j:slf4j-reload4j:jar:1.7.35
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ camunda-bpm-camel-spring ---
+[INFO] Deleting /camunda-platform-7-camel/camunda-bpm-camel-spring/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ camunda-bpm-camel-spring ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.9.0:compile (default-compile) @ camunda-bpm-camel-spring ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /camunda-platform-7-camel/camunda-bpm-camel-spring/target/classes
+[INFO] /camunda-platform-7-camel/camunda-bpm-camel-spring/src/main/java/org/camunda/bpm/camel/spring/CamelServiceImpl.java: /camunda-platform-7-camel/camunda-bpm-camel-spring/src/main/java/org/camunda/bpm/camel/spring/CamelServiceImpl.java uses or overrides a deprecated API.
+[INFO] /camunda-platform-7-camel/camunda-bpm-camel-spring/src/main/java/org/camunda/bpm/camel/spring/CamelServiceImpl.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ camunda-bpm-camel-spring ---
+[INFO] Copying 15 resources
+[INFO] 
+[INFO] --- compiler:3.9.0:testCompile (default-testCompile) @ camunda-bpm-camel-spring ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 15 source files to /camunda-platform-7-camel/camunda-bpm-camel-spring/target/test-classes
+[INFO] /camunda-platform-7-camel/camunda-bpm-camel-spring/src/test/java/org/camunda/bpm/camel/spring/StartProcessFromRouteTest.java: /camunda-platform-7-camel/camunda-bpm-camel-spring/src/test/java/org/camunda/bpm/camel/spring/StartProcessFromRouteTest.java uses unchecked or unsafe operations.
+[INFO] /camunda-platform-7-camel/camunda-bpm-camel-spring/src/test/java/org/camunda/bpm/camel/spring/StartProcessFromRouteTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:2.13:test (default-test) @ camunda-bpm-camel-spring ---
+[INFO] Surefire report directory: /camunda-platform-7-camel/camunda-bpm-camel-spring/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running Case124ClassOriginsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.368 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for camunda BPM - Apache Camel Integration 0.9.0-SNAPSHOT:
+[INFO] 
+[INFO] camunda BPM - Apache Camel Integration ............. SUCCESS [  0.680 s]
+[INFO] camunda BPM - Apache Camel Integration (Common) .... SUCCESS [ 12.068 s]
+[INFO] camunda BPM - Apache Camel Integration (Common Test Resources) SUCCESS [  0.644 s]
+[INFO] camunda BPM - Apache Camel Integration (Spring) .... SUCCESS [  4.287 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  22.181 s
+[INFO] Finished at: 2026-11-10T10:25:28Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.9.0
+[WARNING]  * org.apache.maven.plugins:maven-clean-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.13
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING]  * org.apache.felix:maven-bundle-plugin:5.1.2
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 

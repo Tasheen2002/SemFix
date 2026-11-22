@@ -1,0 +1,29 @@
+﻿
+=== Case 116  a047d2d3f9385a25ced0d2ad3c49f9401ea9c624 ===
+Project : jenkinsci/incrementals-tools
+Update  : org.codehaus.mojo:versions-maven-plugin  2.15.0 -> 2.16.0
+Running breaking in container manual-case116-breaking (this can take several minutes) ...
+Finished in 44 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case116_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+  reactor: Incrementals Tools POM ............................. SUCCESS [  2.924 s]
+  reactor: lib ................................................ SUCCESS [  6.175 s]
+  reactor: incrementals-maven-plugin .......................... FAILURE [ 17.695 s]
+  reactor: Git Changelist Maven Extension ..................... SKIPPED
+  reactor: incrementals-enforcer-rules ........................ SKIPPED
+First failing tests / errors:
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  none
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R10: Tooling or test-infrastructure failure)
+Cause   : versions-maven-plugin 2.16.0 adds junit:junit 3.8.x (via plexus-container-default/plexus deps, debug classpath in discovery_classpaths.json) to the incrementals-maven-plugin test classpath; the JUnit Vintage engine fails to discover tests
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

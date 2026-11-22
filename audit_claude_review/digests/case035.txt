@@ -1,0 +1,39 @@
+=== CASE 35 30149ce4bdde6418aad7f02c35bd9dc8101b58ac
+  project=alphagov/pay-cardid dep=org.dhatim:dropwizard-sentry 2.0.22 -> 2.0.28-3 scope=compile type=other java=11
+  PR=https://github.com/alphagov/pay-cardid/pull/712
+  PRE log logs/batch_triage/30149ce4_pre.log:
+  lines=182
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 44, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/30149ce4_breaking.log:
+  lines=120
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 34, Failures: 0, Errors: 1, Skipped: 0
+  failing classes: Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.812 s <<< FAILURE! - in uk.gov.pay.card.it.resources.CardIdResourceITest
+  section: Errors: | CardIdResourceITest » ConfigurationParsing /pay-cardid/target/classes/config/c... | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  10.338 s | [INFO] Finished at: 2026-11-09T07:12:16Z | [INFO] ------------------------------------------------------------------------ | [WARNING] | [WARNING] Plugin validation issues were detected in 4 plugin(s) | [WARNING]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project pay-cardid: There are test failures.
+  FAILBLOCK: [ERROR] uk.gov.pay.card.it.resources.CardIdResourceITest  Time elapsed: 0.812 s  <<< ERROR!
+      io.dropwizard.configuration.ConfigurationParsingException:
+      /pay-cardid/target/classes/config/config.yaml has an error:
+      * Unrecognized field at: logging.appenders.[1].stacktraceAppPackages
+      Did you mean?:
+      - inAppExcludes
+      - inAppIncludes
+      Caused by: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException:
+  distinct fail signatures (count): 1x io.dropwizard.configuration.ConfigurationParsingException:
+  exception names: io.dropwizard.configuration.ConfigurationParsingExceptionx1, com.fasterxml.jackson.databind.exc.UnrecognizedPropertyExceptionx1
+  EVIDENCE logs/case35_evidence: appender_javap.txt, breaking/archive_summary.json, breaking/artifacts.tar, breaking/dropwizard-sentry-2.0.28-3.jar, pre/archive_summary.json, pre/artifacts.tar, pre/dropwizard-sentry-2.0.22.jar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=6 sum(t,f,e,s)=[44, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=6 sum(t,f,e,s)=[34, 0, 1, 0]
+  archived non-report files: pre=31 breaking=31 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -52,3 +52,3 @@
+                 <artifactId>dropwizard-sentry</artifactId>
+    -            <version>2.0.22</version>
+    +            <version>2.0.28-3</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    ERROR uk.gov.pay.card.it.resources.CardIdResourceITest#uk.gov.pay.card.it.resources.CardIdResourceITest type=io.dropwizard.configuration.ConfigurationParsingException msg=/pay-cardid/target/classes/config/config.yaml has an error:   * Unrecognized field at: logging.appenders.[1].stacktraceAppPackages     Did you mean?:       - inAppExcludes       - inAppIncludes       - serverName       - filterFactories       - messageRate         [13 more] 
+       Caused by: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException:
+       at [Source: UNKNOWN; byte offset: #UNKNOWN] (through reference chain: uk.gov.pay.card.app.config.CardConfiguration["logging"]->io.dropwizard.logging.DefaultLoggingFactory["appenders"]->java.util.Array

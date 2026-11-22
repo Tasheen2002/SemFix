@@ -1,0 +1,107 @@
+=== CASE 101 8ecc7850c97f4616ec4e67f7568adf34293cc4f1
+  project=citerus/dddsample-core dep=jakarta.xml.bind:jakarta.xml.bind-api 2.3.3 -> 4.0.0 scope=compile type=major java=11
+  PR=https://github.com/citerus/dddsample-core/pull/121
+  PRE log logs/batch_triage/8ecc7850_pre.log:
+  lines=35599
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 132, Failures: 0, Errors: 0, Skipped: 3
+  provider/console lines: WARNING: An illegal reflective access operation has occurred
+  exception names: org.hibernate.tool.schema.spi.CommandAcceptanceExceptionx198, java.sql.SQLSyntaxErrorExceptionx198, org.hsqldb.HsqlExceptionx198, java.lang.NullPointerExceptionx67, sun.nio.fs.UnixExceptionx3, java.lang.IllegalArgumentExceptionx2, java.time.format.DateTimeParseExceptionx2, java.nio.file.NoSuchFileExceptionx1, org.springframework.http.converter.HttpMessageNotReadableExceptionx1, com.fasterxml.jackson.databind.exc.InvalidFormatExceptionx1
+  BREAKING log logs/batch_triage/8ecc7850_breaking.log:
+  lines=4506
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 132, Failures: 0, Errors: 20, Skipped: 2
+  failing classes: Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 24.328 s <<< FAILURE! - in se.citerus.dddsample.infrastructure.persistence.jpa.CargoRepositoryTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.401 s <<< FAILURE! - in se.citerus.dddsample.infrastructure.persistence.jpa.CarrierMovementRepositoryTest || Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 2.913 s <<< FAILURE! - in se.citerus.dddsample.infrastructure.persistence.jpa.HandlingEventRepositoryTest || Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 2.632 s <<< FAILURE! - in se.citerus.dddsample.infrastructure.persistence.jpa.LocationRepositoryTest || Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 7.057 s <<< FAILURE! - in se.citerus.dddsample.interfaces.tracking.ws.CargoTrackingRestServiceIntegrationTest || Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 4.66 s <<< FAILURE! - in se.citerus.dddsample.interfaces.handling.HandlingReportIntegrationTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 7.047 s <<< FAILURE! - in se.citerus.dddsample.acceptance.CustomerAcceptanceTest || Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 5.701 s <<< FAILURE! - in se.citerus.dddsample.acceptance.AdminAcceptanceTest
+  section: Errors: | AdminAcceptanceTest.adminSiteCanBookNewCargo » IllegalState Failed to load ApplicationContext | AdminAcceptanceTest.adminSiteCargoListContainsCannedCargo » IllegalState Failed to load ApplicationContext | CustomerAcceptanceTest.customerSiteCanTrackValidCargo » IllegalState Failed to load ApplicationContext | CustomerAcceptanceTest.customerSiteErrorsOnInvalidCargo » IllegalState Failed to load ApplicationContext | CustomerAcceptanceTest.customerSiteNotifiesOnMisdirectedCargo » IllegalState Failed to load ApplicationContext | CargoRepositoryTest.testFindAll » IllegalState Failed to load ApplicationContext | CargoRepositoryTest.testFindByCargoId » IllegalState Failed to load ApplicationContext | CargoRepositoryTest.testFindByCargoIdUnknownId » IllegalState Failed to load ApplicationContext | CargoRepositoryTest.testNextTrackingId » IllegalState Failed to load ApplicationContext | CargoRepositoryTest.testReplaceItinerary » IllegalState Failed to load ApplicationContext | CargoRepositoryTest.testSave » IllegalState Failed to load ApplicationContext | CarrierMovementRepositoryTest.testFind » IllegalState Failed to load ApplicationContext | HandlingEventRepositoryTest.testFindEv
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project dddsample: 
+  FAILBLOCK: [ERROR] se.citerus.dddsample.infrastructure.persistence.jpa.CargoRepositoryTest.testNextTrackingId  Time elapsed: 0.064 s  <<< ERROR!
+      java.lang.IllegalStateException: Failed to load ApplicationContext
+      at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+      at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+      at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+      at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+      at org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener.prepareTestInstance(SpringBootDependencyInjectionTestExecutionListener.java:44)
+      Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'se.citerus.dddsample.interfaces.InterfacesApplicationContext': Unsatisfied dependency expressed through field 'entityManager'; nested exception is org.s
+      Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.orm.jpa.SharedEntityManagerCreator#0': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; nested exc
+      Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method 
+      Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+  distinct fail signatures (count): 20x java.lang.IllegalStateException: Failed to load ApplicationContext
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: org.springframework.beans.factory.BeanCreationExceptionx180, java.lang.NoClassDefFoundErrorx120, org.springframework.beans.factory.UnsatisfiedDependencyExceptionx60, java.lang.IllegalStateExceptionx20, java.lang.ClassNotFoundExceptionx20, javax.xml.bind.JAXBExceptionx20, sun.nio.fs.UnixExceptionx3, java.lang.IllegalArgumentExceptionx2, java.nio.file.NoSuchFileExceptionx1
+  EVIDENCE logs/case101_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jars/jakarta.xml.bind-api-4.0.0.jar, breaking/jars/jaxb-impl-2.3.3.jar, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jars/jakarta.xml.bind-api-2.3.3.jar, pre/jars/jaxb-impl-2.3.3.jar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=37 sum(t,f,e,s)=[132, 0, 0, 3]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=37 sum(t,f,e,s)=[132, 0, 20, 2]
+  archived non-report files: pre=234 breaking=234 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -158,3 +158,3 @@
+                 <artifactId>jakarta.xml.bind-api</artifactId>
+    -            <version>2.3.3</version>
+    +            <version>4.0.0</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    ERROR se.citerus.dddsample.acceptance.AdminAcceptanceTest#adminSiteCanBookNewCargo type=java.lang.IllegalStateException msg=Failed to load ApplicationContext
+       Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'interfacesApplicationContext': Unsatisfied dependency expressed through field 'entityManager'; nested exception is org.springframework.beans.f
+       Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.orm.jpa.SharedEntityManagerCreator#0': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; 
+       Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of in
+       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+    ERROR se.citerus.dddsample.acceptance.AdminAcceptanceTest#adminSiteCargoListContainsCannedCargo type=java.lang.IllegalStateException msg=Failed to load ApplicationContext
+       Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'interfacesApplicationContext': Unsatisfied dependency expressed through field 'entityManager'; nested exception is org.springframework.beans.f
+       Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.orm.jpa.SharedEntityManagerCreator#0': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; 
+       Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of in
+       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+    ERROR se.citerus.dddsample.acceptance.CustomerAcceptanceTest#customerSiteCanTrackValidCargo type=java.lang.IllegalStateException msg=Failed to load ApplicationContext
+       Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'interfacesApplicationContext': Unsatisfied dependency expressed through field 'entityManager'; nested exception is org.springframework.beans.f
+       Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.orm.jpa.SharedEntityManagerCreator#0': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; 
+       Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of in
+       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+    ERROR se.citerus.dddsample.acceptance.CustomerAcceptanceTest#customerSiteNotifiesOnMisdirectedCargo type=java.lang.IllegalStateException msg=Failed to load ApplicationContext
+       Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'interfacesApplicationContext': Unsatisfied dependency expressed through field 'entityManager'; nested exception is org.springframework.beans.f
+       Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.orm.jpa.SharedEntityManagerCreator#0': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; 
+       Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of in
+       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+    ERROR se.citerus.dddsample.acceptance.CustomerAcceptanceTest#customerSiteErrorsOnInvalidCargo type=java.lang.IllegalStateException msg=Failed to load ApplicationContext
+       Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'interfacesApplicationContext': Unsatisfied dependency expressed through field 'entityManager'; nested exception is org.springframework.beans.f
+       Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.orm.jpa.SharedEntityManagerCreator#0': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; 
+       Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of in
+       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+    ERROR se.citerus.dddsample.infrastructure.persistence.jpa.CargoRepositoryTest#testNextTrackingId type=java.lang.IllegalStateException msg=Failed to load ApplicationContext
+       Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'se.citerus.dddsample.interfaces.InterfacesApplicationContext': Unsatisfied dependency expressed through field 'entityManager'; nested exceptio
+       Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.orm.jpa.SharedEntityManagerCreator#0': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; 
+       Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of in
+       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+    ERROR se.citerus.dddsample.infrastructure.persistence.jpa.CargoRepositoryTest#testFindAll type=java.lang.IllegalStateException msg=Failed to load ApplicationContext
+       Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'se.citerus.dddsample.interfaces.InterfacesApplicationContext': Unsatisfied dependency expressed through field 'entityManager'; nested exceptio
+       Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.orm.jpa.SharedEntityManagerCreator#0': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; 
+       Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of in
+       at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+       at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+       at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+    ERROR se.citerus.dddsample.infrastructure.persistence.jpa.CargoRepositoryTest#testSave type=java.lang.IllegalStateException msg=Failed to load ApplicationContext
+       Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'se.citerus.dddsample.interfaces.InterfacesApplicationContext': Unsatisfied dependency expressed through field 'entityManager'; nested exceptio
+       Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.orm.jpa.SharedEntityManagerCreator#0': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument; 
+       Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of in
+    ... truncated (160 lines)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -            <version>2.3.3</version> / +            <version>4.0.0</version>
+  JSON resolved_jar_inspection.json: [{"phase":"pre","resolved_path":"/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.3.3/jaxb-impl-2.3.3.jar","classes":{"javax/xml/bind/JAXBException.class":false,"jakarta/xml/bind/JAXBException.class":false,"javax/xml/bind/JAXBContext.class":false,"jakarta/xml/bind/JAXBContext.class":false,"com/sun/xml/bind/v2/ContextFactory.class":true,"com/sun/xml/internal/bind/v2/ContextFactory.class":false,"org/glassfish/jaxb/runtime/v2/ContextFactory.class":false},"services":{"META-INF/services/javax.xml.bind.JAXBContext":"com.sun.xml.bind.v2.ContextFactory\n","META-INF/services/javax.xml.bind.JAXBContextFactory":"com.sun.xml.bind.v2.JAXBContextFactory\n"}},{"phase":"pre","resolved_path":"/root/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar","classes":{"javax/xml/bind/JAXBException.class":true,"jakarta/xml/bind/JAXBException.class":false,"javax/xml/bind/JAXBContext.class":true,"jakarta/xml/bind/JAXBContext.class":false,"com/sun/xml/bind/v2/ContextFactory.class":false,"com/sun/xml/internal/bind/v2/ContextFactory.class":false,"org/glassfish/jaxb/runtime/v2/ContextFactory.class":false},"services":{}},{"phase":"breaking","resolved_path":"/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.3.3/jaxb-impl-2.3.3.jar","classes":{"javax/xml/bind/JAXBException.class":false,"jakarta/xml/bind/JAXBException.class":false,"javax/xml/bind/JAXBContext.class":false,"j...
+  JARS: breaking/jars/jakarta.xml.bind-api-4.0.0.jar, breaking/jars/jaxb-impl-2.3.3.jar, pre/jars/jakarta.xml.bind-api-2.3.3.jar, pre/jars/jaxb-impl-2.3.3.jar

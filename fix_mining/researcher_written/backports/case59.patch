@@ -1,0 +1,31 @@
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml
++++ b/pom.xml
+@@ -311,9 +311,9 @@
+ 
+     <!-- Plugin test deps -->
+     <dependency>
+-      <groupId>uk.org.lidalia</groupId>
++      <groupId>com.github.valfirst</groupId>
+       <artifactId>slf4j-test</artifactId>
+-      <version>1.2.0</version>
++      <version>3.0.1</version>
+       <scope>test</scope>
+     </dependency>
+     <dependency>
+diff --git a/src/test/java/com/github/searls/jasmine/format/JasmineResultLoggerTest.java b/src/test/java/com/github/searls/jasmine/format/JasmineResultLoggerTest.java
+--- a/src/test/java/com/github/searls/jasmine/format/JasmineResultLoggerTest.java
++++ b/src/test/java/com/github/searls/jasmine/format/JasmineResultLoggerTest.java
+@@ -27,9 +27,9 @@
+ import org.mockito.InjectMocks;
+ import org.mockito.Mock;
+ import org.mockito.junit.jupiter.MockitoExtension;
+-import uk.org.lidalia.slf4jtest.LoggingEvent;
+-import uk.org.lidalia.slf4jtest.TestLogger;
+-import uk.org.lidalia.slf4jtest.TestLoggerFactory;
++import com.github.valfirst.slf4jtest.LoggingEvent;
++import com.github.valfirst.slf4jtest.TestLogger;
++import com.github.valfirst.slf4jtest.TestLoggerFactory;
+ 
+ import javax.annotation.Nullable;
+ import java.util.List;

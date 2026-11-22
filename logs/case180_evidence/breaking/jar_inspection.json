@@ -1,0 +1,57 @@
+{
+  "case_id": "f951ead97d14eb29e625d14c2ed5258949728ee4",
+  "phase": "breaking",
+  "path_filter": "/(hibernate-validator|jakarta.validation-api|validation-api)/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar",
+      "sha256": "b42d42428f3d922c892a909fa043287d577c0c5b165ad9b7d568cebf87fc9ea4",
+      "classes": {
+        "javax.validation.spi.ValidationProvider": {
+          "present": true,
+          "major_version": 52
+        },
+        "jakarta.validation.spi.ValidationProvider": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/hibernate/validator/hibernate-validator/7.0.2.Final/hibernate-validator-7.0.2.Final.jar",
+      "sha256": "381822b5b22e27e314bd97da19f8e763d3df2550b6dae0eafc12be2748fc4cd7",
+      "classes": {
+        "javax.validation.spi.ValidationProvider": {
+          "present": false,
+          "major_version": null
+        },
+        "jakarta.validation.spi.ValidationProvider": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/jakarta.validation.spi.ValidationProvider": "org.hibernate.validator.HibernateValidator"
+      },
+      "disassemblies": [
+        {
+          "class": "org.hibernate.validator.HibernateValidator",
+          "file": "hibernate-validator-7.0.2.Final_HibernateValidator_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case180_evidence\\breaking\\jars\\hibernate-validator-7.0.2.Final.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.hibernate.validator.HibernateValidator"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

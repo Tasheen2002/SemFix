@@ -1,0 +1,27 @@
+=== CASE 13 12684ee6cfd293b27c08495f97900bcd849b452c
+  project=damianszczepanik/cucumber-reporting dep=commons-io:commons-io 2.7 -> 2.11.0 scope=compile type=minor java=11
+  PR=https://github.com/damianszczepanik/cucumber-reporting/pull/1098
+  PRE log logs/batch_triage/12684ee6_pre.log:
+  lines=198
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 345, Failures: 0, Errors: 0, Skipped: 2
+  provider/console lines: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details. | WARNING: An illegal reflective access operation has occurred
+  BREAKING log logs/batch_triage/12684ee6_breaking.log:
+  lines=217
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 345, Failures: 0, Errors: 1, Skipped: 2
+  failing classes: Tests run: 25, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.004 sec <<< FAILURE! - in net.masterthought.cucumber.ReportBuilderTest
+  section: Tests in error: | ReportBuilderTest.copyCustomResources_OnDirAsFile_ThrowsIOException:228 » IllegalArgument | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  28.525 s | [INFO] Finished at: 2026-10-01T08:08:13Z | [INFO] ------------------------------------------------------------------------ | [WARNING] | [WARNING] Plugin validation issues were detected in 5 plugin(s) | [WARNING]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.18.1:test (default-test) on project cucumber-reporting: There are test failures.
+  FAILBLOCK: copyCustomResources_OnDirAsFile_ThrowsIOException(net.masterthought.cucumber.ReportBuilderTest)  Time elapsed: 0.023 sec  <<< ERROR!
+      java.lang.IllegalArgumentException: Parameter 'srcFile' is not a file: src/test/resources/js
+      at org.apache.commons.io.FileUtils.requireFile(FileUtils.java:2737)
+      at org.apache.commons.io.FileUtils.copyFile(FileUtils.java:841)
+      at org.apache.commons.io.FileUtils.copyFile(FileUtils.java:756)
+      at net.masterthought.cucumber.ReportBuilder.copyCustomResources(ReportBuilder.java:174)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  distinct fail signatures (count): 1x java.lang.IllegalArgumentException: Parameter 'srcFile' is not a file: src/test/resources/js
+  provider/console lines: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details. | WARNING: An illegal reflective access operation has occurred
+  exception names: java.lang.IllegalArgumentExceptionx1
+  EVIDENCE: no logs/case13_evidence directory

@@ -1,0 +1,106 @@
+=== CASE 139 bbd396d040324e103e29fcfe0b51389bfade4d93
+  project=versly/wsdoc dep=org.yaml:snakeyaml 1.13 -> 1.31 scope=compile type=minor java=11
+  PR=https://github.com/versly/wsdoc/pull/78
+  PRE log logs/batch_triage/bbd396d0_pre.log:
+  lines=436
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 59, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: log4j:WARN No appenders could be found for logger (freemarker.cache). | log4j:WARN Please initialize the log4j system properly. | log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+  BREAKING log logs/batch_triage/bbd396d0_breaking.log:
+  lines=1413
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 59, Failures: 20, Errors: 0, Skipped: 0
+  failing classes: Tests run: 59, Failures: 20, Errors: 0, Skipped: 0, Time elapsed: 25 s <<< FAILURE! - in TestSuite
+  section: Failures: | JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.apiLevelDocs:402 » NoSuchMethod 'java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()' | JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertNoRedundantUriParametersForResource:276 » NoSuchMethod 'java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()' | JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertUriFirstParameterValidation:305 » NoSuchMethod 'java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()' | JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertUriParameterNormalization:287 » NoSuchMethod 'java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()' | JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.authScopeDocs:526 » NoSuchMethod 'java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()' | JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.docTemplate:580 » NoSuchMethod 'java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()' | JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcesso
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project versly-wsdoc: There are test failures.
+  FAILBLOCK: [ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.apiLevelDocs  Time elapsed: 2.206 s  <<< FAILURE!
+      java.lang.NoSuchMethodError: 'java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()'
+      at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.cloneSequenceNode(TemplateResolver.java:679)
+      at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.extractTemplateReferences(TemplateResolver.java:394)
+      at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.mergeTemplatesIfNeeded(TemplateResolver.java:290)
+      at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.merge(TemplateResolver.java:281)
+      at org.raml.parser.visitor.TemplateResolver.resolve(TemplateResolver.java:246)
+  distinct fail signatures (count): 20x java.lang.NoSuchMethodError: 'java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()'
+  provider/console lines: log4j:WARN No appenders could be found for logger (freemarker.cache). | log4j:WARN Please initialize the log4j system properly. | log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+  linkage/compile signals: NoSuchMethodError
+  exception names: java.lang.NoSuchMethodErrorx20
+  EVIDENCE logs/case139_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/raml-parser-0.9-SNAPSHOT.jar, breaking/jars/snakeyaml-1.31.jar, breaking/raml-parser-0.9-SNAPSHOT_TemplateResolver$ResourceTemplateMerger_javap.txt, breaking/reconciled_counts.json, breaking/snakeyaml-1.31_CollectionNode_javap.txt, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/raml-parser-0.9-SNAPSHOT.jar, pre/jars/snakeyaml-1.13.jar, pre/raml-parser-0.9-SNAPSHOT_TemplateResolver$ResourceTemplateMerger_javap.txt, pre/reconciled_counts.json, pre/snakeyaml-1.13_CollectionNode_javap.txt, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=3 sum(t,f,e,s)=[118, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=3 sum(t,f,e,s)=[118, 40, 0, 0]
+  archived non-report files: pre=71 breaking=71 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -151,3 +151,3 @@
+                 <artifactId>snakeyaml</artifactId>
+    -            <version>1.13</version>
+    +            <version>1.31</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#apiLevelDocs type=java.lang.NoSuchMethodError msg='java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()'
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.cloneSequenceNode(TemplateResolver.java:679)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.extractTemplateReferences(TemplateResolver.java:394)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.mergeTemplatesIfNeeded(TemplateResolver.java:290)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.merge(TemplateResolver.java:281)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#assertNoRedundantUriParametersForResource type=java.lang.NoSuchMethodError msg='java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()'
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.cloneSequenceNode(TemplateResolver.java:679)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.extractTemplateReferences(TemplateResolver.java:394)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.mergeTemplatesIfNeeded(TemplateResolver.java:290)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.merge(TemplateResolver.java:281)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#assertUriFirstParameterValidation type=java.lang.NoSuchMethodError msg='java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()'
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.cloneSequenceNode(TemplateResolver.java:679)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.extractTemplateReferences(TemplateResolver.java:394)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.mergeTemplatesIfNeeded(TemplateResolver.java:290)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.merge(TemplateResolver.java:281)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#assertUriParameterNormalization type=java.lang.NoSuchMethodError msg='java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()'
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.cloneSequenceNode(TemplateResolver.java:679)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.extractTemplateReferences(TemplateResolver.java:394)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.mergeTemplatesIfNeeded(TemplateResolver.java:290)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.merge(TemplateResolver.java:281)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#authScopeDocs type=java.lang.NoSuchMethodError msg='java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()'
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.cloneSequenceNode(TemplateResolver.java:679)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.extractTemplateReferences(TemplateResolver.java:394)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.mergeTemplatesIfNeeded(TemplateResolver.java:290)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.merge(TemplateResolver.java:281)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#docTemplate type=java.lang.NoSuchMethodError msg='java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()'
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.cloneSequenceNode(TemplateResolver.java:679)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.extractTemplateReferences(TemplateResolver.java:394)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.mergeTemplatesIfNeeded(TemplateResolver.java:290)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.merge(TemplateResolver.java:281)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#multiApiLevelDocs type=java.lang.NoSuchMethodError msg='java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()'
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.cloneSequenceNode(TemplateResolver.java:679)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.extractTemplateReferences(TemplateResolver.java:394)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.mergeTemplatesIfNeeded(TemplateResolver.java:290)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.merge(TemplateResolver.java:281)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#stabilitySettings type=java.lang.NoSuchMethodError msg='java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()'
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.cloneSequenceNode(TemplateResolver.java:679)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.extractTemplateReferences(TemplateResolver.java:394)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.mergeTemplatesIfNeeded(TemplateResolver.java:290)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.merge(TemplateResolver.java:281)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#testEnumsTypesInPathForRaml type=java.lang.NoSuchMethodError msg='java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()'
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.cloneSequenceNode(TemplateResolver.java:679)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.extractTemplateReferences(TemplateResolver.java:394)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.mergeTemplatesIfNeeded(TemplateResolver.java:290)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.merge(TemplateResolver.java:281)
+    FAILURE org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest#testEnumsTypesQueryForRaml type=java.lang.NoSuchMethodError msg='java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()'
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.cloneSequenceNode(TemplateResolver.java:679)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.extractTemplateReferences(TemplateResolver.java:394)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.mergeTemplatesIfNeeded(TemplateResolver.java:290)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.merge(TemplateResolver.java:281)
+    FAILURE org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest#apiLevelDocs type=java.lang.NoSuchMethodError msg='java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()'
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.cloneSequenceNode(TemplateResolver.java:679)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.extractTemplateReferences(TemplateResolver.java:394)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.mergeTemplatesIfNeeded(TemplateResolver.java:290)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.merge(TemplateResolver.java:281)
+    FAILURE org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest#assertNoRedundantUriParametersForResource type=java.lang.NoSuchMethodError msg='java.lang.Boolean org.yaml.snakeyaml.nodes.SequenceNode.getFlowStyle()'
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.cloneSequenceNode(TemplateResolver.java:679)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.extractTemplateReferences(TemplateResolver.java:394)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.mergeTemplatesIfNeeded(TemplateResolver.java:290)
+       at org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger.merge(TemplateResolver.java:281)
+    ... truncated (200 lines)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -            <version>1.13</version> / +            <version>1.31</version>
+  JSON breaking/jar_inspection.json: {"case_id":"bbd396d040324e103e29fcfe0b51389bfade4d93","phase":"breaking","path_filter":"/(snakeyaml|raml-parser)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/org/raml/raml-parser/0.9-SNAPSHOT/raml-parser-0.9-SNAPSHOT.jar","classes":{},"services":{},"disassemblies":[{"class":"org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger","file":"raml-parser-0.9-SNAPSHOT_TemplateResolver$ResourceTemplateMerger_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/org/yaml/snakeyaml/1.31/snakeyaml-1.31.jar","classes":{},"services":{},"disassemblies":[{"class":"org.yaml.snakeyaml.nodes.CollectionNode","file":"snakeyaml-1.31_CollectionNode_javap.txt","exit_code":0}]}]}
+  JSON breaking/reconciled_counts.json: {"phase":"breaking","case_id":"bbd396d040324e103e29fcfe0b51389bfade4d93","raw_xml_counts":{"tests":118,"failures":40,"errors":0,"skipped":0},"aggregate_counts":{"tests":59,"failures":20,"errors":0,"skipped":0},"duplicate_format_counts":{"tests":59,"failures":20,"errors":0,"skipped":0},"included_reports":["target/surefire-reports/TEST-TestSuite.xml"],"excluded_reports":["target/surefire-reports/junitreports/TEST-org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.xml","target/surefire-reports/junitreports/TEST-org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.xml"]}
+  JSON pre/jar_inspection.json: {"case_id":"bbd396d040324e103e29fcfe0b51389bfade4d93","phase":"pre","path_filter":"/(snakeyaml|raml-parser)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/org/raml/raml-parser/0.9-SNAPSHOT/raml-parser-0.9-SNAPSHOT.jar","classes":{},"services":{},"disassemblies":[{"class":"org.raml.parser.visitor.TemplateResolver$ResourceTemplateMerger","file":"raml-parser-0.9-SNAPSHOT_TemplateResolver$ResourceTemplateMerger_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/org/yaml/snakeyaml/1.13/snakeyaml-1.13.jar","classes":{},"services":{},"disassemblies":[{"class":"org.yaml.snakeyaml.nodes.CollectionNode","file":"snakeyaml-1.13_CollectionNode_javap.txt","exit_code":0}]}]}
+  JSON pre/reconciled_counts.json: {"phase":"pre","case_id":"bbd396d040324e103e29fcfe0b51389bfade4d93","raw_xml_counts":{"tests":118,"failures":0,"errors":0,"skipped":0},"aggregate_counts":{"tests":59,"failures":0,"errors":0,"skipped":0},"duplicate_format_counts":{"tests":59,"failures":0,"errors":0,"skipped":0},"included_reports":["target/surefire-reports/TEST-TestSuite.xml"],"excluded_reports":["target/surefire-reports/junitreports/TEST-org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.xml","target/surefire-reports/junitreports/TEST-org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.xml"]}
+  JARS: breaking/jars/raml-parser-0.9-SNAPSHOT.jar, breaking/jars/snakeyaml-1.31.jar, pre/jars/raml-parser-0.9-SNAPSHOT.jar, pre/jars/snakeyaml-1.13.jar

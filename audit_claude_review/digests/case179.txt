@@ -1,0 +1,69 @@
+=== CASE 179 f890f275db902558236cef2feb3d1d2f1aab11fd
+  project=jcabi/jcabi-ssh dep=org.apache.sshd:sshd-core 2.9.2 -> 2.10.0 scope=compile type=minor java=11
+  PR=https://github.com/jcabi/jcabi-ssh/pull/144
+  PRE log logs/batch_triage/f890f275_pre.log:
+  lines=118
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/f890f275_breaking.log:
+  lines=356
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 5, Failures: 0, Errors: 3, Skipped: 0
+  failing classes: Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.169 s <<< FAILURE! - in com.jcabi.ssh.SshByPasswordTest || Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.448 s <<< FAILURE! - in com.jcabi.ssh.SshTest
+  section: Errors: | SshByPasswordTest.executesCommand:70 » IO com.jcraft.jsch.JSchException: Session.connect: java.net.SocketException: Connection reset | SshTest.executeCommandOnServer:90 » NoClassDefFound org/apache/sshd/common/future/CancelOption | SshTest.executeCommandOnServerWithPrivateKey:124 » NoClassDefFound org/apache/sshd/common/future/CancelOption | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  38.392 s | [INFO] Finished at: 2026-11-20T05:06:26Z | [INFO] ------------------------------------------------------------------------ | [WARNING]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project jcabi-ssh: 
+  FAILBLOCK: [ERROR] com.jcabi.ssh.SshByPasswordTest.executesCommand  Time elapsed: 3.082 s  <<< ERROR!
+      java.io.IOException: com.jcraft.jsch.JSchException: Session.connect: java.net.SocketException: Connection reset
+      at com.jcabi.ssh.SshByPassword.session(SshByPassword.java:104)
+      at com.jcabi.ssh.AbstractSshShell.exec(AbstractSshShell.java:93)
+      at com.jcabi.ssh.SshByPassword.exec(SshByPassword.java:49)
+      at com.jcabi.ssh.Shell$Verbose.exec(Shell.java:291)
+      at com.jcabi.ssh.SshByPasswordTest.executesCommand(SshByPasswordTest.java:70)
+      Caused by: com.jcraft.jsch.JSchException: Session.connect: java.net.SocketException: Connection reset
+      Caused by: java.net.SocketException: Connection reset
+  FAILBLOCK: [ERROR] com.jcabi.ssh.SshTest.executeCommandOnServerWithPrivateKey  Time elapsed: 0.316 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: org/apache/sshd/common/future/CancelOption
+      at org.apache.sshd.server.SshServer.stop(SshServer.java:368)
+      at org.apache.sshd.server.SshServer.stop(SshServer.java:357)
+      at com.jcabi.ssh.SshTest.executeCommandOnServerWithPrivateKey(SshTest.java:124)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+      Caused by: java.lang.ClassNotFoundException: org.apache.sshd.common.future.CancelOption
+  distinct fail signatures (count): 1x java.io.IOException: com.jcraft.jsch.JSchException: Session.connect: java.net.SocketException: Connection reset || 2x java.lang.NoClassDefFoundError: org/apache/sshd/common/future/CancelOption
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.net.SocketExceptionx4, com.jcraft.jsch.JSchExceptionx3, java.lang.NoClassDefFoundErrorx2, java.io.IOExceptionx1, java.lang.ClassNotFoundExceptionx1
+  EVIDENCE logs/case179_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/sshd-common-2.9.2.jar, breaking/jars/sshd-core-2.10.0.jar, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/sshd-common-2.9.2.jar, pre/jars/sshd-core-2.9.2.jar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=3 sum(t,f,e,s)=[5, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=3 sum(t,f,e,s)=[5, 0, 3, 0]
+  archived non-report files: pre=25 breaking=25 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -96,3 +96,3 @@
+           <artifactId>sshd-core</artifactId>
+    -      <version>2.9.2</version>
+    +      <version>2.10.0</version>
+           <optional>true</optional>
+  BREAKING surefire failures/errors:
+    ERROR com.jcabi.ssh.SshByPasswordTest#executesCommand type=java.io.IOException msg=com.jcraft.jsch.JSchException: Session.connect: java.net.SocketException: Connection reset
+       Caused by: com.jcraft.jsch.JSchException: Session.connect: java.net.SocketException: Connection reset
+       Caused by: java.net.SocketException: Connection reset
+       at com.jcabi.ssh.SshByPassword.session(SshByPassword.java:104)
+       at com.jcabi.ssh.AbstractSshShell.exec(AbstractSshShell.java:93)
+       at com.jcabi.ssh.SshByPassword.exec(SshByPassword.java:49)
+       at com.jcabi.ssh.Shell$Verbose.exec(Shell.java:291)
+    ERROR com.jcabi.ssh.SshTest#executeCommandOnServerWithPrivateKey type=java.lang.NoClassDefFoundError msg=org/apache/sshd/common/future/CancelOption
+       Caused by: java.lang.ClassNotFoundException: org.apache.sshd.common.future.CancelOption
+       at org.apache.sshd.server.SshServer.stop(SshServer.java:368)
+       at org.apache.sshd.server.SshServer.stop(SshServer.java:357)
+       at com.jcabi.ssh.SshTest.executeCommandOnServerWithPrivateKey(SshTest.java:124)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    ERROR com.jcabi.ssh.SshTest#executeCommandOnServer type=java.lang.NoClassDefFoundError msg=org/apache/sshd/common/future/CancelOption
+       at org.apache.sshd.server.SshServer.stop(SshServer.java:368)
+       at org.apache.sshd.server.SshServer.stop(SshServer.java:357)
+       at com.jcabi.ssh.SshTest.executeCommandOnServer(SshTest.java:90)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -      <version>2.9.2</version> / +      <version>2.10.0</version>
+  JSON breaking/jar_inspection.json: {"case_id":"f890f275db902558236cef2feb3d1d2f1aab11fd","phase":"breaking","path_filter":"/sshd-(common|core)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/org/apache/sshd/sshd-common/2.9.2/sshd-common-2.9.2.jar","classes":{"org.apache.sshd.common.future.CancelOption":{"present":false,"major_version":null}},"services":{"META-INF/services/java.nio.file.spi.FileSystemProvider":"##\n## Licensed to the Apache Software Foundation (ASF) under one\n## or more contributor license agreements.  See the NOTICE file\n## distributed with this work for additional information\n## regarding copyright ownership.  The ASF licenses this file\n## to you under the Apache License, Version 2.0 (the..."},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/apache/sshd/sshd-core/2.10.0/sshd-core-2.10.0.jar","classes":{"org.apache.sshd.common.future.CancelOption":{"present":false,"major_version":null}},"services":{},"disassemblies":[]}]}
+  JSON pre/jar_inspection.json: {"case_id":"f890f275db902558236cef2feb3d1d2f1aab11fd","phase":"pre","path_filter":"/sshd-(common|core)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/org/apache/sshd/sshd-common/2.9.2/sshd-common-2.9.2.jar","classes":{"org.apache.sshd.common.future.CancelOption":{"present":false,"major_version":null}},"services":{"META-INF/services/java.nio.file.spi.FileSystemProvider":"##\n## Licensed to the Apache Software Foundation (ASF) under one\n## or more contributor license agreements.  See the NOTICE file\n## distributed with this work for additional information\n## regarding copyright ownership.  The ASF licenses this file\n## to you under the Apache License, Version 2.0 (the..."},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/apache/sshd/sshd-core/2.9.2/sshd-core-2.9.2.jar","classes":{"org.apache.sshd.common.future.CancelOption":{"present":false,"major_version":null}},"services":{},"disassemblies":[]}]}
+  JARS: breaking/jars/sshd-common-2.9.2.jar, breaking/jars/sshd-core-2.10.0.jar, pre/jars/sshd-common-2.9.2.jar, pre/jars/sshd-core-2.9.2.jar

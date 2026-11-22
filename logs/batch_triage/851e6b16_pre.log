@@ -1,0 +1,419 @@
+Unable to find image 'ghcr.io/chains-project/breaking-updates:851e6b1628f8ecb86db912dc5431a496ddf02148-pre' locally
+851e6b1628f8ecb86db912dc5431a496ddf02148-pre: Pulling from chains-project/breaking-updates
+0757b554cf15: Pulling fs layer
+608093f532a1: Pulling fs layer
+608093f532a1: Download complete
+608093f532a1: Pull complete
+0757b554cf15: Download complete
+0757b554cf15: Pull complete
+Digest: sha256:f62c4ba5af00830575c55ab7c1e26f3786e34572a2eda4053d57de403c384a8c
+Status: Downloaded newer image for ghcr.io/chains-project/breaking-updates:851e6b1628f8ecb86db912dc5431a496ddf02148-pre
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Semantic Metrics: Parent POM                                       [pom]
+[INFO] Semantic Metrics: API Package                                      [jar]
+[INFO] Semantic Metrics: Core                                             [jar]
+[INFO] Semantic Metrics: FFWD Reporter                                    [jar]
+[INFO] Semantic Metrics: Examples                                         [jar]
+[INFO] Semantic Metrics: Guava Extensions                                 [jar]
+[INFO] semantic-metrics-jmh-benchmarks                                    [jar]
+[INFO] Semantic Metrics: Remote                                           [jar]
+[INFO] Semantic Metrics: Bill Of Materials                                [pom]
+[INFO] 
+[INFO] ------------< com.spotify.metrics:semantic-metrics-parent >-------------
+[INFO] Building Semantic Metrics: Parent POM 1.1.12-SNAPSHOT              [1/9]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ semantic-metrics-parent ---
+[INFO] Deleting /semantic-metrics/target
+[INFO] 
+[INFO] --- checkstyle:3.1.0:check (validate) @ semantic-metrics-parent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --------------< com.spotify.metrics:semantic-metrics-api >--------------
+[INFO] Building Semantic Metrics: API Package 1.1.12-SNAPSHOT             [2/9]
+[INFO]   from api/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ semantic-metrics-api ---
+[INFO] Deleting /semantic-metrics/api/target
+[INFO] 
+[INFO] --- checkstyle:3.1.0:check (validate) @ semantic-metrics-api ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ semantic-metrics-api ---
+[INFO] skip non existing resourceDirectory /semantic-metrics/api/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ semantic-metrics-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /semantic-metrics/api/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ semantic-metrics-api ---
+[INFO] skip non existing resourceDirectory /semantic-metrics/api/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ semantic-metrics-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /semantic-metrics/api/target/test-classes
+[WARNING] /semantic-metrics/api/src/test/java/com/spotify/metrics/core/MetricIdTest.java:[137,28] MetricId(java.lang.String,java.util.SortedMap<java.lang.String,java.lang.String>) in com.spotify.metrics.core.MetricId has been deprecated
+[WARNING] /semantic-metrics/api/src/test/java/com/spotify/metrics/core/MetricIdTest.java:[138,28] MetricId(java.lang.String,java.util.SortedMap<java.lang.String,java.lang.String>) in com.spotify.metrics.core.MetricId has been deprecated
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ semantic-metrics-api ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.spotify.metrics.core.MetricIdTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.401 s - in com.spotify.metrics.core.MetricIdTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -------------< com.spotify.metrics:semantic-metrics-core >--------------
+[INFO] Building Semantic Metrics: Core 1.1.12-SNAPSHOT                    [3/9]
+[INFO]   from core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ semantic-metrics-core ---
+[INFO] Deleting /semantic-metrics/core/target
+[INFO] 
+[INFO] --- checkstyle:3.1.0:check (validate) @ semantic-metrics-core ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ semantic-metrics-core ---
+[INFO] skip non existing resourceDirectory /semantic-metrics/core/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ semantic-metrics-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 27 source files to /semantic-metrics/core/target/classes
+[WARNING] /semantic-metrics/core/src/main/java/com/spotify/metrics/core/ReservoirWithTtl.java:[55,20] found raw type: java.lang.reflect.Constructor
+  missing type arguments for generic class java.lang.reflect.Constructor<T>
+[WARNING] /semantic-metrics/core/src/main/java/com/spotify/metrics/tags/EnvironmentTagExtractor.java:[47,13] static variable should be qualified by type name, com.spotify.metrics.tags.EnvironmentTagExtractor, instead of by an expression
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ semantic-metrics-core ---
+[INFO] skip non existing resourceDirectory /semantic-metrics/core/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ semantic-metrics-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 13 source files to /semantic-metrics/core/target/test-classes
+[WARNING] /semantic-metrics/core/src/test/java/com/spotify/metrics/core/SemanticMetricRegistryTest.java:[123,63] unchecked conversion
+  required: java.util.SortedMap<com.spotify.metrics.core.MetricId,com.spotify.metrics.core.DerivingMeter>
+  found:    java.util.SortedMap
+[WARNING] /semantic-metrics/core/src/test/java/com/spotify/metrics/core/SemanticMetricRegistryTest.java:[135,62] unchecked conversion
+  required: java.util.SortedMap<com.spotify.metrics.core.MetricId,com.spotify.metrics.core.Distribution>
+  found:    java.util.SortedMap
+[WARNING] /semantic-metrics/core/src/test/java/com/spotify/metrics/core/SemanticMetricRegistryTest.java:[146,53] unchecked conversion
+  required: com.spotify.metrics.core.SemanticMetricBuilder<com.codahale.metrics.Metric>
+  found:    com.spotify.metrics.core.SemanticMetricBuilder
+[WARNING] /semantic-metrics/core/src/test/java/com/spotify/metrics/core/SemanticMetricRegistryTest.java:[158,53] unchecked conversion
+  required: com.spotify.metrics.core.SemanticMetricBuilder<com.codahale.metrics.Metric>
+  found:    com.spotify.metrics.core.SemanticMetricBuilder
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ semantic-metrics-core ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.spotify.metrics.DerivedLongGaugeTest
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.mockito.cglib.core.ReflectUtils$2 (file:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of org.mockito.cglib.core.ReflectUtils$2
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.781 s - in com.spotify.metrics.DerivedLongGaugeTest
+[INFO] Running com.spotify.metrics.tags.EnvironmentTagExtractorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 s - in com.spotify.metrics.tags.EnvironmentTagExtractorTest
+[INFO] Running com.spotify.metrics.tags.NoopTagExtractorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in com.spotify.metrics.tags.NoopTagExtractorTest
+[INFO] Running com.spotify.metrics.core.SemanticMetricRegistryTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.464 s - in com.spotify.metrics.core.SemanticMetricRegistryTest
+[INFO] Running com.spotify.metrics.core.ReservoirWithTtlTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.361 s - in com.spotify.metrics.core.ReservoirWithTtlTest
+[INFO] Running com.spotify.metrics.core.SemanticMetricBuilderFactoryTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 s - in com.spotify.metrics.core.SemanticMetricBuilderFactoryTest
+[INFO] Running com.spotify.metrics.core.SemanticMetricBuilderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in com.spotify.metrics.core.SemanticMetricBuilderTest
+[INFO] Running com.spotify.metrics.core.SemanticMetricRegistryAdapterTest
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.177 s - in com.spotify.metrics.core.SemanticMetricRegistryAdapterTest
+[INFO] Running com.spotify.metrics.core.InstrumentedScheduledExecutorServiceTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.07 s - in com.spotify.metrics.core.InstrumentedScheduledExecutorServiceTest
+[INFO] Running com.spotify.metrics.core.MetricIdCacheTest
+load
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.238 s - in com.spotify.metrics.core.MetricIdCacheTest
+[INFO] Running com.spotify.metrics.core.SemanticMetricDistributionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in com.spotify.metrics.core.SemanticMetricDistributionTest
+[INFO] Running com.spotify.metrics.core.DelegatingDerivingMeterTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in com.spotify.metrics.core.DelegatingDerivingMeterTest
+[INFO] Running com.spotify.metrics.core.InstrumentedExecutorServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in com.spotify.metrics.core.InstrumentedExecutorServiceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 57, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ---------< com.spotify.metrics:semantic-metrics-ffwd-reporter >---------
+[INFO] Building Semantic Metrics: FFWD Reporter 1.1.12-SNAPSHOT           [4/9]
+[INFO]   from ffwd-reporter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ semantic-metrics-ffwd-reporter ---
+[INFO] Deleting /semantic-metrics/ffwd-reporter/target
+[INFO] 
+[INFO] --- checkstyle:3.1.0:check (validate) @ semantic-metrics-ffwd-reporter ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ semantic-metrics-ffwd-reporter ---
+[INFO] skip non existing resourceDirectory /semantic-metrics/ffwd-reporter/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ semantic-metrics-ffwd-reporter ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /semantic-metrics/ffwd-reporter/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ semantic-metrics-ffwd-reporter ---
+[INFO] skip non existing resourceDirectory /semantic-metrics/ffwd-reporter/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ semantic-metrics-ffwd-reporter ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /semantic-metrics/ffwd-reporter/target/test-classes
+[WARNING] No processor claimed any of these annotations: org.junit.Test,org.junit.Before
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ semantic-metrics-ffwd-reporter ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.spotify.metrics.ffwd.PercentileTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.31 s - in com.spotify.metrics.ffwd.PercentileTest
+[INFO] Running com.spotify.metrics.ffwd.FastForwardReporterTest
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.mockito.cglib.core.ReflectUtils$2 (file:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of org.mockito.cglib.core.ReflectUtils$2
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+05:56:49.872 [main] INFO com.spotify.metrics.ffwd.FastForwardReporter - Final flush of metrics.
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.231 s - in com.spotify.metrics.ffwd.FastForwardReporterTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -----------< com.spotify.metrics:semantic-metrics-examples >------------
+[INFO] Building Semantic Metrics: Examples 1.1.12-SNAPSHOT                [5/9]
+[INFO]   from examples/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ semantic-metrics-examples ---
+[INFO] Deleting /semantic-metrics/examples/target
+[INFO] 
+[INFO] --- checkstyle:3.1.0:check (validate) @ semantic-metrics-examples ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ semantic-metrics-examples ---
+[INFO] skip non existing resourceDirectory /semantic-metrics/examples/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ semantic-metrics-examples ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /semantic-metrics/examples/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ semantic-metrics-examples ---
+[INFO] skip non existing resourceDirectory /semantic-metrics/examples/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ semantic-metrics-examples ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ semantic-metrics-examples ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] -------------< com.spotify.metrics:semantic-metrics-guava >-------------
+[INFO] Building Semantic Metrics: Guava Extensions 1.1.12-SNAPSHOT        [6/9]
+[INFO]   from guava/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ semantic-metrics-guava ---
+[INFO] Deleting /semantic-metrics/guava/target
+[INFO] 
+[INFO] --- checkstyle:3.1.0:check (validate) @ semantic-metrics-guava ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ semantic-metrics-guava ---
+[INFO] skip non existing resourceDirectory /semantic-metrics/guava/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ semantic-metrics-guava ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /semantic-metrics/guava/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ semantic-metrics-guava ---
+[INFO] skip non existing resourceDirectory /semantic-metrics/guava/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ semantic-metrics-guava ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /semantic-metrics/guava/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ semantic-metrics-guava ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.spotify.metrics.guava.GuavaCacheTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.464 s - in com.spotify.metrics.guava.GuavaCacheTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------< com.spotify.metrics:semantic-metrics-jmh-benchmarks >---------
+[INFO] Building semantic-metrics-jmh-benchmarks 1.1.12-SNAPSHOT           [7/9]
+[INFO]   from jmh-benchmarks/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ semantic-metrics-jmh-benchmarks ---
+[INFO] Deleting /semantic-metrics/jmh-benchmarks/target
+[INFO] 
+[INFO] --- checkstyle:3.1.0:check (validate) @ semantic-metrics-jmh-benchmarks ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ semantic-metrics-jmh-benchmarks ---
+[INFO] skip non existing resourceDirectory /semantic-metrics/jmh-benchmarks/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ semantic-metrics-jmh-benchmarks ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /semantic-metrics/jmh-benchmarks/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ semantic-metrics-jmh-benchmarks ---
+[INFO] skip non existing resourceDirectory /semantic-metrics/jmh-benchmarks/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ semantic-metrics-jmh-benchmarks ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ semantic-metrics-jmh-benchmarks ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] ------------< com.spotify.metrics:semantic-metrics-remote >-------------
+[INFO] Building Semantic Metrics: Remote 1.1.12-SNAPSHOT                  [8/9]
+[INFO]   from remote/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ semantic-metrics-remote ---
+[INFO] Deleting /semantic-metrics/remote/target
+[INFO] 
+[INFO] --- checkstyle:3.1.0:check (validate) @ semantic-metrics-remote ---
+[INFO] Starting audit...
+Audit done.
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ semantic-metrics-remote ---
+[INFO] skip non existing resourceDirectory /semantic-metrics/remote/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ semantic-metrics-remote ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /semantic-metrics/remote/target/classes
+[WARNING] /semantic-metrics/remote/src/main/java/com/spotify/metrics/remote/LimitedRemote.java:[49,19] found raw type: java.util.Map
+  missing type arguments for generic class java.util.Map<K,V>
+[WARNING] /semantic-metrics/remote/src/main/java/com/spotify/metrics/remote/Remote.java:[33,66] found raw type: java.util.Map
+  missing type arguments for generic class java.util.Map<K,V>
+[WARNING] /semantic-metrics/remote/src/main/java/com/spotify/metrics/remote/OkRemote.java:[68,86] found raw type: java.util.Map
+  missing type arguments for generic class java.util.Map<K,V>
+[WARNING] /semantic-metrics/remote/src/main/java/com/spotify/metrics/remote/SemanticAggregatorMetricRegistry.java:[76,24] unchecked cast
+  required: T
+  found:    com.spotify.metrics.core.RemoteMetric
+[WARNING] /semantic-metrics/remote/src/main/java/com/spotify/metrics/remote/SemanticAggregatorMetricRegistry.java:[92,20] unchecked cast
+  required: T
+  found:    com.spotify.metrics.core.RemoteMetric
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ semantic-metrics-remote ---
+[INFO] skip non existing resourceDirectory /semantic-metrics/remote/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ semantic-metrics-remote ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /semantic-metrics/remote/target/test-classes
+[WARNING] /semantic-metrics/remote/src/test/java/com/spotify/metrics/remote/LimitedRemoteTest.java:[29,65] none() in org.junit.rules.ExpectedException has been deprecated
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ semantic-metrics-remote ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.spotify.metrics.remote.SharderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.226 s - in com.spotify.metrics.remote.SharderTest
+[INFO] Running com.spotify.metrics.remote.SemanticAggregatorMetricRegistryTest
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.mockito.cglib.core.ReflectUtils$2 (file:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of org.mockito.cglib.core.ReflectUtils$2
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.538 s - in com.spotify.metrics.remote.SemanticAggregatorMetricRegistryTest
+[INFO] Running com.spotify.metrics.remote.LimitedRemoteTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 s - in com.spotify.metrics.remote.LimitedRemoteTest
+[INFO] Running com.spotify.metrics.remote.OkRemoteTest
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Nov 10, 2026 5:56:58 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[39689] starting to accept connections
+Nov 10, 2026 5:56:59 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[39689] received request: POST /foo HTTP/1.1 and responded: HTTP/1.1 200 OK
+Nov 10, 2026 5:56:59 AM okhttp3.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[56299] starting to accept connections
+Nov 10, 2026 5:56:59 AM okhttp3.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[56299] received request: POST /foo HTTP/1.1 and responded: HTTP/1.1 200 OK
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.611 s - in com.spotify.metrics.remote.OkRemoteTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------------< com.spotify.metrics:semantic-metrics-bom >--------------
+[INFO] Building Semantic Metrics: Bill Of Materials 1.1.12-SNAPSHOT       [9/9]
+[INFO]   from semantic-metrics-bom/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ semantic-metrics-bom ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Semantic Metrics: Parent POM 1.1.12-SNAPSHOT:
+[INFO] 
+[INFO] Semantic Metrics: Parent POM ....................... SUCCESS [  7.671 s]
+[INFO] Semantic Metrics: API Package ...................... SUCCESS [ 11.079 s]
+[INFO] Semantic Metrics: Core ............................. SUCCESS [  8.604 s]
+[INFO] Semantic Metrics: FFWD Reporter .................... SUCCESS [  6.449 s]
+[INFO] Semantic Metrics: Examples ......................... SUCCESS [  0.789 s]
+[INFO] Semantic Metrics: Guava Extensions ................. SUCCESS [  2.635 s]
+[INFO] semantic-metrics-jmh-benchmarks .................... SUCCESS [  1.645 s]
+[INFO] Semantic Metrics: Remote ........................... SUCCESS [  5.148 s]
+[INFO] Semantic Metrics: Bill Of Materials ................ SUCCESS [  0.003 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  44.925 s
+[INFO] Finished at: 2026-11-10T05:57:00Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-checkstyle-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 

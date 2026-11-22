@@ -1,0 +1,15 @@
+# Case 57 review
+
+The fscrawler POI OOXML upgrade from 4.1.2 to 5.2.1 is assessed **non-behavioural**, pending independent human review. The observed assertion failures follow a binary class/interface mismatch.
+
+Both original BUMP images were run. PRE finished with Maven BUILD SUCCESS and 88 reported randomized-runner tests, including three ignored tests, zero failures and zero errors. BREAKING stopped in the Tika module with BUILD FAILURE after 82 reported tests, including one ignored test, two failures and zero errors. Downstream reactor modules were skipped. These are module-summary totals, not a claim that all reported tests passed.
+
+TikaDocParserTest.testExtractFromDocx and testDocxWithEmbeddedBadPDF receive null extracted text. Immediately before each assertion, the parser logs that POIXMLTextExtractor cannot implement POITextExtractor because it is not an interface. The failed runner events identify poi-ooxml 5.2.1 and poi-ooxml-lite 5.2.1 alongside poi 4.1.2 and poi-scratchpad 4.1.2. Disassembly of the actual resolved JARs confirms that the updated POIXMLTextExtractor is an interface extending POITextExtractor, while the retained POITextExtractor is an abstract class. In PRE, POIXMLTextExtractor is an abstract class extending that abstract class. This incompatible runtime type relationship prevents extraction before the client assertions can succeed.
+
+The updated run also logs a missing AgileEncryptionInfoBuilder during protected-DOCX handling. JAR inspection confirms that class exists in the PRE OOXML 4.1.2 JAR and is absent from the copied BREAKING OOXML 5.2.1 and retained core 4.1.2 JARs. This additional log is not counted as a third test failure; the runner reports only the two named failures. The class/interface mismatch alone explains those failures.
+
+All 347 archived source/POM files match except root pom.xml, whose sole diff updates poi-ooxml. No Surefire XML is produced by this randomized runner. Successful PRE retains no event files; its original Maven summaries provide the counts. Four failed-run event/suite files are retained. The counts and event collection are reproducible through scripts/collect_case_57_runner_evidence.py, which requires the original stopped containers and never overwrites outputs. Original image identifiers, states, sources and POMs are archived separately from the event summaries.
+
+Automatic triage reports AUTO_NON_BEHAVIORAL_CANDIDATE, based on linkage cues, and leaves its ordinary Surefire counts blank. The assessed counts come from the randomized summaries, and the binary diagnosis additionally uses resolved JARs and source comparison. These automated cues and agent assessment remain separate; reviewer labels and final_label are blank. No repair was attempted. The original command pipes Maven through tee and returns Docker exit zero even when Maven fails, so explicit build output and runner results determine the outcome.
+
+Evidence is under logs/case57_evidence/, with raw logs logs/batch_triage/4c7b193c_pre.log and 4c7b193c_breaking.log. This has a mechanism similar to Case 6, which used another OOXML version; Case 57 has independent original-image evidence.

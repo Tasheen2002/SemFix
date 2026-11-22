@@ -1,0 +1,38 @@
+﻿
+=== Case 53  46698497759b188a97830330dfebaf718beb5573 ===
+Project : codehaus-plexus/plexus-archiver
+Update  : org.codehaus.plexus:plexus-io  3.2.0 -> 3.3.0
+Running breaking in container manual-case53-breaking (this can take several minutes) ...
+Finished in 49 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case53_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 177, Failures: 0, Errors: 22, Skipped: 2
+First failing tests / errors:
+  [ERROR] testCreateArchive(org.codehaus.plexus.archiver.snappy.SnappyArchiverTest)  Time elapsed: 0.345 s  <<< ERROR!
+      org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+      at org.codehaus.plexus.archiver.snappy.SnappyArchiverTest.testCreateArchive(SnappyArchiverTest.java:53)
+      
+  [ERROR] testCreateArchive(org.codehaus.plexus.archiver.bzip2.BZip2ArchiverTest)  Time elapsed: 0.24 s  <<< ERROR!
+      org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+      at org.codehaus.plexus.archiver.bzip2.BZip2ArchiverTest.testCreateArchive(BZip2ArchiverTest.java:53)
+      
+  [ERROR] testCreateArchive(org.codehaus.plexus.archiver.xz.XzArchiverTest)  Time elapsed: 0.128 s  <<< ERROR!
+      org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside
+      at org.codehaus.plexus.archiver.xz.XzArchiverTest.testCreateArchive(XzArchiverTest.java:49)
+      
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  none
+
+--- Proposed classification ---
+Label   : BEHAVIORAL   (rule R12: Core behavioral change (same API, same input, different observable result))
+Category: RETURN_VALUE
+Cause   : plexus-io 3.3.0 no longer reports a symlink-to-directory resource as a directory (directory_probe: File.isDirectory=true but resource.isDirectory=false); plexus-archiver then throws ArchiverException 'Not a directory: .../symLinkToDirOnTheOutside'
+Change  : Return value of PlexusIoResource.isDirectory() for symbolic links to directories changed true -> false
+Codex   : PROVISIONAL_BEHAVIORAL   Claude blind: BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

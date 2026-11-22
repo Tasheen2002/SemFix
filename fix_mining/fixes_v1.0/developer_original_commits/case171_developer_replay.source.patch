@@ -1,0 +1,676 @@
+diff --git a/README.md b/README.md
+index 826b0d0..217bbad 100644
+--- a/README.md
++++ b/README.md
+@@ -10,7 +10,12 @@
+ A [Dropwizard](http://www.dropwizard.io/) bundle for securing REST endpoints
+ using [pac4j](http://www.pac4j.org/).
+ 
+-**The new version 5.0.0 is based on Dropwizard v2.x (JDK 11)** while previous versions were based on Dropwizard v1.x.
++| dropwizard-pac4j | JDK | pac4j | jax-rs-pac4j | Dropwizard |
++|------------------|-----|-------|--------------|------------|
++| version >= 6     | 11  | v5    | v6           | v4         |
++| version >= 5     | 11  | v4    | v4           | v2         |
++| version >= 4     | 8   | v4    | v4           | v1         |
++| version >= 3     | 8   | v3    | v3           | v1         |
+ 
+ ## Usage
+ 
+@@ -122,18 +127,18 @@ pac4j:
+ ```
+ 
+ - `globalFilters` to declare global filters: the `clients`, `authorizers`,
+-`matchers`, `multiProfile` and `skipResponse` properties directly map to
++`matchers`, and `skipResponse` properties directly map to
+ [the parameters](https://github.com/pac4j/jax-rs-pac4j/wiki/Apply-security)
+ used by `org.pac4j.jax.rs.filter.SecurityFilter`.
+ 
+ - `servlet` to declare servlet-level filters:
+- - `security`: the `clients`, `authorizers`, `matchers` and `multiProfile`
++ - `security`: the `clients`, `authorizers`, and `matchers`
+    properties directly map to
+    [the parameters](https://github.com/pac4j/jee-pac4j/wiki/Apply-security)
+    used by `org.pac4j.jee.filter.SecurityFilter`.
+    The `mapping` property is used to optionally specify urls to which this
+    filter will be applied to, defaulting to all urls (`/*`).
+- - `callback`: the `defaultUrl`, `renewSession` and `multiProfile` properties
++ - `callback`: the `defaultUrl`, and `renewSession` properties
+    directly map to
+    [the parameters](https://github.com/pac4j/jee-pac4j/wiki/Callback-configuration)
+    used by `org.pac4j.jee.filter.CallbackFilter`.
+diff --git a/pom.xml b/pom.xml
+index 914dcc8..7dbde1e 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -11,7 +11,7 @@
+   <groupId>org.pac4j</groupId>
+   <artifactId>dropwizard-pac4j</artifactId>
+   <packaging>jar</packaging>
+-  <version>5.0.1-SNAPSHOT</version>
++  <version>6.0.0-SNAPSHOT</version>
+   <name>Dropwizard pac4j Support</name>
+   <description>Dropwizard bundle adding support for the pac4j security engine</description>
+   <url>https://github.com/pac4j/dropwizard-pac4j</url>
+@@ -90,10 +90,11 @@
+     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+     <maven.compiler.source>11</maven.compiler.source>
+     <maven.compiler.target>11</maven.compiler.target>
+-    <dropwizard.version>2.0.17</dropwizard.version>
+-    <pac4j.version>4.5.6</pac4j.version>
+-    <jax-rs-pac4j.version>4.0.0</jax-rs-pac4j.version>
+-    <jee-pac4j.version>5.0.0</jee-pac4j.version>
++    <dropwizard.version>4.0.0</dropwizard.version>
++    <pac4j.version>5.7.1</pac4j.version>
++    <jax-rs-pac4j.version>6.0.0</jax-rs-pac4j.version>
++    <jee-pac4j.version>7.1.0</jee-pac4j.version>
++    <junit5.version>5.9.3</junit5.version>
+   </properties>
+ 
+   <dependencyManagement>
+@@ -105,107 +106,12 @@
+         <type>pom</type>
+         <scope>import</scope>
+       </dependency>
+-      <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>com.fasterxml</groupId>
+-        <artifactId>classmate</artifactId>
+-        <version>1.5.1</version>
+-      </dependency>
+-      <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>com.fasterxml.jackson.core</groupId>
+-        <artifactId>jackson-databind</artifactId>
+-        <version>2.10.5.1</version>
+-      </dependency>
+-      <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>com.google.errorprone</groupId>
+-        <artifactId>error_prone_annotations</artifactId>
+-        <version>2.15.0</version>
+-      </dependency>
+-      <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>com.google.guava</groupId>
+-        <artifactId>guava</artifactId>
+-        <version>31.1-jre</version>
+-      </dependency>
+-      <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>org.apache.commons</groupId>
+-        <artifactId>commons-lang3</artifactId>
+-        <version>3.11</version>
+-      </dependency>
+-      <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>joda-time</groupId>
+-        <artifactId>joda-time</artifactId>
+-        <version>2.11.0</version>
+-      </dependency>
+-      <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>org.checkerframework</groupId>
+-        <artifactId>checker-qual</artifactId>
+-        <version>3.24.0</version>
+-      </dependency>
+-      <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>org.eclipse.jetty</groupId>
+-        <artifactId>jetty-server</artifactId>
+-        <version>9.4.35.v20201120</version>
+-      </dependency>
+-      <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>org.glassfish</groupId>
+-        <artifactId>jakarta.el</artifactId>
+-        <version>3.0.3</version>
+-      </dependency>
+-      <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>jakarta.xml.bind</groupId>
+-        <artifactId>jakarta.xml.bind-api</artifactId>
+-        <version>2.3.3</version>
+-      </dependency>
+-      <!-- Required for dependency convergence -->
+       <dependency>
+-        <groupId>jakarta.annotation</groupId>
+-        <artifactId>jakarta.annotation-api</artifactId>
+-        <version>1.3.5</version>
+-      </dependency>
+-      <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>jakarta.servlet</groupId>
+-        <artifactId>jakarta.servlet-api</artifactId>
+-        <version>4.0.4</version>
+-      </dependency>
+-      <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>jakarta.activation</groupId>
+-        <artifactId>jakarta.activation-api</artifactId>
+-        <version>2.0.0</version>
+-      </dependency>
+-      <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>org.glassfish.jersey.core</groupId>
+-        <artifactId>jersey-server</artifactId>
+-        <version>2.32</version>
+-      </dependency>
+-      <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>org.hibernate.validator</groupId>
+-        <artifactId>hibernate-validator</artifactId>
+-        <version>6.2.4.Final</version>
+-      </dependency>
+-      <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>org.javassist</groupId>
+-        <artifactId>javassist</artifactId>
+-        <version>3.29.1-GA</version>
+-      </dependency>
+-      <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>org.objenesis</groupId>
+-        <artifactId>objenesis</artifactId>
+-        <version>3.3</version>
++        <groupId>org.junit</groupId>
++        <artifactId>junit-bom</artifactId>
++        <version>${junit5.version}</version>
++        <type>pom</type>
++        <scope>import</scope>
+       </dependency>
+       <dependency>
+         <groupId>org.pac4j</groupId>
+@@ -248,7 +154,7 @@
+     </dependency>
+     <dependency>
+       <groupId>org.pac4j</groupId>
+-      <artifactId>jersey-pac4j</artifactId>
++      <artifactId>jersey3-pac4j</artifactId>
+       <version>${jax-rs-pac4j.version}</version>
+       <exclusions>
+         <exclusion>
+@@ -259,7 +165,7 @@
+     </dependency>
+     <dependency>
+       <groupId>org.pac4j</groupId>
+-      <artifactId>jee-pac4j</artifactId>
++      <artifactId>jakartaee-pac4j</artifactId>
+       <version>${jee-pac4j.version}</version>
+       <exclusions>
+         <exclusion>
+@@ -290,6 +196,16 @@
+       <artifactId>assertj-core</artifactId>
+       <scope>test</scope>
+     </dependency>
++    <dependency>
++      <groupId>org.junit.jupiter</groupId>
++      <artifactId>junit-jupiter-api</artifactId>
++      <scope>test</scope>
++    </dependency>
++    <dependency>
++      <groupId>org.junit.jupiter</groupId>
++      <artifactId>junit-jupiter-engine</artifactId>
++      <scope>test</scope>
++    </dependency>
+     <dependency>
+       <groupId>org.mockito</groupId>
+       <artifactId>mockito-core</artifactId>
+@@ -309,6 +225,11 @@
+         <artifactId>maven-source-plugin</artifactId>
+         <version>3.2.1</version>
+       </plugin>
++      <plugin>
++        <groupId>org.apache.maven.plugins</groupId>
++        <artifactId>maven-surefire-plugin</artifactId>
++        <version>3.0.0</version>
++      </plugin>
+       <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-javadoc-plugin</artifactId>
+diff --git a/src/main/java/org/pac4j/dropwizard/DefaultFeatureSupport.java b/src/main/java/org/pac4j/dropwizard/DefaultFeatureSupport.java
+index 57247d9..d12eec9 100644
+--- a/src/main/java/org/pac4j/dropwizard/DefaultFeatureSupport.java
++++ b/src/main/java/org/pac4j/dropwizard/DefaultFeatureSupport.java
+@@ -21,7 +21,7 @@ import org.pac4j.core.profile.creator.ProfileCreator;
+ 
+ import com.fasterxml.jackson.databind.ObjectMapper;
+ 
+-import io.dropwizard.setup.Bootstrap;
++import io.dropwizard.core.setup.Bootstrap;
+ import org.pac4j.core.redirect.RedirectionActionBuilder;
+ 
+ /**
+diff --git a/src/main/java/org/pac4j/dropwizard/J2EHelper.java b/src/main/java/org/pac4j/dropwizard/J2EHelper.java
+index 98898e9..cc16860 100644
+--- a/src/main/java/org/pac4j/dropwizard/J2EHelper.java
++++ b/src/main/java/org/pac4j/dropwizard/J2EHelper.java
+@@ -2,16 +2,16 @@ package org.pac4j.dropwizard;
+ 
+ import java.util.EnumSet;
+ 
+-import javax.servlet.DispatcherType;
+-import javax.servlet.FilterRegistration;
++import jakarta.servlet.DispatcherType;
++import jakarta.servlet.FilterRegistration;
+ 
+ import org.pac4j.core.config.Config;
+ import org.pac4j.dropwizard.Pac4jFactory.ServletCallbackFilterConfiguration;
+ import org.pac4j.dropwizard.Pac4jFactory.ServletLogoutFilterConfiguration;
+ import org.pac4j.dropwizard.Pac4jFactory.ServletSecurityFilterConfiguration;
+ 
+-import io.dropwizard.setup.Environment;
+-import org.pac4j.jee.filter.AbstractConfigFilter;
++import io.dropwizard.core.setup.Environment;
++import org.pac4j.jee.config.AbstractConfigFilter;
+ import org.pac4j.jee.filter.CallbackFilter;
+ import org.pac4j.jee.filter.LogoutFilter;
+ import org.pac4j.jee.filter.SecurityFilter;
+@@ -37,7 +37,6 @@ public final class J2EHelper {
+         filter.setClients(fConf.getClients());
+         filter.setAuthorizers(fConf.getAuthorizers());
+         filter.setMatchers(fConf.getMatchers());
+-        filter.setMultiProfile(fConf.getMultiProfile());
+ 
+         registerFilter(environment, config, filter, fConf.getMapping());
+     }
+@@ -48,7 +47,6 @@ public final class J2EHelper {
+         final CallbackFilter filter = new CallbackFilter();
+ 
+         filter.setDefaultUrl(fConf.getDefaultUrl());
+-        filter.setMultiProfile(fConf.getMultiProfile());
+         filter.setRenewSession(fConf.getRenewSession());
+ 
+         registerFilter(environment, config, filter, fConf.getMapping());
+@@ -71,7 +69,7 @@ public final class J2EHelper {
+     private static void registerFilter(Environment environment, Config config,
+                                        AbstractConfigFilter filter, String mapping) {
+ 
+-        filter.setConfigOnly(config);
++        filter.setConfig(config);
+ 
+         final FilterRegistration.Dynamic filterRegistration = environment
+                 .servlets().addFilter(filter.getClass().getName(), filter);
+diff --git a/src/main/java/org/pac4j/dropwizard/Pac4jBundle.java b/src/main/java/org/pac4j/dropwizard/Pac4jBundle.java
+index bc6f27d..872da5f 100644
+--- a/src/main/java/org/pac4j/dropwizard/Pac4jBundle.java
++++ b/src/main/java/org/pac4j/dropwizard/Pac4jBundle.java
+@@ -10,24 +10,26 @@ import org.pac4j.dropwizard.Pac4jFactory.ServletCallbackFilterConfiguration;
+ import org.pac4j.dropwizard.Pac4jFactory.ServletLogoutFilterConfiguration;
+ import org.pac4j.dropwizard.Pac4jFactory.ServletSecurityFilterConfiguration;
+ import org.pac4j.jax.rs.features.JaxRsConfigProvider;
++import org.pac4j.jax.rs.features.JaxRsSessionStoreProvider;
+ import org.pac4j.jax.rs.features.Pac4JSecurityFeature;
+ import org.pac4j.jax.rs.features.Pac4JSecurityFilterFeature;
+ import org.pac4j.jax.rs.filters.SecurityFilter;
+ import org.pac4j.jax.rs.jersey.features.Pac4JValueFactoryProvider;
++import org.pac4j.jax.rs.servlet.features.Pac4JServletFeature;
+ import org.pac4j.jax.rs.servlet.features.ServletJaxRsContextFactoryProvider;
+ 
+-import io.dropwizard.Application;
+-import io.dropwizard.Configuration;
+-import io.dropwizard.ConfiguredBundle;
++import io.dropwizard.core.Application;
++import io.dropwizard.core.Configuration;
++import io.dropwizard.core.ConfiguredBundle;
++import io.dropwizard.core.setup.Bootstrap;
++import io.dropwizard.core.setup.Environment;
+ import io.dropwizard.jetty.MutableServletContextHandler;
+-import io.dropwizard.setup.Bootstrap;
+-import io.dropwizard.setup.Environment;
+ 
+ /**
+  * A {@link ConfiguredBundle} which sets up {@link Pac4JSecurityFeature},
+  * {@link Pac4JValueFactoryProvider} as well as installs {@link SecurityFilter}s
+  * into a Dropwizard application's Jersey filter chain.
+- * 
++ *
+  * @author Evan Meagher
+  * @author Victor Noel - Linagora
+  * @since 1.0.0
+@@ -48,7 +50,7 @@ public abstract class Pac4jBundle<T extends Configuration>
+      * In case of override, do not forget to call
+      * {@code super.supportedFeatures()} to get the default features, or to
+      * redefine them instead!
+-     * 
++     *
+      * @see DefaultFeatureSupport
+      * @return the features to support for configuration parsing
+      */
+@@ -67,14 +69,15 @@ public abstract class Pac4jBundle<T extends Configuration>
+             config = pac4j.build();
+ 
+             environment.jersey().register(new JaxRsConfigProvider(config));
++            environment.jersey().register(new JaxRsSessionStoreProvider(config));
++            environment.jersey().register(new Pac4JServletFeature(config));
+ 
+             for (JaxRsSecurityFilterConfiguration fConf : pac4j
+                     .getGlobalFilters()) {
+                 environment.jersey()
+                         .register(new Pac4JSecurityFilterFeature(
+                                 fConf.getSkipResponse(), fConf.getAuthorizers(),
+-                                fConf.getClients(), fConf.getMatchers(),
+-                                fConf.getMultiProfile()));
++                                fConf.getClients(), fConf.getMatchers()));
+             }
+ 
+             for (ServletSecurityFilterConfiguration fConf : pac4j.getServlet()
+@@ -107,7 +110,7 @@ public abstract class Pac4jBundle<T extends Configuration>
+     /**
+      * Override if needed, but prefer to exploit
+      * {@link Pac4jFactory#setSessionEnabled(boolean)} first.
+-     * 
++     *
+      * @param environment
+      *            the dropwizard {@link Environment}
+      * @since 1.1.0
+@@ -123,7 +126,7 @@ public abstract class Pac4jBundle<T extends Configuration>
+     /**
+      * To be used only after this bundle has been run (i.e., in the
+      * {@link Application#run(Configuration, Environment)} method.
+-     * 
++     *
+      * @return the {@link Config} built during
+      *         {@link #run(Configuration, Environment)} execution.
+      */
+diff --git a/src/main/java/org/pac4j/dropwizard/Pac4jConfiguration.java b/src/main/java/org/pac4j/dropwizard/Pac4jConfiguration.java
+index 08ad643..dc85aef 100644
+--- a/src/main/java/org/pac4j/dropwizard/Pac4jConfiguration.java
++++ b/src/main/java/org/pac4j/dropwizard/Pac4jConfiguration.java
+@@ -2,13 +2,12 @@ package org.pac4j.dropwizard;
+ 
+ import org.pac4j.core.config.Config;
+ 
+-import io.dropwizard.Bundle;
+-import io.dropwizard.Configuration;
++import io.dropwizard.core.Configuration;
+ 
+ /**
+- * 
+- * {@link Bundle}s can extend this to get a {@link Pac4jFactory}.
+- * 
++ *
++ * {@link io.dropwizard.core.ConfiguredBundle}s can extend this to get a {@link Pac4jFactory}.
++ *
+  * @author Evan Meagher
+  * @since 1.0.0
+  *
+@@ -18,9 +17,9 @@ import io.dropwizard.Configuration;
+ public interface Pac4jConfiguration<T extends Configuration> {
+ 
+     /**
+-     * The factory can comes from the configuration but also can be built by
++     * The factory can come from the configuration but also can be built by
+      * hand in this method if desired.
+-     * 
++     *
+      * @param configuration
+      *            the application's configuration
+      * @return a {@link Pac4jFactory} that will be used to build a pac4j
+diff --git a/src/main/java/org/pac4j/dropwizard/Pac4jFactory.java b/src/main/java/org/pac4j/dropwizard/Pac4jFactory.java
+index 1502c50..1662c43 100644
+--- a/src/main/java/org/pac4j/dropwizard/Pac4jFactory.java
++++ b/src/main/java/org/pac4j/dropwizard/Pac4jFactory.java
+@@ -5,7 +5,7 @@ import java.util.HashMap;
+ import java.util.List;
+ import java.util.Map;
+ 
+-import javax.validation.constraints.NotNull;
++import jakarta.validation.constraints.NotNull;
+ 
+ import org.pac4j.config.client.PropertiesConfigFactory;
+ import org.pac4j.core.authorization.authorizer.Authorizer;
+@@ -496,8 +496,6 @@ public class Pac4jFactory {
+ 
+         private String matchers;
+ 
+-        private Boolean multiProfile;
+-
+         @JsonProperty
+         public String getClients() {
+             return clients;
+@@ -513,11 +511,6 @@ public class Pac4jFactory {
+             return matchers;
+         }
+ 
+-        @JsonProperty
+-        public Boolean getMultiProfile() {
+-            return multiProfile;
+-        }
+-
+         @JsonProperty
+         public void setClients(String clients) {
+             this.clients = clients;
+@@ -532,11 +525,6 @@ public class Pac4jFactory {
+         public void setMatchers(String matchers) {
+             this.matchers = matchers;
+         }
+-
+-        @JsonProperty
+-        public void setMultiProfile(Boolean multiProfile) {
+-            this.multiProfile = multiProfile;
+-        }
+     }
+ 
+     /**
+@@ -550,8 +538,6 @@ public class Pac4jFactory {
+ 
+         private String defaultUrl;
+ 
+-        private Boolean multiProfile;
+-
+         private Boolean renewSession;
+ 
+         @JsonProperty
+@@ -564,11 +550,6 @@ public class Pac4jFactory {
+             return defaultUrl;
+         }
+ 
+-        @JsonProperty
+-        public Boolean getMultiProfile() {
+-            return multiProfile;
+-        }
+-
+         @JsonProperty
+         public Boolean getRenewSession() {
+             return renewSession;
+@@ -584,11 +565,6 @@ public class Pac4jFactory {
+             this.defaultUrl = defaultUrl;
+         }
+ 
+-        @JsonProperty
+-        public void setMultiProfile(Boolean multiProfile) {
+-            this.multiProfile = multiProfile;
+-        }
+-
+         @JsonProperty
+         public void setRenewSession(Boolean renewSession) {
+             this.renewSession = renewSession;
+diff --git a/src/main/java/org/pac4j/dropwizard/Pac4jFeatureSupport.java b/src/main/java/org/pac4j/dropwizard/Pac4jFeatureSupport.java
+index 3b0442d..3decd5e 100644
+--- a/src/main/java/org/pac4j/dropwizard/Pac4jFeatureSupport.java
++++ b/src/main/java/org/pac4j/dropwizard/Pac4jFeatureSupport.java
+@@ -1,11 +1,11 @@
+ package org.pac4j.dropwizard;
+ 
+-import io.dropwizard.setup.Bootstrap;
++import io.dropwizard.core.setup.Bootstrap;
+ 
+ /**
+  * An interface to add optional Jackson's behaviour customizations to
+  * {@link Pac4jBundle}.
+- * 
++ *
+  * @author Victor Noel - Linagora
+  * @since 1.0.0
+  *
+diff --git a/src/test/java/org/pac4j/dropwizard/AbstractApplicationTest.java b/src/test/java/org/pac4j/dropwizard/AbstractApplicationTest.java
+index 441a0c0..fb3724f 100644
+--- a/src/test/java/org/pac4j/dropwizard/AbstractApplicationTest.java
++++ b/src/test/java/org/pac4j/dropwizard/AbstractApplicationTest.java
+@@ -1,18 +1,18 @@
+ package org.pac4j.dropwizard;
+ 
+-import javax.ws.rs.client.Client;
++import jakarta.ws.rs.client.Client;
+ 
+ import org.glassfish.jersey.client.JerseyClientBuilder;
+-import org.junit.After;
++import org.junit.jupiter.api.AfterEach;
+ 
+ import com.fasterxml.jackson.annotation.JsonProperty;
+ import com.google.common.base.Charsets;
+ import com.google.common.io.BaseEncoding;
+ 
+-import io.dropwizard.Application;
+-import io.dropwizard.Configuration;
+-import io.dropwizard.setup.Bootstrap;
+-import io.dropwizard.setup.Environment;
++import io.dropwizard.core.Application;
++import io.dropwizard.core.Configuration;
++import io.dropwizard.core.setup.Bootstrap;
++import io.dropwizard.core.setup.Environment;
+ import io.dropwizard.testing.ConfigOverride;
+ import io.dropwizard.testing.DropwizardTestSupport;
+ import io.dropwizard.testing.ResourceHelpers;
+@@ -31,7 +31,7 @@ public class AbstractApplicationTest {
+         dropwizardTestSupport.before();
+     }
+ 
+-    @After
++    @AfterEach
+     public void tearDown() {
+         dropwizardTestSupport.after();
+         client.close();
+diff --git a/src/test/java/org/pac4j/dropwizard/AbstractConfigurationTest.java b/src/test/java/org/pac4j/dropwizard/AbstractConfigurationTest.java
+index 97796d8..5470335 100644
+--- a/src/test/java/org/pac4j/dropwizard/AbstractConfigurationTest.java
++++ b/src/test/java/org/pac4j/dropwizard/AbstractConfigurationTest.java
+@@ -11,9 +11,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
+ import com.google.common.io.Resources;
+ 
+ import io.dropwizard.configuration.YamlConfigurationFactory;
++import io.dropwizard.core.setup.Bootstrap;
+ import io.dropwizard.jackson.Jackson;
+ import io.dropwizard.jersey.validation.Validators;
+-import io.dropwizard.setup.Bootstrap;
+ 
+ public abstract class AbstractConfigurationTest {
+ 
+diff --git a/src/test/java/org/pac4j/dropwizard/bundle/BundleFactoryTest.java b/src/test/java/org/pac4j/dropwizard/bundle/BundleFactoryTest.java
+index f06b404..b672ce0 100644
+--- a/src/test/java/org/pac4j/dropwizard/bundle/BundleFactoryTest.java
++++ b/src/test/java/org/pac4j/dropwizard/bundle/BundleFactoryTest.java
+@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
+ 
+ import org.assertj.core.api.Condition;
+ import org.eclipse.jetty.server.session.SessionHandler;
+-import org.junit.Test;
++import org.junit.jupiter.api.Test;
+ import org.pac4j.core.client.Client;
+ import org.pac4j.core.config.Config;
+ import org.pac4j.dropwizard.AbstractApplicationTest;
+@@ -13,7 +13,7 @@ import org.pac4j.jax.rs.servlet.features.ServletJaxRsContextFactoryProvider;
+ 
+ import com.fasterxml.jackson.databind.ObjectMapper;
+ 
+-import io.dropwizard.setup.Environment;
++import io.dropwizard.core.setup.Environment;
+ import io.dropwizard.testing.ConfigOverride;
+ 
+ public class BundleFactoryTest extends AbstractApplicationTest {
+diff --git a/src/test/java/org/pac4j/dropwizard/e2e/DogsResource.java b/src/test/java/org/pac4j/dropwizard/e2e/DogsResource.java
+index 4ec641b..cf7c894 100644
+--- a/src/test/java/org/pac4j/dropwizard/e2e/DogsResource.java
++++ b/src/test/java/org/pac4j/dropwizard/e2e/DogsResource.java
+@@ -2,12 +2,12 @@ package org.pac4j.dropwizard.e2e;
+ 
+ import java.util.Optional;
+ 
+-import javax.ws.rs.GET;
+-import javax.ws.rs.POST;
+-import javax.ws.rs.Path;
+-import javax.ws.rs.PathParam;
+-import javax.ws.rs.Produces;
+-import javax.ws.rs.core.MediaType;
++import jakarta.ws.rs.GET;
++import jakarta.ws.rs.POST;
++import jakarta.ws.rs.Path;
++import jakarta.ws.rs.PathParam;
++import jakarta.ws.rs.Produces;
++import jakarta.ws.rs.core.MediaType;
+ 
+ @Path("/dogs")
+ @Produces(MediaType.APPLICATION_JSON)
+diff --git a/src/test/java/org/pac4j/dropwizard/e2e/EndToEndServletTest.java b/src/test/java/org/pac4j/dropwizard/e2e/EndToEndServletTest.java
+index f5681bb..1fd2ff6 100644
+--- a/src/test/java/org/pac4j/dropwizard/e2e/EndToEndServletTest.java
++++ b/src/test/java/org/pac4j/dropwizard/e2e/EndToEndServletTest.java
+@@ -2,18 +2,18 @@ package org.pac4j.dropwizard.e2e;
+ 
+ import static org.assertj.core.api.Assertions.assertThat;
+ 
+-import javax.ws.rs.client.Entity;
+-import javax.ws.rs.core.Form;
+-import javax.ws.rs.core.HttpHeaders;
+-import javax.ws.rs.core.MediaType;
+-import javax.ws.rs.core.Response;
++import jakarta.ws.rs.client.Entity;
++import jakarta.ws.rs.core.Form;
++import jakarta.ws.rs.core.HttpHeaders;
++import jakarta.ws.rs.core.MediaType;
++import jakarta.ws.rs.core.Response;
+ 
+-import org.junit.Test;
++import org.junit.jupiter.api.Test;
+ import org.pac4j.dropwizard.AbstractApplicationTest;
+ import org.pac4j.http.client.direct.DirectBasicAuthClient;
+ import org.pac4j.http.client.direct.DirectFormClient;
+ 
+-import io.dropwizard.setup.Environment;
++import io.dropwizard.core.setup.Environment;
+ import io.dropwizard.testing.ConfigOverride;
+ 
+ public class EndToEndServletTest extends AbstractApplicationTest {
+diff --git a/src/test/java/org/pac4j/dropwizard/e2e/EndToEndTest.java b/src/test/java/org/pac4j/dropwizard/e2e/EndToEndTest.java
+index 1bd3662..423edb3 100644
+--- a/src/test/java/org/pac4j/dropwizard/e2e/EndToEndTest.java
++++ b/src/test/java/org/pac4j/dropwizard/e2e/EndToEndTest.java
+@@ -2,18 +2,18 @@ package org.pac4j.dropwizard.e2e;
+ 
+ import static org.assertj.core.api.Assertions.assertThat;
+ 
+-import javax.ws.rs.client.Entity;
+-import javax.ws.rs.core.Form;
+-import javax.ws.rs.core.HttpHeaders;
+-import javax.ws.rs.core.MediaType;
+-import javax.ws.rs.core.Response;
++import jakarta.ws.rs.client.Entity;
++import jakarta.ws.rs.core.Form;
++import jakarta.ws.rs.core.HttpHeaders;
++import jakarta.ws.rs.core.MediaType;
++import jakarta.ws.rs.core.Response;
+ 
+-import org.junit.Test;
++import org.junit.jupiter.api.Test;
+ import org.pac4j.dropwizard.AbstractApplicationTest;
+ import org.pac4j.http.client.direct.DirectBasicAuthClient;
+ import org.pac4j.http.client.direct.DirectFormClient;
+ 
+-import io.dropwizard.setup.Environment;
++import io.dropwizard.core.setup.Environment;
+ import io.dropwizard.testing.ConfigOverride;
+ 
+ public class EndToEndTest extends AbstractApplicationTest {
+diff --git a/src/test/java/org/pac4j/dropwizard/factory/DefaultConfigurationTest.java b/src/test/java/org/pac4j/dropwizard/factory/DefaultConfigurationTest.java
+index fec8774..df346d5 100644
+--- a/src/test/java/org/pac4j/dropwizard/factory/DefaultConfigurationTest.java
++++ b/src/test/java/org/pac4j/dropwizard/factory/DefaultConfigurationTest.java
+@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
+ 
+ import java.util.regex.Pattern;
+ 
+-import org.junit.Test;
++import org.junit.jupiter.api.Test;
+ import org.pac4j.core.client.Client;
+ import org.pac4j.core.client.Clients;
+ import org.pac4j.core.config.Config;

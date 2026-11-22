@@ -1,0 +1,42 @@
+﻿
+=== Case 8  0c748afce24c983e8f330bc2435837c70b0fcde6 ===
+Project : pac4j/dropwizard-pac4j
+Update  : com.fasterxml.jackson.core:jackson-databind  2.10.5.1 -> 2.14.1
+Image not present locally, pulling ghcr.io/chains-project/breaking-updates:0c748afce24c983e8f330bc2435837c70b0fcde6-breaking ...
+Running breaking in container manual-case8-breaking (this can take several minutes) ...
+Finished in 27 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case8_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 16, Failures: 0, Errors: 16, Skipped: 0
+First failing tests / errors:
+  [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources  Time elapsed: 0.506 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+      at com.fasterxml.jackson.databind.cfg.DatatypeFeatures.defaultFeatures(DatatypeFeatures.java:33)
+      at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:672)
+  [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResourcesForm  Time elapsed: 0.002 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+      at com.fasterxml.jackson.databind.cfg.DatatypeFeatures.defaultFeatures(DatatypeFeatures.java:33)
+      at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:672)
+  [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.restrictsAccessToResources  Time elapsed: 0.004 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+      at com.fasterxml.jackson.databind.cfg.DatatypeFeatures.defaultFeatures(DatatypeFeatures.java:33)
+      at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:672)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+  Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+  Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+  Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+  Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+Linkage / bytecode signals:
+  NoClassDefFoundError x16
+  ClassNotFoundException x16
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : jackson-databind 2.14.1 needs com.fasterxml.jackson.core.util.JacksonFeature (jackson-core >=2.12); older jackson-core resolved -> NoClassDefFoundError
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

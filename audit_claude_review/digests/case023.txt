@@ -1,0 +1,39 @@
+=== CASE 23 1cd22b76f9ea6564382ebf1160b01c0e5bcbb975
+  project=International-Data-Spaces-Association/IDS-Messaging-Services dep=org.junit.platform:junit-platform-surefire-provider 1.0.3 -> 1.3.2 scope=compile type=minor java=11
+  PR=https://github.com/International-Data-Spaces-Association/IDS-Messaging-Services/pull/501
+  PRE log logs/batch_triage/1cd22b76_pre.log:
+  lines=753
+  status: [INFO] BUILD SUCCESS
+  reactor: messaging-services   SUCCESS [  4.025 s]; core   SUCCESS [ 27.610 s]; messaging   SUCCESS [ 15.755 s]; clearinghouse   SUCCESS [  7.898 s]; broker   SUCCESS [  6.734 s]; vocol   SUCCESS [  0.660 s]; paris   SUCCESS [  8.105 s]; appstore   SUCCESS [  7.801 s]; BUILD SUCCESS
+  aggregate summaries: Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 12, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 2, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 3, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions prior to 1.8. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.10/logback-classic-1.2.10.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See http://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+  exception names: java.net.ConnectExceptionx2
+  BREAKING log logs/batch_triage/1cd22b76_breaking.log:
+  lines=656
+  status: [INFO] BUILD FAILURE
+  reactor: messaging-services   SUCCESS [  2.619 s]; core   SUCCESS [ 27.898 s]; messaging   SUCCESS [ 25.954 s]; clearinghouse   SUCCESS [ 10.226 s]; broker   FAILURE [  1.655 s]; vocol   SKIPPED; paris   SKIPPED; appstore   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 12, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 2, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project broker: Execution default-test of goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test failed: An API incompatibility was encountered
+    [ERROR] -----------------------------------------------------
+    [ERROR] realm =    plugin>org.apache.maven.plugins:maven-surefire-plugin:2.19.1-1842862097
+    [ERROR] strategy = org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy
+    [ERROR] urls[0] = file:/root/.m2/repository/org/apache/maven/plugins/maven-surefire-plugin/2.19.1/maven-surefire-plugin-2.19.1.jar
+    [ERROR] urls[1] = file:/root/.m2/repository/org/junit/platform/junit-platform-surefire-provider/1.3.2/junit-platform-surefire-provider-1.3.2.jar
+    [ERROR] urls[2] = file:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar
+    [ERROR] urls[3] = file:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar
+    [ERROR] urls[4] = file:/root/.m2/repository/org/apache/maven/surefire/common-java5/2.22.0/common-java5-2.22.0.jar
+    [ERROR] urls[5] = file:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions prior to 1.8. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.10/logback-classic-1.2.10.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See http://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+  linkage/compile signals: NoSuchMethodError
+  exception names: java.net.ConnectExceptionx2, java.lang.NoSuchMethodErrorx1
+  EVIDENCE logs/case23_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/common-java5-2.22.0.jar, breaking/surefire_javap.txt, pre/archive_summary.json, pre/artifacts.tar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=19 sum(t,f,e,s)=[32, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=16 sum(t,f,e,s)=[20, 0, 0, 0]
+  archived non-report files: pre=182 breaking=182 changed=1 added=0 removed=0
+  DIFF broker/pom.xml (7 lines):
+    @@ -59,3 +59,3 @@
+                             <artifactId>junit-platform-surefire-provider</artifactId>
+    -                        <version>1.0.3</version>
+    +                        <version>1.3.2</version>
+                         </dependency>

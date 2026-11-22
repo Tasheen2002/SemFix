@@ -1,0 +1,58 @@
+{
+  "case_id": "d8e0311e6203d6b15c187e8536ea910b1bbc362f",
+  "phase": "breaking",
+  "path_filter": "/(derby|derbyshared|derbytools)/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/derby/derby/10.16.1.1/derby-10.16.1.1.jar",
+      "sha256": "ede804cb04e871d7c52d2414e952ab939f9ef243abb7bd0ce7dbeb6e1e28bd0b",
+      "classes": {
+        "org.apache.derby.iapi.jdbc.JDBCBoot": {
+          "present": true,
+          "major_version": 61
+        },
+        "org.apache.derby.jdbc.EmbeddedDriver": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/java.sql.Driver": "org.apache.derby.iapi.jdbc.AutoloadedDriver\n"
+      },
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/derby/derbyshared/10.16.1.1/derbyshared-10.16.1.1.jar",
+      "sha256": "27d4be683a45f6c15940167277ce39bb7e26b9f6dc0bc05efbcf813cac5d2b8f",
+      "classes": {
+        "org.apache.derby.iapi.jdbc.JDBCBoot": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.derby.jdbc.EmbeddedDriver": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/derby/derbytools/10.15.2.0/derbytools-10.15.2.0.jar",
+      "sha256": "45d6dc34af9790f7f8fafb9b15d8525f3b429950fca4b4051e7e4f81f9170cd9",
+      "classes": {
+        "org.apache.derby.iapi.jdbc.JDBCBoot": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.derby.jdbc.EmbeddedDriver": {
+          "present": true,
+          "major_version": 53
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    }
+  ]
+}

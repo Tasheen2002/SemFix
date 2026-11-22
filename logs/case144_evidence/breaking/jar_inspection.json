@@ -1,0 +1,55 @@
+{
+  "case_id": "bd93ad3b61139e8bf91a1a0ff5351bc9d3d8bbbc",
+  "phase": "breaking",
+  "path_filter": "/(slf4j-api|slf4j-mock)/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/simplify4u/slf4j-mock/2.2.0/slf4j-mock-2.2.0.jar",
+      "sha256": "7e9422848c688e0f2fcfb4eb519073c03ba3b0fbd13a49828d688f60b2090ff3",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": true,
+          "major_version": 52
+        },
+        "org.simplify4u.slf4jmock.ProxyMock": {
+          "present": true,
+          "major_version": 52
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/slf4j/slf4j-api/2.0.1/slf4j-api-2.0.1.jar",
+      "sha256": "b36b99b8d99ea7857554d9b25dfdbd1fb25378c926f7b9e0249983c99335b2c4",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": false,
+          "major_version": null
+        },
+        "org.simplify4u.slf4jmock.ProxyMock": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.slf4j.LoggerFactory",
+          "file": "slf4j-api-2.0.1_LoggerFactory_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case144_evidence\\breaking\\jars\\slf4j-api-2.0.1.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.slf4j.LoggerFactory"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

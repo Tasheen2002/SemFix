@@ -1,0 +1,9 @@
+# Case 103 review
+
+fscrawler updates POI from 4.1.2 to 5.2.0. Only the root POM version changes among archived sources/POMs. The failing randomized-runner events identify POI OOXML and Scratchpad 4.1.2 and Tika Microsoft parser 2.2.1 on the same classpath as POI 5.2.0.
+
+PRE succeeds with 95 reported tests including three ignored. BREAKING fails in the Tika module with 89 reported tests, four assertion failures, zero errors and one ignored. These totals are summed from randomized JUnit module summaries, not Surefire XML. The successful runner deletes its event files; four event/suite files remain from the failed run. Both phase summaries are archived, and zero XML reports must not be interpreted as zero tests.
+
+The two DOCX extraction cases log that old POIXMLTextExtractor has interface POITextExtractor as its superclass. Disassembly of the actual resolved JARs confirms POITextExtractor changes from abstract class to interface, while retained POIXMLTextExtractor extends it as a class. The DOC and protected-document cases log WORKBOOK_DIR_ENTRY_NAMES. POI 4.1.2 declares this field as String[], but POI 5.2.0 declares List; the retained Tika POIFSContainerDetector bytecode still requests the array descriptor. These class and field incompatibilities cause downstream content assertions. The observed messages plus disassembly support a non-behavioral assessment; the runner's assertion-only failure category does not establish semantic breakage.
+
+Both original Docker images were run. Automated triage marks this likely behavioral because it sees assertions but misses the binary cause; the curated assessment records that distinction. Explicit Maven results establish outcomes because the command pipes Maven through tee. Independent human review remains pending. No repair or substitution control was run.

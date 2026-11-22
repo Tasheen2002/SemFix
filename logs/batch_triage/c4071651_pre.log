@@ -1,0 +1,488 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 6 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 6 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] jadler-pom                                                         [pom]
+[INFO] jadler-core                                                        [jar]
+[INFO] jadler-jetty                                                       [jar]
+[INFO] jadler-junit                                                       [jar]
+[INFO] jadler-jdk                                                         [jar]
+[INFO] jadler-all                                                         [jar]
+[INFO] 
+[INFO] -----------------------< net.jadler:jadler-pom >------------------------
+[INFO] Building jadler-pom 1.3.2-SNAPSHOT                                 [1/6]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jadler-pom ---
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ jadler-pom ---
+[INFO] 
+[INFO] -----------------------< net.jadler:jadler-core >-----------------------
+[INFO] Building jadler-core 1.3.2-SNAPSHOT                                [2/6]
+[INFO]   from jadler-core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jadler-core ---
+[INFO] Deleting /jadler/jadler-core/target
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ jadler-core ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ jadler-core ---
+[INFO] skip non existing resourceDirectory /jadler/jadler-core/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ jadler-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 32 source files to /jadler/jadler-core/target/classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[WARNING] [options] bootstrap class path not set in conjunction with -source 6
+[WARNING] [options] source value 6 is obsolete and will be removed in a future release
+[WARNING] [options] target value 1.6 is obsolete and will be removed in a future release
+[WARNING] [options] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ jadler-core ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ jadler-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 18 source files to /jadler/jadler-core/target/test-classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[WARNING] [options] bootstrap class path not set in conjunction with -source 6
+[WARNING] [options] source value 6 is obsolete and will be removed in a future release
+[WARNING] [options] target value 1.6 is obsolete and will be removed in a future release
+[WARNING] [options] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ jadler-core ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running net.jadler.matchers.RequestMatcherTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.952 s - in net.jadler.matchers.RequestMatcherTest
+[INFO] Running net.jadler.matchers.ParameterRequestMatcherTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in net.jadler.matchers.ParameterRequestMatcherTest
+[INFO] Running net.jadler.matchers.HeaderRequestMatcherTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in net.jadler.matchers.HeaderRequestMatcherTest
+[INFO] Running net.jadler.matchers.QueryStringRequestMatcherTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in net.jadler.matchers.QueryStringRequestMatcherTest
+[INFO] Running net.jadler.matchers.MethodRequestMatcherTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in net.jadler.matchers.MethodRequestMatcherTest
+[INFO] Running net.jadler.matchers.RawBodyRequestMatcherTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 s - in net.jadler.matchers.RawBodyRequestMatcherTest
+[INFO] Running net.jadler.matchers.BodyRequestMatcherTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in net.jadler.matchers.BodyRequestMatcherTest
+[INFO] Running net.jadler.matchers.PathRequestMatcherTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in net.jadler.matchers.PathRequestMatcherTest
+[INFO] Running net.jadler.RequestTest
+[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 s - in net.jadler.RequestTest
+[INFO] Running net.jadler.mocking.VerifyingTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 s - in net.jadler.mocking.VerifyingTest
+[INFO] Running net.jadler.AbstractRequestMatchingTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s - in net.jadler.AbstractRequestMatchingTest
+[INFO] Running net.jadler.JadlerMockerTest
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(454): Verification failed, here is a list of requests received so far:
+Request #1: {method=GET, URI=/r1, parameters=[], headers=[], encoding=<none>, body=<empty>}
+  matching predicates: <none>
+  clashing predicates: <none>
+Request #2: {method=GET, URI=/r2, parameters=[], headers=[], encoding=<none>, body=<empty>}
+  matching predicates: <none>
+  clashing predicates: <none>
+Request #3: {method=GET, URI=/r3, parameters=[], headers=[], encoding=<none>, body=<empty>}
+  matching predicates: <none>
+  clashing predicates: <none>
+Request #4: {method=GET, URI=/r4, parameters=[], headers=[], encoding=<none>, body=<empty>}
+  matching predicates: <none>
+  clashing predicates: <none>
+Request #5: {method=GET, URI=/r5, parameters=[], headers=[], encoding=<none>, body=<empty>}
+  matching predicates: <none>
+  clashing predicates: <none>
+[INFO] Tests run: 54, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.189 s - in net.jadler.JadlerMockerTest
+[INFO] Running net.jadler.KeyValuesTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in net.jadler.KeyValuesTest
+[INFO] Running net.jadler.stubbing.StubbingTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.464 s - in net.jadler.stubbing.StubbingTest
+[INFO] Running net.jadler.stubbing.StaticResponderTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 s - in net.jadler.stubbing.StaticResponderTest
+[INFO] Running net.jadler.stubbing.MutableStubResponseTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in net.jadler.stubbing.MutableStubResponseTest
+[INFO] Running net.jadler.stubbing.StubResponseTest
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s - in net.jadler.stubbing.StubResponseTest
+[INFO] Running net.jadler.stubbing.HttpStubTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in net.jadler.stubbing.HttpStubTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 235, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ----------------------< net.jadler:jadler-jetty >-----------------------
+[INFO] Building jadler-jetty 1.3.2-SNAPSHOT                               [3/6]
+[INFO]   from jadler-jetty/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jadler-jetty ---
+[INFO] Deleting /jadler/jadler-jetty/target
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ jadler-jetty ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ jadler-jetty ---
+[INFO] skip non existing resourceDirectory /jadler/jadler-jetty/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ jadler-jetty ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /jadler/jadler-jetty/target/classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[WARNING] [options] bootstrap class path not set in conjunction with -source 6
+[WARNING] [options] source value 6 is obsolete and will be removed in a future release
+[WARNING] [options] target value 1.6 is obsolete and will be removed in a future release
+[WARNING] [options] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ jadler-jetty ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ jadler-jetty ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /jadler/jadler-jetty/target/test-classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[WARNING] [options] bootstrap class path not set in conjunction with -source 6
+[WARNING] [options] source value 6 is obsolete and will be removed in a future release
+[WARNING] [options] target value 1.6 is obsolete and will be removed in a future release
+[WARNING] [options] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ jadler-jetty ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running net.jadler.stubbing.server.jetty.RequestUtilsTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.51 s - in net.jadler.stubbing.server.jetty.RequestUtilsTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ----------------------< net.jadler:jadler-junit >-----------------------
+[INFO] Building jadler-junit 1.3.2-SNAPSHOT                               [4/6]
+[INFO]   from jadler-junit/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jadler-junit ---
+[INFO] Deleting /jadler/jadler-junit/target
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ jadler-junit ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ jadler-junit ---
+[INFO] skip non existing resourceDirectory /jadler/jadler-junit/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ jadler-junit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /jadler/jadler-junit/target/classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[WARNING] [options] bootstrap class path not set in conjunction with -source 6
+[WARNING] [options] source value 6 is obsolete and will be removed in a future release
+[WARNING] [options] target value 1.6 is obsolete and will be removed in a future release
+[WARNING] [options] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ jadler-junit ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ jadler-junit ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /jadler/jadler-junit/target/test-classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[WARNING] [options] bootstrap class path not set in conjunction with -source 6
+[WARNING] [options] source value 6 is obsolete and will be removed in a future release
+[WARNING] [options] target value 1.6 is obsolete and will be removed in a future release
+[WARNING] [options] To suppress warnings about obsolete options, use -Xlint:-options.
+[WARNING] /jadler/jadler-junit/src/test/java/net/jadler/junit/rule/JadlerFixedPortRuleTest.java:[10,31] [deprecation] SocketUtils in org.springframework.util has been deprecated
+[WARNING] /jadler/jadler-junit/src/test/java/net/jadler/junit/rule/JadlerFixedPortRuleTest.java:[22,36] [deprecation] SocketUtils in org.springframework.util has been deprecated
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ jadler-junit ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running net.jadler.junit.rule.JadlerRuleIntegrationTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.735 s - in net.jadler.junit.rule.JadlerRuleIntegrationTest
+[INFO] Running net.jadler.junit.rule.JadlerFixedPortRuleTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 s - in net.jadler.junit.rule.JadlerFixedPortRuleTest
+[INFO] Running net.jadler.junit.rule.JadlerRuleTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.958 s - in net.jadler.junit.rule.JadlerRuleTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -----------------------< net.jadler:jadler-jdk >------------------------
+[INFO] Building jadler-jdk 1.3.2-SNAPSHOT                                 [5/6]
+[INFO]   from jadler-jdk/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jadler-jdk ---
+[INFO] Deleting /jadler/jadler-jdk/target
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ jadler-jdk ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ jadler-jdk ---
+[INFO] skip non existing resourceDirectory /jadler/jadler-jdk/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ jadler-jdk ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /jadler/jadler-jdk/target/classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[WARNING] [options] bootstrap class path not set in conjunction with -source 6
+[WARNING] [options] source value 6 is obsolete and will be removed in a future release
+[WARNING] [options] target value 1.6 is obsolete and will be removed in a future release
+[WARNING] [options] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ jadler-jdk ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ jadler-jdk ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /jadler/jadler-jdk/target/test-classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[WARNING] [options] bootstrap class path not set in conjunction with -source 6
+[WARNING] [options] source value 6 is obsolete and will be removed in a future release
+[WARNING] [options] target value 1.6 is obsolete and will be removed in a future release
+[WARNING] [options] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ jadler-jdk ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running net.jadler.stubbing.server.jdk.RequestUtilsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.902 s - in net.jadler.stubbing.server.jdk.RequestUtilsTest
+[INFO] Running net.jadler.stubbing.server.jdk.JdkStubHttpServerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s - in net.jadler.stubbing.server.jdk.JdkStubHttpServerTest
+[INFO] Running net.jadler.stubbing.server.jdk.JdkHandlerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.277 s - in net.jadler.stubbing.server.jdk.JdkHandlerTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -----------------------< net.jadler:jadler-all >------------------------
+[INFO] Building jadler-all 1.3.2-SNAPSHOT                                 [6/6]
+[INFO]   from jadler-all/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jadler-all ---
+[INFO] Deleting /jadler/jadler-all/target
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ jadler-all ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ jadler-all ---
+[INFO] skip non existing resourceDirectory /jadler/jadler-all/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ jadler-all ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ jadler-all ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ jadler-all ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 13 source files to /jadler/jadler-all/target/test-classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[WARNING] [options] bootstrap class path not set in conjunction with -source 6
+[WARNING] [options] source value 6 is obsolete and will be removed in a future release
+[WARNING] [options] target value 1.6 is obsolete and will be removed in a future release
+[WARNING] [options] To suppress warnings about obsolete options, use -Xlint:-options.
+[WARNING] /jadler/jadler-all/src/test/java/net/jadler/FacadeIntegrationTest.java:[13,31] [deprecation] SocketUtils in org.springframework.util has been deprecated
+[WARNING] /jadler/jadler-all/src/test/java/net/jadler/FacadeIntegrationTest.java:[148,30] [deprecation] SocketUtils in org.springframework.util has been deprecated
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ jadler-all ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running net.jadler.FacadeIntegrationTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.479 s - in net.jadler.FacadeIntegrationTest
+[INFO] Running net.jadler.StubbingIntegrationTest
+[qtp1585571244-101] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+The rule 'WHEN request (
+  is not ANYTHING)
+THEN respond with status=409, body=<empty>, headers=(content-type: text/html; charset=UTF-16, default_header: value1, default_header: value2), delay=0 milliseconds' cannot be applied. Mismatch:
+  was <{method=GET, URI=http://localhost:33691/, parameters=[], headers=[host: localhost:33691, connection: keep-alive, accept-encoding: gzip,deflate, user-agent: Apache-HttpClient/4.5.13 (Java/11.0.19)], encoding=<none>, body=<empty>}>
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+The rule 'WHEN request (
+  is not ANYTHING)
+THEN respond with status=409, body=<empty>, headers=(content-type: text/html; charset=UTF-16, default_header: value1, default_header: value2), delay=0 milliseconds' cannot be applied. Mismatch:
+  was <{method=GET, URI=/, parameters=[], headers=[host: localhost:33081, connection: Keep-Alive, accept-encoding: gzip,deflate, user-agent: Apache-HttpClient/4.5.13 (Java/11.0.19)], encoding=<none>, body=<empty>}>
+
+[INFO] Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.988 s - in net.jadler.StubbingIntegrationTest
+[INFO] Running net.jadler.deprecated.DeprecatedDefaultsConfigurationTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.132 s - in net.jadler.deprecated.DeprecatedDefaultsConfigurationTest
+[INFO] Running net.jadler.TimeoutIntegrationTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 s - in net.jadler.TimeoutIntegrationTest
+[INFO] Running net.jadler.ResetJettyIntegrationTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s - in net.jadler.ResetJettyIntegrationTest
+[INFO] Running net.jadler.SuperDefaultsIntegrationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s - in net.jadler.SuperDefaultsIntegrationTest
+[INFO] Running net.jadler.ResetJDKIntegrationTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in net.jadler.ResetJDKIntegrationTest
+[INFO] Running net.jadler.StubbingResponseHeadersTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 s - in net.jadler.StubbingResponseHeadersTest
+[INFO] Running net.jadler.VerificationIntegrationTest
+[qtp166536076-476] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp1292472219-485] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp2143571436-494] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(454): Verification failed, here is a list of requests received so far: <none>
+[qtp1959451969-512] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp1327895505-521] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp2000648320-530] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp80026551-539] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp1527254842-548] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp1717473929-557] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp659996839-566] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp119112899-575] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp726212590-584] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp1574615832-593] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp1574615832-594] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp1357686726-602] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp1021565761-611] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp237373286-620] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp1070194629-638] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[qtp1731295355-647] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[main] INFO  JadlerMocker.java(454): Verification failed, here is a list of requests received so far: <none>
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[HTTP-Dispatcher] INFO  JadlerMocker.java(266): No suitable rule found. Reason:
+
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.64 s - in net.jadler.VerificationIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 125, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for jadler-pom 1.3.2-SNAPSHOT:
+[INFO] 
+[INFO] jadler-pom ......................................... SUCCESS [  0.670 s]
+[INFO] jadler-core ........................................ SUCCESS [ 12.647 s]
+[INFO] jadler-jetty ....................................... SUCCESS [  4.140 s]
+[INFO] jadler-junit ....................................... SUCCESS [  6.170 s]
+[INFO] jadler-jdk ......................................... SUCCESS [  5.696 s]
+[INFO] jadler-all ......................................... SUCCESS [ 12.372 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  44.360 s
+[INFO] Finished at: 2026-11-10T13:01:17Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:1.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 

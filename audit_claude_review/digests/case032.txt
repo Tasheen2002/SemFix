@@ -1,0 +1,54 @@
+=== CASE 32 2b60dcd83ece76e58dee05be56f00eba6deb4ac6
+  project=matteobaccan/html2pop3 dep=ch.qos.logback:logback-classic 1.2.11 -> 1.4.0 scope=compile type=minor java=11
+  PR=https://github.com/matteobaccan/html2pop3/pull/291
+  PRE log logs/batch_triage/2b60dcd8_pre.log:
+  lines=148
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions prior to 1.8. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See http://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+  BREAKING log logs/batch_triage/2b60dcd8_breaking.log:
+  lines=313
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 5, Failures: 0, Errors: 2, Skipped: 0
+  failing classes: Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.132 s <<< FAILURE! - in it.baccan.html2pop3.utils.FilterTest
+  section: Errors: | FilterTest.<clinit>:19 » NoSuchMethod 'java.lang.String ch.qos.logback.core.util.EnvUtil.logbackVersion()' | FilterTest.testIsAllow » NoClassDefFound Could not initialize class it.baccan.html2pop3.utils.FilterTest | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  8.662 s | [INFO] Finished at: 2026-11-09T07:07:42Z | [INFO] ------------------------------------------------------------------------ | [WARNING] | [WARNING] Plugin validation issues were detected in 3 plugin(s)
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project HTML2POP3: 
+  FAILBLOCK: [ERROR] it.baccan.html2pop3.utils.FilterTest.testAdd  Time elapsed: 0.025 s  <<< ERROR!
+      java.lang.NoSuchMethodError: 'java.lang.String ch.qos.logback.core.util.EnvUtil.logbackVersion()'
+      at ch.qos.logback.classic.util.ContextInitializer.autoConfig(ContextInitializer.java:81)
+      at ch.qos.logback.classic.util.ContextInitializer.autoConfig(ContextInitializer.java:77)
+      at ch.qos.logback.classic.spi.LogbackServiceProvider.initializeLoggerContext(LogbackServiceProvider.java:50)
+      at ch.qos.logback.classic.spi.LogbackServiceProvider.initialize(LogbackServiceProvider.java:41)
+      at org.slf4j.LoggerFactory.bind(LoggerFactory.java:152)
+  FAILBLOCK: [ERROR] it.baccan.html2pop3.utils.FilterTest.testIsAllow  Time elapsed: 0.001 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class it.baccan.html2pop3.utils.FilterTest
+      at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+      at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+      at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+      at org.junit.platform.commons.util.ReflectionUtils.newInstance(ReflectionUtils.java:552)
+  distinct fail signatures (count): 1x java.lang.NoSuchMethodError: 'java.lang.String ch.qos.logback.core.util.EnvUtil.logbackVersion()' || 1x java.lang.NoClassDefFoundError: Could not initialize class it.baccan.html2pop3.utils.FilterTest
+  linkage/compile signals: NoClassDefFoundError, NoSuchMethodError
+  exception names: java.lang.NoSuchMethodErrorx1, java.lang.NoClassDefFoundErrorx1
+  EVIDENCE logs/case32_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/logback-classic-1.4.0.jar, breaking/logback-core-1.2.11.jar, breaking/logback_javap.txt, pre/archive_summary.json, pre/artifacts.tar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=2 sum(t,f,e,s)=[5, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=2 sum(t,f,e,s)=[5, 0, 2, 0]
+  archived non-report files: pre=66 breaking=66 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -47,3 +47,3 @@
+                 <artifactId>logback-classic</artifactId>
+    -            <version>1.2.11</version>
+    +            <version>1.4.0</version>
+                 <type>jar</type>
+  BREAKING surefire failures/errors:
+    ERROR it.baccan.html2pop3.utils.FilterTest#testAdd type=java.lang.NoSuchMethodError msg='java.lang.String ch.qos.logback.core.util.EnvUtil.logbackVersion()'
+       at ch.qos.logback.classic.util.ContextInitializer.autoConfig(ContextInitializer.java:81)
+       at ch.qos.logback.classic.util.ContextInitializer.autoConfig(ContextInitializer.java:77)
+       at ch.qos.logback.classic.spi.LogbackServiceProvider.initializeLoggerContext(LogbackServiceProvider.java:50)
+       at ch.qos.logback.classic.spi.LogbackServiceProvider.initialize(LogbackServiceProvider.java:41)
+    ERROR it.baccan.html2pop3.utils.FilterTest#testIsAllow type=java.lang.NoClassDefFoundError msg=Could not initialize class it.baccan.html2pop3.utils.FilterTest
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+       at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+       at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)

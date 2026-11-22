@@ -1,0 +1,103 @@
+=== CASE 88 78445745997d3ebe5d1e35d9762d95af875c85ec
+  project=spotify/missinglink dep=org.codehaus.plexus:plexus-utils 3.5.0 -> 4.0.0 scope=compile type=major java=11
+  PR=https://github.com/spotify/missinglink/pull/321
+  PRE log logs/batch_triage/78445745_pre.log:
+  lines=561
+  status: [INFO] BUILD SUCCESS
+  reactor: missinglink   SUCCESS [  2.777 s]; missinglink-core   SUCCESS [ 27.947 s]; missinglink-benchmarks   SUCCESS [  0.929 s]; missinglink-maven-plugin   SUCCESS [01:22 min]; BUILD SUCCESS
+  aggregate summaries: Tests run: 53, Failures: 0, Errors: 0, Skipped: 1 || Tests run: 15, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+  exception names: com.spotify.missinglink.MissingLinkExceptionx1, java.lang.IllegalArgumentExceptionx1
+  BREAKING log logs/batch_triage/78445745_breaking.log:
+  lines=886
+  status: [INFO] BUILD FAILURE
+  reactor: missinglink   SUCCESS [  7.277 s]; missinglink-core   SUCCESS [ 40.228 s]; missinglink-benchmarks   SUCCESS [  1.152 s]; missinglink-maven-plugin   FAILURE [  8.507 s]; BUILD FAILURE
+  aggregate summaries: Tests run: 53, Failures: 0, Errors: 0, Skipped: 1 || Tests run: 15, Failures: 0, Errors: 14, Skipped: 0
+  failing classes: Tests run: 14, Failures: 0, Errors: 14, Skipped: 0, Time elapsed: 0.154 s <<< FAILURE! - in com.spotify.missinglink.maven.CheckMojoTest
+  section: Errors: | CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | CheckMojoTest.<init>:102 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project missinglink-maven-plugin: 
+  FAILBLOCK: [ERROR] com.spotify.missinglink.maven.CheckMojoTest.testCustomBootstrapPath  Time elapsed: 0.07 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+      at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+      at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+      at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+      at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+      Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+  distinct fail signatures (count): 14x java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx14, java.lang.ClassNotFoundExceptionx14, com.spotify.missinglink.MissingLinkExceptionx1
+  EVIDENCE logs/case88_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/plexus-utils-4.0.0.jar, pre/archive_summary.json, pre/artifacts.tar, pre/plexus-utils-3.5.0.jar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B reports=10 sum(t,f,e,s)=[68, 0, 0, 1]
+  breaking archive: exit=1 cmd=sh -c mvn clean test -B reports=10 sum(t,f,e,s)=[68, 0, 14, 1]
+  archived non-report files: pre=121 breaking=121 changed=1 added=0 removed=0
+  DIFF maven-plugin/pom.xml (7 lines):
+    @@ -27,3 +27,3 @@
+             <artifactId>plexus-utils</artifactId>
+    -        <version>3.5.0</version>
+    +        <version>4.0.0</version>
+           </dependency>
+  BREAKING surefire failures/errors:
+    ERROR com.spotify.missinglink.maven.CheckMojoTest#testCustomBootstrapPath type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/XmlStreamReader
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+       at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+       at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    ERROR com.spotify.missinglink.maven.CheckMojoTest#shouldCheckProvidedIfConfigured type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/XmlStreamReader
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+       at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+       at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    ERROR com.spotify.missinglink.maven.CheckMojoTest#testTargetDestinationPackages type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/XmlStreamReader
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+       at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+       at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    ERROR com.spotify.missinglink.maven.CheckMojoTest#doesNotFailOnConflictByDefault type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/XmlStreamReader
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+       at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+       at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    ERROR com.spotify.missinglink.maven.CheckMojoTest#testSkip type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/XmlStreamReader
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+       at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+       at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    ERROR com.spotify.missinglink.maven.CheckMojoTest#noConflictsFound type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/XmlStreamReader
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+       at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+       at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    ERROR com.spotify.missinglink.maven.CheckMojoTest#testTargetSourcePackages type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/XmlStreamReader
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+       at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+       at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    ERROR com.spotify.missinglink.maven.CheckMojoTest#testIgnoreDestinationPackages type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/XmlStreamReader
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+       at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+       at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    ERROR com.spotify.missinglink.maven.CheckMojoTest#testBadValuesForIncludeCategories type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/XmlStreamReader
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+       at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+       at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    ERROR com.spotify.missinglink.maven.CheckMojoTest#failsOnConflictWhenOptionIsSet type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/XmlStreamReader
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+       at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+       at com.spotify.missinglink.maven.CheckMojoTest.<init>(CheckMojoTest.java:102)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+    ... truncated (84 lines)
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"plexus-utils-3.5.0.jar","entries":{"org/codehaus/plexus/util/xml/XmlStreamReader.class":["org/codehaus/plexus/util/xml/XmlStreamReader.class"]}},{"phase":"breaking","jar":"plexus-utils-4.0.0.jar","entries":{"org/codehaus/plexus/util/xml/XmlStreamReader.class":[]}}]

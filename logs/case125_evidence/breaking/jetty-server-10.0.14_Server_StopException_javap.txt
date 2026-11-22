@@ -1,0 +1,1532 @@
+Compiled from "Server.java"
+public class org.eclipse.jetty.server.Server extends org.eclipse.jetty.server.handler.HandlerWrapper implements org.eclipse.jetty.util.Attributes {
+  private static final org.slf4j.Logger LOG;
+    descriptor: Lorg/slf4j/Logger;
+
+  private final org.eclipse.jetty.util.component.AttributeContainerMap _attributes;
+    descriptor: Lorg/eclipse/jetty/util/component/AttributeContainerMap;
+
+  private final org.eclipse.jetty.util.thread.ThreadPool _threadPool;
+    descriptor: Lorg/eclipse/jetty/util/thread/ThreadPool;
+
+  private final java.util.List<org.eclipse.jetty.server.Connector> _connectors;
+    descriptor: Ljava/util/List;
+
+  private org.eclipse.jetty.server.SessionIdManager _sessionIdManager;
+    descriptor: Lorg/eclipse/jetty/server/SessionIdManager;
+
+  private boolean _stopAtShutdown;
+    descriptor: Z
+
+  private boolean _dumpAfterStart;
+    descriptor: Z
+
+  private boolean _dumpBeforeStop;
+    descriptor: Z
+
+  private org.eclipse.jetty.server.handler.ErrorHandler _errorHandler;
+    descriptor: Lorg/eclipse/jetty/server/handler/ErrorHandler;
+
+  private org.eclipse.jetty.server.RequestLog _requestLog;
+    descriptor: Lorg/eclipse/jetty/server/RequestLog;
+
+  private boolean _dryRun;
+    descriptor: Z
+
+  private final org.eclipse.jetty.util.thread.AutoLock _dateLock;
+    descriptor: Lorg/eclipse/jetty/util/thread/AutoLock;
+
+  private volatile org.eclipse.jetty.server.Server$DateField _dateField;
+    descriptor: Lorg/eclipse/jetty/server/Server$DateField;
+
+  private long _stopTimeout;
+    descriptor: J
+
+  public org.eclipse.jetty.server.Server();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: aconst_null
+       2: checkcast     #1                  // class org/eclipse/jetty/util/thread/ThreadPool
+       5: invokespecial #3                  // Method "<init>":(Lorg/eclipse/jetty/util/thread/ThreadPool;)V
+       8: return
+
+  public org.eclipse.jetty.server.Server(int);
+    descriptor: (I)V
+    Code:
+       0: aload_0
+       1: aconst_null
+       2: checkcast     #1                  // class org/eclipse/jetty/util/thread/ThreadPool
+       5: invokespecial #3                  // Method "<init>":(Lorg/eclipse/jetty/util/thread/ThreadPool;)V
+       8: new           #9                  // class org/eclipse/jetty/server/ServerConnector
+      11: dup
+      12: aload_0
+      13: invokespecial #11                 // Method org/eclipse/jetty/server/ServerConnector."<init>":(Lorg/eclipse/jetty/server/Server;)V
+      16: astore_2
+      17: aload_2
+      18: iload_1
+      19: invokevirtual #14                 // Method org/eclipse/jetty/server/ServerConnector.setPort:(I)V
+      22: aload_0
+      23: iconst_1
+      24: anewarray     #18                 // class org/eclipse/jetty/server/Connector
+      27: dup
+      28: iconst_0
+      29: aload_2
+      30: aastore
+      31: invokevirtual #20                 // Method setConnectors:([Lorg/eclipse/jetty/server/Connector;)V
+      34: return
+
+  public org.eclipse.jetty.server.Server(java.net.InetSocketAddress);
+    descriptor: (Ljava/net/InetSocketAddress;)V
+    Code:
+       0: aload_0
+       1: aconst_null
+       2: checkcast     #1                  // class org/eclipse/jetty/util/thread/ThreadPool
+       5: invokespecial #3                  // Method "<init>":(Lorg/eclipse/jetty/util/thread/ThreadPool;)V
+       8: new           #9                  // class org/eclipse/jetty/server/ServerConnector
+      11: dup
+      12: aload_0
+      13: invokespecial #11                 // Method org/eclipse/jetty/server/ServerConnector."<init>":(Lorg/eclipse/jetty/server/Server;)V
+      16: astore_2
+      17: aload_2
+      18: aload_1
+      19: invokevirtual #24                 // Method java/net/InetSocketAddress.getHostName:()Ljava/lang/String;
+      22: invokevirtual #30                 // Method org/eclipse/jetty/server/ServerConnector.setHost:(Ljava/lang/String;)V
+      25: aload_2
+      26: aload_1
+      27: invokevirtual #34                 // Method java/net/InetSocketAddress.getPort:()I
+      30: invokevirtual #14                 // Method org/eclipse/jetty/server/ServerConnector.setPort:(I)V
+      33: aload_0
+      34: iconst_1
+      35: anewarray     #18                 // class org/eclipse/jetty/server/Connector
+      38: dup
+      39: iconst_0
+      40: aload_2
+      41: aastore
+      42: invokevirtual #20                 // Method setConnectors:([Lorg/eclipse/jetty/server/Connector;)V
+      45: return
+
+  public org.eclipse.jetty.server.Server(org.eclipse.jetty.util.thread.ThreadPool);
+    descriptor: (Lorg/eclipse/jetty/util/thread/ThreadPool;)V
+    Code:
+       0: aload_0
+       1: invokespecial #38                 // Method org/eclipse/jetty/server/handler/HandlerWrapper."<init>":()V
+       4: aload_0
+       5: new           #43                 // class org/eclipse/jetty/util/component/AttributeContainerMap
+       8: dup
+       9: invokespecial #45                 // Method org/eclipse/jetty/util/component/AttributeContainerMap."<init>":()V
+      12: putfield      #46                 // Field _attributes:Lorg/eclipse/jetty/util/component/AttributeContainerMap;
+      15: aload_0
+      16: new           #50                 // class java/util/concurrent/CopyOnWriteArrayList
+      19: dup
+      20: invokespecial #52                 // Method java/util/concurrent/CopyOnWriteArrayList."<init>":()V
+      23: putfield      #53                 // Field _connectors:Ljava/util/List;
+      26: aload_0
+      27: new           #57                 // class org/eclipse/jetty/util/thread/AutoLock
+      30: dup
+      31: invokespecial #59                 // Method org/eclipse/jetty/util/thread/AutoLock."<init>":()V
+      34: putfield      #60                 // Field _dateLock:Lorg/eclipse/jetty/util/thread/AutoLock;
+      37: aload_0
+      38: aload_1
+      39: ifnull        46
+      42: aload_1
+      43: goto          53
+      46: new           #64                 // class org/eclipse/jetty/util/thread/QueuedThreadPool
+      49: dup
+      50: invokespecial #66                 // Method org/eclipse/jetty/util/thread/QueuedThreadPool."<init>":()V
+      53: putfield      #67                 // Field _threadPool:Lorg/eclipse/jetty/util/thread/ThreadPool;
+      56: aload_0
+      57: aload_0
+      58: getfield      #67                 // Field _threadPool:Lorg/eclipse/jetty/util/thread/ThreadPool;
+      61: invokevirtual #71                 // Method addBean:(Ljava/lang/Object;)Z
+      64: pop
+      65: aload_0
+      66: aload_0
+      67: getfield      #46                 // Field _attributes:Lorg/eclipse/jetty/util/component/AttributeContainerMap;
+      70: invokevirtual #71                 // Method addBean:(Ljava/lang/Object;)Z
+      73: pop
+      74: aload_0
+      75: aload_0
+      76: invokevirtual #75                 // Method setServer:(Lorg/eclipse/jetty/server/Server;)V
+      79: return
+
+  public boolean isDryRun();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: getfield      #78                 // Field _dryRun:Z
+       4: ireturn
+
+  public void setDryRun(boolean);
+    descriptor: (Z)V
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #78                 // Field _dryRun:Z
+       5: return
+
+  public org.eclipse.jetty.server.RequestLog getRequestLog();
+    descriptor: ()Lorg/eclipse/jetty/server/RequestLog;
+    Code:
+       0: aload_0
+       1: getfield      #82                 // Field _requestLog:Lorg/eclipse/jetty/server/RequestLog;
+       4: areturn
+
+  public org.eclipse.jetty.server.handler.ErrorHandler getErrorHandler();
+    descriptor: ()Lorg/eclipse/jetty/server/handler/ErrorHandler;
+    Code:
+       0: aload_0
+       1: getfield      #86                 // Field _errorHandler:Lorg/eclipse/jetty/server/handler/ErrorHandler;
+       4: areturn
+
+  public void setRequestLog(org.eclipse.jetty.server.RequestLog);
+    descriptor: (Lorg/eclipse/jetty/server/RequestLog;)V
+    Code:
+       0: aload_0
+       1: aload_0
+       2: getfield      #82                 // Field _requestLog:Lorg/eclipse/jetty/server/RequestLog;
+       5: aload_1
+       6: invokevirtual #90                 // Method updateBean:(Ljava/lang/Object;Ljava/lang/Object;)V
+       9: aload_0
+      10: aload_1
+      11: putfield      #82                 // Field _requestLog:Lorg/eclipse/jetty/server/RequestLog;
+      14: return
+
+  public void setErrorHandler(org.eclipse.jetty.server.handler.ErrorHandler);
+    descriptor: (Lorg/eclipse/jetty/server/handler/ErrorHandler;)V
+    Code:
+       0: aload_1
+       1: instanceof    #94                 // class org/eclipse/jetty/server/handler/ErrorHandler$ErrorPageMapper
+       4: ifeq          17
+       7: new           #96                 // class java/lang/IllegalArgumentException
+      10: dup
+      11: ldc           #98                 // String ErrorPageMapper is applicable only to ContextHandler
+      13: invokespecial #100                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      16: athrow
+      17: aload_0
+      18: aload_0
+      19: getfield      #86                 // Field _errorHandler:Lorg/eclipse/jetty/server/handler/ErrorHandler;
+      22: aload_1
+      23: invokevirtual #90                 // Method updateBean:(Ljava/lang/Object;Ljava/lang/Object;)V
+      26: aload_0
+      27: aload_1
+      28: putfield      #86                 // Field _errorHandler:Lorg/eclipse/jetty/server/handler/ErrorHandler;
+      31: aload_1
+      32: ifnull        40
+      35: aload_1
+      36: aload_0
+      37: invokevirtual #102                // Method org/eclipse/jetty/server/handler/ErrorHandler.setServer:(Lorg/eclipse/jetty/server/Server;)V
+      40: return
+
+  public static java.lang.String getVersion();
+    descriptor: ()Ljava/lang/String;
+    Code:
+       0: getstatic     #105                // Field org/eclipse/jetty/util/Jetty.VERSION:Ljava/lang/String;
+       3: areturn
+
+  public void setStopTimeout(long);
+    descriptor: (J)V
+    Code:
+       0: aload_0
+       1: lload_1
+       2: putfield      #111                // Field _stopTimeout:J
+       5: return
+
+  public long getStopTimeout();
+    descriptor: ()J
+    Code:
+       0: aload_0
+       1: getfield      #111                // Field _stopTimeout:J
+       4: lreturn
+
+  public boolean getStopAtShutdown();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: getfield      #115                // Field _stopAtShutdown:Z
+       4: ireturn
+
+  public void setStopAtShutdown(boolean);
+    descriptor: (Z)V
+    Code:
+       0: iload_1
+       1: ifeq          32
+       4: aload_0
+       5: getfield      #115                // Field _stopAtShutdown:Z
+       8: ifne          36
+      11: aload_0
+      12: invokevirtual #118                // Method isStarted:()Z
+      15: ifeq          36
+      18: iconst_1
+      19: anewarray     #122                // class org/eclipse/jetty/util/component/LifeCycle
+      22: dup
+      23: iconst_0
+      24: aload_0
+      25: aastore
+      26: invokestatic  #124                // Method org/eclipse/jetty/util/thread/ShutdownThread.register:([Lorg/eclipse/jetty/util/component/LifeCycle;)V
+      29: goto          36
+      32: aload_0
+      33: invokestatic  #130                // Method org/eclipse/jetty/util/thread/ShutdownThread.deregister:(Lorg/eclipse/jetty/util/component/LifeCycle;)V
+      36: aload_0
+      37: iload_1
+      38: putfield      #115                // Field _stopAtShutdown:Z
+      41: return
+
+  public org.eclipse.jetty.server.Connector[] getConnectors();
+    descriptor: ()[Lorg/eclipse/jetty/server/Connector;
+    Code:
+       0: new           #134                // class java/util/ArrayList
+       3: dup
+       4: aload_0
+       5: getfield      #53                 // Field _connectors:Ljava/util/List;
+       8: invokespecial #136                // Method java/util/ArrayList."<init>":(Ljava/util/Collection;)V
+      11: astore_1
+      12: aload_1
+      13: aload_1
+      14: invokeinterface #139,  1          // InterfaceMethod java/util/List.size:()I
+      19: anewarray     #18                 // class org/eclipse/jetty/server/Connector
+      22: invokeinterface #144,  2          // InterfaceMethod java/util/List.toArray:([Ljava/lang/Object;)[Ljava/lang/Object;
+      27: checkcast     #148                // class "[Lorg/eclipse/jetty/server/Connector;"
+      30: areturn
+
+  public void addConnector(org.eclipse.jetty.server.Connector);
+    descriptor: (Lorg/eclipse/jetty/server/Connector;)V
+    Code:
+       0: aload_1
+       1: invokeinterface #150,  1          // InterfaceMethod org/eclipse/jetty/server/Connector.getServer:()Lorg/eclipse/jetty/server/Server;
+       6: aload_0
+       7: if_acmpeq     40
+      10: new           #96                 // class java/lang/IllegalArgumentException
+      13: dup
+      14: aload_1
+      15: invokestatic  #154                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+      18: aload_1
+      19: invokeinterface #150,  1          // InterfaceMethod org/eclipse/jetty/server/Connector.getServer:()Lorg/eclipse/jetty/server/Server;
+      24: invokestatic  #154                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+      27: aload_0
+      28: invokestatic  #154                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+      31: invokedynamic #160,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      36: invokespecial #100                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      39: athrow
+      40: aload_0
+      41: getfield      #53                 // Field _connectors:Ljava/util/List;
+      44: aload_1
+      45: invokeinterface #164,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      50: pop
+      51: aload_0
+      52: aload_1
+      53: invokevirtual #71                 // Method addBean:(Ljava/lang/Object;)Z
+      56: pop
+      57: return
+
+  public void removeConnector(org.eclipse.jetty.server.Connector);
+    descriptor: (Lorg/eclipse/jetty/server/Connector;)V
+    Code:
+       0: aload_0
+       1: getfield      #53                 // Field _connectors:Ljava/util/List;
+       4: aload_1
+       5: invokeinterface #167,  2          // InterfaceMethod java/util/List.remove:(Ljava/lang/Object;)Z
+      10: ifeq          19
+      13: aload_0
+      14: aload_1
+      15: invokevirtual #170                // Method removeBean:(Ljava/lang/Object;)Z
+      18: pop
+      19: return
+
+  public void setConnectors(org.eclipse.jetty.server.Connector[]);
+    descriptor: ([Lorg/eclipse/jetty/server/Connector;)V
+    Code:
+       0: aload_1
+       1: ifnull        73
+       4: aload_1
+       5: astore_2
+       6: aload_2
+       7: arraylength
+       8: istore_3
+       9: iconst_0
+      10: istore        4
+      12: iload         4
+      14: iload_3
+      15: if_icmpge     73
+      18: aload_2
+      19: iload         4
+      21: aaload
+      22: astore        5
+      24: aload         5
+      26: invokeinterface #150,  1          // InterfaceMethod org/eclipse/jetty/server/Connector.getServer:()Lorg/eclipse/jetty/server/Server;
+      31: aload_0
+      32: if_acmpeq     67
+      35: new           #96                 // class java/lang/IllegalArgumentException
+      38: dup
+      39: aload         5
+      41: invokestatic  #154                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+      44: aload         5
+      46: invokeinterface #150,  1          // InterfaceMethod org/eclipse/jetty/server/Connector.getServer:()Lorg/eclipse/jetty/server/Server;
+      51: invokestatic  #154                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+      54: aload_0
+      55: invokestatic  #154                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+      58: invokedynamic #160,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      63: invokespecial #100                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      66: athrow
+      67: iinc          4, 1
+      70: goto          12
+      73: aload_0
+      74: invokevirtual #173                // Method getConnectors:()[Lorg/eclipse/jetty/server/Connector;
+      77: astore_2
+      78: aload_0
+      79: aload_2
+      80: aload_1
+      81: invokevirtual #177                // Method updateBeans:([Ljava/lang/Object;[Ljava/lang/Object;)V
+      84: aload_0
+      85: getfield      #53                 // Field _connectors:Ljava/util/List;
+      88: aload_2
+      89: invokestatic  #181                // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+      92: invokeinterface #187,  2          // InterfaceMethod java/util/List.removeAll:(Ljava/util/Collection;)Z
+      97: pop
+      98: aload_1
+      99: ifnull        116
+     102: aload_0
+     103: getfield      #53                 // Field _connectors:Ljava/util/List;
+     106: aload_1
+     107: invokestatic  #181                // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+     110: invokeinterface #191,  2          // InterfaceMethod java/util/List.addAll:(Ljava/util/Collection;)Z
+     115: pop
+     116: return
+
+  public void addBeanToAllConnectors(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)V
+    Code:
+       0: aload_0
+       1: invokevirtual #173                // Method getConnectors:()[Lorg/eclipse/jetty/server/Connector;
+       4: astore_2
+       5: aload_2
+       6: arraylength
+       7: istore_3
+       8: iconst_0
+       9: istore        4
+      11: iload         4
+      13: iload_3
+      14: if_icmpge     38
+      17: aload_2
+      18: iload         4
+      20: aaload
+      21: astore        5
+      23: aload         5
+      25: aload_1
+      26: invokeinterface #194,  2          // InterfaceMethod org/eclipse/jetty/server/Connector.addBean:(Ljava/lang/Object;)Z
+      31: pop
+      32: iinc          4, 1
+      35: goto          11
+      38: return
+
+  public org.eclipse.jetty.util.thread.ThreadPool getThreadPool();
+    descriptor: ()Lorg/eclipse/jetty/util/thread/ThreadPool;
+    Code:
+       0: aload_0
+       1: getfield      #67                 // Field _threadPool:Lorg/eclipse/jetty/util/thread/ThreadPool;
+       4: areturn
+
+  public boolean isDumpAfterStart();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: getfield      #195                // Field _dumpAfterStart:Z
+       4: ireturn
+
+  public void setDumpAfterStart(boolean);
+    descriptor: (Z)V
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #195                // Field _dumpAfterStart:Z
+       5: return
+
+  public boolean isDumpBeforeStop();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: getfield      #198                // Field _dumpBeforeStop:Z
+       4: ireturn
+
+  public void setDumpBeforeStop(boolean);
+    descriptor: (Z)V
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #198                // Field _dumpBeforeStop:Z
+       5: return
+
+  public org.eclipse.jetty.http.HttpField getDateField();
+    descriptor: ()Lorg/eclipse/jetty/http/HttpField;
+    Code:
+       0: invokestatic  #201                // Method java/lang/System.currentTimeMillis:()J
+       3: lstore_1
+       4: lload_1
+       5: ldc2_w        #207                // long 1000l
+       8: ldiv
+       9: lstore_3
+      10: aload_0
+      11: getfield      #209                // Field _dateField:Lorg/eclipse/jetty/server/Server$DateField;
+      14: astore        5
+      16: aload         5
+      18: ifnull        31
+      21: aload         5
+      23: getfield      #213                // Field org/eclipse/jetty/server/Server$DateField._seconds:J
+      26: lload_3
+      27: lcmp
+      28: ifeq          148
+      31: aload_0
+      32: getfield      #60                 // Field _dateLock:Lorg/eclipse/jetty/util/thread/AutoLock;
+      35: invokevirtual #218                // Method org/eclipse/jetty/util/thread/AutoLock.lock:()Lorg/eclipse/jetty/util/thread/AutoLock;
+      38: astore        6
+      40: aload_0
+      41: getfield      #209                // Field _dateField:Lorg/eclipse/jetty/server/Server$DateField;
+      44: astore        5
+      46: aload         5
+      48: ifnull        61
+      51: aload         5
+      53: getfield      #213                // Field org/eclipse/jetty/server/Server$DateField._seconds:J
+      56: lload_3
+      57: lcmp
+      58: ifeq          108
+      61: new           #222                // class org/eclipse/jetty/http/PreEncodedHttpField
+      64: dup
+      65: getstatic     #224                // Field org/eclipse/jetty/http/HttpHeader.DATE:Lorg/eclipse/jetty/http/HttpHeader;
+      68: lload_1
+      69: invokestatic  #230                // Method org/eclipse/jetty/http/DateGenerator.formatDate:(J)Ljava/lang/String;
+      72: invokespecial #236                // Method org/eclipse/jetty/http/PreEncodedHttpField."<init>":(Lorg/eclipse/jetty/http/HttpHeader;Ljava/lang/String;)V
+      75: astore        7
+      77: aload_0
+      78: new           #214                // class org/eclipse/jetty/server/Server$DateField
+      81: dup
+      82: lload_3
+      83: aload         7
+      85: invokespecial #239                // Method org/eclipse/jetty/server/Server$DateField."<init>":(JLorg/eclipse/jetty/http/HttpField;)V
+      88: putfield      #209                // Field _dateField:Lorg/eclipse/jetty/server/Server$DateField;
+      91: aload         7
+      93: astore        8
+      95: aload         6
+      97: ifnull        105
+     100: aload         6
+     102: invokevirtual #242                // Method org/eclipse/jetty/util/thread/AutoLock.close:()V
+     105: aload         8
+     107: areturn
+     108: aload         6
+     110: ifnull        148
+     113: aload         6
+     115: invokevirtual #242                // Method org/eclipse/jetty/util/thread/AutoLock.close:()V
+     118: goto          148
+     121: astore        7
+     123: aload         6
+     125: ifnull        145
+     128: aload         6
+     130: invokevirtual #242                // Method org/eclipse/jetty/util/thread/AutoLock.close:()V
+     133: goto          145
+     136: astore        8
+     138: aload         7
+     140: aload         8
+     142: invokevirtual #247                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     145: aload         7
+     147: athrow
+     148: aload         5
+     150: getfield      #251                // Field org/eclipse/jetty/server/Server$DateField._dateField:Lorg/eclipse/jetty/http/HttpField;
+     153: areturn
+    Exception table:
+       from    to  target type
+          40    95   121   Class java/lang/Throwable
+         128   133   136   Class java/lang/Throwable
+
+  protected void doStart() throws java.lang.Exception;
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: getfield      #86                 // Field _errorHandler:Lorg/eclipse/jetty/server/handler/ErrorHandler;
+       4: ifnonnull     20
+       7: aload_0
+       8: aload_0
+       9: ldc           #103                // class org/eclipse/jetty/server/handler/ErrorHandler
+      11: invokevirtual #254                // Method getBean:(Ljava/lang/Class;)Ljava/lang/Object;
+      14: checkcast     #103                // class org/eclipse/jetty/server/handler/ErrorHandler
+      17: putfield      #86                 // Field _errorHandler:Lorg/eclipse/jetty/server/handler/ErrorHandler;
+      20: aload_0
+      21: getfield      #86                 // Field _errorHandler:Lorg/eclipse/jetty/server/handler/ErrorHandler;
+      24: ifnonnull     38
+      27: aload_0
+      28: new           #103                // class org/eclipse/jetty/server/handler/ErrorHandler
+      31: dup
+      32: invokespecial #258                // Method org/eclipse/jetty/server/handler/ErrorHandler."<init>":()V
+      35: invokevirtual #259                // Method setErrorHandler:(Lorg/eclipse/jetty/server/handler/ErrorHandler;)V
+      38: aload_0
+      39: getfield      #86                 // Field _errorHandler:Lorg/eclipse/jetty/server/handler/ErrorHandler;
+      42: instanceof    #94                 // class org/eclipse/jetty/server/handler/ErrorHandler$ErrorPageMapper
+      45: ifeq          59
+      48: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+      51: ldc_w         #267                // String ErrorPageMapper not supported for Server level Error Handling
+      54: invokeinterface #269,  2          // InterfaceMethod org/slf4j/Logger.warn:(Ljava/lang/String;)V
+      59: aload_0
+      60: getfield      #86                 // Field _errorHandler:Lorg/eclipse/jetty/server/handler/ErrorHandler;
+      63: aload_0
+      64: invokevirtual #102                // Method org/eclipse/jetty/server/handler/ErrorHandler.setServer:(Lorg/eclipse/jetty/server/Server;)V
+      67: aload_0
+      68: invokevirtual #274                // Method getStopAtShutdown:()Z
+      71: ifeq          85
+      74: iconst_1
+      75: anewarray     #122                // class org/eclipse/jetty/util/component/LifeCycle
+      78: dup
+      79: iconst_0
+      80: aload_0
+      81: aastore
+      82: invokestatic  #124                // Method org/eclipse/jetty/util/thread/ShutdownThread.register:([Lorg/eclipse/jetty/util/component/LifeCycle;)V
+      85: iconst_1
+      86: anewarray     #122                // class org/eclipse/jetty/util/component/LifeCycle
+      89: dup
+      90: iconst_0
+      91: aload_0
+      92: aastore
+      93: invokestatic  #277                // Method org/eclipse/jetty/server/ShutdownMonitor.register:([Lorg/eclipse/jetty/util/component/LifeCycle;)V
+      96: invokestatic  #280                // Method org/eclipse/jetty/server/ShutdownMonitor.getInstance:()Lorg/eclipse/jetty/server/ShutdownMonitor;
+      99: invokevirtual #284                // Method org/eclipse/jetty/server/ShutdownMonitor.start:()V
+     102: getstatic     #287                // Field org/eclipse/jetty/util/Jetty.GIT_HASH:Ljava/lang/String;
+     105: astore_1
+     106: getstatic     #290                // Field org/eclipse/jetty/util/Jetty.BUILD_TIMESTAMP:Ljava/lang/String;
+     109: astore_2
+     110: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+     113: ldc_w         #293                // String jetty-{}; built: {}; git: {}; jvm {}
+     116: iconst_4
+     117: anewarray     #295                // class java/lang/Object
+     120: dup
+     121: iconst_0
+     122: invokestatic  #297                // Method getVersion:()Ljava/lang/String;
+     125: aastore
+     126: dup
+     127: iconst_1
+     128: aload_2
+     129: aastore
+     130: dup
+     131: iconst_2
+     132: aload_1
+     133: aastore
+     134: dup
+     135: iconst_3
+     136: ldc_w         #300                // String java.runtime.version
+     139: ldc_w         #302                // String java.version
+     142: invokestatic  #304                // Method java/lang/System.getProperty:(Ljava/lang/String;)Ljava/lang/String;
+     145: invokestatic  #308                // Method java/lang/System.getProperty:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+     148: aastore
+     149: invokeinterface #311,  3          // InterfaceMethod org/slf4j/Logger.info:(Ljava/lang/String;[Ljava/lang/Object;)V
+     154: getstatic     #315                // Field org/eclipse/jetty/util/Jetty.STABLE:Z
+     157: ifne          182
+     160: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+     163: ldc_w         #318                // String THIS IS NOT A STABLE RELEASE! DO NOT USE IN PRODUCTION!
+     166: invokeinterface #269,  2          // InterfaceMethod org/slf4j/Logger.warn:(Ljava/lang/String;)V
+     171: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+     174: ldc_w         #320                // String Download a stable release from https://download.eclipse.org/jetty/
+     177: invokeinterface #269,  2          // InterfaceMethod org/slf4j/Logger.warn:(Ljava/lang/String;)V
+     182: getstatic     #322                // Field org/eclipse/jetty/server/HttpConfiguration.SERVER_VERSION:Ljava/lang/String;
+     185: invokestatic  #327                // Method org/eclipse/jetty/http/HttpGenerator.setJettyVersion:(Ljava/lang/String;)V
+     188: new           #332                // class org/eclipse/jetty/util/MultiException
+     191: dup
+     192: invokespecial #334                // Method org/eclipse/jetty/util/MultiException."<init>":()V
+     195: astore_3
+     196: aload_0
+     197: getfield      #78                 // Field _dryRun:Z
+     200: ifne          263
+     203: aload_0
+     204: getfield      #53                 // Field _connectors:Ljava/util/List;
+     207: invokeinterface #335,  1          // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+     212: ldc_w         #339                // class org/eclipse/jetty/server/NetworkConnector
+     215: dup
+     216: invokestatic  #341                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+     219: pop
+     220: invokedynamic #347,  0            // InvokeDynamic #1:test:(Ljava/lang/Class;)Ljava/util/function/Predicate;
+     225: invokeinterface #351,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+     230: ldc_w         #339                // class org/eclipse/jetty/server/NetworkConnector
+     233: dup
+     234: invokestatic  #341                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+     237: pop
+     238: invokedynamic #357,  0            // InvokeDynamic #2:apply:(Ljava/lang/Class;)Ljava/util/function/Function;
+     243: invokeinterface #361,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+     248: aload_3
+     249: invokedynamic #365,  0            // InvokeDynamic #3:accept:(Lorg/eclipse/jetty/util/MultiException;)Ljava/util/function/Consumer;
+     254: invokeinterface #369,  2          // InterfaceMethod java/util/stream/Stream.forEach:(Ljava/util/function/Consumer;)V
+     259: aload_3
+     260: invokevirtual #373                // Method org/eclipse/jetty/util/MultiException.ifExceptionThrow:()V
+     263: aload_0
+     264: invokespecial #376                // Method org/eclipse/jetty/server/handler/HandlerWrapper.doStart:()V
+     267: aload_0
+     268: getfield      #78                 // Field _dryRun:Z
+     271: ifeq          314
+     274: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+     277: ldc_w         #379                // String Started(dry run) %s @%dms
+     280: iconst_2
+     281: anewarray     #295                // class java/lang/Object
+     284: dup
+     285: iconst_0
+     286: aload_0
+     287: aastore
+     288: dup
+     289: iconst_1
+     290: invokestatic  #381                // Method org/eclipse/jetty/util/Uptime.getUptime:()J
+     293: invokestatic  #386                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+     296: aastore
+     297: invokestatic  #391                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     300: invokeinterface #395,  2          // InterfaceMethod org/slf4j/Logger.info:(Ljava/lang/String;)V
+     305: new           #397                // class org/eclipse/jetty/util/component/AbstractLifeCycle$StopException
+     308: dup
+     309: aload_0
+     310: invokespecial #399                // Method org/eclipse/jetty/util/component/AbstractLifeCycle$StopException."<init>":(Lorg/eclipse/jetty/util/component/AbstractLifeCycle;)V
+     313: athrow
+     314: aload_0
+     315: getfield      #53                 // Field _connectors:Ljava/util/List;
+     318: invokeinterface #402,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+     323: astore        4
+     325: aload         4
+     327: invokeinterface #406,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     332: ifeq          415
+     335: aload         4
+     337: invokeinterface #411,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     342: checkcast     #18                 // class org/eclipse/jetty/server/Connector
+     345: astore        5
+     347: aload         5
+     349: invokeinterface #415,  1          // InterfaceMethod org/eclipse/jetty/server/Connector.start:()V
+     354: goto          412
+     357: astore        6
+     359: aload_3
+     360: aload         6
+     362: invokevirtual #416                // Method org/eclipse/jetty/util/MultiException.add:(Ljava/lang/Throwable;)V
+     365: aload_0
+     366: getfield      #53                 // Field _connectors:Ljava/util/List;
+     369: invokeinterface #335,  1          // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+     374: invokedynamic #418,  0            // InvokeDynamic #4:test:()Ljava/util/function/Predicate;
+     379: invokeinterface #351,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+     384: ldc_w         #295                // class java/lang/Object
+     387: dup
+     388: invokestatic  #341                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+     391: pop
+     392: invokedynamic #421,  0            // InvokeDynamic #5:apply:(Ljava/lang/Class;)Ljava/util/function/Function;
+     397: invokeinterface #361,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+     402: invokedynamic #422,  0            // InvokeDynamic #6:accept:()Ljava/util/function/Consumer;
+     407: invokeinterface #369,  2          // InterfaceMethod java/util/stream/Stream.forEach:(Ljava/util/function/Consumer;)V
+     412: goto          325
+     415: aload_3
+     416: invokevirtual #373                // Method org/eclipse/jetty/util/MultiException.ifExceptionThrow:()V
+     419: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+     422: ldc_w         #425                // String Started %s @%dms
+     425: iconst_2
+     426: anewarray     #295                // class java/lang/Object
+     429: dup
+     430: iconst_0
+     431: aload_0
+     432: aastore
+     433: dup
+     434: iconst_1
+     435: invokestatic  #381                // Method org/eclipse/jetty/util/Uptime.getUptime:()J
+     438: invokestatic  #386                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+     441: aastore
+     442: invokestatic  #391                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     445: invokeinterface #395,  2          // InterfaceMethod org/slf4j/Logger.info:(Ljava/lang/String;)V
+     450: aload_0
+     451: invokevirtual #427                // Method isDumpAfterStart:()Z
+     454: ifeq          567
+     457: aload_0
+     458: getfield      #78                 // Field _dryRun:Z
+     461: ifeq          471
+     464: aload_0
+     465: invokevirtual #430                // Method isDumpBeforeStop:()Z
+     468: ifne          567
+     471: aload_0
+     472: invokevirtual #433                // Method dumpStdErr:()V
+     475: goto          567
+     478: astore_1
+     479: aload_0
+     480: getfield      #53                 // Field _connectors:Ljava/util/List;
+     483: invokeinterface #335,  1          // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+     488: ldc_w         #339                // class org/eclipse/jetty/server/NetworkConnector
+     491: dup
+     492: invokestatic  #341                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+     495: pop
+     496: invokedynamic #347,  0            // InvokeDynamic #1:test:(Ljava/lang/Class;)Ljava/util/function/Predicate;
+     501: invokeinterface #351,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+     506: ldc_w         #339                // class org/eclipse/jetty/server/NetworkConnector
+     509: dup
+     510: invokestatic  #341                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+     513: pop
+     514: invokedynamic #357,  0            // InvokeDynamic #2:apply:(Ljava/lang/Class;)Ljava/util/function/Function;
+     519: invokeinterface #361,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+     524: aload_1
+     525: invokedynamic #436,  0            // InvokeDynamic #7:accept:(Ljava/lang/Throwable;)Ljava/util/function/Consumer;
+     530: invokeinterface #369,  2          // InterfaceMethod java/util/stream/Stream.forEach:(Ljava/util/function/Consumer;)V
+     535: aload_1
+     536: athrow
+     537: astore        7
+     539: aload_0
+     540: invokevirtual #427                // Method isDumpAfterStart:()Z
+     543: ifeq          564
+     546: aload_0
+     547: getfield      #78                 // Field _dryRun:Z
+     550: ifeq          560
+     553: aload_0
+     554: invokevirtual #430                // Method isDumpBeforeStop:()Z
+     557: ifne          564
+     560: aload_0
+     561: invokevirtual #433                // Method dumpStdErr:()V
+     564: aload         7
+     566: athrow
+     567: return
+    Exception table:
+       from    to  target type
+         347   354   357   Class java/lang/Throwable
+           0   450   478   Class java/lang/Throwable
+           0   450   537   any
+         478   539   537   any
+
+  protected void start(org.eclipse.jetty.util.component.LifeCycle) throws java.lang.Exception;
+    descriptor: (Lorg/eclipse/jetty/util/component/LifeCycle;)V
+    Code:
+       0: aload_1
+       1: instanceof    #18                 // class org/eclipse/jetty/server/Connector
+       4: ifne          12
+       7: aload_0
+       8: aload_1
+       9: invokespecial #439                // Method org/eclipse/jetty/server/handler/HandlerWrapper.start:(Lorg/eclipse/jetty/util/component/LifeCycle;)V
+      12: return
+
+  protected void doStop() throws java.lang.Exception;
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokevirtual #430                // Method isDumpBeforeStop:()Z
+       4: ifeq          11
+       7: aload_0
+       8: invokevirtual #433                // Method dumpStdErr:()V
+      11: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+      14: ldc_w         #441                // String Stopped %s
+      17: iconst_1
+      18: anewarray     #295                // class java/lang/Object
+      21: dup
+      22: iconst_0
+      23: aload_0
+      24: aastore
+      25: invokestatic  #391                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      28: invokeinterface #395,  2          // InterfaceMethod org/slf4j/Logger.info:(Ljava/lang/String;)V
+      33: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+      36: invokeinterface #443,  1          // InterfaceMethod org/slf4j/Logger.isDebugEnabled:()Z
+      41: ifeq          56
+      44: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+      47: ldc_w         #446                // String doStop {}
+      50: aload_0
+      51: invokeinterface #448,  3          // InterfaceMethod org/slf4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+      56: new           #332                // class org/eclipse/jetty/util/MultiException
+      59: dup
+      60: invokespecial #334                // Method org/eclipse/jetty/util/MultiException."<init>":()V
+      63: astore_1
+      64: aload_0
+      65: invokevirtual #452                // Method getStopTimeout:()J
+      68: lconst_0
+      69: lcmp
+      70: ifle          145
+      73: invokestatic  #455                // Method org/eclipse/jetty/util/NanoTime.now:()J
+      76: getstatic     #460                // Field java/util/concurrent/TimeUnit.MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+      79: aload_0
+      80: invokevirtual #452                // Method getStopTimeout:()J
+      83: invokevirtual #466                // Method java/util/concurrent/TimeUnit.toNanos:(J)J
+      86: ladd
+      87: lstore_2
+      88: aload_0
+      89: invokestatic  #470                // InterfaceMethod org/eclipse/jetty/util/component/Graceful.shutdown:(Lorg/eclipse/jetty/util/component/Container;)Ljava/util/concurrent/CompletableFuture;
+      92: aload_0
+      93: invokevirtual #452                // Method getStopTimeout:()J
+      96: getstatic     #460                // Field java/util/concurrent/TimeUnit.MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+      99: invokevirtual #476                // Method java/util/concurrent/CompletableFuture.get:(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
+     102: pop
+     103: goto          114
+     106: astore        4
+     108: aload_1
+     109: aload         4
+     111: invokevirtual #416                // Method org/eclipse/jetty/util/MultiException.add:(Ljava/lang/Throwable;)V
+     114: aload_0
+     115: ldc           #64                 // class org/eclipse/jetty/util/thread/QueuedThreadPool
+     117: invokevirtual #254                // Method getBean:(Ljava/lang/Class;)Ljava/lang/Object;
+     120: checkcast     #64                 // class org/eclipse/jetty/util/thread/QueuedThreadPool
+     123: astore        4
+     125: aload         4
+     127: ifnull        145
+     130: aload         4
+     132: ldc2_w        #207                // long 1000l
+     135: lload_2
+     136: invokestatic  #482                // Method org/eclipse/jetty/util/NanoTime.millisUntil:(J)J
+     139: invokestatic  #485                // Method java/lang/Math.max:(JJ)J
+     142: invokevirtual #491                // Method org/eclipse/jetty/util/thread/QueuedThreadPool.setStopTimeout:(J)V
+     145: aload_0
+     146: getfield      #53                 // Field _connectors:Ljava/util/List;
+     149: invokeinterface #402,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+     154: astore_2
+     155: aload_2
+     156: invokeinterface #406,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     161: ifeq          194
+     164: aload_2
+     165: invokeinterface #411,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     170: checkcast     #18                 // class org/eclipse/jetty/server/Connector
+     173: astore_3
+     174: aload_3
+     175: invokeinterface #495,  1          // InterfaceMethod org/eclipse/jetty/server/Connector.stop:()V
+     180: goto          191
+     183: astore        4
+     185: aload_1
+     186: aload         4
+     188: invokevirtual #416                // Method org/eclipse/jetty/util/MultiException.add:(Ljava/lang/Throwable;)V
+     191: goto          155
+     194: aload_0
+     195: invokespecial #498                // Method org/eclipse/jetty/server/handler/HandlerWrapper.doStop:()V
+     198: goto          207
+     201: astore_2
+     202: aload_1
+     203: aload_2
+     204: invokevirtual #416                // Method org/eclipse/jetty/util/MultiException.add:(Ljava/lang/Throwable;)V
+     207: aload_0
+     208: invokevirtual #274                // Method getStopAtShutdown:()Z
+     211: ifeq          218
+     214: aload_0
+     215: invokestatic  #130                // Method org/eclipse/jetty/util/thread/ShutdownThread.deregister:(Lorg/eclipse/jetty/util/component/LifeCycle;)V
+     218: aload_0
+     219: invokestatic  #501                // Method org/eclipse/jetty/server/ShutdownMonitor.deregister:(Lorg/eclipse/jetty/util/component/LifeCycle;)V
+     222: aload_1
+     223: invokevirtual #373                // Method org/eclipse/jetty/util/MultiException.ifExceptionThrow:()V
+     226: return
+    Exception table:
+       from    to  target type
+          88   103   106   Class java/lang/Throwable
+         174   180   183   Class java/lang/Throwable
+         194   198   201   Class java/lang/Throwable
+
+  public void handle(org.eclipse.jetty.server.HttpChannel) throws java.io.IOException, javax.servlet.ServletException;
+    descriptor: (Lorg/eclipse/jetty/server/HttpChannel;)V
+    Code:
+       0: aload_1
+       1: invokevirtual #502                // Method org/eclipse/jetty/server/HttpChannel.getRequest:()Lorg/eclipse/jetty/server/Request;
+       4: invokevirtual #508                // Method org/eclipse/jetty/server/Request.getPathInfo:()Ljava/lang/String;
+       7: astore_2
+       8: aload_1
+       9: invokevirtual #502                // Method org/eclipse/jetty/server/HttpChannel.getRequest:()Lorg/eclipse/jetty/server/Request;
+      12: astore_3
+      13: aload_1
+      14: invokevirtual #513                // Method org/eclipse/jetty/server/HttpChannel.getResponse:()Lorg/eclipse/jetty/server/Response;
+      17: astore        4
+      19: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+      22: invokeinterface #443,  1          // InterfaceMethod org/slf4j/Logger.isDebugEnabled:()Z
+      27: ifeq          74
+      30: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+      33: ldc_w         #517                // String {} {} {} ?{} on {}
+      36: iconst_5
+      37: anewarray     #295                // class java/lang/Object
+      40: dup
+      41: iconst_0
+      42: aload_3
+      43: invokevirtual #519                // Method org/eclipse/jetty/server/Request.getDispatcherType:()Ljavax/servlet/DispatcherType;
+      46: aastore
+      47: dup
+      48: iconst_1
+      49: aload_3
+      50: invokevirtual #523                // Method org/eclipse/jetty/server/Request.getMethod:()Ljava/lang/String;
+      53: aastore
+      54: dup
+      55: iconst_2
+      56: aload_2
+      57: aastore
+      58: dup
+      59: iconst_3
+      60: aload_3
+      61: invokevirtual #526                // Method org/eclipse/jetty/server/Request.getQueryString:()Ljava/lang/String;
+      64: aastore
+      65: dup
+      66: iconst_4
+      67: aload_1
+      68: aastore
+      69: invokeinterface #529,  3          // InterfaceMethod org/slf4j/Logger.debug:(Ljava/lang/String;[Ljava/lang/Object;)V
+      74: getstatic     #531                // Field org/eclipse/jetty/http/HttpMethod.OPTIONS:Lorg/eclipse/jetty/http/HttpMethod;
+      77: aload_3
+      78: invokevirtual #523                // Method org/eclipse/jetty/server/Request.getMethod:()Ljava/lang/String;
+      81: invokevirtual #537                // Method org/eclipse/jetty/http/HttpMethod.is:(Ljava/lang/String;)Z
+      84: ifne          97
+      87: ldc_w         #541                // String *
+      90: aload_2
+      91: invokevirtual #543                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      94: ifeq          152
+      97: getstatic     #531                // Field org/eclipse/jetty/http/HttpMethod.OPTIONS:Lorg/eclipse/jetty/http/HttpMethod;
+     100: aload_3
+     101: invokevirtual #523                // Method org/eclipse/jetty/server/Request.getMethod:()Ljava/lang/String;
+     104: invokevirtual #537                // Method org/eclipse/jetty/http/HttpMethod.is:(Ljava/lang/String;)Z
+     107: ifne          126
+     110: aload_3
+     111: iconst_1
+     112: invokevirtual #546                // Method org/eclipse/jetty/server/Request.setHandled:(Z)V
+     115: aload         4
+     117: sipush        400
+     120: invokevirtual #552                // Method org/eclipse/jetty/server/Response.sendError:(I)V
+     123: goto          161
+     126: aload_0
+     127: aload_3
+     128: aload         4
+     130: invokevirtual #557                // Method handleOptions:(Lorg/eclipse/jetty/server/Request;Lorg/eclipse/jetty/server/Response;)V
+     133: aload_3
+     134: invokevirtual #561                // Method org/eclipse/jetty/server/Request.isHandled:()Z
+     137: ifne          161
+     140: aload_0
+     141: aload_2
+     142: aload_3
+     143: aload_3
+     144: aload         4
+     146: invokevirtual #564                // Method handle:(Ljava/lang/String;Lorg/eclipse/jetty/server/Request;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V
+     149: goto          161
+     152: aload_0
+     153: aload_2
+     154: aload_3
+     155: aload_3
+     156: aload         4
+     158: invokevirtual #564                // Method handle:(Ljava/lang/String;Lorg/eclipse/jetty/server/Request;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V
+     161: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+     164: invokeinterface #443,  1          // InterfaceMethod org/slf4j/Logger.isDebugEnabled:()Z
+     169: ifeq          222
+     172: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+     175: ldc_w         #568                // String handled={} async={} committed={} on {}
+     178: iconst_4
+     179: anewarray     #295                // class java/lang/Object
+     182: dup
+     183: iconst_0
+     184: aload_3
+     185: invokevirtual #561                // Method org/eclipse/jetty/server/Request.isHandled:()Z
+     188: invokestatic  #570                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     191: aastore
+     192: dup
+     193: iconst_1
+     194: aload_3
+     195: invokevirtual #575                // Method org/eclipse/jetty/server/Request.isAsyncStarted:()Z
+     198: invokestatic  #570                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     201: aastore
+     202: dup
+     203: iconst_2
+     204: aload         4
+     206: invokevirtual #578                // Method org/eclipse/jetty/server/Response.isCommitted:()Z
+     209: invokestatic  #570                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     212: aastore
+     213: dup
+     214: iconst_3
+     215: aload_1
+     216: aastore
+     217: invokeinterface #529,  3          // InterfaceMethod org/slf4j/Logger.debug:(Ljava/lang/String;[Ljava/lang/Object;)V
+     222: return
+
+  protected void handleOptions(org.eclipse.jetty.server.Request, org.eclipse.jetty.server.Response) throws java.io.IOException;
+    descriptor: (Lorg/eclipse/jetty/server/Request;Lorg/eclipse/jetty/server/Response;)V
+    Code:
+       0: return
+
+  public void handleAsync(org.eclipse.jetty.server.HttpChannel) throws java.io.IOException, javax.servlet.ServletException;
+    descriptor: (Lorg/eclipse/jetty/server/HttpChannel;)V
+    Code:
+       0: aload_1
+       1: invokevirtual #502                // Method org/eclipse/jetty/server/HttpChannel.getRequest:()Lorg/eclipse/jetty/server/Request;
+       4: invokevirtual #581                // Method org/eclipse/jetty/server/Request.getHttpChannelState:()Lorg/eclipse/jetty/server/HttpChannelState;
+       7: astore_2
+       8: aload_2
+       9: invokevirtual #585                // Method org/eclipse/jetty/server/HttpChannelState.getAsyncContextEvent:()Lorg/eclipse/jetty/server/AsyncContextEvent;
+      12: astore_3
+      13: aload_1
+      14: invokevirtual #502                // Method org/eclipse/jetty/server/HttpChannel.getRequest:()Lorg/eclipse/jetty/server/Request;
+      17: astore        4
+      19: aload_3
+      20: invokevirtual #591                // Method org/eclipse/jetty/server/AsyncContextEvent.getBaseURI:()Lorg/eclipse/jetty/http/HttpURI;
+      23: astore        5
+      25: aload_3
+      26: invokevirtual #597                // Method org/eclipse/jetty/server/AsyncContextEvent.getDispatchPath:()Ljava/lang/String;
+      29: astore        6
+      31: aload         6
+      33: ifnonnull     50
+      36: aload         5
+      38: ifnonnull     50
+      41: aload_0
+      42: aload_1
+      43: aload_3
+      44: aload         4
+      46: invokevirtual #600                // Method handleAsync:(Lorg/eclipse/jetty/server/HttpChannel;Lorg/eclipse/jetty/server/AsyncContextEvent;Lorg/eclipse/jetty/server/Request;)V
+      49: return
+      50: aload         4
+      52: invokevirtual #604                // Method org/eclipse/jetty/server/Request.getHttpURI:()Lorg/eclipse/jetty/http/HttpURI;
+      55: astore        7
+      57: aload         4
+      59: invokevirtual #607                // Method org/eclipse/jetty/server/Request.getQueryParameters:()Lorg/eclipse/jetty/util/MultiMap;
+      62: astore        8
+      64: aload         6
+      66: ifnonnull     79
+      69: aload         4
+      71: aload         5
+      73: invokevirtual #611                // Method org/eclipse/jetty/server/Request.setHttpURI:(Lorg/eclipse/jetty/http/HttpURI;)V
+      76: goto          271
+      79: aload_3
+      80: invokevirtual #615                // Method org/eclipse/jetty/server/AsyncContextEvent.getServletContext:()Ljavax/servlet/ServletContext;
+      83: astore        9
+      85: aload         9
+      87: ifnull        163
+      90: aload         9
+      92: instanceof    #619                // class org/eclipse/jetty/server/handler/ContextHandler$Context
+      95: ifeq          112
+      98: aload         9
+     100: checkcast     #619                // class org/eclipse/jetty/server/handler/ContextHandler$Context
+     103: invokevirtual #621                // Method org/eclipse/jetty/server/handler/ContextHandler$Context.getContextHandler:()Lorg/eclipse/jetty/server/handler/ContextHandler;
+     106: invokevirtual #625                // Method org/eclipse/jetty/server/handler/ContextHandler.getContextPathEncoded:()Ljava/lang/String;
+     109: goto          122
+     112: aload         9
+     114: invokeinterface #630,  1          // InterfaceMethod javax/servlet/ServletContext.getContextPath:()Ljava/lang/String;
+     119: invokestatic  #635                // Method org/eclipse/jetty/util/URIUtil.encodePath:(Ljava/lang/String;)Ljava/lang/String;
+     122: astore        10
+     124: aload         10
+     126: invokestatic  #640                // Method org/eclipse/jetty/util/StringUtil.isEmpty:(Ljava/lang/String;)Z
+     129: ifne          163
+     132: aload         10
+     134: aload         6
+     136: invokestatic  #645                // Method org/eclipse/jetty/util/URIUtil.addEncodedPaths:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+     139: invokestatic  #648                // Method org/eclipse/jetty/util/URIUtil.canonicalPath:(Ljava/lang/String;)Ljava/lang/String;
+     142: astore        6
+     144: aload         6
+     146: ifnonnull     163
+     149: new           #651                // class org/eclipse/jetty/http/BadMessageException
+     152: dup
+     153: sipush        500
+     156: ldc_w         #653                // String Bad dispatch path
+     159: invokespecial #655                // Method org/eclipse/jetty/http/BadMessageException."<init>":(ILjava/lang/String;)V
+     162: athrow
+     163: aload         5
+     165: ifnonnull     172
+     168: aload         7
+     170: astore        5
+     172: aload         5
+     174: aload         6
+     176: invokestatic  #658                // InterfaceMethod org/eclipse/jetty/http/HttpURI.build:(Lorg/eclipse/jetty/http/HttpURI;Ljava/lang/String;)Lorg/eclipse/jetty/http/HttpURI$Mutable;
+     179: astore        10
+     181: aload         10
+     183: invokevirtual #664                // Method org/eclipse/jetty/http/HttpURI$Mutable.getParam:()Ljava/lang/String;
+     186: invokestatic  #640                // Method org/eclipse/jetty/util/StringUtil.isEmpty:(Ljava/lang/String;)Z
+     189: ifeq          205
+     192: aload         10
+     194: aload         5
+     196: invokeinterface #669,  1          // InterfaceMethod org/eclipse/jetty/http/HttpURI.getParam:()Ljava/lang/String;
+     201: invokevirtual #670                // Method org/eclipse/jetty/http/HttpURI$Mutable.param:(Ljava/lang/String;)Lorg/eclipse/jetty/http/HttpURI$Mutable;
+     204: pop
+     205: aload         10
+     207: invokevirtual #674                // Method org/eclipse/jetty/http/HttpURI$Mutable.getQuery:()Ljava/lang/String;
+     210: invokestatic  #640                // Method org/eclipse/jetty/util/StringUtil.isEmpty:(Ljava/lang/String;)Z
+     213: ifeq          229
+     216: aload         10
+     218: aload         5
+     220: invokeinterface #677,  1          // InterfaceMethod org/eclipse/jetty/http/HttpURI.getQuery:()Ljava/lang/String;
+     225: invokevirtual #678                // Method org/eclipse/jetty/http/HttpURI$Mutable.query:(Ljava/lang/String;)Lorg/eclipse/jetty/http/HttpURI$Mutable;
+     228: pop
+     229: aload         4
+     231: aload         10
+     233: invokevirtual #611                // Method org/eclipse/jetty/server/Request.setHttpURI:(Lorg/eclipse/jetty/http/HttpURI;)V
+     236: aload         5
+     238: invokeinterface #677,  1          // InterfaceMethod org/eclipse/jetty/http/HttpURI.getQuery:()Ljava/lang/String;
+     243: ifnull        271
+     246: aload         4
+     248: invokevirtual #526                // Method org/eclipse/jetty/server/Request.getQueryString:()Ljava/lang/String;
+     251: ifnull        271
+     254: aload         4
+     256: aload         7
+     258: invokeinterface #677,  1          // InterfaceMethod org/eclipse/jetty/http/HttpURI.getQuery:()Ljava/lang/String;
+     263: aload         4
+     265: invokevirtual #526                // Method org/eclipse/jetty/server/Request.getQueryString:()Ljava/lang/String;
+     268: invokevirtual #681                // Method org/eclipse/jetty/server/Request.mergeQueryParameters:(Ljava/lang/String;Ljava/lang/String;)V
+     271: aload         4
+     273: aconst_null
+     274: aload         4
+     276: invokevirtual #604                // Method org/eclipse/jetty/server/Request.getHttpURI:()Lorg/eclipse/jetty/http/HttpURI;
+     279: invokeinterface #685,  1          // InterfaceMethod org/eclipse/jetty/http/HttpURI.getDecodedPath:()Ljava/lang/String;
+     284: invokevirtual #688                // Method org/eclipse/jetty/server/Request.setContext:(Lorg/eclipse/jetty/server/handler/ContextHandler$Context;Ljava/lang/String;)V
+     287: aload_0
+     288: aload_1
+     289: aload_3
+     290: aload         4
+     292: invokevirtual #600                // Method handleAsync:(Lorg/eclipse/jetty/server/HttpChannel;Lorg/eclipse/jetty/server/AsyncContextEvent;Lorg/eclipse/jetty/server/Request;)V
+     295: aload         4
+     297: aload         7
+     299: invokevirtual #611                // Method org/eclipse/jetty/server/Request.setHttpURI:(Lorg/eclipse/jetty/http/HttpURI;)V
+     302: aload         4
+     304: aload         8
+     306: invokevirtual #692                // Method org/eclipse/jetty/server/Request.setQueryParameters:(Lorg/eclipse/jetty/util/MultiMap;)V
+     309: aload         4
+     311: invokevirtual #696                // Method org/eclipse/jetty/server/Request.resetParameters:()V
+     314: goto          341
+     317: astore        11
+     319: aload         4
+     321: aload         7
+     323: invokevirtual #611                // Method org/eclipse/jetty/server/Request.setHttpURI:(Lorg/eclipse/jetty/http/HttpURI;)V
+     326: aload         4
+     328: aload         8
+     330: invokevirtual #692                // Method org/eclipse/jetty/server/Request.setQueryParameters:(Lorg/eclipse/jetty/util/MultiMap;)V
+     333: aload         4
+     335: invokevirtual #696                // Method org/eclipse/jetty/server/Request.resetParameters:()V
+     338: aload         11
+     340: athrow
+     341: return
+    Exception table:
+       from    to  target type
+          64   295   317   any
+         317   319   317   any
+
+  private void handleAsync(org.eclipse.jetty.server.HttpChannel, org.eclipse.jetty.server.AsyncContextEvent, org.eclipse.jetty.server.Request) throws java.io.IOException, javax.servlet.ServletException;
+    descriptor: (Lorg/eclipse/jetty/server/HttpChannel;Lorg/eclipse/jetty/server/AsyncContextEvent;Lorg/eclipse/jetty/server/Request;)V
+    Code:
+       0: aload_3
+       1: invokevirtual #508                // Method org/eclipse/jetty/server/Request.getPathInfo:()Ljava/lang/String;
+       4: astore        4
+       6: aload_2
+       7: invokevirtual #699                // Method org/eclipse/jetty/server/AsyncContextEvent.getSuppliedRequest:()Ljavax/servlet/ServletRequest;
+      10: invokestatic  #703                // Method org/eclipse/jetty/server/Request.unwrap:(Ljavax/servlet/ServletRequest;)Ljavax/servlet/http/HttpServletRequest;
+      13: astore        5
+      15: aload_2
+      16: invokevirtual #707                // Method org/eclipse/jetty/server/AsyncContextEvent.getSuppliedResponse:()Ljavax/servlet/ServletResponse;
+      19: invokestatic  #711                // Method org/eclipse/jetty/server/Response.unwrap:(Ljavax/servlet/ServletResponse;)Ljavax/servlet/http/HttpServletResponse;
+      22: astore        6
+      24: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+      27: invokeinterface #443,  1          // InterfaceMethod org/slf4j/Logger.isDebugEnabled:()Z
+      32: ifeq          79
+      35: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+      38: ldc_w         #714                // String {} {} {} on {}
+      41: iconst_4
+      42: anewarray     #295                // class java/lang/Object
+      45: dup
+      46: iconst_0
+      47: aload         5
+      49: invokeinterface #716,  1          // InterfaceMethod javax/servlet/http/HttpServletRequest.getDispatcherType:()Ljavax/servlet/DispatcherType;
+      54: aastore
+      55: dup
+      56: iconst_1
+      57: aload         5
+      59: invokeinterface #719,  1          // InterfaceMethod javax/servlet/http/HttpServletRequest.getMethod:()Ljava/lang/String;
+      64: aastore
+      65: dup
+      66: iconst_2
+      67: aload         4
+      69: aastore
+      70: dup
+      71: iconst_3
+      72: aload_1
+      73: aastore
+      74: invokeinterface #529,  3          // InterfaceMethod org/slf4j/Logger.debug:(Ljava/lang/String;[Ljava/lang/Object;)V
+      79: aload_0
+      80: aload         4
+      82: aload_3
+      83: aload         5
+      85: aload         6
+      87: invokevirtual #564                // Method handle:(Ljava/lang/String;Lorg/eclipse/jetty/server/Request;Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V
+      90: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+      93: invokeinterface #443,  1          // InterfaceMethod org/slf4j/Logger.isDebugEnabled:()Z
+      98: ifeq          159
+     101: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+     104: ldc_w         #720                // String handledAsync={} async={} committed={} on {}
+     107: iconst_4
+     108: anewarray     #295                // class java/lang/Object
+     111: dup
+     112: iconst_0
+     113: aload_1
+     114: invokevirtual #502                // Method org/eclipse/jetty/server/HttpChannel.getRequest:()Lorg/eclipse/jetty/server/Request;
+     117: invokevirtual #561                // Method org/eclipse/jetty/server/Request.isHandled:()Z
+     120: invokestatic  #570                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     123: aastore
+     124: dup
+     125: iconst_1
+     126: aload         5
+     128: invokeinterface #722,  1          // InterfaceMethod javax/servlet/http/HttpServletRequest.isAsyncStarted:()Z
+     133: invokestatic  #570                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     136: aastore
+     137: dup
+     138: iconst_2
+     139: aload         6
+     141: invokeinterface #723,  1          // InterfaceMethod javax/servlet/http/HttpServletResponse.isCommitted:()Z
+     146: invokestatic  #570                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     149: aastore
+     150: dup
+     151: iconst_3
+     152: aload_1
+     153: aastore
+     154: invokeinterface #529,  3          // InterfaceMethod org/slf4j/Logger.debug:(Ljava/lang/String;[Ljava/lang/Object;)V
+     159: return
+
+  public void join() throws java.lang.InterruptedException;
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokevirtual #726                // Method getThreadPool:()Lorg/eclipse/jetty/util/thread/ThreadPool;
+       4: invokeinterface #730,  1          // InterfaceMethod org/eclipse/jetty/util/thread/ThreadPool.join:()V
+       9: return
+
+  public org.eclipse.jetty.server.SessionIdManager getSessionIdManager();
+    descriptor: ()Lorg/eclipse/jetty/server/SessionIdManager;
+    Code:
+       0: aload_0
+       1: getfield      #733                // Field _sessionIdManager:Lorg/eclipse/jetty/server/SessionIdManager;
+       4: areturn
+
+  public void setSessionIdManager(org.eclipse.jetty.server.SessionIdManager);
+    descriptor: (Lorg/eclipse/jetty/server/SessionIdManager;)V
+    Code:
+       0: aload_0
+       1: aload_0
+       2: getfield      #733                // Field _sessionIdManager:Lorg/eclipse/jetty/server/SessionIdManager;
+       5: aload_1
+       6: invokevirtual #90                 // Method updateBean:(Ljava/lang/Object;Ljava/lang/Object;)V
+       9: aload_0
+      10: aload_1
+      11: putfield      #733                // Field _sessionIdManager:Lorg/eclipse/jetty/server/SessionIdManager;
+      14: return
+
+  public void clearAttributes();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: getfield      #46                 // Field _attributes:Lorg/eclipse/jetty/util/component/AttributeContainerMap;
+       4: invokevirtual #737                // Method org/eclipse/jetty/util/component/AttributeContainerMap.clearAttributes:()V
+       7: return
+
+  public java.lang.Object getAttribute(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/Object;
+    Code:
+       0: aload_0
+       1: getfield      #46                 // Field _attributes:Lorg/eclipse/jetty/util/component/AttributeContainerMap;
+       4: aload_1
+       5: invokevirtual #740                // Method org/eclipse/jetty/util/component/AttributeContainerMap.getAttribute:(Ljava/lang/String;)Ljava/lang/Object;
+       8: areturn
+
+  public java.util.Enumeration<java.lang.String> getAttributeNames();
+    descriptor: ()Ljava/util/Enumeration;
+    Code:
+       0: aload_0
+       1: getfield      #46                 // Field _attributes:Lorg/eclipse/jetty/util/component/AttributeContainerMap;
+       4: invokevirtual #744                // Method org/eclipse/jetty/util/component/AttributeContainerMap.getAttributeNames:()Ljava/util/Enumeration;
+       7: areturn
+
+  public java.util.Set<java.lang.String> getAttributeNameSet();
+    descriptor: ()Ljava/util/Set;
+    Code:
+       0: aload_0
+       1: getfield      #46                 // Field _attributes:Lorg/eclipse/jetty/util/component/AttributeContainerMap;
+       4: invokevirtual #748                // Method org/eclipse/jetty/util/component/AttributeContainerMap.getAttributeNameSet:()Ljava/util/Set;
+       7: areturn
+
+  public void removeAttribute(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    Code:
+       0: aload_0
+       1: getfield      #46                 // Field _attributes:Lorg/eclipse/jetty/util/component/AttributeContainerMap;
+       4: aload_1
+       5: invokevirtual #752                // Method org/eclipse/jetty/util/component/AttributeContainerMap.removeAttribute:(Ljava/lang/String;)V
+       8: return
+
+  public void setAttribute(java.lang.String, java.lang.Object);
+    descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
+    Code:
+       0: aload_0
+       1: getfield      #46                 // Field _attributes:Lorg/eclipse/jetty/util/component/AttributeContainerMap;
+       4: aload_1
+       5: aload_2
+       6: invokevirtual #755                // Method org/eclipse/jetty/util/component/AttributeContainerMap.setAttribute:(Ljava/lang/String;Ljava/lang/Object;)V
+       9: return
+
+  public java.net.URI getURI();
+    descriptor: ()Ljava/net/URI;
+    Code:
+       0: aconst_null
+       1: astore_1
+       2: aload_0
+       3: getfield      #53                 // Field _connectors:Ljava/util/List;
+       6: invokeinterface #402,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      11: astore_2
+      12: aload_2
+      13: invokeinterface #406,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      18: ifeq          49
+      21: aload_2
+      22: invokeinterface #411,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      27: checkcast     #18                 // class org/eclipse/jetty/server/Connector
+      30: astore_3
+      31: aload_3
+      32: instanceof    #339                // class org/eclipse/jetty/server/NetworkConnector
+      35: ifeq          46
+      38: aload_3
+      39: checkcast     #339                // class org/eclipse/jetty/server/NetworkConnector
+      42: astore_1
+      43: goto          49
+      46: goto          12
+      49: aload_1
+      50: ifnonnull     55
+      53: aconst_null
+      54: areturn
+      55: aload_0
+      56: ldc_w         #626                // class org/eclipse/jetty/server/handler/ContextHandler
+      59: invokevirtual #758                // Method getChildHandlerByClass:(Ljava/lang/Class;)Lorg/eclipse/jetty/server/Handler;
+      62: checkcast     #626                // class org/eclipse/jetty/server/handler/ContextHandler
+      65: astore_2
+      66: aload_1
+      67: invokeinterface #762,  1          // InterfaceMethod org/eclipse/jetty/server/NetworkConnector.getDefaultConnectionFactory:()Lorg/eclipse/jetty/server/ConnectionFactory;
+      72: invokeinterface #766,  1          // InterfaceMethod org/eclipse/jetty/server/ConnectionFactory.getProtocol:()Ljava/lang/String;
+      77: astore_3
+      78: ldc_w         #771                // String http
+      81: astore        4
+      83: aload_3
+      84: ldc_w         #773                // String SSL-
+      87: invokevirtual #775                // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+      90: ifne          103
+      93: aload_3
+      94: ldc_w         #778                // String SSL
+      97: invokevirtual #543                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     100: ifeq          108
+     103: ldc_w         #780                // String https
+     106: astore        4
+     108: aload_1
+     109: invokeinterface #782,  1          // InterfaceMethod org/eclipse/jetty/server/NetworkConnector.getHost:()Ljava/lang/String;
+     114: astore        5
+     116: aload_2
+     117: ifnull        143
+     120: aload_2
+     121: invokevirtual #785                // Method org/eclipse/jetty/server/handler/ContextHandler.getVirtualHosts:()[Ljava/lang/String;
+     124: ifnull        143
+     127: aload_2
+     128: invokevirtual #785                // Method org/eclipse/jetty/server/handler/ContextHandler.getVirtualHosts:()[Ljava/lang/String;
+     131: arraylength
+     132: ifle          143
+     135: aload_2
+     136: invokevirtual #785                // Method org/eclipse/jetty/server/handler/ContextHandler.getVirtualHosts:()[Ljava/lang/String;
+     139: iconst_0
+     140: aaload
+     141: astore        5
+     143: aload         5
+     145: ifnonnull     156
+     148: invokestatic  #789                // Method java/net/InetAddress.getLocalHost:()Ljava/net/InetAddress;
+     151: invokevirtual #795                // Method java/net/InetAddress.getHostAddress:()Ljava/lang/String;
+     154: astore        5
+     156: aload_2
+     157: ifnonnull     164
+     160: aconst_null
+     161: goto          168
+     164: aload_2
+     165: invokevirtual #798                // Method org/eclipse/jetty/server/handler/ContextHandler.getContextPath:()Ljava/lang/String;
+     168: astore        6
+     170: aload         6
+     172: ifnonnull     180
+     175: ldc_w         #799                // String /
+     178: astore        6
+     180: new           #801                // class java/net/URI
+     183: dup
+     184: aload         4
+     186: aconst_null
+     187: aload         5
+     189: aload_1
+     190: invokeinterface #803,  1          // InterfaceMethod org/eclipse/jetty/server/NetworkConnector.getLocalPort:()I
+     195: aload         6
+     197: aconst_null
+     198: aconst_null
+     199: invokespecial #806                // Method java/net/URI."<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+     202: areturn
+     203: astore_3
+     204: getstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+     207: ldc_w         #811                // String Unable to build server URI
+     210: aload_3
+     211: invokeinterface #813,  3          // InterfaceMethod org/slf4j/Logger.warn:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     216: aconst_null
+     217: areturn
+    Exception table:
+       from    to  target type
+          66   202   203   Class java/lang/Exception
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+    Code:
+       0: ldc_w         #816                // String %s[%s,sto=%d]
+       3: iconst_3
+       4: anewarray     #295                // class java/lang/Object
+       7: dup
+       8: iconst_0
+       9: aload_0
+      10: invokespecial #818                // Method org/eclipse/jetty/server/handler/HandlerWrapper.toString:()Ljava/lang/String;
+      13: aastore
+      14: dup
+      15: iconst_1
+      16: invokestatic  #297                // Method getVersion:()Ljava/lang/String;
+      19: aastore
+      20: dup
+      21: iconst_2
+      22: aload_0
+      23: invokevirtual #452                // Method getStopTimeout:()J
+      26: invokestatic  #386                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+      29: aastore
+      30: invokestatic  #391                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      33: areturn
+
+  public void dump(java.lang.Appendable, java.lang.String) throws java.io.IOException;
+    descriptor: (Ljava/lang/Appendable;Ljava/lang/String;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: iconst_1
+       4: anewarray     #295                // class java/lang/Object
+       7: dup
+       8: iconst_0
+       9: new           #821                // class org/eclipse/jetty/server/ClassLoaderDump
+      12: dup
+      13: aload_0
+      14: invokevirtual #823                // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      17: invokevirtual #827                // Method java/lang/Class.getClassLoader:()Ljava/lang/ClassLoader;
+      20: invokespecial #833                // Method org/eclipse/jetty/server/ClassLoaderDump."<init>":(Ljava/lang/ClassLoader;)V
+      23: aastore
+      24: invokevirtual #836                // Method dumpObjects:(Ljava/lang/Appendable;Ljava/lang/String;[Ljava/lang/Object;)V
+      27: return
+
+  public static void main(java.lang.String...) throws java.lang.Exception;
+    descriptor: ([Ljava/lang/String;)V
+    Code:
+       0: getstatic     #840                // Field java/lang/System.err:Ljava/io/PrintStream;
+       3: invokestatic  #297                // Method getVersion:()Ljava/lang/String;
+       6: invokevirtual #844                // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       9: return
+
+  private static void lambda$doStart$1(java.lang.Throwable, org.eclipse.jetty.server.NetworkConnector);
+    descriptor: (Ljava/lang/Throwable;Lorg/eclipse/jetty/server/NetworkConnector;)V
+    Code:
+       0: aload_1
+       1: invokeinterface #849,  1          // InterfaceMethod org/eclipse/jetty/server/NetworkConnector.close:()V
+       6: goto          20
+       9: astore_2
+      10: aload_0
+      11: aload_2
+      12: if_acmpeq     20
+      15: aload_0
+      16: aload_2
+      17: invokevirtual #247                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+      20: return
+    Exception table:
+       from    to  target type
+           0     6     9   Class java/lang/Throwable
+
+  private static void lambda$doStart$0(org.eclipse.jetty.util.MultiException, org.eclipse.jetty.server.NetworkConnector);
+    descriptor: (Lorg/eclipse/jetty/util/MultiException;Lorg/eclipse/jetty/server/NetworkConnector;)V
+    Code:
+       0: aload_1
+       1: invokeinterface #850,  1          // InterfaceMethod org/eclipse/jetty/server/NetworkConnector.open:()V
+       6: goto          15
+       9: astore_2
+      10: aload_0
+      11: aload_2
+      12: invokevirtual #416                // Method org/eclipse/jetty/util/MultiException.add:(Ljava/lang/Throwable;)V
+      15: return
+    Exception table:
+       from    to  target type
+           0     6     9   Class java/lang/Throwable
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: ldc           #4                  // class org/eclipse/jetty/server/Server
+       2: invokestatic  #853                // Method org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+       5: putstatic     #263                // Field LOG:Lorg/slf4j/Logger;
+       8: return
+}

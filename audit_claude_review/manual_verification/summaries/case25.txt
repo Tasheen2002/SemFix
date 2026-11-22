@@ -1,0 +1,40 @@
+﻿
+=== Case 25  1eb6d9d5b2a07720a0839457cee81e066dd932f2 ===
+Project : elimu-ai/webapp
+Update  : org.apache.logging.log4j:log4j-api  2.16.0 -> 2.18.0
+Running breaking in container manual-case25-breaking (this can take several minutes) ...
+Finished in 32 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case25_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 61, Failures: 0, Errors: 48, Skipped: 1
+First failing tests / errors:
+  [ERROR] testGetSyllableFrequency(ai.elimu.util.SyllableFrequencyHelperTest)  Time elapsed: 0.79 s  <<< ERROR!
+      java.lang.NoSuchMethodError: 'java.lang.ClassLoader[] org.apache.logging.log4j.util.LoaderUtil.getClassLoaders()'
+      at ai.elimu.util.SyllableFrequencyHelperTest.testGetSyllableFrequency(SyllableFrequencyHelperTest.java:18)
+      
+  [ERROR] testExtractChapterReferencesFromTableOfContentsFile_GLOBAL_DIGITAL_LIBRARY(ai.elimu.util.epub.EPubChapterExtractionHelperTest)  Time elapsed: 0.001 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+      at ai.elimu.util.epub.EPubChapterExtractionHelperTest.<init>(EPubChapterExtractionHelperTest.java:17)
+      
+  [ERROR] testExtractChapterReferencesFromTableOfContentsFile_GLOBAL_DIGITAL_LIBRARY_hin_nav(ai.elimu.util.epub.EPubChapterExtractionHelperTest)  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+      at ai.elimu.util.epub.EPubChapterExtractionHelperTest.<init>(EPubChapterExtractionHelperTest.java:17)
+      
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  IllegalAccessError x1
+  IncompatibleClassChangeError x1
+  ClassNotFoundException x1
+  NoSuchMethodError x1
+  NoClassDefFoundError x47
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : log4j-api 2.18.0 with log4j-core 2.16.0 (both archived) -> NoSuchMethodError LoaderUtil.getClassLoaders(); then 'Could not initialize class LoggerContext/SpringJUnit4ClassRunner/SyllableHelper' follow-ons
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

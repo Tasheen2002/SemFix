@@ -1,0 +1,43 @@
+=== CASE 56 4bbf6c2f38c57568196164323ded8ba8aff9953d
+  project=searls/jasmine-maven-plugin dep=org.slf4j:slf4j-api 1.7.32 -> 2.0.1 scope=compile type=major java=11
+  PR=https://github.com/searls/jasmine-maven-plugin/pull/570
+  PRE log logs/batch_triage/4bbf6c2f_pre.log:
+  lines=238
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 72, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/4bbf6c2f_breaking.log:
+  lines=332
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 72, Failures: 2, Errors: 0, Skipped: 0
+  failing classes: Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.128 s <<< FAILURE! - in com.github.searls.jasmine.format.JasmineResultLoggerTest
+  section: Failures: | JasmineResultLoggerTest.shouldLogDetails:78->assertMessage:91 [Expected | ------------------------------------------------------- | J A S M I N E   S P E C S | ------------------------------------------------------- to be logged.] | Expecting ArrayList: | [] | to contain: | [" | ------------------------------------------------------- | J A S M I N E   S P E C S | -------------------------------------------------------"] | but could not find the following element(s): | ["
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project jasmine-maven-plugin: There are test failures.
+  FAILBLOCK: [ERROR] shouldLogDetails  Time elapsed: 0.066 s  <<< FAILURE!
+      java.lang.AssertionError:
+      [Expected
+      -------------------------------------------------------
+      J A S M I N E   S P E C S
+      ------------------------------------------------------- to be logged.]
+      Expecting ArrayList:
+  distinct fail signatures (count): 2x java.lang.AssertionError:
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/uk/org/lidalia/slf4j-test/1.2.0/slf4j-test-1.2.0.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+  exception names: java.lang.AssertionErrorx2
+  EVIDENCE logs/case56_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/slf4j-api-2.0.1.jar, breaking/slf4j-test-1.2.0.jar, pre/archive_summary.json, pre/artifacts.tar, pre/slf4j-api-1.7.32.jar, pre/slf4j-test-1.2.0.jar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=24 sum(t,f,e,s)=[72, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=24 sum(t,f,e,s)=[72, 2, 0, 0]
+  archived non-report files: pre=227 breaking=227 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -296,3 +296,3 @@
+           <artifactId>slf4j-api</artifactId>
+    -      <version>1.7.32</version>
+    +      <version>2.0.1</version>
+         </dependency>
+  BREAKING surefire failures/errors:
+    FAILURE com.github.searls.jasmine.format.JasmineResultLoggerTest#shouldLogDetails type=java.lang.AssertionError msg=[Expected  -------------------------------------------------------  J A S M I N E   S P E C S ------------------------------------------------------- to be logged.]  Expecting ArrayList:   [] to contain:   [" -------------------------------------------------------  J A S M I N E   S P E C S --------
+       at com.github.searls.jasmine.format.JasmineResultLoggerTest.assertMessage(JasmineResultLoggerTest.java:91)
+       at com.github.searls.jasmine.format.JasmineResultLoggerTest.shouldLogDetails(JasmineResultLoggerTest.java:78)
+    FAILURE com.github.searls.jasmine.format.JasmineResultLoggerTest#shouldLogHeader type=java.lang.AssertionError msg=[Expected  -------------------------------------------------------  J A S M I N E   S P E C S ------------------------------------------------------- to be logged.]  Expecting ArrayList:   [] to contain:   [" -------------------------------------------------------  J A S M I N E   S P E C S --------
+       at com.github.searls.jasmine.format.JasmineResultLoggerTest.assertMessage(JasmineResultLoggerTest.java:91)
+       at com.github.searls.jasmine.format.JasmineResultLoggerTest.shouldLogHeader(JasmineResultLoggerTest.java:68)
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"slf4j-api-1.7.32.jar","legacy_static_binder":false,"service_provider_descriptor":false},{"phase":"pre","jar":"slf4j-test-1.2.0.jar","legacy_static_binder":true,"service_provider_descriptor":false},{"phase":"breaking","jar":"slf4j-api-2.0.1.jar","legacy_static_binder":false,"service_provider_descriptor":false},{"phase":"breaking","jar":"slf4j-test-1.2.0.jar","legacy_static_binder":true,"service_provider_descriptor":false}]

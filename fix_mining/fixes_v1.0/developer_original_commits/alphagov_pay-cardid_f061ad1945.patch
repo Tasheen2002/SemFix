@@ -1,0 +1,26 @@
+diff --git a/pom.xml b/pom.xml
+index 2c2b465f..2f340980 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -50,7 +50,7 @@
+         <dependency>
+             <groupId>org.dhatim</groupId>
+             <artifactId>dropwizard-sentry</artifactId>
+-            <version>2.0.22</version>
++            <version>2.0.28-8</version>
+         </dependency>
+         <dependency>
+             <groupId>io.dropwizard</groupId>
+diff --git a/src/main/resources/config/config.yaml b/src/main/resources/config/config.yaml
+index 5cf1faab..33575116 100644
+--- a/src/main/resources/config/config.yaml
++++ b/src/main/resources/config/config.yaml
+@@ -27,7 +27,7 @@ logging:
+       threshold: ERROR
+       dsn: ${SENTRY_DSN:-https://example.com@dummy/1}
+       environment: ${ENVIRONMENT}
+-      stacktraceAppPackages: ["uk.gov.pay"]
++      inAppIncludes: ["uk.gov.pay"]
+ 
+ worldpayDataLocation: ${WORLDPAY_DATA_LOCATION:-file:///app/data/worldpay/GENERIC2ISOCPTISSUERPREPAID.CSV}
+ discoverDataLocation: ${DISCOVER_DATA_LOCATION:-file:///app/data/discover/Merchant_Marketing.csv}

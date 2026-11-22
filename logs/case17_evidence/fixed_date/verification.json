@@ -1,0 +1,79 @@
+{
+  "case_id": "18102f7a87e7ab8308a86208d47696c060110d0c",
+  "assessment": "NON_BEHAVIORAL",
+  "review_status": "PENDING_HUMAN_REVIEW",
+  "date_control": "LocalDate.of(2024, 12, 31) in listener converter in both disposable containers",
+  "pre_full_reactor": {
+    "tests": 4104,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "pre_listener": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "pre_core": {
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "breaking_scope": "SourceInActivitiesTest in orcid-core with prerequisites",
+  "breaking_core": {
+    "tests": 11,
+    "failures": 0,
+    "errors": 11,
+    "skipped": 0
+  },
+  "missing_class_in_all_breaking_errors": true,
+  "classpath_path_diff": {
+    "pre_only": [
+      "/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.10.0/jackson-databind-2.10.0.jar"
+    ],
+    "breaking_only": [
+      "/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar"
+    ]
+  },
+  "containers": {
+    "pre": {
+      "image_id": "sha256:f3ec5a2ad8c4fa067bf72fa255aedb40f5ff21577507995a85fbd7d04578cd40",
+      "exit_code": 0,
+      "command": [
+        "/tmp/reproduce.sh",
+        "pre"
+      ],
+      "entrypoint": [
+        "sh"
+      ],
+      "started_at": "2026-11-09T05:45:18.191538549Z",
+      "finished_at": "2026-11-09T06:07:19.874432305Z"
+    },
+    "breaking": {
+      "image_id": "sha256:fe9a13ee2de95129f7fd687b569860efb0562b3fa1267d1faf68d56283dbe163",
+      "exit_code": 1,
+      "command": [
+        "/tmp/reproduce.sh",
+        "breaking"
+      ],
+      "entrypoint": [
+        "sh"
+      ],
+      "started_at": "2026-11-09T05:45:18.210113093Z",
+      "finished_at": "2026-11-09T05:49:38.465825456Z"
+    }
+  },
+  "original_manifest_verified": true,
+  "classification_backup": "results/backups/behavioral_classification.before_case17_followup_20261109_113831_930562.csv",
+  "evidence_sha256": {
+    "logs/case17_evidence/fixed_date/pre.log": "8788e56c69e8244a8dfc8b739af339953847948acf1955bf7d8b1b18ab07c98d",
+    "logs/case17_evidence/fixed_date/breaking.log": "25a6fe30d0eae63bb87865b6530f969c99fa82cd501c544cda2c1d1a021ffa4b",
+    "logs/case17_evidence/fixed_date/pre-core.xml": "5af83a90b6486111b7a5ede0f67f6ee6e70b0227defcd528dac0d8becee4a748",
+    "logs/case17_evidence/fixed_date/breaking-core.xml": "2b4a518fafc48b7d62d356837a1174e060950dd7bf108f5896b76e6f2cbdaa9e",
+    "logs/case17_evidence/fixed_date/pre-listener.xml": "36fa808ac5d2fe28b7eb8fe3bd59343114a9cad1eac9c22f0739e1f06cb6d493",
+    "scripts/reproduce_case_17_fixed_date.sh": "b3b4a85e70e4cb6b8f6b5f5d05998f9f9abcca6913b4c475badc4553d744cb4f",
+    "results/case17_followup.md": "194cb37b648a9d2ca4a3d124b515b382bfc968b1abaa4967a10a5b225d70dc04"
+  }
+}

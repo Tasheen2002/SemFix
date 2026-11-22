@@ -1,0 +1,50 @@
+=== CASE 142 bc73c14c4b588fd53f1f8e5f88be79f827ac6c6e
+  project=searls/jasmine-maven-plugin dep=org.slf4j:slf4j-api 1.7.32 -> 2.0.4 scope=compile type=major java=11
+  PR=https://github.com/searls/jasmine-maven-plugin/pull/583
+  PRE log logs/batch_triage/bc73c14c_pre.log:
+  lines=228
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 72, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/bc73c14c_breaking.log:
+  lines=325
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 72, Failures: 2, Errors: 0, Skipped: 0
+  failing classes: Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.175 s <<< FAILURE! - in com.github.searls.jasmine.format.JasmineResultLoggerTest
+  section: Failures: | JasmineResultLoggerTest.shouldLogDetails:78->assertMessage:91 [Expected | ------------------------------------------------------- | J A S M I N E   S P E C S | ------------------------------------------------------- to be logged.] | Expecting ArrayList: | [] | to contain: | [" | ------------------------------------------------------- | J A S M I N E   S P E C S | -------------------------------------------------------"] | but could not find the following element(s): | ["
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project jasmine-maven-plugin: There are test failures.
+  FAILBLOCK: [ERROR] shouldLogDetails  Time elapsed: 0.09 s  <<< FAILURE!
+      java.lang.AssertionError:
+      [Expected
+      -------------------------------------------------------
+      J A S M I N E   S P E C S
+      ------------------------------------------------------- to be logged.]
+      Expecting ArrayList:
+  distinct fail signatures (count): 2x java.lang.AssertionError:
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/uk/org/lidalia/slf4j-test/1.2.0/slf4j-test-1.2.0.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+  exception names: java.lang.AssertionErrorx2
+  EVIDENCE logs/case142_evidence: LoggerSelectionProbe.java, all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/slf4j-api-2.0.4.jar, breaking/jars/slf4j-test-1.2.0.jar, breaking/slf4j-api-2.0.4_LoggerFactory_javap.txt, logger_probe_breaking.log, logger_probe_classes/LoggerSelectionProbe.class, logger_probe_pre.log, logger_probe_results.json, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/slf4j-api-1.7.32.jar, pre/jars/slf4j-test-1.2.0.jar, pre/slf4j-api-1.7.32_LoggerFactory_javap.txt, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=24 sum(t,f,e,s)=[72, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=24 sum(t,f,e,s)=[72, 2, 0, 0]
+  archived non-report files: pre=227 breaking=227 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -296,3 +296,3 @@
+           <artifactId>slf4j-api</artifactId>
+    -      <version>1.7.32</version>
+    +      <version>2.0.4</version>
+         </dependency>
+  BREAKING surefire failures/errors:
+    FAILURE com.github.searls.jasmine.format.JasmineResultLoggerTest#shouldLogDetails type=java.lang.AssertionError msg=[Expected  -------------------------------------------------------  J A S M I N E   S P E C S ------------------------------------------------------- to be logged.]  Expecting ArrayList:   [] to contain:   [" -------------------------------------------------------  J A S M I N E   S P E C S --------
+       at com.github.searls.jasmine.format.JasmineResultLoggerTest.assertMessage(JasmineResultLoggerTest.java:91)
+       at com.github.searls.jasmine.format.JasmineResultLoggerTest.shouldLogDetails(JasmineResultLoggerTest.java:78)
+    FAILURE com.github.searls.jasmine.format.JasmineResultLoggerTest#shouldLogHeader type=java.lang.AssertionError msg=[Expected  -------------------------------------------------------  J A S M I N E   S P E C S ------------------------------------------------------- to be logged.]  Expecting ArrayList:   [] to contain:   [" -------------------------------------------------------  J A S M I N E   S P E C S --------
+       at com.github.searls.jasmine.format.JasmineResultLoggerTest.assertMessage(JasmineResultLoggerTest.java:91)
+       at com.github.searls.jasmine.format.JasmineResultLoggerTest.shouldLogHeader(JasmineResultLoggerTest.java:68)
+  all_poms: count=32 changed=['pom.xml']
+    pom.xml: -      <version>1.7.32</version> / +      <version>2.0.4</version>
+  JSON breaking/jar_inspection.json: {"case_id":"bc73c14c4b588fd53f1f8e5f88be79f827ac6c6e","phase":"breaking","path_filter":"/(slf4j-api|slf4j-test)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/org/slf4j/slf4j-api/2.0.4/slf4j-api-2.0.4.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":false,"major_version":null},"org.slf4j.spi.SLF4JServiceProvider":{"present":true,"major_version":52},"uk.org.lidalia.slf4jtest.TestLoggerFactory":{"present":false,"major_version":null}},"services":{},"disassemblies":[{"class":"org.slf4j.LoggerFactory","file":"slf4j-api-2.0.4_LoggerFactory_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/uk/org/lidalia/slf4j-test/1.2.0/slf4j-test-1.2.0.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":true,"major_version":51},"org.slf4j.spi.SLF4JServiceProvider":{"present":false,"major_version":null},"uk.org.lidalia.slf4jtest.TestLoggerFactory":{"present":true,"major_version":51}},"services":{},"disassemblies":[]}]}
+  LOG logger_probe_breaking.log (8 lines): factory=org.slf4j.helpers.NOPLoggerFactory | logger=org.slf4j.helpers.NOPLogger
+  LOG logger_probe_pre.log (2 lines): factory=uk.org.lidalia.slf4jtest.TestLoggerFactory | logger=uk.org.lidalia.slf4jtest.TestLogger
+  JSON logger_probe_results.json: {"test_classpath_source":"com.github.searls.jasmine.format.JasmineResultLoggerTest","runs":[{"phase":"pre","exit_code":0,"stdout":"factory=uk.org.lidalia.slf4jtest.TestLoggerFactory\nlogger=uk.org.lidalia.slf4jtest.TestLogger\n","stderr":""},{"phase":"breaking","exit_code":0,"stdout":"factory=org.slf4j.helpers.NOPLoggerFactory\nlogger=org.slf4j.helpers.NOPLogger\n","stderr":"SLF4J: No SLF4J providers were found.\nSLF4J: Defaulting to no-operation (NOP) logger implementation\nSLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.\nSLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.\nSLF4J: Ignoring binding found at [..."}]}
+  JSON pre/jar_inspection.json: {"case_id":"bc73c14c4b588fd53f1f8e5f88be79f827ac6c6e","phase":"pre","path_filter":"/(slf4j-api|slf4j-test)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":false,"major_version":null},"org.slf4j.spi.SLF4JServiceProvider":{"present":false,"major_version":null},"uk.org.lidalia.slf4jtest.TestLoggerFactory":{"present":false,"major_version":null}},"services":{},"disassemblies":[{"class":"org.slf4j.LoggerFactory","file":"slf4j-api-1.7.32_LoggerFactory_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/uk/org/lidalia/slf4j-test/1.2.0/slf4j-test-1.2.0.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":true,"major_version":51},"org.slf4j.spi.SLF4JServiceProvider":{"present":false,"major_version":null},"uk.org.lidalia.slf4jtest.TestLoggerFactory":{"present":true,"major_version":51}},"services":{},"disassemblies":[]}]}
+  JARS: breaking/jars/slf4j-api-2.0.4.jar, breaking/jars/slf4j-test-1.2.0.jar, pre/jars/slf4j-api-1.7.32.jar, pre/jars/slf4j-test-1.2.0.jar

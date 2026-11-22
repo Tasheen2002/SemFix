@@ -1,0 +1,26 @@
+=== CASE 2 04c07b066b60a2e9d4f797b98dcd439a3a42f0b9
+  project=feedzai/pdb dep=org.slf4j:slf4j-api 1.7.36 -> 2.0.4 scope=compile type=major java=11
+  PR=https://github.com/feedzai/pdb/pull/364
+  PRE log logs/04c07b06_pre.log:
+  lines=6311
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 291, Failures: 0, Errors: 0, Skipped: 13
+  exception names: org.h2.message.DbExceptionx49, com.feedzai.commons.sql.abstraction.engine.DatabaseEngineRuntimeExceptionx39, org.h2.jdbc.JdbcSQLNonTransientExceptionx7, com.feedzai.commons.sql.abstraction.engine.DatabaseEngineExceptionx6, com.feedzai.commons.sql.abstraction.engine.RetryLimitExceededExceptionx6, java.sql.SQLExceptionx6, org.h2.jdbc.JdbcSQLDataExceptionx4, com.feedzai.commons.sql.abstraction.exceptions.DatabaseEngineUniqueConstraintViolationExceptionx3, org.h2.jdbc.JdbcBatchUpdateExceptionx3, org.junit.internal.runners.statements.ExpectExceptionx2, java.lang.NumberFormatExceptionx2
+  BREAKING log logs/04c07b06_breaking.log:
+  lines=158
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 94, Failures: 0, Errors: 3, Skipped: 10
+  failing classes: Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest
+  section: Errors: | BatchUpdateTest.initStatic:143 ClassCast class org.slf4j.helpers.NOPLogger can... | EngineCloseTest.initStatic:102 ClassCast class org.slf4j.helpers.NOPLogger can... | EngineGeneralTest.initStatic:181 ClassCast class org.slf4j.helpers.NOPLogger c... | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  16.655 s | [INFO] Finished at: 2026-09-16T11:52:48Z | [INFO] ------------------------------------------------------------------------ | [WARNING]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project pdb: There are test failures.
+  FAILBLOCK: [ERROR] com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest  Time elapsed: 0.016 s  <<< ERROR!
+      java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+      at com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest.initStatic(BatchUpdateTest.java:143)
+      [INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCreateTest
+      [INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.621 s - in com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCreateTest
+      [INFO] Running com.feedzai.commons.sql.abstraction.engine.impl.abs.UnderflowTest
+  distinct fail signatures (count): 3x java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (o
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+  exception names: java.lang.ClassCastExceptionx3
+  EVIDENCE: no logs/case2_evidence directory

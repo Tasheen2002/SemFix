@@ -1,0 +1,130 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 4 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 4 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] scheduler                                                          [pom]
+[INFO] scheduler-api                                                      [jar]
+[INFO] scheduler-json                                                     [jar]
+[INFO] scheduler-choco                                                    [jar]
+[INFO] 
+[INFO] -----------------------< org.btrplace:scheduler >-----------------------
+[INFO] Building scheduler 1.12.9-SNAPSHOT                                 [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ scheduler ---
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ scheduler ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/scheduler/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] --- jacoco:0.8.8:report (report) @ scheduler ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] ---------------------< org.btrplace:scheduler-api >---------------------
+[INFO] Building scheduler-api 1.12.9-SNAPSHOT                             [2/4]
+[INFO]   from api/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ scheduler-api ---
+[INFO] Deleting /scheduler/api/target
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ scheduler-api ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/scheduler/api/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ scheduler-api ---
+[INFO] skip non existing resourceDirectory /scheduler/api/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ scheduler-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 146 source files to /scheduler/api/target/classes
+[INFO] /scheduler/api/src/main/java/org/btrplace/model/view/NamingService.java: Some input files use unchecked or unsafe operations.
+[INFO] /scheduler/api/src/main/java/org/btrplace/model/view/NamingService.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ scheduler-api ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ scheduler-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 68 source files to /scheduler/api/target/test-classes
+[INFO] /scheduler/api/src/test/java/org/btrplace/util/IntObjectMapTest.java: /scheduler/api/src/test/java/org/btrplace/util/IntObjectMapTest.java uses unchecked or unsafe operations.
+[INFO] /scheduler/api/src/test/java/org/btrplace/util/IntObjectMapTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:3.0.0-M7:test (default-test) @ scheduler-api ---
+[INFO] 
+[INFO] --- jacoco:0.8.8:report (report) @ scheduler-api ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] --------------------< org.btrplace:scheduler-json >---------------------
+[INFO] Building scheduler-json 1.12.9-SNAPSHOT                            [3/4]
+[INFO]   from json/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ scheduler-json ---
+[INFO] Deleting /scheduler/json/target
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ scheduler-json ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/scheduler/json/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ scheduler-json ---
+[INFO] skip non existing resourceDirectory /scheduler/json/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ scheduler-json ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 61 source files to /scheduler/json/target/classes
+[INFO] /scheduler/json/src/main/java/org/btrplace/json/model/view/ModelViewsConverter.java: Some input files use unchecked or unsafe operations.
+[INFO] /scheduler/json/src/main/java/org/btrplace/json/model/view/ModelViewsConverter.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ scheduler-json ---
+[INFO] skip non existing resourceDirectory /scheduler/json/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ scheduler-json ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 40 source files to /scheduler/json/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0-M7:test (default-test) @ scheduler-json ---
+[INFO] 
+[INFO] --- jacoco:0.8.8:report (report) @ scheduler-json ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] --------------------< org.btrplace:scheduler-choco >--------------------
+[INFO] Building scheduler-choco 1.12.9-SNAPSHOT                           [4/4]
+[INFO]   from choco/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ scheduler-choco ---
+[INFO] Deleting /scheduler/choco/target
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ scheduler-choco ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/scheduler/choco/target/jacoco.exec,excludes=org/btrplace/btrpsl/**/*:org/btrplace/safeplace/**/*:org/btrplace/bench/**/*:org/btrplace/scheduler/runner/disjoint/**/*
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ scheduler-choco ---
+[INFO] skip non existing resourceDirectory /scheduler/choco/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ scheduler-choco ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 118 source files to /scheduler/choco/target/classes
+[INFO] /scheduler/choco/src/main/java/org/btrplace/scheduler/choco/DefaultReconfigurationProblem.java: /scheduler/choco/src/main/java/org/btrplace/scheduler/choco/DefaultReconfigurationProblem.java uses or overrides a deprecated API.
+[INFO] /scheduler/choco/src/main/java/org/btrplace/scheduler/choco/DefaultReconfigurationProblem.java: Recompile with -Xlint:deprecation for details.
+[INFO] /scheduler/choco/src/main/java/org/btrplace/scheduler/choco/duration/DurationEvaluators.java: Some input files use unchecked or unsafe operations.
+[INFO] /scheduler/choco/src/main/java/org/btrplace/scheduler/choco/duration/DurationEvaluators.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ scheduler-choco ---
+[INFO] Copying 9 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ scheduler-choco ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 63 source files to /scheduler/choco/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0-M7:test (default-test) @ scheduler-choco ---
+[INFO] Using auto detected provider org.apache.maven.surefire.testng.TestNGProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.btrplace.scheduler.choco.IssuesTest
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.

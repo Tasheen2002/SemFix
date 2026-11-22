@@ -1,0 +1,88 @@
+{
+  "case_id": "a047d2d3f9385a25ced0d2ad3c49f9401ea9c624",
+  "phase": "breaking",
+  "path_filter": "/(versions-maven-plugin|junit-vintage-engine)/|/repository/junit/junit/",
+  "path_source": "Fresh test report effective classpaths, preferring surefire.test.class.path when present",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar",
+      "sha256": "b58e459509e190bed737f3592bc1950485322846cf10e78ded1d065153012d70",
+      "classes": {
+        "junit.runner.Version": {
+          "present": true,
+          "major_version": 45
+        },
+        "org.junit.vintage.engine.JUnit4VersionCheck": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "junit.runner.Version",
+          "file": "junit-3.8.1_Version_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case116_evidence\\breaking\\jars\\junit-3.8.1.jar",
+            "-p",
+            "-s",
+            "-c",
+            "junit.runner.Version"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/codehaus/mojo/versions-maven-plugin/2.16.0/versions-maven-plugin-2.16.0.jar",
+      "sha256": "d583e7c1e9d651781ba5150bdffc6cba73f6691626ab9c557fadd177577b3466",
+      "classes": {
+        "junit.runner.Version": {
+          "present": false,
+          "major_version": null
+        },
+        "org.junit.vintage.engine.JUnit4VersionCheck": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.9.3/junit-vintage-engine-5.9.3.jar",
+      "sha256": "6bc1b42282aed8b9eccdb40631cf45001af8ab3ad9d0d85cff86c45e85fc59d0",
+      "classes": {
+        "junit.runner.Version": {
+          "present": false,
+          "major_version": null
+        },
+        "org.junit.vintage.engine.JUnit4VersionCheck": {
+          "present": true,
+          "major_version": 52
+        }
+      },
+      "services": {
+        "META-INF/services/org.junit.platform.engine.TestEngine": "org.junit.vintage.engine.VintageTestEngine"
+      },
+      "disassemblies": [
+        {
+          "class": "org.junit.vintage.engine.JUnit4VersionCheck",
+          "file": "junit-vintage-engine-5.9.3_JUnit4VersionCheck_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case116_evidence\\breaking\\jars\\junit-vintage-engine-5.9.3.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.junit.vintage.engine.JUnit4VersionCheck"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

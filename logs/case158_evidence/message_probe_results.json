@@ -1,0 +1,117 @@
+{
+  "purpose": "Separate diagnostic: add and select one test; original production source and dependency versions retained",
+  "runs": [
+    {
+      "phase": "pre",
+      "image_id": "sha256:b62a338603dae3d760e00a9457196316b2156eb83b9e80b64e4c779f5da73aa8",
+      "container_name": "research-case158-message-pre",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-11-10T14:24:41.44958937Z",
+        "FinishedAt": "2026-11-10T14:24:59.385879021Z"
+      },
+      "command": [
+        "docker",
+        "run",
+        "--name",
+        "research-case158-message-pre",
+        "--mount",
+        "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case158_evidence\\Case158MessageProbeTest.java,target=/sardine/src/test/java/Case158MessageProbeTest.java,readonly",
+        "--entrypoint",
+        "mvn",
+        "sha256:b62a338603dae3d760e00a9457196316b2156eb83b9e80b64e4c779f5da73aa8",
+        "clean",
+        "test",
+        "-B",
+        "-Dtest=Case158MessageProbeTest"
+      ],
+      "exit_code": 0,
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "origins": {
+        "httpclient": "file:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1.jar",
+        "httpcore": "file:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3.jar"
+      },
+      "resolved_http_paths": [
+        "/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1.jar",
+        "/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.3/httpcore-4.4.3.jar"
+      ],
+      "messages": {
+        "parent": [
+          "m"
+        ],
+        "client": [
+          "m (400 response phrase)"
+        ]
+      }
+    },
+    {
+      "phase": "breaking",
+      "image_id": "sha256:6bdc12b5565df3fd3050ee186068d36d73ed403165ac6e73f83540df7b7a4529",
+      "container_name": "research-case158-message-breaking",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-11-10T14:25:00.415403914Z",
+        "FinishedAt": "2026-11-10T14:25:17.538773398Z"
+      },
+      "command": [
+        "docker",
+        "run",
+        "--name",
+        "research-case158-message-breaking",
+        "--mount",
+        "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case158_evidence\\Case158MessageProbeTest.java,target=/sardine/src/test/java/Case158MessageProbeTest.java,readonly",
+        "--entrypoint",
+        "mvn",
+        "sha256:6bdc12b5565df3fd3050ee186068d36d73ed403165ac6e73f83540df7b7a4529",
+        "clean",
+        "test",
+        "-B",
+        "-Dtest=Case158MessageProbeTest"
+      ],
+      "exit_code": 0,
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "origins": {
+        "httpclient": "file:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar",
+        "httpcore": "file:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar"
+      },
+      "resolved_http_paths": [
+        "/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar",
+        "/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar"
+      ],
+      "messages": {
+        "parent": [
+          "status code: 400, reason phrase: m"
+        ],
+        "client": [
+          "status code: 400, reason phrase: m (400 response phrase)"
+        ]
+      }
+    }
+  ]
+}

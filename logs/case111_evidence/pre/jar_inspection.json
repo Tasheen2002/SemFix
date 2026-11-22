@@ -1,0 +1,70 @@
+{
+  "case_id": "99d4dfc8ca5b2db281f154ca9db3ad953b792b4d",
+  "phase": "pre",
+  "path_filter": "/org/apache/poi/(poi|poi-scratchpad)/",
+  "path_source": "Fresh test report classpaths or retained runner events; Cases 111/115 PRE uses explicit POM versions because successful runner events are deleted",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/poi/poi-scratchpad/4.1.2/poi-scratchpad-4.1.2.jar",
+      "sha256": "4ad6a0579a0a216ff951a80f11c648792268189591fe86015b9d197d650424f3",
+      "classes": {
+        "org.apache.poi.util.IOUtils": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.poi.hwpf.HWPFDocumentCore": {
+          "present": true,
+          "major_version": 52
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.apache.poi.hwpf.HWPFDocumentCore",
+          "file": "poi-scratchpad-4.1.2_HWPFDocumentCore_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case111_evidence\\pre\\jars\\poi-scratchpad-4.1.2.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.apache.poi.hwpf.HWPFDocumentCore"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/poi/poi/4.1.2/poi-4.1.2.jar",
+      "sha256": "ab1612406541968434044b2defad58aa8b657cad073baa22a04faaf9d7fb9d1c",
+      "classes": {
+        "org.apache.poi.util.IOUtils": {
+          "present": true,
+          "major_version": 52
+        },
+        "org.apache.poi.hwpf.HWPFDocumentCore": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.apache.poi.util.IOUtils",
+          "file": "poi-4.1.2_IOUtils_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case111_evidence\\pre\\jars\\poi-4.1.2.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.apache.poi.util.IOUtils"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

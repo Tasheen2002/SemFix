@@ -1,0 +1,115 @@
+=== CASE 25 1eb6d9d5b2a07720a0839457cee81e066dd932f2
+  project=elimu-ai/webapp dep=org.apache.logging.log4j:log4j-api 2.16.0 -> 2.18.0 scope=compile type=minor java=11
+  PR=https://github.com/elimu-ai/webapp/pull/1574
+  PRE log logs/batch_triage/1eb6d9d5_pre.log:
+  lines=5711
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 67, Failures: 0, Errors: 0, Skipped: 2
+  linkage/compile signals: ClassNotFoundException, IllegalAccessError, IncompatibleClassChangeError, LinkageError
+  BREAKING log logs/batch_triage/1eb6d9d5_breaking.log:
+  lines=2777
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 61, Failures: 0, Errors: 48, Skipped: 1
+  failing classes: Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.732 s <<< FAILURE! - in ai.elimu.util.SyllableFrequencyHelperTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in ai.elimu.util.epub.EPubChapterExtractionHelperTest || Tests run: 18, Failures: 0, Errors: 17, Skipped: 1, Time elapsed: 0.005 s <<< FAILURE! - in ai.elimu.util.epub.EPubParagraphExtractionHelperTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in ai.elimu.util.epub.EPubImageExtractionHelperTest || Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in ai.elimu.util.epub.EPubMetadataExtractionHelperTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in ai.elimu.util.SyllableHelperTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in ai.elimu.util.audio.AudioMetadataExtractionHelperTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in ai.elimu.dao.ContributorDaoTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in ai.elimu.dao.ApplicationVersionDaoTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in ai.elimu.dao.WordContributionEventDaoTest
+  section: Errors: | ApplicationDaoTest.initializationError » NoClassDefFound Could not initialize ... | ApplicationVersionDaoTest.initializationError » NoClassDefFound Could not init... | BaseDaoTest.initializationError » NoClassDefFound Could not initialize class o... | ContributorDaoTest.initializationError » NoClassDefFound Could not initialize ... | ImageDaoTest.initializationError » NoClassDefFound Could not initialize class ... | NumberDaoTest.initializationError » NoClassDefFound Could not initialize class... | SoundDaoTest.initializationError » NoClassDefFound Could not initialize class ... | WordContributionEventDaoTest.initializationError » NoClassDefFound Could not i... | SyllableFrequencyHelperTest.testGetSyllableFrequency:18 » NoSuchMethod 'java.l... | SyllableHelperTest.testGetDiSyllables_languageEN:39 » NoClassDefFound Could no... | SyllableHelperTest.testGetMonoSyllables_languageEN:18 NoClassDefFound Could no... | SyllableHelperTest.testGetTriSyllables_languageEN:78 NoClassDefFound Could not... | AudioMetadataExtractionHelperTest.<init>:17 » NoClassDefFound Could not initia...
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project webapp: There are test failures.
+  FAILBLOCK: [ERROR] testGetSyllableFrequency(ai.elimu.util.SyllableFrequencyHelperTest)  Time elapsed: 0.524 s  <<< ERROR!
+      java.lang.NoSuchMethodError: 'java.lang.ClassLoader[] org.apache.logging.log4j.util.LoaderUtil.getClassLoaders()'
+      at ai.elimu.util.SyllableFrequencyHelperTest.testGetSyllableFrequency(SyllableFrequencyHelperTest.java:18)
+      [INFO] Running ai.elimu.util.WordFrequencyHelperTest
+      [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in ai.elimu.util.WordFrequencyHelperTest
+      [INFO] Running ai.elimu.util.epub.EPubChapterExtractionHelperTest
+  FAILBLOCK: [ERROR] testExtractChapterReferencesFromTableOfContentsFile_GLOBAL_DIGITAL_LIBRARY(ai.elimu.util.epub.EPubChapterExtractionHelperTest)  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+      at ai.elimu.util.epub.EPubChapterExtractionHelperTest.<init>(EPubChapterExtractionHelperTest.java:17)
+      [ERROR] testExtractChapterReferencesFromTableOfContentsFile_GLOBAL_DIGITAL_LIBRARY_hin_nav(ai.elimu.util.epub.EPubChapterExtractionHelperTest)  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+      at ai.elimu.util.epub.EPubChapterExtractionHelperTest.<init>(EPubChapterExtractionHelperTest.java:17)
+  FAILBLOCK: [ERROR] testGetTriSyllables_languageEN(ai.elimu.util.SyllableHelperTest)  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class ai.elimu.util.SyllableHelper
+      at ai.elimu.util.SyllableHelperTest.testGetTriSyllables_languageEN(SyllableHelperTest.java:78)
+      [ERROR] testGetMonoSyllables_languageEN(ai.elimu.util.SyllableHelperTest)  Time elapsed: 0.012 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class ai.elimu.util.SyllableHelper
+      at ai.elimu.util.SyllableHelperTest.testGetMonoSyllables_languageEN(SyllableHelperTest.java:18)
+  FAILBLOCK: [ERROR] initializationError(ai.elimu.dao.ApplicationVersionDaoTest)  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+      [INFO] Running ai.elimu.dao.WordContributionEventDaoTest
+      [ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in ai.elimu.dao.WordContributionEventDaoTest
+      [ERROR] initializationError(ai.elimu.dao.WordContributionEventDaoTest)  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+  distinct fail signatures (count): 1x java.lang.NoSuchMethodError: 'java.lang.ClassLoader[] org.apache.logging.log4j.util.LoaderUtil.getClassLoaders()' || 38x java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext || 2x java.lang.NoClassDefFoundError: Could not initialize class ai.elimu.util.SyllableHelper || 1x java.lang.NoClassDefFoundError: Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunn
+  linkage/compile signals: ClassNotFoundException, IllegalAccessError, IncompatibleClassChangeError, LinkageError, NoClassDefFoundError, NoSuchMethodError
+  exception names: java.lang.NoClassDefFoundErrorx47, java.lang.NoSuchMethodErrorx1
+  EVIDENCE logs/case25_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/log4j-api-2.18.0.jar, breaking/log4j-core-2.16.0.jar, breaking/log4j_javap.txt, pre/archive_summary.json, pre/artifacts.tar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=22 sum(t,f,e,s)=[67, 0, 0, 2]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=22 sum(t,f,e,s)=[61, 0, 48, 1]
+  archived non-report files: pre=820 breaking=820 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -364,3 +364,3 @@
+                 <artifactId>log4j-api</artifactId>
+    -            <version>2.16.0</version>
+    +            <version>2.18.0</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    ERROR ai.elimu.dao.ApplicationDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.ApplicationVersionDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.BaseDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.ContributorDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+    ERROR ai.elimu.dao.ImageDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.NumberDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.SoundDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.WordContributionEventDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.util.SyllableFrequencyHelperTest#testGetSyllableFrequency type=java.lang.NoSuchMethodError msg='java.lang.ClassLoader[] org.apache.logging.log4j.util.LoaderUtil.getClassLoaders()'
+       at ai.elimu.util.SyllableFrequencyHelperTest.testGetSyllableFrequency(SyllableFrequencyHelperTest.java:18)
+    ERROR ai.elimu.util.SyllableHelperTest#testGetDiSyllables_languageEN type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.SyllableHelperTest.testGetDiSyllables_languageEN(SyllableHelperTest.java:39)
+    ERROR ai.elimu.util.SyllableHelperTest#testGetTriSyllables_languageEN type=java.lang.NoClassDefFoundError msg=Could not initialize class ai.elimu.util.SyllableHelper
+       at ai.elimu.util.SyllableHelperTest.testGetTriSyllables_languageEN(SyllableHelperTest.java:78)
+    ERROR ai.elimu.util.SyllableHelperTest#testGetMonoSyllables_languageEN type=java.lang.NoClassDefFoundError msg=Could not initialize class ai.elimu.util.SyllableHelper
+       at ai.elimu.util.SyllableHelperTest.testGetMonoSyllables_languageEN(SyllableHelperTest.java:18)
+    ERROR ai.elimu.util.audio.AudioMetadataExtractionHelperTest#testGetDurationInMillisecondsMP3 type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.audio.AudioMetadataExtractionHelperTest.<init>(AudioMetadataExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.audio.AudioMetadataExtractionHelperTest#testGetDurationInMillisecondsOGG type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.audio.AudioMetadataExtractionHelperTest.<init>(AudioMetadataExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.audio.AudioMetadataExtractionHelperTest#testGetDurationInMillisecondsWAV type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.audio.AudioMetadataExtractionHelperTest.<init>(AudioMetadataExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.epub.EPubChapterExtractionHelperTest#testExtractChapterReferencesFromTableOfContentsFile_GLOBAL_DIGITAL_LIBRARY type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubChapterExtractionHelperTest.<init>(EPubChapterExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.epub.EPubChapterExtractionHelperTest#testExtractChapterReferencesFromTableOfContentsFile_GLOBAL_DIGITAL_LIBRARY_hin_nav type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubChapterExtractionHelperTest.<init>(EPubChapterExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.epub.EPubChapterExtractionHelperTest#testExtractChapterReferencesFromTableOfContentsFile_STORYWEAVER type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubChapterExtractionHelperTest.<init>(EPubChapterExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.epub.EPubChapterExtractionHelperTest#testExtractChapterReferencesFromTableOfContentsFile_LETS_READ_ASIA type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubChapterExtractionHelperTest.<init>(EPubChapterExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.epub.EPubImageExtractionHelperTest#testExtractImageReferenceFromChapterFile_ENG_LRA_377b7e63 type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubImageExtractionHelperTest.<init>(EPubImageExtractionHelperTest.java:16)
+    ERROR ai.elimu.util.epub.EPubImageExtractionHelperTest#testExtractImageReferenceFromChapterFile_BEN_SW_11791 type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubImageExtractionHelperTest.<init>(EPubImageExtractionHelperTest.java:16)
+    ERROR ai.elimu.util.epub.EPubImageExtractionHelperTest#testExtractImageReferenceFromChapterFile_FIL_LRA_faa0d66e type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubImageExtractionHelperTest.<init>(EPubImageExtractionHelperTest.java:16)
+    ERROR ai.elimu.util.epub.EPubImageExtractionHelperTest#testExtractImageReferenceFromChapterFile_BEN_GDL_761 type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubImageExtractionHelperTest.<init>(EPubImageExtractionHelperTest.java:16)
+    ERROR ai.elimu.util.epub.EPubMetadataExtractionHelperTest#testExtractTitleFromOpfFile_FIL_LETS_READ_ASIA_0acfe340 type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubMetadataExtractionHelperTest.<init>(EPubMetadataExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.epub.EPubMetadataExtractionHelperTest#testExtractTitleFromOpfFile_BEN_GLOBAL_DIGITAL_LIBRARY type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubMetadataExtractionHelperTest.<init>(EPubMetadataExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.epub.EPubMetadataExtractionHelperTest#testExtractTitleFromOpfFile_FIL_LETS_READ_ASIA_627f64f8 type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubMetadataExtractionHelperTest.<init>(EPubMetadataExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.epub.EPubMetadataExtractionHelperTest#testExtractCoverImageReferenceFromOpfFile_FIL_LETS_READ_ASIA_0acfe340 type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubMetadataExtractionHelperTest.<init>(EPubMetadataExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.epub.EPubMetadataExtractionHelperTest#testExtractTitleFromOpfFile_BEN_STORYWEAVER_11791 type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubMetadataExtractionHelperTest.<init>(EPubMetadataExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.epub.EPubMetadataExtractionHelperTest#testExtractTitleFromOpfFile_FIL_STORYWEAVER_105391 type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubMetadataExtractionHelperTest.<init>(EPubMetadataExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.epub.EPubMetadataExtractionHelperTest#testExtractCoverImageReferenceFromOpfFile_BEN_STORYWEAVER_11791 type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubMetadataExtractionHelperTest.<init>(EPubMetadataExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.epub.EPubMetadataExtractionHelperTest#testExtractCoverImageReferenceFromOpfFile_FIL_GLOBAL_DIGITAL_LIBRARY_761 type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubMetadataExtractionHelperTest.<init>(EPubMetadataExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.epub.EPubParagraphExtractionHelperTest#testExtractParagraphsFromChapterFile_HIN_SW_141016_ch8 type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubParagraphExtractionHelperTest.<init>(EPubParagraphExtractionHelperTest.java:18)
+    ERROR ai.elimu.util.epub.EPubParagraphExtractionHelperTest#testExtractParagraphsFromChapterFile_HIN_SW_99651_ch3 type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubParagraphExtractionHelperTest.<init>(EPubParagraphExtractionHelperTest.java:18)
+    ERROR ai.elimu.util.epub.EPubParagraphExtractionHelperTest#testExtractParagraphsFromChapterFile_FIL_LRA_7f877260_ch4 type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.epub.EPubParagraphExtractionHelperTest.<init>(EPubParagraphExtractionHelperTest.java:18)
+    ... truncated (88 lines)

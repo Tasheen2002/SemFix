@@ -1,0 +1,87 @@
+{
+  "case_id": "f61b113c1493d02611bc5cdc9a80e8af0abf2035",
+  "phase": "pre",
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-20T05:01:51.801607632Z",
+    "FinishedAt": "2026-11-20T05:03:21.792418234Z"
+  },
+  "working_directory": "/lti-launch",
+  "command": [
+    "sh",
+    "-c",
+    "mvn clean test -B | tee %s.log"
+  ],
+  "image_id": "sha256:f6dcd18c41179a47343a0e247eba66ceb48647a90494e7e386d5f45c929b700a",
+  "image_digests": [
+    "ghcr.io/chains-project/breaking-updates@sha256:f6dcd18c41179a47343a0e247eba66ceb48647a90494e7e386d5f45c929b700a"
+  ],
+  "platform": "linux/amd64",
+  "cleaned_modules": [
+    "."
+  ],
+  "freshness_rule": "Only report directories under a target explicitly deleted in this run are included",
+  "report_count": 1,
+  "reports": [
+    {
+      "path": "target/surefire-reports/TEST-edu.ksu.lti.launch.test.SpringContextITest.xml",
+      "module": ".",
+      "test_class": "edu.ksu.lti.launch.test.SpringContextITest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/usr/share/java/maven-3/boot/plexus-classworlds-2.7.0.jar",
+      "classpath_property": "java.class.path",
+      "errors": [],
+      "failures": []
+    }
+  ],
+  "source_and_pom_sha256": {
+    "pom.xml": "000554e31954e65ed0a0416a91415012b4af46ae7e70356cd057416a234a9b09",
+    "src/main/java/edu/ksu/lti/launch/controller/LtiLaunchController.java": "1ea233f0b4f6c0bb602b65d0fd4687e48fe906c516b4128b7e45baea839f8d90",
+    "src/main/java/edu/ksu/lti/launch/controller/OauthController.java": "1f1cfc9ba29f810cc882bf09e55546050cb1f0a61d2c44edaca11e832a522455",
+    "src/main/java/edu/ksu/lti/launch/exception/CookieUnavailableException.java": "7e3bf5d63c26192fbfa8cd1f2dc7b1ae528408b580429e1df5b6d074516363d4",
+    "src/main/java/edu/ksu/lti/launch/exception/InvalidInstanceException.java": "fa8b60af1e2cab90465527907c3672a49bd70079cedf9c8fa3d4ddc6eaed69f4",
+    "src/main/java/edu/ksu/lti/launch/exception/NoLtiSessionException.java": "2b9eb5abf32332ab81846e23def5fcddd9e528f0621b9ed9f1700cbb46e84c7c",
+    "src/main/java/edu/ksu/lti/launch/exception/OauthTokenRequiredException.java": "9c401a2a1d574d06fce637c411a9955e91a469b4c762c8ac78261daae8663efd",
+    "src/main/java/edu/ksu/lti/launch/exception/RefreshFailedException.java": "4eb3940629553088768c6601fc81a58e31f25e911c793f7780b9b8f500b5a01f",
+    "src/main/java/edu/ksu/lti/launch/model/LtiLaunchData.java": "7a85dde25d24894abe27214cf3368d8291edcdc0158d459b90f8ad24abb3c2d3",
+    "src/main/java/edu/ksu/lti/launch/model/LtiSession.java": "8c08adea778e46ab61329e6fdf0a1603f10cda2cee4a63e4be6874c90e267435",
+    "src/main/java/edu/ksu/lti/launch/oauth/LtiConsumerDetailsService.java": "b5c3a8552247fa57b3004b724b6cd7fad5dc4654320361ea790d03d7b7db2902",
+    "src/main/java/edu/ksu/lti/launch/oauth/LtiLaunch.java": "3379cf548ce0effddc611b11785b484c12f173465f8710fa09d81b5ebc0ef55d",
+    "src/main/java/edu/ksu/lti/launch/oauth/LtiOAuthAuthenticationHandler.java": "3a0aa14c303efccec997a8f9f1e022b1f2a115352860872fb8750626df8c80ae",
+    "src/main/java/edu/ksu/lti/launch/security/CanvasInstanceChecker.java": "092ac5c4bdf9da44ed688fdbe794e028a4b7cb00f3fe7c326fecaadf8d8bc536",
+    "src/main/java/edu/ksu/lti/launch/service/ConfigService.java": "6b545d014e192daa87e83731c4ef0cae9a088b222529bac6db57e5153280cdfd",
+    "src/main/java/edu/ksu/lti/launch/service/LtiLaunchKeyService.java": "07db2f3af1b33a542a6570397b62cbbefb9ad71ab3a3b294651307e0c0af270b",
+    "src/main/java/edu/ksu/lti/launch/service/LtiSessionService.java": "39c6809eff613950664f62ca70635cb486a917d62e94b6880b7991ad8e78ce92",
+    "src/main/java/edu/ksu/lti/launch/service/OauthTokenService.java": "5c50b3ee818ff6d980e80ffdfb94e5f48f735acaf09812e245d71430d57b6fb3",
+    "src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java": "3be895960f01107394cbaa73f98e2086a354fafea35f8e4095ae00d85171a69b",
+    "src/main/resources/jsp/GeneralError.jsp": "767a5ee343212c073933cff41fbdf80ec5418307cdda3df48624681d829e2ea2",
+    "src/main/resources/jsp/InvalidCanvasInstance.jsp": "e7fa7cde581b517901a4769757c1f5a1a2a426957f4e1f8454edb4099c8b1583",
+    "src/main/resources/jsp/NoLtiSession.jsp": "24f0a0111227827bcece980676a8ea8b873dfd05f8d7d65a15c957e264a35d8b",
+    "src/test/java/edu/ksu/lti/launch/controller/TestLtiLaunchController.java": "f9697f7b78bd304b8383da6de7fb1f24e37f4d4142cfc80489be3c9500b3f7ac",
+    "src/test/java/edu/ksu/lti/launch/spring/config/TestApplicationConfig.java": "2344d96215b25f16e4332097724e0ec335d395e3afcc525d4ae4ccb361d83492",
+    "src/test/java/edu/ksu/lti/launch/spring/config/TestServiceConfig.java": "553397cbde3bcc9529fc48bad8a93d5e32e4b30b12754d2f3dbf64a3e8fc5384",
+    "src/test/java/edu/ksu/lti/launch/spring/config/TestSpringConfig.java": "f183dcb3ba2ad3e7c3b8304655de7a31c045fc872f5e364604148203f8691a49",
+    "src/test/java/edu/ksu/lti/launch/test/SpringContextITest.java": "554b267118e6bf35b0d13661f34ced52f688d893c2d14677e498b07ab43d3309",
+    "src/test/resources/log4j.properties": "a726c968784308b6c89d8ae8fc663725f2273d4ffd3f18b9c525be0f14ac8bbb"
+  },
+  "aggregate_counts": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

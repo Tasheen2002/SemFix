@@ -1,0 +1,312 @@
+Compiled from "SentryAppenderFactory.java"
+public class org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory extends io.dropwizard.logging.AbstractAppenderFactory<ch.qos.logback.classic.spi.ILoggingEvent> {
+  private static final java.lang.String APPENDER_NAME;
+    descriptor: Ljava/lang/String;
+
+  public java.lang.String dsn;
+    descriptor: Ljava/lang/String;
+
+  public java.lang.String environment;
+    descriptor: Ljava/lang/String;
+
+  public java.util.Map<java.lang.String, java.lang.String> tags;
+    descriptor: Ljava/util/Map;
+
+  public java.lang.String release;
+    descriptor: Ljava/lang/String;
+
+  public java.lang.String serverName;
+    descriptor: Ljava/lang/String;
+
+  public java.util.List<java.lang.String> inAppIncludes;
+    descriptor: Ljava/util/List;
+
+  public java.util.List<java.lang.String> inAppExcludes;
+    descriptor: Ljava/util/List;
+
+  public java.lang.String configurator;
+    descriptor: Ljava/lang/String;
+
+  public org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method io/dropwizard/logging/AbstractAppenderFactory."<init>":()V
+       4: aload_0
+       5: aconst_null
+       6: putfield      #2                  // Field dsn:Ljava/lang/String;
+       9: aload_0
+      10: aconst_null
+      11: putfield      #3                  // Field environment:Ljava/lang/String;
+      14: aload_0
+      15: aconst_null
+      16: putfield      #4                  // Field tags:Ljava/util/Map;
+      19: aload_0
+      20: aconst_null
+      21: putfield      #5                  // Field release:Ljava/lang/String;
+      24: aload_0
+      25: aconst_null
+      26: putfield      #6                  // Field serverName:Ljava/lang/String;
+      29: aload_0
+      30: aconst_null
+      31: putfield      #7                  // Field inAppIncludes:Ljava/util/List;
+      34: aload_0
+      35: aconst_null
+      36: putfield      #8                  // Field inAppExcludes:Ljava/util/List;
+      39: aload_0
+      40: aconst_null
+      41: putfield      #9                  // Field configurator:Ljava/lang/String;
+      44: return
+
+  public ch.qos.logback.core.Appender<ch.qos.logback.classic.spi.ILoggingEvent> build(ch.qos.logback.classic.LoggerContext, java.lang.String, io.dropwizard.logging.layout.LayoutFactory<ch.qos.logback.classic.spi.ILoggingEvent>, io.dropwizard.logging.filter.LevelFilterFactory<ch.qos.logback.classic.spi.ILoggingEvent>, io.dropwizard.logging.async.AsyncAppenderFactory<ch.qos.logback.classic.spi.ILoggingEvent>);
+    descriptor: (Lch/qos/logback/classic/LoggerContext;Ljava/lang/String;Lio/dropwizard/logging/layout/LayoutFactory;Lio/dropwizard/logging/filter/LevelFilterFactory;Lio/dropwizard/logging/async/AsyncAppenderFactory;)Lch/qos/logback/core/Appender;
+    Code:
+       0: aload_1
+       1: invokestatic  #10                 // Method com/google/common/base/Preconditions.checkNotNull:(Ljava/lang/Object;)Ljava/lang/Object;
+       4: pop
+       5: new           #11                 // class io/sentry/SentryOptions
+       8: dup
+       9: invokespecial #12                 // Method io/sentry/SentryOptions."<init>":()V
+      12: astore        6
+      14: aload         6
+      16: aload_0
+      17: getfield      #2                  // Field dsn:Ljava/lang/String;
+      20: invokevirtual #13                 // Method io/sentry/SentryOptions.setDsn:(Ljava/lang/String;)V
+      23: aload_0
+      24: getfield      #3                  // Field environment:Ljava/lang/String;
+      27: invokestatic  #14                 // Method java/util/Optional.ofNullable:(Ljava/lang/Object;)Ljava/util/Optional;
+      30: aload         6
+      32: dup
+      33: invokevirtual #15                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      36: pop
+      37: invokedynamic #16,  0             // InvokeDynamic #0:accept:(Lio/sentry/SentryOptions;)Ljava/util/function/Consumer;
+      42: invokevirtual #17                 // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+      45: aload_0
+      46: getfield      #4                  // Field tags:Ljava/util/Map;
+      49: invokestatic  #14                 // Method java/util/Optional.ofNullable:(Ljava/lang/Object;)Ljava/util/Optional;
+      52: aload         6
+      54: invokedynamic #18,  0             // InvokeDynamic #1:accept:(Lio/sentry/SentryOptions;)Ljava/util/function/Consumer;
+      59: invokevirtual #17                 // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+      62: aload_0
+      63: getfield      #5                  // Field release:Ljava/lang/String;
+      66: invokestatic  #14                 // Method java/util/Optional.ofNullable:(Ljava/lang/Object;)Ljava/util/Optional;
+      69: aload         6
+      71: dup
+      72: invokevirtual #15                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      75: pop
+      76: invokedynamic #19,  0             // InvokeDynamic #2:accept:(Lio/sentry/SentryOptions;)Ljava/util/function/Consumer;
+      81: invokevirtual #17                 // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+      84: aload_0
+      85: getfield      #6                  // Field serverName:Ljava/lang/String;
+      88: invokestatic  #14                 // Method java/util/Optional.ofNullable:(Ljava/lang/Object;)Ljava/util/Optional;
+      91: aload         6
+      93: dup
+      94: invokevirtual #15                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      97: pop
+      98: invokedynamic #20,  0             // InvokeDynamic #3:accept:(Lio/sentry/SentryOptions;)Ljava/util/function/Consumer;
+     103: invokevirtual #17                 // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+     106: aload_0
+     107: getfield      #7                  // Field inAppIncludes:Ljava/util/List;
+     110: invokestatic  #14                 // Method java/util/Optional.ofNullable:(Ljava/lang/Object;)Ljava/util/Optional;
+     113: aload         6
+     115: invokedynamic #21,  0             // InvokeDynamic #4:accept:(Lio/sentry/SentryOptions;)Ljava/util/function/Consumer;
+     120: invokevirtual #17                 // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+     123: aload_0
+     124: getfield      #8                  // Field inAppExcludes:Ljava/util/List;
+     127: invokestatic  #14                 // Method java/util/Optional.ofNullable:(Ljava/lang/Object;)Ljava/util/Optional;
+     130: aload         6
+     132: invokedynamic #22,  0             // InvokeDynamic #5:accept:(Lio/sentry/SentryOptions;)Ljava/util/function/Consumer;
+     137: invokevirtual #17                 // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+     140: aload_0
+     141: getfield      #9                  // Field configurator:Ljava/lang/String;
+     144: invokestatic  #14                 // Method java/util/Optional.ofNullable:(Ljava/lang/Object;)Ljava/util/Optional;
+     147: aload         6
+     149: invokedynamic #23,  0             // InvokeDynamic #6:accept:(Lio/sentry/SentryOptions;)Ljava/util/function/Consumer;
+     154: invokevirtual #17                 // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+     157: invokestatic  #24                 // Method io/sentry/Sentry.close:()V
+     160: new           #25                 // class io/sentry/logback/SentryAppender
+     163: dup
+     164: invokespecial #26                 // Method io/sentry/logback/SentryAppender."<init>":()V
+     167: astore        7
+     169: aload         7
+     171: aload         6
+     173: invokevirtual #27                 // Method io/sentry/logback/SentryAppender.setOptions:(Lio/sentry/SentryOptions;)V
+     176: aload         7
+     178: ldc           #29                 // String dropwizard-sentry
+     180: invokevirtual #30                 // Method io/sentry/logback/SentryAppender.setName:(Ljava/lang/String;)V
+     183: aload         7
+     185: aload_1
+     186: invokevirtual #31                 // Method io/sentry/logback/SentryAppender.setContext:(Lch/qos/logback/core/Context;)V
+     189: aload         7
+     191: aload_0
+     192: getfield      #32                 // Field threshold:Lch/qos/logback/classic/Level;
+     195: invokevirtual #33                 // Method io/sentry/logback/SentryAppender.setMinimumBreadcrumbLevel:(Lch/qos/logback/classic/Level;)V
+     198: aload         7
+     200: aload_0
+     201: getfield      #32                 // Field threshold:Lch/qos/logback/classic/Level;
+     204: invokevirtual #34                 // Method io/sentry/logback/SentryAppender.setMinimumEventLevel:(Lch/qos/logback/classic/Level;)V
+     207: aload         7
+     209: aload         4
+     211: aload_0
+     212: getfield      #32                 // Field threshold:Lch/qos/logback/classic/Level;
+     215: invokeinterface #35,  2           // InterfaceMethod io/dropwizard/logging/filter/LevelFilterFactory.build:(Lch/qos/logback/classic/Level;)Lch/qos/logback/core/filter/Filter;
+     220: invokevirtual #36                 // Method io/sentry/logback/SentryAppender.addFilter:(Lch/qos/logback/core/filter/Filter;)V
+     223: aload_0
+     224: invokevirtual #37                 // Method getFilterFactories:()Ljava/util/List;
+     227: aload         7
+     229: invokedynamic #38,  0             // InvokeDynamic #7:accept:(Lio/sentry/logback/SentryAppender;)Ljava/util/function/Consumer;
+     234: invokeinterface #39,  2           // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+     239: aload         7
+     241: invokevirtual #40                 // Method io/sentry/logback/SentryAppender.start:()V
+     244: new           #41                 // class org/dhatim/dropwizard/sentry/filters/DroppingSentryLoggingFilter
+     247: dup
+     248: invokespecial #42                 // Method org/dhatim/dropwizard/sentry/filters/DroppingSentryLoggingFilter."<init>":()V
+     251: astore        8
+     253: aload         8
+     255: invokevirtual #43                 // Method ch/qos/logback/core/filter/Filter.start:()V
+     258: aload         7
+     260: aload         8
+     262: invokevirtual #36                 // Method io/sentry/logback/SentryAppender.addFilter:(Lch/qos/logback/core/filter/Filter;)V
+     265: aload         7
+     267: areturn
+
+  private static void lambda$build$4(io.sentry.logback.SentryAppender, io.dropwizard.logging.filter.FilterFactory);
+    descriptor: (Lio/sentry/logback/SentryAppender;Lio/dropwizard/logging/filter/FilterFactory;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokeinterface #44,  1           // InterfaceMethod io/dropwizard/logging/filter/FilterFactory.build:()Lch/qos/logback/core/filter/Filter;
+       7: invokevirtual #36                 // Method io/sentry/logback/SentryAppender.addFilter:(Lch/qos/logback/core/filter/Filter;)V
+      10: return
+
+  private static void lambda$build$3(io.sentry.SentryOptions, java.lang.String);
+    descriptor: (Lio/sentry/SentryOptions;Ljava/lang/String;)V
+    Code:
+       0: aload_1
+       1: invokestatic  #45                 // Method java/lang/Class.forName:(Ljava/lang/String;)Ljava/lang/Class;
+       4: astore_2
+       5: ldc           #46                 // class org/dhatim/dropwizard/sentry/SentryConfigurator
+       7: aload_2
+       8: invokevirtual #47                 // Method java/lang/Class.isAssignableFrom:(Ljava/lang/Class;)Z
+      11: ifne          54
+      14: new           #48                 // class java/lang/IllegalArgumentException
+      17: dup
+      18: new           #49                 // class java/lang/StringBuilder
+      21: dup
+      22: invokespecial #50                 // Method java/lang/StringBuilder."<init>":()V
+      25: ldc           #51                 // String configurator class
+      27: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      30: aload_1
+      31: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      34: ldc           #53                 // String  does not implement
+      36: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      39: ldc           #46                 // class org/dhatim/dropwizard/sentry/SentryConfigurator
+      41: invokevirtual #54                 // Method java/lang/Class.getName:()Ljava/lang/String;
+      44: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      47: invokevirtual #55                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      50: invokespecial #56                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      53: athrow
+      54: aload_2
+      55: iconst_0
+      56: anewarray     #57                 // class java/lang/Class
+      59: invokevirtual #58                 // Method java/lang/Class.getDeclaredConstructor:([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+      62: iconst_0
+      63: anewarray     #59                 // class java/lang/Object
+      66: invokevirtual #60                 // Method java/lang/reflect/Constructor.newInstance:([Ljava/lang/Object;)Ljava/lang/Object;
+      69: checkcast     #46                 // class org/dhatim/dropwizard/sentry/SentryConfigurator
+      72: astore_3
+      73: aload_3
+      74: aload_0
+      75: invokeinterface #61,  2           // InterfaceMethod org/dhatim/dropwizard/sentry/SentryConfigurator.configure:(Lio/sentry/SentryOptions;)V
+      80: goto          180
+      83: astore_2
+      84: new           #48                 // class java/lang/IllegalArgumentException
+      87: dup
+      88: new           #49                 // class java/lang/StringBuilder
+      91: dup
+      92: invokespecial #50                 // Method java/lang/StringBuilder."<init>":()V
+      95: ldc           #51                 // String configurator class
+      97: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     100: aload_1
+     101: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     104: ldc           #63                 // String  not found
+     106: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     109: invokevirtual #55                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     112: aload_2
+     113: invokespecial #64                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+     116: athrow
+     117: astore_2
+     118: new           #48                 // class java/lang/IllegalArgumentException
+     121: dup
+     122: new           #49                 // class java/lang/StringBuilder
+     125: dup
+     126: invokespecial #50                 // Method java/lang/StringBuilder."<init>":()V
+     129: ldc           #51                 // String configurator class
+     131: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     134: aload_1
+     135: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     138: ldc           #66                 // String  does not define a default constructor
+     140: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     143: invokevirtual #55                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     146: aload_2
+     147: invokespecial #64                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+     150: athrow
+     151: astore_2
+     152: new           #48                 // class java/lang/IllegalArgumentException
+     155: dup
+     156: new           #49                 // class java/lang/StringBuilder
+     159: dup
+     160: invokespecial #50                 // Method java/lang/StringBuilder."<init>":()V
+     163: ldc           #70                 // String cannot invoke default constructor on configurator class
+     165: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     168: aload_1
+     169: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     172: invokevirtual #55                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     175: aload_2
+     176: invokespecial #64                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+     179: athrow
+     180: return
+    Exception table:
+       from    to  target type
+           0    80    83   Class java/lang/ClassNotFoundException
+           0    80   117   Class java/lang/NoSuchMethodException
+           0    80   151   Class java/lang/reflect/InvocationTargetException
+           0    80   151   Class java/lang/InstantiationException
+           0    80   151   Class java/lang/IllegalAccessException
+
+  private static void lambda$build$2(io.sentry.SentryOptions, java.util.List);
+    descriptor: (Lio/sentry/SentryOptions;Ljava/util/List;)V
+    Code:
+       0: aload_1
+       1: aload_0
+       2: dup
+       3: invokevirtual #15                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+       6: pop
+       7: invokedynamic #71,  0             // InvokeDynamic #8:accept:(Lio/sentry/SentryOptions;)Ljava/util/function/Consumer;
+      12: invokeinterface #39,  2           // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+      17: return
+
+  private static void lambda$build$1(io.sentry.SentryOptions, java.util.List);
+    descriptor: (Lio/sentry/SentryOptions;Ljava/util/List;)V
+    Code:
+       0: aload_1
+       1: aload_0
+       2: dup
+       3: invokevirtual #15                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+       6: pop
+       7: invokedynamic #72,  0             // InvokeDynamic #9:accept:(Lio/sentry/SentryOptions;)Ljava/util/function/Consumer;
+      12: invokeinterface #39,  2           // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+      17: return
+
+  private static void lambda$build$0(io.sentry.SentryOptions, java.util.Map);
+    descriptor: (Lio/sentry/SentryOptions;Ljava/util/Map;)V
+    Code:
+       0: aload_1
+       1: aload_0
+       2: dup
+       3: invokevirtual #15                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+       6: pop
+       7: invokedynamic #73,  0             // InvokeDynamic #10:accept:(Lio/sentry/SentryOptions;)Ljava/util/function/BiConsumer;
+      12: invokeinterface #74,  2           // InterfaceMethod java/util/Map.forEach:(Ljava/util/function/BiConsumer;)V
+      17: return
+}

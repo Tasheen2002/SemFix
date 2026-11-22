@@ -1,0 +1,41 @@
+﻿
+=== Case 3  063cf862c045e0a9e401a539497e34ddaf8332b3 ===
+Project : versly/wsdoc
+Update  : com.fasterxml.jackson.core:jackson-databind  2.4.2 -> 2.9.10.8
+Running breaking in container manual-case3-breaking (this can take several minutes) ...
+Finished in 37 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case3_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 59, Failures: 33, Errors: 0, Skipped: 0
+First failing tests / errors:
+  [ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.assertGenericResponse  Time elapsed: 0.345 s  <<< FAILURE!
+      java.lang.RuntimeException: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonMerge
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+  [ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.assertJavaDocComments  Time elapsed: 0.29 s  <<< FAILURE!
+      java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+  [ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.assertNoRedundantUriParametersForResource  Time elapsed: 0.175 s  <<< FAILURE!
+      java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+  Caused by: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonMerge
+  Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.annotation.JsonMerge
+  Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+  Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Linkage / bytecode signals:
+  NoClassDefFoundError x99
+  ClassNotFoundException x1
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : jackson-databind 2.9.10.8 requires com.fasterxml.jackson.annotation.JsonMerge (jackson-annotations >=2.9) but an older annotations jar is resolved; first error NoClassDefFoundError JsonMerge, then 32x 'Could not initialize class ObjectMapper'
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

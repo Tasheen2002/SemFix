@@ -1,0 +1,28 @@
+diff --git a/pom.xml b/pom.xml
+index 6b3d4dc4..12af5b21 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -161,7 +161,7 @@
+     <dependency>
+       <groupId>com.thoughtworks.xstream</groupId>
+       <artifactId>xstream</artifactId>
+-      <version>1.4.17</version>
++      <version>1.4.19</version>
+     </dependency>
+     <dependency>
+       <groupId>commons-vfs</groupId>
+diff --git a/src/test/java/org/apache/log4j/chainsaw/LogPanelPreferenceModelTest.java b/src/test/java/org/apache/log4j/chainsaw/LogPanelPreferenceModelTest.java
+index 808b17e1..c5dd8893 100644
+--- a/src/test/java/org/apache/log4j/chainsaw/LogPanelPreferenceModelTest.java
++++ b/src/test/java/org/apache/log4j/chainsaw/LogPanelPreferenceModelTest.java
+@@ -41,6 +41,10 @@ public class LogPanelPreferenceModelTest extends TestCase {
+         model.setToolTips(!model.isToolTips());
+         
+         XStream stream = new XStream(new DomDriver());
++        stream.allowTypes(new Class[]{
++            LogPanelPreferenceModel.class
++        });
++
+         String xml = stream.toXML(model);
+ //        System.out.println(xml);
+         

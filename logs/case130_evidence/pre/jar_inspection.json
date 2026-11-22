@@ -1,0 +1,61 @@
+{
+  "case_id": "ae0c985ae9bd343310b66c5d9895aa068b5ef505",
+  "phase": "pre",
+  "path_filter": "/(dropwizard-logging|dropwizard-sentry)/",
+  "path_source": "Fresh test report effective classpaths, preferring surefire.test.class.path when present",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/io/dropwizard/dropwizard-logging/2.1.6/dropwizard-logging-2.1.6.jar",
+      "sha256": "1467c8e1278ef789780b41a859bbdeeeda1b5f06a8ae6d8ac076efe5be841965",
+      "classes": {
+        "io.dropwizard.logging.AppenderFactory": {
+          "present": true,
+          "major_version": 52
+        },
+        "io.dropwizard.logging.common.AppenderFactory": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/io.dropwizard.jackson.Discoverable": "io.dropwizard.logging.AppenderFactory\nio.dropwizard.logging.LoggingFactory\nio.dropwizard.logging.filter.FilterFactory\nio.dropwizard.logging.layout.DiscoverableLayoutFactory\n",
+        "META-INF/services/io.dropwizard.logging.AppenderFactory": "io.dropwizard.logging.ConsoleAppenderFactory\nio.dropwizard.logging.FileAppenderFactory\nio.dropwizard.logging.SyslogAppenderFactory\nio.dropwizard.logging.TcpSocketAppenderFactory\nio.dropwizard.logging.UdpSocketAppenderFactory\nio.dropwizard.logging.TlsSocketAppenderFactory\n",
+        "META-INF/services/io.dropwizard.logging.LoggingFactory": "io.dropwizard.logging.DefaultLoggingFactory\nio.dropwizard.logging.ExternalLoggingFactory\n"
+      },
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/dhatim/dropwizard-sentry/2.1.2-4/dropwizard-sentry-2.1.2-4.jar",
+      "sha256": "6f32268d29aa3b59b7ee06ff0320ac87c9ee99abee456f5d7c1f7f882fdfda97",
+      "classes": {
+        "io.dropwizard.logging.AppenderFactory": {
+          "present": false,
+          "major_version": null
+        },
+        "io.dropwizard.logging.common.AppenderFactory": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/io.dropwizard.logging.AppenderFactory": "org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory\n"
+      },
+      "disassemblies": [
+        {
+          "class": "org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory",
+          "file": "dropwizard-sentry-2.1.2-4_SentryAppenderFactory_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case130_evidence\\pre\\jars\\dropwizard-sentry-2.1.2-4.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

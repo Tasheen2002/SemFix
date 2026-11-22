@@ -1,0 +1,679 @@
+{
+  "case_id": "fc7d1a841bfe8a840b362fa09bae13e5231bc148",
+  "phase": "pre",
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-20T05:54:38.075820669Z",
+    "FinishedAt": "2026-11-20T05:57:31.721950788Z"
+  },
+  "working_directory": "/jadler",
+  "command": [
+    "sh",
+    "-c",
+    "mvn clean test -B | tee %s.log"
+  ],
+  "image_id": "sha256:9ebd3b8bf8bb64288bfe77bac3bf18870b4870298fe60d4dd3431ca880c78e5a",
+  "image_digests": [
+    "ghcr.io/chains-project/breaking-updates@sha256:9ebd3b8bf8bb64288bfe77bac3bf18870b4870298fe60d4dd3431ca880c78e5a"
+  ],
+  "platform": "linux/amd64",
+  "cleaned_modules": [
+    "jadler-all",
+    "jadler-core",
+    "jadler-jdk",
+    "jadler-jetty",
+    "jadler-junit"
+  ],
+  "freshness_rule": "Only report directories under a target explicitly deleted in this run are included",
+  "report_count": 34,
+  "reports": [
+    {
+      "path": "jadler-all/target/surefire-reports/TEST-net.jadler.FacadeIntegrationTest.xml",
+      "module": "jadler-all",
+      "test_class": "net.jadler.FacadeIntegrationTest",
+      "counts": {
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-all/target/test-classes:/jadler/jadler-all/target/classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/jadler/jadler-jetty/target/classes:/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/jadler/jadler-junit/target/classes:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/jadler/jadler-jdk/target/classes:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/apache/httpcomponents/fluent-hc/4.5.13/fluent-hc-4.5.13.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/springframework/spring-core/5.3.22/spring-core-5.3.22.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.22/spring-jcl-5.3.22.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-all/target/surefire-reports/TEST-net.jadler.ResetJDKIntegrationTest.xml",
+      "module": "jadler-all",
+      "test_class": "net.jadler.ResetJDKIntegrationTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-all/target/test-classes:/jadler/jadler-all/target/classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/jadler/jadler-jetty/target/classes:/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/jadler/jadler-junit/target/classes:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/jadler/jadler-jdk/target/classes:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/apache/httpcomponents/fluent-hc/4.5.13/fluent-hc-4.5.13.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/springframework/spring-core/5.3.22/spring-core-5.3.22.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.22/spring-jcl-5.3.22.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-all/target/surefire-reports/TEST-net.jadler.ResetJettyIntegrationTest.xml",
+      "module": "jadler-all",
+      "test_class": "net.jadler.ResetJettyIntegrationTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-all/target/test-classes:/jadler/jadler-all/target/classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/jadler/jadler-jetty/target/classes:/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/jadler/jadler-junit/target/classes:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/jadler/jadler-jdk/target/classes:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/apache/httpcomponents/fluent-hc/4.5.13/fluent-hc-4.5.13.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/springframework/spring-core/5.3.22/spring-core-5.3.22.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.22/spring-jcl-5.3.22.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-all/target/surefire-reports/TEST-net.jadler.StubbingIntegrationTest.xml",
+      "module": "jadler-all",
+      "test_class": "net.jadler.StubbingIntegrationTest",
+      "counts": {
+        "tests": 60,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-all/target/test-classes:/jadler/jadler-all/target/classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/jadler/jadler-jetty/target/classes:/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/jadler/jadler-junit/target/classes:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/jadler/jadler-jdk/target/classes:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/apache/httpcomponents/fluent-hc/4.5.13/fluent-hc-4.5.13.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/springframework/spring-core/5.3.22/spring-core-5.3.22.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.22/spring-jcl-5.3.22.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-all/target/surefire-reports/TEST-net.jadler.StubbingResponseHeadersTest.xml",
+      "module": "jadler-all",
+      "test_class": "net.jadler.StubbingResponseHeadersTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-all/target/test-classes:/jadler/jadler-all/target/classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/jadler/jadler-jetty/target/classes:/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/jadler/jadler-junit/target/classes:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/jadler/jadler-jdk/target/classes:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/apache/httpcomponents/fluent-hc/4.5.13/fluent-hc-4.5.13.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/springframework/spring-core/5.3.22/spring-core-5.3.22.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.22/spring-jcl-5.3.22.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-all/target/surefire-reports/TEST-net.jadler.SuperDefaultsIntegrationTest.xml",
+      "module": "jadler-all",
+      "test_class": "net.jadler.SuperDefaultsIntegrationTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-all/target/test-classes:/jadler/jadler-all/target/classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/jadler/jadler-jetty/target/classes:/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/jadler/jadler-junit/target/classes:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/jadler/jadler-jdk/target/classes:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/apache/httpcomponents/fluent-hc/4.5.13/fluent-hc-4.5.13.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/springframework/spring-core/5.3.22/spring-core-5.3.22.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.22/spring-jcl-5.3.22.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-all/target/surefire-reports/TEST-net.jadler.TimeoutIntegrationTest.xml",
+      "module": "jadler-all",
+      "test_class": "net.jadler.TimeoutIntegrationTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-all/target/test-classes:/jadler/jadler-all/target/classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/jadler/jadler-jetty/target/classes:/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/jadler/jadler-junit/target/classes:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/jadler/jadler-jdk/target/classes:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/apache/httpcomponents/fluent-hc/4.5.13/fluent-hc-4.5.13.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/springframework/spring-core/5.3.22/spring-core-5.3.22.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.22/spring-jcl-5.3.22.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-all/target/surefire-reports/TEST-net.jadler.VerificationIntegrationTest.xml",
+      "module": "jadler-all",
+      "test_class": "net.jadler.VerificationIntegrationTest",
+      "counts": {
+        "tests": 40,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-all/target/test-classes:/jadler/jadler-all/target/classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/jadler/jadler-jetty/target/classes:/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/jadler/jadler-junit/target/classes:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/jadler/jadler-jdk/target/classes:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/apache/httpcomponents/fluent-hc/4.5.13/fluent-hc-4.5.13.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/springframework/spring-core/5.3.22/spring-core-5.3.22.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.22/spring-jcl-5.3.22.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-all/target/surefire-reports/TEST-net.jadler.deprecated.DeprecatedDefaultsConfigurationTest.xml",
+      "module": "jadler-all",
+      "test_class": "net.jadler.deprecated.DeprecatedDefaultsConfigurationTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-all/target/test-classes:/jadler/jadler-all/target/classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/jadler/jadler-jetty/target/classes:/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/jadler/jadler-junit/target/classes:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/jadler/jadler-jdk/target/classes:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/apache/httpcomponents/fluent-hc/4.5.13/fluent-hc-4.5.13.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/springframework/spring-core/5.3.22/spring-core-5.3.22.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.22/spring-jcl-5.3.22.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.AbstractRequestMatchingTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.AbstractRequestMatchingTest",
+      "counts": {
+        "tests": 22,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.JadlerMockerTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.JadlerMockerTest",
+      "counts": {
+        "tests": 54,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.KeyValuesTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.KeyValuesTest",
+      "counts": {
+        "tests": 22,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.RequestTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.RequestTest",
+      "counts": {
+        "tests": 33,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.matchers.BodyRequestMatcherTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.matchers.BodyRequestMatcherTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.matchers.HeaderRequestMatcherTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.matchers.HeaderRequestMatcherTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.matchers.MethodRequestMatcherTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.matchers.MethodRequestMatcherTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.matchers.ParameterRequestMatcherTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.matchers.ParameterRequestMatcherTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.matchers.PathRequestMatcherTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.matchers.PathRequestMatcherTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.matchers.QueryStringRequestMatcherTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.matchers.QueryStringRequestMatcherTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.matchers.RawBodyRequestMatcherTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.matchers.RawBodyRequestMatcherTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.matchers.RequestMatcherTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.matchers.RequestMatcherTest",
+      "counts": {
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.mocking.VerifyingTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.mocking.VerifyingTest",
+      "counts": {
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.stubbing.HttpStubTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.stubbing.HttpStubTest",
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.stubbing.MutableStubResponseTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.stubbing.MutableStubResponseTest",
+      "counts": {
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.stubbing.StaticResponderTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.stubbing.StaticResponderTest",
+      "counts": {
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.stubbing.StubResponseTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.stubbing.StubResponseTest",
+      "counts": {
+        "tests": 24,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-core/target/surefire-reports/TEST-net.jadler.stubbing.StubbingTest.xml",
+      "module": "jadler-core",
+      "test_class": "net.jadler.stubbing.StubbingTest",
+      "counts": {
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-core/target/test-classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-jdk/target/surefire-reports/TEST-net.jadler.stubbing.server.jdk.JdkHandlerTest.xml",
+      "module": "jadler-jdk",
+      "test_class": "net.jadler.stubbing.server.jdk.JdkHandlerTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-jdk/target/test-classes:/jadler/jadler-jdk/target/classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-jdk/target/surefire-reports/TEST-net.jadler.stubbing.server.jdk.JdkStubHttpServerTest.xml",
+      "module": "jadler-jdk",
+      "test_class": "net.jadler.stubbing.server.jdk.JdkStubHttpServerTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-jdk/target/test-classes:/jadler/jadler-jdk/target/classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-jdk/target/surefire-reports/TEST-net.jadler.stubbing.server.jdk.RequestUtilsTest.xml",
+      "module": "jadler-jdk",
+      "test_class": "net.jadler.stubbing.server.jdk.RequestUtilsTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-jdk/target/test-classes:/jadler/jadler-jdk/target/classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-jetty/target/surefire-reports/TEST-net.jadler.stubbing.server.jetty.RequestUtilsTest.xml",
+      "module": "jadler-jetty",
+      "test_class": "net.jadler.stubbing.server.jetty.RequestUtilsTest",
+      "counts": {
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-jetty/target/test-classes:/jadler/jadler-jetty/target/classes:/jadler/jadler-core/target/classes:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/springframework/spring-test/5.3.22/spring-test-5.3.22.jar:/root/.m2/repository/org/springframework/spring-core/5.3.22/spring-core-5.3.22.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.22/spring-jcl-5.3.22.jar:/root/.m2/repository/org/springframework/spring-web/5.3.22/spring-web-5.3.22.jar:/root/.m2/repository/org/springframework/spring-beans/5.3.22/spring-beans-5.3.22.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-junit/target/surefire-reports/TEST-net.jadler.junit.rule.JadlerFixedPortRuleTest.xml",
+      "module": "jadler-junit",
+      "test_class": "net.jadler.junit.rule.JadlerFixedPortRuleTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-junit/target/test-classes:/jadler/jadler-junit/target/classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/springframework/spring-core/5.3.22/spring-core-5.3.22.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.22/spring-jcl-5.3.22.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/apache/httpcomponents/fluent-hc/4.5.13/fluent-hc-4.5.13.jar:/jadler/jadler-jetty/target/classes:/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-junit/target/surefire-reports/TEST-net.jadler.junit.rule.JadlerRuleIntegrationTest.xml",
+      "module": "jadler-junit",
+      "test_class": "net.jadler.junit.rule.JadlerRuleIntegrationTest",
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-junit/target/test-classes:/jadler/jadler-junit/target/classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/springframework/spring-core/5.3.22/spring-core-5.3.22.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.22/spring-jcl-5.3.22.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/apache/httpcomponents/fluent-hc/4.5.13/fluent-hc-4.5.13.jar:/jadler/jadler-jetty/target/classes:/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "jadler-junit/target/surefire-reports/TEST-net.jadler.junit.rule.JadlerRuleTest.xml",
+      "module": "jadler-junit",
+      "test_class": "net.jadler.junit.rule.JadlerRuleTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jadler/jadler-junit/target/test-classes:/jadler/jadler-junit/target/classes:/jadler/jadler-core/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/springframework/spring-core/5.3.22/spring-core-5.3.22.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.22/spring-jcl-5.3.22.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/apache/httpcomponents/fluent-hc/4.5.13/fluent-hc-4.5.13.jar:/jadler/jadler-jetty/target/classes:/root/.m2/repository/org/eclipse/jetty/jetty-server/8.1.11.v20130520/jetty-server-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-continuation/8.1.11.v20130520/jetty-continuation-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-http/8.1.11.v20130520/jetty-http-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-io/8.1.11.v20130520/jetty-io-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/jetty-util/8.1.11.v20130520/jetty-util-8.1.11.v20130520.jar:/root/.m2/repository/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    }
+  ],
+  "source_and_pom_sha256": {
+    "jadler-all/pom.xml": "b9c890674494fa90f918ef7fd25a8426bc6302a97115a6204c5fc9dc723869cd",
+    "jadler-all/src/test/java/net/jadler/AbstractResetIntegrationTest.java": "7fda958f2f6b31ba3e19c4c83e0b8a3bebccffa435ef0f373dd200c006988fa2",
+    "jadler-all/src/test/java/net/jadler/FacadeIntegrationTest.java": "dffed7b45aa5d6ee76f7e10bec25fe90fa49744f8889141f4f9fb8069e8844c2",
+    "jadler-all/src/test/java/net/jadler/ResetJDKIntegrationTest.java": "3d0cae1d0a1a333bde1716ad88ca75235072c501d1dfcb7f76a7896f5d21c950",
+    "jadler-all/src/test/java/net/jadler/ResetJettyIntegrationTest.java": "32222a26e09eba2a0013ff81eff15fddd825ea1601501da8ca168c0208df56aa",
+    "jadler-all/src/test/java/net/jadler/StubbingIntegrationTest.java": "19e7d2ea9f4b367ee5205edb68a51904bfd8c0e31862b5b324906ac8ab1a16a0",
+    "jadler-all/src/test/java/net/jadler/StubbingResponseHeadersTest.java": "c4c9474381bb9aee0abc1660e8045259323c86c6c84e6fe654f379a168943caf",
+    "jadler-all/src/test/java/net/jadler/SuperDefaultsIntegrationTest.java": "94e17495f9845ad98f65dde92c5a646391c33d7d21311b1edc48aea823efb078",
+    "jadler-all/src/test/java/net/jadler/TimeoutIntegrationTest.java": "3b316b5bb7d26d570a7b720f5a0277d25d78f31ed58f5cb8f752648d07638bad",
+    "jadler-all/src/test/java/net/jadler/VerificationIntegrationTest.java": "42f6c347f209e965656c9e9901b23261b34fe5f64b9f0afc3ce5f16b409d52dd",
+    "jadler-all/src/test/java/net/jadler/deprecated/DeprecatedDefaultsConfigurationTest.java": "727574b24814409f587b2da81c79ca65cb0c3d44e46fcab5f6cd335f39257048",
+    "jadler-all/src/test/java/net/jadler/parameters/StubHttpServerFactory.java": "f7d1d99b462e4342de5184feb096bdf430298326608d1df2fa15befb79e57d2a",
+    "jadler-all/src/test/java/net/jadler/parameters/TestParameters.java": "4398dc6f3d159b537c33190a07049b7c1f69c46e645f4a97a0904fd2f5a08303",
+    "jadler-all/src/test/java/net/jadler/utils/TestUtils.java": "f5087f6fea6ffdaf73e024dbf72c5cc2ed03fcf4f190cb27ed4448e0c438246f",
+    "jadler-all/src/test/resources/logback.xml": "fc091eab9ba31c978d64ea3563f84ec0bcea7f38bf5815b7c5d4ba0ca1834594",
+    "jadler-core/pom.xml": "32848a5f883ea73a2b6eab790e073c93382f78e239eafe1515682535ca93c357",
+    "jadler-core/src/main/java/net/jadler/AbstractRequestMatching.java": "97a2d3c0bbcb9d54c61ca5f212adb01e2ae8301b69d087fba543862a55a9c9e3",
+    "jadler-core/src/main/java/net/jadler/Jadler.java": "76f8ce1b4d332bf8b25d2e09d71458fe110b6c34bac7eee1529d01cbf16d4c7f",
+    "jadler-core/src/main/java/net/jadler/JadlerConfiguration.java": "67af7457ece94dec29e9a25f702425959ed0401731e4ec61b74581e143eb34e7",
+    "jadler-core/src/main/java/net/jadler/JadlerMocker.java": "cd8c5e69969fb4325210b7e5b4eb4fd4e8fc942b8e34c4943c4a579937e2cfdf",
+    "jadler-core/src/main/java/net/jadler/KeyValues.java": "0e6b441cbf76a1457b53aae1213a2b0e4000e2f9d0f931c2636c6ff26d8d8222",
+    "jadler-core/src/main/java/net/jadler/Request.java": "79d26c8e9172873f427b3081e6399b96570b2a066f777443881a481ea10fbc73",
+    "jadler-core/src/main/java/net/jadler/RequestManager.java": "e9cced81d00a51b5cafb717a6c0e184745a5453976ea8295c2161a5f6b811df2",
+    "jadler-core/src/main/java/net/jadler/RequestMatching.java": "46354d725c35f7559a54a3c449791f2589af3dc449d29b2a1c00a2d549281784",
+    "jadler-core/src/main/java/net/jadler/exception/JadlerException.java": "aa1abab70034b8246964c808264d4095900c95c6169df6e9b85222b786339611",
+    "jadler-core/src/main/java/net/jadler/matchers/BodyRequestMatcher.java": "35cce7403e3bf960da8095b2c05c886f81b4f374e7612b5dd7f13cad76eedad5",
+    "jadler-core/src/main/java/net/jadler/matchers/HeaderRequestMatcher.java": "c17a095d3b8d260d3cbd149daf532451bf810ac5411cade224ca9adac496a779",
+    "jadler-core/src/main/java/net/jadler/matchers/MethodRequestMatcher.java": "8cc9204e074f2957c2e20797454a538119122aac9630aafe4ebe56b64bafab23",
+    "jadler-core/src/main/java/net/jadler/matchers/ParameterRequestMatcher.java": "a015a2ce9e2ed54494990c1245085a69ace09d3c74c999b8f85f8e4e7e50ea0e",
+    "jadler-core/src/main/java/net/jadler/matchers/PathRequestMatcher.java": "d2d1644b97a8f77ff4687ed548d7af5cf68e2ce67157f0947c5db88c0eeea128",
+    "jadler-core/src/main/java/net/jadler/matchers/QueryStringRequestMatcher.java": "f3cb75266356ce28e3af44acde006423af3b0ab7f28ba524ee44d8e29558c6b2",
+    "jadler-core/src/main/java/net/jadler/matchers/RawBodyRequestMatcher.java": "e1b20a04d0b69ef9dac3816309fc22fabc52fa7d561157c5cfc266cf758bddda",
+    "jadler-core/src/main/java/net/jadler/matchers/RequestMatcher.java": "3d483dba529c5fcd1c6ad42b024344d3571fdc02f668d894d01eeebc6b4043d9",
+    "jadler-core/src/main/java/net/jadler/mocking/Mocker.java": "70147cb4871fd3d72151d35f8ebc87a046fab23fdf23750a5f5fbc976f0c30bd",
+    "jadler-core/src/main/java/net/jadler/mocking/VerificationException.java": "2b6d452daf181462c83442a35939d10e77e489439dbcfd2e8d9583d6a97222b1",
+    "jadler-core/src/main/java/net/jadler/mocking/Verifying.java": "e3808be1edc055419f08a40053677cdd041a17c1d80659b0608e81bca8a9845d",
+    "jadler-core/src/main/java/net/jadler/stubbing/HttpStub.java": "33b3ca23eb7851114608a1734b3f75bb85a916c0a4bc1fd0b62ec6c61cce9702",
+    "jadler-core/src/main/java/net/jadler/stubbing/MutableStubResponse.java": "4627b843464b1a12908cd69282a3a5c90a17c900c268e621f19c511110834c96",
+    "jadler-core/src/main/java/net/jadler/stubbing/RequestStubbing.java": "ff12099670655a82263fd7ce19f05d9a8a1f185b964381a864c94f1a4d9e246e",
+    "jadler-core/src/main/java/net/jadler/stubbing/Responder.java": "bfc4e7e259a49214b65e056ee851fab337601e359bc65c382c4833fed0ca21cd",
+    "jadler-core/src/main/java/net/jadler/stubbing/ResponseStubbing.java": "56ef6196e22dd069d2e0429c883dec8d9cfc1da00cd1c4ab0c2e694c397615cd",
+    "jadler-core/src/main/java/net/jadler/stubbing/StaticResponder.java": "3ac056e7131895e0d5f56ee91606eb9b394427a0db33c6041a71f7ac6b1b101c",
+    "jadler-core/src/main/java/net/jadler/stubbing/StubResponse.java": "2a15da161b288731c494a6cb3644b416ba6d1639b695155dbb78751f7d8c5ee2",
+    "jadler-core/src/main/java/net/jadler/stubbing/Stubber.java": "74684695c7a639295e22faaec8989f6c7f2050f8cf348ef03cb3d787201c61c9",
+    "jadler-core/src/main/java/net/jadler/stubbing/Stubbing.java": "c666a1bdd3d370c466233056f1ca4b5d0ea06bd15c0e1b9299932d994c418b48",
+    "jadler-core/src/main/java/net/jadler/stubbing/StubbingFactory.java": "50a9c4115a89ea6231c6871903986124f627d5cbf088cc2f3dfebac8655276de",
+    "jadler-core/src/main/java/net/jadler/stubbing/server/StubHttpServer.java": "f26522400c24572b21a1a5cfc48032a5b3b0812532850002f4bc15b15735e62a",
+    "jadler-core/src/main/java/net/jadler/stubbing/server/StubHttpServerManager.java": "c5f94428d14a4675ec70dd4b081deb44de7d1cda78a0567e2b4d8d84e5ed5bd9",
+    "jadler-core/src/test/java/net/jadler/AbstractRequestMatchingTest.java": "61585190f4e61083a7d1420f1a0530be56dccb088257f613d7892d6889f5480f",
+    "jadler-core/src/test/java/net/jadler/JadlerMockerTest.java": "08c1f2c1b8bbb5b7b3ad5696a06e07e649597149d4502846abb281d34af96227",
+    "jadler-core/src/test/java/net/jadler/KeyValuesTest.java": "afec9994eacfb59cf54e22203580e5133a3b86ae6015466209debc2aae98b766",
+    "jadler-core/src/test/java/net/jadler/RequestTest.java": "f2b91930bb2a5a24d83f00b958934de6052ba84d3ec9968c779e53ad6b116980",
+    "jadler-core/src/test/java/net/jadler/matchers/BodyRequestMatcherTest.java": "4c25cbb795b9685a15734c1fc84aab7fa2ba66253d4c79f8fc96fbeeb3d73afd",
+    "jadler-core/src/test/java/net/jadler/matchers/HeaderRequestMatcherTest.java": "087d9d79e7af10ead165de3dec47f3b3854c6a4365aad10f51814eea00243690",
+    "jadler-core/src/test/java/net/jadler/matchers/MethodRequestMatcherTest.java": "f1f2c1ee663de01461b36612aca9ed9398f9b156854ea0cc4973a0a031a18fe3",
+    "jadler-core/src/test/java/net/jadler/matchers/ParameterRequestMatcherTest.java": "8ac9408db4a980e8c9e6ee9ec2d5101d0042e81022863f82b5066904d83880fa",
+    "jadler-core/src/test/java/net/jadler/matchers/PathRequestMatcherTest.java": "c274728397efc5f0f1c74edb31376e2a64146eb4cb3708ef277819b5e3b0ec01",
+    "jadler-core/src/test/java/net/jadler/matchers/QueryStringRequestMatcherTest.java": "837f5a7533530dbecfef2cfbd3ab03d97067dfc322a0e2999c7b9534aff94ef8",
+    "jadler-core/src/test/java/net/jadler/matchers/RawBodyRequestMatcherTest.java": "548f846b09edcb600e6f298c99446d0b7473669cba2bb94ad0d6d2c84796580f",
+    "jadler-core/src/test/java/net/jadler/matchers/RequestMatcherTest.java": "4111e3ce6514421c480d2865f7e0cb4e49ec7727050815406fc9f59ba5916bce",
+    "jadler-core/src/test/java/net/jadler/mocking/VerifyingTest.java": "844bd256643cde5a76eb9ae062834e69c0b130cd321af99527289f3139f472fc",
+    "jadler-core/src/test/java/net/jadler/stubbing/HttpStubTest.java": "42f5695e421b6607be8363b9619bff7de03e9e33b057013a59ae2d31c234f04a",
+    "jadler-core/src/test/java/net/jadler/stubbing/MutableStubResponseTest.java": "12c4064abd65d27fa8ea98039d5d41ac47219e913fdd0a5681ec445ed9b42423",
+    "jadler-core/src/test/java/net/jadler/stubbing/StaticResponderTest.java": "cb4757cdb8b6f98b0a59ed6286511ef46ebb839d6b92c3061f2fa041c32b933d",
+    "jadler-core/src/test/java/net/jadler/stubbing/StubResponseTest.java": "2a52200ec15838a0c37dd6457adacb17b2414ed9c25bf49e686cf068c171a44f",
+    "jadler-core/src/test/java/net/jadler/stubbing/StubbingTest.java": "069449ea4812bdeeb1d0f7af08ff0c078ef347d84685312ee9f574b2c0e32b6d",
+    "jadler-core/src/test/resources/logback.xml": "fc091eab9ba31c978d64ea3563f84ec0bcea7f38bf5815b7c5d4ba0ca1834594",
+    "jadler-jdk/pom.xml": "abddf629f39f16b69a217ae3245fa15a7f0559a99a215dede34aee4759df2914",
+    "jadler-jdk/src/main/java/net/jadler/stubbing/server/jdk/JdkHandler.java": "51d0f5becf84bd687ce9d7d5f485e60722d698fc727223819809feec6eb72003",
+    "jadler-jdk/src/main/java/net/jadler/stubbing/server/jdk/JdkStubHttpServer.java": "3de6d8af97974100a70324fb2040ae984dce86bf90c5cefe804782f9d7835dcc",
+    "jadler-jdk/src/main/java/net/jadler/stubbing/server/jdk/RequestUtils.java": "d8fc03b08ebb5032eeb1e0488740fcd1763591834702fb868c51dfca10a12771",
+    "jadler-jdk/src/test/java/net/jadler/stubbing/server/jdk/JdkHandlerTest.java": "febbee25fbd2c221237f971393cd3e74f6621a372b0d5278a13b5ad2744ed681",
+    "jadler-jdk/src/test/java/net/jadler/stubbing/server/jdk/JdkStubHttpServerTest.java": "f7a9cf08415adf2a5ceeda9e8821a8c987b86d7fe2a61cb251ee2e72d8a360fd",
+    "jadler-jdk/src/test/java/net/jadler/stubbing/server/jdk/RequestUtilsTest.java": "984ecd566080e2c843c4fdadc6c5595f7ba6a42ab1c50b4ddecbe41392d72a8f",
+    "jadler-jdk/src/test/resources/logback.xml": "fc091eab9ba31c978d64ea3563f84ec0bcea7f38bf5815b7c5d4ba0ca1834594",
+    "jadler-jetty/pom.xml": "da9cfd6c5a22bc251039ef5ae98bba0a6cb5a90aad620e880d1dc61eabdda137",
+    "jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JadlerHandler.java": "26bea57f1e6aef4e7d205df17d95f528da54aa62fb8cd7f22f5f6a8cdeacb940",
+    "jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JettyStubHttpServer.java": "2bd2bb96ab6a395de494124987fa29cfde5ec3cb2542e924719fe4fd5e7ac890",
+    "jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/RequestUtils.java": "df6cd9ae9bc70c6508f7d9ac6d85931c5916f1635863f703a236402c27bd1138",
+    "jadler-jetty/src/test/java/net/jadler/stubbing/server/jetty/RequestUtilsTest.java": "496cd8b8ae154669fe4f41aa7c5a4130508af1932b3bcea1b820b2f1ac34379b",
+    "jadler-jetty/src/test/resources/logback.xml": "fc091eab9ba31c978d64ea3563f84ec0bcea7f38bf5815b7c5d4ba0ca1834594",
+    "jadler-junit/pom.xml": "94b5faf6ce24f738e5e4db8601d2dbb378b6b2e0d4620faec8e5e18c7808a5a4",
+    "jadler-junit/src/main/java/net/jadler/junit/rule/JadlerRule.java": "8e970a649f11121789de24e1419b70147f2c6919344c34b46a06ecd8722a833e",
+    "jadler-junit/src/test/java/net/jadler/junit/rule/JadlerFixedPortRuleTest.java": "be533608f09f1f4ea403b1e6bcd358bb993f82cb7336319aba2150434e5b0eb1",
+    "jadler-junit/src/test/java/net/jadler/junit/rule/JadlerRuleIntegrationTest.java": "4f6295e8f929e8b87e2d84170eca4a6a30d6d4d74d42b760a21a8b87e84e8399",
+    "jadler-junit/src/test/java/net/jadler/junit/rule/JadlerRuleTest.java": "531979ce83f03167812da14b28c4988415c287b437e22969cd9988cdf12ca2ce",
+    "jadler-junit/src/test/resources/logback.xml": "fc091eab9ba31c978d64ea3563f84ec0bcea7f38bf5815b7c5d4ba0ca1834594",
+    "pom.xml": "dde4e5953824363be6fa1de72fdcbddd4e15d01a84618a3ef06e2704099060a1"
+  },
+  "aggregate_counts": {
+    "tests": 389,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

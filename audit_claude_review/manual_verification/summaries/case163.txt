@@ -1,0 +1,53 @@
+﻿
+=== Case 163  db4b37b7cf6b0fe74565f15a03518ba68d4ce1ff ===
+Project : btrplace/scheduler
+Update  : net.minidev:json-smart  2.4.8 -> 2.4.9
+Running breaking in container manual-case163-breaking (this can take several minutes) ...
+Finished in 270 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case163_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [INFO] Tests run: 260, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0
+  [ERROR] Tests run: 264, Failures: 2, Errors: 0, Skipped: 0
+  reactor: scheduler .......................................... SUCCESS [  1.924 s]
+  reactor: scheduler-api ...................................... SUCCESS [ 23.765 s]
+  reactor: scheduler-json ..................................... SUCCESS [  6.958 s]
+  reactor: scheduler-choco .................................... FAILURE [03:37 min]
+  reactor: scheduler-examples ................................. SKIPPED
+  reactor: btrpsl ............................................. SKIPPED
+  reactor: safeplace .......................................... SKIPPED
+  reactor: bench .............................................. SKIPPED
+  reactor: scheduler-split .................................... SKIPPED
+First failing tests / errors:
+  [ERROR] org.btrplace.scheduler.choco.IssuesTest.testIssue100  Time elapsed: 0.418 s  <<< FAILURE!
+      java.lang.IllegalArgumentException: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.
+      at org.btrplace.json.JSON.readInstance(JSON.java:78)
+      at org.btrplace.json.JSON.readInstance(JSON.java:60)
+  [ERROR] org.btrplace.scheduler.choco.IssuesTest.testIssue101  Time elapsed: 0.062 s  <<< FAILURE!
+      java.lang.IllegalArgumentException: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876.
+      at org.btrplace.json.JSON.readInstance(JSON.java:78)
+      at org.btrplace.json.JSON.readInstance(JSON.java:60)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+  Caused by: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.
+  Caused by: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.
+  Caused by: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876.
+  Caused by: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876.
+Linkage / bytecode signals:
+  none
+SLF4J console:
+  SLF4J: No SLF4J providers were found.
+  SLF4J: No SLF4J providers were found.
+  SLF4J: No SLF4J providers were found.
+
+--- Proposed classification ---
+Label   : BEHAVIORAL   (rule R12: Core behavioral change (same API, same input, different observable result))
+Category: ACCEPTED_INPUT
+Cause   : json-smart 2.4.9 introduces a nesting-depth limit; parsing btrplace JSON instances now throws ParseException 'Malicious payload, having non natural depths' (positions 141434 and 49876) in IssuesTest
+Change  : Accepted input changed: deeply nested JSON documents previously parsed are now rejected
+Codex   : PROVISIONAL_BEHAVIORAL   Claude blind: BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

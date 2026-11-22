@@ -1,0 +1,101 @@
+﻿
+=== Case 105  9069046236a07524578ff81b32ff92f34c59553d ===
+Project : quick-perf/quickperf
+Update  : org.apache.logging.log4j:log4j-core  2.11.1 -> 2.16.0
+Running breaking in container manual-case105-breaking (this can take several minutes) ...
+Finished in 317 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case105_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 116, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+  [ERROR] Tests run: 10, Failures: 6, Errors: 4, Skipped: 0
+  reactor: quick-perf ......................................... SUCCESS [  3.332 s]
+  reactor: quick-perf-core .................................... SUCCESS [ 19.517 s]
+  reactor: quick-perf-jvm-parent .............................. SUCCESS [  0.035 s]
+  reactor: quick-perf-jvm-core ................................ SUCCESS [  0.399 s]
+  reactor: quick-perf-jvm-annotations ......................... SUCCESS [  5.906 s]
+  reactor: quick-perf-jfr-annotations ......................... SUCCESS [  5.259 s]
+  reactor: quick-perf-sql-parent .............................. SUCCESS [  0.011 s]
+  reactor: quick-perf-sql-annotations ......................... SUCCESS [  5.887 s]
+  reactor: quick-perf-sql-memory-test-util .................... SUCCESS [  0.561 s]
+  reactor: quick-perf-sql-hibernate-test-util ................. SUCCESS [  1.790 s]
+  reactor: quick-perf-junit4-parent ........................... SUCCESS [  0.016 s]
+  reactor: quick-perf-junit4 .................................. SUCCESS [  6.394 s]
+  reactor: quick-perf-sql-memory-test ......................... SUCCESS [01:11 min]
+  reactor: quick-perf-junit4-5-jvm-test ....................... SUCCESS [  3.655 s]
+  reactor: quick-perf-junit4-12-jvm-test ...................... SUCCESS [  6.900 s]
+  reactor: quick-perf-junit4-13-jvm-test ...................... SUCCESS [  3.557 s]
+  reactor: quick-perf-junit4-13-1-jvm-test .................... SUCCESS [  3.079 s]
+  reactor: quick-perf-junit4-13-2-jvm-test .................... SUCCESS [  2.815 s]
+  reactor: quick-perf-junit4-sql-test ......................... SUCCESS [ 13.632 s]
+  reactor: quick-perf-junit5-parent ........................... SUCCESS [  0.021 s]
+  reactor: quick-perf-junit5-test-util ........................ SUCCESS [  2.318 s]
+  reactor: quick-perf-junit5 .................................. SUCCESS [  7.590 s]
+  reactor: quick-perf-junit5-jvm-test ......................... SUCCESS [ 23.102 s]
+  reactor: quick-perf-junit5-sql-test ......................... SUCCESS [  7.950 s]
+  reactor: quick-perf-testng-parent ........................... SUCCESS [  0.010 s]
+  reactor: quick-perf-testng-test-util ........................ SUCCESS [  0.172 s]
+  reactor: quick-perf-testng .................................. SUCCESS [  6.975 s]
+  reactor: quick-perf-testng-sql-test ......................... SUCCESS [  9.332 s]
+  reactor: quick-perf-testng-jvm-test ......................... SUCCESS [ 16.995 s]
+  reactor: quick-perf-spring .................................. SUCCESS [  0.012 s]
+  reactor: quick-perf-sql-spring4 ............................. SUCCESS [  0.403 s]
+  reactor: quick-perf-sql-spring5 ............................. SUCCESS [  0.344 s]
+  reactor: quick-perf-junit4-spring-base-tests ................ SUCCESS [  0.301 s]
+  reactor: quick-perf-junit4-spring3 .......................... SUCCESS [ 18.969 s]
+  reactor: quick-perf-junit4-spring4 .......................... SUCCESS [ 14.810 s]
+  reactor: quick-perf-junit4-spring5 .......................... SUCCESS [ 22.096 s]
+  reactor: quick-perf-springboot1-sql-starter ................. SUCCESS [  0.343 s]
+  reactor: quick-perf-springboot2-sql-starter ................. SUCCESS [  0.540 s]
+  reactor: quick-perf-junit4-spring-boot-test ................. FAILURE [ 15.678 s]
+  reactor: quick-perf-bom ..................................... SKIPPED
+First failing tests / errors:
+  [ERROR] should_fail_if_select_number_is_greater_than_expected_from_web_service_and_with_test_launched_in_a_dedicated_jvm(org.quickperf.spring.springboottest.SpringBootExpectSelectJunit4Test)  Time elapsed: 4.997 s  <<< FAILURE!
+      java.lang.AssertionError:
+      
+      Expecting:
+  [ERROR] should_fail_if_select_number_is_greater_than_expected_from_spring_service(org.quickperf.spring.springboottest.SpringBootExpectSelectJunit4Test)  Time elapsed: 0.259 s  <<< FAILURE!
+      java.lang.AssertionError:
+      
+      Expecting:
+  [ERROR] should_fail_if_select_number_is_greater_than_expected(org.quickperf.spring.springboottest.SpringBootExpectMaxSelectJunit4Test)  Time elapsed: 0.015 s  <<< FAILURE!
+      java.lang.AssertionError:
+      
+      Expecting:
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+  Caused by: java.lang.ClassNotFoundException: org.apache.logging.log4j.spi.LoggerContextShutdownAware
+  Caused by: java.lang.ClassNotFoundException: org.apache.logging.log4j.spi.LoggerContextShutdownAware
+Linkage / bytecode signals:
+  NoClassDefFoundError x11
+  ClassNotFoundException x3
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : log4j-core 2.16.0 with an older log4j-api: ClassNotFoundException org.apache.logging.log4j.spi.LoggerContextShutdownAware -> 'Could not initialize class SpringJUnit4ClassRunner'; SQL-count assertion failures in forked-JVM tests are downstream
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

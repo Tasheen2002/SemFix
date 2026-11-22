@@ -1,0 +1,202 @@
+Unable to find image 'ghcr.io/chains-project/breaking-updates:a047d2d3f9385a25ced0d2ad3c49f9401ea9c624-pre' locally
+a047d2d3f9385a25ced0d2ad3c49f9401ea9c624-pre: Pulling from chains-project/breaking-updates
+d5d8478a7de5: Pulling fs layer
+94b5a8c136e5: Pulling fs layer
+94b5a8c136e5: Download complete
+94b5a8c136e5: Pull complete
+d5d8478a7de5: Download complete
+d5d8478a7de5: Pull complete
+Digest: sha256:629f10bf2fcdb045ee7aa9e8f13b1706499011a15f69135da104f16cc3466dec
+Status: Downloaded newer image for ghcr.io/chains-project/breaking-updates:a047d2d3f9385a25ced0d2ad3c49f9401ea9c624-pre
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 5 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 5 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Incrementals Tools POM                                             [pom]
+[INFO] lib                                                                [jar]
+[INFO] incrementals-maven-plugin                                 [maven-plugin]
+[INFO] Git Changelist Maven Extension                                     [jar]
+[INFO] incrementals-enforcer-rules                                        [jar]
+[INFO] 
+[INFO] ----------------< io.jenkins.tools.incrementals:parent >----------------
+[INFO] Building Incrementals Tools POM 1.8-SNAPSHOT                       [1/5]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ parent ---
+[INFO] 
+[INFO] --- groovy:1.4:testCompile (default) @ parent ---
+[INFO] No sources found to compile
+[INFO] 
+[INFO] -----------------< io.jenkins.tools.incrementals:lib >------------------
+[INFO] Building lib 1.8-SNAPSHOT                                          [2/5]
+[INFO]   from lib/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ lib ---
+[INFO] Deleting /incrementals-tools/lib/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ lib ---
+[INFO] skip non existing resourceDirectory /incrementals-tools/lib/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.3:compile (default-compile) @ lib ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /incrementals-tools/lib/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ lib ---
+[INFO] skip non existing resourceDirectory /incrementals-tools/lib/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.3:testCompile (default-testCompile) @ lib ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- groovy:1.4:testCompile (default) @ lib ---
+[INFO] No sources found to compile
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ lib ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] ------< io.jenkins.tools.incrementals:incrementals-maven-plugin >-------
+[INFO] Building incrementals-maven-plugin 1.8-SNAPSHOT                    [3/5]
+[INFO]   from maven-plugin/pom.xml
+[INFO] ----------------------------[ maven-plugin ]----------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ incrementals-maven-plugin ---
+[INFO] Deleting /incrementals-tools/maven-plugin/target
+[INFO] 
+[INFO] --- plugin:3.8.1:helpmojo (help-mojo) @ incrementals-maven-plugin ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ incrementals-maven-plugin ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.3:compile (default-compile) @ incrementals-maven-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /incrementals-tools/maven-plugin/target/classes
+[INFO] /incrementals-tools/maven-plugin/src/main/java/io/jenkins/tools/incrementals/maven/IncrementalifyMojo.java: /incrementals-tools/maven-plugin/src/main/java/io/jenkins/tools/incrementals/maven/IncrementalifyMojo.java uses or overrides a deprecated API.
+[INFO] /incrementals-tools/maven-plugin/src/main/java/io/jenkins/tools/incrementals/maven/IncrementalifyMojo.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- plugin:3.8.1:descriptor (default-descriptor) @ incrementals-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo source files.
+[INFO] java-annotations mojo extractor found 5 mojo descriptors.
+[INFO] java-javadoc mojo extractor found 0 mojo descriptor.
+[INFO] ant mojo extractor found 0 mojo descriptor.
+[INFO] bsh mojo extractor found 0 mojo descriptor.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ incrementals-maven-plugin ---
+[INFO] skip non existing resourceDirectory /incrementals-tools/maven-plugin/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.3:testCompile (default-testCompile) @ incrementals-maven-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /incrementals-tools/maven-plugin/target/test-classes
+[INFO] 
+[INFO] --- groovy:1.4:testCompile (default) @ incrementals-maven-plugin ---
+[INFO] No sources found to compile
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ incrementals-maven-plugin ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.jenkins.tools.incrementals.maven.DetectIndentTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.255 s - in io.jenkins.tools.incrementals.maven.DetectIndentTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ----< io.jenkins.tools.incrementals:git-changelist-maven-extension >----
+[INFO] Building Git Changelist Maven Extension 1.8-SNAPSHOT               [4/5]
+[INFO]   from git-changelist-maven-extension/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ git-changelist-maven-extension ---
+[INFO] Deleting /incrementals-tools/git-changelist-maven-extension/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ git-changelist-maven-extension ---
+[INFO] skip non existing resourceDirectory /incrementals-tools/git-changelist-maven-extension/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.3:compile (default-compile) @ git-changelist-maven-extension ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /incrementals-tools/git-changelist-maven-extension/target/classes
+[INFO] 
+[INFO] --- sisu:0.3.5:main-index (generate-index) @ git-changelist-maven-extension ---
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ git-changelist-maven-extension ---
+[INFO] skip non existing resourceDirectory /incrementals-tools/git-changelist-maven-extension/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.3:testCompile (default-testCompile) @ git-changelist-maven-extension ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /incrementals-tools/git-changelist-maven-extension/target/test-classes
+[INFO] 
+[INFO] --- groovy:1.4:testCompile (default) @ git-changelist-maven-extension ---
+[INFO] No sources found to compile
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ git-changelist-maven-extension ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.jenkins.tools.incrementals.git_changelist_maven_extension.MainTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.431 s - in io.jenkins.tools.incrementals.git_changelist_maven_extension.MainTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -----< io.jenkins.tools.incrementals:incrementals-enforcer-rules >------
+[INFO] Building incrementals-enforcer-rules 1.8-SNAPSHOT                  [5/5]
+[INFO]   from enforcer-rules/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ incrementals-enforcer-rules ---
+[INFO] Deleting /incrementals-tools/enforcer-rules/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ incrementals-enforcer-rules ---
+[INFO] skip non existing resourceDirectory /incrementals-tools/enforcer-rules/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.3:compile (default-compile) @ incrementals-enforcer-rules ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /incrementals-tools/enforcer-rules/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ incrementals-enforcer-rules ---
+[INFO] skip non existing resourceDirectory /incrementals-tools/enforcer-rules/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.3:testCompile (default-testCompile) @ incrementals-enforcer-rules ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- groovy:1.4:testCompile (default) @ incrementals-enforcer-rules ---
+[INFO] No sources found to compile
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ incrementals-enforcer-rules ---
+[INFO] No tests to run.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Incrementals Tools POM 1.8-SNAPSHOT:
+[INFO] 
+[INFO] Incrementals Tools POM ............................. SUCCESS [  1.755 s]
+[INFO] lib ................................................ SUCCESS [  3.991 s]
+[INFO] incrementals-maven-plugin .......................... SUCCESS [ 13.971 s]
+[INFO] Git Changelist Maven Extension ..................... SUCCESS [  2.493 s]
+[INFO] incrementals-enforcer-rules ........................ SUCCESS [  0.260 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  25.961 s
+[INFO] Finished at: 2026-11-10T09:47:57Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.eclipse.sisu:sisu-maven-plugin:0.3.5
+[WARNING]  * org.codehaus.gmaven:gmaven-plugin:1.4
+[WARNING]  * org.apache.maven.plugins:maven-plugin-plugin:3.8.1
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.3
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 

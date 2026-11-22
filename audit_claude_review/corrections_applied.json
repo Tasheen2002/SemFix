@@ -1,0 +1,167 @@
+[
+ {
+  "case": 9,
+  "case_id": "0ee8b9376b967938e8efd89a0959214a30d1b3fb",
+  "changes": [
+   {
+    "field": "pre_tests",
+    "old": "510",
+    "new": "1114"
+   },
+   {
+    "field": "notes(append)",
+    "new": "[AI second review (Claude), 2026-11-20] Count scope: pre_tests 510 was the junit-quickcheck-core module only. The other rows record whole-build totals, so pre_tests is now 1114 (core 510 + generators 561 + guava 11 + examples 32, from the original PRE log). breaking_tests stays 510 because generators/guava/examples were SKIPPED after core failed."
+   }
+  ]
+ },
+ {
+  "case": 10,
+  "case_id": "11fa4228dbff2f7e96f71120afac3528cafa85b4",
+  "changes": [
+   {
+    "field": "pre_tests",
+    "old": "12",
+    "new": "32"
+   },
+   {
+    "field": "breaking_tests",
+    "old": "12",
+    "new": "18"
+   },
+   {
+    "field": "notes(append)",
+    "new": "[AI second review (Claude), 2026-11-20] Count scope: 12/12 were the messaging module only. Whole-build totals from the original logs: PRE 32 tests across 8 modules; BREAKING 18 (core 6 + messaging 12), with clearinghouse/broker/vocol/paris/appstore SKIPPED. Failures 1 / errors 5 unchanged."
+   }
+  ]
+ },
+ {
+  "case": 12,
+  "case_id": "1266a8c84cd04cedfa316bed94b1e9b014da872f",
+  "changes": [
+   {
+    "field": "pre_tests",
+    "old": "726",
+    "new": "757"
+   },
+   {
+    "field": "notes(text)",
+    "old": "The complete PRE build runs 726 tests successfully.",
+    "new": "The complete PRE build runs 757 tests successfully."
+   },
+   {
+    "field": "notes(append)",
+    "new": "[AI second review (Claude), 2026-11-20] Count correction: the original PRE log (logs/batch_triage/1266a8c8_pre.log line 423) reports 'Tests run: 757, Failures: 0, Errors: 0, Skipped: 0' with BUILD SUCCESS. pre_tests was recorded as 726 (the BREAKING count). Corrected to 757. BREAKING 726 is correct; class-initialisation failures hide 31 tests."
+   }
+  ]
+ },
+ {
+  "case": 14,
+  "case_id": "12e237710199fafa086fd2299edefd5f8f05a63c",
+  "changes": [
+   {
+    "field": "pre_tests",
+    "old": "32",
+    "new": "190"
+   },
+   {
+    "field": "breaking_tests",
+    "old": "32",
+    "new": "52"
+   },
+   {
+    "field": "notes(append)",
+    "new": "[AI second review (Claude), 2026-11-20] Count scope: 32/32 were GeoStore - Core - Persistence only. Whole-build totals from the original logs: PRE 190 tests; BREAKING 52 (Model 9 + Security 11 + Persistence 32 per reactor order), with downstream modules SKIPPED. Errors 22 unchanged. The repair log logs/case14_clob_fixed.log shows a full-reactor BUILD SUCCESS with 190 tests run and 36 skipped."
+   }
+  ]
+ },
+ {
+  "case": 17,
+  "case_id": "18102f7a87e7ab8308a86208d47696c060110d0c",
+  "changes": [
+   {
+    "field": "notes(append)",
+    "new": "[AI second review (Claude), 2026-11-20] Provenance: pre_log/breaking_log and the counts (4104 / 11) come from diagnostic runs (fixed-date source control on PRE; BREAKING scoped to SourceInActivitiesTest), not the original BUMP runs. Original runs (logs/batch_triage/18102f7a_*.log): PRE BUILD FAILURE (exit 1; last module 116 tests, 1 date-sensitive failure); BREAKING stopped by the reviewer (exit 143, logs/case17_evidence/breaking_interruption.json) with no Maven summary. pre_build_status=SUCCESS describes only the control run. The label is unaffected (JacksonFeature linkage), but this row is not a clean original-baseline TEST_FAILURE."
+   }
+  ]
+ },
+ {
+  "case": 49,
+  "case_id": "448ff013455db1ebe983fa0e1c65ed09f0bc4e3a",
+  "changes": [
+   {
+    "field": "notes(append)",
+    "new": "[AI second review (Claude), 2026-11-20] Label disputed: blind AI second review assigned NON_BEHAVIORAL (ANTLR ATN v3 vs runtime 4.10.1); treated as a taxonomy-boundary case needing human adjudication. See audit_claude_review/claude_audit.csv."
+   }
+  ]
+ },
+ {
+  "case": 67,
+  "case_id": "5476e69fca14862d862805790b73574e1de58dd2",
+  "changes": [
+   {
+    "field": "notes(append)",
+    "new": "[AI second review (Claude), 2026-11-20] Label disputed: blind AI second review assigned NON_BEHAVIORAL (ANTLR ATN v3 vs runtime 4.10); treated as a taxonomy-boundary case needing human adjudication. See audit_claude_review/claude_audit.csv."
+   }
+  ]
+ },
+ {
+  "case": 69,
+  "case_id": "56b1cde573f7b411a3a831bed30c624ddfdbdf3d",
+  "changes": [
+   {
+    "field": "notes(append)",
+    "new": "[AI second review (Claude), 2026-11-20] Label disputed: blind AI second review assigned NON_BEHAVIORAL (GraalJS scriptengine 22.1.0 vs retained js 22.0.0 option skew); treated as a taxonomy-boundary case needing human adjudication. See audit_claude_review/claude_audit.csv."
+   }
+  ]
+ },
+ {
+  "case": 109,
+  "case_id": "94380c9eb5be989b7e60e0353a03b03ff4687674",
+  "changes": [
+   {
+    "field": "notes(append)",
+    "new": "[AI second review (Claude), 2026-11-20] Label disputed: blind AI second review assigned NON_BEHAVIORAL (Guice 7 javax.inject qualifier support removed); treated as a taxonomy-boundary case needing human adjudication. See audit_claude_review/claude_audit.csv."
+   }
+  ]
+ },
+ {
+  "case": 112,
+  "case_id": "99ec071a0ce40e1bf683e66a6717df2f57c7d817",
+  "changes": [
+   {
+    "field": "notes(append)",
+    "new": "[AI second review (Claude), 2026-11-20] Label disputed: blind AI second review assigned NON_BEHAVIORAL (ANTLR ATN v3 vs runtime 4.12.0); treated as a taxonomy-boundary case needing human adjudication. See audit_claude_review/claude_audit.csv."
+   }
+  ]
+ },
+ {
+  "case": 127,
+  "case_id": "aaffc2677a7aedeb61ece217a32f3aae237e6776",
+  "changes": [
+   {
+    "field": "notes(append)",
+    "new": "[AI second review (Claude), 2026-11-20] Label disputed: blind AI second review assigned NON_BEHAVIORAL (ANTLR ATN v3 vs runtime 4.11.1); treated as a taxonomy-boundary case needing human adjudication. See audit_claude_review/claude_audit.csv."
+   }
+  ]
+ },
+ {
+  "case": 140,
+  "case_id": "bc209e43001af17218a6f401d0ea884d814790d1",
+  "changes": [
+   {
+    "field": "notes(append)",
+    "new": "[AI second review (Claude), 2026-11-20] Label disputed: blind AI second review assigned NON_BEHAVIORAL (ANTLR ATN v3 vs runtime 4.10.1); treated as a taxonomy-boundary case needing human adjudication. See audit_claude_review/claude_audit.csv."
+   }
+  ]
+ },
+ {
+  "case": 188,
+  "case_id": "ff98f9e99811cd3186d3819d19b5b7f8143a0632",
+  "changes": [
+   {
+    "field": "notes(append)",
+    "new": "[AI second review (Claude), 2026-11-20] Label disputed: blind AI second review assigned NON_BEHAVIORAL (ANTLR ATN v3 vs runtime 4.10); treated as a taxonomy-boundary case needing human adjudication. See audit_claude_review/claude_audit.csv."
+   }
+  ]
+ }
+]

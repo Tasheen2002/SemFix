@@ -1,0 +1,62 @@
+=== CASE 102 8ef89758401d5511783c909f8d45b5431afb361c
+  project=pmckeown/dependency-track-maven-plugin dep=com.sun.xml.bind:jaxb-impl 2.3.3 -> 4.0.2 scope=compile type=major java=11
+  PR=https://github.com/pmckeown/dependency-track-maven-plugin/pull/348
+  PRE log logs/batch_triage/8ef89758_pre.log:
+  lines=1322
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 210, Failures: 0, Errors: 0, Skipped: 3
+  provider/console lines: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+  exception names: io.github.pmckeown.dependencytrack.DependencyTrackExceptionx23, java.net.UnknownHostExceptionx9, unirest.shaded.org.apache.http.client.ClientProtocolExceptionx6, kong.unirest.UnirestExceptionx3
+  BREAKING log logs/batch_triage/8ef89758_breaking.log:
+  lines=1834
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 210, Failures: 7, Errors: 0, Skipped: 3
+  failing classes: Tests run: 7, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 2.754 s <<< FAILURE! - in io.github.pmckeown.dependencytrack.policyviolation.PolicyViolationsMojoIntegrationTest || Tests run: 2, Failures: 1, Errors: 0, Skipped: 1, Time elapsed: 0.001 s <<< FAILURE! - in io.github.pmckeown.dependencytrack.policyviolation.report.PolicyViolationsReportIntegrationTest || Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.61 s <<< FAILURE! - in io.github.pmckeown.dependencytrack.finding.FindingsMojoIntegrationTest || Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in io.github.pmckeown.dependencytrack.finding.report.FindingsReportIntegrationTest
+  section: Failures: | FindingsMojoIntegrationTest.thatBuildFailsWhenFindingsNumberBreachesDefinedThresholds:115 Exception expected | FindingsReportIntegrationTest.thatXmlFileCanBeGenerated:42 Exception not expected | FindingsReportIntegrationTest.thatXmlFileCanBeTransformed:55 Exception not expected | PolicyViolationsMojoIntegrationTest.thatPolicyMojoCanRetrievePolicyViolationFailuresAndFailIfFailOnWarnFalse:80 Exception expected | PolicyViolationsMojoIntegrationTest.thatPolicyMojoCanRetrievePolicyViolationFailuresAndFailIfFailOnWarnTrue:98 Exception expected | PolicyViolationsMojoIntegrationTest.thatPolicyMojoCanRetrievePolicyViolationWarningsAndFailIfFailOnWarnTrue:62 Exception expected | PolicyViolationsReportIntegrationTest.thatXmlFileCanBeGenerated:43 Exception not expected | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project dependency-track-maven-plugin: There are test failures.
+  FAILBLOCK: [ERROR] thatPolicyMojoCanRetrievePolicyViolationFailuresAndFailIfFailOnWarnFalse(io.github.pmckeown.dependencytrack.policyviolation.PolicyViolationsMojoIntegrationTest)  Time elapsed: 0.524 s  <<< FAILURE!
+      java.lang.AssertionError: Exception expected
+      at io.github.pmckeown.dependencytrack.policyviolation.PolicyViolationsMojoIntegrationTest.thatPolicyMojoCanRetrievePolicyViolationFailuresAndFailIfFailOnWarnFalse(PolicyViolationsMojoIntegrationTest.java:80)
+      [ERROR] thatPolicyMojoCanRetrievePolicyViolationFailuresAndFailIfFailOnWarnTrue(io.github.pmckeown.dependencytrack.policyviolation.PolicyViolationsMojoIntegrationTest)  Time elapsed: 0.428 s  <<< FAILURE!
+      java.lang.AssertionError: Exception expected
+      at io.github.pmckeown.dependencytrack.policyviolation.PolicyViolationsMojoIntegrationTest.thatPolicyMojoCanRetrievePolicyViolationFailuresAndFailIfFailOnWarnTrue(PolicyViolationsMojoIntegrationTest.java:98)
+  FAILBLOCK: [ERROR] thatXmlFileCanBeGenerated(io.github.pmckeown.dependencytrack.policyviolation.report.PolicyViolationsReportIntegrationTest)  Time elapsed: 0 s  <<< FAILURE!
+      java.lang.AssertionError: Exception not expected
+      at io.github.pmckeown.dependencytrack.policyviolation.report.PolicyViolationsReportIntegrationTest.thatXmlFileCanBeGenerated(PolicyViolationsReportIntegrationTest.java:43)
+      [INFO] Running io.github.pmckeown.dependencytrack.policyviolation.PolicyViolationsPrinterTest
+      [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in io.github.pmckeown.dependencytrack.policyviolation.PolicyViolationsPrinterTest
+      [INFO] Running io.github.pmckeown.dependencytrack.ThresholdsTest
+  distinct fail signatures (count): 4x java.lang.AssertionError: Exception expected || 3x java.lang.AssertionError: Exception not expected
+  provider/console lines: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+  linkage/compile signals: ClassNotFoundException
+  exception names: io.github.pmckeown.dependencytrack.DependencyTrackExceptionx31, java.lang.ClassNotFoundExceptionx16, java.net.UnknownHostExceptionx9, javax.xml.bind.JAXBExceptionx8, java.lang.AssertionErrorx7, unirest.shaded.org.apache.http.client.ClientProtocolExceptionx6, kong.unirest.UnirestExceptionx3
+  EVIDENCE logs/case102_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jars/jaxb-api-2.3.1.jar, breaking/jars/jaxb-core-2.3.0.1.jar, breaking/jars/jaxb-impl-4.0.2.jar, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jars/jakarta.xml.bind-api-2.3.3.jar, pre/jars/jaxb-api-2.3.1.jar, pre/jars/jaxb-core-2.3.0.1.jar, pre/jars/jaxb-impl-2.3.3.jar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=42 sum(t,f,e,s)=[210, 0, 0, 3]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=42 sum(t,f,e,s)=[210, 7, 0, 3]
+  archived non-report files: pre=148 breaking=148 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -157,3 +157,3 @@
+                 <artifactId>jaxb-impl</artifactId>
+    -            <version>2.3.3</version>
+    +            <version>4.0.2</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    FAILURE io.github.pmckeown.dependencytrack.finding.FindingsMojoIntegrationTest#thatBuildFailsWhenFindingsNumberBreachesDefinedThresholds type=java.lang.AssertionError msg=Exception expected
+       at io.github.pmckeown.dependencytrack.finding.FindingsMojoIntegrationTest.thatBuildFailsWhenFindingsNumberBreachesDefinedThresholds(FindingsMojoIntegrationTest.java:115)
+    FAILURE io.github.pmckeown.dependencytrack.finding.report.FindingsReportIntegrationTest#thatXmlFileCanBeGenerated type=java.lang.AssertionError msg=Exception not expected
+       at io.github.pmckeown.dependencytrack.finding.report.FindingsReportIntegrationTest.thatXmlFileCanBeGenerated(FindingsReportIntegrationTest.java:42)
+    FAILURE io.github.pmckeown.dependencytrack.finding.report.FindingsReportIntegrationTest#thatXmlFileCanBeTransformed type=java.lang.AssertionError msg=Exception not expected
+       at io.github.pmckeown.dependencytrack.finding.report.FindingsReportIntegrationTest.thatXmlFileCanBeTransformed(FindingsReportIntegrationTest.java:55)
+    FAILURE io.github.pmckeown.dependencytrack.policyviolation.PolicyViolationsMojoIntegrationTest#thatPolicyMojoCanRetrievePolicyViolationFailuresAndFailIfFailOnWarnFalse type=java.lang.AssertionError msg=Exception expected
+       at io.github.pmckeown.dependencytrack.policyviolation.PolicyViolationsMojoIntegrationTest.thatPolicyMojoCanRetrievePolicyViolationFailuresAndFailIfFailOnWarnFalse(PolicyViolationsMojoIntegrationTest.j
+    FAILURE io.github.pmckeown.dependencytrack.policyviolation.PolicyViolationsMojoIntegrationTest#thatPolicyMojoCanRetrievePolicyViolationFailuresAndFailIfFailOnWarnTrue type=java.lang.AssertionError msg=Exception expected
+       at io.github.pmckeown.dependencytrack.policyviolation.PolicyViolationsMojoIntegrationTest.thatPolicyMojoCanRetrievePolicyViolationFailuresAndFailIfFailOnWarnTrue(PolicyViolationsMojoIntegrationTest.ja
+    FAILURE io.github.pmckeown.dependencytrack.policyviolation.PolicyViolationsMojoIntegrationTest#thatPolicyMojoCanRetrievePolicyViolationWarningsAndFailIfFailOnWarnTrue type=java.lang.AssertionError msg=Exception expected
+       at io.github.pmckeown.dependencytrack.policyviolation.PolicyViolationsMojoIntegrationTest.thatPolicyMojoCanRetrievePolicyViolationWarningsAndFailIfFailOnWarnTrue(PolicyViolationsMojoIntegrationTest.ja
+    FAILURE io.github.pmckeown.dependencytrack.policyviolation.report.PolicyViolationsReportIntegrationTest#thatXmlFileCanBeGenerated type=java.lang.AssertionError msg=Exception not expected
+       at io.github.pmckeown.dependencytrack.policyviolation.report.PolicyViolationsReportIntegrationTest.thatXmlFileCanBeGenerated(PolicyViolationsReportIntegrationTest.java:43)
+  all_poms: count=3 changed=['pom.xml']
+    pom.xml: -            <version>2.3.3</version> / +            <version>4.0.2</version>
+  JSON resolved_jar_inspection.json: [{"phase":"pre","resolved_path":"/root/.m2/repository/com/sun/xml/bind/jaxb-core/2.3.0.1/jaxb-core-2.3.0.1.jar","classes":{"javax/xml/bind/JAXBException.class":false,"jakarta/xml/bind/JAXBException.class":false,"javax/xml/bind/JAXBContext.class":false,"jakarta/xml/bind/JAXBContext.class":false,"com/sun/xml/bind/v2/ContextFactory.class":false,"com/sun/xml/internal/bind/v2/ContextFactory.class":false,"org/glassfish/jaxb/runtime/v2/ContextFactory.class":false},"services":{}},{"phase":"pre","resolved_path":"/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.3.3/jaxb-impl-2.3.3.jar","classes":{"javax/xml/bind/JAXBException.class":false,"jakarta/xml/bind/JAXBException.class":false,"javax/xml/bind/JAXBContext.class":false,"jakarta/xml/bind/JAXBContext.class":false,"com/sun/xml/bind/v2/ContextFactory.class":true,"com/sun/xml/internal/bind/v2/ContextFactory.class":false,"org/glassfish/jaxb/runtime/v2/ContextFactory.class":false},"services":{"META-INF/services/javax.xml.bind.JAXBContext":"com.sun.xml.bind.v2.ContextFactory\n","META-INF/services/javax.xml.bind.JAXBContextFactory":"com.sun.xml.bind.v2.JAXBContextFactory\n"}},{"phase":"pre","resolved_path":"/root/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar","classes":{"javax/xml/bind/JAXBException.class":true,"jakarta/xml/bind/JAXBException.class":false,"javax/xml/bind/JAXBContext.class":true,"ja...
+  JARS: breaking/jars/jaxb-api-2.3.1.jar, breaking/jars/jaxb-core-2.3.0.1.jar, breaking/jars/jaxb-impl-4.0.2.jar, pre/jars/jakarta.xml.bind-api-2.3.3.jar, pre/jars/jaxb-api-2.3.1.jar, pre/jars/jaxb-core-2.3.0.1.jar, pre/jars/jaxb-impl-2.3.3.jar

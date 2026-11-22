@@ -1,0 +1,30 @@
+﻿
+=== Case 112  99ec071a0ce40e1bf683e66a6717df2f57c7d817 ===
+Project : Refactoring-Bot/Refactoring-Bot
+Update  : org.antlr:antlr4-runtime  4.7.2 -> 4.12.0
+Running breaking in container manual-case112-breaking (this can take several minutes) ...
+Finished in 56 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case112_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 62, Failures: 0, Errors: 1, Skipped: 0
+First failing tests / errors:
+  [ERROR] testCheckComment(de.refactoringbot.services.main.GrammarServiceTest)  Time elapsed: 0.05 s  <<< ERROR!
+      java.lang.ExceptionInInitializerError
+      at de.refactoringbot.services.main.GrammarServiceTest.testCheckComment(GrammarServiceTest.java:111)
+      Caused by: java.lang.UnsupportedOperationException: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+  Caused by: java.lang.UnsupportedOperationException: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+  Caused by: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+Linkage / bytecode signals:
+  none
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R8: Generator/runtime serialized-format alignment (ANTLR))
+Cause   : antlr4-runtime 4.12.0 cannot deserialize ATN version 3 from a parser generated with the 4.7.x tool -> ExceptionInInitializerError
+Codex   : PROVISIONAL_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

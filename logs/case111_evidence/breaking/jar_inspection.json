@@ -1,0 +1,74 @@
+{
+  "case_id": "99d4dfc8ca5b2db281f154ca9db3ad953b792b4d",
+  "phase": "breaking",
+  "path_filter": "/org/apache/poi/(poi|poi-scratchpad)/",
+  "path_source": "Fresh test report classpaths or retained runner events; Cases 111/115 PRE uses explicit POM versions because successful runner events are deleted",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/poi/poi-scratchpad/5.2.1/poi-scratchpad-5.2.1.jar",
+      "sha256": "edd11bffb5f43f903888ec7a2db87b86df6a5a2a08b606c862a0d1300d2241dc",
+      "classes": {
+        "org.apache.poi.util.IOUtils": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.poi.hwpf.HWPFDocumentCore": {
+          "present": true,
+          "major_version": 52
+        }
+      },
+      "services": {
+        "META-INF/services/org.apache.poi.extractor.ExtractorProvider": "# ====================================================================\n#  Licensed to the Apache Software Foundation (ASF) under one or more\n#  contributor license agreements.  See the NOTICE file distributed with\n#  this work for additional information regarding copyright ownership.\n#  The ASF licenses this file to You under the Apache License, Version 2.0\n#  (the \"License\"); you may not use this file except in compliance with\n#  the License.  You may obtain a copy of the License at\n#\n#      http://www.apache.org/licenses/LICENSE-2.0\n#\n#  Unless required by applicable law or agreed to in writing, software\n#  distributed under the License is distributed on an \"AS IS\" BASIS,\n#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n#  See the License for the specific language governing permissions and\n#  limitations under the License.\n# ====================================================================\n\norg.apache.poi.extractor.ole2.OLE2ScratchpadExtractorFactory",
+        "META-INF/services/org.apache.poi.sl.draw.ImageRenderer": "# ====================================================================\n#  Licensed to the Apache Software Foundation (ASF) under one or more\n#  contributor license agreements.  See the NOTICE file distributed with\n#  this work for additional information regarding copyright ownership.\n#  The ASF licenses this file to You under the Apache License, Version 2.0\n#  (the \"License\"); you may not use this file except in compliance with\n#  the License.  You may obtain a copy of the License at\n#\n#      http://www.apache.org/licenses/LICENSE-2.0\n#\n#  Unless required by applicable law or agreed to in writing, software\n#  distributed under the License is distributed on an \"AS IS\" BASIS,\n#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n#  See the License for the specific language governing permissions and\n#  limitations under the License.\n# ====================================================================\n\norg.apache.poi.hwmf.draw.HwmfImageRenderer\norg.apache.poi.hemf.draw.HemfImageRenderer\n",
+        "META-INF/services/org.apache.poi.sl.usermodel.SlideShowProvider": "# ====================================================================\n#  Licensed to the Apache Software Foundation (ASF) under one or more\n#  contributor license agreements.  See the NOTICE file distributed with\n#  this work for additional information regarding copyright ownership.\n#  The ASF licenses this file to You under the Apache License, Version 2.0\n#  (the \"License\"); you may not use this file except in compliance with\n#  the License.  You may obtain a copy of the License at\n#\n#      http://www.apache.org/licenses/LICENSE-2.0\n#\n#  Unless required by applicable law or agreed to in writing, software\n#  distributed under the License is distributed on an \"AS IS\" BASIS,\n#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n#  See the License for the specific language governing permissions and\n#  limitations under the License.\n# ====================================================================\n\norg.apache.poi.hslf.usermodel.HSLFSlideShowFactory"
+      },
+      "disassemblies": [
+        {
+          "class": "org.apache.poi.hwpf.HWPFDocumentCore",
+          "file": "poi-scratchpad-5.2.1_HWPFDocumentCore_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case111_evidence\\breaking\\jars\\poi-scratchpad-5.2.1.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.apache.poi.hwpf.HWPFDocumentCore"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/poi/poi/4.1.2/poi-4.1.2.jar",
+      "sha256": "ab1612406541968434044b2defad58aa8b657cad073baa22a04faaf9d7fb9d1c",
+      "classes": {
+        "org.apache.poi.util.IOUtils": {
+          "present": true,
+          "major_version": 52
+        },
+        "org.apache.poi.hwpf.HWPFDocumentCore": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.apache.poi.util.IOUtils",
+          "file": "poi-4.1.2_IOUtils_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case111_evidence\\breaking\\jars\\poi-4.1.2.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.apache.poi.util.IOUtils"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

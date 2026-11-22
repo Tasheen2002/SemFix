@@ -1,0 +1,834 @@
+Compiled from "Annotations.java"
+public class com.google.inject.internal.Annotations {
+  private static final com.google.common.cache.LoadingCache<java.lang.Class<? extends java.lang.annotation.Annotation>, java.lang.annotation.Annotation> cache;
+    descriptor: Lcom/google/common/cache/LoadingCache;
+
+  private static final com.google.common.base.Joiner$MapJoiner JOINER;
+    descriptor: Lcom/google/common/base/Joiner$MapJoiner;
+
+  private static final com.google.inject.internal.Annotations$AnnotationToStringConfig ANNOTATION_TO_STRING_CONFIG;
+    descriptor: Lcom/google/inject/internal/Annotations$AnnotationToStringConfig;
+
+  private static final com.google.inject.internal.Annotations$AnnotationChecker scopeChecker;
+    descriptor: Lcom/google/inject/internal/Annotations$AnnotationChecker;
+
+  private static final com.google.inject.internal.Annotations$AnnotationChecker bindingAnnotationChecker;
+    descriptor: Lcom/google/inject/internal/Annotations$AnnotationChecker;
+
+  public com.google.inject.internal.Annotations();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #47                 // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static boolean isMarker(java.lang.Class<? extends java.lang.annotation.Annotation>);
+    descriptor: (Ljava/lang/Class;)Z
+    Code:
+       0: aload_0
+       1: invokevirtual #58                 // Method java/lang/Class.getDeclaredMethods:()[Ljava/lang/reflect/Method;
+       4: arraylength
+       5: ifne          12
+       8: iconst_1
+       9: goto          13
+      12: iconst_0
+      13: ireturn
+
+  public static boolean isAllDefaultMethods(java.lang.Class<? extends java.lang.annotation.Annotation>);
+    descriptor: (Ljava/lang/Class;)Z
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: aload_0
+       3: invokevirtual #58                 // Method java/lang/Class.getDeclaredMethods:()[Ljava/lang/reflect/Method;
+       6: astore_2
+       7: aload_2
+       8: arraylength
+       9: istore_3
+      10: iconst_0
+      11: istore        4
+      13: iload         4
+      15: iload_3
+      16: if_icmpge     43
+      19: aload_2
+      20: iload         4
+      22: aaload
+      23: astore        5
+      25: iconst_1
+      26: istore_1
+      27: aload         5
+      29: invokevirtual #69                 // Method java/lang/reflect/Method.getDefaultValue:()Ljava/lang/Object;
+      32: ifnonnull     37
+      35: iconst_0
+      36: ireturn
+      37: iinc          4, 1
+      40: goto          13
+      43: iload_1
+      44: ireturn
+
+  public static <T extends java.lang.annotation.Annotation> T generateAnnotation(java.lang.Class<T>);
+    descriptor: (Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+    Code:
+       0: aload_0
+       1: invokestatic  #77                 // Method isAllDefaultMethods:(Ljava/lang/Class;)Z
+       4: ldc           #79                 // String %s is not all default methods
+       6: aload_0
+       7: invokestatic  #85                 // Method com/google/common/base/Preconditions.checkState:(ZLjava/lang/String;Ljava/lang/Object;)V
+      10: getstatic     #87                 // Field cache:Lcom/google/common/cache/LoadingCache;
+      13: aload_0
+      14: invokeinterface #93,  2           // InterfaceMethod com/google/common/cache/LoadingCache.getUnchecked:(Ljava/lang/Object;)Ljava/lang/Object;
+      19: checkcast     #95                 // class java/lang/annotation/Annotation
+      22: areturn
+
+  private static <T extends java.lang.annotation.Annotation> T generateAnnotationImpl(java.lang.Class<T>);
+    descriptor: (Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+    Code:
+       0: aload_0
+       1: invokestatic  #101                // Method resolveMembers:(Ljava/lang/Class;)Lcom/google/common/collect/ImmutableMap;
+       4: astore_1
+       5: aload_0
+       6: aload_0
+       7: invokevirtual #105                // Method java/lang/Class.getClassLoader:()Ljava/lang/ClassLoader;
+      10: iconst_1
+      11: anewarray     #54                 // class java/lang/Class
+      14: dup
+      15: iconst_0
+      16: aload_0
+      17: aastore
+      18: new           #16                 // class com/google/inject/internal/Annotations$2
+      21: dup
+      22: aload_0
+      23: aload_1
+      24: invokespecial #108                // Method com/google/inject/internal/Annotations$2."<init>":(Ljava/lang/Class;Ljava/util/Map;)V
+      27: invokestatic  #114                // Method java/lang/reflect/Proxy.newProxyInstance:(Ljava/lang/ClassLoader;[Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
+      30: invokevirtual #117                // Method java/lang/Class.cast:(Ljava/lang/Object;)Ljava/lang/Object;
+      33: checkcast     #95                 // class java/lang/annotation/Annotation
+      36: areturn
+
+  private static com.google.common.collect.ImmutableMap<java.lang.String, java.lang.Object> resolveMembers(java.lang.Class<? extends java.lang.annotation.Annotation>);
+    descriptor: (Ljava/lang/Class;)Lcom/google/common/collect/ImmutableMap;
+    Code:
+       0: invokestatic  #124                // Method com/google/common/collect/ImmutableMap.builder:()Lcom/google/common/collect/ImmutableMap$Builder;
+       3: astore_1
+       4: aload_0
+       5: invokevirtual #58                 // Method java/lang/Class.getDeclaredMethods:()[Ljava/lang/reflect/Method;
+       8: astore_2
+       9: aload_2
+      10: arraylength
+      11: istore_3
+      12: iconst_0
+      13: istore        4
+      15: iload         4
+      17: iload_3
+      18: if_icmpge     48
+      21: aload_2
+      22: iload         4
+      24: aaload
+      25: astore        5
+      27: aload_1
+      28: aload         5
+      30: invokevirtual #128                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+      33: aload         5
+      35: invokevirtual #69                 // Method java/lang/reflect/Method.getDefaultValue:()Ljava/lang/Object;
+      38: invokevirtual #132                // Method com/google/common/collect/ImmutableMap$Builder.put:(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
+      41: pop
+      42: iinc          4, 1
+      45: goto          15
+      48: aload_1
+      49: invokevirtual #136                // Method com/google/common/collect/ImmutableMap$Builder.buildOrThrow:()Lcom/google/common/collect/ImmutableMap;
+      52: areturn
+
+  private static boolean annotationEquals(java.lang.Class<? extends java.lang.annotation.Annotation>, java.util.Map<java.lang.String, java.lang.Object>, java.lang.Object) throws java.lang.Exception;
+    descriptor: (Ljava/lang/Class;Ljava/util/Map;Ljava/lang/Object;)Z
+    Code:
+       0: aload_0
+       1: aload_2
+       2: invokevirtual #150                // Method java/lang/Class.isInstance:(Ljava/lang/Object;)Z
+       5: ifne          10
+       8: iconst_0
+       9: ireturn
+      10: aload_0
+      11: invokevirtual #58                 // Method java/lang/Class.getDeclaredMethods:()[Ljava/lang/reflect/Method;
+      14: astore_3
+      15: aload_3
+      16: arraylength
+      17: istore        4
+      19: iconst_0
+      20: istore        5
+      22: iload         5
+      24: iload         4
+      26: if_icmpge     88
+      29: aload_3
+      30: iload         5
+      32: aaload
+      33: astore        6
+      35: aload         6
+      37: invokevirtual #128                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+      40: astore        7
+      42: iconst_1
+      43: anewarray     #4                  // class java/lang/Object
+      46: dup
+      47: iconst_0
+      48: aload         6
+      50: aload_2
+      51: iconst_0
+      52: anewarray     #4                  // class java/lang/Object
+      55: invokevirtual #154                // Method java/lang/reflect/Method.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+      58: aastore
+      59: iconst_1
+      60: anewarray     #4                  // class java/lang/Object
+      63: dup
+      64: iconst_0
+      65: aload_1
+      66: aload         7
+      68: invokeinterface #159,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      73: aastore
+      74: invokestatic  #165                // Method java/util/Arrays.deepEquals:([Ljava/lang/Object;[Ljava/lang/Object;)Z
+      77: ifne          82
+      80: iconst_0
+      81: ireturn
+      82: iinc          5, 1
+      85: goto          22
+      88: iconst_1
+      89: ireturn
+
+  private static int annotationHashCode(java.lang.Class<? extends java.lang.annotation.Annotation>, java.util.Map<java.lang.String, java.lang.Object>) throws java.lang.Exception;
+    descriptor: (Ljava/lang/Class;Ljava/util/Map;)I
+    Code:
+       0: iconst_0
+       1: istore_2
+       2: aload_0
+       3: invokevirtual #58                 // Method java/lang/Class.getDeclaredMethods:()[Ljava/lang/reflect/Method;
+       6: astore_3
+       7: aload_3
+       8: arraylength
+       9: istore        4
+      11: iconst_0
+      12: istore        5
+      14: iload         5
+      16: iload         4
+      18: if_icmpge     77
+      21: aload_3
+      22: iload         5
+      24: aaload
+      25: astore        6
+      27: aload         6
+      29: invokevirtual #128                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+      32: astore        7
+      34: aload_1
+      35: aload         7
+      37: invokeinterface #159,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      42: astore        8
+      44: iload_2
+      45: bipush        127
+      47: aload         7
+      49: invokevirtual #176                // Method java/lang/String.hashCode:()I
+      52: imul
+      53: iconst_1
+      54: anewarray     #4                  // class java/lang/Object
+      57: dup
+      58: iconst_0
+      59: aload         8
+      61: aastore
+      62: invokestatic  #180                // Method java/util/Arrays.deepHashCode:([Ljava/lang/Object;)I
+      65: bipush        31
+      67: isub
+      68: ixor
+      69: iadd
+      70: istore_2
+      71: iinc          5, 1
+      74: goto          14
+      77: iload_2
+      78: ireturn
+
+  private static java.lang.String annotationToString(java.lang.Class<? extends java.lang.annotation.Annotation>, java.util.Map<java.lang.String, java.lang.Object>) throws java.lang.Exception;
+    descriptor: (Ljava/lang/Class;Ljava/util/Map;)Ljava/lang/String;
+    Code:
+       0: new           #186                // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #187                // Method java/lang/StringBuilder."<init>":()V
+       7: bipush        64
+       9: invokevirtual #191                // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      12: aload_0
+      13: invokevirtual #192                // Method java/lang/Class.getName:()Ljava/lang/String;
+      16: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      19: bipush        40
+      21: invokevirtual #191                // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      24: astore_2
+      25: getstatic     #197                // Field JOINER:Lcom/google/common/base/Joiner$MapJoiner;
+      28: aload_2
+      29: aload_1
+      30: invokedynamic #215,  0            // InvokeDynamic #0:apply:()Lcom/google/common/base/Function;
+      35: invokestatic  #221                // Method com/google/common/collect/Maps.transformValues:(Ljava/util/Map;Lcom/google/common/base/Function;)Ljava/util/Map;
+      38: invokevirtual #225                // Method com/google/common/base/Joiner$MapJoiner.appendTo:(Ljava/lang/StringBuilder;Ljava/util/Map;)Ljava/lang/StringBuilder;
+      41: pop
+      42: aload_2
+      43: bipush        41
+      45: invokevirtual #191                // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      48: invokevirtual #228                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      51: areturn
+
+  public static boolean isRetainedAtRuntime(java.lang.Class<? extends java.lang.annotation.Annotation>);
+    descriptor: (Ljava/lang/Class;)Z
+    Code:
+       0: aload_0
+       1: ldc           #233                // class java/lang/annotation/Retention
+       3: invokevirtual #236                // Method java/lang/Class.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       6: checkcast     #233                // class java/lang/annotation/Retention
+       9: astore_1
+      10: aload_1
+      11: ifnull        30
+      14: aload_1
+      15: invokeinterface #239,  1          // InterfaceMethod java/lang/annotation/Retention.value:()Ljava/lang/annotation/RetentionPolicy;
+      20: getstatic     #245                // Field java/lang/annotation/RetentionPolicy.RUNTIME:Ljava/lang/annotation/RetentionPolicy;
+      23: if_acmpne     30
+      26: iconst_1
+      27: goto          31
+      30: iconst_0
+      31: ireturn
+
+  public static java.lang.Class<? extends java.lang.annotation.Annotation> findScopeAnnotation(com.google.inject.internal.Errors, java.lang.Class<?>);
+    descriptor: (Lcom/google/inject/internal/Errors;Ljava/lang/Class;)Ljava/lang/Class;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #255                // Method java/lang/Class.getAnnotations:()[Ljava/lang/annotation/Annotation;
+       5: invokestatic  #258                // Method findScopeAnnotation:(Lcom/google/inject/internal/Errors;[Ljava/lang/annotation/Annotation;)Ljava/lang/Class;
+       8: areturn
+
+  public static java.lang.Class<? extends java.lang.annotation.Annotation> findScopeAnnotation(com.google.inject.internal.Errors, java.lang.annotation.Annotation[]);
+    descriptor: (Lcom/google/inject/internal/Errors;[Ljava/lang/annotation/Annotation;)Ljava/lang/Class;
+    Code:
+       0: aconst_null
+       1: astore_2
+       2: aload_1
+       3: astore_3
+       4: aload_3
+       5: arraylength
+       6: istore        4
+       8: iconst_0
+       9: istore        5
+      11: iload         5
+      13: iload         4
+      15: if_icmpge     65
+      18: aload_3
+      19: iload         5
+      21: aaload
+      22: astore        6
+      24: aload         6
+      26: invokeinterface #268,  1          // InterfaceMethod java/lang/annotation/Annotation.annotationType:()Ljava/lang/Class;
+      31: astore        7
+      33: aload         7
+      35: invokestatic  #271                // Method isScopeAnnotation:(Ljava/lang/Class;)Z
+      38: ifeq          59
+      41: aload_2
+      42: ifnull        56
+      45: aload_0
+      46: aload_2
+      47: aload         7
+      49: invokevirtual #275                // Method com/google/inject/internal/Errors.duplicateScopeAnnotations:(Ljava/lang/Class;Ljava/lang/Class;)Lcom/google/inject/internal/Errors;
+      52: pop
+      53: goto          59
+      56: aload         7
+      58: astore_2
+      59: iinc          5, 1
+      62: goto          11
+      65: aload_2
+      66: areturn
+
+  static boolean containsComponentAnnotation(java.lang.annotation.Annotation[]);
+    descriptor: ([Ljava/lang/annotation/Annotation;)Z
+    Code:
+       0: aload_0
+       1: astore_1
+       2: aload_1
+       3: arraylength
+       4: istore_2
+       5: iconst_0
+       6: istore_3
+       7: iload_3
+       8: iload_2
+       9: if_icmpge     44
+      12: aload_1
+      13: iload_3
+      14: aaload
+      15: astore        4
+      17: aload         4
+      19: invokeinterface #268,  1          // InterfaceMethod java/lang/annotation/Annotation.annotationType:()Ljava/lang/Class;
+      24: invokevirtual #283                // Method java/lang/Class.getSimpleName:()Ljava/lang/String;
+      27: ldc_w         #285                // String Component
+      30: invokevirtual #288                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      33: ifeq          38
+      36: iconst_1
+      37: ireturn
+      38: iinc          3, 1
+      41: goto          7
+      44: iconst_0
+      45: ireturn
+
+  public static java.lang.String memberValueString(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/String;
+    Code:
+       0: getstatic     #292                // Field ANNOTATION_TO_STRING_CONFIG:Lcom/google/inject/internal/Annotations$AnnotationToStringConfig;
+       3: getfield      #295                // Field com/google/inject/internal/Annotations$AnnotationToStringConfig.quote:Z
+       6: ifeq          38
+       9: new           #186                // class java/lang/StringBuilder
+      12: dup
+      13: invokespecial #187                // Method java/lang/StringBuilder."<init>":()V
+      16: ldc_w         #297                // String \"
+      19: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      22: aload_0
+      23: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      26: ldc_w         #297                // String \"
+      29: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      32: invokevirtual #228                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      35: goto          39
+      38: aload_0
+      39: areturn
+
+  public static java.lang.String memberValueString(java.lang.String, java.lang.Object);
+    descriptor: (Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    Code:
+       0: new           #186                // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #187                // Method java/lang/StringBuilder."<init>":()V
+       7: astore_2
+       8: getstatic     #292                // Field ANNOTATION_TO_STRING_CONFIG:Lcom/google/inject/internal/Annotations$AnnotationToStringConfig;
+      11: getfield      #295                // Field com/google/inject/internal/Annotations$AnnotationToStringConfig.quote:Z
+      14: istore_3
+      15: getstatic     #292                // Field ANNOTATION_TO_STRING_CONFIG:Lcom/google/inject/internal/Annotations$AnnotationToStringConfig;
+      18: getfield      #302                // Field com/google/inject/internal/Annotations$AnnotationToStringConfig.includeMemberName:Z
+      21: istore        4
+      23: iload         4
+      25: ifeq          39
+      28: aload_2
+      29: aload_0
+      30: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      33: bipush        61
+      35: invokevirtual #191                // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      38: pop
+      39: iload_3
+      40: ifeq          69
+      43: aload_1
+      44: instanceof    #172                // class java/lang/String
+      47: ifeq          69
+      50: aload_2
+      51: bipush        34
+      53: invokevirtual #191                // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      56: aload_1
+      57: invokevirtual #305                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      60: bipush        34
+      62: invokevirtual #191                // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      65: pop
+      66: goto          75
+      69: aload_2
+      70: aload_1
+      71: invokevirtual #305                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      74: pop
+      75: aload_2
+      76: invokevirtual #228                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      79: areturn
+
+  public static java.lang.String annotationInstanceClassString(java.lang.Class<? extends java.lang.annotation.Annotation>, boolean);
+    descriptor: (Ljava/lang/Class;Z)Ljava/lang/String;
+    Code:
+       0: getstatic     #292                // Field ANNOTATION_TO_STRING_CONFIG:Lcom/google/inject/internal/Annotations$AnnotationToStringConfig;
+       3: getfield      #312                // Field com/google/inject/internal/Annotations$AnnotationToStringConfig.dollarSeparator:Z
+       6: ifeq          83
+       9: iload_1
+      10: ifne          20
+      13: aload_0
+      14: invokevirtual #316                // Method java/lang/Class.getPackage:()Ljava/lang/Package;
+      17: ifnonnull     44
+      20: new           #186                // class java/lang/StringBuilder
+      23: dup
+      24: invokespecial #187                // Method java/lang/StringBuilder."<init>":()V
+      27: ldc_w         #318                // String @
+      30: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      33: aload_0
+      34: invokevirtual #192                // Method java/lang/Class.getName:()Ljava/lang/String;
+      37: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      40: invokevirtual #228                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      43: areturn
+      44: new           #186                // class java/lang/StringBuilder
+      47: dup
+      48: invokespecial #187                // Method java/lang/StringBuilder."<init>":()V
+      51: ldc_w         #318                // String @
+      54: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      57: aload_0
+      58: invokevirtual #192                // Method java/lang/Class.getName:()Ljava/lang/String;
+      61: aload_0
+      62: invokevirtual #316                // Method java/lang/Class.getPackage:()Ljava/lang/Package;
+      65: invokevirtual #321                // Method java/lang/Package.getName:()Ljava/lang/String;
+      68: invokevirtual #324                // Method java/lang/String.length:()I
+      71: iconst_1
+      72: iadd
+      73: invokevirtual #328                // Method java/lang/String.substring:(I)Ljava/lang/String;
+      76: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      79: invokevirtual #228                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      82: areturn
+      83: new           #186                // class java/lang/StringBuilder
+      86: dup
+      87: invokespecial #187                // Method java/lang/StringBuilder."<init>":()V
+      90: ldc_w         #318                // String @
+      93: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      96: aload_0
+      97: iload_1
+      98: invokestatic  #331                // Method dotSeparatedParentOrPackage:(Ljava/lang/Class;Z)Ljava/lang/String;
+     101: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     104: invokevirtual #228                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     107: areturn
+
+  private static java.lang.String dotSeparatedParentOrPackage(java.lang.Class<?>, boolean);
+    descriptor: (Ljava/lang/Class;Z)Ljava/lang/String;
+    Code:
+       0: aload_0
+       1: invokevirtual #334                // Method java/lang/Class.getDeclaringClass:()Ljava/lang/Class;
+       4: ifnonnull     50
+       7: iload_1
+       8: ifeq          45
+      11: new           #186                // class java/lang/StringBuilder
+      14: dup
+      15: invokespecial #187                // Method java/lang/StringBuilder."<init>":()V
+      18: aload_0
+      19: invokevirtual #316                // Method java/lang/Class.getPackage:()Ljava/lang/Package;
+      22: invokevirtual #321                // Method java/lang/Package.getName:()Ljava/lang/String;
+      25: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      28: ldc_w         #336                // String .
+      31: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      34: aload_0
+      35: invokevirtual #283                // Method java/lang/Class.getSimpleName:()Ljava/lang/String;
+      38: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      41: invokevirtual #228                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      44: areturn
+      45: aload_0
+      46: invokevirtual #283                // Method java/lang/Class.getSimpleName:()Ljava/lang/String;
+      49: areturn
+      50: new           #186                // class java/lang/StringBuilder
+      53: dup
+      54: invokespecial #187                // Method java/lang/StringBuilder."<init>":()V
+      57: aload_0
+      58: invokevirtual #334                // Method java/lang/Class.getDeclaringClass:()Ljava/lang/Class;
+      61: iload_1
+      62: invokestatic  #331                // Method dotSeparatedParentOrPackage:(Ljava/lang/Class;Z)Ljava/lang/String;
+      65: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      68: ldc_w         #336                // String .
+      71: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      74: aload_0
+      75: invokevirtual #283                // Method java/lang/Class.getSimpleName:()Ljava/lang/String;
+      78: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      81: invokevirtual #228                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      84: areturn
+
+  private static com.google.inject.internal.Annotations$AnnotationToStringConfig determineAnnotationToStringConfig();
+    descriptor: ()Lcom/google/inject/internal/Annotations$AnnotationToStringConfig;
+    Code:
+       0: ldc           #2                  // class com/google/inject/internal/Annotations
+       2: ldc_w         #342                // String determineAnnotationToStringConfig
+       5: iconst_0
+       6: anewarray     #54                 // class java/lang/Class
+       9: invokevirtual #346                // Method java/lang/Class.getDeclaredMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+      12: ldc           #10                 // class com/google/inject/internal/Annotations$TestAnnotation
+      14: invokevirtual #347                // Method java/lang/reflect/Method.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+      17: checkcast     #10                 // class com/google/inject/internal/Annotations$TestAnnotation
+      20: invokevirtual #348                // Method java/lang/Object.toString:()Ljava/lang/String;
+      23: astore_0
+      24: aload_0
+      25: ldc_w         #350                // String \"determineAnnotationToStringConfig\"
+      28: invokevirtual #354                // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+      31: istore_1
+      32: aload_0
+      33: ldc_w         #356                // String value=
+      36: invokevirtual #354                // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+      39: istore_2
+      40: aload_0
+      41: ldc_w         #358                // String Annotations$TestAnnotation
+      44: invokevirtual #354                // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+      47: istore_3
+      48: new           #13                 // class com/google/inject/internal/Annotations$AnnotationToStringConfig
+      51: dup
+      52: iload_1
+      53: iload_2
+      54: iload_3
+      55: invokespecial #361                // Method com/google/inject/internal/Annotations$AnnotationToStringConfig."<init>":(ZZZ)V
+      58: areturn
+      59: astore_0
+      60: new           #363                // class java/lang/AssertionError
+      63: dup
+      64: aload_0
+      65: invokespecial #366                // Method java/lang/AssertionError."<init>":(Ljava/lang/Object;)V
+      68: athrow
+    Exception table:
+       from    to  target type
+           0    58    59   Class java/lang/NoSuchMethodException
+
+  public static boolean isScopeAnnotation(java.lang.Class<? extends java.lang.annotation.Annotation>);
+    descriptor: (Ljava/lang/Class;)Z
+    Code:
+       0: getstatic     #370                // Field scopeChecker:Lcom/google/inject/internal/Annotations$AnnotationChecker;
+       3: aload_0
+       4: invokevirtual #373                // Method com/google/inject/internal/Annotations$AnnotationChecker.hasAnnotations:(Ljava/lang/Class;)Z
+       7: ireturn
+
+  public static void checkForMisplacedScopeAnnotations(java.lang.Class<?>, java.lang.Object, com.google.inject.internal.Errors);
+    descriptor: (Ljava/lang/Class;Ljava/lang/Object;Lcom/google/inject/internal/Errors;)V
+    Code:
+       0: aload_0
+       1: invokestatic  #381                // Method com/google/inject/internal/util/Classes.isConcrete:(Ljava/lang/Class;)Z
+       4: ifeq          8
+       7: return
+       8: aload_2
+       9: aload_0
+      10: invokestatic  #383                // Method findScopeAnnotation:(Lcom/google/inject/internal/Errors;Ljava/lang/Class;)Ljava/lang/Class;
+      13: astore_3
+      14: aload_3
+      15: ifnull        40
+      18: aload_0
+      19: invokevirtual #255                // Method java/lang/Class.getAnnotations:()[Ljava/lang/annotation/Annotation;
+      22: invokestatic  #385                // Method containsComponentAnnotation:([Ljava/lang/annotation/Annotation;)Z
+      25: ifne          40
+      28: aload_2
+      29: aload_0
+      30: invokevirtual #389                // Method com/google/inject/internal/Errors.withSource:(Ljava/lang/Object;)Lcom/google/inject/internal/Errors;
+      33: aload_3
+      34: aload_0
+      35: aload_1
+      36: invokevirtual #393                // Method com/google/inject/internal/Errors.scopeAnnotationOnAbstractType:(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Object;)Lcom/google/inject/internal/Errors;
+      39: pop
+      40: return
+
+  public static com.google.inject.Key<?> getKey(com.google.inject.TypeLiteral<?>, java.lang.reflect.Member, java.lang.annotation.Annotation[], com.google.inject.internal.Errors) throws com.google.inject.internal.ErrorsException;
+    descriptor: (Lcom/google/inject/TypeLiteral;Ljava/lang/reflect/Member;[Ljava/lang/annotation/Annotation;Lcom/google/inject/internal/Errors;)Lcom/google/inject/Key;
+    Code:
+       0: aload_3
+       1: invokevirtual #402                // Method com/google/inject/internal/Errors.size:()I
+       4: istore        4
+       6: aload_3
+       7: aload_1
+       8: aload_2
+       9: invokestatic  #406                // Method findBindingAnnotation:(Lcom/google/inject/internal/Errors;Ljava/lang/reflect/Member;[Ljava/lang/annotation/Annotation;)Ljava/lang/annotation/Annotation;
+      12: astore        5
+      14: aload_3
+      15: iload         4
+      17: invokevirtual #410                // Method com/google/inject/internal/Errors.throwIfNewErrors:(I)V
+      20: aload         5
+      22: ifnonnull     32
+      25: aload_0
+      26: invokestatic  #415                // Method com/google/inject/Key.get:(Lcom/google/inject/TypeLiteral;)Lcom/google/inject/Key;
+      29: goto          38
+      32: aload_0
+      33: aload         5
+      35: invokestatic  #418                // Method com/google/inject/Key.get:(Lcom/google/inject/TypeLiteral;Ljava/lang/annotation/Annotation;)Lcom/google/inject/Key;
+      38: areturn
+
+  public static java.lang.annotation.Annotation findBindingAnnotation(com.google.inject.internal.Errors, java.lang.reflect.Member, java.lang.annotation.Annotation[]);
+    descriptor: (Lcom/google/inject/internal/Errors;Ljava/lang/reflect/Member;[Ljava/lang/annotation/Annotation;)Ljava/lang/annotation/Annotation;
+    Code:
+       0: aconst_null
+       1: astore_3
+       2: aload_2
+       3: astore        4
+       5: aload         4
+       7: arraylength
+       8: istore        5
+      10: iconst_0
+      11: istore        6
+      13: iload         6
+      15: iload         5
+      17: if_icmpge     74
+      20: aload         4
+      22: iload         6
+      24: aaload
+      25: astore        7
+      27: aload         7
+      29: invokeinterface #268,  1          // InterfaceMethod java/lang/annotation/Annotation.annotationType:()Ljava/lang/Class;
+      34: astore        8
+      36: aload         8
+      38: invokestatic  #427                // Method isBindingAnnotation:(Ljava/lang/Class;)Z
+      41: ifeq          68
+      44: aload_3
+      45: ifnull        65
+      48: aload_0
+      49: aload_1
+      50: aload_3
+      51: invokeinterface #268,  1          // InterfaceMethod java/lang/annotation/Annotation.annotationType:()Ljava/lang/Class;
+      56: aload         8
+      58: invokevirtual #431                // Method com/google/inject/internal/Errors.duplicateBindingAnnotations:(Ljava/lang/reflect/Member;Ljava/lang/Class;Ljava/lang/Class;)Lcom/google/inject/internal/Errors;
+      61: pop
+      62: goto          68
+      65: aload         7
+      67: astore_3
+      68: iinc          6, 1
+      71: goto          13
+      74: aload_3
+      75: areturn
+
+  public static boolean isBindingAnnotation(java.lang.Class<? extends java.lang.annotation.Annotation>);
+    descriptor: (Ljava/lang/Class;)Z
+    Code:
+       0: getstatic     #433                // Field bindingAnnotationChecker:Lcom/google/inject/internal/Annotations$AnnotationChecker;
+       3: aload_0
+       4: invokevirtual #373                // Method com/google/inject/internal/Annotations$AnnotationChecker.hasAnnotations:(Ljava/lang/Class;)Z
+       7: ireturn
+
+  public static java.lang.annotation.Annotation canonicalizeIfNamed(java.lang.annotation.Annotation);
+    descriptor: (Ljava/lang/annotation/Annotation;)Ljava/lang/annotation/Annotation;
+    Code:
+       0: aload_0
+       1: instanceof    #437                // class jakarta/inject/Named
+       4: ifeq          20
+       7: aload_0
+       8: checkcast     #437                // class jakarta/inject/Named
+      11: invokeinterface #439,  1          // InterfaceMethod jakarta/inject/Named.value:()Ljava/lang/String;
+      16: invokestatic  #445                // Method com/google/inject/name/Names.named:(Ljava/lang/String;)Lcom/google/inject/name/Named;
+      19: areturn
+      20: aload_0
+      21: areturn
+
+  public static java.lang.Class<? extends java.lang.annotation.Annotation> canonicalizeIfNamed(java.lang.Class<? extends java.lang.annotation.Annotation>);
+    descriptor: (Ljava/lang/Class;)Ljava/lang/Class;
+    Code:
+       0: aload_0
+       1: ldc_w         #437                // class jakarta/inject/Named
+       4: if_acmpne     11
+       7: ldc_w         #448                // class com/google/inject/name/Named
+      10: areturn
+      11: aload_0
+      12: areturn
+
+  public static java.lang.String nameOf(com.google.inject.Key<?>);
+    descriptor: (Lcom/google/inject/Key;)Ljava/lang/String;
+    Code:
+       0: aload_0
+       1: invokevirtual #454                // Method com/google/inject/Key.getAnnotation:()Ljava/lang/annotation/Annotation;
+       4: astore_1
+       5: aload_0
+       6: invokevirtual #457                // Method com/google/inject/Key.getAnnotationType:()Ljava/lang/Class;
+       9: astore_2
+      10: aload_1
+      11: ifnull        31
+      14: aload_2
+      15: invokestatic  #459                // Method isMarker:(Ljava/lang/Class;)Z
+      18: ifne          31
+      21: aload_0
+      22: invokevirtual #454                // Method com/google/inject/Key.getAnnotation:()Ljava/lang/annotation/Annotation;
+      25: invokeinterface #460,  1          // InterfaceMethod java/lang/annotation/Annotation.toString:()Ljava/lang/String;
+      30: areturn
+      31: aload_0
+      32: invokevirtual #457                // Method com/google/inject/Key.getAnnotationType:()Ljava/lang/Class;
+      35: ifnull        64
+      38: new           #186                // class java/lang/StringBuilder
+      41: dup
+      42: invokespecial #187                // Method java/lang/StringBuilder."<init>":()V
+      45: bipush        64
+      47: invokevirtual #191                // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      50: aload_0
+      51: invokevirtual #457                // Method com/google/inject/Key.getAnnotationType:()Ljava/lang/Class;
+      54: invokevirtual #192                // Method java/lang/Class.getName:()Ljava/lang/String;
+      57: invokevirtual #195                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      60: invokevirtual #228                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      63: areturn
+      64: ldc_w         #462                // String
+      67: areturn
+
+  private static java.lang.String lambda$annotationToString$0(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/String;
+    Code:
+       0: iconst_1
+       1: anewarray     #4                  // class java/lang/Object
+       4: dup
+       5: iconst_0
+       6: aload_0
+       7: aastore
+       8: invokestatic  #468                // Method java/util/Arrays.deepToString:([Ljava/lang/Object;)Ljava/lang/String;
+      11: astore_1
+      12: aload_1
+      13: iconst_1
+      14: aload_1
+      15: invokevirtual #324                // Method java/lang/String.length:()I
+      18: iconst_1
+      19: isub
+      20: invokevirtual #471                // Method java/lang/String.substring:(II)Ljava/lang/String;
+      23: areturn
+
+  static java.lang.annotation.Annotation access$000(java.lang.Class);
+    descriptor: (Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+    Code:
+       0: aload_0
+       1: invokestatic  #476                // Method generateAnnotationImpl:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       4: areturn
+
+  static java.lang.String access$100(java.lang.Class, java.util.Map) throws java.lang.Exception;
+    descriptor: (Ljava/lang/Class;Ljava/util/Map;)Ljava/lang/String;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #480                // Method annotationToString:(Ljava/lang/Class;Ljava/util/Map;)Ljava/lang/String;
+       5: areturn
+
+  static int access$200(java.lang.Class, java.util.Map) throws java.lang.Exception;
+    descriptor: (Ljava/lang/Class;Ljava/util/Map;)I
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #484                // Method annotationHashCode:(Ljava/lang/Class;Ljava/util/Map;)I
+       5: ireturn
+
+  static boolean access$300(java.lang.Class, java.util.Map, java.lang.Object) throws java.lang.Exception;
+    descriptor: (Ljava/lang/Class;Ljava/util/Map;Ljava/lang/Object;)Z
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokestatic  #487                // Method annotationEquals:(Ljava/lang/Class;Ljava/util/Map;Ljava/lang/Object;)Z
+       6: ireturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: invokestatic  #495                // Method com/google/common/cache/CacheBuilder.newBuilder:()Lcom/google/common/cache/CacheBuilder;
+       3: invokevirtual #498                // Method com/google/common/cache/CacheBuilder.weakKeys:()Lcom/google/common/cache/CacheBuilder;
+       6: new           #18                 // class com/google/inject/internal/Annotations$1
+       9: dup
+      10: invokespecial #499                // Method com/google/inject/internal/Annotations$1."<init>":()V
+      13: invokevirtual #503                // Method com/google/common/cache/CacheBuilder.build:(Lcom/google/common/cache/CacheLoader;)Lcom/google/common/cache/LoadingCache;
+      16: putstatic     #87                 // Field cache:Lcom/google/common/cache/LoadingCache;
+      19: ldc_w         #505                // String ,
+      22: invokestatic  #509                // Method com/google/common/base/Joiner.on:(Ljava/lang/String;)Lcom/google/common/base/Joiner;
+      25: ldc_w         #511                // String =
+      28: invokevirtual #515                // Method com/google/common/base/Joiner.withKeyValueSeparator:(Ljava/lang/String;)Lcom/google/common/base/Joiner$MapJoiner;
+      31: putstatic     #197                // Field JOINER:Lcom/google/common/base/Joiner$MapJoiner;
+      34: invokestatic  #517                // Method determineAnnotationToStringConfig:()Lcom/google/inject/internal/Annotations$AnnotationToStringConfig;
+      37: putstatic     #292                // Field ANNOTATION_TO_STRING_CONFIG:Lcom/google/inject/internal/Annotations$AnnotationToStringConfig;
+      40: new           #7                  // class com/google/inject/internal/Annotations$AnnotationChecker
+      43: dup
+      44: iconst_2
+      45: anewarray     #54                 // class java/lang/Class
+      48: dup
+      49: iconst_0
+      50: ldc_w         #519                // class com/google/inject/ScopeAnnotation
+      53: aastore
+      54: dup
+      55: iconst_1
+      56: ldc_w         #521                // class jakarta/inject/Scope
+      59: aastore
+      60: invokestatic  #525                // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+      63: invokespecial #528                // Method com/google/inject/internal/Annotations$AnnotationChecker."<init>":(Ljava/util/Collection;)V
+      66: putstatic     #370                // Field scopeChecker:Lcom/google/inject/internal/Annotations$AnnotationChecker;
+      69: new           #7                  // class com/google/inject/internal/Annotations$AnnotationChecker
+      72: dup
+      73: iconst_2
+      74: anewarray     #54                 // class java/lang/Class
+      77: dup
+      78: iconst_0
+      79: ldc_w         #530                // class com/google/inject/BindingAnnotation
+      82: aastore
+      83: dup
+      84: iconst_1
+      85: ldc_w         #532                // class jakarta/inject/Qualifier
+      88: aastore
+      89: invokestatic  #525                // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+      92: invokespecial #528                // Method com/google/inject/internal/Annotations$AnnotationChecker."<init>":(Ljava/util/Collection;)V
+      95: putstatic     #433                // Field bindingAnnotationChecker:Lcom/google/inject/internal/Annotations$AnnotationChecker;
+      98: return
+}

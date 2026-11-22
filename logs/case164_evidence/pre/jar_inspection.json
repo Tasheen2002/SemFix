@@ -1,0 +1,73 @@
+{
+  "case_id": "dbb2ae9a870a786e725eb095d86196a2d9081ec9",
+  "phase": "pre",
+  "path_filter": "/(hibernate-validator|jakarta.validation-api|validation-api)/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar",
+      "sha256": "b42d42428f3d922c892a909fa043287d577c0c5b165ad9b7d568cebf87fc9ea4",
+      "classes": {
+        "javax.validation.spi.ValidationProvider": {
+          "present": true,
+          "major_version": 52
+        },
+        "jakarta.validation.spi.ValidationProvider": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar",
+      "sha256": "9873b46df1833c9ee8f5bc1ff6853375115dadd8897bcb5a0dffb5848835ee6c",
+      "classes": {
+        "javax.validation.spi.ValidationProvider": {
+          "present": true,
+          "major_version": 52
+        },
+        "jakarta.validation.spi.ValidationProvider": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/hibernate/validator/hibernate-validator/6.2.5.Final/hibernate-validator-6.2.5.Final.jar",
+      "sha256": "8d6d89c3204b30a01dc248352f43dba196140bf4adc5f437f63e2ad62a3d2144",
+      "classes": {
+        "javax.validation.spi.ValidationProvider": {
+          "present": false,
+          "major_version": null
+        },
+        "jakarta.validation.spi.ValidationProvider": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/javax.validation.spi.ValidationProvider": "org.hibernate.validator.HibernateValidator"
+      },
+      "disassemblies": [
+        {
+          "class": "org.hibernate.validator.HibernateValidator",
+          "file": "hibernate-validator-6.2.5.Final_HibernateValidator_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case164_evidence\\pre\\jars\\hibernate-validator-6.2.5.Final.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.hibernate.validator.HibernateValidator"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

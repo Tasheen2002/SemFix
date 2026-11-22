@@ -1,0 +1,32 @@
+{
+  "purpose": "Obtain the test classpath behind the original engine-discovery failure",
+  "only_adjustment": "Maven debug logging; original source and dependency versions retained",
+  "command": [
+    "docker",
+    "run",
+    "--name",
+    "research-case116-discovery-debug",
+    "--entrypoint",
+    "mvn",
+    "sha256:04043abf8d47b16fd0c2d67818cc025d110405c893515cf2f2506e34c73472f4",
+    "-X",
+    "clean",
+    "test",
+    "-B"
+  ],
+  "image_id": "sha256:04043abf8d47b16fd0c2d67818cc025d110405c893515cf2f2506e34c73472f4",
+  "state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 1,
+    "Error": "",
+    "StartedAt": "2026-11-10T09:50:10.405105772Z",
+    "FinishedAt": "2026-11-10T09:51:00.047418389Z"
+  },
+  "exit_code": 1
+}

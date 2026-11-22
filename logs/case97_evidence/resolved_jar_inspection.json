@@ -1,0 +1,38 @@
+[
+  {
+    "phase": "pre",
+    "jar": "slf4j-api-1.7.36.jar",
+    "entries": {
+      "StaticLoggerBinder.class": [],
+      "META-INF/services/org.slf4j.spi.SLF4JServiceProvider": []
+    }
+  },
+  {
+    "phase": "pre",
+    "jar": "logback-classic-1.2.11.jar",
+    "entries": {
+      "StaticLoggerBinder.class": [
+        "org/slf4j/impl/StaticLoggerBinder.class"
+      ],
+      "META-INF/services/org.slf4j.spi.SLF4JServiceProvider": []
+    }
+  },
+  {
+    "phase": "breaking",
+    "jar": "slf4j-api-1.7.36.jar",
+    "entries": {
+      "StaticLoggerBinder.class": [],
+      "META-INF/services/org.slf4j.spi.SLF4JServiceProvider": []
+    }
+  },
+  {
+    "phase": "breaking",
+    "jar": "logback-classic-1.4.1.jar",
+    "entries": {
+      "StaticLoggerBinder.class": [],
+      "META-INF/services/org.slf4j.spi.SLF4JServiceProvider": [
+        "META-INF/services/org.slf4j.spi.SLF4JServiceProvider"
+      ]
+    }
+  }
+]

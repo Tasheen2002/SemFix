@@ -1,0 +1,74 @@
+{
+  "case_id": "a18e08bb3fe120b33a5864ee94305a72290ef831",
+  "phase": "breaking",
+  "path_filter": "/(logback-classic|logback-core)/",
+  "path_source": "Fresh test report effective classpaths, preferring surefire.test.class.path when present",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/ch/qos/logback/logback-classic/1.4.6/logback-classic-1.4.6.jar",
+      "sha256": "60d7030939d962afd3cec302e97eda66684f23b6d2de627a57734405bc8ebca8",
+      "classes": {
+        "ch.qos.logback.core.util.CachingDateFormatter": {
+          "present": false,
+          "major_version": null
+        },
+        "ch.qos.logback.classic.pattern.DateConverter": {
+          "present": true,
+          "major_version": 55
+        }
+      },
+      "services": {
+        "META-INF/services/ch.qos.logback.classic.spi.Configurator": "ch.qos.logback.classic.util.DefaultJoranConfigurator",
+        "META-INF/services/jakarta.servlet.ServletContainerInitializer": "ch.qos.logback.classic.servlet.LogbackServletContainerInitializer",
+        "META-INF/services/org.slf4j.spi.SLF4JServiceProvider": "ch.qos.logback.classic.spi.LogbackServiceProvider"
+      },
+      "disassemblies": [
+        {
+          "class": "ch.qos.logback.classic.pattern.DateConverter",
+          "file": "logback-classic-1.4.6_DateConverter_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case119_evidence\\breaking\\jars\\logback-classic-1.4.6.jar",
+            "-p",
+            "-s",
+            "-c",
+            "ch.qos.logback.classic.pattern.DateConverter"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/ch/qos/logback/logback-core/1.4.5/logback-core-1.4.5.jar",
+      "sha256": "8604e7c327556b097590701fba88dae84c581167f2746378f736b37269452380",
+      "classes": {
+        "ch.qos.logback.core.util.CachingDateFormatter": {
+          "present": true,
+          "major_version": 55
+        },
+        "ch.qos.logback.classic.pattern.DateConverter": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "ch.qos.logback.core.util.CachingDateFormatter",
+          "file": "logback-core-1.4.5_CachingDateFormatter_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case119_evidence\\breaking\\jars\\logback-core-1.4.5.jar",
+            "-p",
+            "-s",
+            "-c",
+            "ch.qos.logback.core.util.CachingDateFormatter"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

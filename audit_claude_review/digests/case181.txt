@@ -1,0 +1,55 @@
+=== CASE 181 fa6503da9fd5431abca41561a34d54e07fbbf7d0
+  project=SPARQL-Anything/sparql.anything dep=org.jsoup:jsoup 1.14.2 -> 1.15.3 scope=compile type=minor java=11
+  PR=https://github.com/SPARQL-Anything/sparql.anything/pull/303
+  PRE log logs/batch_triage/fa6503da_pre.log:
+  lines=2904
+  status: [INFO] BUILD SUCCESS
+  reactor: sparql.anything   SUCCESS [  0.611 s]; sparql-anything-model   SUCCESS [ 12.551 s]; sparql-anything-metadata   SUCCESS [  2.511 s]; sparql-anything-parser   SUCCESS [  5.743 s]; sparql-anything-csv   SUCCESS [  6.381 s]; sparql-anything-testutils   SUCCESS [  0.532 s]; sparql-anything-xml   SUCCESS [  4.921 s]; sparql-anything-docs   SUCCESS [  7.340 s]; sparql-anything-html   SUCCESS [ 17.493 s]; sparql-anything-text   SUCCESS [  3.162 s]; sparql-anything-json   SUCCESS [  5.186 s]; sparql-anything-yaml   SUCCESS [  4.262 s]; sparql-anything-markdown   SUCCESS [  4.031 s]; sparql-anything-bib   SUCCESS [  2.864 s]; sparql-anything-archive   SUCCESS [  2.487 s]; sparql-anything-binary   SUCCESS [  2.596 s]; sparql-anything-spreadsheet   SUCCESS [  5.462 s]; sparql-anything-rdf   SUCCESS [  2.371 s]; sparql-anything-engine   SUCCESS [  7.891 s]; sparql-anything-cli   SUCCESS [  3.017 s]; 
+  aggregate summaries: Tests run: 19, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 1, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 12, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 7, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 7, Failures: 0, Errors: 0, Skipped: 4 || Tests run: 5, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 3, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 31, Failures: 0, Errors: 0, Skipped: 2 || Tests run: 3, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 28, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+  exception names: com.github.sparqlanything.model.TriplifierHTTPExceptionx1, java.net.UnknownHostExceptionx1
+  BREAKING log logs/batch_triage/fa6503da_breaking.log:
+  lines=1495
+  status: [INFO] BUILD FAILURE
+  reactor: sparql.anything   SUCCESS [  1.546 s]; sparql-anything-model   SUCCESS [ 26.978 s]; sparql-anything-metadata   SUCCESS [  3.593 s]; sparql-anything-parser   SUCCESS [  4.802 s]; sparql-anything-csv   SUCCESS [  6.195 s]; sparql-anything-testutils   SUCCESS [  0.460 s]; sparql-anything-xml   SUCCESS [  3.930 s]; sparql-anything-docs   SUCCESS [  7.682 s]; sparql-anything-html   FAILURE [ 24.554 s]; sparql-anything-text   SKIPPED; sparql-anything-json   SKIPPED; sparql-anything-yaml   SKIPPED; sparql-anything-markdown   SKIPPED; sparql-anything-bib   SKIPPED; sparql-anything-archive   SKIPPED; sparql-anything-binary   SKIPPED; sparql-anything-spreadsheet   SKIPPED; sparql-anything-rdf   SKIPPED; sparql-anything-engine   SKIPPED; sparql-anything-cli   SKIPPED; sparql-anything-it   SKIPPED; sparql-anything-fuseki   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 19, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 1, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 12, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 7, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 7, Failures: 0, Errors: 0, Skipped: 4 || Tests run: 5, Failures: 2, Errors: 0, Skipped: 0
+  failing classes: Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.684 s <<< FAILURE! - in com.github.sparqlanything.html.HTMLMicrodataTest || Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 8.202 s <<< FAILURE! - in com.github.sparqlanything.html.HTMLMicrodataRemoteTest
+  section: Failures: | HTMLMicrodataRemoteTest.testMicrodata1:36->AbstractTriplifierTester.assertResultIsIsomorphicWithExpected:199 | HTMLMicrodataTest.testMicrodata1:33->AbstractTriplifierTester.assertResultIsIsomorphicWithExpected:199 | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] Reactor Summary for sparql.anything 0.8.0-SNAPSHOT: | [INFO] | [INFO] sparql.anything .................................... SUCCESS [  1.546 s] | [INFO] sparql-anything-model .............................. SUCCESS [ 26.978 s] | [INFO] sparql-anything-metadata ........................... SUCCESS [  3.593 s] | [INFO] sparql-anything-parser ............................. SUCCESS [  4.802 s] | [INFO] sparql-anything-csv ................................ SUCCESS [  6.195 s]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project sparql-anything-html: There are test failures.
+  FAILBLOCK: [ERROR] com.github.sparqlanything.html.HTMLMicrodataTest.testMicrodata1  Time elapsed: 4.678 s  <<< FAILURE!
+      java.lang.AssertionError
+      at org.junit.Assert.fail(Assert.java:87)
+      at org.junit.Assert.assertTrue(Assert.java:42)
+      at org.junit.Assert.assertTrue(Assert.java:53)
+      at com.github.sparqlanything.testutils.TestUtils.assertIsomorphic(TestUtils.java:144)
+      at com.github.sparqlanything.testutils.AbstractTriplifierTester.assertResultIsIsomorphicWithExpected(AbstractTriplifierTester.java:199)
+  distinct fail signatures (count): 2x java.lang.AssertionError
+  exception names: java.lang.AssertionErrorx2
+  EVIDENCE logs/case181_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms.tar.interrupted-20261120_110823_047425, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/jsoup-1.15.3.jar, html_probe_by_element/JsoupTextProbe.class, html_probe_by_element/JsoupTextProbe.java, html_probe_by_element/Microdata1.html, html_probe_by_element/results.json, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/jsoup-1.14.2.jar, sha256_manifest.json, text_probe/JsoupTextProbe.class, text_probe/JsoupTextProbe.java, text_probe/Microdata1.html, text_probe_by_element/JsoupTextProbe.class, text_probe_by_element/JsoupTextProbe.java, text_probe_by_element/Microdata1.html, text_probe_by_element/results.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=44 sum(t,f,e,s)=[240, 0, 0, 14]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=15 sum(t,f,e,s)=[57, 2, 0, 4]
+  archived non-report files: pre=479 breaking=479 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -292,3 +292,3 @@
+     				<artifactId>jsoup</artifactId>
+    -				<version>1.14.2</version>
+    +				<version>1.15.3</version>
+     			</dependency>
+  BREAKING surefire failures/errors:
+    FAILURE com.github.sparqlanything.html.HTMLMicrodataRemoteTest#testMicrodata1 type=java.lang.AssertionError msg=
+       at org.junit.Assert.fail(Assert.java:87)
+       at org.junit.Assert.assertTrue(Assert.java:42)
+       at org.junit.Assert.assertTrue(Assert.java:53)
+       at com.github.sparqlanything.testutils.TestUtils.assertIsomorphic(TestUtils.java:144)
+    FAILURE com.github.sparqlanything.html.HTMLMicrodataTest#testMicrodata1 type=java.lang.AssertionError msg=
+       at org.junit.Assert.fail(Assert.java:87)
+       at org.junit.Assert.assertTrue(Assert.java:42)
+       at org.junit.Assert.assertTrue(Assert.java:53)
+       at com.github.sparqlanything.testutils.TestUtils.assertIsomorphic(TestUtils.java:144)
+  all_poms: count=22 changed=['pom.xml']
+    pom.xml: -				<version>1.14.2</version> / +				<version>1.15.3</version>
+  JSON breaking/jar_inspection.json: {"case_id":"fa6503da9fd5431abca41561a34d54e07fbbf7d0","phase":"breaking","path_filter":"/jsoup/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/org/jsoup/jsoup/1.15.3/jsoup-1.15.3.jar","classes":{"org.jsoup.select.Elements":{"present":true,"major_version":52}},"services":{},"disassemblies":[]}]}
+  JSON html_probe_by_element/results.json: {"fixture_sha256":"050bd0ba34c57aedf267cb0fcc5bafe31f67c620e95277ff5780c1a85354f375","runs":[{"phase":"pre","jar_sha256":"a601ba7ce2e2c6e744d4eac793a76707c0121576170ef717ef7a81f2343ada1a","output":"html.text=Avatar Director: James Cameron (born August 16, 1954)  Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)\nhtml.html=<head></head>|<body> | <div itemscope itemtype=\"https://schema...."},{"phase":"breaking","jar_sha256":"e20a5e78b1372f2a4e620832db4442d5077e5cbde280b24c666a3770844999bc","output":"html.text=Avatar Director: James Cameron (born August 16, 1954)  Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)\nhtml.html=<head></head>|<body>| <div itemscope itemtype=\"https://schema.o..."}]}
+  JSON pre/jar_inspection.json: {"case_id":"fa6503da9fd5431abca41561a34d54e07fbbf7d0","phase":"pre","path_filter":"/jsoup/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/org/jsoup/jsoup/1.14.2/jsoup-1.14.2.jar","classes":{"org.jsoup.select.Elements":{"present":true,"major_version":52}},"services":{},"disassemblies":[]}]}
+  JSON text_probe_by_element/results.json: {"fixture_sha256":"050bd0ba34c57aedf267cb0fcc5bafe31f67c620e95277ff5780c1a85354f375","runs":[{"phase":"pre","jar_sha256":"a601ba7ce2e2c6e744d4eac793a76707c0121576170ef717ef7a81f2343ada1a","output":"html=Avatar Director: James Cameron (born August 16, 1954)  Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)\nbody=Avatar Director: James Cameron (born August 16, 1954) Avatar Director: Ja..."},{"phase":"breaking","jar_sha256":"e20a5e78b1372f2a4e620832db4442d5077e5cbde280b24c666a3770844999bc","output":"html=Avatar Director: James Cameron (born August 16, 1954)  Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)\nbody=Avatar Director: James Cameron (born August 16, 1954) Avatar Director: Ja..."}]}
+  JARS: breaking/jars/jsoup-1.15.3.jar, pre/jars/jsoup-1.14.2.jar

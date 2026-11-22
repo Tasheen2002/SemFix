@@ -1,0 +1,117 @@
+=== CASE 80 65d7e266291e48fd6d2c62caaa63775c74c5d472
+  project=elimu-ai/webapp dep=org.apache.logging.log4j:log4j-api 2.16.0 -> 2.20.0 scope=compile type=minor java=11
+  PR=https://github.com/elimu-ai/webapp/pull/1618
+  PRE log logs/batch_triage/65d7e266_pre.log:
+  lines=6393
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 122, Failures: 0, Errors: 0, Skipped: 2
+  linkage/compile signals: ClassNotFoundException, IllegalAccessError, IncompatibleClassChangeError, LinkageError
+  exception names: java.nio.file.NoSuchFileExceptionx2, org.springframework.web.bind.MissingServletRequestParameterExceptionx1
+  BREAKING log logs/batch_triage/65d7e266_breaking.log:
+  lines=3141
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 103, Failures: 0, Errors: 90, Skipped: 1
+  failing classes: Tests run: 13, Failures: 0, Errors: 13, Skipped: 0, Time elapsed: 0.908 s <<< FAILURE! - in ai.elimu.util.csv.CsvLetterExtractionHelperTest || Tests run: 18, Failures: 0, Errors: 18, Skipped: 0, Time elapsed: 0.034 s <<< FAILURE! - in ai.elimu.util.csv.CsvSoundExtractionHelperTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in ai.elimu.util.SyllableFrequencyHelperTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in ai.elimu.util.Web3HelperTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in ai.elimu.util.epub.EPubChapterExtractionHelperTest || Tests run: 18, Failures: 0, Errors: 17, Skipped: 1, Time elapsed: 0.049 s <<< FAILURE! - in ai.elimu.util.epub.EPubParagraphExtractionHelperTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in ai.elimu.util.epub.EPubImageExtractionHelperTest || Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in ai.elimu.util.epub.EPubMetadataExtractionHelperTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in ai.elimu.util.SyllableHelperTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in ai.elimu.util.ChecksumHelperTest
+  section: Errors: | ApplicationDaoTest.initializationError » NoClassDefFound Could not initialize ... | ApplicationVersionDaoTest.initializationError » NoClassDefFound Could not init... | BaseDaoTest.initializationError » NoClassDefFound Could not initialize class o... | ContributorDaoTest.initializationError » NoClassDefFound Could not initialize ... | DeviceDaoTest.initializationError » NoClassDefFound Could not initialize class... | EmojiDaoTest.initializationError » NoClassDefFound Could not initialize class ... | ImageDaoTest.initializationError » NoClassDefFound Could not initialize class ... | LetterDaoTest.initializationError » NoClassDefFound Could not initialize class... | NumberDaoTest.initializationError » NoClassDefFound Could not initialize class... | SoundDaoTest.initializationError » NoClassDefFound Could not initialize class ... | StoryBookParagraphDaoTest.initializationError » NoClassDefFound Could not init... | VideoDaoTest.initializationError » NoClassDefFound Could not initialize class ... | WordContributionEventDaoTest.initializationError » NoClassDefFound Could not i...
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project webapp: There are test failures.
+  FAILBLOCK: [ERROR] extracted_letter_without_usageCount(ai.elimu.util.csv.CsvLetterExtractionHelperTest)  Time elapsed: 0.645 s  <<< ERROR!
+      java.lang.NoSuchMethodError: 'java.lang.ClassLoader[] org.apache.logging.log4j.util.LoaderUtil.getClassLoaders()'
+      at ai.elimu.util.csv.CsvLetterExtractionHelperTest.extracted_letter_without_usageCount(CsvLetterExtractionHelperTest.java:127)
+      [ERROR] try_extract_letters_for_missing_file(ai.elimu.util.csv.CsvLetterExtractionHelperTest)  Time elapsed: 0.012 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class ai.elimu.util.csv.CsvLetterExtractionHelper
+      at ai.elimu.util.csv.CsvLetterExtractionHelperTest.try_extract_letters_for_missing_file(CsvLetterExtractionHelperTest.java:163)
+  FAILBLOCK: [ERROR] try_extract_letters_for_missing_file(ai.elimu.util.csv.CsvLetterExtractionHelperTest)  Time elapsed: 0.012 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class ai.elimu.util.csv.CsvLetterExtractionHelper
+      at ai.elimu.util.csv.CsvLetterExtractionHelperTest.try_extract_letters_for_missing_file(CsvLetterExtractionHelperTest.java:163)
+      [ERROR] extracted_letter_with_text(ai.elimu.util.csv.CsvLetterExtractionHelperTest)  Time elapsed: 0.004 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class ai.elimu.util.csv.CsvLetterExtractionHelper
+      at ai.elimu.util.csv.CsvLetterExtractionHelperTest.extracted_letter_with_text(CsvLetterExtractionHelperTest.java:91)
+  FAILBLOCK: [ERROR] extracted_sound_with_diacritic(ai.elimu.util.csv.CsvSoundExtractionHelperTest)  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+      at ai.elimu.util.csv.CsvSoundExtractionHelperTest.extracted_sound_with_diacritic(CsvSoundExtractionHelperTest.java:129)
+      [ERROR] extracted_sound_with_valueIpa(ai.elimu.util.csv.CsvSoundExtractionHelperTest)  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class ai.elimu.util.csv.CsvSoundExtractionHelper
+      at ai.elimu.util.csv.CsvSoundExtractionHelperTest.extracted_sound_with_valueIpa(CsvSoundExtractionHelperTest.java:92)
+  FAILBLOCK: [ERROR] extracted_sound_with_valueIpa(ai.elimu.util.csv.CsvSoundExtractionHelperTest)  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class ai.elimu.util.csv.CsvSoundExtractionHelper
+      at ai.elimu.util.csv.CsvSoundExtractionHelperTest.extracted_sound_with_valueIpa(CsvSoundExtractionHelperTest.java:92)
+      [ERROR] extracted_sound_without_diacritic(ai.elimu.util.csv.CsvSoundExtractionHelperTest)  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class ai.elimu.util.csv.CsvSoundExtractionHelper
+      at ai.elimu.util.csv.CsvSoundExtractionHelperTest.extracted_sound_without_diacritic(CsvSoundExtractionHelperTest.java:120)
+  distinct fail signatures (count): 1x java.lang.NoSuchMethodError: 'java.lang.ClassLoader[] org.apache.logging.log4j.util.LoaderUtil.getClassLoaders()' || 12x java.lang.NoClassDefFoundError: Could not initialize class ai.elimu.util.csv.CsvLetterExtractionHelper || 1x java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext || 1x java.lang.NoClassDefFoundError: Could not initialize class ai.elimu.util.csv.CsvSoundExtractionHelper
+  linkage/compile signals: ClassNotFoundException, IllegalAccessError, IncompatibleClassChangeError, LinkageError, NoClassDefFoundError, NoSuchMethodError
+  exception names: java.lang.NoClassDefFoundErrorx89, java.lang.NoSuchMethodErrorx1
+  EVIDENCE logs/case80_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/log4j-api-2.20.0.jar, breaking/log4j-core-2.16.0.jar, log4j_javap.txt, pre/archive_summary.json, pre/artifacts.tar, pre/log4j-api-2.16.0.jar, pre/log4j-core-2.16.0.jar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=35 sum(t,f,e,s)=[122, 0, 0, 2]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=35 sum(t,f,e,s)=[103, 0, 90, 1]
+  archived non-report files: pre=838 breaking=838 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -383,3 +383,3 @@
+                 <artifactId>log4j-api</artifactId>
+    -            <version>2.16.0</version>
+    +            <version>2.20.0</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    ERROR ai.elimu.dao.ApplicationDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.ApplicationVersionDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.BaseDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.ContributorDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+    ERROR ai.elimu.dao.DeviceDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.EmojiDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.ImageDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.LetterDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.NumberDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.SoundDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.StoryBookParagraphDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.VideoDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.WordContributionEventDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.dao.WordDaoTest#initializationError type=java.lang.NoClassDefFoundError msg=Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+    ERROR ai.elimu.util.ChecksumHelperTest#calculateMD5Test type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.ChecksumHelperTest.calculateMD5Test(ChecksumHelperTest.java:11)
+    ERROR ai.elimu.util.SyllableFrequencyHelperTest#testGetSyllableFrequency type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.SyllableFrequencyHelperTest.testGetSyllableFrequency(SyllableFrequencyHelperTest.java:18)
+    ERROR ai.elimu.util.SyllableHelperTest#testGetDiSyllables_languageEN type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.SyllableHelperTest.testGetDiSyllables_languageEN(SyllableHelperTest.java:39)
+    ERROR ai.elimu.util.SyllableHelperTest#testGetTriSyllables_languageEN type=java.lang.NoClassDefFoundError msg=Could not initialize class ai.elimu.util.SyllableHelper
+       at ai.elimu.util.SyllableHelperTest.testGetTriSyllables_languageEN(SyllableHelperTest.java:78)
+    ERROR ai.elimu.util.SyllableHelperTest#testGetMonoSyllables_languageEN type=java.lang.NoClassDefFoundError msg=Could not initialize class ai.elimu.util.SyllableHelper
+       at ai.elimu.util.SyllableHelperTest.testGetMonoSyllables_languageEN(SyllableHelperTest.java:18)
+    ERROR ai.elimu.util.Web3HelperTest#isSignatureValidTest type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.Web3HelperTest.isSignatureValidTest(Web3HelperTest.java:10)
+    ERROR ai.elimu.util.audio.AudioMetadataExtractionHelperTest#testGetDurationInMillisecondsMP3 type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.audio.AudioMetadataExtractionHelperTest.<init>(AudioMetadataExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.audio.AudioMetadataExtractionHelperTest#testGetDurationInMillisecondsOGG type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.audio.AudioMetadataExtractionHelperTest.<init>(AudioMetadataExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.audio.AudioMetadataExtractionHelperTest#testGetDurationInMillisecondsWAV type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.audio.AudioMetadataExtractionHelperTest.<init>(AudioMetadataExtractionHelperTest.java:17)
+    ERROR ai.elimu.util.csv.CsvLetterExtractionHelperTest#extracted_letter_without_usageCount type=java.lang.NoSuchMethodError msg='java.lang.ClassLoader[] org.apache.logging.log4j.util.LoaderUtil.getClassLoaders()'
+       at ai.elimu.util.csv.CsvLetterExtractionHelperTest.extracted_letter_without_usageCount(CsvLetterExtractionHelperTest.java:127)
+    ERROR ai.elimu.util.csv.CsvLetterExtractionHelperTest#try_extract_letters_for_missing_file type=java.lang.NoClassDefFoundError msg=Could not initialize class ai.elimu.util.csv.CsvLetterExtractionHelper
+       at ai.elimu.util.csv.CsvLetterExtractionHelperTest.try_extract_letters_for_missing_file(CsvLetterExtractionHelperTest.java:163)
+    ERROR ai.elimu.util.csv.CsvLetterExtractionHelperTest#extracted_letter_with_text type=java.lang.NoClassDefFoundError msg=Could not initialize class ai.elimu.util.csv.CsvLetterExtractionHelper
+       at ai.elimu.util.csv.CsvLetterExtractionHelperTest.extracted_letter_with_text(CsvLetterExtractionHelperTest.java:91)
+    ERROR ai.elimu.util.csv.CsvLetterExtractionHelperTest#extracted_letter_without_diacritic type=java.lang.NoClassDefFoundError msg=Could not initialize class ai.elimu.util.csv.CsvLetterExtractionHelper
+       at ai.elimu.util.csv.CsvLetterExtractionHelperTest.extracted_letter_without_diacritic(CsvLetterExtractionHelperTest.java:100)
+    ERROR ai.elimu.util.csv.CsvLetterExtractionHelperTest#extracted_letter_without_diacritic_in_case_csv_value_was_not_boolean type=java.lang.NoClassDefFoundError msg=Could not initialize class ai.elimu.util.csv.CsvLetterExtractionHelper
+       at ai.elimu.util.csv.CsvLetterExtractionHelperTest.extracted_letter_without_diacritic_in_case_csv_value_was_not_boolean(CsvLetterExtractionHelperTest.java:118)
+    ERROR ai.elimu.util.csv.CsvLetterExtractionHelperTest#extracted_letter_with_usageCount type=java.lang.NoClassDefFoundError msg=Could not initialize class ai.elimu.util.csv.CsvLetterExtractionHelper
+       at ai.elimu.util.csv.CsvLetterExtractionHelperTest.extracted_letter_with_usageCount(CsvLetterExtractionHelperTest.java:136)
+    ERROR ai.elimu.util.csv.CsvLetterExtractionHelperTest#extracted_letter_without_usageCount_in_case_csv_value_is_NULL type=java.lang.NoClassDefFoundError msg=Could not initialize class ai.elimu.util.csv.CsvLetterExtractionHelper
+       at ai.elimu.util.csv.CsvLetterExtractionHelperTest.extracted_letter_without_usageCount_in_case_csv_value_is_NULL(CsvLetterExtractionHelperTest.java:145)
+    ERROR ai.elimu.util.csv.CsvLetterExtractionHelperTest#extracted_letter_without_usageCount_in_case_csv_value_is_word type=java.lang.NoClassDefFoundError msg=Could not initialize class ai.elimu.util.csv.CsvLetterExtractionHelper
+       at ai.elimu.util.csv.CsvLetterExtractionHelperTest.extracted_letter_without_usageCount_in_case_csv_value_is_word(CsvLetterExtractionHelperTest.java:154)
+    ERROR ai.elimu.util.csv.CsvLetterExtractionHelperTest#extracted_letter_without_text type=java.lang.NoClassDefFoundError msg=Could not initialize class ai.elimu.util.csv.CsvLetterExtractionHelper
+       at ai.elimu.util.csv.CsvLetterExtractionHelperTest.extracted_letter_without_text(CsvLetterExtractionHelperTest.java:82)
+    ERROR ai.elimu.util.csv.CsvLetterExtractionHelperTest#extracted_letter_from_a_test_letters_csv_resource type=java.lang.NoClassDefFoundError msg=Could not initialize class ai.elimu.util.csv.CsvLetterExtractionHelper
+       at ai.elimu.util.csv.CsvLetterExtractionHelperTest.extracted_letter_from_a_test_letters_csv_resource(CsvLetterExtractionHelperTest.java:182)
+    ERROR ai.elimu.util.csv.CsvLetterExtractionHelperTest#extracted_letter_with_diacritic type=java.lang.NoClassDefFoundError msg=Could not initialize class ai.elimu.util.csv.CsvLetterExtractionHelper
+       at ai.elimu.util.csv.CsvLetterExtractionHelperTest.extracted_letter_with_diacritic(CsvLetterExtractionHelperTest.java:109)
+    ERROR ai.elimu.util.csv.CsvLetterExtractionHelperTest#extracted_empty_sounds_for_csv_file_only_with_headers type=java.lang.NoClassDefFoundError msg=Could not initialize class ai.elimu.util.csv.CsvLetterExtractionHelper
+       at ai.elimu.util.csv.CsvLetterExtractionHelperTest.extracted_empty_sounds_for_csv_file_only_with_headers(CsvLetterExtractionHelperTest.java:73)
+    ERROR ai.elimu.util.csv.CsvLetterExtractionHelperTest#extracted_empty_sounds_for_csv_file_with_empty_content type=java.lang.NoClassDefFoundError msg=Could not initialize class ai.elimu.util.csv.CsvLetterExtractionHelper
+       at ai.elimu.util.csv.CsvLetterExtractionHelperTest.extracted_empty_sounds_for_csv_file_with_empty_content(CsvLetterExtractionHelperTest.java:64)
+    ERROR ai.elimu.util.csv.CsvSoundExtractionHelperTest#extracted_sound_with_diacritic type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at ai.elimu.util.csv.CsvSoundExtractionHelperTest.extracted_sound_with_diacritic(CsvSoundExtractionHelperTest.java:129)
+    ... truncated (163 lines)
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"log4j-api-2.16.0.jar","entries":{"LoaderUtil.class":["org/apache/logging/log4j/util/LoaderUtil.class"]}},{"phase":"pre","jar":"log4j-core-2.16.0.jar","entries":{"LoaderUtil.class":[]}},{"phase":"breaking","jar":"log4j-api-2.20.0.jar","entries":{"LoaderUtil.class":["org/apache/logging/log4j/util/LoaderUtil.class","org/apache/logging/log4j/util/ServiceLoaderUtil.class"]}},{"phase":"breaking","jar":"log4j-core-2.16.0.jar","entries":{"LoaderUtil.class":[]}}]

@@ -1,0 +1,38 @@
+=== CASE 3 063cf862c045e0a9e401a539497e34ddaf8332b3
+  project=versly/wsdoc dep=com.fasterxml.jackson.core:jackson-databind 2.4.2 -> 2.9.10.8 scope=compile type=other java=11
+  PR=https://github.com/versly/wsdoc/pull/75
+  PRE log logs/063cf862_pre.log:
+  lines=446
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 59, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: log4j:WARN No appenders could be found for logger (freemarker.cache). | log4j:WARN Please initialize the log4j system properly. | log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+  BREAKING log logs/063cf862_breaking.log:
+  lines=2086
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 59, Failures: 33, Errors: 0, Skipped: 0
+  failing classes: Tests run: 59, Failures: 33, Errors: 0, Skipped: 0, Time elapsed: 10.539 s <<< FAILURE! - in TestSuite
+  section: Failures: | JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertGenericResponse:237->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonMerge | JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertJavaDocComments:146->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper | JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertNoRedundantUriParametersForResource:275->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationPr
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project versly-wsdoc: There are test failures.
+  FAILBLOCK: [ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.assertGenericResponse  Time elapsed: 0.287 s  <<< FAILURE!
+      java.lang.RuntimeException: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonMerge
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:94)
+      at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:140)
+      at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:113)
+      Caused by: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonMerge
+      Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.annotation.JsonMerge
+  FAILBLOCK: [ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.assertJavaDocComments  Time elapsed: 0.199 s  <<< FAILURE!
+      java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.handleExceptions(JavacTaskImpl.java:163)
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.doCall(JavacTaskImpl.java:100)
+      at jdk.compiler/com.sun.tools.javac.api.JavacTaskImpl.call(JavacTaskImpl.java:94)
+      at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:140)
+      at org.versly.rest.wsdoc.AbstractRestAnnotationProcessorTest.runAnnotationProcessor(AbstractRestAnnotationProcessorTest.java:113)
+      Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+  distinct fail signatures (count): 1x java.lang.RuntimeException: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonMerge || 32x java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.Ob
+  provider/console lines: log4j:WARN No appenders could be found for logger (freemarker.cache). | log4j:WARN Please initialize the log4j system properly. | log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx99, java.lang.RuntimeExceptionx33, java.lang.ClassNotFoundExceptionx1
+  EVIDENCE: no logs/case3_evidence directory

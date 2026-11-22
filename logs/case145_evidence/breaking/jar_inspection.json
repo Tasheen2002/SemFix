@@ -1,0 +1,122 @@
+{
+  "case_id": "bdbdd72d9988aa736bde515d46d3990527c92fee",
+  "phase": "breaking",
+  "path_filter": "/(slf4j-api|logback-classic|logback-core|logunit[^/]*)/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar",
+      "sha256": "4d8e899621a3006c2f66e19feab002b11e6cfc5cb1854fc41f01532c00deb2aa",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": true,
+          "major_version": 50
+        },
+        "ch.qos.logback.classic.Logger": {
+          "present": true,
+          "major_version": 50
+        }
+      },
+      "services": {
+        "META-INF/services/javax.servlet.ServletContainerInitializer": "ch.qos.logback.classic.servlet.LogbackServletContainerInitializer"
+      },
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar",
+      "sha256": "6ce1e9397be8298a2e99029f55f955c6fa3cef255171c554d0b9c201cffd0159",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": false,
+          "major_version": null
+        },
+        "ch.qos.logback.classic.Logger": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/io/github/netmikey/logunit/logunit-core/1.1.3/logunit-core-1.1.3.jar",
+      "sha256": "79ccc135c435a5482d675663ab18bf00f0de409c13911c885e355fa03c32cd3e",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": false,
+          "major_version": null
+        },
+        "ch.qos.logback.classic.Logger": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/io/github/netmikey/logunit/logunit-logback/1.1.3/logunit-logback-1.1.3.jar",
+      "sha256": "d0876d66100a3451253e1c7c2d5ee41b23f69b2fb85d979f6fe550c12b9596c6",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": false,
+          "major_version": null
+        },
+        "ch.qos.logback.classic.Logger": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/io.github.netmikey.logunit.api.LogProviderFactory": "io.github.netmikey.logunit.logback.LogbackLogProviderFactory"
+      },
+      "disassemblies": [
+        {
+          "class": "io.github.netmikey.logunit.logback.LogbackLogProvider",
+          "file": "logunit-logback-1.1.3_LogbackLogProvider_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case145_evidence\\breaking\\jars\\logunit-logback-1.1.3.jar",
+            "-p",
+            "-s",
+            "-c",
+            "io.github.netmikey.logunit.logback.LogbackLogProvider"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/slf4j/slf4j-api/2.0.6/slf4j-api-2.0.6.jar",
+      "sha256": "2f2a92d410b268139d7d63b75ed25e21995cfe4100c19bf23577cfdbc8077bda",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": false,
+          "major_version": null
+        },
+        "ch.qos.logback.classic.Logger": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.slf4j.LoggerFactory",
+          "file": "slf4j-api-2.0.6_LoggerFactory_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case145_evidence\\breaking\\jars\\slf4j-api-2.0.6.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.slf4j.LoggerFactory"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

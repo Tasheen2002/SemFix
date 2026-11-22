@@ -1,0 +1,36 @@
+﻿
+=== Case 9  0ee8b9376b967938e8efd89a0959214a30d1b3fb ===
+Project : pholser/junit-quickcheck
+Update  : org.mockito:mockito-core  4.11.0 -> 5.1.1
+Image not present locally, pulling ghcr.io/chains-project/breaking-updates:0ee8b9376b967938e8efd89a0959214a30d1b3fb-breaking ...
+Running breaking in container manual-case9-breaking (this can take several minutes) ...
+Finished in 46 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case9_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 510, Failures: 1, Errors: 0, Skipped: 18
+  reactor: junit-quickcheck ................................... SUCCESS [  0.831 s]
+  reactor: junit-quickcheck-core .............................. FAILURE [ 35.925 s]
+  reactor: junit-quickcheck-generators ........................ SKIPPED
+  reactor: junit-quickcheck-guava ............................. SKIPPED
+  reactor: junit-quickcheck-examples .......................... SKIPPED
+First failing tests / errors:
+  [ERROR] com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest.shrinkingChoosesAComponentCapableOfShrinkingTheValue  Time elapsed: 0.039 s  <<< FAILURE!
+      java.lang.AssertionError: expected:<[3, 6]> but was:<[]>
+      at org.junit.Assert.fail(Assert.java:89)
+      at org.junit.Assert.failNotEquals(Assert.java:835)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  none
+
+--- Proposed classification ---
+Label   : BEHAVIORAL   (rule R9: Changed default in the updated library)
+Category: DEFAULT_SETTING_OR_POLICY
+Cause   : mockito-core 5.x switched the default mock maker from subclass to inline; CompositeGeneratorTest.shrinkingChoosesAComponentCapableOfShrinkingTheValue gets an empty shrink list (expected [3, 6] but was []) from mocked generators; no linkage/compile signal
+Change  : Mocked collaborator behaviour changed under the new default mock maker (inline mocks intercept methods that previously ran real code); observable as an empty shrink result
+Codex   : PROVISIONAL_BEHAVIORAL   Claude blind: BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

@@ -1,0 +1,62 @@
+{
+  "case_id": "a047d2d3f9385a25ced0d2ad3c49f9401ea9c624",
+  "phase": "breaking",
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-10T09:47:58.511796382Z",
+    "FinishedAt": "2026-11-10T09:48:24.892627562Z"
+  },
+  "working_directory": "/incrementals-tools",
+  "command": [
+    "sh",
+    "-c",
+    "mvn clean test -B | tee %s.log"
+  ],
+  "image_id": "sha256:04043abf8d47b16fd0c2d67818cc025d110405c893515cf2f2506e34c73472f4",
+  "image_digests": [
+    "ghcr.io/chains-project/breaking-updates@sha256:04043abf8d47b16fd0c2d67818cc025d110405c893515cf2f2506e34c73472f4"
+  ],
+  "platform": "linux/amd64",
+  "cleaned_modules": [
+    "lib",
+    "maven-plugin"
+  ],
+  "freshness_rule": "Only report directories under a target explicitly deleted in this run are included",
+  "report_count": 0,
+  "reports": [],
+  "source_and_pom_sha256": {
+    "enforcer-rules/pom.xml": "593948b05e02834d53576eabb3c2cd50a31981f2525b7e40383d5da2e4a53f16",
+    "enforcer-rules/src/main/java/io/jenkins/tools/incrementals/enforcer/RequireExtensionVersion.java": "676c41b565bbbd1eb38666bc6e5f70572173dab9f0926833883b21b76f767ea4",
+    "git-changelist-maven-extension/pom.xml": "d84ce076e05d1dc48dc6e40a1eedf0716d4addba6bfa72909f570d44368ac00b",
+    "git-changelist-maven-extension/src/main/java/io/jenkins/tools/incrementals/git_changelist_maven_extension/Main.java": "25859a7d946f167ff87334bd3cfd80171abcad67b3ea71f8ab487e08f581aa85",
+    "git-changelist-maven-extension/src/test/java/io/jenkins/tools/incrementals/git_changelist_maven_extension/MainTest.java": "d203627915a62adae0806702b13d141edba145419a2fc9127b26d3916909088d",
+    "lib/pom.xml": "69bbe90aca97fda4bfebbbccd5766397b2e2dad212d04f36de3646442a9c1270",
+    "lib/src/main/java/io/jenkins/tools/incrementals/lib/UpdateChecker.java": "82fe2ca3405bbb995a876d255ec2c1586bd8f1d8bf66f8233ad3d4cef97b4f03",
+    "maven-plugin/pom.xml": "4e63bff847f674b062218c078bdc8bca35f4ace076223cd1b172368373b377b2",
+    "maven-plugin/src/main/java/io/jenkins/tools/incrementals/maven/DependencyManagementMojo.java": "c26feceb27f6f537cab7d64b87a3c13cfea44afc4568b21e7b5881f9923e19bc",
+    "maven-plugin/src/main/java/io/jenkins/tools/incrementals/maven/DetectIndent.java": "9c60ed821f30b7c5fbb530d447f6b6f0c9596eab8b88779a80d3eec2598eed67",
+    "maven-plugin/src/main/java/io/jenkins/tools/incrementals/maven/IncrementalifyMojo.java": "dfe675955d419d500129dd91ad775e7345e1f608a8dcee74875d7f29bd7fecbb",
+    "maven-plugin/src/main/java/io/jenkins/tools/incrementals/maven/ReincrementalifyMojo.java": "137e672795a1b60733f23496fb83c8c6f08df04608310b8c2f91f00d032f55ac",
+    "maven-plugin/src/main/java/io/jenkins/tools/incrementals/maven/UpdateMojo.java": "fe57740052cc13c351cd6cdb6e399dec36ae2f59052ef340979d9f33d682ce4e",
+    "maven-plugin/src/main/java/io/jenkins/tools/incrementals/maven/UpdatePluginsTxt.java": "a1139c61a59a3dc834a61d579c5b1fc8e0d22b621b4161243d88f1f5bb00559d",
+    "maven-plugin/src/main/java/io/jenkins/tools/incrementals/maven/util/PluginRef.java": "9fdc453712cac783d041a533afcbb55e7f129fc27c6ba2fe8a1f4aa9b588d092",
+    "maven-plugin/src/main/java/io/jenkins/tools/incrementals/maven/util/PluginRefList.java": "6d16f8c51dd3e4eb77dfb6ec9960be62521bba48232209703a5cae9a67ae5f51",
+    "maven-plugin/src/main/resources/io/jenkins/tools/incrementals/maven/prototype-extensions.xml": "16b24f61915d17bcfc4151d49d7dedeff6d44fd4ede6f8285679402461a7547d",
+    "maven-plugin/src/test/java/io/jenkins/tools/incrementals/maven/DetectIndentTest.java": "f7c9968d5148c8cd5c5218a3e743585ff01040bdfdef4e621ecccd8961872f6c",
+    "pom.xml": "21daee02acac2e0a072465ef48097dbf4c2ca70b7d179c9572129b4f5c955400"
+  },
+  "aggregate_counts": {
+    "tests": 0,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

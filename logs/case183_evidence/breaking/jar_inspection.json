@@ -1,0 +1,74 @@
+{
+  "case_id": "fb40f5e5fc20ca31cf9fdadd5ace53f7de5ea093",
+  "phase": "breaking",
+  "path_filter": "/(quarkus-google-cloud-common-grpc|proto-google-common-protos|protobuf-java)/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/com/google/api/grpc/proto-google-common-protos/2.22.1/proto-google-common-protos-2.22.1.jar",
+      "sha256": "b0642455c9b3fbbf9bd805c3a31bdaf865b5f1d3b535df5874219e5eeaf75c37",
+      "classes": {
+        "com.google.api.MetricDescriptor": {
+          "present": true,
+          "major_version": 52
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "com.google.api.MetricDescriptor",
+          "file": "proto-google-common-protos-2.22.1_MetricDescriptor_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case183_evidence\\breaking\\jars\\proto-google-common-protos-2.22.1.jar",
+            "-p",
+            "-s",
+            "-c",
+            "com.google.api.MetricDescriptor"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/com/google/protobuf/protobuf-java/3.14.0/protobuf-java-3.14.0.jar",
+      "sha256": "bc9d7feab02531e15322980647379afb039fc2dccbb8f79588d1e8652efa1e00",
+      "classes": {
+        "com.google.api.MetricDescriptor": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "com.google.protobuf.LazyStringArrayList",
+          "file": "protobuf-java-3.14.0_LazyStringArrayList_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case183_evidence\\breaking\\jars\\protobuf-java-3.14.0.jar",
+            "-p",
+            "-s",
+            "-c",
+            "com.google.protobuf.LazyStringArrayList"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/io/quarkiverse/googlecloudservices/quarkus-google-cloud-common-grpc/2.2.0/quarkus-google-cloud-common-grpc-2.2.0.jar",
+      "sha256": "290a75b72399c0bf148cc79b6c4d654ff13c74578054b3cbff361bec3578f9e5",
+      "classes": {
+        "com.google.api.MetricDescriptor": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    }
+  ]
+}

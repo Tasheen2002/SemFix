@@ -1,0 +1,46 @@
+case_id:
+063cf862c045e0a9e401a539497e34ddaf8332b3
+
+project:
+wsdoc
+
+dependency:
+com.fasterxml.jackson.core:jackson-databind
+
+old_version:
+2.4.2
+
+new_version:
+2.9.10.8
+
+is_semantic:
+NO
+
+semantic_category:
+NONE
+
+root_cause_category:
+RUNTIME_DEPENDENCY_COMPATIBILITY
+
+exception:
+java.lang.NoClassDefFoundError
+
+failing_tests:
+33 test failures across JaxRSRestAnnotationProcessorTest
+and SpringMVCRestAnnotationProcessorTest
+
+root_cause:
+After upgrading jackson-databind from 2.4.2 to 2.9.10.8,
+the new jackson-databind runtime expects
+com.fasterxml.jackson.annotation.JsonMerge.
+
+That class is not available on the existing runtime
+classpath. JacksonAnnotationIntrospector and ObjectMapper
+therefore fail to initialize, causing
+NoClassDefFoundError and subsequent test failures.
+
+confidence:
+HIGH
+
+manual_verified:
+YES

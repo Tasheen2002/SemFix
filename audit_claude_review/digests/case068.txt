@@ -1,0 +1,119 @@
+=== CASE 68 55931d4c3a2e17683deff5d4e8065a929866290b
+  project=splunk/kafka-connect-splunk dep=com.fasterxml.jackson.core:jackson-databind 2.10.5.1 -> 2.12.6.1 scope=compile type=other java=11
+  PR=https://github.com/splunk/kafka-connect-splunk/pull/327
+  PRE log logs/batch_triage/55931d4c_pre.log:
+  lines=3330
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 143, Failures: 0, Errors: 0, Skipped: 0
+  exception names: com.splunk.hecclient.HecEmptyEventExceptionx10, java.io.IOExceptionx2, com.splunk.hecclient.HecExceptionx1
+  BREAKING log logs/batch_triage/55931d4c_breaking.log:
+  lines=2143
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 143, Failures: 0, Errors: 97, Skipped: 0
+  failing classes: Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 1.56 s <<< FAILURE! - in KafkaRecordTrackerTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in StructEventTest || Tests run: 14, Failures: 0, Errors: 12, Skipped: 0, Time elapsed: 1.416 s <<< FAILURE! - in SplunkSinkTaskTest || Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in ResponsePollerTest || Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in HecAckPollResponseTest || Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in JsonEventTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.192 s <<< FAILURE! - in HecTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in ConcurrentHecTest || Tests run: 12, Failures: 0, Errors: 12, Skipped: 0, Time elapsed: 0.055 s <<< FAILURE! - in IndexerTest || Tests run: 10, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 1.017 s <<< FAILURE! - in JsonEvenBatchTest
+  section: Errors: | ConcurrentHecTest.create:27 » NoClassDefFound Could not initialize class com.s... | ConcurrentHecTest.send:41 » NoClassDefFound Could not initialize class com.spl... | ConcurrentHecTest.sendWithFailure:57 » NoClassDefFound Could not initialize cl... | DoubleSerializerTest.serialize:34 » NoClassDefFound com/fasterxml/jackson/core... | HecAckPollResponseTest.getAcks » NoClassDefFound Could not initialize class co... | HecAckPollResponseTest.<clinit>:27 » NoClassDefFound com/fasterxml/jackson/cor... | HecAckPollerTest.add:93 NoClassDefFound Could not initialize class com.splunk.... | HecAckPollerTest.addWithDupId:239 NoClassDefFound Could not initialize class c... | HecAckPollerTest.addWithNoAckReady:150 NoClassDefFound Could not initialize cl... | HecAckPollerTest.addWithTimeoutError:180 NoClassDefFound Could not initialize ... | HecAckPollerTest.addWithWrongAckId:210 NoClassDefFound Could not initialize cl... | HecAckPollerTest.addWithoutCallback:122 NoClassDefFound Could not initialize c... | HecAckPollerTest.emptyPoll:82 NoClassDefFound Could not initialize class com.s...
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project splunk-kafka-connect: There are test failures.
+  FAILBLOCK: [ERROR] addNonFailedEventBatch  Time elapsed: 1.511 s  <<< ERROR!
+      java.lang.Exception: Unexpected exception, expected<java.lang.RuntimeException> but was<java.lang.NoClassDefFoundError>
+      at com.splunk.kafka.connect.KafkaRecordTrackerTest.addNonFailedEventBatch(KafkaRecordTrackerTest.java:46)
+      Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+      at com.splunk.kafka.connect.KafkaRecordTrackerTest.addNonFailedEventBatch(KafkaRecordTrackerTest.java:46)
+      [ERROR] addFailedEventBatch  Time elapsed: 0.001 s  <<< ERROR!
+      Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+  FAILBLOCK: [ERROR] addFailedEventBatch  Time elapsed: 0.001 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEvent
+      at com.splunk.kafka.connect.KafkaRecordTrackerTest.addFailedEventBatch(KafkaRecordTrackerTest.java:34)
+      [ERROR] addEventBatch  Time elapsed: 0.017 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEvent
+      at com.splunk.kafka.connect.KafkaRecordTrackerTest.addEventBatch(KafkaRecordTrackerTest.java:56)
+  FAILBLOCK: [ERROR] struct  Time elapsed: 0.016 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Event
+      at com.splunk.kafka.connect.StructEventTest.struct(StructEventTest.java:42)
+      [INFO] Running SplunkSinkTaskTest
+      [main] INFO com.splunk.kafka.connect.SplunkSinkConnectorConfig - SplunkSinkConnectorConfig values:
+      splunk.flush.window = 30
+  FAILBLOCK: [ERROR] putWithoutMaxBatchAligned  Time elapsed: 0.061 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+      at com.splunk.kafka.connect.SplunkSinkTaskTest.putWithoutMaxBatchAligned(SplunkSinkTaskTest.java:89)
+      Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+      at com.splunk.kafka.connect.SplunkSinkTaskTest.putWithoutMaxBatchAligned(SplunkSinkTaskTest.java:89)
+      [ERROR] putWithFailure  Time elapsed: 0.033 s  <<< ERROR!
+      Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+  distinct fail signatures (count): 1x java.lang.Exception: Unexpected exception, expected<java.lang.RuntimeException> but was<java.lang.NoClassDefFoundError> || 3x java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEvent || 1x java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Event || 1x java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx97, java.lang.ClassNotFoundExceptionx16, com.splunk.hecclient.HecExceptionx4, org.apache.kafka.connect.errors.RetriableExceptionx3, java.lang.RuntimeExceptionx1
+  EVIDENCE logs/case68_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/jackson-core-2.10.5.jar, breaking/jackson-databind-2.12.6.1.jar, databind_jacksonfeature_references.txt, jackson_feature_javap.txt, pre/archive_summary.json, pre/artifacts.tar, pre/jackson-core-2.10.5.jar, pre/jackson-databind-2.10.5.1.jar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=23 sum(t,f,e,s)=[143, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=23 sum(t,f,e,s)=[143, 0, 97, 0]
+  archived non-report files: pre=79 breaking=79 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -34,3 +34,3 @@
+                 <artifactId>jackson-databind</artifactId>
+    -            <version>2.10.5.1</version>
+    +            <version>2.12.6.1</version>
+                 <scope>compile</scope>
+  BREAKING surefire failures/errors:
+    ERROR com.splunk.hecclient.ConcurrentHecTest#create type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPoller
+       at com.splunk.hecclient.ConcurrentHecTest.create(ConcurrentHecTest.java:27)
+    ERROR com.splunk.hecclient.ConcurrentHecTest#send type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPoller
+       at com.splunk.hecclient.ConcurrentHecTest.send(ConcurrentHecTest.java:41)
+    ERROR com.splunk.hecclient.ConcurrentHecTest#sendWithFailure type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPoller
+       at com.splunk.hecclient.ConcurrentHecTest.sendWithFailure(ConcurrentHecTest.java:57)
+    ERROR com.splunk.hecclient.DoubleSerializerTest#serialize type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.splunk.hecclient.DoubleSerializerTest.serialize(DoubleSerializerTest.java:34)
+       at com.splunk.hecclient.DoubleSerializerTest.serialize(DoubleSerializerTest.java:34)
+    ERROR com.splunk.hecclient.HecAckPollResponseTest#getSuccessIds type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.splunk.hecclient.HecAckPollResponseTest.<clinit>(HecAckPollResponseTest.java:27)
+       at com.splunk.hecclient.HecAckPollResponseTest.<clinit>(HecAckPollResponseTest.java:27)
+    ERROR com.splunk.hecclient.HecAckPollResponseTest#getAcks type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPollResponseTest
+    ERROR com.splunk.hecclient.HecAckPollerTest#startStop type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPoller
+       at com.splunk.hecclient.HecAckPollerTest.startStop(HecAckPollerTest.java:39)
+    ERROR com.splunk.hecclient.HecAckPollerTest#addWithNoAckReady type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPoller
+       at com.splunk.hecclient.HecAckPollerTest.addWithNoAckReady(HecAckPollerTest.java:150)
+    ERROR com.splunk.hecclient.HecAckPollerTest#emptyPoll type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPoller
+       at com.splunk.hecclient.HecAckPollerTest.emptyPoll(HecAckPollerTest.java:82)
+    ERROR com.splunk.hecclient.HecAckPollerTest#getMinLoadChannel type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPoller
+       at com.splunk.hecclient.HecAckPollerTest.getMinLoadChannel(HecAckPollerTest.java:266)
+    ERROR com.splunk.hecclient.HecAckPollerTest#getterSetter type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPoller
+       at com.splunk.hecclient.HecAckPollerTest.getterSetter(HecAckPollerTest.java:26)
+    ERROR com.splunk.hecclient.HecAckPollerTest#addWithoutCallback type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPoller
+       at com.splunk.hecclient.HecAckPollerTest.addWithoutCallback(HecAckPollerTest.java:122)
+    ERROR com.splunk.hecclient.HecAckPollerTest#addWithWrongAckId type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPoller
+       at com.splunk.hecclient.HecAckPollerTest.addWithWrongAckId(HecAckPollerTest.java:210)
+    ERROR com.splunk.hecclient.HecAckPollerTest#add type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPoller
+       at com.splunk.hecclient.HecAckPollerTest.add(HecAckPollerTest.java:93)
+    ERROR com.splunk.hecclient.HecAckPollerTest#fail type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPoller
+       at com.splunk.hecclient.HecAckPollerTest.fail(HecAckPollerTest.java:59)
+    ERROR com.splunk.hecclient.HecAckPollerTest#addWithTimeoutError type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPoller
+       at com.splunk.hecclient.HecAckPollerTest.addWithTimeoutError(HecAckPollerTest.java:180)
+    ERROR com.splunk.hecclient.HecAckPollerTest#stickySessionHandler type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPoller
+       at com.splunk.hecclient.HecAckPollerTest.stickySessionHandler(HecAckPollerTest.java:330)
+    ERROR com.splunk.hecclient.HecAckPollerTest#addWithDupId type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPoller
+       at com.splunk.hecclient.HecAckPollerTest.addWithDupId(HecAckPollerTest.java:239)
+    ERROR com.splunk.hecclient.HecChannelTest#setTracking type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.JsonEvent
+       at com.splunk.hecclient.HecChannelTest.setTracking(HecChannelTest.java:64)
+    ERROR com.splunk.hecclient.HecChannelTest#send type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.JsonEvent
+       at com.splunk.hecclient.HecChannelTest.send(HecChannelTest.java:87)
+    ERROR com.splunk.hecclient.HecTest#create type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.HecAckPoller
+       at com.splunk.hecclient.HecTest.create(HecTest.java:25)
+    ERROR com.splunk.hecclient.HecTest#send type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.splunk.hecclient.HecTest.send(HecTest.java:59)
+       at com.splunk.hecclient.HecTest.send(HecTest.java:59)
+    ERROR com.splunk.hecclient.HecTest#close type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.Indexer
+       at com.splunk.hecclient.HecTest.close(HecTest.java:69)
+    ERROR com.splunk.hecclient.HecTest#sendEmptyBatch type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.Indexer
+       at com.splunk.hecclient.HecTest.sendEmptyBatch(HecTest.java:49)
+    ERROR com.splunk.hecclient.IndexerTest#ConfirmShortBackPressureConfig type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.Indexer
+       at com.splunk.hecclient.IndexerTest.assertFailure(IndexerTest.java:187)
+       at com.splunk.hecclient.IndexerTest.ConfirmShortBackPressureConfig(IndexerTest.java:152)
+    ERROR com.splunk.hecclient.IndexerTest#sendWithCloseError type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.Indexer
+       at com.splunk.hecclient.IndexerTest.assertFailure(IndexerTest.java:187)
+       at com.splunk.hecclient.IndexerTest.sendWithCloseError(IndexerTest.java:173)
+    ERROR com.splunk.hecclient.IndexerTest#sendWithServerBusy type=java.lang.NoClassDefFoundError msg=Could not initialize class com.splunk.hecclient.Indexer
+    ... truncated (214 lines)
+  LOG databind_jacksonfeature_references.txt (4 lines): 
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"jackson-core-2.10.5.jar","entries":{"com/fasterxml/jackson/core/util/JacksonFeature.class":[],"com/fasterxml/jackson/databind/DeserializationFeature.class":[]}},{"phase":"pre","jar":"jackson-databind-2.10.5.1.jar","entries":{"com/fasterxml/jackson/core/util/JacksonFeature.class":[],"com/fasterxml/jackson/databind/DeserializationFeature.class":["com/fasterxml/jackson/databind/DeserializationFeature.class"]}},{"phase":"breaking","jar":"jackson-core-2.10.5.jar","entries":{"com/fasterxml/jackson/core/util/JacksonFeature.class":[],"com/fasterxml/jackson/databind/DeserializationFeature.class":[]}},{"phase":"breaking","jar":"jackson-databind-2.12.6.1.jar","entries":{"com/fasterxml/jackson/core/util/JacksonFeature.class":[],"com/fasterxml/jackson/databind/DeserializationFeature.class":["com/fasterxml/jackson/databind/DeserializationFeature.class"]}}]

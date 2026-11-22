@@ -1,0 +1,104 @@
+=== CASE 45 3c0bc059c4b1f9b1c35ac35a67796eb4c7e716f5
+  project=mathieucarbou/license-maven-plugin dep=org.codehaus.plexus:plexus-utils 3.5.1 -> 4.0.0 scope=compile type=major java=11
+  PR=https://github.com/mathieucarbou/license-maven-plugin/pull/562
+  PRE log logs/batch_triage/3c0bc059_pre.log:
+  lines=8346
+  status: [INFO] BUILD SUCCESS
+  reactor: license-maven-plugin-parent   SUCCESS [  4.668 s]; license-maven-plugin   SUCCESS [ 23.100 s]; license-maven-plugin-git   SUCCESS [  5.639 s]; license-maven-plugin-svn   SUCCESS [  0.487 s]; license-maven-plugin-fs   SUCCESS [  2.675 s]; BUILD SUCCESS
+  aggregate summaries: Tests run: 330, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 12, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+  exception names: org.apache.maven.plugin.MojoExecutionExceptionx3
+  BREAKING log logs/batch_triage/3c0bc059_breaking.log:
+  lines=28259
+  status: [INFO] BUILD FAILURE
+  reactor: license-maven-plugin-parent   SUCCESS [  4.744 s]; license-maven-plugin   FAILURE [ 22.866 s]; license-maven-plugin-git   SKIPPED; license-maven-plugin-svn   SKIPPED; license-maven-plugin-fs   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 330, Failures: 0, Errors: 231, Skipped: 0
+  failing classes: Tests run: 11, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 0.269 s <<< FAILURE! - in com.mycila.maven.plugin.license.HeaderMojoTest || Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.031 s <<< FAILURE! - in com.mycila.maven.plugin.license.LicenseSetTest || Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in com.mycila.maven.plugin.license.StrictTest || Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.034 s <<< FAILURE! - in com.mycila.maven.plugin.license.MappingMojoTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in com.mycila.maven.plugin.license.IncludesMojoTest || Tests run: 165, Failures: 0, Errors: 165, Skipped: 0, Time elapsed: 1.333 s <<< FAILURE! - in com.mycila.maven.plugin.license.CompleteMojoTest || Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 1.001 s <<< FAILURE! - in com.mycila.maven.plugin.license.RemoveMojoTest || Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in com.mycila.maven.plugin.license.AdditionalHeaderMojoTest || Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.047 s <<< FAILURE! - in com.mycila.maven.plugin.license.ReportTest || Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.019 s <<< FAILURE! - in com.mycila.maven.plugin.license.UseDefaultMappingMojoTest
+  section: Errors: | AdditionalHeaderMojoTest.test_additionalHeaderDefinitions:36 NoClassDefFound org/codehaus/plexus/util/xml/pull/XmlPullParserException | AdditionalHeaderMojoTest.test_inline:56 NoClassDefFound org/codehaus/plexus/util/xml/pull/XmlPullParserException | AggregateMojoTest.test_modules_ignored:33 NoClassDefFound org/codehaus/plexus/util/xml/pull/XmlPullParserException | AggregateMojoTest.test_modules_scanned:49 NoClassDefFound org/codehaus/plexus/util/xml/pull/XmlPullParserException | CheckTest.test_defaultStubProject:34 NoClassDefFound org/codehaus/plexus/util/xml/pull/XmlPullParserException | CheckTest.test_line_wrapping:40 NoClassDefFound org/codehaus/plexus/util/xml/pull/XmlPullParserException | CompleteMojoTest.test_add:135 NoClassDefFound org/codehaus/plexus/util/xml/pull/XmlPullParserException | CompleteMojoTest.test_add:135 NoClassDefFound org/codehaus/plexus/util/xml/pull/XmlPullParserException | CompleteMojoTest.test_add:135 NoClassDefFound org/codehaus/plexus/util/xml/pull/XmlPullParserException | CompleteMojoTest.test_add:135 NoClassDefFound org/codehaus/plexus/util/xml/pull/XmlPullParserException | CompleteMojoTest.test_add:135 NoClassDefFound org/codehaus/plexus/
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.0:test (default-test) on project license-maven-plugin: 
+  FAILBLOCK: [ERROR] com.mycila.maven.plugin.license.HeaderMojoTest.test_load_header_from_plugin_classpath  Time elapsed: 0.112 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/pull/XmlPullParserException
+      at com.mycila.maven.plugin.license.HeaderMojoTest.test_load_header_from_plugin_classpath(HeaderMojoTest.java:78)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+      at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+      at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+      Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.pull.XmlPullParserException
+  distinct fail signatures (count): 231x java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/pull/XmlPullParserException
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx231, java.lang.ClassNotFoundExceptionx231, org.codehaus.plexus.util.xml.pull.XmlPullParserExceptionx231
+  EVIDENCE logs/case45_evidence: breaking/archive_summary.json, breaking/archive_summary_initial_path_mapping.json, breaking/artifacts.tar, breaking/artifacts_initial_path_mapping.tar, breaking/plexus-utils-4.0.0.jar, breaking/plugin-module-pom.xml, pre/archive_summary.json, pre/archive_summary_initial_path_mapping.json, pre/artifacts.tar, pre/artifacts_initial_path_mapping.tar, pre/plexus-utils-3.5.1.jar, pre/plugin-module-pom.xml, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=43 sum(t,f,e,s)=[343, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=38 sum(t,f,e,s)=[330, 0, 231, 0]
+  archived non-report files: pre=416 breaking=416 changed=1 added=0 removed=0
+  DIFF license-maven-plugin/pom.xml (7 lines):
+    @@ -226,3 +226,3 @@
+           <artifactId>plexus-utils</artifactId>
+    -      <version>3.5.1</version>
+    +      <version>4.0.0</version>
+         </dependency>
+  BREAKING surefire failures/errors:
+    ERROR com.mycila.maven.plugin.license.AdditionalHeaderMojoTest#test_inline type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/pull/XmlPullParserException
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.pull.XmlPullParserException
+       at com.mycila.maven.plugin.license.AdditionalHeaderMojoTest.test_inline(AdditionalHeaderMojoTest.java:56)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    ERROR com.mycila.maven.plugin.license.AdditionalHeaderMojoTest#test_additionalHeaderDefinitions type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/pull/XmlPullParserException
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.pull.XmlPullParserException
+       at com.mycila.maven.plugin.license.AdditionalHeaderMojoTest.test_additionalHeaderDefinitions(AdditionalHeaderMojoTest.java:36)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    ERROR com.mycila.maven.plugin.license.AggregateMojoTest#test_modules_ignored type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/pull/XmlPullParserException
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.pull.XmlPullParserException
+       at com.mycila.maven.plugin.license.AggregateMojoTest.test_modules_ignored(AggregateMojoTest.java:33)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    ERROR com.mycila.maven.plugin.license.AggregateMojoTest#test_modules_scanned type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/pull/XmlPullParserException
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.pull.XmlPullParserException
+       at com.mycila.maven.plugin.license.AggregateMojoTest.test_modules_scanned(AggregateMojoTest.java:49)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    ERROR com.mycila.maven.plugin.license.CheckTest#test_defaultStubProject type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/pull/XmlPullParserException
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.pull.XmlPullParserException
+       at com.mycila.maven.plugin.license.CheckTest.test_defaultStubProject(CheckTest.java:34)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    ERROR com.mycila.maven.plugin.license.CheckTest#test_line_wrapping type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/pull/XmlPullParserException
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.pull.XmlPullParserException
+       at com.mycila.maven.plugin.license.CheckTest.test_line_wrapping(CheckTest.java:40)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    ERROR com.mycila.maven.plugin.license.CompleteMojoTest#test_check_failed(HeaderType, String)[1] type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/pull/XmlPullParserException
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.pull.XmlPullParserException
+       at com.mycila.maven.plugin.license.CompleteMojoTest.test_check_failed(CompleteMojoTest.java:214)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    ERROR com.mycila.maven.plugin.license.CompleteMojoTest#test_check_failed(HeaderType, String)[2] type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/pull/XmlPullParserException
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.pull.XmlPullParserException
+       at com.mycila.maven.plugin.license.CompleteMojoTest.test_check_failed(CompleteMojoTest.java:214)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    ERROR com.mycila.maven.plugin.license.CompleteMojoTest#test_check_failed(HeaderType, String)[3] type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/pull/XmlPullParserException
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.pull.XmlPullParserException
+       at com.mycila.maven.plugin.license.CompleteMojoTest.test_check_failed(CompleteMojoTest.java:214)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    ERROR com.mycila.maven.plugin.license.CompleteMojoTest#test_check_failed(HeaderType, String)[4] type=java.lang.NoClassDefFoundError msg=org/codehaus/plexus/util/xml/pull/XmlPullParserException
+       Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.pull.XmlPullParserException
+       at com.mycila.maven.plugin.license.CompleteMojoTest.test_check_failed(CompleteMojoTest.java:214)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+       at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    ... truncated (1386 lines)
+  JSON breaking/archive_summary_initial_path_mapping.json: {"case_id":"3c0bc059c4b1f9b1c35ac35a67796eb4c7e716f5","phase":"breaking","container_state":{"Status":"exited","Running":false,"Paused":false,"Restarting":false,"OOMKilled":false,"Dead":false,"Pid":0,"ExitCode":0,"Error":"","StartedAt":"2026-11-09T07:56:09.235525877Z","FinishedAt":"2026-11-09T07:56:41.143554179Z"},"working_directory":"/license-maven-plugin","platform":"linux/amd64","cleaned_modules":[".","license-maven-plugin"],"freshness_rule":"Only report directories under a target explicitly deleted in this run are included","report_count":38,"reports":[{"path":"target/surefire-reports/TEST-com.mycila.maven.plugin.license.AbstractLicenseMojoTest.xml","module":".","test_class":"com.mycila.maven.plugin.license.AbstractLicenseMojoTest","counts":{"tests":1,"failures":0,"errors":0,"skipped":0},"java_version":"11.0.19","classpath":"/license-maven-plugin/license-maven-plugin/target/test-classes:/license-maven-plugin/license-maven-plugin/target/classes:/root/.m2/repository/org/apache/maven/plugin-tools/maven-plugin-annotations/3.9.0/maven-plugin-annotations-3.9.0.jar:/root/.m2/repository/org/apache/maven/maven-plugin-api/3.9.2/m...","errors":[],"failures":[]},{"path":"target/surefire-reports/TEST-com.mycila.maven.plugin.license.AdditionalHeaderMojoTest.xml","module":".","test_class":"com.mycila.maven.plugin.license.AdditionalHeaderMojoTest","counts":{"tests":2,"failures":0,"errors":2...
+  JSON pre/archive_summary_initial_path_mapping.json: {"case_id":"3c0bc059c4b1f9b1c35ac35a67796eb4c7e716f5","phase":"pre","container_state":{"Status":"exited","Running":false,"Paused":false,"Restarting":false,"OOMKilled":false,"Dead":false,"Pid":0,"ExitCode":0,"Error":"","StartedAt":"2026-11-09T07:55:11.061455572Z","FinishedAt":"2026-11-09T07:55:51.342777324Z"},"working_directory":"/license-maven-plugin","platform":"linux/amd64","cleaned_modules":[".","license-maven-plugin","license-maven-plugin-fs","license-maven-plugin-git","license-maven-plugin-svn"],"freshness_rule":"Only report directories under a target explicitly deleted in this run are included","report_count":43,"reports":[{"path":"target/surefire-reports/TEST-com.mycila.maven.plugin.license.AbstractLicenseMojoTest.xml","module":".","test_class":"com.mycila.maven.plugin.license.AbstractLicenseMojoTest","counts":{"tests":1,"failures":0,"errors":0,"skipped":0},"java_version":"11.0.19","classpath":"/license-maven-plugin/license-maven-plugin/target/test-classes:/license-maven-plugin/license-maven-plugin/target/classes:/root/.m2/repository/org/apache/maven/plugin-tools/maven-plugin-annotations/3.9.0/maven-plugin-annotations-3.9.0.jar:/root/.m2/repository/org/apache/maven/maven-plugin-api/3.9.2/m...","errors":[],"failures":[]},{"path":"target/surefire-reports/TEST-com.mycila.maven.plugin.license.AdditionalHeaderMojoTest.xml","module":".","test_class":"com.mycila.maven.plugin.li...

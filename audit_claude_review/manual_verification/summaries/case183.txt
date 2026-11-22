@@ -1,0 +1,64 @@
+﻿
+=== Case 183  fb40f5e5fc20ca31cf9fdadd5ace53f7de5ea093 ===
+Project : quarkiverse/quarkus-micrometer-registry
+Update  : io.quarkiverse.googlecloudservices:quarkus-google-cloud-common-grpc  1.4.0 -> 2.2.0
+Running breaking in container manual-case183-breaking (this can take several minutes) ...
+Finished in 186 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case183_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+  [ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0
+  reactor: Quarkus Micrometer Registry - Parent ............... SUCCESS [  5.249 s]
+  reactor: Quarkus Micrometer Registry - Azure Monitor - Parent SUCCESS [  0.116 s]
+  reactor: Quarkus Micrometer Registry - Azure Monitor - Runtime SUCCESS [ 16.812 s]
+  reactor: Quarkus Micrometer Registry - Azure Monitor - Deployment SUCCESS [ 25.556 s]
+  reactor: Quarkus Micrometer Registry - Datadog - Parent ..... SUCCESS [  0.026 s]
+  reactor: Quarkus Micrometer Registry - Datadog - Runtime .... SUCCESS [  1.523 s]
+  reactor: Quarkus Micrometer Registry - Datadog - Deployment . SUCCESS [ 13.778 s]
+  reactor: Quarkus Micrometer Registry - JMX - Parent ......... SUCCESS [  0.036 s]
+  reactor: Quarkus Micrometer Registry - JMX - Runtime ........ SUCCESS [  1.447 s]
+  reactor: Quarkus Micrometer Registry - JMX - Deployment ..... SUCCESS [ 12.259 s]
+  reactor: Quarkus Micrometer Registry - New Relic - Parent ... SUCCESS [  0.029 s]
+  reactor: Quarkus Micrometer Registry - New Relic - Runtime .. SUCCESS [  1.378 s]
+  reactor: Quarkus Micrometer Registry - New Relic - Deployment SUCCESS [ 12.895 s]
+  reactor: Quarkus Micrometer Registry - SignalFX - Parent .... SUCCESS [  0.024 s]
+  reactor: Quarkus Micrometer Registry - SignalFX - Runtime ... SUCCESS [  1.524 s]
+  reactor: Quarkus Micrometer Registry - SignalFX - Deployment  SUCCESS [ 17.194 s]
+  reactor: Quarkus Micrometer Registry - Stackdriver - Parent . SUCCESS [  0.020 s]
+  reactor: Quarkus Micrometer Registry - Stackdriver - Runtime  SUCCESS [  2.153 s]
+  reactor: Quarkus Micrometer Registry - Stackdriver - Deployment SUCCESS [ 14.838 s]
+  reactor: Quarkus Micrometer Registry - StatsD - Parent ...... SUCCESS [  0.033 s]
+  reactor: Quarkus Micrometer Registry - StatsD - Runtime ..... SUCCESS [  1.266 s]
+  reactor: Quarkus Micrometer Registry - StatsD - Deployment .. SUCCESS [ 11.421 s]
+  reactor: Quarkus Micrometer Registry - Documentation ........ SUCCESS [  0.358 s]
+  reactor: Quarkus Micrometer Registry - Integration Test - Parent SUCCESS [  0.088 s]
+  reactor: Quarkus Micrometer Registry - Integration Test - JMX SUCCESS [ 19.786 s]
+  reactor: Quarkus Micrometer Registry - Integration Test - Native FAILURE [ 15.985 s]
+First failing tests / errors:
+  [ERROR] io.quarkiverse.it.micrometer.native_mode.NativeMeterRegistriesTest.testRegistryInjection -- Time elapsed: 0.024 s <<< ERROR!
+      java.lang.RuntimeException: java.lang.RuntimeException: Failed to start quarkus
+      at io.quarkus.test.junit.QuarkusTestExtension.throwBootFailureException(QuarkusTestExtension.java:674)
+      at io.quarkus.test.junit.QuarkusTestExtension.interceptTestClassConstructor(QuarkusTestExtension.java:747)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+  Caused by: java.lang.RuntimeException: Failed to start quarkus
+  Caused by: java.lang.IllegalAccessError: class com.google.api.MetricDescriptor tried to access method 'com.google.protobuf.LazyStringArrayList com.google.protobuf.LazyStringArrayList.emptyList()' (com.google.api.MetricDescriptor and com.google.protobuf.LazyStringArrayList are in unnamed module of loader io.quarkus.bootstrap.classloading.QuarkusClassLoader @40a4afe7)
+Linkage / bytecode signals:
+  IllegalAccessError x1
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : quarkus-google-cloud-common-grpc 2.2.0 brings proto-google-common-protos compiled against a newer protobuf-java; with the resolved older protobuf -> IllegalAccessError LazyStringArrayList.emptyList() during Quarkus start
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

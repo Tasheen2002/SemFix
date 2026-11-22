@@ -1,0 +1,116 @@
+=== CASE 109 94380c9eb5be989b7e60e0353a03b03ff4687674
+  project=pmckeown/dependency-track-maven-plugin dep=com.google.inject:guice 5.1.0 -> 7.0.0 scope=compile type=major java=11
+  PR=https://github.com/pmckeown/dependency-track-maven-plugin/pull/392
+  PRE log logs/batch_triage/94380c9e_pre.log:
+  lines=1432
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 223, Failures: 0, Errors: 0, Skipped: 3
+  provider/console lines: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+  exception names: io.github.pmckeown.dependencytrack.DependencyTrackExceptionx25, java.net.UnknownHostExceptionx9, unirest.shaded.org.apache.http.client.ClientProtocolExceptionx6, kong.unirest.UnirestExceptionx3
+  BREAKING log logs/batch_triage/94380c9e_breaking.log:
+  lines=2473
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 223, Failures: 0, Errors: 54, Skipped: 3
+  failing classes: Tests run: 13, Failures: 0, Errors: 13, Skipped: 0, Time elapsed: 2.998 s <<< FAILURE! -- in io.github.pmckeown.dependencytrack.upload.UploadBomMojoIntegrationTest || Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.147 s <<< FAILURE! -- in io.github.pmckeown.dependencytrack.policyviolation.PolicyViolationsMojoIntegrationTest || Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.165 s <<< FAILURE! -- in io.github.pmckeown.dependencytrack.project.DeleteProjectMojoIntegrationTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.102 s <<< FAILURE! -- in io.github.pmckeown.dependencytrack.project.ProjectClientIntegrationTest || Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.133 s <<< FAILURE! -- in io.github.pmckeown.dependencytrack.metrics.MetricsMojoIntegrationTest || Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.146 s <<< FAILURE! -- in io.github.pmckeown.dependencytrack.finding.FindingsMojoIntegrationTest || Tests run: 12, Failures: 0, Errors: 12, Skipped: 0, Time elapsed: 0.245 s <<< FAILURE! -- in io.github.pmckeown.dependencytrack.score.ScoreMojoIntegrationTest
+  section: Errors: | FindingsMojoIntegrationTest.thatBuildDoesNotFailWhenOnlyUnassignedFindingExists » NoClassDefFound Could not initialize class org.eclipse.sisu.wire.ParameterKeys | FindingsMojoIntegrationTest.thatBuildFailsWhenFindingsNumberBreachesDefinedThresholds » NoClassDefFound Could not initialize class org.eclipse.sisu.wire.ParameterKeys | FindingsMojoIntegrationTest.thatFindingMojoCanRetrieveFindingsAndPrintThem » NoClassDefFound Could not initialize class org.eclipse.sisu.wire.ParameterKeys | FindingsMojoIntegrationTest.thatFindingsIsSkippedWhenSkipIsTrue » NoClassDefFound Could not initialize class org.eclipse.sisu.wire.ParameterKeys | FindingsMojoIntegrationTest.thatWhenExceptionOccursWhileGettingFindingsAndFailOnErrorIsTrueTheMojoErrors » NoClassDefFound Could not initialize class org.eclipse.sisu.wire.ParameterKeys | FindingsMojoIntegrationTest.thatWhenNoFindingsAreFoundTheMojoDoesNotFail » NoClassDefFound Could not initialize class org.eclipse.sisu.wire.ParameterKeys | MetricsMojoIntegrationTest.thatAnyCriticalIssuesPresentCanFailTheBuild » NoClassDefFound Could not initialize class org.eclipse.sisu.wire.ParameterKeys | MetricsMojoIntegrationTest.thatExceptionIsThrownWhenMet
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.2:test (default-test) on project dependency-track-maven-plugin: 
+  FAILBLOCK: [ERROR] io.github.pmckeown.dependencytrack.upload.UploadBomMojoIntegrationTest.thatProjectVersionDefaultsToPomVersion -- Time elapsed: 2.630 s <<< ERROR!
+      java.lang.ExceptionInInitializerError
+      at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+      at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+      at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:74)
+      at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:426)
+      at com.google.inject.spi.Elements.getElements(Elements.java:113)
+      Caused by: java.lang.IllegalArgumentException: org.eclipse.sisu.Parameters is not a binding annotation. Please annotate it with @BindingAnnotation.
+  FAILBLOCK: [ERROR] io.github.pmckeown.dependencytrack.upload.UploadBomMojoIntegrationTest.thatWhenFailOnErrorIsTrueAFailureFromToDependencyTrackDoesFailTheBuild -- Time elapsed: 0.038 s <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.eclipse.sisu.wire.ParameterKeys
+      at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+      at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+      at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:74)
+      at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:426)
+      at com.google.inject.spi.Elements.getElements(Elements.java:113)
+  distinct fail signatures (count): 1x java.lang.ExceptionInInitializerError || 53x java.lang.NoClassDefFoundError: Could not initialize class org.eclipse.sisu.wire.ParameterKeys
+  provider/console lines: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+  linkage/compile signals: NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx53, io.github.pmckeown.dependencytrack.DependencyTrackExceptionx2, java.lang.ExceptionInInitializerErrorx1, java.lang.IllegalArgumentExceptionx1
+  EVIDENCE logs/case109_evidence: AnnotationCompatibilityProbe.java, all_poms_comparison.json, annotation_probe_breaking.log, annotation_probe_classes/AnnotationCompatibilityProbe.class, annotation_probe_pre.log, annotation_probe_results.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/guice-7.0.0_Annotations_javap.txt, breaking/guice-7.0.0_Key_javap.txt, breaking/jar_inspection.json, breaking/jars/guice-7.0.0.jar, breaking/jars/jakarta.inject-api-2.0.1.jar, breaking/jars/javax.inject-1.jar, breaking/jars/org.eclipse.sisu.inject-0.3.5.jar, breaking/org.eclipse.sisu.inject-0.3.5_Parameters_javap.txt, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/guice-5.1.0_Annotations_javap.txt, pre/guice-5.1.0_Key_javap.txt, pre/jar_inspection.json, pre/jars/guice-5.1.0.jar, pre/jars/javax.inject-1.jar, pre/jars/org.eclipse.sisu.inject-0.3.5.jar, pre/org.eclipse.sisu.inject-0.3.5_Parameters_javap.txt, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=42 sum(t,f,e,s)=[223, 0, 0, 3]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=42 sum(t,f,e,s)=[223, 0, 54, 3]
+  archived non-report files: pre=151 breaking=151 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -107,3 +107,3 @@
+                 <artifactId>guice</artifactId>
+    -            <version>5.1.0</version>
+    +            <version>7.0.0</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    ERROR io.github.pmckeown.dependencytrack.finding.FindingsMojoIntegrationTest#thatBuildFailsWhenFindingsNumberBreachesDefinedThresholds type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.sisu.wire.ParameterKeys
+       at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+       at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+       at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:74)
+       at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:426)
+    ERROR io.github.pmckeown.dependencytrack.finding.FindingsMojoIntegrationTest#thatWhenExceptionOccursWhileGettingFindingsAndFailOnErrorIsTrueTheMojoErrors type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.sisu.wire.ParameterKeys
+       at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+       at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+       at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:74)
+       at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:426)
+    ERROR io.github.pmckeown.dependencytrack.finding.FindingsMojoIntegrationTest#thatWhenNoFindingsAreFoundTheMojoDoesNotFail type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.sisu.wire.ParameterKeys
+       at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+       at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+       at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:74)
+       at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:426)
+    ERROR io.github.pmckeown.dependencytrack.finding.FindingsMojoIntegrationTest#thatFindingsIsSkippedWhenSkipIsTrue type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.sisu.wire.ParameterKeys
+       at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+       at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+       at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:74)
+       at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:426)
+    ERROR io.github.pmckeown.dependencytrack.finding.FindingsMojoIntegrationTest#thatBuildDoesNotFailWhenOnlyUnassignedFindingExists type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.sisu.wire.ParameterKeys
+       at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+       at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+       at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:74)
+       at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:426)
+    ERROR io.github.pmckeown.dependencytrack.finding.FindingsMojoIntegrationTest#thatFindingMojoCanRetrieveFindingsAndPrintThem type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.sisu.wire.ParameterKeys
+       at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+       at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+       at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:74)
+       at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:426)
+    ERROR io.github.pmckeown.dependencytrack.metrics.MetricsMojoIntegrationTest#thatAnyCriticalIssuesPresentCanFailTheBuild type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.sisu.wire.ParameterKeys
+       at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+       at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+       at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:74)
+       at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:426)
+    ERROR io.github.pmckeown.dependencytrack.metrics.MetricsMojoIntegrationTest#thatMetricsCanBeRetrievedForCurrentProject type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.sisu.wire.ParameterKeys
+       at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+       at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+       at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:74)
+       at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:426)
+    ERROR io.github.pmckeown.dependencytrack.metrics.MetricsMojoIntegrationTest#thatWhenMetricsAreNotInProjectTheyAreRetrievedExplicitly type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.sisu.wire.ParameterKeys
+       at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+       at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+       at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:74)
+       at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:426)
+    ERROR io.github.pmckeown.dependencytrack.metrics.MetricsMojoIntegrationTest#thatTheMetricsIsSkippedWhenSkipIsTrue type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.sisu.wire.ParameterKeys
+       at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+       at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+       at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:74)
+       at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:426)
+    ERROR io.github.pmckeown.dependencytrack.metrics.MetricsMojoIntegrationTest#thatExceptionIsThrownWhenMetricsCannotBeRetrievedForCurrentProject type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.sisu.wire.ParameterKeys
+       at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+       at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+       at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:74)
+       at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:426)
+    ERROR io.github.pmckeown.dependencytrack.policyviolation.PolicyViolationsMojoIntegrationTest#thatPolicyMojoCanRetrievePolicyViolationFailuresAndFailIfFailOnWarnFalse type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.sisu.wire.ParameterKeys
+       at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+       at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+       at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:74)
+       at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:426)
+    ... truncated (271 lines)
+  all_poms: count=3 changed=['pom.xml']
+    pom.xml: -            <version>5.1.0</version> / +            <version>7.0.0</version>
+  LOG annotation_probe_breaking.log (9 lines): java=11.0.19 | Guice=file:/root/.m2/repository/com/google/inject/guice/7.0.0/guice-7.0.0.jar | Parameters annotations=[@java.lang.annotation.Target(value={FIELD, PARAMETER, METHOD}), @java.lang.annotation.Retention(value=RUNTIME), @java.lang.annotation.Documented(), @javax.inject.Qualifier()] | Exception in thread "main" java.lang.IllegalArgumentException: org.eclipse.sisu.Parameters is not a binding annotation. Please annotate it with @BindingAnnotation.
+  LOG annotation_probe_pre.log (4 lines): java=11.0.19 | Guice=file:/root/.m2/repository/com/google/inject/guice/5.1.0/guice-5.1.0.jar | Parameters annotations=[@java.lang.annotation.Target(value={FIELD, PARAMETER, METHOD}), @java.lang.annotation.Retention(value=RUNTIME), @java.lang.annotation.Documented(), @javax.inject.Qualifier()] | binding=Key[type=java.lang.String, annotation=@org.eclipse.sisu.Parameters]
+  JSON annotation_probe_results.json: {"purpose":"Same compiled public API call in original PRE/BREAKING images; no source or dependency substitutions","compile_command":["C:/Program Files/Java/jdk-21.0.11/bin/javac.exe","--release","11","-classpath","C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case109_evidence\\pre\\jars\\guice-5.1.0.jar;C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case109_evidence\\pre\\jars\\javax.inject-1.jar;C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case109_evidence\\pre\\jars\\org.eclipse.sisu.inject-0...","-d","C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case109_evidence\\annotation_probe_classes","C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case109_evidence\\AnnotationCompatibilityProbe.java"],"compile_exit_code":0,"compile_stdout":"","compile_stderr":"Note: Annotation processing is enabled because one or more processors were found\n  on the class path. A future release of javac may disable annotation processing\n  unless at least one processor is specified by name (-processor), or a search\n  path is specified (--processor-path, --processor-module-p...","class_major_version":55,"runs":[{"phase":"pre","exit_code":0,"stdout":"java=11.0.19\nGuice=file:/root/.m2/repository/com/google/inject/guice/5.1.0/guice-5.1.0.jar\nParameters annotations=[@java.lang.annotation.Target(value={FIELD, PARAMETER, METHOD}), @java.la...
+  JSON breaking/jar_inspection.json: {"case_id":"94380c9eb5be989b7e60e0353a03b03ff4687674","phase":"breaking","path_filter":"/(guice|org.eclipse.sisu.inject|javax.inject|jakarta.inject-api)/","path_source":"Fresh test report classpaths or retained runner events; Case 106 PRE uses explicit POM versions because successful runner events are deleted","artifacts":[{"resolved_path":"/root/.m2/repository/com/google/inject/guice/7.0.0/guice-7.0.0.jar","classes":{"org.eclipse.sisu.Parameters":{"present":false,"major_version":null},"javax.inject.Qualifier":{"present":false,"major_version":null},"jakarta.inject.Qualifier":{"present":false,"major_version":null},"com.google.inject.Key":{"present":true,"major_version":52},"com.google.inject.internal.Annotations":{"present":true,"major_version":52}},"services":{},"disassemblies":[{"class":"com.google.inject.internal.Annotations","file":"guice-7.0.0_Annotations_javap.txt","exit_code":0},{"class":"com.google.inject.Key","file":"guice-7.0.0_Key_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar","classes":{"org.eclipse.sisu.Parameters":{"present":false,"major_version":null},"javax.inject.Qualifier":{"present":false,"major_version":null},"jakarta.inject.Qualifier":{"present":true,"major_version":52},"com.google.inject.Key":{"present":false,"major_version":null},"com.google.inject.internal.Annotation...
+  JSON pre/jar_inspection.json: {"case_id":"94380c9eb5be989b7e60e0353a03b03ff4687674","phase":"pre","path_filter":"/(guice|org.eclipse.sisu.inject|javax.inject|jakarta.inject-api)/","path_source":"Fresh test report classpaths or retained runner events; Case 106 PRE uses explicit POM versions because successful runner events are deleted","artifacts":[{"resolved_path":"/root/.m2/repository/com/google/inject/guice/5.1.0/guice-5.1.0.jar","classes":{"org.eclipse.sisu.Parameters":{"present":false,"major_version":null},"javax.inject.Qualifier":{"present":false,"major_version":null},"jakarta.inject.Qualifier":{"present":false,"major_version":null},"com.google.inject.Key":{"present":true,"major_version":52},"com.google.inject.internal.Annotations":{"present":true,"major_version":52}},"services":{},"disassemblies":[{"class":"com.google.inject.internal.Annotations","file":"guice-5.1.0_Annotations_javap.txt","exit_code":0},{"class":"com.google.inject.Key","file":"guice-5.1.0_Key_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar","classes":{"org.eclipse.sisu.Parameters":{"present":false,"major_version":null},"javax.inject.Qualifier":{"present":true,"major_version":49},"jakarta.inject.Qualifier":{"present":false,"major_version":null},"com.google.inject.Key":{"present":false,"major_version":null},"com.google.inject.internal.Annotations":{"present":false,"major_...
+  JARS: breaking/jars/guice-7.0.0.jar, breaking/jars/jakarta.inject-api-2.0.1.jar, breaking/jars/javax.inject-1.jar, breaking/jars/org.eclipse.sisu.inject-0.3.5.jar, pre/jars/guice-5.1.0.jar, pre/jars/javax.inject-1.jar, pre/jars/org.eclipse.sisu.inject-0.3.5.jar

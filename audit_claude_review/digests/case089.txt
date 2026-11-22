@@ -1,0 +1,46 @@
+=== CASE 89 7c90c61e90e9936d8a7e355de8900214c759cb61
+  project=pholser/junit-quickcheck dep=org.mockito:mockito-core 4.11.0 -> 5.3.1 scope=compile type=major java=11
+  PR=https://github.com/pholser/junit-quickcheck/pull/499
+  PRE log logs/batch_triage/7c90c61e_pre.log:
+  lines=1384
+  status: [INFO] BUILD SUCCESS
+  reactor: junit-quickcheck   SUCCESS [  1.224 s]; junit-quickcheck-core   SUCCESS [ 34.766 s]; junit-quickcheck-generators   SUCCESS [01:09 min]; junit-quickcheck-guava   SUCCESS [ 27.482 s]; junit-quickcheck-examples   SUCCESS [  9.151 s]; BUILD SUCCESS
+  aggregate summaries: Tests run: 510, Failures: 0, Errors: 0, Skipped: 18 || Tests run: 561, Failures: 0, Errors: 0, Skipped: 1 || Tests run: 11, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 32, Failures: 0, Errors: 0, Skipped: 1
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+  BREAKING log logs/batch_triage/7c90c61e_breaking.log:
+  lines=394
+  status: [INFO] BUILD FAILURE
+  reactor: junit-quickcheck   SUCCESS [  1.167 s]; junit-quickcheck-core   FAILURE [ 50.064 s]; junit-quickcheck-generators   SKIPPED; junit-quickcheck-guava   SKIPPED; junit-quickcheck-examples   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 510, Failures: 1, Errors: 0, Skipped: 18
+  failing classes: Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.827 s <<< FAILURE! - in com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest
+  section: Failures: | CompositeGeneratorTest.shrinkingChoosesAComponentCapableOfShrinkingTheValue:90 expected:<[3, 6]> but was:<[]> | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] Reactor Summary for junit-quickcheck 1.1-SNAPSHOT: | [INFO] | [INFO] junit-quickcheck ................................... SUCCESS [  1.167 s] | [INFO] junit-quickcheck-core .............................. FAILURE [ 50.064 s] | [INFO] junit-quickcheck-generators ........................ SKIPPED | [INFO] junit-quickcheck-guava ............................. SKIPPED | [INFO] junit-quickcheck-examples .......................... SKIPPED | [INFO] ------------------------------------------------------------------------
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project junit-quickcheck-core: There are test failures.
+  FAILBLOCK: [ERROR] com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest.shrinkingChoosesAComponentCapableOfShrinkingTheValue  Time elapsed: 0.108 s  <<< FAILURE!
+      java.lang.AssertionError: expected:<[3, 6]> but was:<[]>
+      at org.junit.Assert.fail(Assert.java:89)
+      at org.junit.Assert.failNotEquals(Assert.java:835)
+      at org.junit.Assert.assertEquals(Assert.java:120)
+      at org.junit.Assert.assertEquals(Assert.java:146)
+      at com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest.shrinkingChoosesAComponentCapableOfShrinkingTheValue(CompositeGeneratorTest.java:90)
+  distinct fail signatures (count): 1x java.lang.AssertionError: expected:<[3, 6]> but was:<[]>
+  exception names: java.lang.AssertionErrorx1
+  EVIDENCE logs/case89_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/mockito-core-5.3.1.jar, mockito_defaults_javap.txt, pre/archive_summary.json, pre/artifacts.tar, pre/mockito-core-4.11.0.jar, resolved_jar_inspection.json, sha256_manifest.json, subclass_control.log, subclass_control.xml, subclass_control_state.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=256 sum(t,f,e,s)=[1114, 0, 0, 20]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=81 sum(t,f,e,s)=[510, 1, 0, 18]
+  archived non-report files: pre=541 breaking=541 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -140,3 +140,3 @@
+                     <artifactId>mockito-core</artifactId>
+    -                <version>4.11.0</version>
+    +                <version>5.3.1</version>
+                 </dependency>
+  BREAKING surefire failures/errors:
+    FAILURE com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest#shrinkingChoosesAComponentCapableOfShrinkingTheValue type=java.lang.AssertionError msg=expected:<[3, 6]> but was:<[]>
+       at org.junit.Assert.fail(Assert.java:89)
+       at org.junit.Assert.failNotEquals(Assert.java:835)
+       at org.junit.Assert.assertEquals(Assert.java:120)
+       at org.junit.Assert.assertEquals(Assert.java:146)
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"mockito-core-4.11.0.jar","entries":{"InlineByteBuddyMockMaker.class":["org/mockito/internal/creation/bytebuddy/InlineByteBuddyMockMaker.class"],"ByteBuddyMockMaker.class":["org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker.class","org/mockito/internal/creation/bytebuddy/InlineByteBuddyMockMaker.class","org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.class","org/mockito/internal/creation/bytebuddy/SubclassByteBuddyMockMaker.class"]}},{"phase":"breaking","jar":"mockito-core-5.3.1.jar","entries":{"InlineByteBuddyMockMaker.class":["org/mockito/internal/creation/bytebuddy/InlineByteBuddyMockMaker.class"],"ByteBuddyMockMaker.class":["org/mockito/internal/creation/bytebuddy/ByteBuddyMockMaker.class","org/mockito/internal/creation/bytebuddy/InlineByteBuddyMockMaker.class","org/mockito/internal/creation/bytebuddy/InlineDelegateByteBuddyMockMaker.class","org/mockito/internal/creation/bytebuddy/SubclassByteBuddyMockMaker.class"]}}]
+  LOG subclass_control.log (86 lines): [INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/junit-quickcheck/core/target/jacoco.exec | [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.719 s - in com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest | [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0 | [INFO] BUILD SUCCESS
+  JSON subclass_control_state.json: {"state":{"Status":"exited","Running":false,"Paused":false,"Restarting":false,"OOMKilled":false,"Dead":false,"Pid":0,"ExitCode":0,"Error":"","StartedAt":"2026-11-10T05:50:27.157921491Z","FinishedAt":"2026-11-10T05:50:59.979293422Z"},"image":"sha256:25c1e1a4a8b9460801f86d424e1f8b3dbbc947c471769688280ec9b2e027b968","counts":{"tests":1,"failures":0,"errors":0,"skipped":0}}

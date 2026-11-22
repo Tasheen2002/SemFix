@@ -1,0 +1,55 @@
+{
+  "case_id": "d2fb00d2a9b8268caf773f70985f39be6eae8ea7",
+  "phase": "breaking",
+  "path_filter": "/(slf4j-api|slf4j-test)/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar",
+      "sha256": "f4a2974509291acc49fda4a79b0d59e15e2b524095d6421c66391b92387af4c9",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": false,
+          "major_version": null
+        },
+        "uk.org.lidalia.slf4jtest.TestLoggerFactory": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.slf4j.LoggerFactory",
+          "file": "slf4j-api-2.0.5_LoggerFactory_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case156_evidence\\breaking\\jars\\slf4j-api-2.0.5.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.slf4j.LoggerFactory"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/uk/org/lidalia/slf4j-test/1.2.0/slf4j-test-1.2.0.jar",
+      "sha256": "ba7004db2ef5e431711b8a11af87d1e4b1b574c66aedc21a06c225f762b5befd",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": true,
+          "major_version": 51
+        },
+        "uk.org.lidalia.slf4jtest.TestLoggerFactory": {
+          "present": true,
+          "major_version": 51
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    }
+  ]
+}

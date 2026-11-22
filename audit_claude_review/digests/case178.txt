@@ -1,0 +1,43 @@
+=== CASE 178 f61b113c1493d02611bc5cdc9a80e8af0abf2035
+  project=kstateome/lti-launch dep=org.springframework:spring-webmvc 4.1.6.RELEASE -> 5.3.18 scope=compile type=other java=11
+  PR=https://github.com/kstateome/lti-launch/pull/35
+  PRE log logs/batch_triage/f61b113c_pre.log:
+  lines=97
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: WARNING: An illegal reflective access operation has occurred | SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+  exception names: edu.ksu.lti.launch.exception.NoLtiSessionExceptionx2, edu.ksu.lti.launch.exception.CookieUnavailableExceptionx1
+  BREAKING log logs/batch_triage/f61b113c_breaking.log:
+  lines=96
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 1, Failures: 0, Errors: 1, Skipped: 0
+  failing classes: Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.926 sec <<< FAILURE! - in edu.ksu.lti.launch.test.SpringContextITest
+  section: Tests in error: | SpringContextITest.testSpringContext » NoClassDefFound org/springframework/web... | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  34.628 s | [INFO] Finished at: 2026-11-20T05:04:10Z | [INFO] ------------------------------------------------------------------------ | [WARNING] | [WARNING] Plugin validation issues were detected in 4 plugin(s) | [WARNING]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project lti-launch: There are test failures.
+  FAILBLOCK: testSpringContext(edu.ksu.lti.launch.test.SpringContextITest)  Time elapsed: 0.035 sec  <<< ERROR!
+      java.lang.NoClassDefFoundError: org/springframework/web/util/pattern/PathPatternParser
+      Caused by: java.lang.ClassNotFoundException: org.springframework.web.util.pattern.PathPatternParser
+      Results :
+      Caused by: java.lang.ClassNotFoundException: org.springframework.web.util.pattern.PathPatternParser
+  distinct fail signatures (count): 1x java.lang.NoClassDefFoundError: org/springframework/web/util/pattern/PathPatternParser
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx1, java.lang.ClassNotFoundExceptionx1
+  EVIDENCE logs/case178_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/spring-web-4.1.6.RELEASE.jar, breaking/jars/spring-webmvc-5.3.18.jar, breaking/spring-webmvc-5.3.18_AbstractHandlerMapping_javap.txt, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/spring-web-4.1.6.RELEASE.jar, pre/jars/spring-webmvc-4.1.6.RELEASE.jar, pre/spring-webmvc-4.1.6.RELEASE_AbstractHandlerMapping_javap.txt, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=1 sum(t,f,e,s)=[1, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=1 sum(t,f,e,s)=[1, 0, 1, 0]
+  archived non-report files: pre=28 breaking=28 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -234,3 +234,3 @@
+             <artifactId>spring-webmvc</artifactId>
+    -        <version>4.1.6.RELEASE</version>
+    +        <version>5.3.18</version>
+           </dependency>
+  BREAKING surefire failures/errors:
+    ERROR edu.ksu.lti.launch.test.SpringContextITest#testSpringContext type=java.lang.NoClassDefFoundError msg=org/springframework/web/util/pattern/PathPatternParser
+       Caused by: java.lang.ClassNotFoundException: org.springframework.web.util.pattern.PathPatternParser
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -        <version>4.1.6.RELEASE</version> / +        <version>5.3.18</version>
+  JSON breaking/jar_inspection.json: {"case_id":"f61b113c1493d02611bc5cdc9a80e8af0abf2035","phase":"breaking","path_filter":"/spring-(web|webmvc)/","path_source":"Explicit versions in archived POM and JARs copied from original container","artifacts":[{"resolved_path":"/root/.m2/repository/org/springframework/spring-web/4.1.6.RELEASE/spring-web-4.1.6.RELEASE.jar","classes":{"org.springframework.web.util.pattern.PathPatternParser":{"present":false,"major_version":null}},"services":{"META-INF/services/javax.servlet.ServletContainerInitializer":"org.springframework.web.SpringServletContainerInitializer"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/springframework/spring-webmvc/5.3.18/spring-webmvc-5.3.18.jar","classes":{"org.springframework.web.util.pattern.PathPatternParser":{"present":false,"major_version":null}},"services":{},"disassemblies":[{"class":"org.springframework.web.servlet.handler.AbstractHandlerMapping","file":"spring-webmvc-5.3.18_AbstractHandlerMapping_javap.txt","exit_code":0}]}]}
+  JSON pre/jar_inspection.json: {"case_id":"f61b113c1493d02611bc5cdc9a80e8af0abf2035","phase":"pre","path_filter":"/spring-(web|webmvc)/","path_source":"Explicit versions in archived POM and JARs copied from original container","artifacts":[{"resolved_path":"/root/.m2/repository/org/springframework/spring-web/4.1.6.RELEASE/spring-web-4.1.6.RELEASE.jar","classes":{"org.springframework.web.util.pattern.PathPatternParser":{"present":false,"major_version":null}},"services":{"META-INF/services/javax.servlet.ServletContainerInitializer":"org.springframework.web.SpringServletContainerInitializer"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/springframework/spring-webmvc/4.1.6.RELEASE/spring-webmvc-4.1.6.RELEASE.jar","classes":{"org.springframework.web.util.pattern.PathPatternParser":{"present":false,"major_version":null}},"services":{},"disassemblies":[{"class":"org.springframework.web.servlet.handler.AbstractHandlerMapping","file":"spring-webmvc-4.1.6.RELEASE_AbstractHandlerMapping_javap.txt","exit_code":0}]}]}
+  JARS: breaking/jars/spring-web-4.1.6.RELEASE.jar, breaking/jars/spring-webmvc-5.3.18.jar, pre/jars/spring-web-4.1.6.RELEASE.jar, pre/jars/spring-webmvc-4.1.6.RELEASE.jar

@@ -1,0 +1,42 @@
+=== CASE 177 f557d31b4faf102b5d2f67d86a1a4f67c09b5837
+  project=International-Data-Spaces-Association/IDS-Messaging-Services dep=org.junit.platform:junit-platform-surefire-provider 1.0.3 -> 1.3.2 scope=compile type=minor java=11
+  PR=https://github.com/International-Data-Spaces-Association/IDS-Messaging-Services/pull/510
+  PRE log logs/batch_triage/f557d31b_pre.log:
+  lines=746
+  status: [INFO] BUILD SUCCESS
+  reactor: messaging-services   SUCCESS [ 20.071 s]; core   SUCCESS [01:57 min]; messaging   SUCCESS [01:37 min]; clearinghouse   SUCCESS [ 20.704 s]; broker   SUCCESS [ 22.225 s]; vocol   SUCCESS [  2.441 s]; paris   SUCCESS [ 16.426 s]; appstore   SUCCESS [ 14.889 s]; BUILD SUCCESS
+  aggregate summaries: Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 12, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 2, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 3, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions prior to 1.8. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.10/logback-classic-1.2.10.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See http://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+  exception names: javax.net.ssl.SSLHandshakeExceptionx1, java.io.EOFExceptionx1
+  BREAKING log logs/batch_triage/f557d31b_breaking.log:
+  lines=496
+  status: [INFO] BUILD FAILURE
+  reactor: messaging-services   SUCCESS [  7.370 s]; core   SUCCESS [ 53.012 s]; messaging   FAILURE [ 10.784 s]; clearinghouse   SKIPPED; broker   SKIPPED; vocol   SKIPPED; paris   SKIPPED; appstore   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project messaging: Execution default-test of goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test failed: An API incompatibility was encounte
+    [ERROR] -----------------------------------------------------
+    [ERROR] realm =    plugin>org.apache.maven.plugins:maven-surefire-plugin:2.19.1--1243520005
+    [ERROR] strategy = org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy
+    [ERROR] urls[0] = file:/root/.m2/repository/org/apache/maven/plugins/maven-surefire-plugin/2.19.1/maven-surefire-plugin-2.19.1.jar
+    [ERROR] urls[1] = file:/root/.m2/repository/org/junit/platform/junit-platform-surefire-provider/1.3.2/junit-platform-surefire-provider-1.3.2.jar
+    [ERROR] urls[2] = file:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar
+    [ERROR] urls[3] = file:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar
+    [ERROR] urls[4] = file:/root/.m2/repository/org/apache/maven/surefire/common-java5/2.22.0/common-java5-2.22.0.jar
+    [ERROR] urls[5] = file:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar
+  linkage/compile signals: NoSuchMethodError
+  exception names: javax.net.ssl.SSLHandshakeExceptionx1, java.io.EOFExceptionx1, java.lang.NoSuchMethodErrorx1
+  EVIDENCE logs/case177_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/common-java5-2.22.0_StringUtils_javap.txt, breaking/jars/common-java5-2.22.0.jar, breaking/jars/junit-platform-surefire-provider-1.3.2.jar, breaking/jars/maven-surefire-common-2.19.1.jar, breaking/jars/maven-surefire-plugin-2.19.1.jar, breaking/jars/surefire-booter-2.19.1.jar, breaking/maven-surefire-common-2.19.1_AbstractForkInputStream_javap.txt, plugin_runtime_inspection.json, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=19 sum(t,f,e,s)=[32, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=3 sum(t,f,e,s)=[6, 0, 0, 0]
+  archived non-report files: pre=182 breaking=182 changed=1 added=0 removed=0
+  DIFF messaging/pom.xml (7 lines):
+    @@ -82,3 +82,3 @@
+                             <artifactId>junit-platform-surefire-provider</artifactId>
+    -                        <version>1.0.3</version>
+    +                        <version>1.3.2</version>
+                         </dependency>
+  all_poms: count=8 changed=['messaging/pom.xml']
+    messaging/pom.xml: -                        <version>1.0.3</version> / +                        <version>1.3.2</version>
+  JSON plugin_runtime_inspection.json: {"case_id":"f557d31b4faf102b5d2f67d86a1a4f67c09b5837","phase":"breaking","path_source":"Original Maven failure plugin realm URLs; successful PRE project XML does not expose this plugin realm","plugin_urls":[{"index":0,"path":"/root/.m2/repository/org/apache/maven/plugins/maven-surefire-plugin/2.19.1/maven-surefire-plugin-2.19.1.jar","log_line":457},{"index":1,"path":"/root/.m2/repository/org/junit/platform/junit-platform-surefire-provider/1.3.2/junit-platform-surefire-provider-1.3.2.jar","log_line":458},{"index":2,"path":"/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar","log_line":459},{"index":3,"path":"/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar","log_line":460},{"index":4,"path":"/root/.m2/repository/org/apache/maven/surefire/common-java5/2.22.0/common-java5-2.22.0.jar","log_line":461},{"index":5,"path":"/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar","log_line":462},{"index":6,"path":"/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar","log_line":463},{"index":7,"path":"/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar","log_line":464},{"index":8,"path":"/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar","l...
+  JARS: breaking/jars/common-java5-2.22.0.jar, breaking/jars/junit-platform-surefire-provider-1.3.2.jar, breaking/jars/maven-surefire-common-2.19.1.jar, breaking/jars/maven-surefire-plugin-2.19.1.jar, breaking/jars/surefire-booter-2.19.1.jar

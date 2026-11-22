@@ -1,0 +1,138 @@
+{
+  "case_id": "94380c9eb5be989b7e60e0353a03b03ff4687674",
+  "phase": "pre",
+  "path_filter": "/(guice|org.eclipse.sisu.inject|javax.inject|jakarta.inject-api)/",
+  "path_source": "Fresh test report classpaths or retained runner events; Case 106 PRE uses explicit POM versions because successful runner events are deleted",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/com/google/inject/guice/5.1.0/guice-5.1.0.jar",
+      "sha256": "4130e50bfac48099c860f0d903b91860c81a249c90f38245f8fed58fc817bc26",
+      "classes": {
+        "org.eclipse.sisu.Parameters": {
+          "present": false,
+          "major_version": null
+        },
+        "javax.inject.Qualifier": {
+          "present": false,
+          "major_version": null
+        },
+        "jakarta.inject.Qualifier": {
+          "present": false,
+          "major_version": null
+        },
+        "com.google.inject.Key": {
+          "present": true,
+          "major_version": 52
+        },
+        "com.google.inject.internal.Annotations": {
+          "present": true,
+          "major_version": 52
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "com.google.inject.internal.Annotations",
+          "file": "guice-5.1.0_Annotations_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case109_evidence\\pre\\jars\\guice-5.1.0.jar",
+            "-p",
+            "-s",
+            "-c",
+            "com.google.inject.internal.Annotations"
+          ],
+          "exit_code": 0
+        },
+        {
+          "class": "com.google.inject.Key",
+          "file": "guice-5.1.0_Key_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case109_evidence\\pre\\jars\\guice-5.1.0.jar",
+            "-p",
+            "-s",
+            "-c",
+            "com.google.inject.Key"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar",
+      "sha256": "91c77044a50c481636c32d916fd89c9118a72195390452c81065080f957de7ff",
+      "classes": {
+        "org.eclipse.sisu.Parameters": {
+          "present": false,
+          "major_version": null
+        },
+        "javax.inject.Qualifier": {
+          "present": true,
+          "major_version": 49
+        },
+        "jakarta.inject.Qualifier": {
+          "present": false,
+          "major_version": null
+        },
+        "com.google.inject.Key": {
+          "present": false,
+          "major_version": null
+        },
+        "com.google.inject.internal.Annotations": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.5/org.eclipse.sisu.inject-0.3.5.jar",
+      "sha256": "c5994010bcdce1d2bd603a4d50c47191ddbd7875d1157b23aaa26d33c82fda13",
+      "classes": {
+        "org.eclipse.sisu.Parameters": {
+          "present": true,
+          "major_version": 50
+        },
+        "javax.inject.Qualifier": {
+          "present": false,
+          "major_version": null
+        },
+        "jakarta.inject.Qualifier": {
+          "present": false,
+          "major_version": null
+        },
+        "com.google.inject.Key": {
+          "present": false,
+          "major_version": null
+        },
+        "com.google.inject.internal.Annotations": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/javax.annotation.processing.Processor": "org.eclipse.sisu.space.SisuIndexAPT6\n"
+      },
+      "disassemblies": [
+        {
+          "class": "org.eclipse.sisu.Parameters",
+          "file": "org.eclipse.sisu.inject-0.3.5_Parameters_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case109_evidence\\pre\\jars\\org.eclipse.sisu.inject-0.3.5.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.eclipse.sisu.Parameters"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

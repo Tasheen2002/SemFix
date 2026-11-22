@@ -1,0 +1,47 @@
+case_id:
+04c07b06...
+
+project:
+pdb
+
+dependency:
+org.slf4j:slf4j-api
+
+old_version:
+1.7.36
+
+new_version:
+2.0.4
+
+bump_category:
+TEST_FAILURE
+
+failing_tests:
+BatchUpdateTest
+EngineGeneralTest
+EngineCloseTest
+
+exception:
+java.lang.ClassCastException
+
+is_semantic:
+YES
+
+category:
+other
+
+subcategory:
+runtime_provider_compatibility
+
+root_cause:
+After upgrading SLF4J API from 1.7.36 to 2.0.4,
+the existing Logback 1.2.11 binding is ignored.
+SLF4J falls back to NOPLogger. Test setup code
+expects a ch.qos.logback.classic.Logger and casts
+the NOPLogger to that type, causing ClassCastException.
+
+confidence:
+HIGH
+
+manual_verified:
+YES

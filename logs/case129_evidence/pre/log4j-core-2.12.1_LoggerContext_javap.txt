@@ -1,0 +1,1057 @@
+Compiled from "LoggerContext.java"
+public class org.apache.logging.log4j.core.LoggerContext extends org.apache.logging.log4j.core.AbstractLifeCycle implements org.apache.logging.log4j.spi.LoggerContext,java.lang.AutoCloseable,org.apache.logging.log4j.spi.Terminable,org.apache.logging.log4j.core.config.ConfigurationListener,org.apache.logging.log4j.spi.LoggerContextShutdownEnabled {
+  public static final java.lang.String PROPERTY_CONFIG;
+    descriptor: Ljava/lang/String;
+
+  private static final org.apache.logging.log4j.core.config.Configuration NULL_CONFIGURATION;
+    descriptor: Lorg/apache/logging/log4j/core/config/Configuration;
+
+  private final org.apache.logging.log4j.spi.LoggerRegistry<org.apache.logging.log4j.core.Logger> loggerRegistry;
+    descriptor: Lorg/apache/logging/log4j/spi/LoggerRegistry;
+
+  private final java.util.concurrent.CopyOnWriteArrayList<java.beans.PropertyChangeListener> propertyChangeListeners;
+    descriptor: Ljava/util/concurrent/CopyOnWriteArrayList;
+
+  private volatile java.util.List<org.apache.logging.log4j.spi.LoggerContextShutdownAware> listeners;
+    descriptor: Ljava/util/List;
+
+  private volatile org.apache.logging.log4j.core.config.Configuration configuration;
+    descriptor: Lorg/apache/logging/log4j/core/config/Configuration;
+
+  private java.lang.Object externalContext;
+    descriptor: Ljava/lang/Object;
+
+  private java.lang.String contextName;
+    descriptor: Ljava/lang/String;
+
+  private volatile java.net.URI configLocation;
+    descriptor: Ljava/net/URI;
+
+  private org.apache.logging.log4j.core.util.Cancellable shutdownCallback;
+    descriptor: Lorg/apache/logging/log4j/core/util/Cancellable;
+
+  private final java.util.concurrent.locks.Lock configLock;
+    descriptor: Ljava/util/concurrent/locks/Lock;
+
+  public org.apache.logging.log4j.core.LoggerContext(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aconst_null
+       3: aconst_null
+       4: checkcast     #1                  // class java/net/URI
+       7: invokespecial #2                  // Method "<init>":(Ljava/lang/String;Ljava/lang/Object;Ljava/net/URI;)V
+      10: return
+
+  public org.apache.logging.log4j.core.LoggerContext(java.lang.String, java.lang.Object);
+    descriptor: (Ljava/lang/String;Ljava/lang/Object;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aconst_null
+       4: checkcast     #1                  // class java/net/URI
+       7: invokespecial #2                  // Method "<init>":(Ljava/lang/String;Ljava/lang/Object;Ljava/net/URI;)V
+      10: return
+
+  public org.apache.logging.log4j.core.LoggerContext(java.lang.String, java.lang.Object, java.net.URI);
+    descriptor: (Ljava/lang/String;Ljava/lang/Object;Ljava/net/URI;)V
+    Code:
+       0: aload_0
+       1: invokespecial #3                  // Method org/apache/logging/log4j/core/AbstractLifeCycle."<init>":()V
+       4: aload_0
+       5: new           #4                  // class org/apache/logging/log4j/spi/LoggerRegistry
+       8: dup
+       9: invokespecial #5                  // Method org/apache/logging/log4j/spi/LoggerRegistry."<init>":()V
+      12: putfield      #6                  // Field loggerRegistry:Lorg/apache/logging/log4j/spi/LoggerRegistry;
+      15: aload_0
+      16: new           #7                  // class java/util/concurrent/CopyOnWriteArrayList
+      19: dup
+      20: invokespecial #8                  // Method java/util/concurrent/CopyOnWriteArrayList."<init>":()V
+      23: putfield      #9                  // Field propertyChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+      26: aload_0
+      27: aconst_null
+      28: putfield      #10                 // Field listeners:Ljava/util/List;
+      31: aload_0
+      32: new           #11                 // class org/apache/logging/log4j/core/config/DefaultConfiguration
+      35: dup
+      36: invokespecial #12                 // Method org/apache/logging/log4j/core/config/DefaultConfiguration."<init>":()V
+      39: putfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+      42: aload_0
+      43: new           #14                 // class java/util/concurrent/locks/ReentrantLock
+      46: dup
+      47: invokespecial #15                 // Method java/util/concurrent/locks/ReentrantLock."<init>":()V
+      50: putfield      #16                 // Field configLock:Ljava/util/concurrent/locks/Lock;
+      53: aload_0
+      54: aload_1
+      55: putfield      #17                 // Field contextName:Ljava/lang/String;
+      58: aload_0
+      59: aload_2
+      60: putfield      #18                 // Field externalContext:Ljava/lang/Object;
+      63: aload_0
+      64: aload_3
+      65: putfield      #19                 // Field configLocation:Ljava/net/URI;
+      68: return
+
+  public org.apache.logging.log4j.core.LoggerContext(java.lang.String, java.lang.Object, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V
+    Code:
+       0: aload_0
+       1: invokespecial #3                  // Method org/apache/logging/log4j/core/AbstractLifeCycle."<init>":()V
+       4: aload_0
+       5: new           #4                  // class org/apache/logging/log4j/spi/LoggerRegistry
+       8: dup
+       9: invokespecial #5                  // Method org/apache/logging/log4j/spi/LoggerRegistry."<init>":()V
+      12: putfield      #6                  // Field loggerRegistry:Lorg/apache/logging/log4j/spi/LoggerRegistry;
+      15: aload_0
+      16: new           #7                  // class java/util/concurrent/CopyOnWriteArrayList
+      19: dup
+      20: invokespecial #8                  // Method java/util/concurrent/CopyOnWriteArrayList."<init>":()V
+      23: putfield      #9                  // Field propertyChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+      26: aload_0
+      27: aconst_null
+      28: putfield      #10                 // Field listeners:Ljava/util/List;
+      31: aload_0
+      32: new           #11                 // class org/apache/logging/log4j/core/config/DefaultConfiguration
+      35: dup
+      36: invokespecial #12                 // Method org/apache/logging/log4j/core/config/DefaultConfiguration."<init>":()V
+      39: putfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+      42: aload_0
+      43: new           #14                 // class java/util/concurrent/locks/ReentrantLock
+      46: dup
+      47: invokespecial #15                 // Method java/util/concurrent/locks/ReentrantLock."<init>":()V
+      50: putfield      #16                 // Field configLock:Ljava/util/concurrent/locks/Lock;
+      53: aload_0
+      54: aload_1
+      55: putfield      #17                 // Field contextName:Ljava/lang/String;
+      58: aload_0
+      59: aload_2
+      60: putfield      #18                 // Field externalContext:Ljava/lang/Object;
+      63: aload_3
+      64: ifnull        97
+      67: new           #20                 // class java/io/File
+      70: dup
+      71: aload_3
+      72: invokespecial #21                 // Method java/io/File."<init>":(Ljava/lang/String;)V
+      75: invokevirtual #22                 // Method java/io/File.toURI:()Ljava/net/URI;
+      78: astore        4
+      80: goto          88
+      83: astore        5
+      85: aconst_null
+      86: astore        4
+      88: aload_0
+      89: aload         4
+      91: putfield      #19                 // Field configLocation:Ljava/net/URI;
+      94: goto          102
+      97: aload_0
+      98: aconst_null
+      99: putfield      #19                 // Field configLocation:Ljava/net/URI;
+     102: return
+    Exception table:
+       from    to  target type
+          67    80    83   Class java/lang/Exception
+
+  public void addShutdownListener(org.apache.logging.log4j.spi.LoggerContextShutdownAware);
+    descriptor: (Lorg/apache/logging/log4j/spi/LoggerContextShutdownAware;)V
+    Code:
+       0: aload_0
+       1: getfield      #10                 // Field listeners:Ljava/util/List;
+       4: ifnonnull     42
+       7: aload_0
+       8: dup
+       9: astore_2
+      10: monitorenter
+      11: aload_0
+      12: getfield      #10                 // Field listeners:Ljava/util/List;
+      15: ifnonnull     32
+      18: aload_0
+      19: new           #24                 // class java/util/ArrayList
+      22: dup
+      23: invokespecial #25                 // Method java/util/ArrayList."<init>":()V
+      26: invokestatic  #26                 // Method java/util/Collections.synchronizedList:(Ljava/util/List;)Ljava/util/List;
+      29: putfield      #10                 // Field listeners:Ljava/util/List;
+      32: aload_2
+      33: monitorexit
+      34: goto          42
+      37: astore_3
+      38: aload_2
+      39: monitorexit
+      40: aload_3
+      41: athrow
+      42: aload_0
+      43: getfield      #10                 // Field listeners:Ljava/util/List;
+      46: aload_1
+      47: invokeinterface #27,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      52: pop
+      53: return
+    Exception table:
+       from    to  target type
+          11    34    37   any
+          37    40    37   any
+
+  public java.util.List<org.apache.logging.log4j.spi.LoggerContextShutdownAware> getListeners();
+    descriptor: ()Ljava/util/List;
+    Code:
+       0: aload_0
+       1: getfield      #10                 // Field listeners:Ljava/util/List;
+       4: areturn
+
+  public static org.apache.logging.log4j.core.LoggerContext getContext();
+    descriptor: ()Lorg/apache/logging/log4j/core/LoggerContext;
+    Code:
+       0: invokestatic  #28                 // Method org/apache/logging/log4j/LogManager.getContext:()Lorg/apache/logging/log4j/spi/LoggerContext;
+       3: checkcast     #29                 // class org/apache/logging/log4j/core/LoggerContext
+       6: areturn
+
+  public static org.apache.logging.log4j.core.LoggerContext getContext(boolean);
+    descriptor: (Z)Lorg/apache/logging/log4j/core/LoggerContext;
+    Code:
+       0: iload_0
+       1: invokestatic  #30                 // Method org/apache/logging/log4j/LogManager.getContext:(Z)Lorg/apache/logging/log4j/spi/LoggerContext;
+       4: checkcast     #29                 // class org/apache/logging/log4j/core/LoggerContext
+       7: areturn
+
+  public static org.apache.logging.log4j.core.LoggerContext getContext(java.lang.ClassLoader, boolean, java.net.URI);
+    descriptor: (Ljava/lang/ClassLoader;ZLjava/net/URI;)Lorg/apache/logging/log4j/core/LoggerContext;
+    Code:
+       0: aload_0
+       1: iload_1
+       2: aload_2
+       3: invokestatic  #31                 // Method org/apache/logging/log4j/LogManager.getContext:(Ljava/lang/ClassLoader;ZLjava/net/URI;)Lorg/apache/logging/log4j/spi/LoggerContext;
+       6: checkcast     #29                 // class org/apache/logging/log4j/core/LoggerContext
+       9: areturn
+
+  public void start();
+    descriptor: ()V
+    Code:
+       0: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+       3: ldc           #33                 // String Starting LoggerContext[name={}, {}]...
+       5: aload_0
+       6: invokevirtual #34                 // Method getName:()Ljava/lang/String;
+       9: aload_0
+      10: invokeinterface #35,  4           // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+      15: invokestatic  #36                 // Method org/apache/logging/log4j/util/PropertiesUtil.getProperties:()Lorg/apache/logging/log4j/util/PropertiesUtil;
+      18: ldc           #37                 // String log4j.LoggerContext.stacktrace.on.start
+      20: iconst_0
+      21: invokevirtual #38                 // Method org/apache/logging/log4j/util/PropertiesUtil.getBooleanProperty:(Ljava/lang/String;Z)Z
+      24: ifeq          46
+      27: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      30: ldc           #39                 // String Stack trace to locate invoker
+      32: new           #23                 // class java/lang/Exception
+      35: dup
+      36: ldc           #40                 // String Not a real error, showing stack trace to locate invoker
+      38: invokespecial #41                 // Method java/lang/Exception."<init>":(Ljava/lang/String;)V
+      41: invokeinterface #42,  3           // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Throwable;)V
+      46: aload_0
+      47: getfield      #16                 // Field configLock:Ljava/util/concurrent/locks/Lock;
+      50: invokeinterface #43,  1           // InterfaceMethod java/util/concurrent/locks/Lock.tryLock:()Z
+      55: ifeq          124
+      58: aload_0
+      59: invokevirtual #44                 // Method isInitialized:()Z
+      62: ifne          72
+      65: aload_0
+      66: invokevirtual #45                 // Method isStopped:()Z
+      69: ifeq          100
+      72: aload_0
+      73: invokevirtual #46                 // Method setStarting:()V
+      76: aload_0
+      77: invokevirtual #47                 // Method reconfigure:()V
+      80: aload_0
+      81: getfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+      84: invokeinterface #48,  1           // InterfaceMethod org/apache/logging/log4j/core/config/Configuration.isShutdownHookEnabled:()Z
+      89: ifeq          96
+      92: aload_0
+      93: invokespecial #49                 // Method setUpShutdownHook:()V
+      96: aload_0
+      97: invokevirtual #50                 // Method setStarted:()V
+     100: aload_0
+     101: getfield      #16                 // Field configLock:Ljava/util/concurrent/locks/Lock;
+     104: invokeinterface #51,  1           // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+     109: goto          124
+     112: astore_1
+     113: aload_0
+     114: getfield      #16                 // Field configLock:Ljava/util/concurrent/locks/Lock;
+     117: invokeinterface #51,  1           // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+     122: aload_1
+     123: athrow
+     124: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     127: ldc           #52                 // String LoggerContext[name={}, {}] started OK.
+     129: aload_0
+     130: invokevirtual #34                 // Method getName:()Ljava/lang/String;
+     133: aload_0
+     134: invokeinterface #35,  4           // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+     139: return
+    Exception table:
+       from    to  target type
+          58   100   112   any
+
+  public void start(org.apache.logging.log4j.core.config.Configuration);
+    descriptor: (Lorg/apache/logging/log4j/core/config/Configuration;)V
+    Code:
+       0: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+       3: ldc           #53                 // String Starting LoggerContext[name={}, {}] with configuration {}...
+       5: aload_0
+       6: invokevirtual #34                 // Method getName:()Ljava/lang/String;
+       9: aload_0
+      10: aload_1
+      11: invokeinterface #54,  5           // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+      16: aload_0
+      17: getfield      #16                 // Field configLock:Ljava/util/concurrent/locks/Lock;
+      20: invokeinterface #43,  1           // InterfaceMethod java/util/concurrent/locks/Lock.tryLock:()Z
+      25: ifeq          86
+      28: aload_0
+      29: invokevirtual #44                 // Method isInitialized:()Z
+      32: ifne          42
+      35: aload_0
+      36: invokevirtual #45                 // Method isStopped:()Z
+      39: ifeq          62
+      42: aload_0
+      43: getfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+      46: invokeinterface #48,  1           // InterfaceMethod org/apache/logging/log4j/core/config/Configuration.isShutdownHookEnabled:()Z
+      51: ifeq          58
+      54: aload_0
+      55: invokespecial #49                 // Method setUpShutdownHook:()V
+      58: aload_0
+      59: invokevirtual #50                 // Method setStarted:()V
+      62: aload_0
+      63: getfield      #16                 // Field configLock:Ljava/util/concurrent/locks/Lock;
+      66: invokeinterface #51,  1           // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+      71: goto          86
+      74: astore_2
+      75: aload_0
+      76: getfield      #16                 // Field configLock:Ljava/util/concurrent/locks/Lock;
+      79: invokeinterface #51,  1           // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+      84: aload_2
+      85: athrow
+      86: aload_0
+      87: aload_1
+      88: invokevirtual #55                 // Method setConfiguration:(Lorg/apache/logging/log4j/core/config/Configuration;)Lorg/apache/logging/log4j/core/config/Configuration;
+      91: pop
+      92: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      95: ldc           #56                 // String LoggerContext[name={}, {}] started OK with configuration {}.
+      97: aload_0
+      98: invokevirtual #34                 // Method getName:()Ljava/lang/String;
+     101: aload_0
+     102: aload_1
+     103: invokeinterface #54,  5           // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+     108: return
+    Exception table:
+       from    to  target type
+          28    62    74   any
+
+  private void setUpShutdownHook();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: getfield      #57                 // Field shutdownCallback:Lorg/apache/logging/log4j/core/util/Cancellable;
+       4: ifnonnull     93
+       7: invokestatic  #58                 // Method org/apache/logging/log4j/LogManager.getFactory:()Lorg/apache/logging/log4j/spi/LoggerContextFactory;
+      10: astore_1
+      11: aload_1
+      12: instanceof    #59                 // class org/apache/logging/log4j/core/util/ShutdownCallbackRegistry
+      15: ifeq          93
+      18: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      21: getstatic     #60                 // Field org/apache/logging/log4j/core/util/ShutdownCallbackRegistry.SHUTDOWN_HOOK_MARKER:Lorg/apache/logging/log4j/Marker;
+      24: ldc           #61                 // String Shutdown hook enabled. Registering a new one.
+      26: invokeinterface #62,  3           // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Lorg/apache/logging/log4j/Marker;Ljava/lang/String;)V
+      31: aload_0
+      32: getfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+      35: invokeinterface #63,  1           // InterfaceMethod org/apache/logging/log4j/core/config/Configuration.getShutdownTimeoutMillis:()J
+      40: lstore_2
+      41: aload_0
+      42: aload_1
+      43: checkcast     #59                 // class org/apache/logging/log4j/core/util/ShutdownCallbackRegistry
+      46: new           #64                 // class org/apache/logging/log4j/core/LoggerContext$1
+      49: dup
+      50: aload_0
+      51: lload_2
+      52: invokespecial #65                 // Method org/apache/logging/log4j/core/LoggerContext$1."<init>":(Lorg/apache/logging/log4j/core/LoggerContext;J)V
+      55: invokeinterface #66,  2           // InterfaceMethod org/apache/logging/log4j/core/util/ShutdownCallbackRegistry.addShutdownCallback:(Ljava/lang/Runnable;)Lorg/apache/logging/log4j/core/util/Cancellable;
+      60: putfield      #57                 // Field shutdownCallback:Lorg/apache/logging/log4j/core/util/Cancellable;
+      63: goto          93
+      66: astore_2
+      67: new           #67                 // class java/lang/IllegalStateException
+      70: dup
+      71: ldc           #68                 // String Unable to register Log4j shutdown hook because JVM is shutting down.
+      73: aload_2
+      74: invokespecial #69                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+      77: athrow
+      78: astore_2
+      79: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      82: getstatic     #60                 // Field org/apache/logging/log4j/core/util/ShutdownCallbackRegistry.SHUTDOWN_HOOK_MARKER:Lorg/apache/logging/log4j/Marker;
+      85: ldc           #71                 // String Unable to register shutdown hook due to security restrictions
+      87: aload_2
+      88: invokeinterface #72,  4           // InterfaceMethod org/apache/logging/log4j/Logger.error:(Lorg/apache/logging/log4j/Marker;Ljava/lang/String;Ljava/lang/Throwable;)V
+      93: return
+    Exception table:
+       from    to  target type
+          31    63    66   Class java/lang/IllegalStateException
+          31    63    78   Class java/lang/SecurityException
+
+  public void close();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokevirtual #73                 // Method stop:()V
+       4: return
+
+  public void terminate();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokevirtual #73                 // Method stop:()V
+       4: return
+
+  public boolean stop(long, java.util.concurrent.TimeUnit);
+    descriptor: (JLjava/util/concurrent/TimeUnit;)Z
+    Code:
+       0: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+       3: ldc           #74                 // String Stopping LoggerContext[name={}, {}]...
+       5: aload_0
+       6: invokevirtual #34                 // Method getName:()Ljava/lang/String;
+       9: aload_0
+      10: invokeinterface #35,  4           // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+      15: aload_0
+      16: getfield      #16                 // Field configLock:Ljava/util/concurrent/locks/Lock;
+      19: invokeinterface #75,  1           // InterfaceMethod java/util/concurrent/locks/Lock.lock:()V
+      24: aload_0
+      25: invokevirtual #45                 // Method isStopped:()Z
+      28: ifeq          50
+      31: iconst_1
+      32: istore        4
+      34: aload_0
+      35: getfield      #16                 // Field configLock:Ljava/util/concurrent/locks/Lock;
+      38: invokeinterface #51,  1           // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+      43: aload_0
+      44: invokevirtual #76                 // Method setStopped:()V
+      47: iload         4
+      49: ireturn
+      50: aload_0
+      51: invokevirtual #77                 // Method setStopping:()V
+      54: aload_0
+      55: invokevirtual #34                 // Method getName:()Ljava/lang/String;
+      58: invokestatic  #78                 // Method org/apache/logging/log4j/core/jmx/Server.unregisterLoggerContext:(Ljava/lang/String;)V
+      61: goto          78
+      64: astore        4
+      66: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      69: ldc           #80                 // String Unable to unregister MBeans
+      71: aload         4
+      73: invokeinterface #81,  3           // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+      78: aload_0
+      79: getfield      #57                 // Field shutdownCallback:Lorg/apache/logging/log4j/core/util/Cancellable;
+      82: ifnull        99
+      85: aload_0
+      86: getfield      #57                 // Field shutdownCallback:Lorg/apache/logging/log4j/core/util/Cancellable;
+      89: invokeinterface #82,  1           // InterfaceMethod org/apache/logging/log4j/core/util/Cancellable.cancel:()V
+      94: aload_0
+      95: aconst_null
+      96: putfield      #57                 // Field shutdownCallback:Lorg/apache/logging/log4j/core/util/Cancellable;
+      99: aload_0
+     100: getfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+     103: astore        4
+     105: aload_0
+     106: getstatic     #83                 // Field NULL_CONFIGURATION:Lorg/apache/logging/log4j/core/config/Configuration;
+     109: putfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+     112: aload_0
+     113: invokevirtual #84                 // Method updateLoggers:()V
+     116: aload         4
+     118: instanceof    #85                 // class org/apache/logging/log4j/core/LifeCycle2
+     121: ifeq          140
+     124: aload         4
+     126: checkcast     #85                 // class org/apache/logging/log4j/core/LifeCycle2
+     129: lload_1
+     130: aload_3
+     131: invokeinterface #86,  4           // InterfaceMethod org/apache/logging/log4j/core/LifeCycle2.stop:(JLjava/util/concurrent/TimeUnit;)Z
+     136: pop
+     137: goto          147
+     140: aload         4
+     142: invokeinterface #87,  1           // InterfaceMethod org/apache/logging/log4j/core/config/Configuration.stop:()V
+     147: aload_0
+     148: aconst_null
+     149: putfield      #18                 // Field externalContext:Ljava/lang/Object;
+     152: invokestatic  #58                 // Method org/apache/logging/log4j/LogManager.getFactory:()Lorg/apache/logging/log4j/spi/LoggerContextFactory;
+     155: aload_0
+     156: invokeinterface #88,  2           // InterfaceMethod org/apache/logging/log4j/spi/LoggerContextFactory.removeContext:(Lorg/apache/logging/log4j/spi/LoggerContext;)V
+     161: aload_0
+     162: getfield      #16                 // Field configLock:Ljava/util/concurrent/locks/Lock;
+     165: invokeinterface #51,  1           // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+     170: aload_0
+     171: invokevirtual #76                 // Method setStopped:()V
+     174: goto          195
+     177: astore        5
+     179: aload_0
+     180: getfield      #16                 // Field configLock:Ljava/util/concurrent/locks/Lock;
+     183: invokeinterface #51,  1           // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+     188: aload_0
+     189: invokevirtual #76                 // Method setStopped:()V
+     192: aload         5
+     194: athrow
+     195: aload_0
+     196: getfield      #10                 // Field listeners:Ljava/util/List;
+     199: ifnull        251
+     202: aload_0
+     203: getfield      #10                 // Field listeners:Ljava/util/List;
+     206: invokeinterface #89,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+     211: astore        4
+     213: aload         4
+     215: invokeinterface #90,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+     220: ifeq          251
+     223: aload         4
+     225: invokeinterface #91,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     230: checkcast     #92                 // class org/apache/logging/log4j/spi/LoggerContextShutdownAware
+     233: astore        5
+     235: aload         5
+     237: aload_0
+     238: invokeinterface #93,  2           // InterfaceMethod org/apache/logging/log4j/spi/LoggerContextShutdownAware.contextShutdown:(Lorg/apache/logging/log4j/spi/LoggerContext;)V
+     243: goto          248
+     246: astore        6
+     248: goto          213
+     251: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     254: ldc           #94                 // String Stopped LoggerContext[name={}, {}] with status {}
+     256: aload_0
+     257: invokevirtual #34                 // Method getName:()Ljava/lang/String;
+     260: aload_0
+     261: iconst_1
+     262: invokestatic  #95                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     265: invokeinterface #54,  5           // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+     270: iconst_1
+     271: ireturn
+    Exception table:
+       from    to  target type
+          54    61    64   Class java/lang/LinkageError
+          54    61    64   Class java/lang/Exception
+          24    34   177   any
+          50   161   177   any
+         177   179   177   any
+         235   243   246   Class java/lang/Exception
+
+  public java.lang.String getName();
+    descriptor: ()Ljava/lang/String;
+    Code:
+       0: aload_0
+       1: getfield      #17                 // Field contextName:Ljava/lang/String;
+       4: areturn
+
+  public org.apache.logging.log4j.core.Logger getRootLogger();
+    descriptor: ()Lorg/apache/logging/log4j/core/Logger;
+    Code:
+       0: aload_0
+       1: ldc           #97                 // String
+       3: invokevirtual #98                 // Method getLogger:(Ljava/lang/String;)Lorg/apache/logging/log4j/core/Logger;
+       6: areturn
+
+  public void setName(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #99                 // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+       5: checkcast     #100                // class java/lang/String
+       8: putfield      #17                 // Field contextName:Ljava/lang/String;
+      11: return
+
+  public void setExternalContext(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #18                 // Field externalContext:Ljava/lang/Object;
+       5: return
+
+  public java.lang.Object getExternalContext();
+    descriptor: ()Ljava/lang/Object;
+    Code:
+       0: aload_0
+       1: getfield      #18                 // Field externalContext:Ljava/lang/Object;
+       4: areturn
+
+  public org.apache.logging.log4j.core.Logger getLogger(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lorg/apache/logging/log4j/core/Logger;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aconst_null
+       3: invokevirtual #101                // Method getLogger:(Ljava/lang/String;Lorg/apache/logging/log4j/message/MessageFactory;)Lorg/apache/logging/log4j/core/Logger;
+       6: areturn
+
+  public java.util.Collection<org.apache.logging.log4j.core.Logger> getLoggers();
+    descriptor: ()Ljava/util/Collection;
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field loggerRegistry:Lorg/apache/logging/log4j/spi/LoggerRegistry;
+       4: invokevirtual #102                // Method org/apache/logging/log4j/spi/LoggerRegistry.getLoggers:()Ljava/util/Collection;
+       7: areturn
+
+  public org.apache.logging.log4j.core.Logger getLogger(java.lang.String, org.apache.logging.log4j.message.MessageFactory);
+    descriptor: (Ljava/lang/String;Lorg/apache/logging/log4j/message/MessageFactory;)Lorg/apache/logging/log4j/core/Logger;
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field loggerRegistry:Lorg/apache/logging/log4j/spi/LoggerRegistry;
+       4: aload_1
+       5: aload_2
+       6: invokevirtual #103                // Method org/apache/logging/log4j/spi/LoggerRegistry.getLogger:(Ljava/lang/String;Lorg/apache/logging/log4j/message/MessageFactory;)Lorg/apache/logging/log4j/spi/ExtendedLogger;
+       9: checkcast     #104                // class org/apache/logging/log4j/core/Logger
+      12: astore_3
+      13: aload_3
+      14: ifnull        24
+      17: aload_3
+      18: aload_2
+      19: invokestatic  #105                // Method org/apache/logging/log4j/spi/AbstractLogger.checkMessageFactory:(Lorg/apache/logging/log4j/spi/ExtendedLogger;Lorg/apache/logging/log4j/message/MessageFactory;)V
+      22: aload_3
+      23: areturn
+      24: aload_0
+      25: aload_0
+      26: aload_1
+      27: aload_2
+      28: invokevirtual #106                // Method newInstance:(Lorg/apache/logging/log4j/core/LoggerContext;Ljava/lang/String;Lorg/apache/logging/log4j/message/MessageFactory;)Lorg/apache/logging/log4j/core/Logger;
+      31: astore_3
+      32: aload_0
+      33: getfield      #6                  // Field loggerRegistry:Lorg/apache/logging/log4j/spi/LoggerRegistry;
+      36: aload_1
+      37: aload_2
+      38: aload_3
+      39: invokevirtual #107                // Method org/apache/logging/log4j/spi/LoggerRegistry.putIfAbsent:(Ljava/lang/String;Lorg/apache/logging/log4j/message/MessageFactory;Lorg/apache/logging/log4j/spi/ExtendedLogger;)V
+      42: aload_0
+      43: getfield      #6                  // Field loggerRegistry:Lorg/apache/logging/log4j/spi/LoggerRegistry;
+      46: aload_1
+      47: aload_2
+      48: invokevirtual #103                // Method org/apache/logging/log4j/spi/LoggerRegistry.getLogger:(Ljava/lang/String;Lorg/apache/logging/log4j/message/MessageFactory;)Lorg/apache/logging/log4j/spi/ExtendedLogger;
+      51: checkcast     #104                // class org/apache/logging/log4j/core/Logger
+      54: areturn
+
+  public boolean hasLogger(java.lang.String);
+    descriptor: (Ljava/lang/String;)Z
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field loggerRegistry:Lorg/apache/logging/log4j/spi/LoggerRegistry;
+       4: aload_1
+       5: invokevirtual #108                // Method org/apache/logging/log4j/spi/LoggerRegistry.hasLogger:(Ljava/lang/String;)Z
+       8: ireturn
+
+  public boolean hasLogger(java.lang.String, org.apache.logging.log4j.message.MessageFactory);
+    descriptor: (Ljava/lang/String;Lorg/apache/logging/log4j/message/MessageFactory;)Z
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field loggerRegistry:Lorg/apache/logging/log4j/spi/LoggerRegistry;
+       4: aload_1
+       5: aload_2
+       6: invokevirtual #109                // Method org/apache/logging/log4j/spi/LoggerRegistry.hasLogger:(Ljava/lang/String;Lorg/apache/logging/log4j/message/MessageFactory;)Z
+       9: ireturn
+
+  public boolean hasLogger(java.lang.String, java.lang.Class<? extends org.apache.logging.log4j.message.MessageFactory>);
+    descriptor: (Ljava/lang/String;Ljava/lang/Class;)Z
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field loggerRegistry:Lorg/apache/logging/log4j/spi/LoggerRegistry;
+       4: aload_1
+       5: aload_2
+       6: invokevirtual #110                // Method org/apache/logging/log4j/spi/LoggerRegistry.hasLogger:(Ljava/lang/String;Ljava/lang/Class;)Z
+       9: ireturn
+
+  public org.apache.logging.log4j.core.config.Configuration getConfiguration();
+    descriptor: ()Lorg/apache/logging/log4j/core/config/Configuration;
+    Code:
+       0: aload_0
+       1: getfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+       4: areturn
+
+  public void addFilter(org.apache.logging.log4j.core.Filter);
+    descriptor: (Lorg/apache/logging/log4j/core/Filter;)V
+    Code:
+       0: aload_0
+       1: getfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+       4: aload_1
+       5: invokeinterface #111,  2          // InterfaceMethod org/apache/logging/log4j/core/config/Configuration.addFilter:(Lorg/apache/logging/log4j/core/Filter;)V
+      10: return
+
+  public void removeFilter(org.apache.logging.log4j.core.Filter);
+    descriptor: (Lorg/apache/logging/log4j/core/Filter;)V
+    Code:
+       0: aload_0
+       1: getfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+       4: aload_1
+       5: invokeinterface #112,  2          // InterfaceMethod org/apache/logging/log4j/core/config/Configuration.removeFilter:(Lorg/apache/logging/log4j/core/Filter;)V
+      10: return
+
+  public org.apache.logging.log4j.core.config.Configuration setConfiguration(org.apache.logging.log4j.core.config.Configuration);
+    descriptor: (Lorg/apache/logging/log4j/core/config/Configuration;)Lorg/apache/logging/log4j/core/config/Configuration;
+    Code:
+       0: aload_1
+       1: ifnonnull     23
+       4: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+       7: ldc           #113                // String No configuration found for context \'{}\'.
+       9: aload_0
+      10: getfield      #17                 // Field contextName:Ljava/lang/String;
+      13: invokeinterface #114,  3          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;)V
+      18: aload_0
+      19: getfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+      22: areturn
+      23: aload_0
+      24: getfield      #16                 // Field configLock:Ljava/util/concurrent/locks/Lock;
+      27: invokeinterface #75,  1           // InterfaceMethod java/util/concurrent/locks/Lock.lock:()V
+      32: aload_0
+      33: getfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+      36: astore_2
+      37: aload_1
+      38: aload_0
+      39: invokeinterface #115,  2          // InterfaceMethod org/apache/logging/log4j/core/config/Configuration.addListener:(Lorg/apache/logging/log4j/core/config/ConfigurationListener;)V
+      44: aload_1
+      45: ldc           #117                // String ContextProperties
+      47: invokeinterface #118,  2          // InterfaceMethod org/apache/logging/log4j/core/config/Configuration.getComponent:(Ljava/lang/String;)Ljava/lang/Object;
+      52: checkcast     #119                // class java/util/concurrent/ConcurrentMap
+      55: astore_3
+      56: aload_3
+      57: ldc           #120                // String hostName
+      59: invokestatic  #121                // Method org/apache/logging/log4j/core/util/NetUtils.getLocalHostname:()Ljava/lang/String;
+      62: invokeinterface #122,  3          // InterfaceMethod java/util/concurrent/ConcurrentMap.putIfAbsent:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      67: pop
+      68: goto          99
+      71: astore        4
+      73: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      76: ldc           #123                // String Ignoring {}, setting hostName to \'unknown\'
+      78: aload         4
+      80: invokevirtual #124                // Method java/lang/Exception.toString:()Ljava/lang/String;
+      83: invokeinterface #125,  3          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+      88: aload_3
+      89: ldc           #120                // String hostName
+      91: ldc           #126                // String unknown
+      93: invokeinterface #122,  3          // InterfaceMethod java/util/concurrent/ConcurrentMap.putIfAbsent:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      98: pop
+      99: aload_3
+     100: ldc           #127                // String contextName
+     102: aload_0
+     103: getfield      #17                 // Field contextName:Ljava/lang/String;
+     106: invokeinterface #122,  3          // InterfaceMethod java/util/concurrent/ConcurrentMap.putIfAbsent:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     111: pop
+     112: aload_1
+     113: invokeinterface #128,  1          // InterfaceMethod org/apache/logging/log4j/core/config/Configuration.start:()V
+     118: aload_0
+     119: aload_1
+     120: putfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+     123: aload_0
+     124: invokevirtual #84                 // Method updateLoggers:()V
+     127: aload_2
+     128: ifnull        144
+     131: aload_2
+     132: aload_0
+     133: invokeinterface #129,  2          // InterfaceMethod org/apache/logging/log4j/core/config/Configuration.removeListener:(Lorg/apache/logging/log4j/core/config/ConfigurationListener;)V
+     138: aload_2
+     139: invokeinterface #87,  1           // InterfaceMethod org/apache/logging/log4j/core/config/Configuration.stop:()V
+     144: aload_0
+     145: new           #130                // class java/beans/PropertyChangeEvent
+     148: dup
+     149: aload_0
+     150: ldc           #131                // String config
+     152: aload_2
+     153: aload_1
+     154: invokespecial #132                // Method java/beans/PropertyChangeEvent."<init>":(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+     157: invokespecial #133                // Method firePropertyChangeEvent:(Ljava/beans/PropertyChangeEvent;)V
+     160: invokestatic  #134                // Method org/apache/logging/log4j/core/jmx/Server.reregisterMBeansAfterReconfigure:()V
+     163: goto          180
+     166: astore        4
+     168: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     171: ldc           #135                // String Could not reconfigure JMX
+     173: aload         4
+     175: invokeinterface #81,  3           // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     180: aload_0
+     181: getfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+     184: invokeinterface #136,  1          // InterfaceMethod org/apache/logging/log4j/core/config/Configuration.getNanoClock:()Lorg/apache/logging/log4j/core/util/NanoClock;
+     189: invokestatic  #137                // Method org/apache/logging/log4j/core/impl/Log4jLogEvent.setNanoClock:(Lorg/apache/logging/log4j/core/util/NanoClock;)V
+     192: aload_2
+     193: astore        4
+     195: aload_0
+     196: getfield      #16                 // Field configLock:Ljava/util/concurrent/locks/Lock;
+     199: invokeinterface #51,  1           // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+     204: aload         4
+     206: areturn
+     207: astore        5
+     209: aload_0
+     210: getfield      #16                 // Field configLock:Ljava/util/concurrent/locks/Lock;
+     213: invokeinterface #51,  1           // InterfaceMethod java/util/concurrent/locks/Lock.unlock:()V
+     218: aload         5
+     220: athrow
+    Exception table:
+       from    to  target type
+          56    68    71   Class java/lang/Exception
+         160   163   166   Class java/lang/LinkageError
+         160   163   166   Class java/lang/Exception
+          32   195   207   any
+         207   209   207   any
+
+  private void firePropertyChangeEvent(java.beans.PropertyChangeEvent);
+    descriptor: (Ljava/beans/PropertyChangeEvent;)V
+    Code:
+       0: aload_0
+       1: getfield      #9                  // Field propertyChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+       4: invokevirtual #138                // Method java/util/concurrent/CopyOnWriteArrayList.iterator:()Ljava/util/Iterator;
+       7: astore_2
+       8: aload_2
+       9: invokeinterface #90,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+      14: ifeq          37
+      17: aload_2
+      18: invokeinterface #91,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      23: checkcast     #139                // class java/beans/PropertyChangeListener
+      26: astore_3
+      27: aload_3
+      28: aload_1
+      29: invokeinterface #140,  2          // InterfaceMethod java/beans/PropertyChangeListener.propertyChange:(Ljava/beans/PropertyChangeEvent;)V
+      34: goto          8
+      37: return
+
+  public void addPropertyChangeListener(java.beans.PropertyChangeListener);
+    descriptor: (Ljava/beans/PropertyChangeListener;)V
+    Code:
+       0: aload_0
+       1: getfield      #9                  // Field propertyChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+       4: aload_1
+       5: ldc           #141                // String listener
+       7: invokestatic  #142                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+      10: invokevirtual #143                // Method java/util/concurrent/CopyOnWriteArrayList.add:(Ljava/lang/Object;)Z
+      13: pop
+      14: return
+
+  public void removePropertyChangeListener(java.beans.PropertyChangeListener);
+    descriptor: (Ljava/beans/PropertyChangeListener;)V
+    Code:
+       0: aload_0
+       1: getfield      #9                  // Field propertyChangeListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+       4: aload_1
+       5: invokevirtual #144                // Method java/util/concurrent/CopyOnWriteArrayList.remove:(Ljava/lang/Object;)Z
+       8: pop
+       9: return
+
+  public java.net.URI getConfigLocation();
+    descriptor: ()Ljava/net/URI;
+    Code:
+       0: aload_0
+       1: getfield      #19                 // Field configLocation:Ljava/net/URI;
+       4: areturn
+
+  public void setConfigLocation(java.net.URI);
+    descriptor: (Ljava/net/URI;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #19                 // Field configLocation:Ljava/net/URI;
+       5: aload_0
+       6: aload_1
+       7: invokespecial #145                // Method reconfigure:(Ljava/net/URI;)V
+      10: return
+
+  private void reconfigure(java.net.URI);
+    descriptor: (Ljava/net/URI;)V
+    Code:
+       0: ldc           #146                // class java/lang/ClassLoader
+       2: aload_0
+       3: getfield      #18                 // Field externalContext:Ljava/lang/Object;
+       6: invokevirtual #147                // Method java/lang/Class.isInstance:(Ljava/lang/Object;)Z
+       9: ifeq          22
+      12: aload_0
+      13: getfield      #18                 // Field externalContext:Ljava/lang/Object;
+      16: checkcast     #146                // class java/lang/ClassLoader
+      19: goto          23
+      22: aconst_null
+      23: astore_2
+      24: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      27: ldc           #148                // String Reconfiguration started for context[name={}] at URI {} ({}) with optional ClassLoader: {}
+      29: aload_0
+      30: getfield      #17                 // Field contextName:Ljava/lang/String;
+      33: aload_1
+      34: aload_0
+      35: aload_2
+      36: invokeinterface #149,  6          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+      41: invokestatic  #150                // Method org/apache/logging/log4j/core/config/ConfigurationFactory.getInstance:()Lorg/apache/logging/log4j/core/config/ConfigurationFactory;
+      44: aload_0
+      45: aload_0
+      46: getfield      #17                 // Field contextName:Ljava/lang/String;
+      49: aload_1
+      50: aload_2
+      51: invokevirtual #151                // Method org/apache/logging/log4j/core/config/ConfigurationFactory.getConfiguration:(Lorg/apache/logging/log4j/core/LoggerContext;Ljava/lang/String;Ljava/net/URI;Ljava/lang/ClassLoader;)Lorg/apache/logging/log4j/core/config/Configuration;
+      54: astore_3
+      55: aload_3
+      56: ifnonnull     78
+      59: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      62: ldc           #152                // String Reconfiguration failed: No configuration found for \'{}\' at \'{}\' in \'{}\'
+      64: aload_0
+      65: getfield      #17                 // Field contextName:Ljava/lang/String;
+      68: aload_1
+      69: aload_2
+      70: invokeinterface #153,  5          // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+      75: goto          128
+      78: aload_0
+      79: aload_3
+      80: invokevirtual #55                 // Method setConfiguration:(Lorg/apache/logging/log4j/core/config/Configuration;)Lorg/apache/logging/log4j/core/config/Configuration;
+      83: pop
+      84: aload_0
+      85: getfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+      88: ifnonnull     96
+      91: ldc           #154                // String ?
+      93: goto          108
+      96: aload_0
+      97: getfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+     100: invokeinterface #155,  1          // InterfaceMethod org/apache/logging/log4j/core/config/Configuration.getConfigurationSource:()Lorg/apache/logging/log4j/core/config/ConfigurationSource;
+     105: invokestatic  #156                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+     108: astore        4
+     110: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     113: ldc           #157                // String Reconfiguration complete for context[name={}] at URI {} ({}) with optional ClassLoader: {}
+     115: aload_0
+     116: getfield      #17                 // Field contextName:Ljava/lang/String;
+     119: aload         4
+     121: aload_0
+     122: aload_2
+     123: invokeinterface #149,  6          // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+     128: return
+
+  public void reconfigure();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: aload_0
+       2: getfield      #19                 // Field configLocation:Ljava/net/URI;
+       5: invokespecial #145                // Method reconfigure:(Ljava/net/URI;)V
+       8: return
+
+  public void updateLoggers();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: aload_0
+       2: getfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+       5: invokevirtual #158                // Method updateLoggers:(Lorg/apache/logging/log4j/core/config/Configuration;)V
+       8: return
+
+  public void updateLoggers(org.apache.logging.log4j.core.config.Configuration);
+    descriptor: (Lorg/apache/logging/log4j/core/config/Configuration;)V
+    Code:
+       0: aload_0
+       1: getfield      #13                 // Field configuration:Lorg/apache/logging/log4j/core/config/Configuration;
+       4: astore_2
+       5: aload_0
+       6: getfield      #6                  // Field loggerRegistry:Lorg/apache/logging/log4j/spi/LoggerRegistry;
+       9: invokevirtual #102                // Method org/apache/logging/log4j/spi/LoggerRegistry.getLoggers:()Ljava/util/Collection;
+      12: invokeinterface #159,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+      17: astore_3
+      18: aload_3
+      19: invokeinterface #90,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+      24: ifeq          47
+      27: aload_3
+      28: invokeinterface #91,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      33: checkcast     #104                // class org/apache/logging/log4j/core/Logger
+      36: astore        4
+      38: aload         4
+      40: aload_1
+      41: invokevirtual #160                // Method org/apache/logging/log4j/core/Logger.updateConfiguration:(Lorg/apache/logging/log4j/core/config/Configuration;)V
+      44: goto          18
+      47: aload_0
+      48: new           #130                // class java/beans/PropertyChangeEvent
+      51: dup
+      52: aload_0
+      53: ldc           #131                // String config
+      55: aload_2
+      56: aload_1
+      57: invokespecial #132                // Method java/beans/PropertyChangeEvent."<init>":(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+      60: invokespecial #133                // Method firePropertyChangeEvent:(Ljava/beans/PropertyChangeEvent;)V
+      63: return
+
+  public synchronized void onChange(org.apache.logging.log4j.core.config.Reconfigurable);
+    descriptor: (Lorg/apache/logging/log4j/core/config/Reconfigurable;)V
+    Code:
+       0: invokestatic  #161                // Method java/lang/System.currentTimeMillis:()J
+       3: lstore_2
+       4: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+       7: ldc           #162                // String Reconfiguration started for context {} ({})
+       9: aload_0
+      10: getfield      #17                 // Field contextName:Ljava/lang/String;
+      13: aload_0
+      14: invokeinterface #35,  4           // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+      19: aload_0
+      20: invokespecial #163                // Method initApiModule:()V
+      23: aload_1
+      24: invokeinterface #164,  1          // InterfaceMethod org/apache/logging/log4j/core/config/Reconfigurable.reconfigure:()Lorg/apache/logging/log4j/core/config/Configuration;
+      29: astore        4
+      31: aload         4
+      33: ifnull        69
+      36: aload_0
+      37: aload         4
+      39: invokevirtual #55                 // Method setConfiguration:(Lorg/apache/logging/log4j/core/config/Configuration;)Lorg/apache/logging/log4j/core/config/Configuration;
+      42: pop
+      43: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      46: ldc           #165                // String Reconfiguration completed for {} ({}) in {} milliseconds.
+      48: aload_0
+      49: getfield      #17                 // Field contextName:Ljava/lang/String;
+      52: aload_0
+      53: invokestatic  #161                // Method java/lang/System.currentTimeMillis:()J
+      56: lload_2
+      57: lsub
+      58: invokestatic  #166                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+      61: invokeinterface #54,  5           // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+      66: goto          92
+      69: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      72: ldc           #167                // String Reconfiguration failed for {} ({}) in {} milliseconds.
+      74: aload_0
+      75: getfield      #17                 // Field contextName:Ljava/lang/String;
+      78: aload_0
+      79: invokestatic  #161                // Method java/lang/System.currentTimeMillis:()J
+      82: lload_2
+      83: lsub
+      84: invokestatic  #166                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+      87: invokeinterface #54,  5           // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+      92: return
+
+  private void initApiModule();
+    descriptor: ()V
+    Code:
+       0: invokestatic  #168                // Method org/apache/logging/log4j/spi/ThreadContextMapFactory.init:()V
+       3: return
+
+  protected org.apache.logging.log4j.core.Logger newInstance(org.apache.logging.log4j.core.LoggerContext, java.lang.String, org.apache.logging.log4j.message.MessageFactory);
+    descriptor: (Lorg/apache/logging/log4j/core/LoggerContext;Ljava/lang/String;Lorg/apache/logging/log4j/message/MessageFactory;)Lorg/apache/logging/log4j/core/Logger;
+    Code:
+       0: new           #104                // class org/apache/logging/log4j/core/Logger
+       3: dup
+       4: aload_1
+       5: aload_2
+       6: aload_3
+       7: invokespecial #169                // Method org/apache/logging/log4j/core/Logger."<init>":(Lorg/apache/logging/log4j/core/LoggerContext;Ljava/lang/String;Lorg/apache/logging/log4j/message/MessageFactory;)V
+      10: areturn
+
+  public org.apache.logging.log4j.spi.ExtendedLogger getLogger(java.lang.String, org.apache.logging.log4j.message.MessageFactory);
+    descriptor: (Ljava/lang/String;Lorg/apache/logging/log4j/message/MessageFactory;)Lorg/apache/logging/log4j/spi/ExtendedLogger;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokevirtual #101                // Method getLogger:(Ljava/lang/String;Lorg/apache/logging/log4j/message/MessageFactory;)Lorg/apache/logging/log4j/core/Logger;
+       6: areturn
+
+  public org.apache.logging.log4j.spi.ExtendedLogger getLogger(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lorg/apache/logging/log4j/spi/ExtendedLogger;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #98                 // Method getLogger:(Ljava/lang/String;)Lorg/apache/logging/log4j/core/Logger;
+       5: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: ldc           #170                // class org/apache/logging/log4j/core/util/ExecutorServices
+       2: invokevirtual #171                // Method java/lang/Class.getName:()Ljava/lang/String;
+       5: invokestatic  #172                // Method org/apache/logging/log4j/core/util/Loader.loadClass:(Ljava/lang/String;)Ljava/lang/Class;
+       8: pop
+       9: goto          24
+      12: astore_0
+      13: getstatic     #32                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+      16: ldc           #173                // String Failed to preload ExecutorServices class.
+      18: aload_0
+      19: invokeinterface #81,  3           // InterfaceMethod org/apache/logging/log4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+      24: new           #174                // class org/apache/logging/log4j/core/config/NullConfiguration
+      27: dup
+      28: invokespecial #175                // Method org/apache/logging/log4j/core/config/NullConfiguration."<init>":()V
+      31: putstatic     #83                 // Field NULL_CONFIGURATION:Lorg/apache/logging/log4j/core/config/Configuration;
+      34: return
+    Exception table:
+       from    to  target type
+           0     9    12   Class java/lang/Exception
+}

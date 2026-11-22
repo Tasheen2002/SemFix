@@ -1,0 +1,122 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< de.refactoringBot:RefactoringBot >------------------
+[INFO] Building Refactoring-Bot 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ RefactoringBot ---
+[INFO] Deleting /Refactoring-Bot/target
+[INFO] 
+[INFO] --- antlr4:4.7.2:antlr4 (default) @ RefactoringBot ---
+[INFO] ANTLR 4: Processing source directory /Refactoring-Bot/src/main/antlr4
+[INFO] Processing grammar: botGrammar/BotOperations.g4
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ RefactoringBot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ RefactoringBot ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 112 source files to /Refactoring-Bot/target/classes
+[INFO] /Refactoring-Bot/src/main/java/de/refactoringbot/configuration/WebConfig.java: /Refactoring-Bot/src/main/java/de/refactoringbot/configuration/WebConfig.java uses or overrides a deprecated API.
+[INFO] /Refactoring-Bot/src/main/java/de/refactoringbot/configuration/WebConfig.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ RefactoringBot ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Refactoring-Bot/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ RefactoringBot ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 38 source files to /Refactoring-Bot/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ RefactoringBot ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- surefire:2.22.2:test (unit-tests) @ RefactoringBot ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running de.refactoringbot.services.github.GithubObjectTranslatorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.873 s - in de.refactoringbot.services.github.GithubObjectTranslatorTest
+[INFO] Running de.refactoringbot.services.main.GitServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.359 s - in de.refactoringbot.services.main.GitServiceTest
+[INFO] Running de.refactoringbot.services.main.GrammarServiceTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.464 s - in de.refactoringbot.services.main.GrammarServiceTest
+[INFO] Running de.refactoringbot.services.main.FileServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.643 s - in de.refactoringbot.services.main.FileServiceTest
+[INFO] Running de.refactoringbot.services.sonarqube.SonarQubeObjectTranslatorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in de.refactoringbot.services.sonarqube.SonarQubeObjectTranslatorTest
+[INFO] Running de.refactoringbot.refactorings.RemoveCommentedOutCodeTest
+09:28:22.858 [main] INFO de.refactoringbot.refactorings.RemoveCommentedOutCodeTest - Removed 1 line(s) of commented out code (line 49-49)
+09:28:22.917 [main] INFO de.refactoringbot.refactorings.RemoveCommentedOutCodeTest - Removed 10 line(s) of commented out code (line 35-44)
+09:28:22.933 [main] INFO de.refactoringbot.refactorings.RemoveCommentedOutCodeTest - Removed 4 line(s) of commented out code (line 17-20)
+09:28:22.953 [main] INFO de.refactoringbot.refactorings.RemoveCommentedOutCodeTest - Removed 3 line(s) of commented out code (line 6-8)
+09:28:22.973 [main] INFO de.refactoringbot.refactorings.RemoveCommentedOutCodeTest - Removed 6 line(s) of commented out code (line 25-30)
+09:28:22.991 [main] INFO de.refactoringbot.refactorings.RemoveCommentedOutCodeTest - Removed 3 line(s) of commented out code (line 10-12)
+09:28:23.053 [main] INFO de.refactoringbot.refactorings.RemoveCommentedOutCodeTest - Removed 5 line(s) of commented out code (line 53-57)
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.339 s - in de.refactoringbot.refactorings.RemoveCommentedOutCodeTest
+[INFO] Running de.refactoringbot.refactorings.RenameMethodTest
+09:28:23.727 [main] INFO de.refactoringbot.refactorings.RenameMethodTest - Renamed method 'getLineOfMethodToBeRenamed' to 'newMethodName'
+09:28:24.049 [main] INFO de.refactoringbot.refactorings.RenameMethodTest - Renamed method 'getLineOfMethodToBeRenamed' to 'newMethodName'
+09:28:24.137 [main] INFO de.refactoringbot.refactorings.RenameMethodTest - Renamed method 'getLineOfMethodPlacedInAndAfterInnerClass' to 'newMethodName'
+09:28:24.261 [main] INFO de.refactoringbot.refactorings.RenameMethodTest - Renamed method 'getLineOfInterfaceMethod' to 'newMethodName'
+09:28:24.408 [main] INFO de.refactoringbot.refactorings.RenameMethodTest - Renamed method 'getLineOfInterfaceMethod' to 'newMethodName'
+09:28:24.548 [main] INFO de.refactoringbot.refactorings.RenameMethodTest - Renamed method 'getLineOfInterfaceMethod' to 'newMethodName'
+09:28:24.677 [main] INFO de.refactoringbot.refactorings.RenameMethodTest - Renamed method 'getLineOfMethodToBeRenamed' to 'newMethodName'
+09:28:24.824 [main] INFO de.refactoringbot.refactorings.RenameMethodTest - Renamed method 'getLineOfMethodToBeRenamed' to 'newMethodName'
+09:28:24.954 [main] INFO de.refactoringbot.refactorings.RenameMethodTest - Renamed method 'getLineOfMethodToBeRenamed' to 'newMethodName'
+09:28:25.156 [main] INFO de.refactoringbot.refactorings.RenameMethodTest - Renamed method 'getLineOfMethodToBeRenamed' to 'newMethodName'
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.09 s - in de.refactoringbot.refactorings.RenameMethodTest
+[INFO] Running de.refactoringbot.refactorings.ReorderModifiersTest
+09:28:25.269 [main] INFO de.refactoringbot.refactorings.ReorderModifiersTest - Reordered modifiers to comply with the Java Language Specification
+09:28:25.323 [main] INFO de.refactoringbot.refactorings.ReorderModifiersTest - Reordered modifiers to comply with the Java Language Specification
+09:28:25.340 [main] INFO de.refactoringbot.refactorings.ReorderModifiersTest - Reordered modifiers to comply with the Java Language Specification
+09:28:25.363 [main] INFO de.refactoringbot.refactorings.ReorderModifiersTest - Reordered modifiers to comply with the Java Language Specification
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.196 s - in de.refactoringbot.refactorings.ReorderModifiersTest
+[INFO] Running de.refactoringbot.refactorings.RemoveMethodParameterTest
+09:28:25.831 [main] INFO de.refactoringbot.refactorings.RemoveMethodParameterTest - Removed parameter 'b' from method 'getLineOfMethodWithUnusedParameter(int, int, int)'
+09:28:25.951 [main] INFO de.refactoringbot.refactorings.RemoveMethodParameterTest - Removed parameter 'b' from method 'getLineOfMethodPlacedInAndAfterInnerClass(int, int, int)'
+09:28:26.075 [main] INFO de.refactoringbot.refactorings.RemoveMethodParameterTest - Removed parameter 'b' from method 'getLineOfMethodWithUnusedParameter(int, int, int)'
+09:28:26.244 [main] INFO de.refactoringbot.refactorings.RemoveMethodParameterTest - Removed parameter 'b' from method 'getLineOfMethodWithUnusedParameter(int, int, int)'
+09:28:26.377 [main] INFO de.refactoringbot.refactorings.RemoveMethodParameterTest - Removed parameter 'b' from method 'getLineOfMethodWithUnusedParameter(int, int, int)'
+09:28:26.477 [main] INFO de.refactoringbot.refactorings.RemoveMethodParameterTest - Removed parameter 'b' from method 'getLineOfMethodWithUnusedParameter(int, int, int)'
+09:28:26.604 [main] INFO de.refactoringbot.refactorings.RemoveMethodParameterTest - Removed parameter 'b' from method 'getLineOfMethodWithUnusedParameter(int, int, int)'
+09:28:26.661 [main] INFO de.refactoringbot.refactorings.RemoveMethodParameterTest - Removed parameter 'b' from method 'getLineOfMethodWithUnusedParameter(int, int, int)'
+09:28:26.779 [main] INFO de.refactoringbot.refactorings.RemoveMethodParameterTest - Removed parameter 'b' from method 'getLineOfMethodWithUnusedParameter(int, int, int)'
+09:28:26.980 [main] INFO de.refactoringbot.refactorings.RemoveMethodParameterTest - Removed parameter 'b' from method 'getLineOfMethodWithUnusedParameter(int, int, int)'
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.606 s - in de.refactoringbot.refactorings.RemoveMethodParameterTest
+[INFO] Running de.refactoringbot.refactorings.AddOverrideAnnotationTest
+09:28:27.019 [main] INFO de.refactoringbot.refactorings.AddOverrideAnnotationTest - Added override annotation to method 'getLineOfMethodWithMissingOverrideAnnotation'
+09:28:27.033 [main] INFO de.refactoringbot.refactorings.AddOverrideAnnotationTest - Added override annotation to method 'getLineOfMethodWithMissingOverrideAnnotation2'
+09:28:27.044 [main] INFO de.refactoringbot.refactorings.AddOverrideAnnotationTest - Added override annotation to method 'getLineOfMethodWithMissingOverrideAnnotation3'
+09:28:27.074 [main] INFO de.refactoringbot.refactorings.AddOverrideAnnotationTest - Added override annotation to method 'getLineOfMethodWithMissingOverrideAnnotation4'
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 s - in de.refactoringbot.refactorings.AddOverrideAnnotationTest
+[INFO] Running de.refactoringbot.refactoring.RefactoringOperationsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in de.refactoringbot.refactoring.RefactoringOperationsTest
+[INFO] Running de.refactoringbot.refactoring.RefactoringHelperTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in de.refactoringbot.refactoring.RefactoringHelperTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 62, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  31.100 s
+[INFO] Finished at: 2026-11-10T09:28:27Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[WARNING]  * org.apache.maven.plugins:maven-clean-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.2
+[WARNING]  * org.antlr:antlr4-maven-plugin:4.7.2
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 

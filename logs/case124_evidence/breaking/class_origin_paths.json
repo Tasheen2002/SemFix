@@ -1,0 +1,57 @@
+{
+  "phase": "breaking",
+  "image_id": "sha256:90ed4fe73632b8ee0238ed5668dc1bd1f29a4bfbce4a6a97bb25c01cefed8ed5",
+  "command": [
+    "docker",
+    "run",
+    "--name",
+    "research-case124-origins-breaking",
+    "--mount",
+    "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case124_evidence\\Case124ClassOriginsTest.java,target=/camunda-platform-7-camel/camunda-bpm-camel-spring/src/test/java/Case124ClassOriginsTest.java,readonly",
+    "--entrypoint",
+    "mvn",
+    "sha256:90ed4fe73632b8ee0238ed5668dc1bd1f29a4bfbce4a6a97bb25c01cefed8ed5",
+    "clean",
+    "test",
+    "-B",
+    "-pl",
+    "camunda-bpm-camel-spring",
+    "-am",
+    "-Dtest=Case124ClassOriginsTest",
+    "-Dsurefire.failIfNoSpecifiedTests=false"
+  ],
+  "state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-10T10:25:04.652679424Z",
+    "FinishedAt": "2026-11-10T10:25:28.074586682Z"
+  },
+  "exit_code": 0,
+  "counts": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "output_source": "Maven log plus fresh Surefire captured-output report files",
+  "resources": [
+    {
+      "resource": "jakarta/xml/bind/JAXBException.class",
+      "origin": "jar:file:/root/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/3.0.1/jakarta.xml.bind-api-3.0.1.jar!/jakarta/xml/bind/JAXBException.class"
+    },
+    {
+      "resource": "javax/xml/bind/JAXBException.class",
+      "origin": "ABSENT"
+    }
+  ],
+  "resolved_bind_api_paths": [
+    "/root/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/3.0.1/jakarta.xml.bind-api-3.0.1.jar"
+  ]
+}

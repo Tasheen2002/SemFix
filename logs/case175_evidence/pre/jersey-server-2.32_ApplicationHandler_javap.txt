@@ -1,0 +1,1152 @@
+Compiled from "ApplicationHandler.java"
+public final class org.glassfish.jersey.server.ApplicationHandler implements org.glassfish.jersey.server.spi.ContainerLifecycleListener {
+  private static final java.util.logging.Logger LOGGER;
+    descriptor: Ljava/util/logging/Logger;
+
+  private static final javax.ws.rs.core.SecurityContext DEFAULT_SECURITY_CONTEXT;
+    descriptor: Ljavax/ws/rs/core/SecurityContext;
+
+  private javax.ws.rs.core.Application application;
+    descriptor: Ljavax/ws/rs/core/Application;
+
+  private org.glassfish.jersey.server.ResourceConfig runtimeConfig;
+    descriptor: Lorg/glassfish/jersey/server/ResourceConfig;
+
+  private org.glassfish.jersey.server.ServerRuntime runtime;
+    descriptor: Lorg/glassfish/jersey/server/ServerRuntime;
+
+  private java.lang.Iterable<org.glassfish.jersey.server.spi.ContainerLifecycleListener> containerLifecycleListeners;
+    descriptor: Ljava/lang/Iterable;
+
+  private org.glassfish.jersey.internal.inject.InjectionManager injectionManager;
+    descriptor: Lorg/glassfish/jersey/internal/inject/InjectionManager;
+
+  private org.glassfish.jersey.message.MessageBodyWorkers msgBodyWorkers;
+    descriptor: Lorg/glassfish/jersey/message/MessageBodyWorkers;
+
+  private org.glassfish.jersey.model.internal.ManagedObjectsFinalizer managedObjectsFinalizer;
+    descriptor: Lorg/glassfish/jersey/model/internal/ManagedObjectsFinalizer;
+
+  public org.glassfish.jersey.server.ApplicationHandler();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: new           #1                  // class javax/ws/rs/core/Application
+       4: dup
+       5: invokespecial #2                  // Method javax/ws/rs/core/Application."<init>":()V
+       8: invokespecial #3                  // Method "<init>":(Ljavax/ws/rs/core/Application;)V
+      11: return
+
+  public org.glassfish.jersey.server.ApplicationHandler(java.lang.Class<? extends javax.ws.rs.core.Application>);
+    descriptor: (Ljava/lang/Class;)V
+    Code:
+       0: aload_0
+       1: invokespecial #4                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: new           #5                  // class org/glassfish/jersey/server/ApplicationConfigurator
+       8: dup
+       9: aload_1
+      10: invokespecial #6                  // Method org/glassfish/jersey/server/ApplicationConfigurator."<init>":(Ljava/lang/Class;)V
+      13: invokestatic  #7                  // Method org/glassfish/jersey/internal/inject/Injections.createInjectionManager:()Lorg/glassfish/jersey/internal/inject/InjectionManager;
+      16: aconst_null
+      17: invokespecial #8                  // Method initialize:(Lorg/glassfish/jersey/server/ApplicationConfigurator;Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/internal/inject/Binder;)V
+      20: return
+
+  public org.glassfish.jersey.server.ApplicationHandler(javax.ws.rs.core.Application);
+    descriptor: (Ljavax/ws/rs/core/Application;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aconst_null
+       3: aconst_null
+       4: invokespecial #9                  // Method "<init>":(Ljavax/ws/rs/core/Application;Lorg/glassfish/jersey/internal/inject/Binder;Ljava/lang/Object;)V
+       7: return
+
+  public org.glassfish.jersey.server.ApplicationHandler(javax.ws.rs.core.Application, org.glassfish.jersey.internal.inject.Binder);
+    descriptor: (Ljavax/ws/rs/core/Application;Lorg/glassfish/jersey/internal/inject/Binder;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aconst_null
+       4: invokespecial #9                  // Method "<init>":(Ljavax/ws/rs/core/Application;Lorg/glassfish/jersey/internal/inject/Binder;Ljava/lang/Object;)V
+       7: return
+
+  public org.glassfish.jersey.server.ApplicationHandler(javax.ws.rs.core.Application, org.glassfish.jersey.internal.inject.Binder, java.lang.Object);
+    descriptor: (Ljavax/ws/rs/core/Application;Lorg/glassfish/jersey/internal/inject/Binder;Ljava/lang/Object;)V
+    Code:
+       0: aload_0
+       1: invokespecial #4                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: new           #5                  // class org/glassfish/jersey/server/ApplicationConfigurator
+       8: dup
+       9: aload_1
+      10: invokespecial #10                 // Method org/glassfish/jersey/server/ApplicationConfigurator."<init>":(Ljavax/ws/rs/core/Application;)V
+      13: aload_3
+      14: invokestatic  #11                 // Method org/glassfish/jersey/internal/inject/Injections.createInjectionManager:(Ljava/lang/Object;)Lorg/glassfish/jersey/internal/inject/InjectionManager;
+      17: aload_2
+      18: invokespecial #8                  // Method initialize:(Lorg/glassfish/jersey/server/ApplicationConfigurator;Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/internal/inject/Binder;)V
+      21: return
+
+  private void initialize(org.glassfish.jersey.server.ApplicationConfigurator, org.glassfish.jersey.internal.inject.InjectionManager, org.glassfish.jersey.internal.inject.Binder);
+    descriptor: (Lorg/glassfish/jersey/server/ApplicationConfigurator;Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/internal/inject/Binder;)V
+    Code:
+       0: getstatic     #12                 // Field LOGGER:Ljava/util/logging/Logger;
+       3: invokestatic  #13                 // Method org/glassfish/jersey/internal/Version.getBuildId:()Ljava/lang/String;
+       6: invokestatic  #14                 // Method org/glassfish/jersey/server/internal/LocalizationMessages.INIT_MSG:(Ljava/lang/Object;)Ljava/lang/String;
+       9: invokevirtual #15                 // Method java/util/logging/Logger.config:(Ljava/lang/String;)V
+      12: aload_0
+      13: aload_2
+      14: putfield      #16                 // Field injectionManager:Lorg/glassfish/jersey/internal/inject/InjectionManager;
+      17: aload_0
+      18: getfield      #16                 // Field injectionManager:Lorg/glassfish/jersey/internal/inject/InjectionManager;
+      21: iconst_2
+      22: anewarray     #17                 // class org/glassfish/jersey/internal/inject/Binder
+      25: dup
+      26: iconst_0
+      27: new           #18                 // class org/glassfish/jersey/server/ServerBinder
+      30: dup
+      31: invokespecial #19                 // Method org/glassfish/jersey/server/ServerBinder."<init>":()V
+      34: aastore
+      35: dup
+      36: iconst_1
+      37: aload_3
+      38: aastore
+      39: invokestatic  #20                 // Method org/glassfish/jersey/internal/inject/CompositeBinder.wrap:([Lorg/glassfish/jersey/internal/inject/Binder;)Lorg/glassfish/jersey/internal/inject/AbstractBinder;
+      42: invokeinterface #21,  2           // InterfaceMethod org/glassfish/jersey/internal/inject/InjectionManager.register:(Lorg/glassfish/jersey/internal/inject/Binder;)V
+      47: aload_0
+      48: new           #22                 // class org/glassfish/jersey/model/internal/ManagedObjectsFinalizer
+      51: dup
+      52: aload_2
+      53: invokespecial #23                 // Method org/glassfish/jersey/model/internal/ManagedObjectsFinalizer."<init>":(Lorg/glassfish/jersey/internal/inject/InjectionManager;)V
+      56: putfield      #24                 // Field managedObjectsFinalizer:Lorg/glassfish/jersey/model/internal/ManagedObjectsFinalizer;
+      59: new           #25                 // class org/glassfish/jersey/server/ServerBootstrapBag
+      62: dup
+      63: invokespecial #26                 // Method org/glassfish/jersey/server/ServerBootstrapBag."<init>":()V
+      66: astore        4
+      68: aload         4
+      70: aload_0
+      71: getfield      #24                 // Field managedObjectsFinalizer:Lorg/glassfish/jersey/model/internal/ManagedObjectsFinalizer;
+      74: invokevirtual #27                 // Method org/glassfish/jersey/server/ServerBootstrapBag.setManagedObjectsFinalizer:(Lorg/glassfish/jersey/model/internal/ManagedObjectsFinalizer;)V
+      77: bipush        17
+      79: anewarray     #28                 // class org/glassfish/jersey/internal/BootstrapConfigurator
+      82: dup
+      83: iconst_0
+      84: new           #29                 // class org/glassfish/jersey/server/internal/process/RequestProcessingConfigurator
+      87: dup
+      88: invokespecial #30                 // Method org/glassfish/jersey/server/internal/process/RequestProcessingConfigurator."<init>":()V
+      91: aastore
+      92: dup
+      93: iconst_1
+      94: new           #31                 // class org/glassfish/jersey/process/internal/RequestScope$RequestScopeConfigurator
+      97: dup
+      98: invokespecial #32                 // Method org/glassfish/jersey/process/internal/RequestScope$RequestScopeConfigurator."<init>":()V
+     101: aastore
+     102: dup
+     103: iconst_2
+     104: new           #33                 // class org/glassfish/jersey/internal/inject/ParamConverterConfigurator
+     107: dup
+     108: invokespecial #34                 // Method org/glassfish/jersey/internal/inject/ParamConverterConfigurator."<init>":()V
+     111: aastore
+     112: dup
+     113: iconst_3
+     114: new           #35                 // class org/glassfish/jersey/server/internal/inject/ParamExtractorConfigurator
+     117: dup
+     118: invokespecial #36                 // Method org/glassfish/jersey/server/internal/inject/ParamExtractorConfigurator."<init>":()V
+     121: aastore
+     122: dup
+     123: iconst_4
+     124: new           #37                 // class org/glassfish/jersey/server/internal/inject/ValueParamProviderConfigurator
+     127: dup
+     128: invokespecial #38                 // Method org/glassfish/jersey/server/internal/inject/ValueParamProviderConfigurator."<init>":()V
+     131: aastore
+     132: dup
+     133: iconst_5
+     134: new           #39                 // class org/glassfish/jersey/server/JerseyResourceContextConfigurator
+     137: dup
+     138: invokespecial #40                 // Method org/glassfish/jersey/server/JerseyResourceContextConfigurator."<init>":()V
+     141: aastore
+     142: dup
+     143: bipush        6
+     145: new           #41                 // class org/glassfish/jersey/server/ComponentProviderConfigurator
+     148: dup
+     149: invokespecial #42                 // Method org/glassfish/jersey/server/ComponentProviderConfigurator."<init>":()V
+     152: aastore
+     153: dup
+     154: bipush        7
+     156: new           #43                 // class org/glassfish/jersey/internal/JaxrsProviders$ProvidersConfigurator
+     159: dup
+     160: invokespecial #44                 // Method org/glassfish/jersey/internal/JaxrsProviders$ProvidersConfigurator."<init>":()V
+     163: aastore
+     164: dup
+     165: bipush        8
+     167: aload_1
+     168: aastore
+     169: dup
+     170: bipush        9
+     172: new           #45                 // class org/glassfish/jersey/server/ApplicationHandler$RuntimeConfigConfigurator
+     175: dup
+     176: aload_0
+     177: aconst_null
+     178: invokespecial #46                 // Method org/glassfish/jersey/server/ApplicationHandler$RuntimeConfigConfigurator."<init>":(Lorg/glassfish/jersey/server/ApplicationHandler;Lorg/glassfish/jersey/server/ApplicationHandler$1;)V
+     181: aastore
+     182: dup
+     183: bipush        10
+     185: new           #47                 // class org/glassfish/jersey/internal/ContextResolverFactory$ContextResolversConfigurator
+     188: dup
+     189: invokespecial #48                 // Method org/glassfish/jersey/internal/ContextResolverFactory$ContextResolversConfigurator."<init>":()V
+     192: aastore
+     193: dup
+     194: bipush        11
+     196: new           #49                 // class org/glassfish/jersey/message/internal/MessageBodyFactory$MessageBodyWorkersConfigurator
+     199: dup
+     200: invokespecial #50                 // Method org/glassfish/jersey/message/internal/MessageBodyFactory$MessageBodyWorkersConfigurator."<init>":()V
+     203: aastore
+     204: dup
+     205: bipush        12
+     207: new           #51                 // class org/glassfish/jersey/internal/ExceptionMapperFactory$ExceptionMappersConfigurator
+     210: dup
+     211: invokespecial #52                 // Method org/glassfish/jersey/internal/ExceptionMapperFactory$ExceptionMappersConfigurator."<init>":()V
+     214: aastore
+     215: dup
+     216: bipush        13
+     218: new           #53                 // class org/glassfish/jersey/server/model/internal/ResourceMethodInvokerConfigurator
+     221: dup
+     222: invokespecial #54                 // Method org/glassfish/jersey/server/model/internal/ResourceMethodInvokerConfigurator."<init>":()V
+     225: aastore
+     226: dup
+     227: bipush        14
+     229: new           #55                 // class org/glassfish/jersey/server/ProcessingProvidersConfigurator
+     232: dup
+     233: invokespecial #56                 // Method org/glassfish/jersey/server/ProcessingProvidersConfigurator."<init>":()V
+     236: aastore
+     237: dup
+     238: bipush        15
+     240: new           #57                 // class org/glassfish/jersey/server/ContainerProviderConfigurator
+     243: dup
+     244: getstatic     #58                 // Field javax/ws/rs/RuntimeType.SERVER:Ljavax/ws/rs/RuntimeType;
+     247: invokespecial #59                 // Method org/glassfish/jersey/server/ContainerProviderConfigurator."<init>":(Ljavax/ws/rs/RuntimeType;)V
+     250: aastore
+     251: dup
+     252: bipush        16
+     254: new           #60                 // class org/glassfish/jersey/internal/AutoDiscoverableConfigurator
+     257: dup
+     258: getstatic     #58                 // Field javax/ws/rs/RuntimeType.SERVER:Ljavax/ws/rs/RuntimeType;
+     261: invokespecial #61                 // Method org/glassfish/jersey/internal/AutoDiscoverableConfigurator."<init>":(Ljavax/ws/rs/RuntimeType;)V
+     264: aastore
+     265: invokestatic  #62                 // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+     268: astore        5
+     270: aload         5
+     272: aload_2
+     273: aload         4
+     275: invokedynamic #63,  0             // InvokeDynamic #0:accept:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/server/ServerBootstrapBag;)Ljava/util/function/Consumer;
+     280: invokeinterface #64,  2           // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+     285: aload_0
+     286: aload_0
+     287: aload_2
+     288: aload         5
+     290: aload         4
+     292: invokedynamic #65,  0             // InvokeDynamic #1:call:(Lorg/glassfish/jersey/server/ApplicationHandler;Lorg/glassfish/jersey/internal/inject/InjectionManager;Ljava/util/List;Lorg/glassfish/jersey/server/ServerBootstrapBag;)Lorg/glassfish/jersey/internal/util/Producer;
+     297: invokestatic  #66                 // Method org/glassfish/jersey/internal/Errors.processWithException:(Lorg/glassfish/jersey/internal/util/Producer;)Ljava/lang/Object;
+     300: checkcast     #67                 // class org/glassfish/jersey/server/ServerRuntime
+     303: putfield      #68                 // Field runtime:Lorg/glassfish/jersey/server/ServerRuntime;
+     306: aload_0
+     307: aload_2
+     308: ldc           #69                 // class org/glassfish/jersey/server/spi/ContainerLifecycleListener
+     310: invokestatic  #70                 // Method org/glassfish/jersey/internal/inject/Providers.getAllProviders:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Ljava/lang/Class;)Ljava/lang/Iterable;
+     313: putfield      #71                 // Field containerLifecycleListeners:Ljava/lang/Iterable;
+     316: return
+
+  private org.glassfish.jersey.server.ServerRuntime initialize(org.glassfish.jersey.internal.inject.InjectionManager, java.util.List<org.glassfish.jersey.internal.BootstrapConfigurator>, org.glassfish.jersey.server.ServerBootstrapBag);
+    descriptor: (Lorg/glassfish/jersey/internal/inject/InjectionManager;Ljava/util/List;Lorg/glassfish/jersey/server/ServerBootstrapBag;)Lorg/glassfish/jersey/server/ServerRuntime;
+    Code:
+       0: aload_0
+       1: aload_3
+       2: invokevirtual #72                 // Method org/glassfish/jersey/server/ServerBootstrapBag.getApplication:()Ljavax/ws/rs/core/Application;
+       5: putfield      #73                 // Field application:Ljavax/ws/rs/core/Application;
+       8: aload_0
+       9: aload_3
+      10: invokevirtual #74                 // Method org/glassfish/jersey/server/ServerBootstrapBag.getRuntimeConfig:()Lorg/glassfish/jersey/server/ResourceConfig;
+      13: putfield      #75                 // Field runtimeConfig:Lorg/glassfish/jersey/server/ResourceConfig;
+      16: aload_1
+      17: new           #76                 // class org/glassfish/jersey/message/internal/MessagingBinders$MessageBodyProviders
+      20: dup
+      21: aload_0
+      22: getfield      #73                 // Field application:Ljavax/ws/rs/core/Application;
+      25: invokevirtual #77                 // Method javax/ws/rs/core/Application.getProperties:()Ljava/util/Map;
+      28: getstatic     #58                 // Field javax/ws/rs/RuntimeType.SERVER:Ljavax/ws/rs/RuntimeType;
+      31: invokespecial #78                 // Method org/glassfish/jersey/message/internal/MessagingBinders$MessageBodyProviders."<init>":(Ljava/util/Map;Ljavax/ws/rs/RuntimeType;)V
+      34: invokeinterface #21,  2           // InterfaceMethod org/glassfish/jersey/internal/inject/InjectionManager.register:(Lorg/glassfish/jersey/internal/inject/Binder;)V
+      39: aload_0
+      40: getfield      #73                 // Field application:Ljavax/ws/rs/core/Application;
+      43: instanceof    #79                 // class org/glassfish/jersey/server/ResourceConfig
+      46: ifeq          59
+      49: aload_0
+      50: getfield      #73                 // Field application:Ljavax/ws/rs/core/Application;
+      53: checkcast     #79                 // class org/glassfish/jersey/server/ResourceConfig
+      56: invokevirtual #80                 // Method org/glassfish/jersey/server/ResourceConfig.lock:()V
+      59: aconst_null
+      60: astore        4
+      62: invokestatic  #81                 // Method org/glassfish/jersey/internal/Errors.mark:()V
+      65: aload_0
+      66: getfield      #75                 // Field runtimeConfig:Lorg/glassfish/jersey/server/ResourceConfig;
+      69: invokevirtual #82                 // Method org/glassfish/jersey/server/ResourceConfig.getProperties:()Ljava/util/Map;
+      72: getstatic     #58                 // Field javax/ws/rs/RuntimeType.SERVER:Ljavax/ws/rs/RuntimeType;
+      75: ldc           #84                 // String jersey.config.disableAutoDiscovery
+      77: getstatic     #85                 // Field java/lang/Boolean.FALSE:Ljava/lang/Boolean;
+      80: ldc           #86                 // class java/lang/Boolean
+      82: invokestatic  #87                 // Method org/glassfish/jersey/CommonProperties.getValue:(Ljava/util/Map;Ljavax/ws/rs/RuntimeType;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
+      85: checkcast     #86                 // class java/lang/Boolean
+      88: invokevirtual #88                 // Method java/lang/Boolean.booleanValue:()Z
+      91: ifne          109
+      94: aload_0
+      95: getfield      #75                 // Field runtimeConfig:Lorg/glassfish/jersey/server/ResourceConfig;
+      98: aload_1
+      99: aload_3
+     100: invokevirtual #89                 // Method org/glassfish/jersey/server/ServerBootstrapBag.getAutoDiscoverables:()Ljava/util/List;
+     103: invokevirtual #90                 // Method org/glassfish/jersey/server/ResourceConfig.configureAutoDiscoverableProviders:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Ljava/util/Collection;)V
+     106: goto          117
+     109: aload_0
+     110: getfield      #75                 // Field runtimeConfig:Lorg/glassfish/jersey/server/ResourceConfig;
+     113: aload_1
+     114: invokevirtual #91                 // Method org/glassfish/jersey/server/ResourceConfig.configureForcedAutoDiscoverableProviders:(Lorg/glassfish/jersey/internal/inject/InjectionManager;)V
+     117: aload_0
+     118: getfield      #75                 // Field runtimeConfig:Lorg/glassfish/jersey/server/ResourceConfig;
+     121: aload_1
+     122: aload_3
+     123: invokevirtual #92                 // Method org/glassfish/jersey/server/ServerBootstrapBag.getManagedObjectsFinalizer:()Lorg/glassfish/jersey/model/internal/ManagedObjectsFinalizer;
+     126: invokevirtual #93                 // Method org/glassfish/jersey/server/ResourceConfig.configureMetaProviders:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/model/internal/ManagedObjectsFinalizer;)V
+     129: new           #94                 // class org/glassfish/jersey/server/ResourceBagConfigurator
+     132: dup
+     133: invokespecial #95                 // Method org/glassfish/jersey/server/ResourceBagConfigurator."<init>":()V
+     136: astore        5
+     138: aload         5
+     140: aload_1
+     141: aload_3
+     142: invokevirtual #96                 // Method org/glassfish/jersey/server/ResourceBagConfigurator.init:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/internal/BootstrapBag;)V
+     145: aload_0
+     146: getfield      #75                 // Field runtimeConfig:Lorg/glassfish/jersey/server/ResourceConfig;
+     149: invokevirtual #80                 // Method org/glassfish/jersey/server/ResourceConfig.lock:()V
+     152: new           #97                 // class org/glassfish/jersey/server/ExternalRequestScopeConfigurator
+     155: dup
+     156: invokespecial #98                 // Method org/glassfish/jersey/server/ExternalRequestScopeConfigurator."<init>":()V
+     159: astore        6
+     161: aload         6
+     163: aload_1
+     164: aload_3
+     165: invokevirtual #99                 // Method org/glassfish/jersey/server/ExternalRequestScopeConfigurator.init:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/internal/BootstrapBag;)V
+     168: new           #100                // class org/glassfish/jersey/server/ModelProcessorConfigurator
+     171: dup
+     172: invokespecial #101                // Method org/glassfish/jersey/server/ModelProcessorConfigurator."<init>":()V
+     175: astore        7
+     177: aload         7
+     179: aload_1
+     180: aload_3
+     181: invokevirtual #102                // Method org/glassfish/jersey/server/ModelProcessorConfigurator.init:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/internal/BootstrapBag;)V
+     184: new           #103                // class org/glassfish/jersey/server/ResourceModelConfigurator
+     187: dup
+     188: invokespecial #104                // Method org/glassfish/jersey/server/ResourceModelConfigurator."<init>":()V
+     191: astore        8
+     193: aload         8
+     195: aload_1
+     196: aload_3
+     197: invokevirtual #105                // Method org/glassfish/jersey/server/ResourceModelConfigurator.init:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/internal/BootstrapBag;)V
+     200: new           #106                // class org/glassfish/jersey/server/ServerExecutorProvidersConfigurator
+     203: dup
+     204: invokespecial #107                // Method org/glassfish/jersey/server/ServerExecutorProvidersConfigurator."<init>":()V
+     207: astore        9
+     209: aload         9
+     211: aload_1
+     212: aload_3
+     213: invokevirtual #108                // Method org/glassfish/jersey/server/ServerExecutorProvidersConfigurator.init:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/internal/BootstrapBag;)V
+     216: aload_1
+     217: invokeinterface #109,  1          // InterfaceMethod org/glassfish/jersey/internal/inject/InjectionManager.completeRegistration:()V
+     222: aload_2
+     223: aload_1
+     224: aload_3
+     225: invokedynamic #110,  0            // InvokeDynamic #2:accept:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/server/ServerBootstrapBag;)Ljava/util/function/Consumer;
+     230: invokeinterface #64,  2           // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+     235: aload         8
+     237: aload_1
+     238: aload_3
+     239: invokevirtual #111                // Method org/glassfish/jersey/server/ResourceModelConfigurator.postInit:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/internal/BootstrapBag;)V
+     242: aload_1
+     243: ldc           #112                // class org/glassfish/jersey/server/monitoring/ApplicationEventListener
+     245: new           #113                // class org/glassfish/jersey/model/internal/RankedComparator
+     248: dup
+     249: invokespecial #114                // Method org/glassfish/jersey/model/internal/RankedComparator."<init>":()V
+     252: invokestatic  #115                // Method org/glassfish/jersey/internal/inject/Providers.getAllProviders:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Ljava/lang/Class;Lorg/glassfish/jersey/model/internal/RankedComparator;)Ljava/lang/Iterable;
+     255: astore        10
+     257: aload         10
+     259: invokeinterface #116,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+     264: invokeinterface #117,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     269: ifeq          329
+     272: aload_3
+     273: invokevirtual #118                // Method org/glassfish/jersey/server/ServerBootstrapBag.getResourceBag:()Lorg/glassfish/jersey/server/ResourceBag;
+     276: astore        11
+     278: new           #119                // class org/glassfish/jersey/server/internal/monitoring/CompositeApplicationEventListener
+     281: dup
+     282: aload         10
+     284: invokespecial #120                // Method org/glassfish/jersey/server/internal/monitoring/CompositeApplicationEventListener."<init>":(Ljava/lang/Iterable;)V
+     287: astore        4
+     289: aload         4
+     291: new           #121                // class org/glassfish/jersey/server/internal/monitoring/ApplicationEventImpl
+     294: dup
+     295: getstatic     #122                // Field org/glassfish/jersey/server/monitoring/ApplicationEvent$Type.INITIALIZATION_START:Lorg/glassfish/jersey/server/monitoring/ApplicationEvent$Type;
+     298: aload_0
+     299: getfield      #75                 // Field runtimeConfig:Lorg/glassfish/jersey/server/ResourceConfig;
+     302: aload_0
+     303: getfield      #75                 // Field runtimeConfig:Lorg/glassfish/jersey/server/ResourceConfig;
+     306: invokevirtual #123                // Method org/glassfish/jersey/server/ResourceConfig.getComponentBag:()Lorg/glassfish/jersey/model/internal/ComponentBag;
+     309: invokevirtual #124                // Method org/glassfish/jersey/model/internal/ComponentBag.getRegistrations:()Ljava/util/Set;
+     312: aload         11
+     314: getfield      #125                // Field org/glassfish/jersey/server/ResourceBag.classes:Ljava/util/Set;
+     317: aload         11
+     319: getfield      #126                // Field org/glassfish/jersey/server/ResourceBag.instances:Ljava/util/Set;
+     322: aconst_null
+     323: invokespecial #127                // Method org/glassfish/jersey/server/internal/monitoring/ApplicationEventImpl."<init>":(Lorg/glassfish/jersey/server/monitoring/ApplicationEvent$Type;Lorg/glassfish/jersey/server/ResourceConfig;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Lorg/glassfish/jersey/server/model/ResourceModel;)V
+     326: invokevirtual #128                // Method org/glassfish/jersey/server/internal/monitoring/CompositeApplicationEventListener.onEvent:(Lorg/glassfish/jersey/server/monitoring/ApplicationEvent;)V
+     329: aload_0
+     330: invokespecial #129                // Method disableValidation:()Z
+     333: ifne          362
+     336: new           #130                // class org/glassfish/jersey/server/model/ComponentModelValidator
+     339: dup
+     340: aload_3
+     341: invokevirtual #131                // Method org/glassfish/jersey/server/ServerBootstrapBag.getValueParamProviders:()Ljava/util/Collection;
+     344: aload_3
+     345: invokevirtual #132                // Method org/glassfish/jersey/server/ServerBootstrapBag.getMessageBodyWorkers:()Lorg/glassfish/jersey/message/MessageBodyWorkers;
+     348: invokespecial #133                // Method org/glassfish/jersey/server/model/ComponentModelValidator."<init>":(Ljava/util/Collection;Lorg/glassfish/jersey/message/MessageBodyWorkers;)V
+     351: astore        11
+     353: aload         11
+     355: aload_3
+     356: invokevirtual #134                // Method org/glassfish/jersey/server/ServerBootstrapBag.getResourceModel:()Lorg/glassfish/jersey/server/model/ResourceModel;
+     359: invokevirtual #135                // Method org/glassfish/jersey/server/model/ComponentModelValidator.validate:(Lorg/glassfish/jersey/server/model/ResourceModelComponent;)V
+     362: invokestatic  #136                // Method org/glassfish/jersey/internal/Errors.fatalIssuesFound:()Z
+     365: ifeq          390
+     368: aload_0
+     369: invokespecial #137                // Method ignoreValidationError:()Z
+     372: ifne          390
+     375: new           #138                // class org/glassfish/jersey/server/model/ModelValidationException
+     378: dup
+     379: invokestatic  #139                // Method org/glassfish/jersey/server/internal/LocalizationMessages.RESOURCE_MODEL_VALIDATION_FAILED_AT_INIT:()Ljava/lang/String;
+     382: iconst_1
+     383: invokestatic  #140                // Method org/glassfish/jersey/server/model/internal/ModelErrors.getErrorsAsResourceModelIssues:(Z)Ljava/util/List;
+     386: invokespecial #141                // Method org/glassfish/jersey/server/model/ModelValidationException."<init>":(Ljava/lang/String;Ljava/util/List;)V
+     389: athrow
+     390: aload_0
+     391: invokespecial #137                // Method ignoreValidationError:()Z
+     394: ifeq          408
+     397: iconst_1
+     398: invokestatic  #142                // Method org/glassfish/jersey/internal/Errors.logErrors:(Z)Z
+     401: pop
+     402: invokestatic  #143                // Method org/glassfish/jersey/internal/Errors.reset:()V
+     405: goto          440
+     408: invokestatic  #144                // Method org/glassfish/jersey/internal/Errors.unmark:()V
+     411: goto          440
+     414: astore        12
+     416: aload_0
+     417: invokespecial #137                // Method ignoreValidationError:()Z
+     420: ifeq          434
+     423: iconst_1
+     424: invokestatic  #142                // Method org/glassfish/jersey/internal/Errors.logErrors:(Z)Z
+     427: pop
+     428: invokestatic  #143                // Method org/glassfish/jersey/internal/Errors.reset:()V
+     431: goto          437
+     434: invokestatic  #144                // Method org/glassfish/jersey/internal/Errors.unmark:()V
+     437: aload         12
+     439: athrow
+     440: aload_0
+     441: aload_3
+     442: invokevirtual #132                // Method org/glassfish/jersey/server/ServerBootstrapBag.getMessageBodyWorkers:()Lorg/glassfish/jersey/message/MessageBodyWorkers;
+     445: putfield      #145                // Field msgBodyWorkers:Lorg/glassfish/jersey/message/MessageBodyWorkers;
+     448: aload_3
+     449: invokevirtual #146                // Method org/glassfish/jersey/server/ServerBootstrapBag.getProcessingProviders:()Lorg/glassfish/jersey/server/internal/ProcessingProviders;
+     452: astore        5
+     454: new           #147                // class org/glassfish/jersey/server/ContainerFilteringStage
+     457: dup
+     458: aload         5
+     460: invokevirtual #148                // Method org/glassfish/jersey/server/internal/ProcessingProviders.getPreMatchFilters:()Ljava/util/List;
+     463: aload         5
+     465: invokevirtual #149                // Method org/glassfish/jersey/server/internal/ProcessingProviders.getGlobalResponseFilters:()Ljava/lang/Iterable;
+     468: invokespecial #150                // Method org/glassfish/jersey/server/ContainerFilteringStage."<init>":(Ljava/lang/Iterable;Ljava/lang/Iterable;)V
+     471: astore        6
+     473: aload_3
+     474: invokevirtual #134                // Method org/glassfish/jersey/server/ServerBootstrapBag.getResourceModel:()Lorg/glassfish/jersey/server/model/ResourceModel;
+     477: invokevirtual #151                // Method org/glassfish/jersey/server/model/ResourceModel.getRuntimeResourceModel:()Lorg/glassfish/jersey/server/model/RuntimeResourceModel;
+     480: invokestatic  #152                // Method org/glassfish/jersey/server/internal/routing/Routing.forModel:(Lorg/glassfish/jersey/server/model/RuntimeResourceModel;)Lorg/glassfish/jersey/server/internal/routing/Routing$Builder;
+     483: aload_3
+     484: invokevirtual #153                // Method org/glassfish/jersey/server/ServerBootstrapBag.getResourceContext:()Lorg/glassfish/jersey/server/internal/JerseyResourceContext;
+     487: invokevirtual #154                // Method org/glassfish/jersey/server/internal/routing/Routing$Builder.resourceContext:(Lorg/glassfish/jersey/server/internal/JerseyResourceContext;)Lorg/glassfish/jersey/server/internal/routing/Routing$Builder;
+     490: aload_0
+     491: getfield      #75                 // Field runtimeConfig:Lorg/glassfish/jersey/server/ResourceConfig;
+     494: invokevirtual #155                // Method org/glassfish/jersey/server/internal/routing/Routing$Builder.configuration:(Ljavax/ws/rs/core/Configuration;)Lorg/glassfish/jersey/server/internal/routing/Routing$Builder;
+     497: aload_0
+     498: getfield      #145                // Field msgBodyWorkers:Lorg/glassfish/jersey/message/MessageBodyWorkers;
+     501: invokevirtual #156                // Method org/glassfish/jersey/server/internal/routing/Routing$Builder.entityProviders:(Lorg/glassfish/jersey/message/MessageBodyWorkers;)Lorg/glassfish/jersey/server/internal/routing/Routing$Builder;
+     504: aload_3
+     505: invokevirtual #131                // Method org/glassfish/jersey/server/ServerBootstrapBag.getValueParamProviders:()Ljava/util/Collection;
+     508: invokevirtual #157                // Method org/glassfish/jersey/server/internal/routing/Routing$Builder.valueSupplierProviders:(Ljava/util/Collection;)Lorg/glassfish/jersey/server/internal/routing/Routing$Builder;
+     511: aload_1
+     512: ldc           #158                // class org/glassfish/jersey/server/model/ModelProcessor
+     514: invokestatic  #159                // Method org/glassfish/jersey/internal/inject/Providers.getAllRankedSortedProviders:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Ljava/lang/Class;)Ljava/lang/Iterable;
+     517: invokevirtual #160                // Method org/glassfish/jersey/server/internal/routing/Routing$Builder.modelProcessors:(Ljava/lang/Iterable;)Lorg/glassfish/jersey/server/internal/routing/Routing$Builder;
+     520: aload_1
+     521: invokedynamic #161,  0            // InvokeDynamic #3:apply:(Lorg/glassfish/jersey/internal/inject/InjectionManager;)Ljava/util/function/Function;
+     526: invokevirtual #162                // Method org/glassfish/jersey/server/internal/routing/Routing$Builder.createService:(Ljava/util/function/Function;)Lorg/glassfish/jersey/server/internal/routing/Routing$Builder;
+     529: aload         5
+     531: invokevirtual #163                // Method org/glassfish/jersey/server/internal/routing/Routing$Builder.processingProviders:(Lorg/glassfish/jersey/server/internal/ProcessingProviders;)Lorg/glassfish/jersey/server/internal/routing/Routing$Builder;
+     534: aload_3
+     535: invokevirtual #164                // Method org/glassfish/jersey/server/ServerBootstrapBag.getResourceMethodInvokerBuilder:()Lorg/glassfish/jersey/server/model/ResourceMethodInvoker$Builder;
+     538: invokevirtual #165                // Method org/glassfish/jersey/server/internal/routing/Routing$Builder.resourceMethodInvokerBuilder:(Lorg/glassfish/jersey/server/model/ResourceMethodInvoker$Builder;)Lorg/glassfish/jersey/server/internal/routing/Routing$Builder;
+     541: invokevirtual #166                // Method org/glassfish/jersey/server/internal/routing/Routing$Builder.buildStage:()Lorg/glassfish/jersey/process/internal/ChainableStage;
+     544: astore        7
+     546: new           #147                // class org/glassfish/jersey/server/ContainerFilteringStage
+     549: dup
+     550: aload         5
+     552: invokevirtual #167                // Method org/glassfish/jersey/server/internal/ProcessingProviders.getGlobalRequestFilters:()Ljava/lang/Iterable;
+     555: aconst_null
+     556: invokespecial #150                // Method org/glassfish/jersey/server/ContainerFilteringStage."<init>":(Ljava/lang/Iterable;Ljava/lang/Iterable;)V
+     559: astore        8
+     561: new           #168                // class org/glassfish/jersey/server/internal/process/ReferencesInitializer
+     564: dup
+     565: aload_1
+     566: aload_1
+     567: invokedynamic #169,  0            // InvokeDynamic #4:get:(Lorg/glassfish/jersey/internal/inject/InjectionManager;)Ljavax/inject/Provider;
+     572: invokespecial #170                // Method org/glassfish/jersey/server/internal/process/ReferencesInitializer."<init>":(Lorg/glassfish/jersey/internal/inject/InjectionManager;Ljavax/inject/Provider;)V
+     575: astore        9
+     577: aload         9
+     579: invokestatic  #171                // Method org/glassfish/jersey/process/internal/Stages.chain:(Ljava/util/function/Function;)Lorg/glassfish/jersey/process/internal/Stage$Builder;
+     582: aload         6
+     584: invokeinterface #172,  2          // InterfaceMethod org/glassfish/jersey/process/internal/Stage$Builder.to:(Lorg/glassfish/jersey/process/internal/ChainableStage;)Lorg/glassfish/jersey/process/internal/Stage$Builder;
+     589: aload         7
+     591: invokeinterface #172,  2          // InterfaceMethod org/glassfish/jersey/process/internal/Stage$Builder.to:(Lorg/glassfish/jersey/process/internal/ChainableStage;)Lorg/glassfish/jersey/process/internal/Stage$Builder;
+     596: aload         8
+     598: invokeinterface #172,  2          // InterfaceMethod org/glassfish/jersey/process/internal/Stage$Builder.to:(Lorg/glassfish/jersey/process/internal/ChainableStage;)Lorg/glassfish/jersey/process/internal/Stage$Builder;
+     603: invokestatic  #173                // Method org/glassfish/jersey/server/internal/routing/Routing.matchedEndpointExtractor:()Lorg/glassfish/jersey/process/internal/Stage;
+     606: invokeinterface #174,  2          // InterfaceMethod org/glassfish/jersey/process/internal/Stage$Builder.build:(Lorg/glassfish/jersey/process/internal/Stage;)Lorg/glassfish/jersey/process/internal/Stage;
+     611: astore        10
+     613: aload_1
+     614: aload_3
+     615: aload         10
+     617: aload         4
+     619: aload         5
+     621: invokestatic  #175                // Method org/glassfish/jersey/server/ServerRuntime.createServerRuntime:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/server/ServerBootstrapBag;Lorg/glassfish/jersey/process/internal/Stage;Lorg/glassfish/jersey/server/monitoring/ApplicationEventListener;Lorg/glassfish/jersey/server/internal/ProcessingProviders;)Lorg/glassfish/jersey/server/ServerRuntime;
+     624: astore        11
+     626: aload_0
+     627: getfield      #75                 // Field runtimeConfig:Lorg/glassfish/jersey/server/ResourceConfig;
+     630: invokevirtual #123                // Method org/glassfish/jersey/server/ResourceConfig.getComponentBag:()Lorg/glassfish/jersey/model/internal/ComponentBag;
+     633: astore        12
+     635: aload_3
+     636: invokevirtual #118                // Method org/glassfish/jersey/server/ServerBootstrapBag.getResourceBag:()Lorg/glassfish/jersey/server/ResourceBag;
+     639: astore        13
+     641: aload         12
+     643: aload_1
+     644: invokestatic  #176                // Method org/glassfish/jersey/model/internal/ComponentBag.excludeMetaProviders:(Lorg/glassfish/jersey/internal/inject/InjectionManager;)Ljava/util/function/Predicate;
+     647: invokevirtual #177                // Method org/glassfish/jersey/model/internal/ComponentBag.getInstances:(Ljava/util/function/Predicate;)Ljava/util/Set;
+     650: invokeinterface #178,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+     655: astore        14
+     657: aload         14
+     659: invokeinterface #117,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     664: ifeq          687
+     667: aload         14
+     669: invokeinterface #179,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     674: astore        15
+     676: aload_1
+     677: aload         15
+     679: invokeinterface #180,  2          // InterfaceMethod org/glassfish/jersey/internal/inject/InjectionManager.inject:(Ljava/lang/Object;)V
+     684: goto          657
+     687: aload         13
+     689: getfield      #126                // Field org/glassfish/jersey/server/ResourceBag.instances:Ljava/util/Set;
+     692: invokeinterface #178,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+     697: astore        14
+     699: aload         14
+     701: invokeinterface #117,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     706: ifeq          729
+     709: aload         14
+     711: invokeinterface #179,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     716: astore        15
+     718: aload_1
+     719: aload         15
+     721: invokeinterface #180,  2          // InterfaceMethod org/glassfish/jersey/internal/inject/InjectionManager.inject:(Ljava/lang/Object;)V
+     726: goto          699
+     729: aload_1
+     730: aload         13
+     732: aload         5
+     734: invokestatic  #181                // Method logApplicationInitConfiguration:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/server/ResourceBag;Lorg/glassfish/jersey/server/internal/ProcessingProviders;)V
+     737: aload         4
+     739: ifnull        806
+     742: new           #121                // class org/glassfish/jersey/server/internal/monitoring/ApplicationEventImpl
+     745: dup
+     746: getstatic     #182                // Field org/glassfish/jersey/server/monitoring/ApplicationEvent$Type.INITIALIZATION_APP_FINISHED:Lorg/glassfish/jersey/server/monitoring/ApplicationEvent$Type;
+     749: aload_0
+     750: getfield      #75                 // Field runtimeConfig:Lorg/glassfish/jersey/server/ResourceConfig;
+     753: aload         12
+     755: invokevirtual #124                // Method org/glassfish/jersey/model/internal/ComponentBag.getRegistrations:()Ljava/util/Set;
+     758: aload         13
+     760: getfield      #125                // Field org/glassfish/jersey/server/ResourceBag.classes:Ljava/util/Set;
+     763: aload         13
+     765: getfield      #126                // Field org/glassfish/jersey/server/ResourceBag.instances:Ljava/util/Set;
+     768: aload_3
+     769: invokevirtual #134                // Method org/glassfish/jersey/server/ServerBootstrapBag.getResourceModel:()Lorg/glassfish/jersey/server/model/ResourceModel;
+     772: invokespecial #127                // Method org/glassfish/jersey/server/internal/monitoring/ApplicationEventImpl."<init>":(Lorg/glassfish/jersey/server/monitoring/ApplicationEvent$Type;Lorg/glassfish/jersey/server/ResourceConfig;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Lorg/glassfish/jersey/server/model/ResourceModel;)V
+     775: astore        14
+     777: aload         4
+     779: aload         14
+     781: invokevirtual #128                // Method org/glassfish/jersey/server/internal/monitoring/CompositeApplicationEventListener.onEvent:(Lorg/glassfish/jersey/server/monitoring/ApplicationEvent;)V
+     784: aload_1
+     785: ldc           #183                // class org/glassfish/jersey/server/internal/monitoring/MonitoringContainerListener
+     787: invokeinterface #184,  2          // InterfaceMethod org/glassfish/jersey/internal/inject/InjectionManager.getInstance:(Ljava/lang/Class;)Ljava/lang/Object;
+     792: checkcast     #183                // class org/glassfish/jersey/server/internal/monitoring/MonitoringContainerListener
+     795: astore        15
+     797: aload         15
+     799: aload         4
+     801: aload         14
+     803: invokevirtual #185                // Method org/glassfish/jersey/server/internal/monitoring/MonitoringContainerListener.init:(Lorg/glassfish/jersey/server/monitoring/ApplicationEventListener;Lorg/glassfish/jersey/server/monitoring/ApplicationEvent;)V
+     806: aload         11
+     808: areturn
+    Exception table:
+       from    to  target type
+          65   390   414   any
+         414   416   414   any
+
+  private boolean ignoreValidationError();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: getfield      #75                 // Field runtimeConfig:Lorg/glassfish/jersey/server/ResourceConfig;
+       4: invokevirtual #82                 // Method org/glassfish/jersey/server/ResourceConfig.getProperties:()Ljava/util/Map;
+       7: ldc           #187                // String jersey.config.server.resource.validation.ignoreErrors
+       9: getstatic     #85                 // Field java/lang/Boolean.FALSE:Ljava/lang/Boolean;
+      12: ldc           #86                 // class java/lang/Boolean
+      14: invokestatic  #188                // Method org/glassfish/jersey/server/ServerProperties.getValue:(Ljava/util/Map;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
+      17: checkcast     #86                 // class java/lang/Boolean
+      20: invokevirtual #88                 // Method java/lang/Boolean.booleanValue:()Z
+      23: ireturn
+
+  private boolean disableValidation();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: getfield      #75                 // Field runtimeConfig:Lorg/glassfish/jersey/server/ResourceConfig;
+       4: invokevirtual #82                 // Method org/glassfish/jersey/server/ResourceConfig.getProperties:()Ljava/util/Map;
+       7: ldc           #189                // String jersey.config.server.resource.validation.disable
+       9: getstatic     #85                 // Field java/lang/Boolean.FALSE:Ljava/lang/Boolean;
+      12: ldc           #86                 // class java/lang/Boolean
+      14: invokestatic  #188                // Method org/glassfish/jersey/server/ServerProperties.getValue:(Ljava/util/Map;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
+      17: checkcast     #86                 // class java/lang/Boolean
+      20: invokevirtual #88                 // Method java/lang/Boolean.booleanValue:()Z
+      23: ireturn
+
+  private static void logApplicationInitConfiguration(org.glassfish.jersey.internal.inject.InjectionManager, org.glassfish.jersey.server.ResourceBag, org.glassfish.jersey.server.internal.ProcessingProviders);
+    descriptor: (Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/server/ResourceBag;Lorg/glassfish/jersey/server/internal/ProcessingProviders;)V
+    Code:
+       0: getstatic     #12                 // Field LOGGER:Ljava/util/logging/Logger;
+       3: getstatic     #190                // Field java/util/logging/Level.CONFIG:Ljava/util/logging/Level;
+       6: invokevirtual #191                // Method java/util/logging/Logger.isLoggable:(Ljava/util/logging/Level;)Z
+       9: ifne          13
+      12: return
+      13: new           #192                // class java/lang/StringBuilder
+      16: dup
+      17: invokestatic  #193                // Method org/glassfish/jersey/server/internal/LocalizationMessages.LOGGING_APPLICATION_INITIALIZED:()Ljava/lang/String;
+      20: invokespecial #194                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+      23: bipush        10
+      25: invokevirtual #195                // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      28: astore_3
+      29: aload_1
+      30: invokevirtual #196                // Method org/glassfish/jersey/server/ResourceBag.getRootResources:()Ljava/util/List;
+      33: astore        4
+      35: aload         4
+      37: invokeinterface #197,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+      42: ifne          149
+      45: aload_3
+      46: invokestatic  #198                // Method org/glassfish/jersey/server/internal/LocalizationMessages.LOGGING_ROOT_RESOURCE_CLASSES:()Ljava/lang/String;
+      49: invokevirtual #199                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      52: ldc           #200                // String :
+      54: invokevirtual #199                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      57: pop
+      58: aload         4
+      60: invokeinterface #201,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      65: astore        5
+      67: aload         5
+      69: invokeinterface #117,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      74: ifeq          149
+      77: aload         5
+      79: invokeinterface #179,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      84: checkcast     #202                // class org/glassfish/jersey/server/model/Resource
+      87: astore        6
+      89: aload         6
+      91: invokevirtual #203                // Method org/glassfish/jersey/server/model/Resource.getHandlerClasses:()Ljava/util/Set;
+      94: invokeinterface #178,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      99: astore        7
+     101: aload         7
+     103: invokeinterface #117,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+     108: ifeq          146
+     111: aload         7
+     113: invokeinterface #179,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     118: checkcast     #204                // class java/lang/Class
+     121: astore        8
+     123: aload_3
+     124: bipush        10
+     126: invokevirtual #195                // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+     129: ldc           #205                // String
+     131: invokevirtual #199                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     134: aload         8
+     136: invokevirtual #206                // Method java/lang/Class.getName:()Ljava/lang/String;
+     139: invokevirtual #199                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     142: pop
+     143: goto          101
+     146: goto          67
+     149: aload_3
+     150: bipush        10
+     152: invokevirtual #195                // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+     155: pop
+     156: getstatic     #12                 // Field LOGGER:Ljava/util/logging/Logger;
+     159: getstatic     #207                // Field java/util/logging/Level.FINE:Ljava/util/logging/Level;
+     162: invokevirtual #191                // Method java/util/logging/Logger.isLoggable:(Ljava/util/logging/Level;)Z
+     165: ifeq          235
+     168: aload_0
+     169: ldc           #208                // class javax/ws/rs/ext/MessageBodyReader
+     171: invokestatic  #70                 // Method org/glassfish/jersey/internal/inject/Providers.getAllProviders:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Ljava/lang/Class;)Ljava/lang/Iterable;
+     174: invokeinterface #209,  1          // InterfaceMethod java/lang/Iterable.spliterator:()Ljava/util/Spliterator;
+     179: astore        7
+     181: aload         7
+     183: iconst_0
+     184: invokestatic  #210                // Method java/util/stream/StreamSupport.stream:(Ljava/util/Spliterator;Z)Ljava/util/stream/Stream;
+     187: invokestatic  #211                // Method java/util/stream/Collectors.toSet:()Ljava/util/stream/Collector;
+     190: invokeinterface #212,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+     195: checkcast     #213                // class java/util/Set
+     198: astore        5
+     200: aload_0
+     201: ldc           #214                // class javax/ws/rs/ext/MessageBodyWriter
+     203: invokestatic  #70                 // Method org/glassfish/jersey/internal/inject/Providers.getAllProviders:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Ljava/lang/Class;)Ljava/lang/Iterable;
+     206: invokeinterface #209,  1          // InterfaceMethod java/lang/Iterable.spliterator:()Ljava/util/Spliterator;
+     211: astore        8
+     213: aload         8
+     215: iconst_0
+     216: invokestatic  #210                // Method java/util/stream/StreamSupport.stream:(Ljava/util/Spliterator;Z)Ljava/util/stream/Stream;
+     219: invokestatic  #211                // Method java/util/stream/Collectors.toSet:()Ljava/util/stream/Collector;
+     222: invokeinterface #212,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+     227: checkcast     #213                // class java/util/Set
+     230: astore        6
+     232: goto          251
+     235: aload_0
+     236: ldc           #208                // class javax/ws/rs/ext/MessageBodyReader
+     238: invokestatic  #215                // Method org/glassfish/jersey/internal/inject/Providers.getCustomProviders:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Ljava/lang/Class;)Ljava/util/Set;
+     241: astore        5
+     243: aload_0
+     244: ldc           #214                // class javax/ws/rs/ext/MessageBodyWriter
+     246: invokestatic  #215                // Method org/glassfish/jersey/internal/inject/Providers.getCustomProviders:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Ljava/lang/Class;)Ljava/util/Set;
+     249: astore        6
+     251: invokestatic  #216                // Method org/glassfish/jersey/server/internal/LocalizationMessages.LOGGING_PRE_MATCH_FILTERS:()Ljava/lang/String;
+     254: aload_2
+     255: invokevirtual #148                // Method org/glassfish/jersey/server/internal/ProcessingProviders.getPreMatchFilters:()Ljava/util/List;
+     258: aload_3
+     259: invokestatic  #217                // Method printProviders:(Ljava/lang/String;Ljava/lang/Iterable;Ljava/lang/StringBuilder;)V
+     262: invokestatic  #218                // Method org/glassfish/jersey/server/internal/LocalizationMessages.LOGGING_GLOBAL_REQUEST_FILTERS:()Ljava/lang/String;
+     265: aload_2
+     266: invokevirtual #167                // Method org/glassfish/jersey/server/internal/ProcessingProviders.getGlobalRequestFilters:()Ljava/lang/Iterable;
+     269: aload_3
+     270: invokestatic  #217                // Method printProviders:(Ljava/lang/String;Ljava/lang/Iterable;Ljava/lang/StringBuilder;)V
+     273: invokestatic  #219                // Method org/glassfish/jersey/server/internal/LocalizationMessages.LOGGING_GLOBAL_RESPONSE_FILTERS:()Ljava/lang/String;
+     276: aload_2
+     277: invokevirtual #149                // Method org/glassfish/jersey/server/internal/ProcessingProviders.getGlobalResponseFilters:()Ljava/lang/Iterable;
+     280: aload_3
+     281: invokestatic  #217                // Method printProviders:(Ljava/lang/String;Ljava/lang/Iterable;Ljava/lang/StringBuilder;)V
+     284: invokestatic  #220                // Method org/glassfish/jersey/server/internal/LocalizationMessages.LOGGING_GLOBAL_READER_INTERCEPTORS:()Ljava/lang/String;
+     287: aload_2
+     288: invokevirtual #221                // Method org/glassfish/jersey/server/internal/ProcessingProviders.getGlobalReaderInterceptors:()Ljava/lang/Iterable;
+     291: aload_3
+     292: invokestatic  #217                // Method printProviders:(Ljava/lang/String;Ljava/lang/Iterable;Ljava/lang/StringBuilder;)V
+     295: invokestatic  #222                // Method org/glassfish/jersey/server/internal/LocalizationMessages.LOGGING_GLOBAL_WRITER_INTERCEPTORS:()Ljava/lang/String;
+     298: aload_2
+     299: invokevirtual #223                // Method org/glassfish/jersey/server/internal/ProcessingProviders.getGlobalWriterInterceptors:()Ljava/lang/Iterable;
+     302: aload_3
+     303: invokestatic  #217                // Method printProviders:(Ljava/lang/String;Ljava/lang/Iterable;Ljava/lang/StringBuilder;)V
+     306: invokestatic  #224                // Method org/glassfish/jersey/server/internal/LocalizationMessages.LOGGING_NAME_BOUND_REQUEST_FILTERS:()Ljava/lang/String;
+     309: aload_2
+     310: invokevirtual #225                // Method org/glassfish/jersey/server/internal/ProcessingProviders.getNameBoundRequestFilters:()Ljavax/ws/rs/core/MultivaluedMap;
+     313: aload_3
+     314: invokestatic  #226                // Method printNameBoundProviders:(Ljava/lang/String;Ljava/util/Map;Ljava/lang/StringBuilder;)V
+     317: invokestatic  #227                // Method org/glassfish/jersey/server/internal/LocalizationMessages.LOGGING_NAME_BOUND_RESPONSE_FILTERS:()Ljava/lang/String;
+     320: aload_2
+     321: invokevirtual #228                // Method org/glassfish/jersey/server/internal/ProcessingProviders.getNameBoundResponseFilters:()Ljavax/ws/rs/core/MultivaluedMap;
+     324: aload_3
+     325: invokestatic  #226                // Method printNameBoundProviders:(Ljava/lang/String;Ljava/util/Map;Ljava/lang/StringBuilder;)V
+     328: invokestatic  #229                // Method org/glassfish/jersey/server/internal/LocalizationMessages.LOGGING_NAME_BOUND_READER_INTERCEPTORS:()Ljava/lang/String;
+     331: aload_2
+     332: invokevirtual #230                // Method org/glassfish/jersey/server/internal/ProcessingProviders.getNameBoundReaderInterceptors:()Ljavax/ws/rs/core/MultivaluedMap;
+     335: aload_3
+     336: invokestatic  #226                // Method printNameBoundProviders:(Ljava/lang/String;Ljava/util/Map;Ljava/lang/StringBuilder;)V
+     339: invokestatic  #231                // Method org/glassfish/jersey/server/internal/LocalizationMessages.LOGGING_NAME_BOUND_WRITER_INTERCEPTORS:()Ljava/lang/String;
+     342: aload_2
+     343: invokevirtual #232                // Method org/glassfish/jersey/server/internal/ProcessingProviders.getNameBoundWriterInterceptors:()Ljavax/ws/rs/core/MultivaluedMap;
+     346: aload_3
+     347: invokestatic  #226                // Method printNameBoundProviders:(Ljava/lang/String;Ljava/util/Map;Ljava/lang/StringBuilder;)V
+     350: invokestatic  #233                // Method org/glassfish/jersey/server/internal/LocalizationMessages.LOGGING_DYNAMIC_FEATURES:()Ljava/lang/String;
+     353: aload_2
+     354: invokevirtual #234                // Method org/glassfish/jersey/server/internal/ProcessingProviders.getDynamicFeatures:()Ljava/lang/Iterable;
+     357: aload_3
+     358: invokestatic  #217                // Method printProviders:(Ljava/lang/String;Ljava/lang/Iterable;Ljava/lang/StringBuilder;)V
+     361: invokestatic  #235                // Method org/glassfish/jersey/server/internal/LocalizationMessages.LOGGING_MESSAGE_BODY_READERS:()Ljava/lang/String;
+     364: aload         5
+     366: invokeinterface #236,  1          // InterfaceMethod java/util/Set.stream:()Ljava/util/stream/Stream;
+     371: new           #237                // class org/glassfish/jersey/server/ApplicationHandler$WorkersToStringTransform
+     374: dup
+     375: aconst_null
+     376: invokespecial #238                // Method org/glassfish/jersey/server/ApplicationHandler$WorkersToStringTransform."<init>":(Lorg/glassfish/jersey/server/ApplicationHandler$1;)V
+     379: invokeinterface #239,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+     384: invokestatic  #240                // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+     387: invokeinterface #212,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+     392: checkcast     #241                // class java/lang/Iterable
+     395: aload_3
+     396: invokestatic  #217                // Method printProviders:(Ljava/lang/String;Ljava/lang/Iterable;Ljava/lang/StringBuilder;)V
+     399: invokestatic  #242                // Method org/glassfish/jersey/server/internal/LocalizationMessages.LOGGING_MESSAGE_BODY_WRITERS:()Ljava/lang/String;
+     402: aload         6
+     404: invokeinterface #236,  1          // InterfaceMethod java/util/Set.stream:()Ljava/util/stream/Stream;
+     409: new           #237                // class org/glassfish/jersey/server/ApplicationHandler$WorkersToStringTransform
+     412: dup
+     413: aconst_null
+     414: invokespecial #238                // Method org/glassfish/jersey/server/ApplicationHandler$WorkersToStringTransform."<init>":(Lorg/glassfish/jersey/server/ApplicationHandler$1;)V
+     417: invokeinterface #239,  2          // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+     422: invokestatic  #240                // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+     425: invokeinterface #212,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+     430: checkcast     #241                // class java/lang/Iterable
+     433: aload_3
+     434: invokestatic  #217                // Method printProviders:(Ljava/lang/String;Ljava/lang/Iterable;Ljava/lang/StringBuilder;)V
+     437: getstatic     #12                 // Field LOGGER:Ljava/util/logging/Logger;
+     440: getstatic     #190                // Field java/util/logging/Level.CONFIG:Ljava/util/logging/Level;
+     443: aload_3
+     444: invokevirtual #243                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     447: invokevirtual #244                // Method java/util/logging/Logger.log:(Ljava/util/logging/Level;Ljava/lang/String;)V
+     450: return
+
+  private static <T> void printNameBoundProviders(java.lang.String, java.util.Map<java.lang.Class<? extends java.lang.annotation.Annotation>, java.util.List<org.glassfish.jersey.model.internal.RankedProvider<T>>>, java.lang.StringBuilder);
+    descriptor: (Ljava/lang/String;Ljava/util/Map;Ljava/lang/StringBuilder;)V
+    Code:
+       0: aload_1
+       1: invokeinterface #245,  1          // InterfaceMethod java/util/Map.isEmpty:()Z
+       6: ifne          129
+       9: aload_2
+      10: aload_0
+      11: invokevirtual #199                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      14: ldc           #200                // String :
+      16: invokevirtual #199                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      19: bipush        10
+      21: invokevirtual #195                // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      24: pop
+      25: aload_1
+      26: invokeinterface #246,  1          // InterfaceMethod java/util/Map.entrySet:()Ljava/util/Set;
+      31: invokeinterface #178,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      36: astore_3
+      37: aload_3
+      38: invokeinterface #117,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      43: ifeq          129
+      46: aload_3
+      47: invokeinterface #179,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      52: checkcast     #247                // class java/util/Map$Entry
+      55: astore        4
+      57: aload         4
+      59: invokeinterface #248,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+      64: checkcast     #249                // class java/util/List
+      67: invokeinterface #201,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      72: astore        5
+      74: aload         5
+      76: invokeinterface #117,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      81: ifeq          126
+      84: aload         5
+      86: invokeinterface #179,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      91: checkcast     #250                // class org/glassfish/jersey/model/internal/RankedProvider
+      94: astore        6
+      96: aload_2
+      97: ldc           #251                // String
+      99: invokevirtual #199                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     102: aload         6
+     104: aload         4
+     106: invokeinterface #252,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+     111: invokestatic  #253                // Method org/glassfish/jersey/server/internal/LocalizationMessages.LOGGING_PROVIDER_BOUND:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;
+     114: invokevirtual #199                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     117: bipush        10
+     119: invokevirtual #195                // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+     122: pop
+     123: goto          74
+     126: goto          37
+     129: return
+
+  private static <T> void printProviders(java.lang.String, java.lang.Iterable<T>, java.lang.StringBuilder);
+    descriptor: (Ljava/lang/String;Ljava/lang/Iterable;Ljava/lang/StringBuilder;)V
+    Code:
+       0: aload_1
+       1: invokeinterface #116,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+       6: astore_3
+       7: iconst_1
+       8: istore        4
+      10: aload_3
+      11: invokeinterface #117,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      16: ifeq          71
+      19: iload         4
+      21: ifeq          43
+      24: aload_2
+      25: aload_0
+      26: invokevirtual #199                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      29: ldc           #200                // String :
+      31: invokevirtual #199                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      34: bipush        10
+      36: invokevirtual #195                // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      39: pop
+      40: iconst_0
+      41: istore        4
+      43: aload_3
+      44: invokeinterface #179,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      49: astore        5
+      51: aload_2
+      52: ldc           #251                // String
+      54: invokevirtual #199                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      57: aload         5
+      59: invokevirtual #254                // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      62: bipush        10
+      64: invokevirtual #195                // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      67: pop
+      68: goto          10
+      71: return
+
+  public java.util.concurrent.Future<org.glassfish.jersey.server.ContainerResponse> apply(org.glassfish.jersey.server.ContainerRequest);
+    descriptor: (Lorg/glassfish/jersey/server/ContainerRequest;)Ljava/util/concurrent/Future;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: new           #255                // class org/glassfish/jersey/message/internal/NullOutputStream
+       5: dup
+       6: invokespecial #256                // Method org/glassfish/jersey/message/internal/NullOutputStream."<init>":()V
+       9: invokevirtual #257                // Method apply:(Lorg/glassfish/jersey/server/ContainerRequest;Ljava/io/OutputStream;)Ljava/util/concurrent/Future;
+      12: areturn
+
+  public java.util.concurrent.Future<org.glassfish.jersey.server.ContainerResponse> apply(org.glassfish.jersey.server.ContainerRequest, java.io.OutputStream);
+    descriptor: (Lorg/glassfish/jersey/server/ContainerRequest;Ljava/io/OutputStream;)Ljava/util/concurrent/Future;
+    Code:
+       0: new           #258                // class org/glassfish/jersey/server/ApplicationHandler$FutureResponseWriter
+       3: dup
+       4: aload_1
+       5: invokevirtual #259                // Method org/glassfish/jersey/server/ContainerRequest.getMethod:()Ljava/lang/String;
+       8: aload_2
+       9: aload_0
+      10: getfield      #68                 // Field runtime:Lorg/glassfish/jersey/server/ServerRuntime;
+      13: invokevirtual #260                // Method org/glassfish/jersey/server/ServerRuntime.getBackgroundScheduler:()Ljava/util/concurrent/ScheduledExecutorService;
+      16: aconst_null
+      17: invokespecial #261                // Method org/glassfish/jersey/server/ApplicationHandler$FutureResponseWriter."<init>":(Ljava/lang/String;Ljava/io/OutputStream;Ljava/util/concurrent/ScheduledExecutorService;Lorg/glassfish/jersey/server/ApplicationHandler$1;)V
+      20: astore_3
+      21: aload_1
+      22: invokevirtual #262                // Method org/glassfish/jersey/server/ContainerRequest.getSecurityContext:()Ljavax/ws/rs/core/SecurityContext;
+      25: ifnonnull     35
+      28: aload_1
+      29: getstatic     #263                // Field DEFAULT_SECURITY_CONTEXT:Ljavax/ws/rs/core/SecurityContext;
+      32: invokevirtual #264                // Method org/glassfish/jersey/server/ContainerRequest.setSecurityContext:(Ljavax/ws/rs/core/SecurityContext;)V
+      35: aload_1
+      36: aload_3
+      37: invokevirtual #265                // Method org/glassfish/jersey/server/ContainerRequest.setWriter:(Lorg/glassfish/jersey/server/spi/ContainerResponseWriter;)V
+      40: aload_0
+      41: aload_1
+      42: invokevirtual #266                // Method handle:(Lorg/glassfish/jersey/server/ContainerRequest;)V
+      45: aload_3
+      46: areturn
+
+  public void handle(org.glassfish.jersey.server.ContainerRequest);
+    descriptor: (Lorg/glassfish/jersey/server/ContainerRequest;)V
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #145                // Field msgBodyWorkers:Lorg/glassfish/jersey/message/MessageBodyWorkers;
+       5: invokevirtual #267                // Method org/glassfish/jersey/server/ContainerRequest.setWorkers:(Lorg/glassfish/jersey/message/MessageBodyWorkers;)V
+       8: aload_0
+       9: getfield      #68                 // Field runtime:Lorg/glassfish/jersey/server/ServerRuntime;
+      12: aload_1
+      13: invokevirtual #268                // Method org/glassfish/jersey/server/ServerRuntime.process:(Lorg/glassfish/jersey/server/ContainerRequest;)V
+      16: return
+
+  public org.glassfish.jersey.internal.inject.InjectionManager getInjectionManager();
+    descriptor: ()Lorg/glassfish/jersey/internal/inject/InjectionManager;
+    Code:
+       0: aload_0
+       1: getfield      #16                 // Field injectionManager:Lorg/glassfish/jersey/internal/inject/InjectionManager;
+       4: areturn
+
+  public org.glassfish.jersey.server.ResourceConfig getConfiguration();
+    descriptor: ()Lorg/glassfish/jersey/server/ResourceConfig;
+    Code:
+       0: aload_0
+       1: getfield      #75                 // Field runtimeConfig:Lorg/glassfish/jersey/server/ResourceConfig;
+       4: areturn
+
+  public void onStartup(org.glassfish.jersey.server.spi.Container);
+    descriptor: (Lorg/glassfish/jersey/server/spi/Container;)V
+    Code:
+       0: aload_0
+       1: getfield      #71                 // Field containerLifecycleListeners:Ljava/lang/Iterable;
+       4: invokeinterface #116,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+       9: astore_2
+      10: aload_2
+      11: invokeinterface #117,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      16: ifeq          39
+      19: aload_2
+      20: invokeinterface #179,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      25: checkcast     #69                 // class org/glassfish/jersey/server/spi/ContainerLifecycleListener
+      28: astore_3
+      29: aload_3
+      30: aload_1
+      31: invokeinterface #269,  2          // InterfaceMethod org/glassfish/jersey/server/spi/ContainerLifecycleListener.onStartup:(Lorg/glassfish/jersey/server/spi/Container;)V
+      36: goto          10
+      39: return
+
+  public void onReload(org.glassfish.jersey.server.spi.Container);
+    descriptor: (Lorg/glassfish/jersey/server/spi/Container;)V
+    Code:
+       0: aload_0
+       1: getfield      #71                 // Field containerLifecycleListeners:Ljava/lang/Iterable;
+       4: invokeinterface #116,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+       9: astore_2
+      10: aload_2
+      11: invokeinterface #117,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      16: ifeq          39
+      19: aload_2
+      20: invokeinterface #179,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      25: checkcast     #69                 // class org/glassfish/jersey/server/spi/ContainerLifecycleListener
+      28: astore_3
+      29: aload_3
+      30: aload_1
+      31: invokeinterface #270,  2          // InterfaceMethod org/glassfish/jersey/server/spi/ContainerLifecycleListener.onReload:(Lorg/glassfish/jersey/server/spi/Container;)V
+      36: goto          10
+      39: return
+
+  public void onShutdown(org.glassfish.jersey.server.spi.Container);
+    descriptor: (Lorg/glassfish/jersey/server/spi/Container;)V
+    Code:
+       0: aload_0
+       1: getfield      #71                 // Field containerLifecycleListeners:Ljava/lang/Iterable;
+       4: invokeinterface #116,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+       9: astore_2
+      10: aload_2
+      11: invokeinterface #117,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      16: ifeq          39
+      19: aload_2
+      20: invokeinterface #179,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      25: checkcast     #69                 // class org/glassfish/jersey/server/spi/ContainerLifecycleListener
+      28: astore_3
+      29: aload_3
+      30: aload_1
+      31: invokeinterface #271,  2          // InterfaceMethod org/glassfish/jersey/server/spi/ContainerLifecycleListener.onShutdown:(Lorg/glassfish/jersey/server/spi/Container;)V
+      36: goto          10
+      39: aload_0
+      40: getfield      #16                 // Field injectionManager:Lorg/glassfish/jersey/internal/inject/InjectionManager;
+      43: aload_0
+      44: getfield      #73                 // Field application:Ljavax/ws/rs/core/Application;
+      47: invokestatic  #272                // Method org/glassfish/jersey/server/ResourceConfig.unwrapApplication:(Ljavax/ws/rs/core/Application;)Ljavax/ws/rs/core/Application;
+      50: invokeinterface #273,  2          // InterfaceMethod org/glassfish/jersey/internal/inject/InjectionManager.preDestroy:(Ljava/lang/Object;)V
+      55: aload_0
+      56: getfield      #24                 // Field managedObjectsFinalizer:Lorg/glassfish/jersey/model/internal/ManagedObjectsFinalizer;
+      59: invokevirtual #274                // Method org/glassfish/jersey/model/internal/ManagedObjectsFinalizer.preDestroy:()V
+      62: aload_0
+      63: getfield      #16                 // Field injectionManager:Lorg/glassfish/jersey/internal/inject/InjectionManager;
+      66: invokeinterface #275,  1          // InterfaceMethod org/glassfish/jersey/internal/inject/InjectionManager.shutdown:()V
+      71: goto          95
+      74: astore        4
+      76: aload_0
+      77: getfield      #24                 // Field managedObjectsFinalizer:Lorg/glassfish/jersey/model/internal/ManagedObjectsFinalizer;
+      80: invokevirtual #274                // Method org/glassfish/jersey/model/internal/ManagedObjectsFinalizer.preDestroy:()V
+      83: aload_0
+      84: getfield      #16                 // Field injectionManager:Lorg/glassfish/jersey/internal/inject/InjectionManager;
+      87: invokeinterface #275,  1          // InterfaceMethod org/glassfish/jersey/internal/inject/InjectionManager.shutdown:()V
+      92: aload         4
+      94: athrow
+      95: goto          159
+      98: astore        5
+     100: aload_0
+     101: getfield      #16                 // Field injectionManager:Lorg/glassfish/jersey/internal/inject/InjectionManager;
+     104: aload_0
+     105: getfield      #73                 // Field application:Ljavax/ws/rs/core/Application;
+     108: invokestatic  #272                // Method org/glassfish/jersey/server/ResourceConfig.unwrapApplication:(Ljavax/ws/rs/core/Application;)Ljavax/ws/rs/core/Application;
+     111: invokeinterface #273,  2          // InterfaceMethod org/glassfish/jersey/internal/inject/InjectionManager.preDestroy:(Ljava/lang/Object;)V
+     116: aload_0
+     117: getfield      #24                 // Field managedObjectsFinalizer:Lorg/glassfish/jersey/model/internal/ManagedObjectsFinalizer;
+     120: invokevirtual #274                // Method org/glassfish/jersey/model/internal/ManagedObjectsFinalizer.preDestroy:()V
+     123: aload_0
+     124: getfield      #16                 // Field injectionManager:Lorg/glassfish/jersey/internal/inject/InjectionManager;
+     127: invokeinterface #275,  1          // InterfaceMethod org/glassfish/jersey/internal/inject/InjectionManager.shutdown:()V
+     132: goto          156
+     135: astore        6
+     137: aload_0
+     138: getfield      #24                 // Field managedObjectsFinalizer:Lorg/glassfish/jersey/model/internal/ManagedObjectsFinalizer;
+     141: invokevirtual #274                // Method org/glassfish/jersey/model/internal/ManagedObjectsFinalizer.preDestroy:()V
+     144: aload_0
+     145: getfield      #16                 // Field injectionManager:Lorg/glassfish/jersey/internal/inject/InjectionManager;
+     148: invokeinterface #275,  1          // InterfaceMethod org/glassfish/jersey/internal/inject/InjectionManager.shutdown:()V
+     153: aload         6
+     155: athrow
+     156: aload         5
+     158: athrow
+     159: return
+    Exception table:
+       from    to  target type
+          39    55    74   any
+          74    76    74   any
+           0    39    98   any
+         100   116   135   any
+         135   137   135   any
+          98   100    98   any
+
+  private static org.glassfish.jersey.server.internal.process.RequestProcessingContextReference lambda$initialize$4(org.glassfish.jersey.internal.inject.InjectionManager);
+    descriptor: (Lorg/glassfish/jersey/internal/inject/InjectionManager;)Lorg/glassfish/jersey/server/internal/process/RequestProcessingContextReference;
+    Code:
+       0: aload_0
+       1: ldc_w         #276                // class org/glassfish/jersey/server/internal/process/RequestProcessingContextReference
+       4: invokeinterface #184,  2          // InterfaceMethod org/glassfish/jersey/internal/inject/InjectionManager.getInstance:(Ljava/lang/Class;)Ljava/lang/Object;
+       9: checkcast     #276                // class org/glassfish/jersey/server/internal/process/RequestProcessingContextReference
+      12: areturn
+
+  private static java.lang.Object lambda$initialize$3(org.glassfish.jersey.internal.inject.InjectionManager, java.lang.Class);
+    descriptor: (Lorg/glassfish/jersey/internal/inject/InjectionManager;Ljava/lang/Class;)Ljava/lang/Object;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #277                // Method org/glassfish/jersey/internal/inject/Injections.getOrCreate:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Ljava/lang/Class;)Ljava/lang/Object;
+       5: areturn
+
+  private static void lambda$initialize$2(org.glassfish.jersey.internal.inject.InjectionManager, org.glassfish.jersey.server.ServerBootstrapBag, org.glassfish.jersey.internal.BootstrapConfigurator);
+    descriptor: (Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/server/ServerBootstrapBag;Lorg/glassfish/jersey/internal/BootstrapConfigurator;)V
+    Code:
+       0: aload_2
+       1: aload_0
+       2: aload_1
+       3: invokeinterface #278,  3          // InterfaceMethod org/glassfish/jersey/internal/BootstrapConfigurator.postInit:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/internal/BootstrapBag;)V
+       8: return
+
+  private org.glassfish.jersey.server.ServerRuntime lambda$initialize$1(org.glassfish.jersey.internal.inject.InjectionManager, java.util.List, org.glassfish.jersey.server.ServerBootstrapBag);
+    descriptor: (Lorg/glassfish/jersey/internal/inject/InjectionManager;Ljava/util/List;Lorg/glassfish/jersey/server/ServerBootstrapBag;)Lorg/glassfish/jersey/server/ServerRuntime;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: invokespecial #279                // Method initialize:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Ljava/util/List;Lorg/glassfish/jersey/server/ServerBootstrapBag;)Lorg/glassfish/jersey/server/ServerRuntime;
+       7: areturn
+
+  private static void lambda$initialize$0(org.glassfish.jersey.internal.inject.InjectionManager, org.glassfish.jersey.server.ServerBootstrapBag, org.glassfish.jersey.internal.BootstrapConfigurator);
+    descriptor: (Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/server/ServerBootstrapBag;Lorg/glassfish/jersey/internal/BootstrapConfigurator;)V
+    Code:
+       0: aload_2
+       1: aload_0
+       2: aload_1
+       3: invokeinterface #280,  3          // InterfaceMethod org/glassfish/jersey/internal/BootstrapConfigurator.init:(Lorg/glassfish/jersey/internal/inject/InjectionManager;Lorg/glassfish/jersey/internal/BootstrapBag;)V
+       8: return
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: ldc_w         #281                // class org/glassfish/jersey/server/ApplicationHandler
+       3: invokevirtual #206                // Method java/lang/Class.getName:()Ljava/lang/String;
+       6: invokestatic  #282                // Method java/util/logging/Logger.getLogger:(Ljava/lang/String;)Ljava/util/logging/Logger;
+       9: putstatic     #12                 // Field LOGGER:Ljava/util/logging/Logger;
+      12: new           #283                // class org/glassfish/jersey/server/ApplicationHandler$1
+      15: dup
+      16: invokespecial #284                // Method org/glassfish/jersey/server/ApplicationHandler$1."<init>":()V
+      19: putstatic     #263                // Field DEFAULT_SECURITY_CONTEXT:Ljavax/ws/rs/core/SecurityContext;
+      22: return
+}

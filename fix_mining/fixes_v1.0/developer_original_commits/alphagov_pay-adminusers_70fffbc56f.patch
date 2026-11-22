@@ -1,0 +1,1346 @@
+diff --git a/.secrets.baseline b/.secrets.baseline
+index d059cd68..f31babf7 100644
+--- a/.secrets.baseline
++++ b/.secrets.baseline
+@@ -480,9 +480,9 @@
+         "filename": "src/test/resources/config/test-it-config.yaml",
+         "hashed_secret": "08cd923367890009657eab812753379bdb321eeb",
+         "is_verified": false,
+-        "line_number": 23
++        "line_number": 27
+       }
+     ]
+   },
+-  "generated_at": "2022-12-19T11:54:47Z"
++  "generated_at": "2023-06-23T15:16:08Z"
+ }
+diff --git a/pom.xml b/pom.xml
+index 3e49fff4..7a6cb8af 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -5,17 +5,19 @@
+     <version>0.1-SNAPSHOT</version>
+     <artifactId>pay-adminusers</artifactId>
+ 
++    <parent>
++        <groupId>io.dropwizard</groupId>
++        <artifactId>dropwizard-dependencies</artifactId>
++        <version>3.0.1</version>
++    </parent>
++
+     <properties>
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+-        <dropwizard.version>2.1.6</dropwizard.version>
+         <hamcrest.version>2.2</hamcrest.version>
+         <eclipselink.version>2.7.11</eclipselink.version>
+         <guice.version>5.1.0</guice.version>
+-        <guava.version>32.0.1-jre</guava.version>
+-        <jackson.version>2.14.2</jackson.version>
+         <pact.version>3.6.15</pact.version>
+-        <pay-java-commons.version>1.0.20230601160155</pay-java-commons.version>
+-        <junit5.version>5.9.3</junit5.version>
++        <pay-java-commons.version>1.0.20230623145124</pay-java-commons.version>
+         <swaggger-version>2.2.10</swaggger-version>
+         <testcontainers.version>1.18.3</testcontainers.version>
+         <wiremock.version>2.35.0</wiremock.version>
+@@ -29,7 +31,7 @@
+     <dependencies>
+         <dependency>
+             <groupId>uk.gov.service.payments</groupId>
+-            <artifactId>logging</artifactId>
++            <artifactId>logging-dropwizard-3</artifactId>
+             <version>${pay-java-commons.version}</version>
+         </dependency>
+         <dependency>
+@@ -45,54 +47,30 @@
+         <dependency>
+             <groupId>io.dropwizard</groupId>
+             <artifactId>dropwizard-core</artifactId>
+-            <version>${dropwizard.version}</version>
+         </dependency>
+         <dependency>
+             <groupId>org.slf4j</groupId>
+             <artifactId>slf4j-api</artifactId>
+-            <version>1.7.36</version>
+         </dependency>
+         <dependency>
+             <groupId>io.dropwizard</groupId>
+             <artifactId>dropwizard-auth</artifactId>
+-            <version>${dropwizard.version}</version>
+         </dependency>
+         <dependency>
+             <groupId>io.dropwizard</groupId>
+             <artifactId>dropwizard-client</artifactId>
+-            <version>${dropwizard.version}</version>
+         </dependency>
+         <dependency>
+             <groupId>io.dropwizard</groupId>
+             <artifactId>dropwizard-json-logging</artifactId>
+-            <version>${dropwizard.version}</version>
+         </dependency>
+         <dependency>
+             <groupId>io.dropwizard</groupId>
+             <artifactId>dropwizard-migrations</artifactId>
+-            <version>${dropwizard.version}</version>
+-            <exclusions>
+-                <exclusion>
+-                    <groupId>org.liquibase</groupId>
+-                    <artifactId>liquibase-core</artifactId>
+-                </exclusion>
+-            </exclusions>
+         </dependency>
+         <dependency>
+             <groupId>io.dropwizard.metrics</groupId>
+             <artifactId>metrics-graphite</artifactId>
+-            <version>4.2.19</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.liquibase</groupId>
+-            <artifactId>liquibase-core</artifactId>
+-            <version>4.18.0</version>
+-            <exclusions>
+-                <exclusion>
+-                    <groupId>javax.servlet</groupId>
+-                    <artifactId>jstl</artifactId>
+-                </exclusion>
+-            </exclusions>
+         </dependency>
+         <dependency>
+             <groupId>org.postgresql</groupId>
+@@ -102,42 +80,34 @@
+         <dependency>
+             <groupId>com.fasterxml.jackson.core</groupId>
+             <artifactId>jackson-core</artifactId>
+-            <version>${jackson.version}</version>
+         </dependency>
+         <dependency>
+             <groupId>com.fasterxml.jackson.core</groupId>
+             <artifactId>jackson-databind</artifactId>
+-            <version>${jackson.version}</version>
+         </dependency>
+         <dependency>
+             <groupId>com.fasterxml.jackson.core</groupId>
+             <artifactId>jackson-annotations</artifactId>
+-            <version>${jackson.version}</version>
+         </dependency>
+         <dependency>
+             <groupId>com.fasterxml.jackson.datatype</groupId>
+             <artifactId>jackson-datatype-jsr310</artifactId>
+-            <version>${jackson.version}</version>
+         </dependency>
+         <dependency>
+             <groupId>com.fasterxml.jackson.datatype</groupId>
+             <artifactId>jackson-datatype-guava</artifactId>
+-            <version>${jackson.version}</version>
+         </dependency>
+         <dependency>
+             <groupId>com.fasterxml.jackson.jaxrs</groupId>
+             <artifactId>jackson-jaxrs-base</artifactId>
+-            <version>${jackson.version}</version>
+         </dependency>
+         <dependency>
+             <groupId>com.fasterxml.jackson.jaxrs</groupId>
+             <artifactId>jackson-jaxrs-json-provider</artifactId>
+-            <version>${jackson.version}</version>
+         </dependency>
+         <dependency>
+             <groupId>com.google.guava</groupId>
+             <artifactId>guava</artifactId>
+-            <version>${guava.version}</version>
+         </dependency>
+         <dependency>
+             <groupId>org.eclipse.persistence</groupId>
+@@ -163,7 +133,6 @@
+         <dependency>
+             <groupId>org.apache.commons</groupId>
+             <artifactId>commons-lang3</artifactId>
+-            <version>3.12.0</version>
+         </dependency>
+         <dependency>
+             <groupId>org.mindrot</groupId>
+@@ -174,11 +143,21 @@
+             <groupId>com.warrenstrange</groupId>
+             <artifactId>googleauth</artifactId>
+             <version>1.5.0</version>
++            <exclusions>
++                <exclusion>
++                    <groupId>org.apache.httpcomponents</groupId>
++                    <artifactId>httpclient</artifactId>
++                </exclusion>
++            </exclusions>
++        </dependency>
++        <dependency>
++            <groupId>org.apache.httpcomponents</groupId>
++            <artifactId>httpclient</artifactId>
++            <version>4.5.13</version>
+         </dependency>
+         <dependency>
+             <groupId>ch.qos.logback</groupId>
+             <artifactId>logback-classic</artifactId>
+-            <version>1.2.11</version>
+         </dependency>
+         <dependency>
+             <groupId>uk.gov.service.notify</groupId>
+@@ -208,7 +187,7 @@
+         <dependency>
+             <groupId>com.amazonaws</groupId>
+             <artifactId>aws-java-sdk-sqs</artifactId>
+-            <version>1.12.488</version>
++            <version>1.12.493</version>
+         </dependency>
+         <dependency>
+             <groupId>com.google.code.gson</groupId>
+@@ -220,13 +199,17 @@
+         <dependency>
+             <groupId>io.dropwizard</groupId>
+             <artifactId>dropwizard-testing</artifactId>
+-            <version>${dropwizard.version}</version>
++            <scope>test</scope>
++        </dependency>
++        <dependency>
++            <groupId>io.dropwizard.modules</groupId>
++            <artifactId>dropwizard-testing-junit4</artifactId>
++            <version>3.0.0</version>
+             <scope>test</scope>
+         </dependency>
+         <dependency>
+             <groupId>org.mockito</groupId>
+             <artifactId>mockito-junit-jupiter</artifactId>
+-            <version>5.3.1</version>
+             <scope>test</scope>
+         </dependency>
+         <dependency>
+@@ -256,7 +239,6 @@
+         <dependency>
+             <groupId>io.dropwizard</groupId>
+             <artifactId>dropwizard-jdbi3</artifactId>
+-            <version>${dropwizard.version}</version>
+             <scope>test</scope>
+         </dependency>
+         <dependency>
+@@ -308,13 +290,11 @@
+         <dependency>
+             <groupId>org.junit.jupiter</groupId>
+             <artifactId>junit-jupiter-params</artifactId>
+-            <version>${junit5.version}</version>
+             <scope>test</scope>
+         </dependency>
+         <dependency>
+             <groupId>org.junit.jupiter</groupId>
+             <artifactId>junit-jupiter-api</artifactId>
+-            <version>${junit5.version}</version>
+             <scope>test</scope>
+         </dependency>
+         <dependency>
+@@ -330,37 +310,14 @@
+         </dependency>
+         <dependency>
+             <groupId>com.github.tomakehurst</groupId>
+-            <artifactId>wiremock-jre8</artifactId>
++            <artifactId>wiremock-jre8-standalone</artifactId>
+             <version>${wiremock.version}</version>
+-            <exclusions>
+-                <exclusion>
+-                    <groupId>org.mortbay.jetty</groupId>
+-                    <artifactId>servlet-api</artifactId>
+-                </exclusion>
+-                <exclusion>
+-                    <groupId>org.eclipse.jetty</groupId>
+-                    <artifactId>jetty-server</artifactId>
+-                </exclusion>
+-                <exclusion>
+-                    <groupId>org.eclipse.jetty</groupId>
+-                    <artifactId>jetty-servlet</artifactId>
+-                </exclusion>
+-                <exclusion>
+-                    <groupId>org.eclipse.jetty</groupId>
+-                    <artifactId>jetty-servlets</artifactId>
+-                </exclusion>
+-                <exclusion>
+-                    <groupId>org.eclipse.jetty</groupId>
+-                    <artifactId>jetty-webapp</artifactId>
+-                </exclusion>
+-            </exclusions>
+             <scope>test</scope>
+         </dependency>
+         <dependency>
+             <groupId>org.junit.vintage</groupId>
+             <artifactId>junit-vintage-engine</artifactId>
+             <scope>test</scope>
+-            <version>5.9.3</version>
+         </dependency>
+     </dependencies>
+     <build>
+diff --git a/src/main/java/uk/gov/pay/adminusers/app/AdminUsersApp.java b/src/main/java/uk/gov/pay/adminusers/app/AdminUsersApp.java
+index 15fda7ce..4acd7c83 100644
+--- a/src/main/java/uk/gov/pay/adminusers/app/AdminUsersApp.java
++++ b/src/main/java/uk/gov/pay/adminusers/app/AdminUsersApp.java
+@@ -5,13 +5,13 @@ import com.codahale.metrics.graphite.GraphiteSender;
+ import com.codahale.metrics.graphite.GraphiteUDP;
+ import com.google.inject.Guice;
+ import com.google.inject.Injector;
+-import io.dropwizard.Application;
+ import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
+ import io.dropwizard.configuration.SubstitutingSourceProvider;
++import io.dropwizard.core.Application;
++import io.dropwizard.core.setup.Bootstrap;
++import io.dropwizard.core.setup.Environment;
+ import io.dropwizard.db.DataSourceFactory;
+ import io.dropwizard.migrations.MigrationsBundle;
+-import io.dropwizard.setup.Bootstrap;
+-import io.dropwizard.setup.Environment;
+ import uk.gov.pay.adminusers.app.config.AdminUsersConfig;
+ import uk.gov.pay.adminusers.app.config.AdminUsersModule;
+ import uk.gov.pay.adminusers.app.config.PersistenceServiceInitialiser;
+@@ -38,6 +38,7 @@ import uk.gov.service.payments.commons.utils.metrics.DatabaseMetricsService;
+ import uk.gov.service.payments.logging.GovUkPayDropwizardRequestJsonLogLayoutFactory;
+ import uk.gov.service.payments.logging.LoggingFilter;
+ import uk.gov.service.payments.logging.LogstashConsoleAppenderFactory;
++import uk.gov.service.payments.logging.SentryAppenderFactory;
+ 
+ import java.util.concurrent.TimeUnit;
+ 
+@@ -68,6 +69,7 @@ public class AdminUsersApp extends Application<AdminUsersConfig> {
+         bootstrap.addCommand(new DependentResourceWaitCommand());
+         bootstrap.addCommand(new MigrateToInitialDbState());
+         bootstrap.getObjectMapper().getSubtypeResolver().registerSubtypes(LogstashConsoleAppenderFactory.class);
++        bootstrap.getObjectMapper().getSubtypeResolver().registerSubtypes(SentryAppenderFactory.class);
+         bootstrap.getObjectMapper().getSubtypeResolver().registerSubtypes(GovUkPayDropwizardRequestJsonLogLayoutFactory.class);
+     }
+ 
+@@ -99,7 +101,7 @@ public class AdminUsersApp extends Application<AdminUsersConfig> {
+         environment.jersey().register(new InvalidEmailRequestExceptionMapper());
+         environment.jersey().register(new InvalidMerchantDetailsExceptionMapper());
+         environment.jersey().register(new ConflictExceptionMapper());
+-        
++
+         environment.lifecycle().manage(injector.getInstance(EventSubscriberQueueMessageReceiver.class));
+     }
+ 
+diff --git a/src/main/java/uk/gov/pay/adminusers/app/config/AdminUsersConfig.java b/src/main/java/uk/gov/pay/adminusers/app/config/AdminUsersConfig.java
+index 0cc30357..6603c080 100644
+--- a/src/main/java/uk/gov/pay/adminusers/app/config/AdminUsersConfig.java
++++ b/src/main/java/uk/gov/pay/adminusers/app/config/AdminUsersConfig.java
+@@ -1,7 +1,7 @@
+ package uk.gov.pay.adminusers.app.config;
+ 
+ import com.fasterxml.jackson.annotation.JsonProperty;
+-import io.dropwizard.Configuration;
++import io.dropwizard.core.Configuration;
+ import io.dropwizard.db.DataSourceFactory;
+ 
+ import javax.validation.Valid;
+@@ -43,11 +43,11 @@ public class AdminUsersConfig extends Configuration {
+ 
+     @NotNull
+     private SecondFactorAuthConfiguration secondFactorAuthConfiguration;
+-    
++
+     @Valid
+     @NotNull
+     private SqsConfig sqsConfig;
+-    
++
+     @NotNull
+     private EventSubscriberQueueConfig eventSubscriberQueueConfig;
+ 
+@@ -107,7 +107,7 @@ public class AdminUsersConfig extends Configuration {
+     public Integer getForgottenPasswordExpiryMinutes() {
+         return forgottenPasswordExpiryMinutes;
+     }
+-    
++
+     @JsonProperty("sqs")
+     public SqsConfig getSqsConfig() {
+         return sqsConfig;
+diff --git a/src/main/java/uk/gov/pay/adminusers/app/config/AdminUsersModule.java b/src/main/java/uk/gov/pay/adminusers/app/config/AdminUsersModule.java
+index f34bcb80..f85a386c 100644
+--- a/src/main/java/uk/gov/pay/adminusers/app/config/AdminUsersModule.java
++++ b/src/main/java/uk/gov/pay/adminusers/app/config/AdminUsersModule.java
+@@ -13,8 +13,8 @@ import com.google.inject.assistedinject.FactoryModuleBuilder;
+ import com.google.inject.name.Names;
+ import com.google.inject.persist.jpa.JpaPersistModule;
+ import com.warrenstrange.googleauth.GoogleAuthenticatorConfig;
++import io.dropwizard.core.setup.Environment;
+ import io.dropwizard.db.DataSourceFactory;
+-import io.dropwizard.setup.Environment;
+ import uk.gov.pay.adminusers.app.RestClientFactory;
+ import uk.gov.pay.adminusers.resources.ResetPasswordValidator;
+ import uk.gov.pay.adminusers.resources.UserRequestValidator;
+diff --git a/src/main/java/uk/gov/pay/adminusers/app/config/JPAConfiguration.java b/src/main/java/uk/gov/pay/adminusers/app/config/JPAConfiguration.java
+index 112c2cf5..ae4de48d 100644
+--- a/src/main/java/uk/gov/pay/adminusers/app/config/JPAConfiguration.java
++++ b/src/main/java/uk/gov/pay/adminusers/app/config/JPAConfiguration.java
+@@ -1,6 +1,7 @@
+ package uk.gov.pay.adminusers.app.config;
+ 
+-import io.dropwizard.Configuration;
++
++import io.dropwizard.core.Configuration;
+ 
+ public class JPAConfiguration extends Configuration {
+ 
+diff --git a/src/main/java/uk/gov/pay/adminusers/app/config/LinksConfig.java b/src/main/java/uk/gov/pay/adminusers/app/config/LinksConfig.java
+index cfa2547c..8cb92a6a 100644
+--- a/src/main/java/uk/gov/pay/adminusers/app/config/LinksConfig.java
++++ b/src/main/java/uk/gov/pay/adminusers/app/config/LinksConfig.java
+@@ -1,6 +1,6 @@
+ package uk.gov.pay.adminusers.app.config;
+ 
+-import io.dropwizard.Configuration;
++import io.dropwizard.core.Configuration;
+ 
+ public class LinksConfig extends Configuration {
+ 
+@@ -30,7 +30,7 @@ public class LinksConfig extends Configuration {
+     public String getSupportUrl() {
+         return supportUrl;
+     }
+-    
++
+     public String getSelfserviceServicesUrl() {
+         return selfserviceServicesUrl;
+     }
+diff --git a/src/main/java/uk/gov/pay/adminusers/app/config/NotifyConfiguration.java b/src/main/java/uk/gov/pay/adminusers/app/config/NotifyConfiguration.java
+index 8f99e2ba..810e3201 100644
+--- a/src/main/java/uk/gov/pay/adminusers/app/config/NotifyConfiguration.java
++++ b/src/main/java/uk/gov/pay/adminusers/app/config/NotifyConfiguration.java
+@@ -1,10 +1,9 @@
+ package uk.gov.pay.adminusers.app.config;
+ 
+-import io.dropwizard.Configuration;
++import io.dropwizard.core.Configuration;
+ 
+ import javax.validation.Valid;
+ import javax.validation.constraints.NotNull;
+-import java.time.Instant;
+ 
+ public class NotifyConfiguration extends Configuration {
+ 
+@@ -55,11 +54,11 @@ public class NotifyConfiguration extends Configuration {
+     @Valid
+     @NotNull
+     private String inviteServiceUserDisabledEmailTemplateId;
+-    
++
+     @Valid
+     @NotNull
+     private String liveAccountCreatedEmailTemplateId;
+-    
++
+     @Valid
+     @NotNull
+     private String stripeDisputeCreatedEmailTemplateId;
+@@ -79,7 +78,7 @@ public class NotifyConfiguration extends Configuration {
+     @Valid
+     @NotNull
+     private String stripeDisputeWonEmailTemplateId;
+-    
++
+     @Valid
+     @NotNull
+     private String notifyEmailReplyToSupportId;
+@@ -87,7 +86,7 @@ public class NotifyConfiguration extends Configuration {
+     public String getCardApiKey() {
+         return cardApiKey;
+     }
+-    
++
+     public String getNotificationBaseURL() {
+         return notificationBaseURL;
+     }
+diff --git a/src/main/java/uk/gov/pay/adminusers/app/config/NotifyDirectDebitConfiguration.java b/src/main/java/uk/gov/pay/adminusers/app/config/NotifyDirectDebitConfiguration.java
+index 124e5fc6..43a039b0 100644
+--- a/src/main/java/uk/gov/pay/adminusers/app/config/NotifyDirectDebitConfiguration.java
++++ b/src/main/java/uk/gov/pay/adminusers/app/config/NotifyDirectDebitConfiguration.java
+@@ -1,6 +1,6 @@
+ package uk.gov.pay.adminusers.app.config;
+ 
+-import io.dropwizard.Configuration;
++import io.dropwizard.core.Configuration;
+ 
+ import javax.validation.Valid;
+ import javax.validation.constraints.NotNull;
+diff --git a/src/main/java/uk/gov/pay/adminusers/app/config/RestClientConfig.java b/src/main/java/uk/gov/pay/adminusers/app/config/RestClientConfig.java
+index 0b73dada..943d8adc 100644
+--- a/src/main/java/uk/gov/pay/adminusers/app/config/RestClientConfig.java
++++ b/src/main/java/uk/gov/pay/adminusers/app/config/RestClientConfig.java
+@@ -1,6 +1,6 @@
+ package uk.gov.pay.adminusers.app.config;
+ 
+-import io.dropwizard.Configuration;
++import io.dropwizard.core.Configuration;
+ 
+ public class RestClientConfig extends Configuration {
+ 
+diff --git a/src/main/java/uk/gov/pay/adminusers/app/healthchecks/DependentResourceWaitCommand.java b/src/main/java/uk/gov/pay/adminusers/app/healthchecks/DependentResourceWaitCommand.java
+index 5b721c89..f222ce04 100644
+--- a/src/main/java/uk/gov/pay/adminusers/app/healthchecks/DependentResourceWaitCommand.java
++++ b/src/main/java/uk/gov/pay/adminusers/app/healthchecks/DependentResourceWaitCommand.java
+@@ -1,7 +1,7 @@
+ package uk.gov.pay.adminusers.app.healthchecks;
+ 
+-import io.dropwizard.cli.ConfiguredCommand;
+-import io.dropwizard.setup.Bootstrap;
++import io.dropwizard.core.cli.ConfiguredCommand;
++import io.dropwizard.core.setup.Bootstrap;
+ import net.sourceforge.argparse4j.inf.Namespace;
+ import net.sourceforge.argparse4j.inf.Subparser;
+ import uk.gov.pay.adminusers.app.config.AdminUsersConfig;
+diff --git a/src/main/java/uk/gov/pay/adminusers/app/healthchecks/MigrateToInitialDbState.java b/src/main/java/uk/gov/pay/adminusers/app/healthchecks/MigrateToInitialDbState.java
+index 92d41d52..7ee29bfe 100644
+--- a/src/main/java/uk/gov/pay/adminusers/app/healthchecks/MigrateToInitialDbState.java
++++ b/src/main/java/uk/gov/pay/adminusers/app/healthchecks/MigrateToInitialDbState.java
+@@ -1,7 +1,8 @@
+ package uk.gov.pay.adminusers.app.healthchecks;
+ 
+-import io.dropwizard.cli.ConfiguredCommand;
+-import io.dropwizard.setup.Bootstrap;
++
++import io.dropwizard.core.cli.ConfiguredCommand;
++import io.dropwizard.core.setup.Bootstrap;
+ import liquibase.Liquibase;
+ import liquibase.database.jvm.JdbcConnection;
+ import liquibase.exception.LiquibaseException;
+@@ -28,8 +29,8 @@ public class MigrateToInitialDbState extends ConfiguredCommand<AdminUsersConfig>
+     @Override
+     protected void run(Bootstrap<AdminUsersConfig> bootstrap, Namespace namespace, AdminUsersConfig configuration) {
+         try (Connection connection = getDatabaseConnection(configuration);
+-            PreparedStatement statement = connection.prepareStatement("select exists (select * from pg_tables where tablename='users')");
+-            ResultSet resultSet = statement.executeQuery()) {
++             PreparedStatement statement = connection.prepareStatement("select exists (select * from pg_tables where tablename='users')");
++             ResultSet resultSet = statement.executeQuery()) {
+             if (resultSet.next()) {
+                 boolean usersExists = resultSet.getBoolean(1);
+                 if (usersExists) {
+diff --git a/src/main/java/uk/gov/pay/adminusers/model/CompleteInviteRequest.java b/src/main/java/uk/gov/pay/adminusers/model/CompleteInviteRequest.java
+index 2bad5f49..0b89c9f4 100644
+--- a/src/main/java/uk/gov/pay/adminusers/model/CompleteInviteRequest.java
++++ b/src/main/java/uk/gov/pay/adminusers/model/CompleteInviteRequest.java
+@@ -2,10 +2,11 @@ package uk.gov.pay.adminusers.model;
+ 
+ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+ import com.fasterxml.jackson.databind.annotation.JsonNaming;
++import io.dropwizard.logback.shaded.checkerframework.checker.nullness.qual.Nullable;
+ 
+-import javax.annotation.Nullable;
+ import javax.validation.Valid;
+ 
++
+ @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+ public class CompleteInviteRequest {
+ 
+diff --git a/src/main/java/uk/gov/pay/adminusers/queue/managed/EventSubscriberQueueMessageReceiver.java b/src/main/java/uk/gov/pay/adminusers/queue/managed/EventSubscriberQueueMessageReceiver.java
+index f89d52b7..5053c195 100644
+--- a/src/main/java/uk/gov/pay/adminusers/queue/managed/EventSubscriberQueueMessageReceiver.java
++++ b/src/main/java/uk/gov/pay/adminusers/queue/managed/EventSubscriberQueueMessageReceiver.java
+@@ -1,7 +1,7 @@
+ package uk.gov.pay.adminusers.queue.managed;
+ 
++import io.dropwizard.core.setup.Environment;
+ import io.dropwizard.lifecycle.Managed;
+-import io.dropwizard.setup.Environment;
+ import org.slf4j.Logger;
+ import org.slf4j.LoggerFactory;
+ import uk.gov.pay.adminusers.app.config.AdminUsersConfig;
+@@ -13,12 +13,12 @@ import java.util.concurrent.ScheduledExecutorService;
+ import java.util.concurrent.TimeUnit;
+ 
+ public class EventSubscriberQueueMessageReceiver implements Managed {
+-    
++
+     private static final String THREAD_NAME = "sqs-message-eventSubscriberQueueMessageReceiver";
+     private static final int SCHEDULER_NUMBER_OF_THREADS = 1;
+ 
+     private final Logger logger = LoggerFactory.getLogger(getClass());
+-    
++
+     private final EventMessageHandler eventMessageHandler;
+     private final ScheduledExecutorService scheduledExecutorService;
+ 
+diff --git a/src/main/java/uk/gov/pay/adminusers/resources/HealthCheckResource.java b/src/main/java/uk/gov/pay/adminusers/resources/HealthCheckResource.java
+index 8c072b17..5db333a2 100644
+--- a/src/main/java/uk/gov/pay/adminusers/resources/HealthCheckResource.java
++++ b/src/main/java/uk/gov/pay/adminusers/resources/HealthCheckResource.java
+@@ -2,7 +2,7 @@ package uk.gov.pay.adminusers.resources;
+ 
+ import com.codahale.metrics.health.HealthCheck;
+ import com.google.inject.Inject;
+-import io.dropwizard.setup.Environment;
++import io.dropwizard.core.setup.Environment;
+ import io.swagger.v3.oas.annotations.Operation;
+ import io.swagger.v3.oas.annotations.media.Content;
+ import io.swagger.v3.oas.annotations.media.Schema;
+diff --git a/src/main/java/uk/gov/pay/adminusers/service/InviteService.java b/src/main/java/uk/gov/pay/adminusers/service/InviteService.java
+index e21eb2f4..458f9922 100644
+--- a/src/main/java/uk/gov/pay/adminusers/service/InviteService.java
++++ b/src/main/java/uk/gov/pay/adminusers/service/InviteService.java
+@@ -2,6 +2,7 @@ package uk.gov.pay.adminusers.service;
+ 
+ import com.google.inject.name.Named;
+ import com.google.inject.persist.Transactional;
++import org.checkerframework.checker.nullness.qual.Nullable;
+ import org.slf4j.Logger;
+ import org.slf4j.LoggerFactory;
+ import uk.gov.pay.adminusers.model.CompleteInviteResponse;
+@@ -19,7 +20,6 @@ import uk.gov.pay.adminusers.service.NotificationService.OtpNotifySmsTemplateId;
+ import uk.gov.service.payments.commons.model.jsonpatch.JsonPatchOp;
+ import uk.gov.service.payments.commons.model.jsonpatch.JsonPatchRequest;
+ 
+-import javax.annotation.Nullable;
+ import javax.inject.Inject;
+ import javax.ws.rs.WebApplicationException;
+ import java.util.List;
+@@ -53,11 +53,11 @@ public class InviteService {
+ 
+     @Inject
+     public InviteService(InviteDao inviteDao,
+-                         UserDao userDao, 
++                         UserDao userDao,
+                          NotificationService notificationService,
+                          SecondFactorAuthenticator secondFactorAuthenticator,
+                          PasswordHasher passwordHasher,
+-                         LinksBuilder linksBuilder, 
++                         LinksBuilder linksBuilder,
+                          @Named("LOGIN_ATTEMPT_CAP") Integer loginAttemptCap) {
+         this.inviteDao = inviteDao;
+         this.userDao = userDao;
+@@ -87,7 +87,7 @@ public class InviteService {
+             LOGGER.error(String.format("error sending 2FA token for invite code [%s]", invite.getCode()), e);
+         }
+     }
+-    
++
+     @Transactional
+     public Invite reprovisionOtp(String inviteCode) {
+         InviteEntity inviteEntity = findInvite(inviteCode).orElseThrow(() -> notFoundInviteException(inviteCode));
+@@ -95,7 +95,7 @@ public class InviteService {
+         String newOtpKey = secondFactorAuthenticator.generateNewBase32EncodedSecret();
+         inviteEntity.setOtpKey(newOtpKey);
+         inviteDao.merge(inviteEntity);
+-        
++
+         return inviteEntity.toInvite();
+     }
+ 
+@@ -145,7 +145,7 @@ public class InviteService {
+         });
+         return inviteEntity.toInvite();
+     }
+-        
++
+     @Transactional
+     public CompleteInviteResponse complete(String code, @Nullable SecondFactorMethod secondFactorMethod) {
+         InviteEntity inviteEntity = inviteDao.findByCode(code).orElseThrow(() -> notFoundInviteException(code));
+@@ -169,7 +169,7 @@ public class InviteService {
+     private UserEntity addExistingUserToService(String code, InviteEntity inviteEntity, UserEntity existingUser) {
+         // shouldn't expect the user to exist if there is no service as this indicates the invite is a self-registration
+         ServiceEntity serviceEntity = inviteEntity.getService().orElseThrow(() -> userAlreadyExistsForSelfRegistration(inviteEntity.getEmail()));
+-        
++
+         RoleEntity roleEntity = inviteEntity.getRole().orElseThrow(() -> AdminUsersExceptions.inviteDoesNotHaveRole(code));
+         if (existingUser.getServicesRole(serviceEntity.getExternalId()).isEmpty()) {
+             ServiceRoleEntity serviceRole = new ServiceRoleEntity(serviceEntity, roleEntity);
+diff --git a/src/main/resources/config/config.yaml b/src/main/resources/config/config.yaml
+index 25f14696..5e38bd36 100644
+--- a/src/main/resources/config/config.yaml
++++ b/src/main/resources/config/config.yaml
+@@ -23,7 +23,7 @@ logging:
+       customFields:
+         container: "adminusers"
+         environment: ${ENVIRONMENT}
+-    - type: sentry
++    - type: pay-dropwizard-3-sentry
+       threshold: ERROR
+       dsn: ${SENTRY_DSN:-https://example.com@dummy/1}
+       environment: ${ENVIRONMENT}
+diff --git a/src/test/java/uk/gov/pay/adminusers/TestTemplateResourceLoader.java b/src/test/java/uk/gov/pay/adminusers/JsonResourceLoader.java
+similarity index 51%
+rename from src/test/java/uk/gov/pay/adminusers/TestTemplateResourceLoader.java
+rename to src/test/java/uk/gov/pay/adminusers/JsonResourceLoader.java
+index 9303c814..933ebedb 100644
+--- a/src/test/java/uk/gov/pay/adminusers/TestTemplateResourceLoader.java
++++ b/src/test/java/uk/gov/pay/adminusers/JsonResourceLoader.java
+@@ -1,10 +1,15 @@
+ package uk.gov.pay.adminusers;
+ 
+-import static io.dropwizard.testing.FixtureHelpers.fixture;
++import com.google.gson.JsonElement;
++import com.google.gson.JsonParser;
+ 
+-public class TestTemplateResourceLoader {
++import java.io.BufferedReader;
++import java.io.FileNotFoundException;
++import java.io.FileReader;
++
++public class JsonResourceLoader {
+     private static final String TEMPLATE_BASE_NAME = "templates";
+-    
++
+     public static final String DISPUTE_CREATED_EVENT = TEMPLATE_BASE_NAME + "/events/dispute_created_event.json";
+ 
+     public static final String DISPUTE_LOST_EVENT = TEMPLATE_BASE_NAME + "/events/dispute_lost_event.json";
+@@ -15,9 +20,14 @@ public class TestTemplateResourceLoader {
+ 
+     public static final String DISPUTE_CREATED_SNS_MESSAGE = TEMPLATE_BASE_NAME + "/sns/dispute_created_sns_message.json";
+ 
++    private static JsonElement loadJsonFromFile(String filePath) throws FileNotFoundException {
++        BufferedReader reader = new BufferedReader(new FileReader(filePath));
++        return JsonParser.parseReader(reader);
++    }
+ 
+-    public static String load(String location) {
+-        return fixture(location);
++    public static String load(String location) throws FileNotFoundException {
++        String filePath = JsonResourceLoader.class.getClassLoader().getResource(location).getPath();
++        return loadJsonFromFile(filePath).toString();
+     }
+ 
+ }
+diff --git a/src/test/java/uk/gov/pay/adminusers/model/ServiceUpdateRequestTest.java b/src/test/java/uk/gov/pay/adminusers/model/ServiceUpdateRequestTest.java
+index 76fa2d5b..6478cf99 100644
+--- a/src/test/java/uk/gov/pay/adminusers/model/ServiceUpdateRequestTest.java
++++ b/src/test/java/uk/gov/pay/adminusers/model/ServiceUpdateRequestTest.java
+@@ -11,9 +11,9 @@ import java.util.Comparator;
+ import java.util.List;
+ import java.util.Map;
+ 
+-import static io.dropwizard.testing.FixtureHelpers.fixture;
+ import static org.hamcrest.MatcherAssert.assertThat;
+ import static org.hamcrest.core.Is.is;
++import static uk.gov.pay.adminusers.JsonResourceLoader.load;
+ 
+ class ServiceUpdateRequestTest {
+ 
+@@ -38,7 +38,7 @@ class ServiceUpdateRequestTest {
+ 
+     @Test
+     void shouldReturnAList_whenJsonIsArray() throws IOException {
+-        String jsonPayload = fixture("fixtures/resource/service/patch/array-replace-service-name-en-replace-service-name-cy.json");
++        String jsonPayload = load("fixtures/resource/service/patch/array-replace-service-name-en-replace-service-name-cy.json");
+ 
+         final List<ServiceUpdateRequest> requests = ServiceUpdateRequest.getUpdateRequests(objectMapper.readTree(jsonPayload));
+ 
+diff --git a/src/test/java/uk/gov/pay/adminusers/queue/event/EventSubscriberQueueTest.java b/src/test/java/uk/gov/pay/adminusers/queue/event/EventSubscriberQueueTest.java
+index b17f10b8..6b2d000a 100644
+--- a/src/test/java/uk/gov/pay/adminusers/queue/event/EventSubscriberQueueTest.java
++++ b/src/test/java/uk/gov/pay/adminusers/queue/event/EventSubscriberQueueTest.java
+@@ -23,8 +23,8 @@ import static org.hamcrest.Matchers.is;
+ import static org.mockito.ArgumentMatchers.anyString;
+ import static org.mockito.Mockito.mock;
+ import static org.mockito.Mockito.when;
+-import static uk.gov.pay.adminusers.TestTemplateResourceLoader.DISPUTE_CREATED_SNS_MESSAGE;
+-import static uk.gov.pay.adminusers.TestTemplateResourceLoader.load;
++import static uk.gov.pay.adminusers.JsonResourceLoader.DISPUTE_CREATED_SNS_MESSAGE;
++import static uk.gov.pay.adminusers.JsonResourceLoader.load;
+ 
+ @ExtendWith(MockitoExtension.class)
+ class EventSubscriberQueueTest {
+diff --git a/src/test/java/uk/gov/pay/adminusers/queue/model/event/DisputeCreatedDetailsTest.java b/src/test/java/uk/gov/pay/adminusers/queue/model/event/DisputeCreatedDetailsTest.java
+index 4b9333ab..ff026404 100644
+--- a/src/test/java/uk/gov/pay/adminusers/queue/model/event/DisputeCreatedDetailsTest.java
++++ b/src/test/java/uk/gov/pay/adminusers/queue/model/event/DisputeCreatedDetailsTest.java
+@@ -1,6 +1,5 @@
+ package uk.gov.pay.adminusers.queue.model.event;
+ 
+-import com.fasterxml.jackson.core.JsonProcessingException;
+ import com.fasterxml.jackson.databind.ObjectMapper;
+ import org.junit.jupiter.api.Test;
+ import uk.gov.pay.adminusers.queue.model.Event;
+@@ -8,15 +7,15 @@ import uk.gov.pay.adminusers.queue.model.EventType;
+ 
+ import static org.hamcrest.MatcherAssert.assertThat;
+ import static org.hamcrest.Matchers.is;
+-import static uk.gov.pay.adminusers.TestTemplateResourceLoader.DISPUTE_CREATED_EVENT;
+-import static uk.gov.pay.adminusers.TestTemplateResourceLoader.load;
++import static uk.gov.pay.adminusers.JsonResourceLoader.DISPUTE_CREATED_EVENT;
++import static uk.gov.pay.adminusers.JsonResourceLoader.load;
+ 
+ class DisputeCreatedDetailsTest {
+ 
+     private final ObjectMapper objectMapper = new ObjectMapper();
+ 
+     @Test
+-    public void shouldDeserialiseDisputeEvent() throws JsonProcessingException {
++    public void shouldDeserialiseDisputeEvent() throws Exception {
+ 
+         var json = objectMapper.readTree(load(DISPUTE_CREATED_EVENT));
+         var evt = objectMapper.treeToValue(json, Event.class);
+diff --git a/src/test/java/uk/gov/pay/adminusers/queue/model/event/DisputeEvidenceSubmittedDetailsTest.java b/src/test/java/uk/gov/pay/adminusers/queue/model/event/DisputeEvidenceSubmittedDetailsTest.java
+index a5d2eec0..b67976ff 100644
+--- a/src/test/java/uk/gov/pay/adminusers/queue/model/event/DisputeEvidenceSubmittedDetailsTest.java
++++ b/src/test/java/uk/gov/pay/adminusers/queue/model/event/DisputeEvidenceSubmittedDetailsTest.java
+@@ -1,6 +1,5 @@
+ package uk.gov.pay.adminusers.queue.model.event;
+ 
+-import com.fasterxml.jackson.core.JsonProcessingException;
+ import com.fasterxml.jackson.databind.ObjectMapper;
+ import org.junit.jupiter.api.Test;
+ import uk.gov.pay.adminusers.queue.model.Event;
+@@ -8,15 +7,15 @@ import uk.gov.pay.adminusers.queue.model.EventType;
+ 
+ import static org.hamcrest.MatcherAssert.assertThat;
+ import static org.hamcrest.Matchers.is;
+-import static uk.gov.pay.adminusers.TestTemplateResourceLoader.DISPUTE_EVIDENCE_SUBMITTED_EVENT;
+-import static uk.gov.pay.adminusers.TestTemplateResourceLoader.load;
++import static uk.gov.pay.adminusers.JsonResourceLoader.DISPUTE_EVIDENCE_SUBMITTED_EVENT;
++import static uk.gov.pay.adminusers.JsonResourceLoader.load;
+ 
+ class DisputeEvidenceSubmittedDetailsTest {
+ 
+     private final ObjectMapper objectMapper = new ObjectMapper();
+ 
+     @Test
+-    public void shouldDeserialiseDisputeEvent() throws JsonProcessingException {
++    public void shouldDeserialiseDisputeEvent() throws Exception {
+ 
+         var json = objectMapper.readTree(load(DISPUTE_EVIDENCE_SUBMITTED_EVENT));
+         var evt = objectMapper.treeToValue(json, Event.class);
+diff --git a/src/test/java/uk/gov/pay/adminusers/queue/model/event/DisputeLostDetailsTest.java b/src/test/java/uk/gov/pay/adminusers/queue/model/event/DisputeLostDetailsTest.java
+index 11da3649..2adc2797 100644
+--- a/src/test/java/uk/gov/pay/adminusers/queue/model/event/DisputeLostDetailsTest.java
++++ b/src/test/java/uk/gov/pay/adminusers/queue/model/event/DisputeLostDetailsTest.java
+@@ -1,6 +1,5 @@
+ package uk.gov.pay.adminusers.queue.model.event;
+ 
+-import com.fasterxml.jackson.core.JsonProcessingException;
+ import com.fasterxml.jackson.databind.ObjectMapper;
+ import org.junit.jupiter.api.Test;
+ import uk.gov.pay.adminusers.queue.model.Event;
+@@ -8,20 +7,20 @@ import uk.gov.pay.adminusers.queue.model.EventType;
+ 
+ import static org.hamcrest.MatcherAssert.assertThat;
+ import static org.hamcrest.Matchers.is;
+-import static uk.gov.pay.adminusers.TestTemplateResourceLoader.DISPUTE_LOST_EVENT;
+-import static uk.gov.pay.adminusers.TestTemplateResourceLoader.load;
++import static uk.gov.pay.adminusers.JsonResourceLoader.DISPUTE_LOST_EVENT;
++import static uk.gov.pay.adminusers.JsonResourceLoader.load;
+ 
+ class DisputeLostDetailsTest {
+-    
+-    private final ObjectMapper objectMapper = new ObjectMapper(); 
++
++    private final ObjectMapper objectMapper = new ObjectMapper();
+ 
+     @Test
+-    public void shouldDeserialiseDisputeEvent() throws JsonProcessingException {
++    public void shouldDeserialiseDisputeEvent() throws Exception {
+ 
+         var json = objectMapper.readTree(load(DISPUTE_LOST_EVENT));
+         var evt = objectMapper.treeToValue(json, Event.class);
+         var disputeLostDetails = objectMapper.treeToValue(evt.getEventDetails(), DisputeLostDetails.class);
+-        
++
+         assertThat(evt.getEventType(), is(EventType.DISPUTE_LOST.name()));
+         assertThat(disputeLostDetails.getFee(), is(1500L));
+         assertThat(disputeLostDetails.getAmount(), is(2500L));
+diff --git a/src/test/java/uk/gov/pay/adminusers/queue/model/event/DisputeWonDetailsTest.java b/src/test/java/uk/gov/pay/adminusers/queue/model/event/DisputeWonDetailsTest.java
+index c2a98c0d..682e7295 100644
+--- a/src/test/java/uk/gov/pay/adminusers/queue/model/event/DisputeWonDetailsTest.java
++++ b/src/test/java/uk/gov/pay/adminusers/queue/model/event/DisputeWonDetailsTest.java
+@@ -1,6 +1,5 @@
+ package uk.gov.pay.adminusers.queue.model.event;
+ 
+-import com.fasterxml.jackson.core.JsonProcessingException;
+ import com.fasterxml.jackson.databind.ObjectMapper;
+ import org.junit.jupiter.api.Test;
+ import uk.gov.pay.adminusers.queue.model.Event;
+@@ -8,15 +7,15 @@ import uk.gov.pay.adminusers.queue.model.EventType;
+ 
+ import static org.hamcrest.MatcherAssert.assertThat;
+ import static org.hamcrest.Matchers.is;
+-import static uk.gov.pay.adminusers.TestTemplateResourceLoader.DISPUTE_WON_EVENT;
+-import static uk.gov.pay.adminusers.TestTemplateResourceLoader.load;
++import static uk.gov.pay.adminusers.JsonResourceLoader.DISPUTE_WON_EVENT;
++import static uk.gov.pay.adminusers.JsonResourceLoader.load;
+ 
+ class DisputeWonDetailsTest {
+ 
+     private final ObjectMapper objectMapper = new ObjectMapper();
+ 
+     @Test
+-    public void shouldDeserialiseDisputeEvent() throws JsonProcessingException {
++    public void shouldDeserialiseDisputeEvent() throws Exception {
+ 
+         var json = objectMapper.readTree(load(DISPUTE_WON_EVENT));
+         var evt = objectMapper.treeToValue(json, Event.class);
+diff --git a/src/test/java/uk/gov/pay/adminusers/resources/HealthCheckResourceTest.java b/src/test/java/uk/gov/pay/adminusers/resources/HealthCheckResourceTest.java
+index 28b06dc9..a85302b2 100644
+--- a/src/test/java/uk/gov/pay/adminusers/resources/HealthCheckResourceTest.java
++++ b/src/test/java/uk/gov/pay/adminusers/resources/HealthCheckResourceTest.java
+@@ -6,7 +6,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
+ import com.fasterxml.jackson.databind.ObjectMapper;
+ import com.fasterxml.jackson.databind.ObjectWriter;
+ import com.jayway.jsonassert.JsonAssert;
+-import io.dropwizard.setup.Environment;
++import io.dropwizard.core.setup.Environment;
+ import org.junit.jupiter.api.BeforeEach;
+ import org.junit.jupiter.api.Test;
+ import org.junit.jupiter.api.extension.ExtendWith;
+@@ -26,7 +26,7 @@ import static org.mockito.Mockito.when;
+ class HealthCheckResourceTest {
+ 
+     private static ObjectMapper objectMapper = new ObjectMapper();
+-    
++
+     @Mock
+     private Environment environment;
+ 
+@@ -43,7 +43,7 @@ class HealthCheckResourceTest {
+ 
+     @Test
+     void checkHealthCheck_isUnHealthy() throws JsonProcessingException {
+-        SortedMap<String,HealthCheck.Result> map = new TreeMap<>();
++        SortedMap<String, HealthCheck.Result> map = new TreeMap<>();
+         map.put("ping", HealthCheck.Result.unhealthy("application is unavailable"));
+         map.put("deadlocks", HealthCheck.Result.unhealthy("no new threads available"));
+         when(healthCheckRegistry.runHealthChecks()).thenReturn(map);
+@@ -60,7 +60,7 @@ class HealthCheckResourceTest {
+ 
+     @Test
+     void checkHealthCheck_isHealthy() throws JsonProcessingException {
+-        SortedMap<String,HealthCheck.Result> map = new TreeMap<>();
++        SortedMap<String, HealthCheck.Result> map = new TreeMap<>();
+         map.put("ping", HealthCheck.Result.healthy());
+         map.put("deadlocks", HealthCheck.Result.healthy());
+         when(healthCheckRegistry.runHealthChecks()).thenReturn(map);
+@@ -77,7 +77,7 @@ class HealthCheckResourceTest {
+ 
+     @Test
+     void checkHealthCheck_pingIsHealthy_deadlocksIsUnhealthy() throws JsonProcessingException {
+-        SortedMap<String,HealthCheck.Result> map = new TreeMap<>();
++        SortedMap<String, HealthCheck.Result> map = new TreeMap<>();
+         map.put("ping", HealthCheck.Result.healthy());
+         map.put("deadlocks", HealthCheck.Result.unhealthy("no new threads available"));
+         when(healthCheckRegistry.runHealthChecks()).thenReturn(map);
+diff --git a/src/test/java/uk/gov/pay/adminusers/unit/service/ServiceResourceSearchTest.java b/src/test/java/uk/gov/pay/adminusers/unit/service/ServiceResourceSearchTest.java
+index f9def110..4fef0f3d 100644
+--- a/src/test/java/uk/gov/pay/adminusers/unit/service/ServiceResourceSearchTest.java
++++ b/src/test/java/uk/gov/pay/adminusers/unit/service/ServiceResourceSearchTest.java
+@@ -10,18 +10,14 @@ import org.junit.jupiter.api.BeforeEach;
+ import org.junit.jupiter.api.Test;
+ import org.junit.jupiter.api.extension.ExtendWith;
+ import org.mockito.junit.jupiter.MockitoExtension;
++import uk.gov.pay.adminusers.fixtures.ServiceEntityFixture;
+ import uk.gov.pay.adminusers.persistence.dao.ServiceDao;
+ import uk.gov.pay.adminusers.persistence.dao.UserDao;
+ import uk.gov.pay.adminusers.persistence.entity.MerchantDetailsEntityBuilder;
+-import uk.gov.pay.adminusers.fixtures.ServiceEntityFixture;
+ import uk.gov.pay.adminusers.resources.GovUkPayAgreementRequestValidator;
+ import uk.gov.pay.adminusers.resources.ServiceRequestValidator;
+ import uk.gov.pay.adminusers.resources.ServiceResource;
+-import uk.gov.pay.adminusers.service.GovUkPayAgreementService;
+-import uk.gov.pay.adminusers.service.SendLiveAccountCreatedEmailService;
+-import uk.gov.pay.adminusers.service.ServiceFinder;
+-import uk.gov.pay.adminusers.service.ServiceServicesFactory;
+-import uk.gov.pay.adminusers.service.StripeAgreementService;
++import uk.gov.pay.adminusers.service.*;
+ import uk.gov.pay.adminusers.validations.RequestValidations;
+ import uk.gov.service.payments.commons.model.SupportedLanguage;
+ 
+@@ -30,16 +26,14 @@ import javax.ws.rs.core.Response;
+ import java.util.Collections;
+ import java.util.List;
+ 
+-import static io.dropwizard.testing.FixtureHelpers.fixture;
+ import static org.hamcrest.CoreMatchers.anyOf;
+ import static org.hamcrest.CoreMatchers.equalTo;
+ import static org.hamcrest.MatcherAssert.assertThat;
+ import static org.hamcrest.core.Is.is;
+ import static org.mockito.ArgumentMatchers.anyString;
+ import static org.mockito.BDDMockito.given;
+-import static org.mockito.Mockito.mock;
+-import static org.mockito.Mockito.never;
+-import static org.mockito.Mockito.verify;
++import static org.mockito.Mockito.*;
++import static uk.gov.pay.adminusers.JsonResourceLoader.load;
+ import static uk.gov.pay.adminusers.app.util.RandomIdGenerator.randomUuid;
+ import static uk.gov.pay.adminusers.resources.ServiceRequestValidator.SERVICE_SEARCH_LENGTH_ERR_MSG;
+ import static uk.gov.pay.adminusers.resources.ServiceRequestValidator.SERVICE_SEARCH_SPECIAL_CHARS_ERR_MSG;
+@@ -81,8 +75,8 @@ public class ServiceResourceSearchTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldOK_andReturnServices_whenMatches() throws JsonProcessingException {
+-        var payload = fixture("fixtures/resource/service/post/service-search-request.json");
++    public void shouldOK_andReturnServices_whenMatches() throws Exception {
++        var payload = load("fixtures/resource/service/post/service-search-request.json");
+         var serviceExternalId = randomUuid();
+         var merchantDetailsEntity = MerchantDetailsEntityBuilder.aMerchantDetailsEntity()
+                 .withName("Government Bakery Office")
+@@ -109,8 +103,8 @@ public class ServiceResourceSearchTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldOK_andReturnEmptyResult_whenNoMatches() throws JsonProcessingException {
+-        var payload = fixture("fixtures/resource/service/post/service-search-request.json");
++    public void shouldOK_andReturnEmptyResult_whenNoMatches() throws Exception {
++        var payload = load("fixtures/resource/service/post/service-search-request.json");
+ 
+         given(mockedServiceDao.findByENServiceName("cake")).willReturn(Collections.emptyList());
+         given(mockedServiceDao.findByServiceMerchantName("bakery")).willReturn(Collections.emptyList());
+diff --git a/src/test/java/uk/gov/pay/adminusers/unit/service/ServiceResourceUpdateTest.java b/src/test/java/uk/gov/pay/adminusers/unit/service/ServiceResourceUpdateTest.java
+index 444d5801..a9258afb 100644
+--- a/src/test/java/uk/gov/pay/adminusers/unit/service/ServiceResourceUpdateTest.java
++++ b/src/test/java/uk/gov/pay/adminusers/unit/service/ServiceResourceUpdateTest.java
+@@ -6,19 +6,15 @@ import io.restassured.path.json.JsonPath;
+ import org.junit.jupiter.api.BeforeEach;
+ import org.junit.jupiter.api.Test;
+ import org.junit.jupiter.api.extension.ExtendWith;
++import uk.gov.pay.adminusers.fixtures.ServiceEntityFixture;
+ import uk.gov.pay.adminusers.persistence.dao.UserDao;
+ import uk.gov.pay.adminusers.persistence.entity.GatewayAccountIdEntity;
+ import uk.gov.pay.adminusers.persistence.entity.ServiceEntity;
+-import uk.gov.pay.adminusers.fixtures.ServiceEntityFixture;
+ import uk.gov.pay.adminusers.resources.GovUkPayAgreementRequestValidator;
+ import uk.gov.pay.adminusers.resources.ServiceRequestValidator;
+ import uk.gov.pay.adminusers.resources.ServiceResource;
+ import uk.gov.pay.adminusers.resources.ServiceUpdateOperationValidator;
+-import uk.gov.pay.adminusers.service.GovUkPayAgreementService;
+-import uk.gov.pay.adminusers.service.SendLiveAccountCreatedEmailService;
+-import uk.gov.pay.adminusers.service.ServiceServicesFactory;
+-import uk.gov.pay.adminusers.service.ServiceUpdater;
+-import uk.gov.pay.adminusers.service.StripeAgreementService;
++import uk.gov.pay.adminusers.service.*;
+ import uk.gov.pay.adminusers.validations.RequestValidations;
+ import uk.gov.service.payments.commons.model.SupportedLanguage;
+ 
+@@ -27,18 +23,14 @@ import javax.ws.rs.core.Response;
+ import java.util.Collections;
+ import java.util.Optional;
+ 
+-import static io.dropwizard.testing.FixtureHelpers.fixture;
+ import static java.lang.String.format;
+ import static org.hamcrest.CoreMatchers.not;
+ import static org.hamcrest.MatcherAssert.assertThat;
+-import static org.hamcrest.Matchers.contains;
+-import static org.hamcrest.Matchers.containsInAnyOrder;
+-import static org.hamcrest.Matchers.empty;
+-import static org.hamcrest.Matchers.hasKey;
+-import static org.hamcrest.Matchers.hasSize;
++import static org.hamcrest.Matchers.*;
+ import static org.hamcrest.core.Is.is;
+ import static org.mockito.Mockito.mock;
+ import static org.mockito.Mockito.when;
++import static uk.gov.pay.adminusers.JsonResourceLoader.load;
+ import static uk.gov.pay.adminusers.app.util.RandomIdGenerator.randomUuid;
+ 
+ @ExtendWith(DropwizardExtensionsSupport.class)
+@@ -75,12 +67,12 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldUpdateExistingEnServiceNameIncludingLegacyName_inSingleObject() {
++    public void shouldUpdateExistingEnServiceNameIncludingLegacyName_inSingleObject() throws Exception {
+ 
+         ServiceEntity thisServiceEntity = ServiceEntityFixture.aServiceEntity().build();
+         String externalId = thisServiceEntity.getExternalId();
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/single-object-replace-service-name-en.json");
++        String jsonPayload = load("fixtures/resource/service/patch/single-object-replace-service-name-en.json");
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+ 
+@@ -98,12 +90,12 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldUpdateExistingEnServiceNameIncludingLegacyName() {
++    public void shouldUpdateExistingEnServiceNameIncludingLegacyName() throws Exception {
+ 
+         ServiceEntity thisServiceEntity = ServiceEntityFixture.aServiceEntity().build();
+         String externalId = thisServiceEntity.getExternalId();
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/array-replace-service-name-en.json");
++        String jsonPayload = load("fixtures/resource/service/patch/array-replace-service-name-en.json");
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+ 
+@@ -121,12 +113,12 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldUpdateExistingEnServiceNameAndNonExistingCyServiceName() {
++    public void shouldUpdateExistingEnServiceNameAndNonExistingCyServiceName() throws Exception {
+ 
+         ServiceEntity thisServiceEntity = ServiceEntityFixture.aServiceEntity().build();
+         String externalId = thisServiceEntity.getExternalId();
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/array-replace-service-name-en-replace-service-name-cy.json");
++        String jsonPayload = load("fixtures/resource/service/patch/array-replace-service-name-en-replace-service-name-cy.json");
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+ 
+@@ -145,14 +137,14 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldUpdateExistingCyServiceName() {
++    public void shouldUpdateExistingCyServiceName() throws Exception {
+ 
+         ServiceEntity thisServiceEntity = ServiceEntityFixture.aServiceEntity()
+                 .withServiceNameEntity(SupportedLanguage.WELSH, "old-cy-name")
+                 .build();
+         String externalId = thisServiceEntity.getExternalId();
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/array-replace-service-name-cy.json");
++        String jsonPayload = load("fixtures/resource/service/patch/array-replace-service-name-cy.json");
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+ 
+@@ -171,7 +163,7 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldUpdateExistingEnServiceNameAndExistingCyServiceName() {
++    public void shouldUpdateExistingEnServiceNameAndExistingCyServiceName() throws Exception {
+ 
+         ServiceEntity thisServiceEntity = ServiceEntityFixture.aServiceEntity()
+                 .withServiceNameEntity(SupportedLanguage.ENGLISH, "old-en-name")
+@@ -179,7 +171,7 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+                 .build();
+         String externalId = thisServiceEntity.getExternalId();
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/array-replace-service-name-en-replace-service-name-cy.json");
++        String jsonPayload = load("fixtures/resource/service/patch/array-replace-service-name-en-replace-service-name-cy.json");
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+ 
+@@ -198,7 +190,7 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldRemoveCyServiceNameWhenReplacedWithBlank() {
++    public void shouldRemoveCyServiceNameWhenReplacedWithBlank() throws Exception {
+ 
+         ServiceEntity thisServiceEntity = ServiceEntityFixture.aServiceEntity()
+                 .withServiceNameEntity(SupportedLanguage.ENGLISH, "old-en-name")
+@@ -206,7 +198,7 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+                 .build();
+         String externalId = thisServiceEntity.getExternalId();
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/array-replace-service-name-cy-blank.json");
++        String jsonPayload = load("fixtures/resource/service/patch/array-replace-service-name-cy-blank.json");
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+ 
+@@ -225,8 +217,8 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldError404_ifServiceExternalIdDoesNotExist() {
+-        String jsonPayload = fixture("fixtures/resource/service/patch/array-replace-service-name-en.json");
++    public void shouldError404_ifServiceExternalIdDoesNotExist() throws Exception {
++        String jsonPayload = load("fixtures/resource/service/patch/array-replace-service-name-en.json");
+         String externalId = "externalId";
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.empty());
+ 
+@@ -238,12 +230,12 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldError400_ifMandatoryFieldValueMissing() {
++    public void shouldError400_ifMandatoryFieldValueMissing() throws Exception {
+ 
+         ServiceEntity thisServiceEntity = ServiceEntityFixture.aServiceEntity().build();
+         String externalId = thisServiceEntity.getExternalId();
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/array-replace-service-name-en-missing-value.json");
++        String jsonPayload = load("fixtures/resource/service/patch/array-replace-service-name-en-missing-value.json");
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+ 
+@@ -261,12 +253,12 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldError400_ifMandatoryFieldPathMissing() {
++    public void shouldError400_ifMandatoryFieldPathMissing() throws Exception {
+ 
+         ServiceEntity thisServiceEntity = ServiceEntityFixture.aServiceEntity().build();
+         String externalId = thisServiceEntity.getExternalId();
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/array-replace-missing-path.json");
++        String jsonPayload = load("fixtures/resource/service/patch/array-replace-missing-path.json");
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+ 
+@@ -284,12 +276,12 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldError400_ifmandatoryFieldOpMissing() {
++    public void shouldError400_ifmandatoryFieldOpMissing() throws Exception {
+ 
+         ServiceEntity thisServiceEntity = ServiceEntityFixture.aServiceEntity().build();
+         String externalId = thisServiceEntity.getExternalId();
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/array-missing-op-service-name-en.json");
++        String jsonPayload = load("fixtures/resource/service/patch/array-missing-op-service-name-en.json");
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+ 
+@@ -307,13 +299,13 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldSuccess_whenAddGatewayAccountIds_whereNoGatewayAccountIds() {
++    public void shouldSuccess_whenAddGatewayAccountIds_whereNoGatewayAccountIds() throws Exception {
+         ServiceEntity thisServiceEntity = ServiceEntityFixture.aServiceEntity().build();
+         String externalId = thisServiceEntity.getExternalId();
+ 
+         assertThat(thisServiceEntity.getGatewayAccountIds(), is(empty()));
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/array-add-gateway-account-ids.json");
++        String jsonPayload = load("fixtures/resource/service/patch/array-add-gateway-account-ids.json");
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+         when(mockedServiceDao.checkIfGatewayAccountsUsed(Collections.singletonList("1014748185"))).thenReturn(false);
+@@ -331,7 +323,7 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldSuccess_whenAddGatewayAccountIds_whereThereIsGatewayAccountIds() {
++    public void shouldSuccess_whenAddGatewayAccountIds_whereThereIsGatewayAccountIds() throws Exception {
+         GatewayAccountIdEntity gatewayAccountIdEntity = new GatewayAccountIdEntity();
+         String gatewayAccountId = randomUuid();
+         gatewayAccountIdEntity.setGatewayAccountId(gatewayAccountId);
+@@ -340,7 +332,7 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+                 .build();
+         gatewayAccountIdEntity.setService(thisServiceEntity);
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/array-add-gateway-account-ids.json");
++        String jsonPayload = load("fixtures/resource/service/patch/array-add-gateway-account-ids.json");
+         when(mockedServiceDao.findByExternalId(thisServiceEntity.getExternalId())).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+         when(mockedServiceDao.checkIfGatewayAccountsUsed(Collections.singletonList("1014748185"))).thenReturn(false);
+@@ -358,10 +350,10 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldReturn409_whenAddGatewayAccountIds_andGatewayAccountId_isUsedByAnotherService() {
++    public void shouldReturn409_whenAddGatewayAccountIds_andGatewayAccountId_isUsedByAnotherService() throws Exception {
+         ServiceEntity thisServiceEntity = ServiceEntityFixture.aServiceEntity().build();
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/array-add-gateway-account-ids.json");
++        String jsonPayload = load("fixtures/resource/service/patch/array-add-gateway-account-ids.json");
+         when(mockedServiceDao.findByExternalId(thisServiceEntity.getExternalId())).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+         when(mockedServiceDao.checkIfGatewayAccountsUsed(Collections.singletonList("1014748185"))).thenReturn(true);
+@@ -380,14 +372,14 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldUpdateRedirect_toTrue() {
++    public void shouldUpdateRedirect_toTrue() throws Exception {
+         ServiceEntity thisServiceEntity = ServiceEntityFixture
+                 .aServiceEntity()
+                 .withRedirectToServiceImmediatelyOnTerminalState(false)
+                 .build();
+         String externalId = thisServiceEntity.getExternalId();
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/replace_redirect_immediately_to_true.json");
++        String jsonPayload = load("fixtures/resource/service/patch/replace_redirect_immediately_to_true.json");
+ 
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+@@ -405,14 +397,14 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldFailUpdateRedirect_whenValueIsNotBoolean() {
++    public void shouldFailUpdateRedirect_whenValueIsNotBoolean() throws Exception {
+         ServiceEntity thisServiceEntity = ServiceEntityFixture
+                 .aServiceEntity()
+                 .withRedirectToServiceImmediatelyOnTerminalState(false)
+                 .build();
+         String externalId = thisServiceEntity.getExternalId();
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/replace_redirect_immediately_invalid_value.json");
++        String jsonPayload = load("fixtures/resource/service/patch/replace_redirect_immediately_invalid_value.json");
+ 
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+@@ -430,14 +422,14 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldUpdateCollectBillingAddress_toFalse() {
++    public void shouldUpdateCollectBillingAddress_toFalse() throws Exception {
+         ServiceEntity thisServiceEntity = ServiceEntityFixture
+                 .aServiceEntity()
+                 .withCollectBillingAddress(true)
+                 .build();
+         String externalId = thisServiceEntity.getExternalId();
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/replace_collect_billing_address_to_false.json");
++        String jsonPayload = load("fixtures/resource/service/patch/replace_collect_billing_address_to_false.json");
+ 
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+@@ -455,14 +447,14 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldFailUpdateCollectBillingAddress_whenValueIsNotBoolean() {
++    public void shouldFailUpdateCollectBillingAddress_whenValueIsNotBoolean() throws Exception {
+         ServiceEntity thisServiceEntity = ServiceEntityFixture
+                 .aServiceEntity()
+                 .withCollectBillingAddress(true)
+                 .build();
+         String externalId = thisServiceEntity.getExternalId();
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/replace_collect_billing_address_invalid_value.json");
++        String jsonPayload = load("fixtures/resource/service/patch/replace_collect_billing_address_invalid_value.json");
+ 
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+@@ -480,14 +472,14 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldUpdateExperimentalFeaturesEnabled_toTrue() {
++    public void shouldUpdateExperimentalFeaturesEnabled_toTrue() throws Exception {
+         ServiceEntity thisServiceEntity = ServiceEntityFixture
+                 .aServiceEntity()
+                 .withExperimentalFeaturesEnabled(false)
+                 .build();
+         String externalId = thisServiceEntity.getExternalId();
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/replace_experimental_features_enabled_to_true.json");
++        String jsonPayload = load("fixtures/resource/service/patch/replace_experimental_features_enabled_to_true.json");
+ 
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+@@ -505,14 +497,14 @@ public class ServiceResourceUpdateTest extends ServiceResourceBaseTest {
+     }
+ 
+     @Test
+-    public void shouldUpdateTakesPaymentsOverPhone_toTrue() {
++    public void shouldUpdateTakesPaymentsOverPhone_toTrue() throws Exception {
+         ServiceEntity thisServiceEntity = ServiceEntityFixture
+                 .aServiceEntity()
+                 .withTakesPaymentsOverPhone(false)
+                 .build();
+         String externalId = thisServiceEntity.getExternalId();
+ 
+-        String jsonPayload = fixture("fixtures/resource/service/patch/replace_takes_payments_over_phone_to_true.json");
++        String jsonPayload = load("fixtures/resource/service/patch/replace_takes_payments_over_phone_to_true.json");
+ 
+         when(mockedServiceDao.findByExternalId(externalId)).thenReturn(Optional.of(thisServiceEntity));
+         when(mockedServiceDao.merge(thisServiceEntity)).thenReturn(thisServiceEntity);
+diff --git a/src/test/resources/config/test-it-config.yaml b/src/test/resources/config/test-it-config.yaml
+index 7a81969e..18816947 100644
+--- a/src/test/resources/config/test-it-config.yaml
++++ b/src/test/resources/config/test-it-config.yaml
+@@ -16,6 +16,10 @@ logging:
+       target: stdout
+       customFields:
+         container: "adminusers"
++    - type: pay-dropwizard-3-sentry
++      threshold: ERROR
++      dsn: ${SENTRY_DSN:-https://example.com@dummy/1}
++      environment: ${ENVIRONMENT}
+ 
+ database:
+   driverClass: org.postgresql.Driver

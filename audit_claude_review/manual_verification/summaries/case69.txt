@@ -1,0 +1,37 @@
+﻿
+=== Case 69  56b1cde573f7b411a3a831bed30c624ddfdbdf3d ===
+Project : fmtn/a
+Update  : org.graalvm.js:js-scriptengine  22.0.0 -> 22.1.0
+Image not present locally, pulling ghcr.io/chains-project/breaking-updates:56b1cde573f7b411a3a831bed30c624ddfdbdf3d-breaking ...
+Running breaking in container manual-case69-breaking (this can take several minutes) ...
+Finished in 69 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case69_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 80, Failures: 3, Errors: 9, Skipped: 1
+First failing tests / errors:
+  [ERROR] co.nordlander.a.AOpenWireTest.testBatch  Time elapsed: 2.132 s  <<< FAILURE!
+      java.lang.AssertionError: A message is expected
+      at org.junit.Assert.fail(Assert.java:89)
+      at org.junit.Assert.assertTrue(Assert.java:42)
+  [ERROR] co.nordlander.a.AOpenWireTest.testCopyQueueWithTransformer  Time elapsed: 0.046 s  <<< ERROR!
+      java.lang.IllegalArgumentException: Could not find option with name js.charset.
+      at com.oracle.truffle.polyglot.PolyglotEngineException.illegalArgument(PolyglotEngineException.java:125)
+      at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:274)
+  [ERROR] co.nordlander.a.AOpenWireTest.testDumpMessagesAndTransform  Time elapsed: 0.052 s  <<< ERROR!
+      java.io.FileNotFoundException: /tmp/junit2726260585745042594/junit3097844987202792546/dump.json (No such file or directory)
+      at java.base/java.io.FileInputStream.open0(Native Method)
+      at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  none
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R2: Version skew within one library family)
+Cause   : js-scriptengine 22.1.0 run with GraalVM js 22.0.0 and graal-sdk 22.0.0 (archived): the engine sets option js.charset, which the 22.0.0 language does not define -> IllegalArgumentException 'Could not find option with name js.charset'; assertion failures and FileNotFound dump.json are downstream
+Codex   : PROVISIONAL_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

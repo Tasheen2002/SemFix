@@ -1,0 +1,86 @@
+Compiled from "WaitableFuture.java"
+public interface org.apache.sshd.common.future.WaitableFuture {
+  public abstract java.lang.Object getId();
+    descriptor: ()Ljava/lang/Object;
+
+  public default boolean await(org.apache.sshd.common.future.CancelOption...) throws java.io.IOException;
+    descriptor: ([Lorg/apache/sshd/common/future/CancelOption;)Z
+    Code:
+       0: aload_0
+       1: ldc2_w        #3                  // long 9223372036854775807l
+       4: aload_1
+       5: invokeinterface #5,  4            // InterfaceMethod await:(J[Lorg/apache/sshd/common/future/CancelOption;)Z
+      10: ireturn
+
+  public default boolean await(long, java.util.concurrent.TimeUnit, org.apache.sshd.common.future.CancelOption...) throws java.io.IOException;
+    descriptor: (JLjava/util/concurrent/TimeUnit;[Lorg/apache/sshd/common/future/CancelOption;)Z
+    Code:
+       0: aload_0
+       1: aload_3
+       2: lload_1
+       3: invokevirtual #11                 // Method java/util/concurrent/TimeUnit.toMillis:(J)J
+       6: aload         4
+       8: invokeinterface #5,  4            // InterfaceMethod await:(J[Lorg/apache/sshd/common/future/CancelOption;)Z
+      13: ireturn
+
+  public default boolean await(java.time.Duration, org.apache.sshd.common.future.CancelOption...) throws java.io.IOException;
+    descriptor: (Ljava/time/Duration;[Lorg/apache/sshd/common/future/CancelOption;)Z
+    Code:
+       0: aload_1
+       1: ifnull        18
+       4: aload_0
+       5: aload_1
+       6: invokevirtual #17                 // Method java/time/Duration.toMillis:()J
+       9: aload_2
+      10: invokeinterface #5,  4            // InterfaceMethod await:(J[Lorg/apache/sshd/common/future/CancelOption;)Z
+      15: goto          25
+      18: aload_0
+      19: aload_2
+      20: invokeinterface #22,  2           // InterfaceMethod await:([Lorg/apache/sshd/common/future/CancelOption;)Z
+      25: ireturn
+
+  public abstract boolean await(long, org.apache.sshd.common.future.CancelOption...) throws java.io.IOException;
+    descriptor: (J[Lorg/apache/sshd/common/future/CancelOption;)Z
+
+  public default boolean awaitUninterruptibly(org.apache.sshd.common.future.CancelOption...);
+    descriptor: ([Lorg/apache/sshd/common/future/CancelOption;)Z
+    Code:
+       0: aload_0
+       1: ldc2_w        #3                  // long 9223372036854775807l
+       4: aload_1
+       5: invokeinterface #25,  4           // InterfaceMethod awaitUninterruptibly:(J[Lorg/apache/sshd/common/future/CancelOption;)Z
+      10: ireturn
+
+  public default boolean awaitUninterruptibly(long, java.util.concurrent.TimeUnit, org.apache.sshd.common.future.CancelOption...);
+    descriptor: (JLjava/util/concurrent/TimeUnit;[Lorg/apache/sshd/common/future/CancelOption;)Z
+    Code:
+       0: aload_0
+       1: aload_3
+       2: lload_1
+       3: invokevirtual #11                 // Method java/util/concurrent/TimeUnit.toMillis:(J)J
+       6: aload         4
+       8: invokeinterface #25,  4           // InterfaceMethod awaitUninterruptibly:(J[Lorg/apache/sshd/common/future/CancelOption;)Z
+      13: ireturn
+
+  public default boolean awaitUninterruptibly(java.time.Duration, org.apache.sshd.common.future.CancelOption...);
+    descriptor: (Ljava/time/Duration;[Lorg/apache/sshd/common/future/CancelOption;)Z
+    Code:
+       0: aload_1
+       1: ifnull        18
+       4: aload_0
+       5: aload_1
+       6: invokevirtual #17                 // Method java/time/Duration.toMillis:()J
+       9: aload_2
+      10: invokeinterface #25,  4           // InterfaceMethod awaitUninterruptibly:(J[Lorg/apache/sshd/common/future/CancelOption;)Z
+      15: goto          25
+      18: aload_0
+      19: aload_2
+      20: invokeinterface #28,  2           // InterfaceMethod awaitUninterruptibly:([Lorg/apache/sshd/common/future/CancelOption;)Z
+      25: ireturn
+
+  public abstract boolean awaitUninterruptibly(long, org.apache.sshd.common.future.CancelOption...);
+    descriptor: (J[Lorg/apache/sshd/common/future/CancelOption;)Z
+
+  public abstract boolean isDone();
+    descriptor: ()Z
+}

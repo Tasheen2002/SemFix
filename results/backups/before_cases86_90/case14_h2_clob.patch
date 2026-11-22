@@ -1,0 +1,11 @@
+--- a/src/core/model/src/main/java/it/geosolutions/geostore/core/model/StoredData.java
++++ b/src/core/model/src/main/java/it/geosolutions/geostore/core/model/StoredData.java
+@@ -60,7 +60,7 @@
+     @Id
+     private Long id;
+ 
+-    @Column(name = "stored_data", nullable = false, updatable = true, length = 10000000)
++    @Column(name = "stored_data", nullable = false, updatable = true, columnDefinition = "CLOB")
+     private String data;
+ 
+     @OneToOne(optional = false)

@@ -1,0 +1,50 @@
+=== CASE 130 ae0c985ae9bd343310b66c5d9895aa068b5ef505
+  project=alphagov/pay-cardid dep=org.dhatim:dropwizard-sentry 2.1.2-4 -> 4.0.0 scope=compile type=other java=11
+  PR=https://github.com/alphagov/pay-cardid/pull/1035
+  PRE log logs/batch_triage/ae0c985a_pre.log:
+  lines=162
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 47, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/ae0c985a_breaking.log:
+  lines=159
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 37, Failures: 0, Errors: 1, Skipped: 0
+  failing classes: Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.321 s <<< FAILURE! - in uk.gov.pay.card.it.resources.CardIdResourceITest
+  section: Errors: | CardIdResourceITest »  java.lang.NoClassDefFoundError: io/dropwizard/logging/common/AbstractAppenderFactory | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  13.846 s | [INFO] Finished at: 2026-11-10T10:44:58Z | [INFO] ------------------------------------------------------------------------ | Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.0:test (default-test) on project pay-cardid: |  | Please refer to /pay-cardid/target/surefire-reports for the individual test results.
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.0:test (default-test) on project pay-cardid: 
+  FAILBLOCK: [ERROR] uk.gov.pay.card.it.resources.CardIdResourceITest  Time elapsed: 0.321 s  <<< ERROR!
+      java.lang.Exception: java.lang.NoClassDefFoundError: io/dropwizard/logging/common/AbstractAppenderFactory
+      at io.dropwizard.testing.junit5.DropwizardExtensionsSupport.beforeAll(DropwizardExtensionsSupport.java:87)
+      at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeBeforeAllCallbacks$12(ClassBasedTestDescriptor.java:395)
+      at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+      at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeBeforeAllCallbacks(ClassBasedTestDescriptor.java:395)
+      at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:211)
+      Caused by: java.lang.NoClassDefFoundError: io/dropwizard/logging/common/AbstractAppenderFactory
+      Caused by: java.lang.ClassNotFoundException: io.dropwizard.logging.common.AbstractAppenderFactory
+  distinct fail signatures (count): 1x java.lang.Exception: java.lang.NoClassDefFoundError: io/dropwizard/logging/common/AbstractAppenderFactory
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx3, java.lang.ClassNotFoundExceptionx1
+  EVIDENCE logs/case130_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/dropwizard-sentry-4.0.0_SentryAppenderFactory_javap.txt, breaking/jar_inspection.json, breaking/jars/dropwizard-logging-2.1.6.jar, breaking/jars/dropwizard-sentry-4.0.0.jar, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/dropwizard-sentry-2.1.2-4_SentryAppenderFactory_javap.txt, pre/jar_inspection.json, pre/jars/dropwizard-logging-2.1.6.jar, pre/jars/dropwizard-sentry-2.1.2-4.jar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=6 sum(t,f,e,s)=[47, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=6 sum(t,f,e,s)=[37, 0, 1, 0]
+  archived non-report files: pre=31 breaking=31 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -59,3 +59,3 @@
+                 <artifactId>dropwizard-sentry</artifactId>
+    -            <version>2.1.2-4</version>
+    +            <version>4.0.0</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    ERROR uk.gov.pay.card.it.resources.CardIdResourceITest# type=java.lang.Exception msg=java.lang.NoClassDefFoundError: io/dropwizard/logging/common/AbstractAppenderFactory
+       Caused by: java.lang.NoClassDefFoundError: io/dropwizard/logging/common/AbstractAppenderFactory
+       Caused by: java.lang.ClassNotFoundException: io.dropwizard.logging.common.AbstractAppenderFactory
+       at io.dropwizard.testing.junit5.DropwizardExtensionsSupport.beforeAll(DropwizardExtensionsSupport.java:87)
+       at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeBeforeAllCallbacks$12(ClassBasedTestDescriptor.java:395)
+       at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+       at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeBeforeAllCallbacks(ClassBasedTestDescriptor.java:395)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -            <version>2.1.2-4</version> / +            <version>4.0.0</version>
+  JSON breaking/jar_inspection.json: {"case_id":"ae0c985ae9bd343310b66c5d9895aa068b5ef505","phase":"breaking","path_filter":"/(dropwizard-logging|dropwizard-sentry)/","path_source":"Fresh test report effective classpaths, preferring surefire.test.class.path when present","artifacts":[{"resolved_path":"/root/.m2/repository/io/dropwizard/dropwizard-logging/2.1.6/dropwizard-logging-2.1.6.jar","classes":{"io.dropwizard.logging.AppenderFactory":{"present":true,"major_version":52},"io.dropwizard.logging.common.AppenderFactory":{"present":false,"major_version":null}},"services":{"META-INF/services/io.dropwizard.jackson.Discoverable":"io.dropwizard.logging.AppenderFactory\nio.dropwizard.logging.LoggingFactory\nio.dropwizard.logging.filter.FilterFactory\nio.dropwizard.logging.layout.DiscoverableLayoutFactory\n","META-INF/services/io.dropwizard.logging.AppenderFactory":"io.dropwizard.logging.ConsoleAppenderFactory\nio.dropwizard.logging.FileAppenderFactory\nio.dropwizard.logging.SyslogAppenderFactory\nio.dropwizard.logging.TcpSocketAppenderFactory\nio.dropwizard.logging.UdpSocketAppenderFactory\nio.dropwizard.logging.TlsSocketAppenderFactory\n","META-INF/services/io.dropwizard.logging.LoggingFactory":"io.dropwizard.logging.DefaultLoggingFactory\nio.dropwizard.logging.ExternalLoggingFactory\n"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/dhatim/dropwizard-sentry/4.0.0/dropwizard-sentry-4.0.0.jar","classes"...
+  JSON pre/jar_inspection.json: {"case_id":"ae0c985ae9bd343310b66c5d9895aa068b5ef505","phase":"pre","path_filter":"/(dropwizard-logging|dropwizard-sentry)/","path_source":"Fresh test report effective classpaths, preferring surefire.test.class.path when present","artifacts":[{"resolved_path":"/root/.m2/repository/io/dropwizard/dropwizard-logging/2.1.6/dropwizard-logging-2.1.6.jar","classes":{"io.dropwizard.logging.AppenderFactory":{"present":true,"major_version":52},"io.dropwizard.logging.common.AppenderFactory":{"present":false,"major_version":null}},"services":{"META-INF/services/io.dropwizard.jackson.Discoverable":"io.dropwizard.logging.AppenderFactory\nio.dropwizard.logging.LoggingFactory\nio.dropwizard.logging.filter.FilterFactory\nio.dropwizard.logging.layout.DiscoverableLayoutFactory\n","META-INF/services/io.dropwizard.logging.AppenderFactory":"io.dropwizard.logging.ConsoleAppenderFactory\nio.dropwizard.logging.FileAppenderFactory\nio.dropwizard.logging.SyslogAppenderFactory\nio.dropwizard.logging.TcpSocketAppenderFactory\nio.dropwizard.logging.UdpSocketAppenderFactory\nio.dropwizard.logging.TlsSocketAppenderFactory\n","META-INF/services/io.dropwizard.logging.LoggingFactory":"io.dropwizard.logging.DefaultLoggingFactory\nio.dropwizard.logging.ExternalLoggingFactory\n"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/dhatim/dropwizard-sentry/2.1.2-4/dropwizard-sentry-2.1.2-4.jar","classes":...
+  JARS: breaking/jars/dropwizard-logging-2.1.6.jar, breaking/jars/dropwizard-sentry-4.0.0.jar, pre/jars/dropwizard-logging-2.1.6.jar, pre/jars/dropwizard-sentry-2.1.2-4.jar

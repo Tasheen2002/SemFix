@@ -1,0 +1,12 @@
+Exception in thread "main" java.lang.NoSuchFieldError: EMPTY_BYTE_ARRAY
+	at org.apache.logging.log4j.core.config.ConfigurationSource.<clinit>(ConfigurationSource.java:56)
+	at org.apache.logging.log4j.core.config.NullConfiguration.<init>(NullConfiguration.java:32)
+	at org.apache.logging.log4j.core.LoggerContext.<clinit>(LoggerContext.java:85)
+	at org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.createContext(ClassLoaderContextSelector.java:254)
+	at org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.locateContext(ClassLoaderContextSelector.java:218)
+	at org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.getContext(ClassLoaderContextSelector.java:140)
+	at org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.getContext(ClassLoaderContextSelector.java:123)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:230)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:47)
+	at org.apache.logging.log4j.LogManager.getContext(LogManager.java:174)
+	at Case129LoggerProbe.main(Case129LoggerProbe.java:5)

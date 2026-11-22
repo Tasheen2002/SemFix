@@ -1,0 +1,121 @@
+=== CASE 129 ac14d8362de4bfcf636e1468d68faa10d8b42669
+  project=oripa/oripa dep=org.apache.logging.log4j:log4j-core 2.12.1 -> 2.15.0 scope=compile type=minor java=11
+  PR=https://github.com/oripa/oripa/pull/164
+  PRE log logs/batch_triage/ac14d836_pre.log:
+  lines=236
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 67, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/ac14d836_breaking.log:
+  lines=437
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 67, Failures: 0, Errors: 48, Skipped: 0
+  failing classes: Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.364 s <<< FAILURE! - in oripa.persistence.foldformat.GeometryTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in oripa.persistence.foldformat.CreasePatternElementConverterTest || Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.024 s <<< FAILURE! - in oripa.gui.bind.binder.ButtonBinderTest || Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 4.239 s <<< FAILURE! - in oripa.gui.bind.state.LocalPaintBoundStateFactoryTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.279 s <<< FAILURE! - in oripa.gui.bind.ButtonFactoryTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in oripa.domain.paint.CreasePatternUndoManagerTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.064 s <<< FAILURE! - in oripa.domain.paint.outline.IsOutsideOfTempOutlineLoopTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in oripa.domain.paint.outline.OutlineAdderTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in oripa.domain.paint.outline.OutsideLineRemoverTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in oripa.domain.paint.outline.CloseTempOutlineTest
+  section: Errors: | ElementRemoverTest.testRemoveLine:53 NoClassDefFound Could not initialize clas... | ElementRemoverTest.testRemoveLines:151 NoClassDefFound Could not initialize cl... | ElementRemoverTest.testRemoveMeaninglessVertices:127 NoClassDefFound Could not... | ElementRemoverTest.testRemoveSelectedLines:177 NoClassDefFound Could not initi... | ElementRemoverTest.testRemoveVertex_shouldBeRemoved:76 NoClassDefFound Could n... | ElementRemoverTest.testRemoveVertex_shouldNotBeRemoved_differentType:108 NoClassDefFound | ElementRemoverTest.testRemoveVertex_shouldNotBeRemoved_notParallel:92 » NoClassDefFound | LineAdderTest.testAddAll:69 NoClassDefFound Could not initialize class oripa.d... | LineAdderTest.testAddLine:49 » NoClassDefFound Could not initialize class org.... | LineTypeChangerTest.testAlterLineType_changeables:43 » NoClassDefFound Could n... | LineTypeChangerTest.testAlterLineType_delete:96 » NoClassDefFound Could not in... | LineTypeChangerTest.testAlterLineType_flip:110 » NoClassDefFound Could not ini... | LineTypeChangerTest.testAlterLineTypes_delete:145 » NoClassDefFound Could not ...
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project oripa: There are test failures.
+  FAILBLOCK: [ERROR] testSortByAngle  Time elapsed: 0.351 s  <<< ERROR!
+      java.lang.NoSuchFieldError: EMPTY_BYTE_ARRAY
+      at oripa.persistence.foldformat.GeometryTest.testSortByAngle(GeometryTest.java:45)
+      [INFO] Running oripa.persistence.foldformat.CreasePatternElementConverterTest
+      [ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in oripa.persistence.foldformat.CreasePatternElementConverterTest
+      [ERROR] testToVerticesCoords  Time elapsed: 0 s  <<< ERROR!
+  FAILBLOCK: [ERROR] testToVerticesCoords  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+      at oripa.persistence.foldformat.CreasePatternElementConverterTest.testToVerticesCoords(CreasePatternElementConverterTest.java:73)
+      [ERROR] testToFacesVertices  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class oripa.persistence.foldformat.CreasePatternElementConverter
+      at oripa.persistence.foldformat.CreasePatternElementConverterTest.testToFacesVertices(CreasePatternElementConverterTest.java:115)
+  FAILBLOCK: [ERROR] testToFacesVertices  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class oripa.persistence.foldformat.CreasePatternElementConverter
+      at oripa.persistence.foldformat.CreasePatternElementConverterTest.testToFacesVertices(CreasePatternElementConverterTest.java:115)
+      [ERROR] testToEdgesAssignment  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class oripa.persistence.foldformat.CreasePatternElementConverter
+      at oripa.persistence.foldformat.CreasePatternElementConverterTest.testToEdgesAssignment(CreasePatternElementConverterTest.java:105)
+  FAILBLOCK: [ERROR] testUndo  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.paint.CreasePatternUndoManagerTest
+      [ERROR] testDiscardingOldRedo  Time elapsed: 0.001 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.paint.CreasePatternUndoManagerTest
+      [INFO] Running oripa.domain.paint.outline.IsOutsideOfTempOutlineLoopTest
+  distinct fail signatures (count): 1x java.lang.NoSuchFieldError: EMPTY_BYTE_ARRAY || 6x java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext || 3x java.lang.NoClassDefFoundError: Could not initialize class oripa.persistence.foldformat.CreasePatternElementConverter || 1x java.lang.NoClassDefFoundError: Could not initialize class oripa.domain.paint.CreasePatternUndoManagerTest
+  linkage/compile signals: NoClassDefFoundError, NoSuchFieldError
+  exception names: java.lang.NoClassDefFoundErrorx31, org.mockito.exceptions.misusing.UnfinishedMockingSessionExceptionx16, java.lang.NoSuchFieldErrorx1
+  EVIDENCE logs/case129_evidence: Case129LoggerProbe.java, all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/log4j-api-2.12.1.jar, breaking/jars/log4j-core-2.15.0.jar, breaking/log4j-api-2.12.1_Constants_javap.txt, breaking/log4j-core-2.15.0_ConfigurationSource_javap.txt, breaking/log4j-core-2.15.0_LoggerContext_javap.txt, logger_probe_breaking.log, logger_probe_pre.log, logger_probe_results.json, pre/Case129LoggerProbe.class, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/log4j-api-2.12.1.jar, pre/jars/log4j-core-2.12.1.jar, pre/log4j-api-2.12.1_Constants_javap.txt, pre/log4j-core-2.12.1_LoggerContext_javap.txt, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=31 sum(t,f,e,s)=[67, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=31 sum(t,f,e,s)=[67, 0, 48, 0]
+  archived non-report files: pre=538 breaking=538 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -71,3 +71,3 @@
+     			<artifactId>log4j-core</artifactId>
+    -			<version>2.12.1</version>
+    +			<version>2.15.0</version>
+     		</dependency>
+  BREAKING surefire failures/errors:
+    ERROR oripa.domain.cptool.ElementRemoverTest#testRemoveVertex_shouldNotBeRemoved_notParallel type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at oripa.domain.cptool.ElementRemoverTest.testRemoveVertex_shouldNotBeRemoved_notParallel(ElementRemoverTest.java:92)
+    ERROR oripa.domain.cptool.ElementRemoverTest#testRemoveLines type=java.lang.NoClassDefFoundError msg=Could not initialize class oripa.domain.cptool.ElementRemover
+       at oripa.domain.cptool.ElementRemoverTest.testRemoveLines(ElementRemoverTest.java:151)
+    ERROR oripa.domain.cptool.ElementRemoverTest#testRemoveMeaninglessVertices type=java.lang.NoClassDefFoundError msg=Could not initialize class oripa.domain.cptool.ElementRemover
+       at oripa.domain.cptool.ElementRemoverTest.testRemoveMeaninglessVertices(ElementRemoverTest.java:127)
+    ERROR oripa.domain.cptool.ElementRemoverTest#testRemoveVertex_shouldNotBeRemoved_differentType type=java.lang.NoClassDefFoundError msg=Could not initialize class oripa.domain.cptool.ElementRemover
+       at oripa.domain.cptool.ElementRemoverTest.testRemoveVertex_shouldNotBeRemoved_differentType(ElementRemoverTest.java:108)
+    ERROR oripa.domain.cptool.ElementRemoverTest#testRemoveSelectedLines type=java.lang.NoClassDefFoundError msg=Could not initialize class oripa.domain.cptool.ElementRemover
+       at oripa.domain.cptool.ElementRemoverTest.testRemoveSelectedLines(ElementRemoverTest.java:177)
+    ERROR oripa.domain.cptool.ElementRemoverTest#testRemoveVertex_shouldBeRemoved type=java.lang.NoClassDefFoundError msg=Could not initialize class oripa.domain.cptool.ElementRemover
+       at oripa.domain.cptool.ElementRemoverTest.testRemoveVertex_shouldBeRemoved(ElementRemoverTest.java:76)
+    ERROR oripa.domain.cptool.ElementRemoverTest#testRemoveLine type=java.lang.NoClassDefFoundError msg=Could not initialize class oripa.domain.cptool.ElementRemover
+       at oripa.domain.cptool.ElementRemoverTest.testRemoveLine(ElementRemoverTest.java:53)
+    ERROR oripa.domain.cptool.LineAdderTest#testAddLine type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at oripa.domain.cptool.LineAdderTest.testAddLine(LineAdderTest.java:49)
+    ERROR oripa.domain.cptool.LineAdderTest#testAddAll type=java.lang.NoClassDefFoundError msg=Could not initialize class oripa.domain.cptool.LineAdder
+       at oripa.domain.cptool.LineAdderTest.testAddAll(LineAdderTest.java:69)
+    ERROR oripa.domain.cptool.LineTypeChangerTest#testAlterLineType_changeables type=java.lang.NoClassDefFoundError msg=Could not initialize class oripa.domain.cptool.ElementRemover
+       at oripa.domain.cptool.LineTypeChangerTest.testAlterLineType_changeables(LineTypeChangerTest.java:43)
+    ERROR oripa.domain.cptool.LineTypeChangerTest#testAlterLineType_delete type=java.lang.NoClassDefFoundError msg=Could not initialize class oripa.domain.cptool.ElementRemover
+       at oripa.domain.cptool.LineTypeChangerTest.testAlterLineType_delete(LineTypeChangerTest.java:96)
+    ERROR oripa.domain.cptool.LineTypeChangerTest#testAlterLineType_flip type=java.lang.NoClassDefFoundError msg=Could not initialize class oripa.domain.cptool.ElementRemover
+       at oripa.domain.cptool.LineTypeChangerTest.testAlterLineType_flip(LineTypeChangerTest.java:110)
+    ERROR oripa.domain.cptool.LineTypeChangerTest#testAlterLineTypes_delete type=java.lang.NoClassDefFoundError msg=Could not initialize class oripa.domain.cptool.ElementRemover
+       at oripa.domain.cptool.LineTypeChangerTest.testAlterLineTypes_delete(LineTypeChangerTest.java:145)
+    ERROR oripa.domain.cptool.OverlappingLineExtractorTest#testExtract_ofSpecifiedLine type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at oripa.domain.cptool.OverlappingLineExtractorTest.testExtract_ofSpecifiedLine(OverlappingLineExtractorTest.java:82)
+    ERROR oripa.domain.cptool.OverlappingLineExtractorTest#testExtract_all type=java.lang.NoClassDefFoundError msg=Could not initialize class oripa.domain.cptool.OverlappingLineExtractor
+       at oripa.domain.cptool.OverlappingLineExtractorTest.testExtract_all(OverlappingLineExtractorTest.java:46)
+    ERROR oripa.domain.cptool.OverlappingLineExtractorTest#testExtract_all_verticals type=java.lang.NoClassDefFoundError msg=Could not initialize class oripa.domain.cptool.OverlappingLineExtractor
+       at oripa.domain.cptool.OverlappingLineExtractorTest.testExtract_all_verticals(OverlappingLineExtractorTest.java:62)
+    ERROR oripa.domain.fold.foldability.GeneralizedBLBLemmaTest#testHolds_equalAngles type=org.mockito.exceptions.misusing.UnfinishedMockingSessionException msg= Unfinished mocking session detected. Previous MockitoSession was not concluded with 'finishMocking()'. For examples of correct usage see javadoc for MockitoSession class.
+    ERROR oripa.domain.fold.foldability.GeneralizedBLBLemmaTest#testHolds_45deg_135deg type=org.mockito.exceptions.misusing.UnfinishedMockingSessionException msg= Unfinished mocking session detected. Previous MockitoSession was not concluded with 'finishMocking()'. For examples of correct usage see javadoc for MockitoSession class.
+    ERROR oripa.domain.fold.foldability.GeneralizedBLBLemmaTest#testHolds_birdFoot type=org.mockito.exceptions.misusing.UnfinishedMockingSessionException msg= Unfinished mocking session detected. Previous MockitoSession was not concluded with 'finishMocking()'. For examples of correct usage see javadoc for MockitoSession class.
+    ERROR oripa.domain.fold.foldability.GeneralizedBLBLemmaTest#testHolds_twoSequences type=org.mockito.exceptions.misusing.UnfinishedMockingSessionException msg= Unfinished mocking session detected. Previous MockitoSession was not concluded with 'finishMocking()'. For examples of correct usage see javadoc for MockitoSession class.
+    ERROR oripa.domain.fold.foldability.KawasakiTheoremTest#testHolds_wrongShape type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at oripa.domain.fold.foldability.KawasakiTheoremTest.testHolds_wrongShape(KawasakiTheoremTest.java:46)
+    ERROR oripa.domain.fold.foldability.KawasakiTheoremTest#testHolds_birdFoot type=java.lang.NoClassDefFoundError msg=Could not initialize class oripa.domain.fold.foldability.KawasakiTheorem
+       at oripa.domain.fold.foldability.KawasakiTheoremTest.testHolds_birdFoot(KawasakiTheoremTest.java:38)
+    ERROR oripa.domain.fold.foldability.MaekawaTheoremTest#testHolds_birdFoot type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at oripa.domain.fold.foldability.MaekawaTheoremTest.testHolds_birdFoot(MaekawaTheoremTest.java:39)
+    ERROR oripa.domain.fold.halfedge.OriFaceTest#testIsOnFaceInclusively type=org.mockito.exceptions.misusing.UnfinishedMockingSessionException msg= Unfinished mocking session detected. Previous MockitoSession was not concluded with 'finishMocking()'. For examples of correct usage see javadoc for MockitoSession class.
+    ERROR oripa.domain.fold.halfedge.OriFaceTest#testIsOnFaceExclusively type=org.mockito.exceptions.misusing.UnfinishedMockingSessionException msg= Unfinished mocking session detected. Previous MockitoSession was not concluded with 'finishMocking()'. For examples of correct usage see javadoc for MockitoSession class.
+    ERROR oripa.domain.fold.halfedge.OriVertexTest#testAddEdge type=org.mockito.exceptions.misusing.UnfinishedMockingSessionException msg= Unfinished mocking session detected. Previous MockitoSession was not concluded with 'finishMocking()'. For examples of correct usage see javadoc for MockitoSession class.
+    ERROR oripa.domain.fold.subface.FacesToCreasePatternConverterTest#testConvertToCreasePattern type=org.mockito.exceptions.misusing.UnfinishedMockingSessionException msg= Unfinished mocking session detected. Previous MockitoSession was not concluded with 'finishMocking()'. For examples of correct usage see javadoc for MockitoSession class.
+    ERROR oripa.domain.fold.subface.ParentFacesCollectorTest#testCollect type=org.mockito.exceptions.misusing.UnfinishedMockingSessionException msg= Unfinished mocking session detected. Previous MockitoSession was not concluded with 'finishMocking()'. For examples of correct usage see javadoc for MockitoSession class.
+    ERROR oripa.domain.fold.subface.SplitFacesToSubFacesConverterTest#testConvertToSubFaces type=org.mockito.exceptions.misusing.UnfinishedMockingSessionException msg= Unfinished mocking session detected. Previous MockitoSession was not concluded with 'finishMocking()'. For examples of correct usage see javadoc for MockitoSession class.
+    ERROR oripa.domain.fold.subface.SubFacesFactoryTest#testCreateSubFaces type=org.mockito.exceptions.misusing.UnfinishedMockingSessionException msg= Unfinished mocking session detected. Previous MockitoSession was not concluded with 'finishMocking()'. For examples of correct usage see javadoc for MockitoSession class.
+    ERROR oripa.domain.paint.CreasePatternUndoManagerTest#testRedo type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at oripa.domain.paint.CreasePatternUndoManagerTest.<clinit>(CreasePatternUndoManagerTest.java:39)
+    ERROR oripa.domain.paint.CreasePatternUndoManagerTest#testUndo type=java.lang.NoClassDefFoundError msg=Could not initialize class oripa.domain.paint.CreasePatternUndoManagerTest
+    ERROR oripa.domain.paint.CreasePatternUndoManagerTest#testDiscardingOldRedo type=java.lang.NoClassDefFoundError msg=Could not initialize class oripa.domain.paint.CreasePatternUndoManagerTest
+    ERROR oripa.domain.paint.outline.CloseTempOutlineTest#testExecute type=org.mockito.exceptions.misusing.UnfinishedMockingSessionException msg= Unfinished mocking session detected. Previous MockitoSession was not concluded with 'finishMocking()'. For examples of correct usage see javadoc for MockitoSession class.
+    ERROR oripa.domain.paint.outline.IsOutsideOfTempOutlineLoopTest#testExecute_outside_fix_v145 type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+    ERROR oripa.domain.paint.outline.IsOutsideOfTempOutlineLoopTest#testExecute_outside type=org.mockito.exceptions.misusing.UnfinishedMockingSessionException msg= Unfinished mocking session detected. Previous MockitoSession was not concluded with 'finishMocking()'. For examples of correct usage see javadoc for MockitoSession class.
+    ERROR oripa.domain.paint.outline.IsOutsideOfTempOutlineLoopTest#testExecute_inside type=org.mockito.exceptions.misusing.UnfinishedMockingSessionException msg= Unfinished mocking session detected. Previous MockitoSession was not concluded with 'finishMocking()'. For examples of correct usage see javadoc for MockitoSession class.
+    ERROR oripa.domain.paint.outline.OutlineAdderTest#testAddOutlines type=org.mockito.exceptions.misusing.UnfinishedMockingSessionException msg= Unfinished mocking session detected. Previous MockitoSession was not concluded with 'finishMocking()'. For examples of correct usage see javadoc for MockitoSession class.
+    ERROR oripa.domain.paint.outline.OutsideLineRemoverTest#testRemoveLinesOutsideOfOutlines type=org.mockito.exceptions.misusing.UnfinishedMockingSessionException msg= Unfinished mocking session detected. Previous MockitoSession was not concluded with 'finishMocking()'. For examples of correct usage see javadoc for MockitoSession class.
+    ERROR oripa.gui.bind.ButtonFactoryTest#test type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+    ... truncated (78 lines)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -			<version>2.12.1</version> / +			<version>2.15.0</version>
+  JSON breaking/jar_inspection.json: {"case_id":"ac14d8362de4bfcf636e1468d68faa10d8b42669","phase":"breaking","path_filter":"/org/apache/logging/log4j/(log4j-core|log4j-api)/","path_source":"Fresh test report effective classpaths, preferring surefire.test.class.path when present","artifacts":[{"resolved_path":"/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.12.1/log4j-api-2.12.1.jar","classes":{"org.apache.logging.log4j.util.Constants":{"present":true,"major_version":51},"org.apache.logging.log4j.core.LoggerContext":{"present":false,"major_version":null}},"services":{"META-INF/services/org.apache.logging.log4j.util.PropertySource":"# Licensed to the Apache Software Foundation (ASF) under one or more\n# contributor license agreements. See the NOTICE file distributed with\n# this work for additional information regarding copyright ownership.\n# The ASF licenses this file to You under the Apache license, Version 2.0\n# (the \"License\"..."},"disassemblies":[{"class":"org.apache.logging.log4j.util.Constants","file":"log4j-api-2.12.1_Constants_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.15.0/log4j-core-2.15.0.jar","classes":{"org.apache.logging.log4j.util.Constants":{"present":false,"major_version":null},"org.apache.logging.log4j.core.LoggerContext":{"present":true,"major_version":52}},"services":{"META-INF/services/javax.annotation.processing.Proce...
+  LOG logger_probe_breaking.log (12 lines): Exception in thread "main" java.lang.NoSuchFieldError: EMPTY_BYTE_ARRAY
+  LOG logger_probe_pre.log (2 lines): 
+  JSON logger_probe_results.json: {"runs":[{"phase":"pre","exit_code":0,"stdout":"org.apache.logging.log4j.core.LoggerContext\n","stderr":"ERROR StatusLogger No Log4j 2 configuration file found. Using default configuration (logging only errors to the console), or user programmatically provided configurations. Set system property 'log4j2.debug' to show Log4j 2 internal initialization logging. See https://logging.apache.org/log4j/2.x/man..."},{"phase":"breaking","exit_code":1,"stdout":"","stderr":"Exception in thread \"main\" java.lang.NoSuchFieldError: EMPTY_BYTE_ARRAY\n\tat org.apache.logging.log4j.core.config.ConfigurationSource.<clinit>(ConfigurationSource.java:56)\n\tat org.apache.logging.log4j.core.config.NullConfiguration.<init>(NullConfiguration.java:32)\n\tat org.apache.logging.log4j.core.Lo..."}]}
+  JSON pre/jar_inspection.json: {"case_id":"ac14d8362de4bfcf636e1468d68faa10d8b42669","phase":"pre","path_filter":"/org/apache/logging/log4j/(log4j-core|log4j-api)/","path_source":"Fresh test report effective classpaths, preferring surefire.test.class.path when present","artifacts":[{"resolved_path":"/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.12.1/log4j-api-2.12.1.jar","classes":{"org.apache.logging.log4j.util.Constants":{"present":true,"major_version":51},"org.apache.logging.log4j.core.LoggerContext":{"present":false,"major_version":null}},"services":{"META-INF/services/org.apache.logging.log4j.util.PropertySource":"# Licensed to the Apache Software Foundation (ASF) under one or more\n# contributor license agreements. See the NOTICE file distributed with\n# this work for additional information regarding copyright ownership.\n# The ASF licenses this file to You under the Apache license, Version 2.0\n# (the \"License\"..."},"disassemblies":[{"class":"org.apache.logging.log4j.util.Constants","file":"log4j-api-2.12.1_Constants_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.12.1/log4j-core-2.12.1.jar","classes":{"org.apache.logging.log4j.util.Constants":{"present":false,"major_version":null},"org.apache.logging.log4j.core.LoggerContext":{"present":true,"major_version":51}},"services":{"META-INF/services/javax.annotation.processing.Processor"...
+  JARS: breaking/jars/log4j-api-2.12.1.jar, breaking/jars/log4j-core-2.15.0.jar, pre/jars/log4j-api-2.12.1.jar, pre/jars/log4j-core-2.12.1.jar

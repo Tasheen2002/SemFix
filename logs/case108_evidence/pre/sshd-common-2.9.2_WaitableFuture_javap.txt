@@ -1,0 +1,78 @@
+Compiled from "WaitableFuture.java"
+public interface org.apache.sshd.common.future.WaitableFuture {
+  public abstract java.lang.Object getId();
+    descriptor: ()Ljava/lang/Object;
+
+  public default boolean await() throws java.io.IOException;
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: ldc2_w        #3                  // long 9223372036854775807l
+       4: invokeinterface #5,  3            // InterfaceMethod await:(J)Z
+       9: ireturn
+
+  public default boolean await(long, java.util.concurrent.TimeUnit) throws java.io.IOException;
+    descriptor: (JLjava/util/concurrent/TimeUnit;)Z
+    Code:
+       0: aload_0
+       1: aload_3
+       2: lload_1
+       3: invokevirtual #11                 // Method java/util/concurrent/TimeUnit.toMillis:(J)J
+       6: invokeinterface #5,  3            // InterfaceMethod await:(J)Z
+      11: ireturn
+
+  public default boolean await(java.time.Duration) throws java.io.IOException;
+    descriptor: (Ljava/time/Duration;)Z
+    Code:
+       0: aload_1
+       1: ifnull        17
+       4: aload_0
+       5: aload_1
+       6: invokevirtual #17                 // Method java/time/Duration.toMillis:()J
+       9: invokeinterface #5,  3            // InterfaceMethod await:(J)Z
+      14: goto          23
+      17: aload_0
+      18: invokeinterface #22,  1           // InterfaceMethod await:()Z
+      23: ireturn
+
+  public abstract boolean await(long) throws java.io.IOException;
+    descriptor: (J)Z
+
+  public default boolean awaitUninterruptibly();
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: ldc2_w        #3                  // long 9223372036854775807l
+       4: invokeinterface #25,  3           // InterfaceMethod awaitUninterruptibly:(J)Z
+       9: ireturn
+
+  public default boolean awaitUninterruptibly(long, java.util.concurrent.TimeUnit);
+    descriptor: (JLjava/util/concurrent/TimeUnit;)Z
+    Code:
+       0: aload_0
+       1: aload_3
+       2: lload_1
+       3: invokevirtual #11                 // Method java/util/concurrent/TimeUnit.toMillis:(J)J
+       6: invokeinterface #25,  3           // InterfaceMethod awaitUninterruptibly:(J)Z
+      11: ireturn
+
+  public default boolean awaitUninterruptibly(java.time.Duration);
+    descriptor: (Ljava/time/Duration;)Z
+    Code:
+       0: aload_1
+       1: ifnull        17
+       4: aload_0
+       5: aload_1
+       6: invokevirtual #17                 // Method java/time/Duration.toMillis:()J
+       9: invokeinterface #25,  3           // InterfaceMethod awaitUninterruptibly:(J)Z
+      14: goto          23
+      17: aload_0
+      18: invokeinterface #28,  1           // InterfaceMethod awaitUninterruptibly:()Z
+      23: ireturn
+
+  public abstract boolean awaitUninterruptibly(long);
+    descriptor: (J)Z
+
+  public abstract boolean isDone();
+    descriptor: ()Z
+}

@@ -1,0 +1,89 @@
+=== CASE 55 474422dcefb61cf1460c9f218a11b7ba693725c2
+  project=pac4j/dropwizard-pac4j dep=org.glassfish.jersey.core:jersey-server 2.32 -> 2.39 scope=compile type=minor java=11
+  PR=https://github.com/pac4j/dropwizard-pac4j/pull/366
+  PRE log logs/batch_triage/474422dc_pre.log:
+  lines=472
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/474422dc_breaking.log:
+  lines=1068
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 16, Failures: 0, Errors: 10, Skipped: 0
+  failing classes: Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 2.869 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndServletTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.537 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 1.029 s <<< FAILURE! - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+  section: Errors: | BundleFactoryTest.emptyPac4jInConfig:47->AbstractApplicationTest.setup:31 » NoClassDefFound org/glassfish/jersey/internal/DynamicFeatureConfigurator | BundleFactoryTest.noPac4jInConfig:31->AbstractApplicationTest.setup:31 » NoClassDefFound org/glassfish/jersey/internal/DynamicFeatureConfigurator | BundleFactoryTest.sessionEnabledForced:68->AbstractApplicationTest.setup:31 » NoClassDefFound org/glassfish/jersey/internal/DynamicFeatureConfigurator | BundleFactoryTest.sessiondisabledForced:83->AbstractApplicationTest.setup:31 » NoClassDefFound org/glassfish/jersey/internal/DynamicFeatureConfigurator | EndToEndServletTest.grantsAccessToResources:54->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound org/glassfish/jersey/internal/DynamicFeatureConfigurator | EndToEndServletTest.grantsAccessToResourcesForm:36->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound org/glassfish/jersey/internal/DynamicFeatureConfigurator | EndToEndServletTest.restrictsAccessToResources:69->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound org/glassfish/jersey/internal/DynamicFeatureConfigurator | EndToEndTest.grantsAccessToResources:54->setup:31->AbstractApplicationTes
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project dropwizard-pac4j: 
+  FAILBLOCK: [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources  Time elapsed: 2.315 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: org/glassfish/jersey/internal/DynamicFeatureConfigurator
+      at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:273)
+      at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:261)
+      at org.glassfish.jersey.servlet.WebComponent.<init>(WebComponent.java:311)
+      at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:154)
+      at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:347)
+      Caused by: java.lang.ClassNotFoundException: org.glassfish.jersey.internal.DynamicFeatureConfigurator
+  distinct fail signatures (count): 10x java.lang.NoClassDefFoundError: org/glassfish/jersey/internal/DynamicFeatureConfigurator
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx10, java.lang.ClassNotFoundExceptionx1
+  EVIDENCE logs/case55_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/jersey-common-2.32.jar, breaking/jersey-server-2.39.jar, pre/archive_summary.json, pre/artifacts.tar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[16, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[16, 0, 10, 0]
+  archived non-report files: pre=27 breaking=27 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -189,3 +189,3 @@
+             <artifactId>jersey-server</artifactId>
+    -        <version>2.32</version>
+    +        <version>2.39</version>
+           </dependency>
+  BREAKING surefire failures/errors:
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#emptyPac4jInConfig type=java.lang.NoClassDefFoundError msg=org/glassfish/jersey/internal/DynamicFeatureConfigurator
+       at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:273)
+       at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:261)
+       at org.glassfish.jersey.servlet.WebComponent.<init>(WebComponent.java:311)
+       at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:154)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#sessiondisabledForced type=java.lang.NoClassDefFoundError msg=org/glassfish/jersey/internal/DynamicFeatureConfigurator
+       at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:273)
+       at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:261)
+       at org.glassfish.jersey.servlet.WebComponent.<init>(WebComponent.java:311)
+       at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:154)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#noPac4jInConfig type=java.lang.NoClassDefFoundError msg=org/glassfish/jersey/internal/DynamicFeatureConfigurator
+       at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:273)
+       at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:261)
+       at org.glassfish.jersey.servlet.WebComponent.<init>(WebComponent.java:311)
+       at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:154)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#sessionEnabledForced type=java.lang.NoClassDefFoundError msg=org/glassfish/jersey/internal/DynamicFeatureConfigurator
+       at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:273)
+       at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:261)
+       at org.glassfish.jersey.servlet.WebComponent.<init>(WebComponent.java:311)
+       at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:154)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#grantsAccessToResources type=java.lang.NoClassDefFoundError msg=org/glassfish/jersey/internal/DynamicFeatureConfigurator
+       Caused by: java.lang.ClassNotFoundException: org.glassfish.jersey.internal.DynamicFeatureConfigurator
+       at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:273)
+       at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:261)
+       at org.glassfish.jersey.servlet.WebComponent.<init>(WebComponent.java:311)
+       at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:154)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#grantsAccessToResourcesForm type=java.lang.NoClassDefFoundError msg=org/glassfish/jersey/internal/DynamicFeatureConfigurator
+       at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:273)
+       at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:261)
+       at org.glassfish.jersey.servlet.WebComponent.<init>(WebComponent.java:311)
+       at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:154)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#restrictsAccessToResources type=java.lang.NoClassDefFoundError msg=org/glassfish/jersey/internal/DynamicFeatureConfigurator
+       at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:273)
+       at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:261)
+       at org.glassfish.jersey.servlet.WebComponent.<init>(WebComponent.java:311)
+       at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:154)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndTest#grantsAccessToResources type=java.lang.NoClassDefFoundError msg=org/glassfish/jersey/internal/DynamicFeatureConfigurator
+       at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:273)
+       at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:261)
+       at org.glassfish.jersey.servlet.WebComponent.<init>(WebComponent.java:311)
+       at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:154)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndTest#grantsAccessToResourcesForm type=java.lang.NoClassDefFoundError msg=org/glassfish/jersey/internal/DynamicFeatureConfigurator
+       at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:273)
+       at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:261)
+       at org.glassfish.jersey.servlet.WebComponent.<init>(WebComponent.java:311)
+       at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:154)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndTest#restrictsAccessToResources type=java.lang.NoClassDefFoundError msg=org/glassfish/jersey/internal/DynamicFeatureConfigurator
+       at org.glassfish.jersey.server.ApplicationHandler.initialize(ApplicationHandler.java:273)
+       at org.glassfish.jersey.server.ApplicationHandler.<init>(ApplicationHandler.java:261)
+       at org.glassfish.jersey.servlet.WebComponent.<init>(WebComponent.java:311)
+       at org.glassfish.jersey.servlet.ServletContainer.init(ServletContainer.java:154)
+  JSON resolved_jar_inspection.json: [{"jar":"jersey-common-2.32.jar","contains_DynamicFeatureConfigurator":false,"references":[]},{"jar":"jersey-server-2.39.jar","contains_DynamicFeatureConfigurator":false,"references":["org/glassfish/jersey/server/ApplicationHandler.class"]}]

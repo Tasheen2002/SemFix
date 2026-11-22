@@ -1,0 +1,37 @@
+=== CASE 12 1266a8c84cd04cedfa316bed94b1e9b014da872f
+  project=alphagov/pay-adminusers dep=org.slf4j:slf4j-api 1.7.36 -> 2.0.1 scope=compile type=major java=11
+  PR=https://github.com/alphagov/pay-adminusers/pull/1591
+  PRE log logs/batch_triage/1266a8c8_pre.log:
+  lines=440
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 757, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/1266a8c8_breaking.log:
+  lines=1475
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 726, Failures: 0, Errors: 12, Skipped: 0
+  failing classes: Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.1 s <<< FAILURE! - in uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.263 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.081 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceCreateTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.054 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceSearchTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 10.046 s <<< FAILURE! - in uk.gov.pay.adminusers.unit.service.ServiceResourceUpdateTest
+  section: Errors: | EventMessageHandlerTest.setUp:111 ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app') | EventMessageHandlerTest.setUp:111 ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app') | EventMessageHandlerTest.setUp:111 ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app') | EventMessageHandlerTest.setUp:111 ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app') | EventMessageHandlerTest.setUp:111 ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app') | EventMessa
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project pay-adminusers: 
+  FAILBLOCK: [ERROR] uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.shouldNotCallNotificationServiceWhenNoAdminUsersExist  Time elapsed: 0.072 s  <<< ERROR!
+      java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+      at uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest.setUp(EventMessageHandlerTest.java:111)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+      at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+      at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+  FAILBLOCK: [ERROR] uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest  Time elapsed: 10.263 s  <<< ERROR!
+      java.lang.Exception: java.lang.ExceptionInInitializerError
+      at io.dropwizard.testing.junit5.DropwizardExtensionsSupport.beforeAll(DropwizardExtensionsSupport.java:87)
+      at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeBeforeAllCallbacks$12(ClassBasedTestDescriptor.java:395)
+      at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+      at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeBeforeAllCallbacks(ClassBasedTestDescriptor.java:395)
+      at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:211)
+      Caused by: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest
+      Caused by: java.lang.ExceptionInInitializerError
+      Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+  distinct fail signatures (count): 8x java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (o || 4x java.lang.Exception: java.lang.ExceptionInInitializerError
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+  linkage/compile signals: NoClassDefFoundError
+  exception names: java.lang.ExceptionInInitializerErrorx12, java.lang.ClassCastExceptionx8, java.lang.NoClassDefFoundErrorx8, java.lang.IllegalStateExceptionx4
+  EVIDENCE: no logs/case12_evidence directory

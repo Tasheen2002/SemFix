@@ -1,0 +1,117 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.jcabi:jcabi-ssh >-------------------------
+[INFO] Building jcabi-ssh 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact org.slf4j:slf4j-log4j12:jar:2.0.7 has been relocated to org.slf4j:slf4j-reload4j:jar:2.0.7
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jcabi-ssh ---
+[INFO] Deleting /jcabi-ssh/target
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-maven) @ jcabi-ssh ---
+[INFO] 
+[INFO] --- buildnumber:3.0.0:create (jcabi-build-number) @ jcabi-ssh ---
+[INFO] ShortRevision tag detected. The value is '7'.
+[INFO] Executing: /bin/sh -c cd '/jcabi-ssh' && 'git' 'rev-parse' '--verify' '--short=7' 'HEAD'
+[INFO] Working directory: /jcabi-ssh
+[INFO] Storing buildNumber: null at timestamp: 2026-11-10T09:06:29
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: not a git repository (or any of the parent directories): .git
+
+[INFO] ShortRevision tag detected. The value is '7'.
+[INFO] Executing: /bin/sh -c cd '/jcabi-ssh' && 'git' 'rev-parse' '--verify' '--short=7' 'HEAD'
+[INFO] Working directory: /jcabi-ssh
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- buildnumber:3.0.0:create-timestamp (jcabi-build-number) @ jcabi-ssh ---
+[INFO] Skipping because we are not in root module.
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ jcabi-ssh ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /jcabi-ssh/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ jcabi-ssh ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /jcabi-ssh/target/classes
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ jcabi-ssh ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 3 resources
+[INFO] The encoding used to copy filtered properties files have not been set. This means that the same encoding will be used to copy filtered properties files as when copying other filtered resources. This might not be what you want! Run your build with --debug to see which files might be affected. Read more at https://maven.apache.org/plugins/maven-resources-plugin/examples/filtering-properties-files.html
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ jcabi-ssh ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /jcabi-ssh/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0-M7:test (default-test) @ jcabi-ssh ---
+[INFO] Tests will run in random order. To reproduce ordering use flag -Dsurefire.runOrder.random.seed=525160736031
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.jcabi.ssh.ExecutionTest
+[INFO] main com.jcabi.ssh.Execution: + hello
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.799 s - in com.jcabi.ssh.ExecutionTest
+[INFO] Running com.jcabi.ssh.SshByPasswordTest
+[DEBUG] main com.jcabi.ssh.SshByPassword: Opening SSH session to test@172.17.0.2:44485 (auth with password)...
+[WARN] main com.jcabi.ssh.Ssh: Permanently added '[172.17.0.2]:44485' (ECDSA) to the list of known hosts.
+[DEBUG] sshd-SshServer[2aa6311a](port=44485)-nio2-thread-4 com.jcabi.ssh.MkCommandFactory: #createCommand(): command 'some test command' created
+[DEBUG] sshd-SshServer[2aa6311a](port=44485)-nio2-thread-4 com.jcabi.ssh.MkCommand: #setOutputStream(): for 'some test command'
+[DEBUG] sshd-SshServer[2aa6311a](port=44485)-nio2-thread-4 com.jcabi.ssh.MkCommand: #setErrorStream(): for 'some test command'
+[DEBUG] sshd-SshServer[2aa6311a](port=44485)-nio2-thread-4 com.jcabi.ssh.MkCommand: #setInputStream(): for 'some test command'
+[DEBUG] sshd-SshServer[2aa6311a](port=44485)-nio2-thread-4 com.jcabi.ssh.MkCommand: #setExitCallback(): for 'some test command'
+[DEBUG] sshd-SshServer[2aa6311a](port=44485)-nio2-thread-4 com.jcabi.ssh.MkCommand: #start(): starting 'some test command'
+[INFO] main com.jcabi.ssh.Execution: + some test command
+[DEBUG] sshd-SshServer[2aa6311a](port=44485)-nio2-thread-5 com.jcabi.ssh.MkCommand: #destroy(): finishing 'some test command'
+[DEBUG] main com.jcabi.ssh.Execution: Waiting for SSH session to 172.17.0.2:44485 to close, already 1s...
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.796 s - in com.jcabi.ssh.SshByPasswordTest
+[INFO] Running com.jcabi.ssh.SshTest
+[DEBUG] main com.jcabi.ssh.Ssh: Opening SSH session to other test@172.17.0.2:39095 (1764 bytes in RSA key)...
+[DEBUG] main com.jcabi.ssh.Ssh: SSH session opened to other test@172.17.0.2:39095
+[DEBUG] sshd-SshServer[72825400](port=39095)-nio2-thread-8 com.jcabi.ssh.MkCommandFactory: #createCommand(): command 'some other test command' created
+[DEBUG] sshd-SshServer[72825400](port=39095)-nio2-thread-8 com.jcabi.ssh.MkCommand: #setOutputStream(): for 'some other test command'
+[DEBUG] sshd-SshServer[72825400](port=39095)-nio2-thread-8 com.jcabi.ssh.MkCommand: #setErrorStream(): for 'some other test command'
+[DEBUG] sshd-SshServer[72825400](port=39095)-nio2-thread-8 com.jcabi.ssh.MkCommand: #setInputStream(): for 'some other test command'
+[DEBUG] sshd-SshServer[72825400](port=39095)-nio2-thread-8 com.jcabi.ssh.MkCommand: #setExitCallback(): for 'some other test command'
+[DEBUG] sshd-SshServer[72825400](port=39095)-nio2-thread-8 com.jcabi.ssh.MkCommand: #start(): starting 'some other test command'
+[INFO] main com.jcabi.ssh.Execution: + some other test command
+[DEBUG] sshd-SshServer[72825400](port=39095)-nio2-thread-9 com.jcabi.ssh.MkCommand: #destroy(): finishing 'some other test command'
+[DEBUG] main com.jcabi.ssh.Execution: Waiting for SSH session to 172.17.0.2:39095 to close, already 1s...
+[DEBUG] main com.jcabi.ssh.Ssh: Opening SSH session to test@172.17.0.2:45219 (691 bytes in RSA key)...
+[DEBUG] main com.jcabi.ssh.Ssh: SSH session opened to test@172.17.0.2:45219
+[DEBUG] sshd-SshServer[50756c76](port=45219)-nio2-thread-7 com.jcabi.ssh.MkCommandFactory: #createCommand(): command 'some test command' created
+[DEBUG] sshd-SshServer[50756c76](port=45219)-nio2-thread-7 com.jcabi.ssh.MkCommand: #setOutputStream(): for 'some test command'
+[DEBUG] sshd-SshServer[50756c76](port=45219)-nio2-thread-7 com.jcabi.ssh.MkCommand: #setErrorStream(): for 'some test command'
+[DEBUG] sshd-SshServer[50756c76](port=45219)-nio2-thread-7 com.jcabi.ssh.MkCommand: #setInputStream(): for 'some test command'
+[DEBUG] sshd-SshServer[50756c76](port=45219)-nio2-thread-7 com.jcabi.ssh.MkCommand: #setExitCallback(): for 'some test command'
+[DEBUG] sshd-SshServer[50756c76](port=45219)-nio2-thread-7 com.jcabi.ssh.MkCommand: #start(): starting 'some test command'
+[INFO] main com.jcabi.ssh.Execution: + some test command
+[DEBUG] sshd-SshServer[50756c76](port=45219)-nio2-thread-8 com.jcabi.ssh.MkCommand: #destroy(): finishing 'some test command'
+[DEBUG] main com.jcabi.ssh.Execution: Waiting for SSH session to 172.17.0.2:45219 to close, already 1s...
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.297 s - in com.jcabi.ssh.SshTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  18.611 s
+[INFO] Finished at: 2026-11-10T09:06:42Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.2.0
+[WARNING]  * org.codehaus.mojo:buildnumber-maven-plugin:3.0.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 

@@ -1,0 +1,527 @@
+Compiled from "ClassLoaderUtils.java"
+public final class org.junit.platform.commons.util.ClassLoaderUtils {
+  public static java.lang.ClassLoader getDefaultClassLoader();
+  public static java.util.Optional<java.net.URL> getLocation(java.lang.Object);
+}
+Compiled from "MethodArgumentsProvider.java"
+class org.junit.jupiter.params.provider.MethodArgumentsProvider extends org.junit.jupiter.params.provider.AnnotationBasedArgumentsProvider<org.junit.jupiter.params.provider.MethodSource> {
+  private static final java.util.function.Predicate<java.lang.reflect.Method> isFactoryMethod;
+
+  org.junit.jupiter.params.provider.MethodArgumentsProvider();
+    Code:
+       0: aload_0
+       1: invokespecial #18                 // Method org/junit/jupiter/params/provider/AnnotationBasedArgumentsProvider."<init>":()V
+       4: return
+
+  protected java.util.stream.Stream<? extends org.junit.jupiter.params.provider.Arguments> provideArguments(org.junit.jupiter.api.extension.ExtensionContext, org.junit.jupiter.params.provider.MethodSource);
+    Code:
+       0: aload_1
+       1: invokeinterface #29,  1           // InterfaceMethod org/junit/jupiter/api/extension/ExtensionContext.getRequiredTestClass:()Ljava/lang/Class;
+       6: astore_3
+       7: aload_1
+       8: invokeinterface #33,  1           // InterfaceMethod org/junit/jupiter/api/extension/ExtensionContext.getRequiredTestMethod:()Ljava/lang/reflect/Method;
+      13: astore        4
+      15: aload_1
+      16: invokeinterface #37,  1           // InterfaceMethod org/junit/jupiter/api/extension/ExtensionContext.getTestInstance:()Ljava/util/Optional;
+      21: aconst_null
+      22: invokevirtual #43                 // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      25: astore        5
+      27: aload_2
+      28: invokeinterface #49,  1           // InterfaceMethod org/junit/jupiter/params/provider/MethodSource.value:()[Ljava/lang/String;
+      33: astore        6
+      35: aload         6
+      37: invokestatic  #55                 // Method java/util/Arrays.stream:([Ljava/lang/Object;)Ljava/util/stream/Stream;
+      40: aload_3
+      41: aload         4
+      43: invokedynamic #74,  0             // InvokeDynamic #0:apply:(Ljava/lang/Class;Ljava/lang/reflect/Method;)Ljava/util/function/Function;
+      48: invokeinterface #80,  2           // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      53: aload         5
+      55: invokedynamic #90,  0             // InvokeDynamic #1:apply:(Ljava/lang/Object;)Ljava/util/function/Function;
+      60: invokeinterface #80,  2           // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      65: aload_1
+      66: aload         5
+      68: invokedynamic #100,  0            // InvokeDynamic #2:apply:(Lorg/junit/jupiter/api/extension/ExtensionContext;Ljava/lang/Object;)Ljava/util/function/Function;
+      73: invokeinterface #80,  2           // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      78: invokedynamic #111,  0            // InvokeDynamic #3:apply:()Ljava/util/function/Function;
+      83: invokeinterface #114,  2          // InterfaceMethod java/util/stream/Stream.flatMap:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      88: invokedynamic #121,  0            // InvokeDynamic #4:apply:()Ljava/util/function/Function;
+      93: invokeinterface #80,  2           // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      98: areturn
+
+  private static java.lang.reflect.Method findFactoryMethod(java.lang.Class<?>, java.lang.reflect.Method, java.lang.String);
+    Code:
+       0: aload_2
+       1: astore_3
+       2: aload_2
+       3: invokestatic  #142                // Method org/junit/platform/commons/util/StringUtils.isBlank:(Ljava/lang/String;)Z
+       6: ifeq          21
+       9: aload_1
+      10: invokevirtual #148                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+      13: astore_2
+      14: aload_0
+      15: aload_1
+      16: aload_2
+      17: invokestatic  #151                // Method findFactoryMethodBySimpleName:(Ljava/lang/Class;Ljava/lang/reflect/Method;Ljava/lang/String;)Ljava/lang/reflect/Method;
+      20: areturn
+      21: aload_2
+      22: invokestatic  #156                // Method looksLikeAFullyQualifiedMethodName:(Ljava/lang/String;)Z
+      25: ifne          55
+      28: new           #158                // class java/lang/StringBuilder
+      31: dup
+      32: invokespecial #159                // Method java/lang/StringBuilder."<init>":()V
+      35: aload_0
+      36: invokevirtual #162                // Method java/lang/Class.getName:()Ljava/lang/String;
+      39: invokevirtual #166                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      42: ldc           #168                // String #
+      44: invokevirtual #166                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      47: aload_2
+      48: invokevirtual #166                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      51: invokevirtual #171                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      54: astore_2
+      55: aload_0
+      56: aload_1
+      57: aload_2
+      58: invokestatic  #174                // Method findFactoryMethodByFullyQualifiedName:(Ljava/lang/Class;Ljava/lang/reflect/Method;Ljava/lang/String;)Ljava/lang/reflect/Method;
+      61: astore        4
+      63: getstatic     #176                // Field isFactoryMethod:Ljava/util/function/Predicate;
+      66: aload         4
+      68: invokeinterface #182,  2          // InterfaceMethod java/util/function/Predicate.test:(Ljava/lang/Object;)Z
+      73: aload_3
+      74: aload_0
+      75: aload         4
+      77: invokedynamic #194,  0            // InvokeDynamic #5:get:(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/reflect/Method;)Ljava/util/function/Supplier;
+      82: invokestatic  #200                // Method org/junit/platform/commons/util/Preconditions.condition:(ZLjava/util/function/Supplier;)V
+      85: aload         4
+      87: areturn
+
+  private static boolean looksLikeAFullyQualifiedMethodName(java.lang.String);
+    Code:
+       0: aload_0
+       1: ldc           #168                // String #
+       3: invokevirtual #208                // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+       6: ifeq          11
+       9: iconst_1
+      10: ireturn
+      11: aload_0
+      12: bipush        46
+      14: invokevirtual #212                // Method java/lang/String.indexOf:(I)I
+      17: istore_1
+      18: iload_1
+      19: iconst_m1
+      20: if_icmpne     25
+      23: iconst_0
+      24: ireturn
+      25: aload_0
+      26: bipush        40
+      28: invokevirtual #215                // Method java/lang/String.lastIndexOf:(I)I
+      31: istore_2
+      32: iload_2
+      33: ifle          47
+      36: iload_1
+      37: iload_2
+      38: if_icmpge     45
+      41: iconst_1
+      42: goto          46
+      45: iconst_0
+      46: ireturn
+      47: iconst_1
+      48: ireturn
+
+  static java.lang.reflect.Method findFactoryMethodByFullyQualifiedName(java.lang.Class<?>, java.lang.reflect.Method, java.lang.String);
+    Code:
+       0: aload_2
+       1: invokestatic  #224                // Method org/junit/platform/commons/util/ReflectionUtils.parseFullyQualifiedMethodName:(Ljava/lang/String;)[Ljava/lang/String;
+       4: astore_3
+       5: aload_3
+       6: iconst_0
+       7: aaload
+       8: astore        4
+      10: aload_3
+      11: iconst_1
+      12: aaload
+      13: astore        5
+      15: aload_3
+      16: iconst_2
+      17: aaload
+      18: astore        6
+      20: aload_0
+      21: invokestatic  #230                // Method org/junit/platform/commons/util/ClassLoaderUtils.getClassLoader:(Ljava/lang/Class;)Ljava/lang/ClassLoader;
+      24: astore        7
+      26: aload         4
+      28: aload         7
+      30: invokestatic  #234                // Method loadRequiredClass:(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;
+      33: astore        8
+      35: aload         8
+      37: aload         5
+      39: aload         6
+      41: invokestatic  #238                // Method org/junit/platform/commons/util/ReflectionUtils.findMethod:(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;
+      44: aconst_null
+      45: invokevirtual #43                 // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+      48: checkcast     #144                // class java/lang/reflect/Method
+      51: astore        9
+      53: aload         9
+      55: ifnull        61
+      58: aload         9
+      60: areturn
+      61: aload         6
+      63: invokestatic  #244                // Method org/junit/platform/commons/util/StringUtils.isNotBlank:(Ljava/lang/String;)Z
+      66: ifne          78
+      69: aload_2
+      70: ldc           #246                // String ()
+      72: invokevirtual #249                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+      75: ifeq          82
+      78: iconst_1
+      79: goto          83
+      82: iconst_0
+      83: istore        10
+      85: iload         10
+      87: ifne          94
+      90: iconst_1
+      91: goto          95
+      94: iconst_0
+      95: aload         5
+      97: aload         6
+      99: aload         4
+     101: invokedynamic #257,  0            // InvokeDynamic #6:get:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/function/Supplier;
+     106: invokestatic  #200                // Method org/junit/platform/commons/util/Preconditions.condition:(ZLjava/util/function/Supplier;)V
+     109: aload         8
+     111: aload_1
+     112: aload         5
+     114: invokestatic  #151                // Method findFactoryMethodBySimpleName:(Ljava/lang/Class;Ljava/lang/reflect/Method;Ljava/lang/String;)Ljava/lang/reflect/Method;
+     117: areturn
+
+  private static java.lang.reflect.Method findFactoryMethodBySimpleName(java.lang.Class<?>, java.lang.reflect.Method, java.lang.String);
+    Code:
+       0: aload_2
+       1: aload_1
+       2: invokedynamic #278,  0            // InvokeDynamic #7:test:(Ljava/lang/String;Ljava/lang/reflect/Method;)Ljava/util/function/Predicate;
+       7: astore_3
+       8: aload_0
+       9: aload_3
+      10: invokestatic  #282                // Method org/junit/platform/commons/util/ReflectionUtils.findMethods:(Ljava/lang/Class;Ljava/util/function/Predicate;)Ljava/util/List;
+      13: astore        4
+      15: aload         4
+      17: invokeinterface #287,  1          // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+      22: getstatic     #176                // Field isFactoryMethod:Ljava/util/function/Predicate;
+      25: invokeinterface #291,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+      30: invokestatic  #297                // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+      33: invokeinterface #301,  2          // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+      38: checkcast     #284                // class java/util/List
+      41: astore        5
+      43: aload         5
+      45: invokeinterface #305,  1          // InterfaceMethod java/util/List.size:()I
+      50: ifle          57
+      53: iconst_1
+      54: goto          58
+      57: iconst_0
+      58: aload         4
+      60: aload_2
+      61: aload_0
+      62: invokedynamic #313,  0            // InvokeDynamic #8:get:(Ljava/util/List;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/function/Supplier;
+      67: invokestatic  #200                // Method org/junit/platform/commons/util/Preconditions.condition:(ZLjava/util/function/Supplier;)V
+      70: aload         5
+      72: invokeinterface #305,  1          // InterfaceMethod java/util/List.size:()I
+      77: iconst_1
+      78: if_icmpne     85
+      81: iconst_1
+      82: goto          86
+      85: iconst_0
+      86: aload         5
+      88: aload_2
+      89: aload_0
+      90: invokedynamic #318,  0            // InvokeDynamic #9:get:(Ljava/util/List;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/function/Supplier;
+      95: invokestatic  #200                // Method org/junit/platform/commons/util/Preconditions.condition:(ZLjava/util/function/Supplier;)V
+      98: aload         5
+     100: iconst_0
+     101: invokeinterface #321,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     106: checkcast     #144                // class java/lang/reflect/Method
+     109: areturn
+
+  private static boolean isTestMethod(java.lang.reflect.Method);
+    Code:
+       0: aload_0
+       1: ldc_w         #329                // class org/junit/jupiter/api/Test
+       4: invokestatic  #335                // Method org/junit/platform/commons/util/AnnotationUtils.isAnnotated:(Ljava/lang/reflect/AnnotatedElement;Ljava/lang/Class;)Z
+       7: ifne          30
+      10: aload_0
+      11: ldc_w         #337                // class org/junit/jupiter/api/TestTemplate
+      14: invokestatic  #335                // Method org/junit/platform/commons/util/AnnotationUtils.isAnnotated:(Ljava/lang/reflect/AnnotatedElement;Ljava/lang/Class;)Z
+      17: ifne          30
+      20: aload_0
+      21: ldc_w         #339                // class org/junit/jupiter/api/TestFactory
+      24: invokestatic  #335                // Method org/junit/platform/commons/util/AnnotationUtils.isAnnotated:(Ljava/lang/reflect/AnnotatedElement;Ljava/lang/Class;)Z
+      27: ifeq          34
+      30: iconst_1
+      31: goto          35
+      34: iconst_0
+      35: ireturn
+
+  private static java.lang.Class<?> loadRequiredClass(java.lang.String, java.lang.ClassLoader);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #345                // Method org/junit/platform/commons/util/ReflectionUtils.tryToLoadClass:(Ljava/lang/String;Ljava/lang/ClassLoader;)Lorg/junit/platform/commons/function/Try;
+       5: aload_0
+       6: invokedynamic #355,  0            // InvokeDynamic #10:apply:(Ljava/lang/String;)Ljava/util/function/Function;
+      11: invokevirtual #361                // Method org/junit/platform/commons/function/Try.getOrThrow:(Ljava/util/function/Function;)Ljava/lang/Object;
+      14: checkcast     #161                // class java/lang/Class
+      17: areturn
+
+  private static java.lang.reflect.Method validateFactoryMethod(java.lang.reflect.Method, java.lang.Object);
+    Code:
+       0: aload_0
+       1: invokevirtual #366                // Method java/lang/reflect/Method.getDeclaringClass:()Ljava/lang/Class;
+       4: aload_1
+       5: invokevirtual #369                // Method java/lang/Class.isInstance:(Ljava/lang/Object;)Z
+       8: ifne          18
+      11: aload_0
+      12: invokestatic  #373                // Method org/junit/platform/commons/util/ReflectionUtils.isStatic:(Ljava/lang/reflect/Member;)Z
+      15: ifeq          22
+      18: iconst_1
+      19: goto          23
+      22: iconst_0
+      23: aload_0
+      24: invokedynamic #381,  0            // InvokeDynamic #11:get:(Ljava/lang/reflect/Method;)Ljava/util/function/Supplier;
+      29: invokestatic  #200                // Method org/junit/platform/commons/util/Preconditions.condition:(ZLjava/util/function/Supplier;)V
+      32: aload_0
+      33: areturn
+
+  private static org.junit.jupiter.params.provider.Arguments toArguments(java.lang.Object);
+    Code:
+       0: aload_0
+       1: instanceof    #383                // class org/junit/jupiter/params/provider/Arguments
+       4: ifeq          12
+       7: aload_0
+       8: checkcast     #383                // class org/junit/jupiter/params/provider/Arguments
+      11: areturn
+      12: aload_0
+      13: invokestatic  #386                // Method org/junit/platform/commons/util/ReflectionUtils.isMultidimensionalArray:(Ljava/lang/Object;)Z
+      16: ifeq          31
+      19: iconst_1
+      20: anewarray     #388                // class java/lang/Object
+      23: dup
+      24: iconst_0
+      25: aload_0
+      26: aastore
+      27: invokestatic  #392                // InterfaceMethod org/junit/jupiter/params/provider/Arguments.arguments:([Ljava/lang/Object;)Lorg/junit/jupiter/params/provider/Arguments;
+      30: areturn
+      31: aload_0
+      32: instanceof    #394                // class "[Ljava/lang/Object;"
+      35: ifeq          46
+      38: aload_0
+      39: checkcast     #394                // class "[Ljava/lang/Object;"
+      42: invokestatic  #392                // InterfaceMethod org/junit/jupiter/params/provider/Arguments.arguments:([Ljava/lang/Object;)Lorg/junit/jupiter/params/provider/Arguments;
+      45: areturn
+      46: iconst_1
+      47: anewarray     #388                // class java/lang/Object
+      50: dup
+      51: iconst_0
+      52: aload_0
+      53: aastore
+      54: invokestatic  #392                // InterfaceMethod org/junit/jupiter/params/provider/Arguments.arguments:([Ljava/lang/Object;)Lorg/junit/jupiter/params/provider/Arguments;
+      57: areturn
+
+  protected java.util.stream.Stream provideArguments(org.junit.jupiter.api.extension.ExtensionContext, java.lang.annotation.Annotation);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: checkcast     #45                 // class org/junit/jupiter/params/provider/MethodSource
+       6: invokevirtual #398                // Method provideArguments:(Lorg/junit/jupiter/api/extension/ExtensionContext;Lorg/junit/jupiter/params/provider/MethodSource;)Ljava/util/stream/Stream;
+       9: areturn
+
+  private static java.lang.String lambda$validateFactoryMethod$10(java.lang.reflect.Method);
+    Code:
+       0: ldc_w         #400                // String Method \'%s\' must be static: local factory methods must be static unless the PER_CLASS @TestInstance lifecycle mode is used; external factory methods must always be static.
+       3: iconst_1
+       4: anewarray     #388                // class java/lang/Object
+       7: dup
+       8: iconst_0
+       9: aload_0
+      10: invokevirtual #403                // Method java/lang/reflect/Method.toGenericString:()Ljava/lang/String;
+      13: aastore
+      14: invokestatic  #407                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      17: areturn
+
+  private static org.junit.platform.commons.JUnitException lambda$loadRequiredClass$9(java.lang.String, java.lang.Exception);
+    Code:
+       0: new           #409                // class org/junit/platform/commons/JUnitException
+       3: dup
+       4: ldc_w         #411                // String Could not load class [%s]
+       7: iconst_1
+       8: anewarray     #388                // class java/lang/Object
+      11: dup
+      12: iconst_0
+      13: aload_0
+      14: aastore
+      15: invokestatic  #407                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      18: aload_1
+      19: invokespecial #414                // Method org/junit/platform/commons/JUnitException."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+      22: areturn
+
+  private static java.lang.String lambda$findFactoryMethodBySimpleName$8(java.util.List, java.lang.String, java.lang.Class);
+    Code:
+       0: ldc_w         #418                // String %d factory methods named [%s] were found in class [%s]: %s
+       3: iconst_4
+       4: anewarray     #388                // class java/lang/Object
+       7: dup
+       8: iconst_0
+       9: aload_0
+      10: invokeinterface #305,  1          // InterfaceMethod java/util/List.size:()I
+      15: invokestatic  #424                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      18: aastore
+      19: dup
+      20: iconst_1
+      21: aload_1
+      22: aastore
+      23: dup
+      24: iconst_2
+      25: aload_2
+      26: invokevirtual #162                // Method java/lang/Class.getName:()Ljava/lang/String;
+      29: aastore
+      30: dup
+      31: iconst_3
+      32: aload_0
+      33: aastore
+      34: invokestatic  #407                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      37: areturn
+
+  private static java.lang.String lambda$findFactoryMethodBySimpleName$7(java.util.List, java.lang.String, java.lang.Class);
+    Code:
+       0: aload_0
+       1: invokeinterface #305,  1          // InterfaceMethod java/util/List.size:()I
+       6: ifle          35
+       9: ldc_w         #426                // String Could not find valid factory method [%s] in class [%s] but found the following invalid candidates: %s
+      12: iconst_3
+      13: anewarray     #388                // class java/lang/Object
+      16: dup
+      17: iconst_0
+      18: aload_1
+      19: aastore
+      20: dup
+      21: iconst_1
+      22: aload_2
+      23: invokevirtual #162                // Method java/lang/Class.getName:()Ljava/lang/String;
+      26: aastore
+      27: dup
+      28: iconst_2
+      29: aload_0
+      30: aastore
+      31: invokestatic  #407                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      34: areturn
+      35: ldc_w         #428                // String Could not find factory method [%s] in class [%s]
+      38: iconst_2
+      39: anewarray     #388                // class java/lang/Object
+      42: dup
+      43: iconst_0
+      44: aload_1
+      45: aastore
+      46: dup
+      47: iconst_1
+      48: aload_2
+      49: invokevirtual #162                // Method java/lang/Class.getName:()Ljava/lang/String;
+      52: aastore
+      53: invokestatic  #407                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      56: areturn
+
+  private static boolean lambda$findFactoryMethodBySimpleName$6(java.lang.String, java.lang.reflect.Method, java.lang.reflect.Method);
+    Code:
+       0: aload_0
+       1: aload_2
+       2: invokevirtual #148                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+       5: invokevirtual #431                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       8: ifeq          23
+      11: aload_1
+      12: aload_2
+      13: invokevirtual #432                // Method java/lang/reflect/Method.equals:(Ljava/lang/Object;)Z
+      16: ifne          23
+      19: iconst_1
+      20: goto          24
+      23: iconst_0
+      24: ireturn
+
+  private static java.lang.String lambda$findFactoryMethodByFullyQualifiedName$5(java.lang.String, java.lang.String, java.lang.String);
+    Code:
+       0: ldc_w         #434                // String Could not find factory method [%s(%s)] in class [%s]
+       3: iconst_3
+       4: anewarray     #388                // class java/lang/Object
+       7: dup
+       8: iconst_0
+       9: aload_0
+      10: aastore
+      11: dup
+      12: iconst_1
+      13: aload_1
+      14: aastore
+      15: dup
+      16: iconst_2
+      17: aload_2
+      18: aastore
+      19: invokestatic  #407                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      22: areturn
+
+  private static java.lang.String lambda$findFactoryMethod$4(java.lang.String, java.lang.Class, java.lang.reflect.Method);
+    Code:
+       0: ldc_w         #436                // String Could not find valid factory method [%s] for test class [%s] but found the following invalid candidate: %s
+       3: iconst_3
+       4: anewarray     #388                // class java/lang/Object
+       7: dup
+       8: iconst_0
+       9: aload_0
+      10: aastore
+      11: dup
+      12: iconst_1
+      13: aload_1
+      14: invokevirtual #162                // Method java/lang/Class.getName:()Ljava/lang/String;
+      17: aastore
+      18: dup
+      19: iconst_2
+      20: aload_2
+      21: aastore
+      22: invokestatic  #407                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      25: areturn
+
+  private static java.lang.Object lambda$provideArguments$3(org.junit.jupiter.api.extension.ExtensionContext, java.lang.Object, java.lang.reflect.Method);
+    Code:
+       0: aload_0
+       1: invokeinterface #440,  1          // InterfaceMethod org/junit/jupiter/api/extension/ExtensionContext.getExecutableInvoker:()Lorg/junit/jupiter/api/extension/ExecutableInvoker;
+       6: aload_2
+       7: aload_1
+       8: invokeinterface #446,  3          // InterfaceMethod org/junit/jupiter/api/extension/ExecutableInvoker.invoke:(Ljava/lang/reflect/Method;Ljava/lang/Object;)Ljava/lang/Object;
+      13: areturn
+
+  private static java.lang.reflect.Method lambda$provideArguments$2(java.lang.Object, java.lang.reflect.Method);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokestatic  #448                // Method validateFactoryMethod:(Ljava/lang/reflect/Method;Ljava/lang/Object;)Ljava/lang/reflect/Method;
+       5: areturn
+
+  private static java.lang.reflect.Method lambda$provideArguments$1(java.lang.Class, java.lang.reflect.Method, java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokestatic  #450                // Method findFactoryMethod:(Ljava/lang/Class;Ljava/lang/reflect/Method;Ljava/lang/String;)Ljava/lang/reflect/Method;
+       6: areturn
+
+  private static boolean lambda$static$0(java.lang.reflect.Method);
+    Code:
+       0: aload_0
+       1: invokevirtual #454                // Method java/lang/reflect/Method.getReturnType:()Ljava/lang/Class;
+       4: invokestatic  #458                // Method org/junit/platform/commons/util/CollectionUtils.isConvertibleToStream:(Ljava/lang/Class;)Z
+       7: ifeq          21
+      10: aload_0
+      11: invokestatic  #460                // Method isTestMethod:(Ljava/lang/reflect/Method;)Z
+      14: ifne          21
+      17: iconst_1
+      18: goto          22
+      21: iconst_0
+      22: ireturn
+
+  static {};
+    Code:
+       0: invokedynamic #468,  0            // InvokeDynamic #12:test:()Ljava/util/function/Predicate;
+       5: putstatic     #176                // Field isFactoryMethod:Ljava/util/function/Predicate;
+       8: return
+}

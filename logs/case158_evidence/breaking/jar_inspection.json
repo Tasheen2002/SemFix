@@ -1,0 +1,47 @@
+{
+  "case_id": "d4aade950ffc07b63a0140e43ecf930a2c8aec43",
+  "phase": "breaking",
+  "path_filter": "/(httpclient|httpcore)/",
+  "path_source": "Isolated message diagnostic class code-source URLs; original XML exposes only Maven launcher classpath",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar",
+      "sha256": "6fe9026a566c6a5001608cf3fc32196641f6c1e5e1986d1037ccdbd5f31ef743",
+      "classes": {
+        "org.apache.http.client.HttpResponseException": {
+          "present": true,
+          "major_version": 50
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.apache.http.client.HttpResponseException",
+          "file": "httpclient-4.5.13_HttpResponseException_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case158_evidence\\breaking\\jars\\httpclient-4.5.13.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.apache.http.client.HttpResponseException"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar",
+      "sha256": "e06e89d40943245fcfa39ec537cdbfce3762aecde8f9c597780d2b00c2b43424",
+      "classes": {
+        "org.apache.http.client.HttpResponseException": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "case_id": "a9c9228182e2e46c98643332f65b0fe372f0a9e4",
+  "phase": "breaking",
+  "path_filter": "/jakarta/xml/bind/jakarta.xml.bind-api/",
+  "path_source": "Separate same-image diagnostic test classloader resource origins in the affected module",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/3.0.1/jakarta.xml.bind-api-3.0.1.jar",
+      "sha256": "b8fb4bee3ff5b5c1ef77144d8411316018d7bbd41fcf1ede0646f7978546b867",
+      "classes": {
+        "javax.xml.bind.JAXBException": {
+          "present": false,
+          "major_version": null
+        },
+        "jakarta.xml.bind.JAXBException": {
+          "present": true,
+          "major_version": 52
+        },
+        "javax.xml.bind.JAXBContext": {
+          "present": false,
+          "major_version": null
+        },
+        "jakarta.xml.bind.JAXBContext": {
+          "present": true,
+          "major_version": 52
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    }
+  ]
+}

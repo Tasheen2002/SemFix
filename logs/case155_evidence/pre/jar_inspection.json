@@ -1,0 +1,88 @@
+{
+  "case_id": "d154a6b3665305fda43a95a66c8df415d1d4c041",
+  "phase": "pre",
+  "path_filter": "/(slf4j-api|slf4j-mock|slf4j-mock-common)/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/simplify4u/slf4j-mock-common/2.3.0/slf4j-mock-common-2.3.0.jar",
+      "sha256": "8d0294767a7e5d6c934795c46f386e508a5336ed18310e893c8e08e10829dc2c",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": false,
+          "major_version": null
+        },
+        "org.simplify4u.slf4jmock.internal.ProxyMock": {
+          "present": true,
+          "major_version": 52
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine",
+          "file": "slf4j-mock-common-2.3.0_LoggerAnnotationEngine_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case155_evidence\\pre\\jars\\slf4j-mock-common-2.3.0.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/simplify4u/slf4j-mock/2.3.0/slf4j-mock-2.3.0.jar",
+      "sha256": "49a002dddbdff4e36e27e530378681d73b9843842024ee4781858b17a24890f9",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": true,
+          "major_version": 52
+        },
+        "org.simplify4u.slf4jmock.internal.ProxyMock": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/org.simplify4u.slf4jmock.internal.SimpleLoggerFactory": "#\n# Copyright 2022 Slawomir Jaranowski\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\n\norg.slf4j.impl.SimpleLoggerFactoryImp\n"
+      },
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar",
+      "sha256": "d3ef575e3e4979678dc01bf1dcce51021493b4d11fb7f1be8ad982877c16a1c0",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": false,
+          "major_version": null
+        },
+        "org.simplify4u.slf4jmock.internal.ProxyMock": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.slf4j.LoggerFactory",
+          "file": "slf4j-api-1.7.36_LoggerFactory_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case155_evidence\\pre\\jars\\slf4j-api-1.7.36.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.slf4j.LoggerFactory"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+=== CASE 61 4fa4c3a1167054cc5ee192fbbed72e58de571d95
+  project=International-Data-Spaces-Association/IDS-Messaging-Services dep=com.fasterxml.jackson.core:jackson-databind 2.13.4.2 -> 2.14.0 scope=compile type=other java=11
+  PR=https://github.com/International-Data-Spaces-Association/IDS-Messaging-Services/pull/636
+  PRE log logs/batch_triage/4fa4c3a1_pre.log:
+  lines=2401
+  status: [INFO] BUILD SUCCESS
+  reactor: messaging-services   SUCCESS [ 11.487 s]; core   SUCCESS [ 54.631 s]; messaging   SUCCESS [ 59.419 s]; clearinghouse   SUCCESS [ 17.292 s]; broker   SUCCESS [ 11.801 s]; vocol   SUCCESS [  0.609 s]; paris   SUCCESS [ 10.073 s]; appstore   SUCCESS [  9.692 s]; BUILD SUCCESS
+  aggregate summaries: Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 12, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 2, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 3, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+  exception names: java.net.ConnectExceptionx2
+  BREAKING log logs/batch_triage/4fa4c3a1_breaking.log:
+  lines=675
+  status: [INFO] BUILD FAILURE
+  reactor: messaging-services   SUCCESS [  7.259 s]; core   SUCCESS [ 31.844 s]; messaging   FAILURE [ 18.415 s]; clearinghouse   SKIPPED; broker   SKIPPED; vocol   SKIPPED; paris   SKIPPED; appstore   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 12, Failures: 1, Errors: 5, Skipped: 0
+  failing classes: Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 3.338 s <<< FAILURE! - in ids.messaging.util.IdsMessageUtilsTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.59 s <<< FAILURE! - in ids.messaging.util.InfomodelMessageBuilderTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.233 s <<< FAILURE! - in ids.messaging.endpoint.MessageControllerTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.607 s <<< FAILURE! - in ids.messaging.protocol.multipart.MultipartResponseConverterTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.806 s <<< FAILURE! - in ids.messaging.requests.InfrastructureServiceTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.303 s <<< FAILURE! - in ids.messaging.response.MessageResponseTest
+  section: Failures: | IdsMessageUtilsTest.testUtils:60 Unexpected exception thrown: java.lang.NoSuchMethodError: 'boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()' | Errors: | MessageControllerTest.testGetValidMultipartReturn:157 » NoSuchMethod 'boolean ... | MultipartResponseConverterTest.testConvertResponse:106->buildMultipart:211 » NoSuchMethod | InfrastructureServiceTest.testInfrastructureService:160 » NoSuchMethod 'boolea... | MessageResponseTest.testResponses:50 » NoSuchMethod 'boolean com.fasterxml.jac... | InfomodelMessageBuilderTest.testBuildMessage:41 » NoSuchMethod 'boolean com.fa... | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] Reactor Summary for messaging-services 7.0.1: | [INFO]
+  section: Errors: | MessageControllerTest.testGetValidMultipartReturn:157 » NoSuchMethod 'boolean ... | MultipartResponseConverterTest.testConvertResponse:106->buildMultipart:211 » NoSuchMethod | InfrastructureServiceTest.testInfrastructureService:160 » NoSuchMethod 'boolea... | MessageResponseTest.testResponses:50 » NoSuchMethod 'boolean com.fasterxml.jac... | InfomodelMessageBuilderTest.testBuildMessage:41 » NoSuchMethod 'boolean com.fa... | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] Reactor Summary for messaging-services 7.0.1: | [INFO] | [INFO] messaging-services ................................. SUCCESS [  7.259 s] | [INFO] core ............................................... SUCCESS [ 31.844 s]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project messaging: There are test failures.
+  FAILBLOCK: [ERROR] testUtils  Time elapsed: 3.312 s  <<< FAILURE!
+      org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.NoSuchMethodError: 'boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+      at ids.messaging.util.IdsMessageUtilsTest.testUtils(IdsMessageUtilsTest.java:60)
+      Caused by: java.lang.NoSuchMethodError: 'boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+      at ids.messaging.util.IdsMessageUtilsTest.lambda$testUtils$0(IdsMessageUtilsTest.java:60)
+      at ids.messaging.util.IdsMessageUtilsTest.testUtils(IdsMessageUtilsTest.java:60)
+      Caused by: java.lang.NoSuchMethodError: 'boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+  FAILBLOCK: [ERROR] testBuildMessage  Time elapsed: 0.59 s  <<< ERROR!
+      java.lang.NoSuchMethodError: 'boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+      at ids.messaging.util.InfomodelMessageBuilderTest.testBuildMessage(InfomodelMessageBuilderTest.java:41)
+      [INFO] Running ids.messaging.endpoint.EndpointServiceTest
+      10:55:35.447 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+      10:55:35.467 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareCon
+  distinct fail signatures (count): 1x org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.NoSuchMethodError: 'boolean com.fasterxml.ja || 5x java.lang.NoSuchMethodError: 'boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+  linkage/compile signals: NoSuchMethodError
+  exception names: java.lang.NoSuchMethodErrorx8, java.net.ConnectExceptionx2, org.opentest4j.AssertionFailedErrorx1
+  EVIDENCE logs/case61_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/jackson-annotations-2.13.4.jar, breaking/jackson-databind-2.14.0.jar, jsonsubtypes_javap.txt, pre/archive_summary.json, pre/artifacts.tar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=19 sum(t,f,e,s)=[32, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=15 sum(t,f,e,s)=[18, 1, 5, 0]
+  archived non-report files: pre=182 breaking=182 changed=1 added=0 removed=0
+  DIFF core/pom.xml (7 lines):
+    @@ -58,3 +58,3 @@
+                 <artifactId>jackson-databind</artifactId>
+    -            <version>2.13.4.2</version>
+    +            <version>2.14.0</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    ERROR ids.messaging.endpoint.MessageControllerTest#testGetValidMultipartReturn type=java.lang.NoSuchMethodError msg='boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+       at ids.messaging.endpoint.MessageControllerTest.testGetValidMultipartReturn(MessageControllerTest.java:157)
+    ERROR ids.messaging.protocol.multipart.MultipartResponseConverterTest#testConvertResponse type=java.lang.NoSuchMethodError msg='boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+       at ids.messaging.protocol.multipart.MultipartResponseConverterTest.buildMultipart(MultipartResponseConverterTest.java:211)
+       at ids.messaging.protocol.multipart.MultipartResponseConverterTest.testConvertResponse(MultipartResponseConverterTest.java:106)
+    ERROR ids.messaging.requests.InfrastructureServiceTest#testInfrastructureService type=java.lang.NoSuchMethodError msg='boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+       at ids.messaging.requests.InfrastructureServiceTest.testInfrastructureService(InfrastructureServiceTest.java:160)
+    ERROR ids.messaging.response.MessageResponseTest#testResponses type=java.lang.NoSuchMethodError msg='boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+       at ids.messaging.response.MessageResponseTest.testResponses(MessageResponseTest.java:50)
+    FAILURE ids.messaging.util.IdsMessageUtilsTest#testUtils type=org.opentest4j.AssertionFailedError msg=Unexpected exception thrown: java.lang.NoSuchMethodError: 'boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+       Caused by: java.lang.NoSuchMethodError: 'boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+       at ids.messaging.util.IdsMessageUtilsTest.testUtils(IdsMessageUtilsTest.java:60)
+       at ids.messaging.util.IdsMessageUtilsTest.lambda$testUtils$0(IdsMessageUtilsTest.java:60)
+       at ids.messaging.util.IdsMessageUtilsTest.testUtils(IdsMessageUtilsTest.java:60)
+    ERROR ids.messaging.util.InfomodelMessageBuilderTest#testBuildMessage type=java.lang.NoSuchMethodError msg='boolean com.fasterxml.jackson.annotation.JsonSubTypes.failOnRepeatedNames()'
+       at ids.messaging.util.InfomodelMessageBuilderTest.testBuildMessage(InfomodelMessageBuilderTest.java:41)

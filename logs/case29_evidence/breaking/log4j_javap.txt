@@ -1,0 +1,23 @@
+Compiled from "LoaderUtil.java"
+public final class org.apache.logging.log4j.util.LoaderUtil {
+  private static final java.lang.ClassLoader[] EMPTY_CLASS_LOADER_ARRAY;
+  public static final java.lang.String IGNORE_TCCL_PROPERTY;
+  private static final java.lang.SecurityManager SECURITY_MANAGER;
+  private static java.lang.Boolean ignoreTCCL;
+  private static final boolean GET_CLASS_LOADER_DISABLED;
+  private static final java.security.PrivilegedAction<java.lang.ClassLoader> TCCL_GETTER;
+  private org.apache.logging.log4j.util.LoaderUtil();
+  public static java.lang.ClassLoader getThreadContextClassLoader();
+  public static boolean isClassAvailable(java.lang.String);
+  public static java.lang.Class<?> loadClass(java.lang.String) throws java.lang.ClassNotFoundException;
+  public static <T> T newInstanceOf(java.lang.Class<T>) throws java.lang.InstantiationException, java.lang.IllegalAccessException, java.lang.reflect.InvocationTargetException;
+  public static <T> T newInstanceOf(java.lang.String) throws java.lang.ClassNotFoundException, java.lang.IllegalAccessException, java.lang.InstantiationException, java.lang.reflect.InvocationTargetException;
+  public static <T> T newCheckedInstanceOf(java.lang.String, java.lang.Class<T>) throws java.lang.ClassNotFoundException, java.lang.reflect.InvocationTargetException, java.lang.InstantiationException, java.lang.IllegalAccessException;
+  public static <T> T newCheckedInstanceOfProperty(java.lang.String, java.lang.Class<T>) throws java.lang.ClassNotFoundException, java.lang.reflect.InvocationTargetException, java.lang.InstantiationException, java.lang.IllegalAccessException;
+  private static boolean isIgnoreTccl();
+  public static java.util.Collection<java.net.URL> findResources(java.lang.String);
+  static java.util.Collection<java.net.URL> findResources(java.lang.String, boolean);
+  static java.util.Collection<org.apache.logging.log4j.util.LoaderUtil$UrlResource> findUrlResources(java.lang.String, boolean);
+  static boolean access$100();
+  static {};
+}

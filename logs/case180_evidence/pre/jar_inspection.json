@@ -1,0 +1,57 @@
+{
+  "case_id": "f951ead97d14eb29e625d14c2ed5258949728ee4",
+  "phase": "pre",
+  "path_filter": "/(hibernate-validator|jakarta.validation-api|validation-api)/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar",
+      "sha256": "b42d42428f3d922c892a909fa043287d577c0c5b165ad9b7d568cebf87fc9ea4",
+      "classes": {
+        "javax.validation.spi.ValidationProvider": {
+          "present": true,
+          "major_version": 52
+        },
+        "jakarta.validation.spi.ValidationProvider": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/hibernate/validator/hibernate-validator/6.1.7.Final/hibernate-validator-6.1.7.Final.jar",
+      "sha256": "77a7caa6530a152db8a65be7b7ef2008cf6ca2947453cfea792f37855f3d1a0f",
+      "classes": {
+        "javax.validation.spi.ValidationProvider": {
+          "present": false,
+          "major_version": null
+        },
+        "jakarta.validation.spi.ValidationProvider": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/javax.validation.spi.ValidationProvider": "org.hibernate.validator.HibernateValidator"
+      },
+      "disassemblies": [
+        {
+          "class": "org.hibernate.validator.HibernateValidator",
+          "file": "hibernate-validator-6.1.7.Final_HibernateValidator_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case180_evidence\\pre\\jars\\hibernate-validator-6.1.7.Final.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.hibernate.validator.HibernateValidator"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

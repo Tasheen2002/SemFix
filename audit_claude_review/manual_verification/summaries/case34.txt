@@ -1,0 +1,55 @@
+﻿
+=== Case 34  2f9d75d4b01cd18afcb4676d134142882f9e0034 ===
+Project : apache/directory-scimple
+Update  : javax:javaee-api  7.0 -> 8.0.1
+Running breaking in container manual-case34-breaking (this can take several minutes) ...
+Finished in 87 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case34_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [WARNING] Tests run: 448, Failures: 0, Errors: 0, Skipped: 8
+  [INFO] Tests run: 46, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 125, Failures: 0, Errors: 0, Skipped: 0
+  [ERROR] Tests run: 67, Failures: 0, Errors: 10, Skipped: 7
+  reactor: SCIM - Parent ...................................... SUCCESS [  4.369 s]
+  reactor: SCIM - Specification ............................... SUCCESS [  0.141 s]
+  reactor: SCIM - Specification - Schema ...................... SUCCESS [ 26.273 s]
+  reactor: SCIM - Specification - Protocol .................... SUCCESS [  8.498 s]
+  reactor: SCIM - Common ...................................... SUCCESS [  0.676 s]
+  reactor: SCIM - Client ...................................... SUCCESS [  6.865 s]
+  reactor: SCIM - Server ...................................... SUCCESS [  0.073 s]
+  reactor: SCIM - Server - Common ............................. FAILURE [ 17.143 s]
+  reactor: SCIM - Server - Examples ........................... SKIPPED
+  reactor: SCIM - Server - Memory ............................. SKIPPED
+  reactor: SCIM - Tools ....................................... SKIPPED
+  reactor: SCIM - Tools - Common .............................. SKIPPED
+  reactor: SCIM - Compliance .................................. SKIPPED
+  reactor: SCIM - Compliance - Client ......................... SKIPPED
+  reactor: SCIM - Compliance - Server ......................... SKIPPED
+  reactor: SCIM - Total Test Coverage ......................... SKIPPED
+First failing tests / errors:
+  [ERROR] org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testUpdate_ErrorIfBothAttributesAndExcludedAttributesExist  Time elapsed: 4.388 s  <<< ERROR!
+      java.lang.AbstractMethodError: Receiver class org.jboss.resteasy.specimpl.ResponseBuilderImpl does not define or inherit an implementation of the resolved method 'abstract javax.ws.rs.core.Response$ResponseBuilder status(int, java.lang.String)' of abstract class javax.ws.rs.core.Response$ResponseBuilder.
+      at org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testUpdate_ErrorIfBothAttributesAndExcludedAttributesExist(BaseResourceTypeResourceImplTest.java:186)
+      
+  [ERROR] org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testPatch_ErrorIfBothAttributesAndExcludedAttributesExist  Time elapsed: 0.008 s  <<< ERROR!
+      java.lang.AbstractMethodError: Receiver class org.jboss.resteasy.specimpl.ResponseBuilderImpl does not define or inherit an implementation of the resolved method 'abstract javax.ws.rs.core.Response$ResponseBuilder status(int, java.lang.String)' of abstract class javax.ws.rs.core.Response$ResponseBuilder.
+      at org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testPatch_ErrorIfBothAttributesAndExcludedAttributesExist(BaseResourceTypeResourceImplTest.java:206)
+      
+  [ERROR] org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testFind_ErrorIfBothAttributesAndExcludedAttributesExist  Time elapsed: 0.009 s  <<< ERROR!
+      java.lang.AbstractMethodError: Receiver class org.jboss.resteasy.specimpl.ResponseBuilderImpl does not define or inherit an implementation of the resolved method 'abstract javax.ws.rs.core.Response$ResponseBuilder status(int, java.lang.String)' of abstract class javax.ws.rs.core.Response$ResponseBuilder.
+      at org.apache.directory.scim.server.rest.BaseResourceTypeResourceImplTest.testFind_ErrorIfBothAttributesAndExcludedAttributesExist(BaseResourceTypeResourceImplTest.java:161)
+      
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  AbstractMethodError x9
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : javaee-api 8.0.1 (JAX-RS 2.1 API) on a classpath with resteasy-jaxrs 3.0.11.Final (JAX-RS 2.0 impl): AbstractMethodError in ResponseBuilderImpl; UnfinishedStubbing is follow-on
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

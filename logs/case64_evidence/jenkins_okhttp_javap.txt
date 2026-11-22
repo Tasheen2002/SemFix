@@ -1,0 +1,53 @@
+Compiled from "JenkinsOkHttpClient.java"
+public class io.jenkins.plugins.okhttp.api.JenkinsOkHttpClient {
+  public static okhttp3.OkHttpClient$Builder newClientBuilder(okhttp3.OkHttpClient);
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method okhttp3/OkHttpClient.newBuilder:()Lokhttp3/OkHttpClient$Builder;
+       4: astore_1
+       5: invokestatic  #3                  // Method jenkins/model/Jenkins.get:()Ljenkins/model/Jenkins;
+       8: getfield      #4                  // Field jenkins/model/Jenkins.proxy:Lhudson/ProxyConfiguration;
+      11: ifnull        57
+      14: invokestatic  #3                  // Method jenkins/model/Jenkins.get:()Ljenkins/model/Jenkins;
+      17: getfield      #4                  // Field jenkins/model/Jenkins.proxy:Lhudson/ProxyConfiguration;
+      20: astore_2
+      21: aload_2
+      22: invokevirtual #5                  // Method hudson/ProxyConfiguration.getUserName:()Ljava/lang/String;
+      25: ifnull        41
+      28: aload_1
+      29: new           #6                  // class io/jenkins/plugins/okhttp/api/internals/JenkinsProxyAuthenticator
+      32: dup
+      33: aload_2
+      34: invokespecial #7                  // Method io/jenkins/plugins/okhttp/api/internals/JenkinsProxyAuthenticator."<init>":(Lhudson/ProxyConfiguration;)V
+      37: invokevirtual #8                  // Method okhttp3/OkHttpClient$Builder.proxyAuthenticator:(Lokhttp3/Authenticator;)Lokhttp3/OkHttpClient$Builder;
+      40: pop
+      41: aload_1
+      42: new           #9                  // class io/jenkins/plugins/okhttp/api/internals/JenkinsProxySelector
+      45: dup
+      46: aload_2
+      47: invokespecial #10                 // Method io/jenkins/plugins/okhttp/api/internals/JenkinsProxySelector."<init>":(Lhudson/ProxyConfiguration;)V
+      50: invokevirtual #11                 // Method okhttp3/OkHttpClient$Builder.proxySelector:(Ljava/net/ProxySelector;)Lokhttp3/OkHttpClient$Builder;
+      53: pop
+      54: goto          65
+      57: aload_1
+      58: getstatic     #12                 // Field java/net/Proxy.NO_PROXY:Ljava/net/Proxy;
+      61: invokevirtual #13                 // Method okhttp3/OkHttpClient$Builder.proxy:(Ljava/net/Proxy;)Lokhttp3/OkHttpClient$Builder;
+      64: pop
+      65: aload_1
+      66: areturn
+    LineNumberTable:
+      line 27: 0
+      line 28: 5
+      line 29: 14
+      line 31: 21
+      line 32: 28
+      line 34: 41
+      line 35: 54
+      line 36: 57
+      line 39: 65
+    LocalVariableTable:
+      Start  Length  Slot  Name   Signature
+         21      33     2 proxy   Lhudson/ProxyConfiguration;
+          0      67     0 httpClient   Lokhttp3/OkHttpClient;
+          5      62     1 reBuild   Lokhttp3/OkHttpClient$Builder;
+}

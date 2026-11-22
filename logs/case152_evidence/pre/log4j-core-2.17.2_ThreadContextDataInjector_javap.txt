@@ -1,0 +1,161 @@
+Compiled from "ThreadContextDataInjector.java"
+public class org.apache.logging.log4j.core.impl.ThreadContextDataInjector {
+  private static final org.apache.logging.log4j.Logger LOGGER;
+    descriptor: Lorg/apache/logging/log4j/Logger;
+
+  public static java.util.Collection<org.apache.logging.log4j.core.util.ContextDataProvider> contextDataProviders;
+    descriptor: Ljava/util/Collection;
+
+  private static final java.util.List<org.apache.logging.log4j.core.util.ContextDataProvider> SERVICE_PROVIDERS;
+    descriptor: Ljava/util/List;
+
+  public org.apache.logging.log4j.core.impl.ThreadContextDataInjector();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #2                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void initServiceProviders();
+    descriptor: ()V
+    Code:
+       0: return
+
+  private static java.util.List<org.apache.logging.log4j.core.util.ContextDataProvider> getServiceProviders();
+    descriptor: ()Ljava/util/List;
+    Code:
+       0: new           #3                  // class java/util/ArrayList
+       3: dup
+       4: invokespecial #4                  // Method java/util/ArrayList."<init>":()V
+       7: astore_0
+       8: invokestatic  #5                  // Method org/apache/logging/log4j/util/LoaderUtil.getClassLoaders:()[Ljava/lang/ClassLoader;
+      11: astore_1
+      12: aload_1
+      13: arraylength
+      14: istore_2
+      15: iconst_0
+      16: istore_3
+      17: iload_3
+      18: iload_2
+      19: if_icmpge     120
+      22: aload_1
+      23: iload_3
+      24: aaload
+      25: astore        4
+      27: ldc           #6                  // class org/apache/logging/log4j/core/util/ContextDataProvider
+      29: aload         4
+      31: invokestatic  #7                  // Method java/util/ServiceLoader.load:(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/util/ServiceLoader;
+      34: invokevirtual #8                  // Method java/util/ServiceLoader.iterator:()Ljava/util/Iterator;
+      37: astore        5
+      39: aload         5
+      41: invokeinterface #9,  1            // InterfaceMethod java/util/Iterator.hasNext:()Z
+      46: ifeq          94
+      49: aload         5
+      51: invokeinterface #10,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      56: checkcast     #6                  // class org/apache/logging/log4j/core/util/ContextDataProvider
+      59: astore        6
+      61: aload_0
+      62: invokeinterface #11,  1           // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+      67: aload         6
+      69: invokedynamic #12,  0             // InvokeDynamic #0:test:(Lorg/apache/logging/log4j/core/util/ContextDataProvider;)Ljava/util/function/Predicate;
+      74: invokeinterface #13,  2           // InterfaceMethod java/util/stream/Stream.noneMatch:(Ljava/util/function/Predicate;)Z
+      79: ifeq          91
+      82: aload_0
+      83: aload         6
+      85: invokeinterface #14,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      90: pop
+      91: goto          39
+      94: goto          114
+      97: astore        5
+      99: getstatic     #16                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+     102: ldc           #17                 // String Unable to access Context Data Providers {}
+     104: aload         5
+     106: invokevirtual #18                 // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+     109: invokeinterface #19,  3           // InterfaceMethod org/apache/logging/log4j/Logger.debug:(Ljava/lang/String;Ljava/lang/Object;)V
+     114: iinc          3, 1
+     117: goto          17
+     120: aload_0
+     121: invokestatic  #20                 // Method java/util/Collections.unmodifiableList:(Ljava/util/List;)Ljava/util/List;
+     124: areturn
+    Exception table:
+       from    to  target type
+          27    94    97   Class java/lang/Throwable
+
+  public static void copyProperties(java.util.List<org.apache.logging.log4j.core.config.Property>, org.apache.logging.log4j.util.StringMap);
+    descriptor: (Ljava/util/List;Lorg/apache/logging/log4j/util/StringMap;)V
+    Code:
+       0: aload_0
+       1: ifnull        47
+       4: iconst_0
+       5: istore_2
+       6: iload_2
+       7: aload_0
+       8: invokeinterface #21,  1           // InterfaceMethod java/util/List.size:()I
+      13: if_icmpge     47
+      16: aload_0
+      17: iload_2
+      18: invokeinterface #22,  2           // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+      23: checkcast     #23                 // class org/apache/logging/log4j/core/config/Property
+      26: astore_3
+      27: aload_1
+      28: aload_3
+      29: invokevirtual #24                 // Method org/apache/logging/log4j/core/config/Property.getName:()Ljava/lang/String;
+      32: aload_3
+      33: invokevirtual #25                 // Method org/apache/logging/log4j/core/config/Property.getValue:()Ljava/lang/String;
+      36: invokeinterface #26,  3           // InterfaceMethod org/apache/logging/log4j/util/StringMap.putValue:(Ljava/lang/String;Ljava/lang/Object;)V
+      41: iinc          2, 1
+      44: goto          6
+      47: return
+
+  private static java.util.List<org.apache.logging.log4j.core.util.ContextDataProvider> getProviders();
+    descriptor: ()Ljava/util/List;
+    Code:
+       0: new           #3                  // class java/util/ArrayList
+       3: dup
+       4: getstatic     #27                 // Field contextDataProviders:Ljava/util/Collection;
+       7: invokeinterface #28,  1           // InterfaceMethod java/util/Collection.size:()I
+      12: getstatic     #29                 // Field SERVICE_PROVIDERS:Ljava/util/List;
+      15: invokeinterface #21,  1           // InterfaceMethod java/util/List.size:()I
+      20: iadd
+      21: invokespecial #30                 // Method java/util/ArrayList."<init>":(I)V
+      24: astore_0
+      25: aload_0
+      26: getstatic     #27                 // Field contextDataProviders:Ljava/util/Collection;
+      29: invokeinterface #31,  2           // InterfaceMethod java/util/List.addAll:(Ljava/util/Collection;)Z
+      34: pop
+      35: aload_0
+      36: getstatic     #29                 // Field SERVICE_PROVIDERS:Ljava/util/List;
+      39: invokeinterface #31,  2           // InterfaceMethod java/util/List.addAll:(Ljava/util/Collection;)Z
+      44: pop
+      45: aload_0
+      46: areturn
+
+  private static boolean lambda$getServiceProviders$0(org.apache.logging.log4j.core.util.ContextDataProvider, org.apache.logging.log4j.core.util.ContextDataProvider);
+    descriptor: (Lorg/apache/logging/log4j/core/util/ContextDataProvider;Lorg/apache/logging/log4j/core/util/ContextDataProvider;)Z
+    Code:
+       0: aload_1
+       1: invokevirtual #32                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+       4: aload_0
+       5: invokevirtual #32                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+       8: invokevirtual #33                 // Method java/lang/Class.isAssignableFrom:(Ljava/lang/Class;)Z
+      11: ireturn
+
+  static java.util.List access$000();
+    descriptor: ()Ljava/util/List;
+    Code:
+       0: invokestatic  #1                  // Method getProviders:()Ljava/util/List;
+       3: areturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: invokestatic  #34                 // Method org/apache/logging/log4j/status/StatusLogger.getLogger:()Lorg/apache/logging/log4j/status/StatusLogger;
+       3: putstatic     #16                 // Field LOGGER:Lorg/apache/logging/log4j/Logger;
+       6: new           #35                 // class java/util/concurrent/ConcurrentLinkedDeque
+       9: dup
+      10: invokespecial #36                 // Method java/util/concurrent/ConcurrentLinkedDeque."<init>":()V
+      13: putstatic     #27                 // Field contextDataProviders:Ljava/util/Collection;
+      16: invokestatic  #37                 // Method getServiceProviders:()Ljava/util/List;
+      19: putstatic     #29                 // Field SERVICE_PROVIDERS:Ljava/util/List;
+      22: return
+}

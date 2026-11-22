@@ -1,0 +1,41 @@
+{
+  "purpose": "Isolate the original connection-reset error with additional server-side logging",
+  "only_adjustment": "SSHD trace logging via external Log4j configuration; no client source/dependency version changes",
+  "command": [
+    "docker",
+    "run",
+    "--name",
+    "research-case108-connection-debug",
+    "--mount",
+    "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case108_evidence\\connection_debug_log4j.properties,target=/tmp/connection-debug-log4j.properties,readonly",
+    "--entrypoint",
+    "mvn",
+    "sha256:4cab7968b8a13699d0d65f353e6c9019bc8e4483e408eedc7201992cff36cddd",
+    "clean",
+    "test",
+    "-B",
+    "-Dtest=SshByPasswordTest",
+    "-Dlog4j.configuration=file:/tmp/connection-debug-log4j.properties"
+  ],
+  "image_id": "sha256:4cab7968b8a13699d0d65f353e6c9019bc8e4483e408eedc7201992cff36cddd",
+  "state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 1,
+    "Error": "",
+    "StartedAt": "2026-11-10T09:11:25.325363Z",
+    "FinishedAt": "2026-11-10T09:11:49.554790593Z"
+  },
+  "counts": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 1,
+    "skipped": 0
+  },
+  "exit_code": 1
+}

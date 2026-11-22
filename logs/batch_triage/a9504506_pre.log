@@ -1,0 +1,1984 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< io.simplelocalize:simplelocalize-cli >----------------
+[INFO] Building simplelocalize-cli 2.0.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ simplelocalize-cli ---
+[INFO] Deleting /simplelocalize-cli/target
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default-prepare-agent) @ simplelocalize-cli ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/simplelocalize-cli/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ simplelocalize-cli ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ simplelocalize-cli ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 46 source files to /simplelocalize-cli/target/classes
+[INFO] 
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ simplelocalize-cli ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 21 resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ simplelocalize-cli ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 23 source files to /simplelocalize-cli/target/test-classes
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (test-compile) @ simplelocalize-cli ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 23 source files to /simplelocalize-cli/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ simplelocalize-cli ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+
+ +-------------------------------------------------------------------------------+
+ | WARNING:                                                                      |
+ | The junit-platform-surefire-provider has been deprecated and is scheduled to  |
+ | be removed in JUnit Platform 1.4. Please use the built-in support in Maven    |
+ | Surefire >= 2.22.0 instead.                                                   |
+ | » https://junit.org/junit5/docs/current/user-guide/#running-tests-build-maven |
+ +-------------------------------------------------------------------------------+
+
+[INFO] Running io.simplelocalize.cli.client.dto.UploadRequestTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.481 s - in io.simplelocalize.cli.client.dto.UploadRequestTest
+[INFO] Running io.simplelocalize.cli.client.ClientBodyBuildersTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.083 s - in io.simplelocalize.cli.client.ClientBodyBuildersTest
+[INFO] Running io.simplelocalize.cli.client.SimpleLocalizeClientTest
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/root/.m2/repository/org/slf4j/slf4j-nop/1.5.3/slf4j-nop-1.5.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/root/.m2/repository/org/slf4j/slf4j-jdk14/1.5.6/slf4j-jdk14-1.5.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+1080 started on port: 1080
+Loading JavaScript to validate ECMA262 regular expression in JsonSchema because java.util.regex package in Java does not match ECMA262
+Warning: Nashorn engine is planned to be removed from a future JDK release
+1080 creating expectation:
+
+  {
+    "id" : "0d47f3a6-fb48-4a62-9d16-94739f1c64cb",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "POST",
+      "path" : "/cli/v2/upload",
+      "queryStringParameters" : {
+        "uploadFormat" : [ "multi-language-json" ],
+        "languageKey" : [ "en" ]
+      },
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{ 'msg': 'OK' }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  0d47f3a6-fb48-4a62-9d16-94739f1c64cb
+
+ 🌍 Uploading ./junit/mock-server/test.json
+1080 received request:
+
+  {
+    "method" : "POST",
+    "path" : "/cli/v2/upload",
+    "queryStringParameters" : {
+      "uploadFormat" : [ "multi-language-json" ],
+      "languageKey" : [ "en" ]
+    },
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "478" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "Content-Type" : [ "multipart/form-data; boundary=simplelocalize-114605792" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+    },
+    "keepAlive" : true,
+    "secure" : false,
+    "body" : "--simplelocalize-114605792\r\nContent-Disposition: form-data; name=\"file\"; filename=\"test.json\"\r\nContent-Type: application/json\r\n\r\n{\n  \"pl\": {\n    \"email.weekly.report.product.title\": \"NajchÄtniej wybierany produkt w ostatnich 7 dniach\",\n    \"push.coin.shortage\": \"Brakuje monet we wrzutniku.\",\n    \"email.weekly.report.more.reports\": \"WiÄcej raportÃ³w sprzedaÅ¼y oraz szczegÃ³Åowe informacje znajdziesz w systemie w zakÅadce \\\"Raporty\\\".\"\n  }\n}\n\r\n--simplelocalize-114605792--"
+  }
+
+1080 request:
+
+  {
+    "method" : "POST",
+    "path" : "/cli/v2/upload",
+    "queryStringParameters" : {
+      "uploadFormat" : [ "multi-language-json" ],
+      "languageKey" : [ "en" ]
+    },
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "478" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "Content-Type" : [ "multipart/form-data; boundary=simplelocalize-114605792" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+    },
+    "keepAlive" : true,
+    "secure" : false,
+    "body" : "--simplelocalize-114605792\r\nContent-Disposition: form-data; name=\"file\"; filename=\"test.json\"\r\nContent-Type: application/json\r\n\r\n{\n  \"pl\": {\n    \"email.weekly.report.product.title\": \"NajchÄtniej wybierany produkt w ostatnich 7 dniach\",\n    \"push.coin.shortage\": \"Brakuje monet we wrzutniku.\",\n    \"email.weekly.report.more.reports\": \"WiÄcej raportÃ³w sprzedaÅ¼y oraz szczegÃ³Åowe informacje znajdziesz w systemie w zakÅadce \\\"Raporty\\\".\"\n  }\n}\n\r\n--simplelocalize-114605792--"
+  }
+
+ matched expectation:
+
+  {
+    "id" : "0d47f3a6-fb48-4a62-9d16-94739f1c64cb",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "POST",
+      "path" : "/cli/v2/upload",
+      "queryStringParameters" : {
+        "uploadFormat" : [ "multi-language-json" ],
+        "languageKey" : [ "en" ]
+      },
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{ 'msg': 'OK' }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+1080 removed expectation:
+
+  {
+    "id" : "0d47f3a6-fb48-4a62-9d16-94739f1c64cb",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "POST",
+      "path" : "/cli/v2/upload",
+      "queryStringParameters" : {
+        "uploadFormat" : [ "multi-language-json" ],
+        "languageKey" : [ "en" ]
+      },
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 0
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{ 'msg': 'OK' }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  0d47f3a6-fb48-4a62-9d16-94739f1c64cb
+
+1080 returning response:
+
+  {
+    "statusCode" : 200,
+    "body" : "{ 'msg': 'OK' }",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ for request:
+
+  {
+    "method" : "POST",
+    "path" : "/cli/v2/upload",
+    "queryStringParameters" : {
+      "uploadFormat" : [ "multi-language-json" ],
+      "languageKey" : [ "en" ]
+    },
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "478" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "Content-Type" : [ "multipart/form-data; boundary=simplelocalize-114605792" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+    },
+    "keepAlive" : true,
+    "secure" : false,
+    "body" : "--simplelocalize-114605792\r\nContent-Disposition: form-data; name=\"file\"; filename=\"test.json\"\r\nContent-Type: application/json\r\n\r\n{\n  \"pl\": {\n    \"email.weekly.report.product.title\": \"NajchÄtniej wybierany produkt w ostatnich 7 dniach\",\n    \"push.coin.shortage\": \"Brakuje monet we wrzutniku.\",\n    \"email.weekly.report.more.reports\": \"WiÄcej raportÃ³w sprzedaÅ¼y oraz szczegÃ³Åowe informacje znajdziesz w systemie w zakÅadce \\\"Raporty\\\".\"\n  }\n}\n\r\n--simplelocalize-114605792--"
+  }
+
+ for action:
+
+  {
+    "statusCode" : 200,
+    "body" : "{ 'msg': 'OK' }",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ from expectation:
+
+  0d47f3a6-fb48-4a62-9d16-94739f1c64cb
+
+1080 creating expectation:
+
+  {
+    "id" : "d2233af0-d6df-4be8-97e0-820d43245612",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "POST",
+      "path" : "/cli/v2/upload",
+      "queryStringParameters" : {
+        "uploadFormat" : [ "multi-language-json" ],
+        "languageKey" : [ "en" ]
+      },
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 500,
+      "body" : "{ 'msg': 'failure message' }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  d2233af0-d6df-4be8-97e0-820d43245612
+
+ 🌍 Uploading ./junit/mock-server/test.json
+1080 received request:
+
+  {
+    "method" : "POST",
+    "path" : "/cli/v2/upload",
+    "queryStringParameters" : {
+      "uploadFormat" : [ "multi-language-json" ],
+      "languageKey" : [ "en" ]
+    },
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "478" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "Content-Type" : [ "multipart/form-data; boundary=simplelocalize-901132939" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+    },
+    "keepAlive" : true,
+    "secure" : false,
+    "body" : "--simplelocalize-901132939\r\nContent-Disposition: form-data; name=\"file\"; filename=\"test.json\"\r\nContent-Type: application/json\r\n\r\n{\n  \"pl\": {\n    \"email.weekly.report.product.title\": \"NajchÄtniej wybierany produkt w ostatnich 7 dniach\",\n    \"push.coin.shortage\": \"Brakuje monet we wrzutniku.\",\n    \"email.weekly.report.more.reports\": \"WiÄcej raportÃ³w sprzedaÅ¼y oraz szczegÃ³Åowe informacje znajdziesz w systemie w zakÅadce \\\"Raporty\\\".\"\n  }\n}\n\r\n--simplelocalize-901132939--"
+  }
+
+1080 request:
+
+  {
+    "method" : "POST",
+    "path" : "/cli/v2/upload",
+    "queryStringParameters" : {
+      "uploadFormat" : [ "multi-language-json" ],
+      "languageKey" : [ "en" ]
+    },
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "478" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "Content-Type" : [ "multipart/form-data; boundary=simplelocalize-901132939" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+    },
+    "keepAlive" : true,
+    "secure" : false,
+    "body" : "--simplelocalize-901132939\r\nContent-Disposition: form-data; name=\"file\"; filename=\"test.json\"\r\nContent-Type: application/json\r\n\r\n{\n  \"pl\": {\n    \"email.weekly.report.product.title\": \"NajchÄtniej wybierany produkt w ostatnich 7 dniach\",\n    \"push.coin.shortage\": \"Brakuje monet we wrzutniku.\",\n    \"email.weekly.report.more.reports\": \"WiÄcej raportÃ³w sprzedaÅ¼y oraz szczegÃ³Åowe informacje znajdziesz w systemie w zakÅadce \\\"Raporty\\\".\"\n  }\n}\n\r\n--simplelocalize-901132939--"
+  }
+
+ matched expectation:
+
+  {
+    "id" : "d2233af0-d6df-4be8-97e0-820d43245612",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "POST",
+      "path" : "/cli/v2/upload",
+      "queryStringParameters" : {
+        "uploadFormat" : [ "multi-language-json" ],
+        "languageKey" : [ "en" ]
+      },
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 500,
+      "body" : "{ 'msg': 'failure message' }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+1080 removed expectation:
+
+  {
+    "id" : "d2233af0-d6df-4be8-97e0-820d43245612",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "POST",
+      "path" : "/cli/v2/upload",
+      "queryStringParameters" : {
+        "uploadFormat" : [ "multi-language-json" ],
+        "languageKey" : [ "en" ]
+      },
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 0
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 500,
+      "body" : "{ 'msg': 'failure message' }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  d2233af0-d6df-4be8-97e0-820d43245612
+
+1080 returning response:
+
+  {
+    "statusCode" : 500,
+    "body" : "{ 'msg': 'failure message' }",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ for request:
+
+  {
+    "method" : "POST",
+    "path" : "/cli/v2/upload",
+    "queryStringParameters" : {
+      "uploadFormat" : [ "multi-language-json" ],
+      "languageKey" : [ "en" ]
+    },
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "478" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "Content-Type" : [ "multipart/form-data; boundary=simplelocalize-901132939" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+    },
+    "keepAlive" : true,
+    "secure" : false,
+    "body" : "--simplelocalize-901132939\r\nContent-Disposition: form-data; name=\"file\"; filename=\"test.json\"\r\nContent-Type: application/json\r\n\r\n{\n  \"pl\": {\n    \"email.weekly.report.product.title\": \"NajchÄtniej wybierany produkt w ostatnich 7 dniach\",\n    \"push.coin.shortage\": \"Brakuje monet we wrzutniku.\",\n    \"email.weekly.report.more.reports\": \"WiÄcej raportÃ³w sprzedaÅ¼y oraz szczegÃ³Åowe informacje znajdziesz w systemie w zakÅadce \\\"Raporty\\\".\"\n  }\n}\n\r\n--simplelocalize-901132939--"
+  }
+
+ for action:
+
+  {
+    "statusCode" : 500,
+    "body" : "{ 'msg': 'failure message' }",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ from expectation:
+
+  d2233af0-d6df-4be8-97e0-820d43245612
+
+ 😝 Request failed: failure message
+1080 creating expectation:
+
+  {
+    "id" : "8b50db59-4fb7-4e63-b442-246680178b7f",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/cli/v2/download",
+      "queryStringParameters" : {
+        "downloadOptions" : [ "SPLIT_BY_NAMESPACES" ],
+        "downloadFormat" : [ "java-properties" ]
+      },
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{ \"files\": [{\"namespace\": \"my-file\", \"url\": \"https://simplelocalize.io\"}] }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  8b50db59-4fb7-4e63-b442-246680178b7f
+
+ 🌍 Preparing translation files
+1080 received request:
+
+  {
+    "method" : "GET",
+    "path" : "/cli/v2/download",
+    "queryStringParameters" : {
+      "downloadOptions" : [ "SPLIT_BY_NAMESPACES" ],
+      "downloadFormat" : [ "java-properties" ]
+    },
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "0" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+    },
+    "keepAlive" : true,
+    "secure" : false
+  }
+
+1080 request:
+
+  {
+    "method" : "GET",
+    "path" : "/cli/v2/download",
+    "queryStringParameters" : {
+      "downloadOptions" : [ "SPLIT_BY_NAMESPACES" ],
+      "downloadFormat" : [ "java-properties" ]
+    },
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "0" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+    },
+    "keepAlive" : true,
+    "secure" : false
+  }
+
+ matched expectation:
+
+  {
+    "id" : "8b50db59-4fb7-4e63-b442-246680178b7f",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/cli/v2/download",
+      "queryStringParameters" : {
+        "downloadOptions" : [ "SPLIT_BY_NAMESPACES" ],
+        "downloadFormat" : [ "java-properties" ]
+      },
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{ \"files\": [{\"namespace\": \"my-file\", \"url\": \"https://simplelocalize.io\"}] }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+1080 removed expectation:
+
+  {
+    "id" : "8b50db59-4fb7-4e63-b442-246680178b7f",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/cli/v2/download",
+      "queryStringParameters" : {
+        "downloadOptions" : [ "SPLIT_BY_NAMESPACES" ],
+        "downloadFormat" : [ "java-properties" ]
+      },
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 0
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{ \"files\": [{\"namespace\": \"my-file\", \"url\": \"https://simplelocalize.io\"}] }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  8b50db59-4fb7-4e63-b442-246680178b7f
+
+1080 returning response:
+
+  {
+    "statusCode" : 200,
+    "body" : "{ \"files\": [{\"namespace\": \"my-file\", \"url\": \"https://simplelocalize.io\"}] }",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ for request:
+
+  {
+    "method" : "GET",
+    "path" : "/cli/v2/download",
+    "queryStringParameters" : {
+      "downloadOptions" : [ "SPLIT_BY_NAMESPACES" ],
+      "downloadFormat" : [ "java-properties" ]
+    },
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "0" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+    },
+    "keepAlive" : true,
+    "secure" : false
+  }
+
+ for action:
+
+  {
+    "statusCode" : 200,
+    "body" : "{ \"files\": [{\"namespace\": \"my-file\", \"url\": \"https://simplelocalize.io\"}] }",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ from expectation:
+
+  8b50db59-4fb7-4e63-b442-246680178b7f
+
+1080 creating expectation:
+
+  {
+    "id" : "04f202e6-7ead-4b3d-9aa3-acc8c4f9b0bc",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/s3/file"
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "headers" : {
+        "content-type" : [ "application/json; charset=utf-8" ]
+      },
+      "body" : {
+        "type" : "BINARY",
+        "base64Bytes" : "e30="
+      },
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  04f202e6-7ead-4b3d-9aa3-acc8c4f9b0bc
+
+ 🌍 Downloading ./junit/download-test/file.json
+1080 received request:
+
+  {
+    "method" : "GET",
+    "path" : "/s3/file",
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "0" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+    },
+    "keepAlive" : true,
+    "secure" : false
+  }
+
+1080 request:
+
+  {
+    "method" : "GET",
+    "path" : "/s3/file",
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "0" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+    },
+    "keepAlive" : true,
+    "secure" : false
+  }
+
+ matched expectation:
+
+  {
+    "id" : "04f202e6-7ead-4b3d-9aa3-acc8c4f9b0bc",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/s3/file"
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "headers" : {
+        "content-type" : [ "application/json; charset=utf-8" ]
+      },
+      "body" : {
+        "type" : "BINARY",
+        "base64Bytes" : "e30="
+      },
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+1080 removed expectation:
+
+  {
+    "id" : "04f202e6-7ead-4b3d-9aa3-acc8c4f9b0bc",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/s3/file"
+    },
+    "times" : {
+      "remainingTimes" : 0
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "headers" : {
+        "content-type" : [ "application/json; charset=utf-8" ]
+      },
+      "body" : {
+        "type" : "BINARY",
+        "base64Bytes" : "e30="
+      },
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  04f202e6-7ead-4b3d-9aa3-acc8c4f9b0bc
+
+1080 returning response:
+
+  {
+    "statusCode" : 200,
+    "headers" : {
+      "content-type" : [ "application/json; charset=utf-8" ]
+    },
+    "body" : "e30=",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ for request:
+
+  {
+    "method" : "GET",
+    "path" : "/s3/file",
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "0" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+    },
+    "keepAlive" : true,
+    "secure" : false
+  }
+
+ for action:
+
+  {
+    "statusCode" : 200,
+    "headers" : {
+      "content-type" : [ "application/json; charset=utf-8" ]
+    },
+    "body" : "e30=",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ from expectation:
+
+  04f202e6-7ead-4b3d-9aa3-acc8c4f9b0bc
+
+1080 creating expectation:
+
+  {
+    "id" : "a0bf83a0-9b84-4fde-bb07-907ac695656f",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/cli/v1/validate/gate",
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{'data':{'passed': true, 'message': 'ok', 'status': 200}}",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  a0bf83a0-9b84-4fde-bb07-907ac695656f
+
+1080 received request:
+
+  {
+    "method" : "GET",
+    "path" : "/cli/v1/validate/gate",
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "0" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+    },
+    "keepAlive" : true,
+    "secure" : false
+  }
+
+1080 request:
+
+  {
+    "method" : "GET",
+    "path" : "/cli/v1/validate/gate",
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "0" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+    },
+    "keepAlive" : true,
+    "secure" : false
+  }
+
+ matched expectation:
+
+  {
+    "id" : "a0bf83a0-9b84-4fde-bb07-907ac695656f",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/cli/v1/validate/gate",
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{'data':{'passed': true, 'message': 'ok', 'status': 200}}",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+1080 removed expectation:
+
+  {
+    "id" : "a0bf83a0-9b84-4fde-bb07-907ac695656f",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/cli/v1/validate/gate",
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 0
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{'data':{'passed': true, 'message': 'ok', 'status': 200}}",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  a0bf83a0-9b84-4fde-bb07-907ac695656f
+
+1080 returning response:
+
+  {
+    "statusCode" : 200,
+    "body" : "{'data':{'passed': true, 'message': 'ok', 'status': 200}}",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ for request:
+
+  {
+    "method" : "GET",
+    "path" : "/cli/v1/validate/gate",
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "0" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+    },
+    "keepAlive" : true,
+    "secure" : false
+  }
+
+ for action:
+
+  {
+    "statusCode" : 200,
+    "body" : "{'data':{'passed': true, 'message': 'ok', 'status': 200}}",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ from expectation:
+
+  a0bf83a0-9b84-4fde-bb07-907ac695656f
+
+ 🌍 Gate result: true (status: 200, message: ok)
+1080 creating expectation:
+
+  {
+    "id" : "ceabd390-e5e4-4dac-9b7c-88c4d2063d41",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "POST",
+      "path" : "/cli/v2/upload",
+      "queryStringParameters" : {
+        "uploadFormat" : [ "multi-language-json" ],
+        "uploadOptions" : [ "SPLIT_BY_NAMESPACES" ]
+      },
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{ 'msg': 'OK' }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  ceabd390-e5e4-4dac-9b7c-88c4d2063d41
+
+ 🌍 Uploading ./junit/mock-server/test.json
+1080 received request:
+
+  {
+    "method" : "POST",
+    "path" : "/cli/v2/upload",
+    "queryStringParameters" : {
+      "uploadFormat" : [ "multi-language-json" ],
+      "uploadOptions" : [ "SPLIT_BY_NAMESPACES" ]
+    },
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "478" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "Content-Type" : [ "multipart/form-data; boundary=simplelocalize-846514506" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+    },
+    "keepAlive" : true,
+    "secure" : false,
+    "body" : "--simplelocalize-846514506\r\nContent-Disposition: form-data; name=\"file\"; filename=\"test.json\"\r\nContent-Type: application/json\r\n\r\n{\n  \"pl\": {\n    \"email.weekly.report.product.title\": \"NajchÄtniej wybierany produkt w ostatnich 7 dniach\",\n    \"push.coin.shortage\": \"Brakuje monet we wrzutniku.\",\n    \"email.weekly.report.more.reports\": \"WiÄcej raportÃ³w sprzedaÅ¼y oraz szczegÃ³Åowe informacje znajdziesz w systemie w zakÅadce \\\"Raporty\\\".\"\n  }\n}\n\r\n--simplelocalize-846514506--"
+  }
+
+1080 request:
+
+  {
+    "method" : "POST",
+    "path" : "/cli/v2/upload",
+    "queryStringParameters" : {
+      "uploadFormat" : [ "multi-language-json" ],
+      "uploadOptions" : [ "SPLIT_BY_NAMESPACES" ]
+    },
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "478" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "Content-Type" : [ "multipart/form-data; boundary=simplelocalize-846514506" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+    },
+    "keepAlive" : true,
+    "secure" : false,
+    "body" : "--simplelocalize-846514506\r\nContent-Disposition: form-data; name=\"file\"; filename=\"test.json\"\r\nContent-Type: application/json\r\n\r\n{\n  \"pl\": {\n    \"email.weekly.report.product.title\": \"NajchÄtniej wybierany produkt w ostatnich 7 dniach\",\n    \"push.coin.shortage\": \"Brakuje monet we wrzutniku.\",\n    \"email.weekly.report.more.reports\": \"WiÄcej raportÃ³w sprzedaÅ¼y oraz szczegÃ³Åowe informacje znajdziesz w systemie w zakÅadce \\\"Raporty\\\".\"\n  }\n}\n\r\n--simplelocalize-846514506--"
+  }
+
+ matched expectation:
+
+  {
+    "id" : "ceabd390-e5e4-4dac-9b7c-88c4d2063d41",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "POST",
+      "path" : "/cli/v2/upload",
+      "queryStringParameters" : {
+        "uploadFormat" : [ "multi-language-json" ],
+        "uploadOptions" : [ "SPLIT_BY_NAMESPACES" ]
+      },
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{ 'msg': 'OK' }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+1080 removed expectation:
+
+  {
+    "id" : "ceabd390-e5e4-4dac-9b7c-88c4d2063d41",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "POST",
+      "path" : "/cli/v2/upload",
+      "queryStringParameters" : {
+        "uploadFormat" : [ "multi-language-json" ],
+        "uploadOptions" : [ "SPLIT_BY_NAMESPACES" ]
+      },
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 0
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{ 'msg': 'OK' }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  ceabd390-e5e4-4dac-9b7c-88c4d2063d41
+
+1080 returning response:
+
+  {
+    "statusCode" : 200,
+    "body" : "{ 'msg': 'OK' }",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ for request:
+
+  {
+    "method" : "POST",
+    "path" : "/cli/v2/upload",
+    "queryStringParameters" : {
+      "uploadFormat" : [ "multi-language-json" ],
+      "uploadOptions" : [ "SPLIT_BY_NAMESPACES" ]
+    },
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "478" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "Content-Type" : [ "multipart/form-data; boundary=simplelocalize-846514506" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "81707741b64e68427e1a2c20e75095b1" ]
+    },
+    "keepAlive" : true,
+    "secure" : false,
+    "body" : "--simplelocalize-846514506\r\nContent-Disposition: form-data; name=\"file\"; filename=\"test.json\"\r\nContent-Type: application/json\r\n\r\n{\n  \"pl\": {\n    \"email.weekly.report.product.title\": \"NajchÄtniej wybierany produkt w ostatnich 7 dniach\",\n    \"push.coin.shortage\": \"Brakuje monet we wrzutniku.\",\n    \"email.weekly.report.more.reports\": \"WiÄcej raportÃ³w sprzedaÅ¼y oraz szczegÃ³Åowe informacje znajdziesz w systemie w zakÅadce \\\"Raporty\\\".\"\n  }\n}\n\r\n--simplelocalize-846514506--"
+  }
+
+ for action:
+
+  {
+    "statusCode" : 200,
+    "body" : "{ 'msg': 'OK' }",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ from expectation:
+
+  ceabd390-e5e4-4dac-9b7c-88c4d2063d41
+
+1080 creating expectation:
+
+  {
+    "id" : "7e850cbe-9352-4a11-878f-92ef2c42bfda",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/cli/v2/download",
+      "queryStringParameters" : {
+        "downloadOptions" : [ "SPLIT_BY_NAMESPACES,USE_NESTED_JSON" ],
+        "downloadFormat" : [ "java-properties" ]
+      },
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{ \"files\": [{\"namespace\": \"my-file\", \"url\": \"https://simplelocalize.io\"}] }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  7e850cbe-9352-4a11-878f-92ef2c42bfda
+
+ 🌍 Preparing translation files
+1080 received request:
+
+  {
+    "method" : "GET",
+    "path" : "/cli/v2/download",
+    "queryStringParameters" : {
+      "downloadOptions" : [ "SPLIT_BY_NAMESPACES,USE_NESTED_JSON" ],
+      "downloadFormat" : [ "java-properties" ]
+    },
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "0" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+    },
+    "keepAlive" : true,
+    "secure" : false
+  }
+
+1080 request:
+
+  {
+    "method" : "GET",
+    "path" : "/cli/v2/download",
+    "queryStringParameters" : {
+      "downloadOptions" : [ "SPLIT_BY_NAMESPACES,USE_NESTED_JSON" ],
+      "downloadFormat" : [ "java-properties" ]
+    },
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "0" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+    },
+    "keepAlive" : true,
+    "secure" : false
+  }
+
+ matched expectation:
+
+  {
+    "id" : "7e850cbe-9352-4a11-878f-92ef2c42bfda",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/cli/v2/download",
+      "queryStringParameters" : {
+        "downloadOptions" : [ "SPLIT_BY_NAMESPACES,USE_NESTED_JSON" ],
+        "downloadFormat" : [ "java-properties" ]
+      },
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{ \"files\": [{\"namespace\": \"my-file\", \"url\": \"https://simplelocalize.io\"}] }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+1080 removed expectation:
+
+  {
+    "id" : "7e850cbe-9352-4a11-878f-92ef2c42bfda",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/cli/v2/download",
+      "queryStringParameters" : {
+        "downloadOptions" : [ "SPLIT_BY_NAMESPACES,USE_NESTED_JSON" ],
+        "downloadFormat" : [ "java-properties" ]
+      },
+      "headers" : {
+        "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+      }
+    },
+    "times" : {
+      "remainingTimes" : 0
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{ \"files\": [{\"namespace\": \"my-file\", \"url\": \"https://simplelocalize.io\"}] }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  7e850cbe-9352-4a11-878f-92ef2c42bfda
+
+1080 returning response:
+
+  {
+    "statusCode" : 200,
+    "body" : "{ \"files\": [{\"namespace\": \"my-file\", \"url\": \"https://simplelocalize.io\"}] }",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ for request:
+
+  {
+    "method" : "GET",
+    "path" : "/cli/v2/download",
+    "queryStringParameters" : {
+      "downloadOptions" : [ "SPLIT_BY_NAMESPACES,USE_NESTED_JSON" ],
+      "downloadFormat" : [ "java-properties" ]
+    },
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "0" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+    },
+    "keepAlive" : true,
+    "secure" : false
+  }
+
+ for action:
+
+  {
+    "statusCode" : 200,
+    "body" : "{ \"files\": [{\"namespace\": \"my-file\", \"url\": \"https://simplelocalize.io\"}] }",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ from expectation:
+
+  7e850cbe-9352-4a11-878f-92ef2c42bfda
+
+1080 creating expectation:
+
+  {
+    "id" : "0a96ed32-4228-4e74-a0bd-f040fea668e2",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "POST",
+      "path" : "/cli/v1/keys",
+      "headers" : {
+        "Content-Type" : [ "application/json" ],
+        "X-SimpleLocalize-Token" : [ "237b305f6b2273e92ac857eb44d7f33b" ]
+      },
+      "body" : "{\"content\":[{\"key\":\"test\"}]}"
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{ 'msg': 'OK', data: { uniqueKeysProcessed: 1, processedWithWarnings: false } }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  0a96ed32-4228-4e74-a0bd-f040fea668e2
+
+1080 received request:
+
+  {
+    "method" : "POST",
+    "path" : "/cli/v1/keys",
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "28" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "Content-Type" : [ "application/json" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "237b305f6b2273e92ac857eb44d7f33b" ]
+    },
+    "keepAlive" : true,
+    "secure" : false,
+    "body" : {
+      "content" : [ {
+        "key" : "test"
+      } ]
+    }
+  }
+
+1080 request:
+
+  {
+    "method" : "POST",
+    "path" : "/cli/v1/keys",
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "28" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "Content-Type" : [ "application/json" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "237b305f6b2273e92ac857eb44d7f33b" ]
+    },
+    "keepAlive" : true,
+    "secure" : false,
+    "body" : {
+      "content" : [ {
+        "key" : "test"
+      } ]
+    }
+  }
+
+ matched expectation:
+
+  {
+    "id" : "0a96ed32-4228-4e74-a0bd-f040fea668e2",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "POST",
+      "path" : "/cli/v1/keys",
+      "headers" : {
+        "Content-Type" : [ "application/json" ],
+        "X-SimpleLocalize-Token" : [ "237b305f6b2273e92ac857eb44d7f33b" ]
+      },
+      "body" : "{\"content\":[{\"key\":\"test\"}]}"
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{ 'msg': 'OK', data: { uniqueKeysProcessed: 1, processedWithWarnings: false } }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+1080 removed expectation:
+
+  {
+    "id" : "0a96ed32-4228-4e74-a0bd-f040fea668e2",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "POST",
+      "path" : "/cli/v1/keys",
+      "headers" : {
+        "Content-Type" : [ "application/json" ],
+        "X-SimpleLocalize-Token" : [ "237b305f6b2273e92ac857eb44d7f33b" ]
+      },
+      "body" : "{\"content\":[{\"key\":\"test\"}]}"
+    },
+    "times" : {
+      "remainingTimes" : 0
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "body" : "{ 'msg': 'OK', data: { uniqueKeysProcessed: 1, processedWithWarnings: false } }",
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  0a96ed32-4228-4e74-a0bd-f040fea668e2
+
+1080 returning response:
+
+  {
+    "statusCode" : 200,
+    "body" : "{ 'msg': 'OK', data: { uniqueKeysProcessed: 1, processedWithWarnings: false } }",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ for request:
+
+  {
+    "method" : "POST",
+    "path" : "/cli/v1/keys",
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "28" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "Content-Type" : [ "application/json" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "237b305f6b2273e92ac857eb44d7f33b" ]
+    },
+    "keepAlive" : true,
+    "secure" : false,
+    "body" : {
+      "content" : [ {
+        "key" : "test"
+      } ]
+    }
+  }
+
+ for action:
+
+  {
+    "statusCode" : 200,
+    "body" : "{ 'msg': 'OK', data: { uniqueKeysProcessed: 1, processedWithWarnings: false } }",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ from expectation:
+
+  0a96ed32-4228-4e74-a0bd-f040fea668e2
+
+ 🎉 Successfully uploaded 1 keys
+1080 creating expectation:
+
+  {
+    "id" : "1b4cd6f3-7193-483e-8fe7-2603507ba800",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/s3/file"
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "headers" : {
+        "content-type" : [ "application/json; charset=utf-8" ]
+      },
+      "body" : {
+        "type" : "BINARY",
+        "base64Bytes" : "c2FtcGxl"
+      },
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  1b4cd6f3-7193-483e-8fe7-2603507ba800
+
+ 🌍 Downloading ./junit/truncate/file.json
+1080 received request:
+
+  {
+    "method" : "GET",
+    "path" : "/s3/file",
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "0" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+    },
+    "keepAlive" : true,
+    "secure" : false
+  }
+
+1080 request:
+
+  {
+    "method" : "GET",
+    "path" : "/s3/file",
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "0" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+    },
+    "keepAlive" : true,
+    "secure" : false
+  }
+
+ matched expectation:
+
+  {
+    "id" : "1b4cd6f3-7193-483e-8fe7-2603507ba800",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/s3/file"
+    },
+    "times" : {
+      "remainingTimes" : 1
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "headers" : {
+        "content-type" : [ "application/json; charset=utf-8" ]
+      },
+      "body" : {
+        "type" : "BINARY",
+        "base64Bytes" : "c2FtcGxl"
+      },
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+1080 removed expectation:
+
+  {
+    "id" : "1b4cd6f3-7193-483e-8fe7-2603507ba800",
+    "priority" : 0,
+    "httpRequest" : {
+      "method" : "GET",
+      "path" : "/s3/file"
+    },
+    "times" : {
+      "remainingTimes" : 0
+    },
+    "timeToLive" : {
+      "unlimited" : true
+    },
+    "httpResponse" : {
+      "statusCode" : 200,
+      "headers" : {
+        "content-type" : [ "application/json; charset=utf-8" ]
+      },
+      "body" : {
+        "type" : "BINARY",
+        "base64Bytes" : "c2FtcGxl"
+      },
+      "delay" : {
+        "timeUnit" : "MILLISECONDS",
+        "value" : 200
+      }
+    }
+  }
+
+ with id:
+
+  1b4cd6f3-7193-483e-8fe7-2603507ba800
+
+1080 returning response:
+
+  {
+    "statusCode" : 200,
+    "headers" : {
+      "content-type" : [ "application/json; charset=utf-8" ]
+    },
+    "body" : "c2FtcGxl",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ for request:
+
+  {
+    "method" : "GET",
+    "path" : "/s3/file",
+    "headers" : {
+      "Connection" : [ "Upgrade, HTTP2-Settings" ],
+      "Content-Length" : [ "0" ],
+      "Host" : [ "localhost:1080" ],
+      "HTTP2-Settings" : [ "AAEAAEAAAAIAAAABAAMAAABkAAQBAAAAAAUAAEAA" ],
+      "Upgrade" : [ "h2c" ],
+      "User-Agent" : [ "Java-http-client/11.0.19" ],
+      "X-SimpleLocalize-Cli-Version" : [ "2.0.2" ],
+      "X-SimpleLocalize-Token" : [ "96a7b6ca75c79d4af4dfd5db2946fdd4" ]
+    },
+    "keepAlive" : true,
+    "secure" : false
+  }
+
+ for action:
+
+  {
+    "statusCode" : 200,
+    "headers" : {
+      "content-type" : [ "application/json; charset=utf-8" ]
+    },
+    "body" : "c2FtcGxl",
+    "delay" : {
+      "timeUnit" : "MILLISECONDS",
+      "value" : 200
+    }
+  }
+
+ from expectation:
+
+  1b4cd6f3-7193-483e-8fe7-2603507ba800
+
+1080 stopped for port: 1080
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.401 s - in io.simplelocalize.cli.client.SimpleLocalizeClientTest
+[INFO] Running io.simplelocalize.cli.util.FileContentReaderTest
+Cannot read file from path some path
+java.nio.file.NoSuchFileException: some path
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:116)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:219)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:371)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:422)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3206)
+	at java.base/java.nio.file.Files.readString(Files.java:3284)
+	at io.simplelocalize.cli.io.FileContentReader.tryReadContent(FileContentReader.java:29)
+	at io.simplelocalize.cli.util.FileContentReaderTest.shouldReturnEmptyStringWhenFileNotFound(FileContentReaderTest.java:20)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:686)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:212)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:208)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:137)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:71)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:248)
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$5(DefaultLauncher.java:211)
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:226)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:199)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:132)
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:155)
+	at org.junit.platform.surefire.provider.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:134)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in io.simplelocalize.cli.util.FileContentReaderTest
+[INFO] Running io.simplelocalize.cli.util.ListsUtilTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in io.simplelocalize.cli.util.ListsUtilTest
+[INFO] Running io.simplelocalize.cli.util.FileListReaderTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in io.simplelocalize.cli.util.FileListReaderTest
+[INFO] Running io.simplelocalize.cli.configuration.ConfigurationValidatorTest
+Missing 'apiKey' value
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in io.simplelocalize.cli.configuration.ConfigurationValidatorTest
+[INFO] Running io.simplelocalize.cli.configuration.ConfigurationLoaderTest
+ 🗄  Loaded configuration file from: /simplelocalize-cli/target/test-classes/simplelocalize.yml
+ 😝 Unable to load configuration: mapping values are not allowed here
+ in 'reader', line 3, column 7:
+    ientId: 123456
+          ^
+
+ 🗄  No default configuration file at ./simplelocalize.yml
+ 🗄  No default configuration file at ./simplelocalize.yml
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.108 s - in io.simplelocalize.cli.configuration.ConfigurationLoaderTest
+[INFO] Running io.simplelocalize.cli.extraction.keys.ReactIntlKeyExtractorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in io.simplelocalize.cli.extraction.keys.ReactIntlKeyExtractorTest
+[INFO] Running io.simplelocalize.cli.extraction.keys.EjsKeyExtractorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in io.simplelocalize.cli.extraction.keys.EjsKeyExtractorTest
+[INFO] Running io.simplelocalize.cli.extraction.keys.IEighteenNextKeyExtractorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in io.simplelocalize.cli.extraction.keys.IEighteenNextKeyExtractorTest
+[INFO] Running io.simplelocalize.cli.extraction.YahooReactIntlProcessorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.547 s - in io.simplelocalize.cli.extraction.YahooReactIntlProcessorTest
+[INFO] Running io.simplelocalize.cli.extraction.files.JavaScriptAndTypeScriptFilesFinderTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in io.simplelocalize.cli.extraction.files.JavaScriptAndTypeScriptFilesFinderTest
+[INFO] Running io.simplelocalize.cli.extraction.AndroidProcessorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in io.simplelocalize.cli.extraction.AndroidProcessorTest
+[INFO] Running io.simplelocalize.cli.extraction.processor.iOSProcessorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in io.simplelocalize.cli.extraction.processor.iOSProcessorTest
+[INFO] Running io.simplelocalize.cli.extraction.ExtractionProcessorFactoryTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in io.simplelocalize.cli.extraction.ExtractionProcessorFactoryTest
+[INFO] Running io.simplelocalize.cli.command.ExtractCommandTest
+ 🕵️‍♂️ Running keys extraction
+ 📦 Found 2 unique keys in 1 components
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.266 s - in io.simplelocalize.cli.command.ExtractCommandTest
+[INFO] Running io.simplelocalize.cli.command.DownloadCommandTest
+ 🎉 Download success!
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in io.simplelocalize.cli.command.DownloadCommandTest
+[INFO] Running io.simplelocalize.cli.command.UploadCommandTest
+ 📄  Found 0 files to upload
+ 📄  Found 12 files to upload
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in io.simplelocalize.cli.command.UploadCommandTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  31.722 s
+[INFO] Finished at: 2026-11-10T10:13:51Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.7
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.2
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 

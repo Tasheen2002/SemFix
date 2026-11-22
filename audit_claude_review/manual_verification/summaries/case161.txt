@@ -1,0 +1,51 @@
+﻿
+=== Case 161  d9a0df6feee60bb6d7d301f251cab386168eecd1 ===
+Project : takari/polyglot-maven
+Update  : org.jetbrains.kotlin:kotlin-stdlib  1.3.31 -> 1.6.0
+Running breaking in container manual-case161-breaking (this can take several minutes) ...
+Finished in 529 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case161_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 80, Failures: 0, Errors: 0, Skipped: 0
+  [WARNING] Tests run: 31, Failures: 0, Errors: 0, Skipped: 7
+  [INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+  [ERROR] Tests run: 140, Failures: 1, Errors: 0, Skipped: 0
+  reactor: Polyglot :: Aggregator ............................. SUCCESS [  2.514 s]
+  reactor: Polyglot :: Common ................................. SUCCESS [ 31.174 s]
+  reactor: Polyglot :: Atom ................................... SUCCESS [  5.305 s]
+  reactor: Polyglot :: Maven Plugin ........................... SUCCESS [  3.563 s]
+  reactor: Polyglot :: Ruby ................................... SUCCESS [03:41 min]
+  reactor: Polyglot :: Scala .................................. SUCCESS [01:09 min]
+  reactor: Polyglot :: Groovy ................................. SUCCESS [  1.726 s]
+  reactor: Polyglot :: YAML ................................... SUCCESS [  2.877 s]
+  reactor: Polyglot :: Clojure ................................ SUCCESS [ 21.941 s]
+  reactor: Polyglot :: XML .................................... SUCCESS [  1.960 s]
+  reactor: Polyglot :: Java ................................... SUCCESS [  0.661 s]
+  reactor: Polyglot :: Kotlin ................................. FAILURE [02:35 min]
+  reactor: Polyglot :: Translate Plugin ....................... SKIPPED
+First failing tests / errors:
+  [ERROR] test#example(org.sonatype.maven.polyglot.kotlin.KotlinModelReaderTests)  Time elapsed: 1.113 s  <<< FAILURE!
+      org.junit.ComparisonFailure:
+      expected:<...d>
+      <version>1.[6.0]</version>
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  none
+SLF4J console:
+  SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+  SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R11: Fixture-only edit)
+Cause   : Fixture-only edit: the only changed file is the test resource polyglot-kotlin/src/test/resources/example/pom.xml (kotlin-stdlib 1.3.31 -> 1.6.0 inside an example POM). The project's own POMs and therefore its test classpath are unchanged (all_poms: 1 of 145 changed, and it is the fixture). KotlinModelReaderTests compares the parsed Kotlin model against this fixture -> ComparisonFailure
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

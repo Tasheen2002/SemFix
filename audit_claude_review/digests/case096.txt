@@ -1,0 +1,101 @@
+=== CASE 96 8929dc34435f6b4e54bc889c83a5cb27b2931e51
+  project=pac4j/dropwizard-pac4j dep=jakarta.xml.bind:jakarta.xml.bind-api 2.3.3 -> 4.0.0 scope=compile type=major java=11
+  PR=https://github.com/pac4j/dropwizard-pac4j/pull/278
+  PRE log logs/batch_triage/8929dc34_pre.log:
+  lines=475
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/8929dc34_breaking.log:
+  lines=3895
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 16, Failures: 0, Errors: 10, Skipped: 0
+  failing classes: Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 4.085 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndServletTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 1.054 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 1.329 s <<< FAILURE! - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+  section: Errors: | BundleFactoryTest.emptyPac4jInConfig:47->AbstractApplicationTest.setup:31 » Servlet jersey==io.dropwizard.jersey.setup.JerseyServletContainer@baa68670{jsp=null,order=-1,inst=true,async=true,src=EMBEDDED:null} | BundleFactoryTest.noPac4jInConfig:31->AbstractApplicationTest.setup:31 » Servlet jersey==io.dropwizard.jersey.setup.JerseyServletContainer@baa68670{jsp=null,order=-1,inst=true,async=true,src=EMBEDDED:null} | BundleFactoryTest.sessionEnabledForced:68->AbstractApplicationTest.setup:31 » Servlet jersey==io.dropwizard.jersey.setup.JerseyServletContainer@baa68670{jsp=null,order=-1,inst=true,async=true,src=EMBEDDED:null} | BundleFactoryTest.sessiondisabledForced:83->AbstractApplicationTest.setup:31 » Servlet jersey==io.dropwizard.jersey.setup.JerseyServletContainer@baa68670{jsp=null,order=-1,inst=true,async=true,src=EMBEDDED:null} | EndToEndServletTest.grantsAccessToResources:54->setup:31->AbstractApplicationTest.setup:31 » Servlet jersey==io.dropwizard.jersey.setup.JerseyServletContainer@baa68670{jsp=null,order=-1,inst=true,async=true,src=EMBEDDED:null} | EndToEndServletTest.grantsAccessToResourcesForm:36->setup:31->AbstractApplicationTest.setup:31 » Servlet jersey==io.
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project dropwizard-pac4j: 
+  FAILBLOCK: [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources  Time elapsed: 3.134 s  <<< ERROR!
+      javax.servlet.ServletException: jersey==io.dropwizard.jersey.setup.JerseyServletContainer@baa68670{jsp=null,order=-1,inst=true,async=true,src=EMBEDDED:null}
+      at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:642)
+      at org.eclipse.jetty.servlet.ServletHolder.initialize(ServletHolder.java:407)
+      at org.eclipse.jetty.servlet.ServletHandler.lambda$initialize$0(ServletHandler.java:731)
+      at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+      at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:485)
+      Caused by: A MultiException has 1 exceptions.  They are:
+      Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+      Caused by: java.lang.ClassNotFoundException: javax.xml.bind.JAXBException
+  distinct fail signatures (count): 10x javax.servlet.ServletException: jersey==io.dropwizard.jersey.setup.JerseyServletContainer@baa68670{jsp=null,order=-1,ins
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx60, java.lang.ClassNotFoundExceptionx30, javax.xml.bind.JAXBExceptionx30, org.glassfish.hk2.api.MultiExceptionx20, javax.servlet.ServletExceptionx20
+  EVIDENCE logs/case96_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/jakarta.xml.bind-api-4.0.0.jar, pre/archive_summary.json, pre/artifacts.tar, pre/jakarta.xml.bind-api-2.3.3.jar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[16, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[16, 0, 10, 0]
+  archived non-report files: pre=27 breaking=27 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -165,3 +165,3 @@
+             <artifactId>jakarta.xml.bind-api</artifactId>
+    -        <version>2.3.3</version>
+    +        <version>4.0.0</version>
+           </dependency>
+  BREAKING surefire failures/errors:
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#emptyPac4jInConfig type=javax.servlet.ServletException msg=jersey==io.dropwizard.jersey.setup.JerseyServletContainer@baa68670{jsp=null,order=-1,inst=true,async=true,src=EMBEDDED:null}
+       Caused by: A MultiException has 1 exceptions.  They are:
+       Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+       Caused by: java.lang.ClassNotFoundException: javax.xml.bind.JAXBException
+       at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:642)
+       at org.eclipse.jetty.servlet.ServletHolder.initialize(ServletHolder.java:407)
+       at org.eclipse.jetty.servlet.ServletHandler.lambda$initialize$0(ServletHandler.java:731)
+       at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#sessiondisabledForced type=javax.servlet.ServletException msg=jersey==io.dropwizard.jersey.setup.JerseyServletContainer@baa68670{jsp=null,order=-1,inst=true,async=true,src=EMBEDDED:null}
+       Caused by: A MultiException has 1 exceptions.  They are:
+       Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+       Caused by: java.lang.ClassNotFoundException: javax.xml.bind.JAXBException
+       at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:642)
+       at org.eclipse.jetty.servlet.ServletHolder.initialize(ServletHolder.java:407)
+       at org.eclipse.jetty.servlet.ServletHandler.lambda$initialize$0(ServletHandler.java:731)
+       at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#noPac4jInConfig type=javax.servlet.ServletException msg=jersey==io.dropwizard.jersey.setup.JerseyServletContainer@baa68670{jsp=null,order=-1,inst=true,async=true,src=EMBEDDED:null}
+       Caused by: A MultiException has 1 exceptions.  They are:
+       Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+       Caused by: java.lang.ClassNotFoundException: javax.xml.bind.JAXBException
+       at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:642)
+       at org.eclipse.jetty.servlet.ServletHolder.initialize(ServletHolder.java:407)
+       at org.eclipse.jetty.servlet.ServletHandler.lambda$initialize$0(ServletHandler.java:731)
+       at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#sessionEnabledForced type=javax.servlet.ServletException msg=jersey==io.dropwizard.jersey.setup.JerseyServletContainer@baa68670{jsp=null,order=-1,inst=true,async=true,src=EMBEDDED:null}
+       Caused by: A MultiException has 1 exceptions.  They are:
+       Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+       Caused by: java.lang.ClassNotFoundException: javax.xml.bind.JAXBException
+       at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:642)
+       at org.eclipse.jetty.servlet.ServletHolder.initialize(ServletHolder.java:407)
+       at org.eclipse.jetty.servlet.ServletHandler.lambda$initialize$0(ServletHandler.java:731)
+       at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#grantsAccessToResources type=javax.servlet.ServletException msg=jersey==io.dropwizard.jersey.setup.JerseyServletContainer@baa68670{jsp=null,order=-1,inst=true,async=true,src=EMBEDDED:null}
+       Caused by: A MultiException has 1 exceptions.  They are:
+       Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+       Caused by: java.lang.ClassNotFoundException: javax.xml.bind.JAXBException
+       at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:642)
+       at org.eclipse.jetty.servlet.ServletHolder.initialize(ServletHolder.java:407)
+       at org.eclipse.jetty.servlet.ServletHandler.lambda$initialize$0(ServletHandler.java:731)
+       at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#grantsAccessToResourcesForm type=javax.servlet.ServletException msg=jersey==io.dropwizard.jersey.setup.JerseyServletContainer@baa68670{jsp=null,order=-1,inst=true,async=true,src=EMBEDDED:null}
+       Caused by: A MultiException has 1 exceptions.  They are:
+       Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+       Caused by: java.lang.ClassNotFoundException: javax.xml.bind.JAXBException
+       at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:642)
+       at org.eclipse.jetty.servlet.ServletHolder.initialize(ServletHolder.java:407)
+       at org.eclipse.jetty.servlet.ServletHandler.lambda$initialize$0(ServletHandler.java:731)
+       at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#restrictsAccessToResources type=javax.servlet.ServletException msg=jersey==io.dropwizard.jersey.setup.JerseyServletContainer@baa68670{jsp=null,order=-1,inst=true,async=true,src=EMBEDDED:null}
+       Caused by: A MultiException has 1 exceptions.  They are:
+       Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+       Caused by: java.lang.ClassNotFoundException: javax.xml.bind.JAXBException
+       at org.eclipse.jetty.servlet.ServletHolder.initServlet(ServletHolder.java:642)
+       at org.eclipse.jetty.servlet.ServletHolder.initialize(ServletHolder.java:407)
+       at org.eclipse.jetty.servlet.ServletHandler.lambda$initialize$0(ServletHandler.java:731)
+       at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndTest#grantsAccessToResources type=javax.servlet.ServletException msg=jersey==io.dropwizard.jersey.setup.JerseyServletContainer@baa68670{jsp=null,order=-1,inst=true,async=true,src=EMBEDDED:null}
+       Caused by: A MultiException has 1 exceptions.  They are:
+       Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+       Caused by: java.lang.ClassNotFoundException: javax.xml.bind.JAXBException
+    ... truncated (80 lines)
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"jakarta.xml.bind-api-2.3.3.jar","entries":{"javax/xml/bind/JAXBException.class":["javax/xml/bind/JAXBException.class"],"jakarta/xml/bind/JAXBException.class":[]}},{"phase":"breaking","jar":"jakarta.xml.bind-api-4.0.0.jar","entries":{"javax/xml/bind/JAXBException.class":[],"jakarta/xml/bind/JAXBException.class":["jakarta/xml/bind/JAXBException.class"]}}]

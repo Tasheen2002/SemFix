@@ -1,0 +1,38 @@
+﻿
+=== Case 108  93ac5faf37905e0fb4b44f5401271f2d3d76f57a ===
+Project : jcabi/jcabi-ssh
+Update  : org.apache.sshd:sshd-common  2.9.2 -> 2.10.0
+Running breaking in container manual-case108-breaking (this can take several minutes) ...
+Finished in 54 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case108_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 5, Failures: 0, Errors: 3, Skipped: 0
+First failing tests / errors:
+  [ERROR] com.jcabi.ssh.SshByPasswordTest.executesCommand  Time elapsed: 1.224 s  <<< ERROR!
+      java.io.IOException: com.jcraft.jsch.JSchException: Session.connect: java.net.SocketException: Connection reset
+      at com.jcabi.ssh.SshByPassword.session(SshByPassword.java:104)
+      at com.jcabi.ssh.AbstractSshShell.exec(AbstractSshShell.java:93)
+  [ERROR] com.jcabi.ssh.SshTest.executeCommandOnServerWithPrivateKey  Time elapsed: 0.216 s  <<< ERROR!
+      java.lang.NoSuchMethodError: 'boolean org.apache.sshd.common.future.CloseFuture.await(java.time.Duration)'
+      at org.apache.sshd.server.SshServer.stop(SshServer.java:368)
+      at org.apache.sshd.server.SshServer.stop(SshServer.java:357)
+  [ERROR] com.jcabi.ssh.SshTest.executeCommandOnServer  Time elapsed: 0.075 s  <<< ERROR!
+      java.lang.NoSuchMethodError: 'boolean org.apache.sshd.common.future.CloseFuture.await(java.time.Duration)'
+      at org.apache.sshd.server.SshServer.stop(SshServer.java:368)
+      at org.apache.sshd.server.SshServer.stop(SshServer.java:357)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+  Caused by: com.jcraft.jsch.JSchException: Session.connect: java.net.SocketException: Connection reset
+  Caused by: java.net.SocketException: Connection reset
+Linkage / bytecode signals:
+  NoSuchMethodError x2
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : sshd-common 2.10.0 with sshd-core 2.9.2 (archived): SshServer.stop calls CloseFuture.await(Duration) missing -> NoSuchMethodError; the Connection reset error in SshByPasswordTest is consistent with the same server/client skew
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

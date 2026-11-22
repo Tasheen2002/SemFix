@@ -1,0 +1,1435 @@
+Compiled from "JacksonAnnotationIntrospector.java"
+public class com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector extends com.fasterxml.jackson.databind.AnnotationIntrospector implements java.io.Serializable {
+  private static final long serialVersionUID;
+    descriptor: J
+
+  public com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method com/fasterxml/jackson/databind/AnnotationIntrospector."<init>":()V
+       4: return
+
+  public com.fasterxml.jackson.core.Version version();
+    descriptor: ()Lcom/fasterxml/jackson/core/Version;
+    Code:
+       0: getstatic     #2                  // Field com/fasterxml/jackson/databind/cfg/PackageVersion.VERSION:Lcom/fasterxml/jackson/core/Version;
+       3: areturn
+
+  public boolean isAnnotationBundle(java.lang.annotation.Annotation);
+    descriptor: (Ljava/lang/annotation/Annotation;)Z
+    Code:
+       0: aload_1
+       1: invokeinterface #3,  1            // InterfaceMethod java/lang/annotation/Annotation.annotationType:()Ljava/lang/Class;
+       6: ldc_w         #4                  // class com/fasterxml/jackson/annotation/JacksonAnnotationsInside
+       9: invokevirtual #5                  // Method java/lang/Class.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+      12: ifnull        19
+      15: iconst_1
+      16: goto          20
+      19: iconst_0
+      20: ireturn
+
+  public com.fasterxml.jackson.databind.PropertyName findRootName(com.fasterxml.jackson.databind.introspect.AnnotatedClass);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedClass;)Lcom/fasterxml/jackson/databind/PropertyName;
+    Code:
+       0: aload_1
+       1: ldc_w         #6                  // class com/fasterxml/jackson/annotation/JsonRootName
+       4: invokevirtual #7                  // Method com/fasterxml/jackson/databind/introspect/AnnotatedClass.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #6                  // class com/fasterxml/jackson/annotation/JsonRootName
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     17
+      15: aconst_null
+      16: areturn
+      17: aload_2
+      18: invokeinterface #8,  1            // InterfaceMethod com/fasterxml/jackson/annotation/JsonRootName.namespace:()Ljava/lang/String;
+      23: astore_3
+      24: aload_3
+      25: ifnull        37
+      28: aload_3
+      29: invokevirtual #9                  // Method java/lang/String.length:()I
+      32: ifne          37
+      35: aconst_null
+      36: astore_3
+      37: aload_2
+      38: invokeinterface #10,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonRootName.value:()Ljava/lang/String;
+      43: aload_3
+      44: invokestatic  #11                 // Method com/fasterxml/jackson/databind/PropertyName.construct:(Ljava/lang/String;Ljava/lang/String;)Lcom/fasterxml/jackson/databind/PropertyName;
+      47: areturn
+
+  public java.lang.String[] findPropertiesToIgnore(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)[Ljava/lang/String;
+    Code:
+       0: aload_1
+       1: ldc_w         #12                 // class com/fasterxml/jackson/annotation/JsonIgnoreProperties
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #12                 // class com/fasterxml/jackson/annotation/JsonIgnoreProperties
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          25
+      19: aload_2
+      20: invokeinterface #14,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonIgnoreProperties.value:()[Ljava/lang/String;
+      25: areturn
+
+  public java.lang.Boolean findIgnoreUnknownProperties(com.fasterxml.jackson.databind.introspect.AnnotatedClass);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedClass;)Ljava/lang/Boolean;
+    Code:
+       0: aload_1
+       1: ldc_w         #12                 // class com/fasterxml/jackson/annotation/JsonIgnoreProperties
+       4: invokevirtual #7                  // Method com/fasterxml/jackson/databind/introspect/AnnotatedClass.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #12                 // class com/fasterxml/jackson/annotation/JsonIgnoreProperties
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          28
+      19: aload_2
+      20: invokeinterface #15,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonIgnoreProperties.ignoreUnknown:()Z
+      25: invokestatic  #16                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      28: areturn
+
+  public java.lang.Boolean isIgnorableType(com.fasterxml.jackson.databind.introspect.AnnotatedClass);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedClass;)Ljava/lang/Boolean;
+    Code:
+       0: aload_1
+       1: ldc_w         #17                 // class com/fasterxml/jackson/annotation/JsonIgnoreType
+       4: invokevirtual #7                  // Method com/fasterxml/jackson/databind/introspect/AnnotatedClass.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #17                 // class com/fasterxml/jackson/annotation/JsonIgnoreType
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          28
+      19: aload_2
+      20: invokeinterface #18,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonIgnoreType.value:()Z
+      25: invokestatic  #16                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      28: areturn
+
+  public java.lang.Object findFilterId(com.fasterxml.jackson.databind.introspect.AnnotatedClass);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedClass;)Ljava/lang/Object;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #19                 // Method _findFilterId:(Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Object;
+       5: areturn
+
+  public java.lang.Object findFilterId(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Object;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #19                 // Method _findFilterId:(Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Object;
+       5: areturn
+
+  protected final java.lang.Object _findFilterId(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Object;
+    Code:
+       0: aload_1
+       1: ldc_w         #20                 // class com/fasterxml/jackson/annotation/JsonFilter
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #20                 // class com/fasterxml/jackson/annotation/JsonFilter
+      10: astore_2
+      11: aload_2
+      12: ifnull        31
+      15: aload_2
+      16: invokeinterface #21,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonFilter.value:()Ljava/lang/String;
+      21: astore_3
+      22: aload_3
+      23: invokevirtual #9                  // Method java/lang/String.length:()I
+      26: ifle          31
+      29: aload_3
+      30: areturn
+      31: aconst_null
+      32: areturn
+
+  public java.lang.Object findNamingStrategy(com.fasterxml.jackson.databind.introspect.AnnotatedClass);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedClass;)Ljava/lang/Object;
+    Code:
+       0: aload_1
+       1: ldc_w         #22                 // class com/fasterxml/jackson/databind/annotation/JsonNaming
+       4: invokevirtual #7                  // Method com/fasterxml/jackson/databind/introspect/AnnotatedClass.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #22                 // class com/fasterxml/jackson/databind/annotation/JsonNaming
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          25
+      19: aload_2
+      20: invokeinterface #23,  1           // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonNaming.value:()Ljava/lang/Class;
+      25: areturn
+
+  public com.fasterxml.jackson.databind.introspect.VisibilityChecker<?> findAutoDetectVisibility(com.fasterxml.jackson.databind.introspect.AnnotatedClass, com.fasterxml.jackson.databind.introspect.VisibilityChecker<?>);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedClass;Lcom/fasterxml/jackson/databind/introspect/VisibilityChecker;)Lcom/fasterxml/jackson/databind/introspect/VisibilityChecker;
+    Code:
+       0: aload_1
+       1: ldc_w         #24                 // class com/fasterxml/jackson/annotation/JsonAutoDetect
+       4: invokevirtual #7                  // Method com/fasterxml/jackson/databind/introspect/AnnotatedClass.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #24                 // class com/fasterxml/jackson/annotation/JsonAutoDetect
+      10: astore_3
+      11: aload_3
+      12: ifnonnull     19
+      15: aload_2
+      16: goto          26
+      19: aload_2
+      20: aload_3
+      21: invokeinterface #25,  2           // InterfaceMethod com/fasterxml/jackson/databind/introspect/VisibilityChecker.with:(Lcom/fasterxml/jackson/annotation/JsonAutoDetect;)Lcom/fasterxml/jackson/databind/introspect/VisibilityChecker;
+      26: areturn
+
+  public com.fasterxml.jackson.databind.AnnotationIntrospector$ReferenceProperty findReferenceType(com.fasterxml.jackson.databind.introspect.AnnotatedMember);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedMember;)Lcom/fasterxml/jackson/databind/AnnotationIntrospector$ReferenceProperty;
+    Code:
+       0: aload_1
+       1: ldc_w         #26                 // class com/fasterxml/jackson/annotation/JsonManagedReference
+       4: invokevirtual #27                 // Method com/fasterxml/jackson/databind/introspect/AnnotatedMember.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #26                 // class com/fasterxml/jackson/annotation/JsonManagedReference
+      10: astore_2
+      11: aload_2
+      12: ifnull        25
+      15: aload_2
+      16: invokeinterface #28,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonManagedReference.value:()Ljava/lang/String;
+      21: invokestatic  #29                 // Method com/fasterxml/jackson/databind/AnnotationIntrospector$ReferenceProperty.managed:(Ljava/lang/String;)Lcom/fasterxml/jackson/databind/AnnotationIntrospector$ReferenceProperty;
+      24: areturn
+      25: aload_1
+      26: ldc_w         #30                 // class com/fasterxml/jackson/annotation/JsonBackReference
+      29: invokevirtual #27                 // Method com/fasterxml/jackson/databind/introspect/AnnotatedMember.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+      32: checkcast     #30                 // class com/fasterxml/jackson/annotation/JsonBackReference
+      35: astore_3
+      36: aload_3
+      37: ifnull        50
+      40: aload_3
+      41: invokeinterface #31,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonBackReference.value:()Ljava/lang/String;
+      46: invokestatic  #32                 // Method com/fasterxml/jackson/databind/AnnotationIntrospector$ReferenceProperty.back:(Ljava/lang/String;)Lcom/fasterxml/jackson/databind/AnnotationIntrospector$ReferenceProperty;
+      49: areturn
+      50: aconst_null
+      51: areturn
+
+  public com.fasterxml.jackson.databind.util.NameTransformer findUnwrappingNameTransformer(com.fasterxml.jackson.databind.introspect.AnnotatedMember);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedMember;)Lcom/fasterxml/jackson/databind/util/NameTransformer;
+    Code:
+       0: aload_1
+       1: ldc_w         #33                 // class com/fasterxml/jackson/annotation/JsonUnwrapped
+       4: invokevirtual #27                 // Method com/fasterxml/jackson/databind/introspect/AnnotatedMember.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #33                 // class com/fasterxml/jackson/annotation/JsonUnwrapped
+      10: astore_2
+      11: aload_2
+      12: ifnull        24
+      15: aload_2
+      16: invokeinterface #34,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonUnwrapped.enabled:()Z
+      21: ifne          26
+      24: aconst_null
+      25: areturn
+      26: aload_2
+      27: invokeinterface #35,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonUnwrapped.prefix:()Ljava/lang/String;
+      32: astore_3
+      33: aload_2
+      34: invokeinterface #36,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonUnwrapped.suffix:()Ljava/lang/String;
+      39: astore        4
+      41: aload_3
+      42: aload         4
+      44: invokestatic  #37                 // Method com/fasterxml/jackson/databind/util/NameTransformer.simpleTransformer:(Ljava/lang/String;Ljava/lang/String;)Lcom/fasterxml/jackson/databind/util/NameTransformer;
+      47: areturn
+
+  public boolean hasIgnoreMarker(com.fasterxml.jackson.databind.introspect.AnnotatedMember);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedMember;)Z
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #38                 // Method _isIgnorable:(Lcom/fasterxml/jackson/databind/introspect/Annotated;)Z
+       5: ireturn
+
+  public java.lang.Boolean hasRequiredMarker(com.fasterxml.jackson.databind.introspect.AnnotatedMember);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedMember;)Ljava/lang/Boolean;
+    Code:
+       0: aload_1
+       1: ldc_w         #39                 // class com/fasterxml/jackson/annotation/JsonProperty
+       4: invokevirtual #27                 // Method com/fasterxml/jackson/databind/introspect/AnnotatedMember.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #39                 // class com/fasterxml/jackson/annotation/JsonProperty
+      10: astore_2
+      11: aload_2
+      12: ifnull        25
+      15: aload_2
+      16: invokeinterface #40,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonProperty.required:()Z
+      21: invokestatic  #16                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      24: areturn
+      25: aconst_null
+      26: areturn
+
+  public java.lang.Object findInjectableValueId(com.fasterxml.jackson.databind.introspect.AnnotatedMember);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedMember;)Ljava/lang/Object;
+    Code:
+       0: aload_1
+       1: ldc_w         #41                 // class com/fasterxml/jackson/annotation/JacksonInject
+       4: invokevirtual #27                 // Method com/fasterxml/jackson/databind/introspect/AnnotatedMember.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #41                 // class com/fasterxml/jackson/annotation/JacksonInject
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     17
+      15: aconst_null
+      16: areturn
+      17: aload_2
+      18: invokeinterface #42,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JacksonInject.value:()Ljava/lang/String;
+      23: astore_3
+      24: aload_3
+      25: invokevirtual #9                  // Method java/lang/String.length:()I
+      28: ifne          78
+      31: aload_1
+      32: instanceof    #43                 // class com/fasterxml/jackson/databind/introspect/AnnotatedMethod
+      35: ifne          46
+      38: aload_1
+      39: invokevirtual #44                 // Method com/fasterxml/jackson/databind/introspect/AnnotatedMember.getRawType:()Ljava/lang/Class;
+      42: invokevirtual #45                 // Method java/lang/Class.getName:()Ljava/lang/String;
+      45: areturn
+      46: aload_1
+      47: checkcast     #43                 // class com/fasterxml/jackson/databind/introspect/AnnotatedMethod
+      50: astore        4
+      52: aload         4
+      54: invokevirtual #46                 // Method com/fasterxml/jackson/databind/introspect/AnnotatedMethod.getParameterCount:()I
+      57: ifne          68
+      60: aload_1
+      61: invokevirtual #44                 // Method com/fasterxml/jackson/databind/introspect/AnnotatedMember.getRawType:()Ljava/lang/Class;
+      64: invokevirtual #45                 // Method java/lang/Class.getName:()Ljava/lang/String;
+      67: areturn
+      68: aload         4
+      70: iconst_0
+      71: invokevirtual #47                 // Method com/fasterxml/jackson/databind/introspect/AnnotatedMethod.getRawParameterType:(I)Ljava/lang/Class;
+      74: invokevirtual #45                 // Method java/lang/Class.getName:()Ljava/lang/String;
+      77: areturn
+      78: aload_3
+      79: areturn
+
+  public com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder<?> findTypeResolver(com.fasterxml.jackson.databind.cfg.MapperConfig<?>, com.fasterxml.jackson.databind.introspect.AnnotatedClass, com.fasterxml.jackson.databind.JavaType);
+    descriptor: (Lcom/fasterxml/jackson/databind/cfg/MapperConfig;Lcom/fasterxml/jackson/databind/introspect/AnnotatedClass;Lcom/fasterxml/jackson/databind/JavaType;)Lcom/fasterxml/jackson/databind/jsontype/TypeResolverBuilder;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: invokevirtual #48                 // Method _findTypeResolver:(Lcom/fasterxml/jackson/databind/cfg/MapperConfig;Lcom/fasterxml/jackson/databind/introspect/Annotated;Lcom/fasterxml/jackson/databind/JavaType;)Lcom/fasterxml/jackson/databind/jsontype/TypeResolverBuilder;
+       7: areturn
+
+  public com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder<?> findPropertyTypeResolver(com.fasterxml.jackson.databind.cfg.MapperConfig<?>, com.fasterxml.jackson.databind.introspect.AnnotatedMember, com.fasterxml.jackson.databind.JavaType);
+    descriptor: (Lcom/fasterxml/jackson/databind/cfg/MapperConfig;Lcom/fasterxml/jackson/databind/introspect/AnnotatedMember;Lcom/fasterxml/jackson/databind/JavaType;)Lcom/fasterxml/jackson/databind/jsontype/TypeResolverBuilder;
+    Code:
+       0: aload_3
+       1: invokevirtual #49                 // Method com/fasterxml/jackson/databind/JavaType.isContainerType:()Z
+       4: ifeq          9
+       7: aconst_null
+       8: areturn
+       9: aload_0
+      10: aload_1
+      11: aload_2
+      12: aload_3
+      13: invokevirtual #48                 // Method _findTypeResolver:(Lcom/fasterxml/jackson/databind/cfg/MapperConfig;Lcom/fasterxml/jackson/databind/introspect/Annotated;Lcom/fasterxml/jackson/databind/JavaType;)Lcom/fasterxml/jackson/databind/jsontype/TypeResolverBuilder;
+      16: areturn
+
+  public com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder<?> findPropertyContentTypeResolver(com.fasterxml.jackson.databind.cfg.MapperConfig<?>, com.fasterxml.jackson.databind.introspect.AnnotatedMember, com.fasterxml.jackson.databind.JavaType);
+    descriptor: (Lcom/fasterxml/jackson/databind/cfg/MapperConfig;Lcom/fasterxml/jackson/databind/introspect/AnnotatedMember;Lcom/fasterxml/jackson/databind/JavaType;)Lcom/fasterxml/jackson/databind/jsontype/TypeResolverBuilder;
+    Code:
+       0: aload_3
+       1: invokevirtual #49                 // Method com/fasterxml/jackson/databind/JavaType.isContainerType:()Z
+       4: ifne          39
+       7: new           #50                 // class java/lang/IllegalArgumentException
+      10: dup
+      11: new           #51                 // class java/lang/StringBuilder
+      14: dup
+      15: invokespecial #52                 // Method java/lang/StringBuilder."<init>":()V
+      18: ldc           #53                 // String Must call method with a container type (got
+      20: invokevirtual #54                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      23: aload_3
+      24: invokevirtual #55                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      27: ldc           #56                 // String )
+      29: invokevirtual #54                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      32: invokevirtual #57                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      35: invokespecial #58                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      38: athrow
+      39: aload_0
+      40: aload_1
+      41: aload_2
+      42: aload_3
+      43: invokevirtual #48                 // Method _findTypeResolver:(Lcom/fasterxml/jackson/databind/cfg/MapperConfig;Lcom/fasterxml/jackson/databind/introspect/Annotated;Lcom/fasterxml/jackson/databind/JavaType;)Lcom/fasterxml/jackson/databind/jsontype/TypeResolverBuilder;
+      46: areturn
+
+  public java.util.List<com.fasterxml.jackson.databind.jsontype.NamedType> findSubtypes(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/util/List;
+    Code:
+       0: aload_1
+       1: ldc_w         #59                 // class com/fasterxml/jackson/annotation/JsonSubTypes
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #59                 // class com/fasterxml/jackson/annotation/JsonSubTypes
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     17
+      15: aconst_null
+      16: areturn
+      17: aload_2
+      18: invokeinterface #60,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonSubTypes.value:()[Lcom/fasterxml/jackson/annotation/JsonSubTypes$Type;
+      23: astore_3
+      24: new           #61                 // class java/util/ArrayList
+      27: dup
+      28: aload_3
+      29: arraylength
+      30: invokespecial #62                 // Method java/util/ArrayList."<init>":(I)V
+      33: astore        4
+      35: aload_3
+      36: astore        5
+      38: aload         5
+      40: arraylength
+      41: istore        6
+      43: iconst_0
+      44: istore        7
+      46: iload         7
+      48: iload         6
+      50: if_icmpge     93
+      53: aload         5
+      55: iload         7
+      57: aaload
+      58: astore        8
+      60: aload         4
+      62: new           #63                 // class com/fasterxml/jackson/databind/jsontype/NamedType
+      65: dup
+      66: aload         8
+      68: invokeinterface #64,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonSubTypes$Type.value:()Ljava/lang/Class;
+      73: aload         8
+      75: invokeinterface #65,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonSubTypes$Type.name:()Ljava/lang/String;
+      80: invokespecial #66                 // Method com/fasterxml/jackson/databind/jsontype/NamedType."<init>":(Ljava/lang/Class;Ljava/lang/String;)V
+      83: invokevirtual #67                 // Method java/util/ArrayList.add:(Ljava/lang/Object;)Z
+      86: pop
+      87: iinc          7, 1
+      90: goto          46
+      93: aload         4
+      95: areturn
+
+  public java.lang.String findTypeName(com.fasterxml.jackson.databind.introspect.AnnotatedClass);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedClass;)Ljava/lang/String;
+    Code:
+       0: aload_1
+       1: ldc_w         #68                 // class com/fasterxml/jackson/annotation/JsonTypeName
+       4: invokevirtual #7                  // Method com/fasterxml/jackson/databind/introspect/AnnotatedClass.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #68                 // class com/fasterxml/jackson/annotation/JsonTypeName
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          25
+      19: aload_2
+      20: invokeinterface #69,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonTypeName.value:()Ljava/lang/String;
+      25: areturn
+
+  public java.lang.Object findSerializer(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Object;
+    Code:
+       0: aload_1
+       1: ldc_w         #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+      10: astore_2
+      11: aload_2
+      12: ifnull        31
+      15: aload_2
+      16: invokeinterface #71,  1           // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonSerialize.using:()Ljava/lang/Class;
+      21: astore_3
+      22: aload_3
+      23: ldc_w         #72                 // class com/fasterxml/jackson/databind/JsonSerializer$None
+      26: if_acmpeq     31
+      29: aload_3
+      30: areturn
+      31: aload_1
+      32: ldc_w         #73                 // class com/fasterxml/jackson/annotation/JsonRawValue
+      35: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+      38: checkcast     #73                 // class com/fasterxml/jackson/annotation/JsonRawValue
+      41: astore_3
+      42: aload_3
+      43: ifnull        71
+      46: aload_3
+      47: invokeinterface #74,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonRawValue.value:()Z
+      52: ifeq          71
+      55: aload_1
+      56: invokevirtual #75                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getRawType:()Ljava/lang/Class;
+      59: astore        4
+      61: new           #76                 // class com/fasterxml/jackson/databind/ser/std/RawSerializer
+      64: dup
+      65: aload         4
+      67: invokespecial #77                 // Method com/fasterxml/jackson/databind/ser/std/RawSerializer."<init>":(Ljava/lang/Class;)V
+      70: areturn
+      71: aconst_null
+      72: areturn
+
+  public java.lang.Class<? extends com.fasterxml.jackson.databind.JsonSerializer<?>> findKeySerializer(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Class;
+    Code:
+       0: aload_1
+       1: ldc_w         #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+      10: astore_2
+      11: aload_2
+      12: ifnull        31
+      15: aload_2
+      16: invokeinterface #78,  1           // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonSerialize.keyUsing:()Ljava/lang/Class;
+      21: astore_3
+      22: aload_3
+      23: ldc_w         #72                 // class com/fasterxml/jackson/databind/JsonSerializer$None
+      26: if_acmpeq     31
+      29: aload_3
+      30: areturn
+      31: aconst_null
+      32: areturn
+
+  public java.lang.Class<? extends com.fasterxml.jackson.databind.JsonSerializer<?>> findContentSerializer(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Class;
+    Code:
+       0: aload_1
+       1: ldc_w         #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+      10: astore_2
+      11: aload_2
+      12: ifnull        31
+      15: aload_2
+      16: invokeinterface #79,  1           // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonSerialize.contentUsing:()Ljava/lang/Class;
+      21: astore_3
+      22: aload_3
+      23: ldc_w         #72                 // class com/fasterxml/jackson/databind/JsonSerializer$None
+      26: if_acmpeq     31
+      29: aload_3
+      30: areturn
+      31: aconst_null
+      32: areturn
+
+  public java.lang.Object findNullSerializer(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Object;
+    Code:
+       0: aload_1
+       1: ldc_w         #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+      10: astore_2
+      11: aload_2
+      12: ifnull        31
+      15: aload_2
+      16: invokeinterface #80,  1           // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonSerialize.nullsUsing:()Ljava/lang/Class;
+      21: astore_3
+      22: aload_3
+      23: ldc_w         #72                 // class com/fasterxml/jackson/databind/JsonSerializer$None
+      26: if_acmpeq     31
+      29: aload_3
+      30: areturn
+      31: aconst_null
+      32: areturn
+
+  public com.fasterxml.jackson.annotation.JsonInclude$Include findSerializationInclusion(com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.annotation.JsonInclude$Include);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;Lcom/fasterxml/jackson/annotation/JsonInclude$Include;)Lcom/fasterxml/jackson/annotation/JsonInclude$Include;
+    Code:
+       0: aload_1
+       1: ldc_w         #81                 // class com/fasterxml/jackson/annotation/JsonInclude
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #81                 // class com/fasterxml/jackson/annotation/JsonInclude
+      10: astore_3
+      11: aload_3
+      12: ifnull        22
+      15: aload_3
+      16: invokeinterface #82,  1           // InterfaceMethod com/fasterxml/jackson/annotation/JsonInclude.value:()Lcom/fasterxml/jackson/annotation/JsonInclude$Include;
+      21: areturn
+      22: aload_1
+      23: ldc_w         #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+      26: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+      29: checkcast     #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+      32: astore        4
+      34: aload         4
+      36: ifnull        108
+      39: aload         4
+      41: invokeinterface #83,  1           // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonSerialize.include:()Lcom/fasterxml/jackson/databind/annotation/JsonSerialize$Inclusion;
+      46: astore        5
+      48: getstatic     #84                 // Field com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector$1.$SwitchMap$com$fasterxml$jackson$databind$annotation$JsonSerialize$Inclusion:[I
+      51: aload         5
+      53: invokevirtual #85                 // Method com/fasterxml/jackson/databind/annotation/JsonSerialize$Inclusion.ordinal:()I
+      56: iaload
+      57: tableswitch   { // 1 to 5
+
+                     1: 92
+
+                     2: 96
+
+                     3: 100
+
+                     4: 104
+
+                     5: 108
+               default: 108
+          }
+      92: getstatic     #86                 // Field com/fasterxml/jackson/annotation/JsonInclude$Include.ALWAYS:Lcom/fasterxml/jackson/annotation/JsonInclude$Include;
+      95: areturn
+      96: getstatic     #87                 // Field com/fasterxml/jackson/annotation/JsonInclude$Include.NON_NULL:Lcom/fasterxml/jackson/annotation/JsonInclude$Include;
+      99: areturn
+     100: getstatic     #88                 // Field com/fasterxml/jackson/annotation/JsonInclude$Include.NON_DEFAULT:Lcom/fasterxml/jackson/annotation/JsonInclude$Include;
+     103: areturn
+     104: getstatic     #89                 // Field com/fasterxml/jackson/annotation/JsonInclude$Include.NON_EMPTY:Lcom/fasterxml/jackson/annotation/JsonInclude$Include;
+     107: areturn
+     108: aload_2
+     109: areturn
+
+  public java.lang.Class<?> findSerializationType(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Class;
+    Code:
+       0: aload_1
+       1: ldc_w         #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          29
+      19: aload_0
+      20: aload_2
+      21: invokeinterface #90,  1           // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonSerialize.as:()Ljava/lang/Class;
+      26: invokevirtual #91                 // Method _classIfExplicit:(Ljava/lang/Class;)Ljava/lang/Class;
+      29: areturn
+
+  public java.lang.Class<?> findSerializationKeyType(com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.databind.JavaType);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;Lcom/fasterxml/jackson/databind/JavaType;)Ljava/lang/Class;
+    Code:
+       0: aload_1
+       1: ldc_w         #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+      10: astore_3
+      11: aload_3
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          29
+      19: aload_0
+      20: aload_3
+      21: invokeinterface #92,  1           // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonSerialize.keyAs:()Ljava/lang/Class;
+      26: invokevirtual #91                 // Method _classIfExplicit:(Ljava/lang/Class;)Ljava/lang/Class;
+      29: areturn
+
+  public java.lang.Class<?> findSerializationContentType(com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.databind.JavaType);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;Lcom/fasterxml/jackson/databind/JavaType;)Ljava/lang/Class;
+    Code:
+       0: aload_1
+       1: ldc_w         #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+      10: astore_3
+      11: aload_3
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          29
+      19: aload_0
+      20: aload_3
+      21: invokeinterface #93,  1           // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonSerialize.contentAs:()Ljava/lang/Class;
+      26: invokevirtual #91                 // Method _classIfExplicit:(Ljava/lang/Class;)Ljava/lang/Class;
+      29: areturn
+
+  public com.fasterxml.jackson.databind.annotation.JsonSerialize$Typing findSerializationTyping(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Lcom/fasterxml/jackson/databind/annotation/JsonSerialize$Typing;
+    Code:
+       0: aload_1
+       1: ldc_w         #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          25
+      19: aload_2
+      20: invokeinterface #94,  1           // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonSerialize.typing:()Lcom/fasterxml/jackson/databind/annotation/JsonSerialize$Typing;
+      25: areturn
+
+  public java.lang.Object findSerializationConverter(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Object;
+    Code:
+       0: aload_1
+       1: ldc_w         #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          32
+      19: aload_0
+      20: aload_2
+      21: invokeinterface #95,  1           // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonSerialize.converter:()Ljava/lang/Class;
+      26: ldc_w         #96                 // class com/fasterxml/jackson/databind/util/Converter$None
+      29: invokevirtual #97                 // Method _classIfExplicit:(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/Class;
+      32: areturn
+
+  public java.lang.Object findSerializationContentConverter(com.fasterxml.jackson.databind.introspect.AnnotatedMember);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedMember;)Ljava/lang/Object;
+    Code:
+       0: aload_1
+       1: ldc_w         #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+       4: invokevirtual #27                 // Method com/fasterxml/jackson/databind/introspect/AnnotatedMember.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          32
+      19: aload_0
+      20: aload_2
+      21: invokeinterface #98,  1           // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonSerialize.contentConverter:()Ljava/lang/Class;
+      26: ldc_w         #96                 // class com/fasterxml/jackson/databind/util/Converter$None
+      29: invokevirtual #97                 // Method _classIfExplicit:(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/Class;
+      32: areturn
+
+  public java.lang.Class<?>[] findViews(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)[Ljava/lang/Class;
+    Code:
+       0: aload_1
+       1: ldc_w         #99                 // class com/fasterxml/jackson/annotation/JsonView
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #99                 // class com/fasterxml/jackson/annotation/JsonView
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          25
+      19: aload_2
+      20: invokeinterface #100,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonView.value:()[Ljava/lang/Class;
+      25: areturn
+
+  public java.lang.Boolean isTypeId(com.fasterxml.jackson.databind.introspect.AnnotatedMember);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedMember;)Ljava/lang/Boolean;
+    Code:
+       0: aload_1
+       1: ldc_w         #101                // class com/fasterxml/jackson/annotation/JsonTypeId
+       4: invokevirtual #102                // Method com/fasterxml/jackson/databind/introspect/AnnotatedMember.hasAnnotation:(Ljava/lang/Class;)Z
+       7: invokestatic  #16                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      10: areturn
+
+  public com.fasterxml.jackson.databind.introspect.ObjectIdInfo findObjectIdInfo(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Lcom/fasterxml/jackson/databind/introspect/ObjectIdInfo;
+    Code:
+       0: aload_1
+       1: ldc_w         #103                // class com/fasterxml/jackson/annotation/JsonIdentityInfo
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #103                // class com/fasterxml/jackson/annotation/JsonIdentityInfo
+      10: astore_2
+      11: aload_2
+      12: ifnull        27
+      15: aload_2
+      16: invokeinterface #104,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonIdentityInfo.generator:()Ljava/lang/Class;
+      21: ldc_w         #105                // class com/fasterxml/jackson/annotation/ObjectIdGenerators$None
+      24: if_acmpne     29
+      27: aconst_null
+      28: areturn
+      29: new           #106                // class com/fasterxml/jackson/databind/PropertyName
+      32: dup
+      33: aload_2
+      34: invokeinterface #107,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonIdentityInfo.property:()Ljava/lang/String;
+      39: invokespecial #108                // Method com/fasterxml/jackson/databind/PropertyName."<init>":(Ljava/lang/String;)V
+      42: astore_3
+      43: new           #109                // class com/fasterxml/jackson/databind/introspect/ObjectIdInfo
+      46: dup
+      47: aload_3
+      48: aload_2
+      49: invokeinterface #110,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonIdentityInfo.scope:()Ljava/lang/Class;
+      54: aload_2
+      55: invokeinterface #104,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonIdentityInfo.generator:()Ljava/lang/Class;
+      60: aload_2
+      61: invokeinterface #111,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonIdentityInfo.resolver:()Ljava/lang/Class;
+      66: invokespecial #112                // Method com/fasterxml/jackson/databind/introspect/ObjectIdInfo."<init>":(Lcom/fasterxml/jackson/databind/PropertyName;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)V
+      69: areturn
+
+  public com.fasterxml.jackson.databind.introspect.ObjectIdInfo findObjectReferenceInfo(com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.databind.introspect.ObjectIdInfo);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;Lcom/fasterxml/jackson/databind/introspect/ObjectIdInfo;)Lcom/fasterxml/jackson/databind/introspect/ObjectIdInfo;
+    Code:
+       0: aload_1
+       1: ldc_w         #113                // class com/fasterxml/jackson/annotation/JsonIdentityReference
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #113                // class com/fasterxml/jackson/annotation/JsonIdentityReference
+      10: astore_3
+      11: aload_3
+      12: ifnull        26
+      15: aload_2
+      16: aload_3
+      17: invokeinterface #114,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonIdentityReference.alwaysAsId:()Z
+      22: invokevirtual #115                // Method com/fasterxml/jackson/databind/introspect/ObjectIdInfo.withAlwaysAsId:(Z)Lcom/fasterxml/jackson/databind/introspect/ObjectIdInfo;
+      25: astore_2
+      26: aload_2
+      27: areturn
+
+  public com.fasterxml.jackson.annotation.JsonFormat$Value findFormat(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Lcom/fasterxml/jackson/annotation/JsonFormat$Value;
+    Code:
+       0: aload_1
+       1: ldc_w         #116                // class com/fasterxml/jackson/annotation/JsonFormat
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #116                // class com/fasterxml/jackson/annotation/JsonFormat
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          27
+      19: new           #117                // class com/fasterxml/jackson/annotation/JsonFormat$Value
+      22: dup
+      23: aload_2
+      24: invokespecial #118                // Method com/fasterxml/jackson/annotation/JsonFormat$Value."<init>":(Lcom/fasterxml/jackson/annotation/JsonFormat;)V
+      27: areturn
+
+  public java.lang.String findPropertyDescription(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/String;
+    Code:
+       0: aload_1
+       1: ldc_w         #119                // class com/fasterxml/jackson/annotation/JsonPropertyDescription
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #119                // class com/fasterxml/jackson/annotation/JsonPropertyDescription
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          25
+      19: aload_2
+      20: invokeinterface #120,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonPropertyDescription.value:()Ljava/lang/String;
+      25: areturn
+
+  public java.lang.Integer findPropertyIndex(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Integer;
+    Code:
+       0: aload_1
+       1: ldc_w         #39                 // class com/fasterxml/jackson/annotation/JsonProperty
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #39                 // class com/fasterxml/jackson/annotation/JsonProperty
+      10: astore_2
+      11: aload_2
+      12: ifnull        32
+      15: aload_2
+      16: invokeinterface #121,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonProperty.index:()I
+      21: istore_3
+      22: iload_3
+      23: iconst_m1
+      24: if_icmpeq     32
+      27: iload_3
+      28: invokestatic  #122                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+      31: areturn
+      32: aconst_null
+      33: areturn
+
+  public java.lang.String findImplicitPropertyName(com.fasterxml.jackson.databind.introspect.AnnotatedMember);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedMember;)Ljava/lang/String;
+    Code:
+       0: aconst_null
+       1: areturn
+
+  public java.lang.String[] findSerializationPropertyOrder(com.fasterxml.jackson.databind.introspect.AnnotatedClass);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedClass;)[Ljava/lang/String;
+    Code:
+       0: aload_1
+       1: ldc_w         #123                // class com/fasterxml/jackson/annotation/JsonPropertyOrder
+       4: invokevirtual #7                  // Method com/fasterxml/jackson/databind/introspect/AnnotatedClass.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #123                // class com/fasterxml/jackson/annotation/JsonPropertyOrder
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          25
+      19: aload_2
+      20: invokeinterface #124,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonPropertyOrder.value:()[Ljava/lang/String;
+      25: areturn
+
+  public java.lang.Boolean findSerializationSortAlphabetically(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Boolean;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #125                // Method _findSortAlpha:(Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Boolean;
+       5: areturn
+
+  public java.lang.Boolean findSerializationSortAlphabetically(com.fasterxml.jackson.databind.introspect.AnnotatedClass);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedClass;)Ljava/lang/Boolean;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #125                // Method _findSortAlpha:(Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Boolean;
+       5: areturn
+
+  private final java.lang.Boolean _findSortAlpha(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Boolean;
+    Code:
+       0: aload_1
+       1: ldc_w         #123                // class com/fasterxml/jackson/annotation/JsonPropertyOrder
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #123                // class com/fasterxml/jackson/annotation/JsonPropertyOrder
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          28
+      19: aload_2
+      20: invokeinterface #126,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonPropertyOrder.alphabetic:()Z
+      25: invokestatic  #16                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      28: areturn
+
+  public com.fasterxml.jackson.databind.PropertyName findNameForSerialization(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Lcom/fasterxml/jackson/databind/PropertyName;
+    Code:
+       0: aconst_null
+       1: astore_2
+       2: aload_1
+       3: ldc_w         #127                // class com/fasterxml/jackson/annotation/JsonGetter
+       6: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       9: checkcast     #127                // class com/fasterxml/jackson/annotation/JsonGetter
+      12: astore_3
+      13: aload_3
+      14: ifnull        27
+      17: aload_3
+      18: invokeinterface #128,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonGetter.value:()Ljava/lang/String;
+      23: astore_2
+      24: goto          83
+      27: aload_1
+      28: ldc_w         #39                 // class com/fasterxml/jackson/annotation/JsonProperty
+      31: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+      34: checkcast     #39                 // class com/fasterxml/jackson/annotation/JsonProperty
+      37: astore        4
+      39: aload         4
+      41: ifnull        55
+      44: aload         4
+      46: invokeinterface #129,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonProperty.value:()Ljava/lang/String;
+      51: astore_2
+      52: goto          83
+      55: aload_1
+      56: ldc_w         #70                 // class com/fasterxml/jackson/databind/annotation/JsonSerialize
+      59: invokevirtual #130                // Method com/fasterxml/jackson/databind/introspect/Annotated.hasAnnotation:(Ljava/lang/Class;)Z
+      62: ifne          75
+      65: aload_1
+      66: ldc_w         #99                 // class com/fasterxml/jackson/annotation/JsonView
+      69: invokevirtual #130                // Method com/fasterxml/jackson/databind/introspect/Annotated.hasAnnotation:(Ljava/lang/Class;)Z
+      72: ifeq          81
+      75: ldc           #131                // String
+      77: astore_2
+      78: goto          83
+      81: aconst_null
+      82: areturn
+      83: aload_2
+      84: invokevirtual #9                  // Method java/lang/String.length:()I
+      87: ifne          94
+      90: getstatic     #132                // Field com/fasterxml/jackson/databind/PropertyName.USE_DEFAULT:Lcom/fasterxml/jackson/databind/PropertyName;
+      93: areturn
+      94: new           #106                // class com/fasterxml/jackson/databind/PropertyName
+      97: dup
+      98: aload_2
+      99: invokespecial #108                // Method com/fasterxml/jackson/databind/PropertyName."<init>":(Ljava/lang/String;)V
+     102: areturn
+
+  public boolean hasAsValueAnnotation(com.fasterxml.jackson.databind.introspect.AnnotatedMethod);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedMethod;)Z
+    Code:
+       0: aload_1
+       1: ldc_w         #133                // class com/fasterxml/jackson/annotation/JsonValue
+       4: invokevirtual #134                // Method com/fasterxml/jackson/databind/introspect/AnnotatedMethod.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #133                // class com/fasterxml/jackson/annotation/JsonValue
+      10: astore_2
+      11: aload_2
+      12: ifnull        28
+      15: aload_2
+      16: invokeinterface #135,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonValue.value:()Z
+      21: ifeq          28
+      24: iconst_1
+      25: goto          29
+      28: iconst_0
+      29: ireturn
+
+  public java.lang.Class<? extends com.fasterxml.jackson.databind.JsonDeserializer<?>> findDeserializer(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Class;
+    Code:
+       0: aload_1
+       1: ldc_w         #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+      10: astore_2
+      11: aload_2
+      12: ifnull        31
+      15: aload_2
+      16: invokeinterface #137,  1          // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonDeserialize.using:()Ljava/lang/Class;
+      21: astore_3
+      22: aload_3
+      23: ldc_w         #138                // class com/fasterxml/jackson/databind/JsonDeserializer$None
+      26: if_acmpeq     31
+      29: aload_3
+      30: areturn
+      31: aconst_null
+      32: areturn
+
+  public java.lang.Class<? extends com.fasterxml.jackson.databind.KeyDeserializer> findKeyDeserializer(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Class;
+    Code:
+       0: aload_1
+       1: ldc_w         #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+      10: astore_2
+      11: aload_2
+      12: ifnull        31
+      15: aload_2
+      16: invokeinterface #139,  1          // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonDeserialize.keyUsing:()Ljava/lang/Class;
+      21: astore_3
+      22: aload_3
+      23: ldc_w         #140                // class com/fasterxml/jackson/databind/KeyDeserializer$None
+      26: if_acmpeq     31
+      29: aload_3
+      30: areturn
+      31: aconst_null
+      32: areturn
+
+  public java.lang.Class<? extends com.fasterxml.jackson.databind.JsonDeserializer<?>> findContentDeserializer(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Class;
+    Code:
+       0: aload_1
+       1: ldc_w         #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+      10: astore_2
+      11: aload_2
+      12: ifnull        31
+      15: aload_2
+      16: invokeinterface #141,  1          // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonDeserialize.contentUsing:()Ljava/lang/Class;
+      21: astore_3
+      22: aload_3
+      23: ldc_w         #138                // class com/fasterxml/jackson/databind/JsonDeserializer$None
+      26: if_acmpeq     31
+      29: aload_3
+      30: areturn
+      31: aconst_null
+      32: areturn
+
+  public java.lang.Class<?> findDeserializationType(com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.databind.JavaType);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;Lcom/fasterxml/jackson/databind/JavaType;)Ljava/lang/Class;
+    Code:
+       0: aload_1
+       1: ldc_w         #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+      10: astore_3
+      11: aload_3
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          29
+      19: aload_0
+      20: aload_3
+      21: invokeinterface #142,  1          // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonDeserialize.as:()Ljava/lang/Class;
+      26: invokevirtual #91                 // Method _classIfExplicit:(Ljava/lang/Class;)Ljava/lang/Class;
+      29: areturn
+
+  public java.lang.Class<?> findDeserializationKeyType(com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.databind.JavaType);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;Lcom/fasterxml/jackson/databind/JavaType;)Ljava/lang/Class;
+    Code:
+       0: aload_1
+       1: ldc_w         #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+      10: astore_3
+      11: aload_3
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          29
+      19: aload_0
+      20: aload_3
+      21: invokeinterface #143,  1          // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonDeserialize.keyAs:()Ljava/lang/Class;
+      26: invokevirtual #91                 // Method _classIfExplicit:(Ljava/lang/Class;)Ljava/lang/Class;
+      29: areturn
+
+  public java.lang.Class<?> findDeserializationContentType(com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.databind.JavaType);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;Lcom/fasterxml/jackson/databind/JavaType;)Ljava/lang/Class;
+    Code:
+       0: aload_1
+       1: ldc_w         #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+      10: astore_3
+      11: aload_3
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          29
+      19: aload_0
+      20: aload_3
+      21: invokeinterface #144,  1          // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonDeserialize.contentAs:()Ljava/lang/Class;
+      26: invokevirtual #91                 // Method _classIfExplicit:(Ljava/lang/Class;)Ljava/lang/Class;
+      29: areturn
+
+  public java.lang.Object findDeserializationConverter(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Object;
+    Code:
+       0: aload_1
+       1: ldc_w         #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          32
+      19: aload_0
+      20: aload_2
+      21: invokeinterface #145,  1          // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonDeserialize.converter:()Ljava/lang/Class;
+      26: ldc_w         #96                 // class com/fasterxml/jackson/databind/util/Converter$None
+      29: invokevirtual #97                 // Method _classIfExplicit:(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/Class;
+      32: areturn
+
+  public java.lang.Object findDeserializationContentConverter(com.fasterxml.jackson.databind.introspect.AnnotatedMember);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedMember;)Ljava/lang/Object;
+    Code:
+       0: aload_1
+       1: ldc_w         #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+       4: invokevirtual #27                 // Method com/fasterxml/jackson/databind/introspect/AnnotatedMember.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          32
+      19: aload_0
+      20: aload_2
+      21: invokeinterface #146,  1          // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonDeserialize.contentConverter:()Ljava/lang/Class;
+      26: ldc_w         #96                 // class com/fasterxml/jackson/databind/util/Converter$None
+      29: invokevirtual #97                 // Method _classIfExplicit:(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/Class;
+      32: areturn
+
+  public java.lang.Object findValueInstantiator(com.fasterxml.jackson.databind.introspect.AnnotatedClass);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedClass;)Ljava/lang/Object;
+    Code:
+       0: aload_1
+       1: ldc_w         #147                // class com/fasterxml/jackson/databind/annotation/JsonValueInstantiator
+       4: invokevirtual #7                  // Method com/fasterxml/jackson/databind/introspect/AnnotatedClass.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #147                // class com/fasterxml/jackson/databind/annotation/JsonValueInstantiator
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          25
+      19: aload_2
+      20: invokeinterface #148,  1          // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonValueInstantiator.value:()Ljava/lang/Class;
+      25: areturn
+
+  public java.lang.Class<?> findPOJOBuilder(com.fasterxml.jackson.databind.introspect.AnnotatedClass);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedClass;)Ljava/lang/Class;
+    Code:
+       0: aload_1
+       1: ldc_w         #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+       4: invokevirtual #7                  // Method com/fasterxml/jackson/databind/introspect/AnnotatedClass.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          29
+      19: aload_0
+      20: aload_2
+      21: invokeinterface #149,  1          // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonDeserialize.builder:()Ljava/lang/Class;
+      26: invokevirtual #91                 // Method _classIfExplicit:(Ljava/lang/Class;)Ljava/lang/Class;
+      29: areturn
+
+  public com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder$Value findPOJOBuilderConfig(com.fasterxml.jackson.databind.introspect.AnnotatedClass);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedClass;)Lcom/fasterxml/jackson/databind/annotation/JsonPOJOBuilder$Value;
+    Code:
+       0: aload_1
+       1: ldc_w         #150                // class com/fasterxml/jackson/databind/annotation/JsonPOJOBuilder
+       4: invokevirtual #7                  // Method com/fasterxml/jackson/databind/introspect/AnnotatedClass.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #150                // class com/fasterxml/jackson/databind/annotation/JsonPOJOBuilder
+      10: astore_2
+      11: aload_2
+      12: ifnonnull     19
+      15: aconst_null
+      16: goto          27
+      19: new           #151                // class com/fasterxml/jackson/databind/annotation/JsonPOJOBuilder$Value
+      22: dup
+      23: aload_2
+      24: invokespecial #152                // Method com/fasterxml/jackson/databind/annotation/JsonPOJOBuilder$Value."<init>":(Lcom/fasterxml/jackson/databind/annotation/JsonPOJOBuilder;)V
+      27: areturn
+
+  public com.fasterxml.jackson.databind.PropertyName findNameForDeserialization(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Lcom/fasterxml/jackson/databind/PropertyName;
+    Code:
+       0: aload_1
+       1: ldc_w         #153                // class com/fasterxml/jackson/annotation/JsonSetter
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #153                // class com/fasterxml/jackson/annotation/JsonSetter
+      10: astore_3
+      11: aload_3
+      12: ifnull        25
+      15: aload_3
+      16: invokeinterface #154,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonSetter.value:()Ljava/lang/String;
+      21: astore_2
+      22: goto          111
+      25: aload_1
+      26: ldc_w         #39                 // class com/fasterxml/jackson/annotation/JsonProperty
+      29: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+      32: checkcast     #39                 // class com/fasterxml/jackson/annotation/JsonProperty
+      35: astore        4
+      37: aload         4
+      39: ifnull        53
+      42: aload         4
+      44: invokeinterface #129,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonProperty.value:()Ljava/lang/String;
+      49: astore_2
+      50: goto          111
+      53: aload_1
+      54: ldc_w         #136                // class com/fasterxml/jackson/databind/annotation/JsonDeserialize
+      57: invokevirtual #130                // Method com/fasterxml/jackson/databind/introspect/Annotated.hasAnnotation:(Ljava/lang/Class;)Z
+      60: ifne          103
+      63: aload_1
+      64: ldc_w         #99                 // class com/fasterxml/jackson/annotation/JsonView
+      67: invokevirtual #130                // Method com/fasterxml/jackson/databind/introspect/Annotated.hasAnnotation:(Ljava/lang/Class;)Z
+      70: ifne          103
+      73: aload_1
+      74: ldc_w         #33                 // class com/fasterxml/jackson/annotation/JsonUnwrapped
+      77: invokevirtual #130                // Method com/fasterxml/jackson/databind/introspect/Annotated.hasAnnotation:(Ljava/lang/Class;)Z
+      80: ifne          103
+      83: aload_1
+      84: ldc_w         #30                 // class com/fasterxml/jackson/annotation/JsonBackReference
+      87: invokevirtual #130                // Method com/fasterxml/jackson/databind/introspect/Annotated.hasAnnotation:(Ljava/lang/Class;)Z
+      90: ifne          103
+      93: aload_1
+      94: ldc_w         #26                 // class com/fasterxml/jackson/annotation/JsonManagedReference
+      97: invokevirtual #130                // Method com/fasterxml/jackson/databind/introspect/Annotated.hasAnnotation:(Ljava/lang/Class;)Z
+     100: ifeq          109
+     103: ldc           #131                // String
+     105: astore_2
+     106: goto          111
+     109: aconst_null
+     110: areturn
+     111: aload_2
+     112: invokevirtual #9                  // Method java/lang/String.length:()I
+     115: ifne          122
+     118: getstatic     #132                // Field com/fasterxml/jackson/databind/PropertyName.USE_DEFAULT:Lcom/fasterxml/jackson/databind/PropertyName;
+     121: areturn
+     122: new           #106                // class com/fasterxml/jackson/databind/PropertyName
+     125: dup
+     126: aload_2
+     127: invokespecial #108                // Method com/fasterxml/jackson/databind/PropertyName."<init>":(Ljava/lang/String;)V
+     130: areturn
+
+  public boolean hasAnySetterAnnotation(com.fasterxml.jackson.databind.introspect.AnnotatedMethod);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedMethod;)Z
+    Code:
+       0: aload_1
+       1: ldc_w         #155                // class com/fasterxml/jackson/annotation/JsonAnySetter
+       4: invokevirtual #156                // Method com/fasterxml/jackson/databind/introspect/AnnotatedMethod.hasAnnotation:(Ljava/lang/Class;)Z
+       7: ireturn
+
+  public boolean hasAnyGetterAnnotation(com.fasterxml.jackson.databind.introspect.AnnotatedMethod);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/AnnotatedMethod;)Z
+    Code:
+       0: aload_1
+       1: ldc_w         #157                // class com/fasterxml/jackson/annotation/JsonAnyGetter
+       4: invokevirtual #156                // Method com/fasterxml/jackson/databind/introspect/AnnotatedMethod.hasAnnotation:(Ljava/lang/Class;)Z
+       7: ireturn
+
+  public boolean hasCreatorAnnotation(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Z
+    Code:
+       0: aload_1
+       1: ldc_w         #158                // class com/fasterxml/jackson/annotation/JsonCreator
+       4: invokevirtual #130                // Method com/fasterxml/jackson/databind/introspect/Annotated.hasAnnotation:(Ljava/lang/Class;)Z
+       7: ireturn
+
+  protected boolean _isIgnorable(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Z
+    Code:
+       0: aload_1
+       1: ldc_w         #159                // class com/fasterxml/jackson/annotation/JsonIgnore
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #159                // class com/fasterxml/jackson/annotation/JsonIgnore
+      10: astore_2
+      11: aload_2
+      12: ifnull        28
+      15: aload_2
+      16: invokeinterface #160,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonIgnore.value:()Z
+      21: ifeq          28
+      24: iconst_1
+      25: goto          29
+      28: iconst_0
+      29: ireturn
+
+  protected java.lang.Class<?> _classIfExplicit(java.lang.Class<?>);
+    descriptor: (Ljava/lang/Class;)Ljava/lang/Class;
+    Code:
+       0: aload_1
+       1: ifnull        11
+       4: aload_1
+       5: invokestatic  #161                // Method com/fasterxml/jackson/databind/util/ClassUtil.isBogusClass:(Ljava/lang/Class;)Z
+       8: ifeq          13
+      11: aconst_null
+      12: areturn
+      13: aload_1
+      14: areturn
+
+  protected java.lang.Class<?> _classIfExplicit(java.lang.Class<?>, java.lang.Class<?>);
+    descriptor: (Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/Class;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #91                 // Method _classIfExplicit:(Ljava/lang/Class;)Ljava/lang/Class;
+       5: astore_1
+       6: aload_1
+       7: ifnull        15
+      10: aload_1
+      11: aload_2
+      12: if_acmpne     19
+      15: aconst_null
+      16: goto          20
+      19: aload_1
+      20: areturn
+
+  protected com.fasterxml.jackson.databind.jsontype.TypeResolverBuilder<?> _findTypeResolver(com.fasterxml.jackson.databind.cfg.MapperConfig<?>, com.fasterxml.jackson.databind.introspect.Annotated, com.fasterxml.jackson.databind.JavaType);
+    descriptor: (Lcom/fasterxml/jackson/databind/cfg/MapperConfig;Lcom/fasterxml/jackson/databind/introspect/Annotated;Lcom/fasterxml/jackson/databind/JavaType;)Lcom/fasterxml/jackson/databind/jsontype/TypeResolverBuilder;
+    Code:
+       0: aload_2
+       1: ldc_w         #162                // class com/fasterxml/jackson/annotation/JsonTypeInfo
+       4: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+       7: checkcast     #162                // class com/fasterxml/jackson/annotation/JsonTypeInfo
+      10: astore        5
+      12: aload_2
+      13: ldc_w         #163                // class com/fasterxml/jackson/databind/annotation/JsonTypeResolver
+      16: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+      19: checkcast     #163                // class com/fasterxml/jackson/databind/annotation/JsonTypeResolver
+      22: astore        6
+      24: aload         6
+      26: ifnull        53
+      29: aload         5
+      31: ifnonnull     36
+      34: aconst_null
+      35: areturn
+      36: aload_1
+      37: aload_2
+      38: aload         6
+      40: invokeinterface #164,  1          // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonTypeResolver.value:()Ljava/lang/Class;
+      45: invokevirtual #165                // Method com/fasterxml/jackson/databind/cfg/MapperConfig.typeResolverBuilderInstance:(Lcom/fasterxml/jackson/databind/introspect/Annotated;Ljava/lang/Class;)Lcom/fasterxml/jackson/databind/jsontype/TypeResolverBuilder;
+      48: astore        4
+      50: goto          84
+      53: aload         5
+      55: ifnonnull     60
+      58: aconst_null
+      59: areturn
+      60: aload         5
+      62: invokeinterface #166,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonTypeInfo.use:()Lcom/fasterxml/jackson/annotation/JsonTypeInfo$Id;
+      67: getstatic     #167                // Field com/fasterxml/jackson/annotation/JsonTypeInfo$Id.NONE:Lcom/fasterxml/jackson/annotation/JsonTypeInfo$Id;
+      70: if_acmpne     78
+      73: aload_0
+      74: invokevirtual #168                // Method _constructNoTypeResolverBuilder:()Lcom/fasterxml/jackson/databind/jsontype/impl/StdTypeResolverBuilder;
+      77: areturn
+      78: aload_0
+      79: invokevirtual #169                // Method _constructStdTypeResolverBuilder:()Lcom/fasterxml/jackson/databind/jsontype/impl/StdTypeResolverBuilder;
+      82: astore        4
+      84: aload_2
+      85: ldc_w         #170                // class com/fasterxml/jackson/databind/annotation/JsonTypeIdResolver
+      88: invokevirtual #13                 // Method com/fasterxml/jackson/databind/introspect/Annotated.getAnnotation:(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+      91: checkcast     #170                // class com/fasterxml/jackson/databind/annotation/JsonTypeIdResolver
+      94: astore        7
+      96: aload         7
+      98: ifnonnull     105
+     101: aconst_null
+     102: goto          117
+     105: aload_1
+     106: aload_2
+     107: aload         7
+     109: invokeinterface #171,  1          // InterfaceMethod com/fasterxml/jackson/databind/annotation/JsonTypeIdResolver.value:()Ljava/lang/Class;
+     114: invokevirtual #172                // Method com/fasterxml/jackson/databind/cfg/MapperConfig.typeIdResolverInstance:(Lcom/fasterxml/jackson/databind/introspect/Annotated;Ljava/lang/Class;)Lcom/fasterxml/jackson/databind/jsontype/TypeIdResolver;
+     117: astore        8
+     119: aload         8
+     121: ifnull        132
+     124: aload         8
+     126: aload_3
+     127: invokeinterface #173,  2          // InterfaceMethod com/fasterxml/jackson/databind/jsontype/TypeIdResolver.init:(Lcom/fasterxml/jackson/databind/JavaType;)V
+     132: aload         4
+     134: aload         5
+     136: invokeinterface #166,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonTypeInfo.use:()Lcom/fasterxml/jackson/annotation/JsonTypeInfo$Id;
+     141: aload         8
+     143: invokeinterface #174,  3          // InterfaceMethod com/fasterxml/jackson/databind/jsontype/TypeResolverBuilder.init:(Lcom/fasterxml/jackson/annotation/JsonTypeInfo$Id;Lcom/fasterxml/jackson/databind/jsontype/TypeIdResolver;)Lcom/fasterxml/jackson/databind/jsontype/TypeResolverBuilder;
+     148: astore        4
+     150: aload         5
+     152: invokeinterface #175,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonTypeInfo.include:()Lcom/fasterxml/jackson/annotation/JsonTypeInfo$As;
+     157: astore        9
+     159: aload         9
+     161: getstatic     #176                // Field com/fasterxml/jackson/annotation/JsonTypeInfo$As.EXTERNAL_PROPERTY:Lcom/fasterxml/jackson/annotation/JsonTypeInfo$As;
+     164: if_acmpne     179
+     167: aload_2
+     168: instanceof    #177                // class com/fasterxml/jackson/databind/introspect/AnnotatedClass
+     171: ifeq          179
+     174: getstatic     #178                // Field com/fasterxml/jackson/annotation/JsonTypeInfo$As.PROPERTY:Lcom/fasterxml/jackson/annotation/JsonTypeInfo$As;
+     177: astore        9
+     179: aload         4
+     181: aload         9
+     183: invokeinterface #179,  2          // InterfaceMethod com/fasterxml/jackson/databind/jsontype/TypeResolverBuilder.inclusion:(Lcom/fasterxml/jackson/annotation/JsonTypeInfo$As;)Lcom/fasterxml/jackson/databind/jsontype/TypeResolverBuilder;
+     188: astore        4
+     190: aload         4
+     192: aload         5
+     194: invokeinterface #180,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonTypeInfo.property:()Ljava/lang/String;
+     199: invokeinterface #181,  2          // InterfaceMethod com/fasterxml/jackson/databind/jsontype/TypeResolverBuilder.typeProperty:(Ljava/lang/String;)Lcom/fasterxml/jackson/databind/jsontype/TypeResolverBuilder;
+     204: astore        4
+     206: aload         5
+     208: invokeinterface #182,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonTypeInfo.defaultImpl:()Ljava/lang/Class;
+     213: astore        10
+     215: aload         10
+     217: ldc_w         #183                // class com/fasterxml/jackson/annotation/JsonTypeInfo$None
+     220: if_acmpeq     234
+     223: aload         4
+     225: aload         10
+     227: invokeinterface #184,  2          // InterfaceMethod com/fasterxml/jackson/databind/jsontype/TypeResolverBuilder.defaultImpl:(Ljava/lang/Class;)Lcom/fasterxml/jackson/databind/jsontype/TypeResolverBuilder;
+     232: astore        4
+     234: aload         4
+     236: aload         5
+     238: invokeinterface #185,  1          // InterfaceMethod com/fasterxml/jackson/annotation/JsonTypeInfo.visible:()Z
+     243: invokeinterface #186,  2          // InterfaceMethod com/fasterxml/jackson/databind/jsontype/TypeResolverBuilder.typeIdVisibility:(Z)Lcom/fasterxml/jackson/databind/jsontype/TypeResolverBuilder;
+     248: astore        4
+     250: aload         4
+     252: areturn
+
+  protected com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder _constructStdTypeResolverBuilder();
+    descriptor: ()Lcom/fasterxml/jackson/databind/jsontype/impl/StdTypeResolverBuilder;
+    Code:
+       0: new           #187                // class com/fasterxml/jackson/databind/jsontype/impl/StdTypeResolverBuilder
+       3: dup
+       4: invokespecial #188                // Method com/fasterxml/jackson/databind/jsontype/impl/StdTypeResolverBuilder."<init>":()V
+       7: areturn
+
+  protected com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder _constructNoTypeResolverBuilder();
+    descriptor: ()Lcom/fasterxml/jackson/databind/jsontype/impl/StdTypeResolverBuilder;
+    Code:
+       0: invokestatic  #189                // Method com/fasterxml/jackson/databind/jsontype/impl/StdTypeResolverBuilder.noTypeInfoBuilder:()Lcom/fasterxml/jackson/databind/jsontype/impl/StdTypeResolverBuilder;
+       3: areturn
+
+  public java.lang.Object findContentDeserializer(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Object;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #190                // Method findContentDeserializer:(Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Class;
+       5: areturn
+
+  public java.lang.Object findKeyDeserializer(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Object;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #191                // Method findKeyDeserializer:(Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Class;
+       5: areturn
+
+  public java.lang.Object findDeserializer(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Object;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #192                // Method findDeserializer:(Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Class;
+       5: areturn
+
+  public java.lang.Object findContentSerializer(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Object;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #193                // Method findContentSerializer:(Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Class;
+       5: areturn
+
+  public java.lang.Object findKeySerializer(com.fasterxml.jackson.databind.introspect.Annotated);
+    descriptor: (Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Object;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #194                // Method findKeySerializer:(Lcom/fasterxml/jackson/databind/introspect/Annotated;)Ljava/lang/Class;
+       5: areturn
+}

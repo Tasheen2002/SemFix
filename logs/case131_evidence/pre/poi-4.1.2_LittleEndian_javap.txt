@@ -1,0 +1,1046 @@
+Compiled from "LittleEndian.java"
+public class org.apache.poi.util.LittleEndian implements org.apache.poi.util.LittleEndianConsts {
+  public static byte[] getByteArray(byte[], int, int);
+    descriptor: ([BII)[B
+    Code:
+       0: iload_2
+       1: newarray       byte
+       3: astore_3
+       4: aload_0
+       5: iload_1
+       6: aload_3
+       7: iconst_0
+       8: iload_2
+       9: invokestatic  #1                  // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+      12: aload_3
+      13: areturn
+
+  public static byte[] getByteArray(byte[], int, int, int);
+    descriptor: ([BIII)[B
+    Code:
+       0: iload_2
+       1: i2l
+       2: iload_3
+       3: invokestatic  #2                  // Method org/apache/poi/util/IOUtils.safelyAllocate:(JI)[B
+       6: astore        4
+       8: aload_0
+       9: iload_1
+      10: aload         4
+      12: iconst_0
+      13: iload_2
+      14: invokestatic  #1                  // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+      17: aload         4
+      19: areturn
+
+  public static double getDouble(byte[]);
+    descriptor: ([B)D
+    Code:
+       0: aload_0
+       1: iconst_0
+       2: invokestatic  #3                  // Method getLong:([BI)J
+       5: invokestatic  #4                  // Method java/lang/Double.longBitsToDouble:(J)D
+       8: dreturn
+
+  public static double getDouble(byte[], int);
+    descriptor: ([BI)D
+    Code:
+       0: aload_0
+       1: iload_1
+       2: invokestatic  #3                  // Method getLong:([BI)J
+       5: invokestatic  #4                  // Method java/lang/Double.longBitsToDouble:(J)D
+       8: dreturn
+
+  public static float getFloat(byte[]);
+    descriptor: ([B)F
+    Code:
+       0: aload_0
+       1: iconst_0
+       2: invokestatic  #5                  // Method getFloat:([BI)F
+       5: freturn
+
+  public static float getFloat(byte[], int);
+    descriptor: ([BI)F
+    Code:
+       0: aload_0
+       1: iload_1
+       2: invokestatic  #6                  // Method getInt:([BI)I
+       5: invokestatic  #7                  // Method java/lang/Float.intBitsToFloat:(I)F
+       8: freturn
+
+  public static int getInt(byte[]);
+    descriptor: ([B)I
+    Code:
+       0: aload_0
+       1: iconst_0
+       2: invokestatic  #6                  // Method getInt:([BI)I
+       5: ireturn
+
+  public static int getInt(byte[], int);
+    descriptor: ([BI)I
+    Code:
+       0: iload_1
+       1: istore_2
+       2: aload_0
+       3: iload_2
+       4: iinc          2, 1
+       7: baload
+       8: sipush        255
+      11: iand
+      12: istore_3
+      13: aload_0
+      14: iload_2
+      15: iinc          2, 1
+      18: baload
+      19: sipush        255
+      22: iand
+      23: istore        4
+      25: aload_0
+      26: iload_2
+      27: iinc          2, 1
+      30: baload
+      31: sipush        255
+      34: iand
+      35: istore        5
+      37: aload_0
+      38: iload_2
+      39: iinc          2, 1
+      42: baload
+      43: sipush        255
+      46: iand
+      47: istore        6
+      49: iload         6
+      51: bipush        24
+      53: ishl
+      54: iload         5
+      56: bipush        16
+      58: ishl
+      59: iadd
+      60: iload         4
+      62: bipush        8
+      64: ishl
+      65: iadd
+      66: iload_3
+      67: iconst_0
+      68: ishl
+      69: iadd
+      70: ireturn
+
+  public static long getLong(byte[]);
+    descriptor: ([B)J
+    Code:
+       0: aload_0
+       1: iconst_0
+       2: invokestatic  #3                  // Method getLong:([BI)J
+       5: lreturn
+
+  public static long getLong(byte[], int);
+    descriptor: ([BI)J
+    Code:
+       0: sipush        255
+       3: aload_0
+       4: iload_1
+       5: bipush        7
+       7: iadd
+       8: baload
+       9: iand
+      10: i2l
+      11: lstore_2
+      12: iload_1
+      13: bipush        8
+      15: iadd
+      16: iconst_1
+      17: isub
+      18: istore        4
+      20: iload         4
+      22: iload_1
+      23: if_icmplt     49
+      26: lload_2
+      27: bipush        8
+      29: lshl
+      30: lstore_2
+      31: lload_2
+      32: sipush        255
+      35: aload_0
+      36: iload         4
+      38: baload
+      39: iand
+      40: i2l
+      41: lor
+      42: lstore_2
+      43: iinc          4, -1
+      46: goto          20
+      49: lload_2
+      50: lreturn
+
+  public static short getShort(byte[]);
+    descriptor: ([B)S
+    Code:
+       0: aload_0
+       1: iconst_0
+       2: invokestatic  #9                  // Method getShort:([BI)S
+       5: ireturn
+
+  public static short getShort(byte[], int);
+    descriptor: ([BI)S
+    Code:
+       0: aload_0
+       1: iload_1
+       2: baload
+       3: sipush        255
+       6: iand
+       7: istore_2
+       8: aload_0
+       9: iload_1
+      10: iconst_1
+      11: iadd
+      12: baload
+      13: sipush        255
+      16: iand
+      17: istore_3
+      18: iload_3
+      19: bipush        8
+      21: ishl
+      22: iload_2
+      23: iconst_0
+      24: ishl
+      25: iadd
+      26: i2s
+      27: ireturn
+
+  public static short[] getShortArray(byte[], int, int);
+    descriptor: ([BII)[S
+    Code:
+       0: iload_2
+       1: iconst_2
+       2: idiv
+       3: newarray       short
+       5: astore_3
+       6: iconst_0
+       7: istore        4
+       9: iload         4
+      11: aload_3
+      12: arraylength
+      13: if_icmpge     36
+      16: aload_3
+      17: iload         4
+      19: aload_0
+      20: iload_1
+      21: iload         4
+      23: iconst_2
+      24: imul
+      25: iadd
+      26: invokestatic  #9                  // Method getShort:([BI)S
+      29: sastore
+      30: iinc          4, 1
+      33: goto          9
+      36: aload_3
+      37: areturn
+
+  public static short getUByte(byte[]);
+    descriptor: ([B)S
+    Code:
+       0: aload_0
+       1: iconst_0
+       2: baload
+       3: sipush        255
+       6: iand
+       7: i2s
+       8: ireturn
+
+  public static short getUByte(byte[], int);
+    descriptor: ([BI)S
+    Code:
+       0: aload_0
+       1: iload_1
+       2: baload
+       3: sipush        255
+       6: iand
+       7: i2s
+       8: ireturn
+
+  public static long getUInt(byte[]);
+    descriptor: ([B)J
+    Code:
+       0: aload_0
+       1: iconst_0
+       2: invokestatic  #10                 // Method getUInt:([BI)J
+       5: lreturn
+
+  public static long getUInt(byte[], int);
+    descriptor: ([BI)J
+    Code:
+       0: aload_0
+       1: iload_1
+       2: invokestatic  #6                  // Method getInt:([BI)I
+       5: i2l
+       6: lstore_2
+       7: lload_2
+       8: ldc2_w        #11                 // long 4294967295l
+      11: land
+      12: lreturn
+
+  public static int getUShort(byte[]);
+    descriptor: ([B)I
+    Code:
+       0: aload_0
+       1: iconst_0
+       2: invokestatic  #13                 // Method getUShort:([BI)I
+       5: ireturn
+
+  public static int getUShort(byte[], int);
+    descriptor: ([BI)I
+    Code:
+       0: aload_0
+       1: iload_1
+       2: baload
+       3: sipush        255
+       6: iand
+       7: istore_2
+       8: aload_0
+       9: iload_1
+      10: iconst_1
+      11: iadd
+      12: baload
+      13: sipush        255
+      16: iand
+      17: istore_3
+      18: iload_3
+      19: bipush        8
+      21: ishl
+      22: iload_2
+      23: iconst_0
+      24: ishl
+      25: iadd
+      26: ireturn
+
+  public static void putByte(byte[], int, int);
+    descriptor: ([BII)V
+    Code:
+       0: aload_0
+       1: iload_1
+       2: iload_2
+       3: i2b
+       4: bastore
+       5: return
+
+  public static void putDouble(byte[], int, double);
+    descriptor: ([BID)V
+    Code:
+       0: aload_0
+       1: iload_1
+       2: dload_2
+       3: invokestatic  #14                 // Method java/lang/Double.doubleToLongBits:(D)J
+       6: invokestatic  #15                 // Method putLong:([BIJ)V
+       9: return
+
+  public static void putDouble(double, java.io.OutputStream) throws java.io.IOException;
+    descriptor: (DLjava/io/OutputStream;)V
+    Code:
+       0: dload_0
+       1: invokestatic  #14                 // Method java/lang/Double.doubleToLongBits:(D)J
+       4: aload_2
+       5: invokestatic  #16                 // Method putLong:(JLjava/io/OutputStream;)V
+       8: return
+
+  public static void putFloat(byte[], int, float);
+    descriptor: ([BIF)V
+    Code:
+       0: aload_0
+       1: iload_1
+       2: fload_2
+       3: invokestatic  #17                 // Method java/lang/Float.floatToIntBits:(F)I
+       6: invokestatic  #18                 // Method putInt:([BII)V
+       9: return
+
+  public static void putFloat(float, java.io.OutputStream) throws java.io.IOException;
+    descriptor: (FLjava/io/OutputStream;)V
+    Code:
+       0: fload_0
+       1: invokestatic  #17                 // Method java/lang/Float.floatToIntBits:(F)I
+       4: aload_1
+       5: invokestatic  #19                 // Method putInt:(ILjava/io/OutputStream;)V
+       8: return
+
+  public static void putInt(byte[], int, int);
+    descriptor: ([BII)V
+    Code:
+       0: iload_1
+       1: istore_3
+       2: aload_0
+       3: iload_3
+       4: iinc          3, 1
+       7: iload_2
+       8: iconst_0
+       9: iushr
+      10: sipush        255
+      13: iand
+      14: i2b
+      15: bastore
+      16: aload_0
+      17: iload_3
+      18: iinc          3, 1
+      21: iload_2
+      22: bipush        8
+      24: iushr
+      25: sipush        255
+      28: iand
+      29: i2b
+      30: bastore
+      31: aload_0
+      32: iload_3
+      33: iinc          3, 1
+      36: iload_2
+      37: bipush        16
+      39: iushr
+      40: sipush        255
+      43: iand
+      44: i2b
+      45: bastore
+      46: aload_0
+      47: iload_3
+      48: iinc          3, 1
+      51: iload_2
+      52: bipush        24
+      54: iushr
+      55: sipush        255
+      58: iand
+      59: i2b
+      60: bastore
+      61: return
+
+  public static void putInt(int, java.io.OutputStream) throws java.io.IOException;
+    descriptor: (ILjava/io/OutputStream;)V
+    Code:
+       0: aload_1
+       1: iload_0
+       2: iconst_0
+       3: iushr
+       4: sipush        255
+       7: iand
+       8: i2b
+       9: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      12: aload_1
+      13: iload_0
+      14: bipush        8
+      16: iushr
+      17: sipush        255
+      20: iand
+      21: i2b
+      22: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      25: aload_1
+      26: iload_0
+      27: bipush        16
+      29: iushr
+      30: sipush        255
+      33: iand
+      34: i2b
+      35: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      38: aload_1
+      39: iload_0
+      40: bipush        24
+      42: iushr
+      43: sipush        255
+      46: iand
+      47: i2b
+      48: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      51: return
+
+  public static void putLong(byte[], int, long);
+    descriptor: ([BIJ)V
+    Code:
+       0: aload_0
+       1: iload_1
+       2: iconst_0
+       3: iadd
+       4: lload_2
+       5: iconst_0
+       6: lushr
+       7: ldc2_w        #21                 // long 255l
+      10: land
+      11: l2i
+      12: i2b
+      13: bastore
+      14: aload_0
+      15: iload_1
+      16: iconst_1
+      17: iadd
+      18: lload_2
+      19: bipush        8
+      21: lushr
+      22: ldc2_w        #21                 // long 255l
+      25: land
+      26: l2i
+      27: i2b
+      28: bastore
+      29: aload_0
+      30: iload_1
+      31: iconst_2
+      32: iadd
+      33: lload_2
+      34: bipush        16
+      36: lushr
+      37: ldc2_w        #21                 // long 255l
+      40: land
+      41: l2i
+      42: i2b
+      43: bastore
+      44: aload_0
+      45: iload_1
+      46: iconst_3
+      47: iadd
+      48: lload_2
+      49: bipush        24
+      51: lushr
+      52: ldc2_w        #21                 // long 255l
+      55: land
+      56: l2i
+      57: i2b
+      58: bastore
+      59: aload_0
+      60: iload_1
+      61: iconst_4
+      62: iadd
+      63: lload_2
+      64: bipush        32
+      66: lushr
+      67: ldc2_w        #21                 // long 255l
+      70: land
+      71: l2i
+      72: i2b
+      73: bastore
+      74: aload_0
+      75: iload_1
+      76: iconst_5
+      77: iadd
+      78: lload_2
+      79: bipush        40
+      81: lushr
+      82: ldc2_w        #21                 // long 255l
+      85: land
+      86: l2i
+      87: i2b
+      88: bastore
+      89: aload_0
+      90: iload_1
+      91: bipush        6
+      93: iadd
+      94: lload_2
+      95: bipush        48
+      97: lushr
+      98: ldc2_w        #21                 // long 255l
+     101: land
+     102: l2i
+     103: i2b
+     104: bastore
+     105: aload_0
+     106: iload_1
+     107: bipush        7
+     109: iadd
+     110: lload_2
+     111: bipush        56
+     113: lushr
+     114: ldc2_w        #21                 // long 255l
+     117: land
+     118: l2i
+     119: i2b
+     120: bastore
+     121: return
+
+  public static void putLong(long, java.io.OutputStream) throws java.io.IOException;
+    descriptor: (JLjava/io/OutputStream;)V
+    Code:
+       0: aload_2
+       1: lload_0
+       2: iconst_0
+       3: lushr
+       4: ldc2_w        #21                 // long 255l
+       7: land
+       8: l2i
+       9: i2b
+      10: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      13: aload_2
+      14: lload_0
+      15: bipush        8
+      17: lushr
+      18: ldc2_w        #21                 // long 255l
+      21: land
+      22: l2i
+      23: i2b
+      24: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      27: aload_2
+      28: lload_0
+      29: bipush        16
+      31: lushr
+      32: ldc2_w        #21                 // long 255l
+      35: land
+      36: l2i
+      37: i2b
+      38: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      41: aload_2
+      42: lload_0
+      43: bipush        24
+      45: lushr
+      46: ldc2_w        #21                 // long 255l
+      49: land
+      50: l2i
+      51: i2b
+      52: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      55: aload_2
+      56: lload_0
+      57: bipush        32
+      59: lushr
+      60: ldc2_w        #21                 // long 255l
+      63: land
+      64: l2i
+      65: i2b
+      66: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      69: aload_2
+      70: lload_0
+      71: bipush        40
+      73: lushr
+      74: ldc2_w        #21                 // long 255l
+      77: land
+      78: l2i
+      79: i2b
+      80: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      83: aload_2
+      84: lload_0
+      85: bipush        48
+      87: lushr
+      88: ldc2_w        #21                 // long 255l
+      91: land
+      92: l2i
+      93: i2b
+      94: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      97: aload_2
+      98: lload_0
+      99: bipush        56
+     101: lushr
+     102: ldc2_w        #21                 // long 255l
+     105: land
+     106: l2i
+     107: i2b
+     108: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+     111: return
+
+  public static void putShort(byte[], int, short);
+    descriptor: ([BIS)V
+    Code:
+       0: iload_1
+       1: istore_3
+       2: aload_0
+       3: iload_3
+       4: iinc          3, 1
+       7: iload_2
+       8: iconst_0
+       9: iushr
+      10: sipush        255
+      13: iand
+      14: i2b
+      15: bastore
+      16: aload_0
+      17: iload_3
+      18: iinc          3, 1
+      21: iload_2
+      22: bipush        8
+      24: iushr
+      25: sipush        255
+      28: iand
+      29: i2b
+      30: bastore
+      31: return
+
+  public static void putShort(java.io.OutputStream, short) throws java.io.IOException;
+    descriptor: (Ljava/io/OutputStream;S)V
+    Code:
+       0: aload_0
+       1: iload_1
+       2: iconst_0
+       3: iushr
+       4: sipush        255
+       7: iand
+       8: i2b
+       9: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      12: aload_0
+      13: iload_1
+      14: bipush        8
+      16: iushr
+      17: sipush        255
+      20: iand
+      21: i2b
+      22: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      25: return
+
+  public static void putShortArray(byte[], int, short[]);
+    descriptor: ([BI[S)V
+    Code:
+       0: iload_1
+       1: istore_3
+       2: aload_2
+       3: astore        4
+       5: aload         4
+       7: arraylength
+       8: istore        5
+      10: iconst_0
+      11: istore        6
+      13: iload         6
+      15: iload         5
+      17: if_icmpge     43
+      20: aload         4
+      22: iload         6
+      24: saload
+      25: istore        7
+      27: aload_0
+      28: iload_3
+      29: iload         7
+      31: invokestatic  #23                 // Method putShort:([BIS)V
+      34: iinc          3, 2
+      37: iinc          6, 1
+      40: goto          13
+      43: return
+
+  public static void putUByte(byte[], int, short);
+    descriptor: ([BIS)V
+    Code:
+       0: aload_0
+       1: iload_1
+       2: iload_2
+       3: sipush        255
+       6: iand
+       7: i2b
+       8: bastore
+       9: return
+
+  public static void putUInt(byte[], int, long);
+    descriptor: ([BIJ)V
+    Code:
+       0: iload_1
+       1: istore        4
+       3: aload_0
+       4: iload         4
+       6: iinc          4, 1
+       9: lload_2
+      10: iconst_0
+      11: lushr
+      12: ldc2_w        #21                 // long 255l
+      15: land
+      16: l2i
+      17: i2b
+      18: bastore
+      19: aload_0
+      20: iload         4
+      22: iinc          4, 1
+      25: lload_2
+      26: bipush        8
+      28: lushr
+      29: ldc2_w        #21                 // long 255l
+      32: land
+      33: l2i
+      34: i2b
+      35: bastore
+      36: aload_0
+      37: iload         4
+      39: iinc          4, 1
+      42: lload_2
+      43: bipush        16
+      45: lushr
+      46: ldc2_w        #21                 // long 255l
+      49: land
+      50: l2i
+      51: i2b
+      52: bastore
+      53: aload_0
+      54: iload         4
+      56: iinc          4, 1
+      59: lload_2
+      60: bipush        24
+      62: lushr
+      63: ldc2_w        #21                 // long 255l
+      66: land
+      67: l2i
+      68: i2b
+      69: bastore
+      70: return
+
+  public static void putUInt(long, java.io.OutputStream) throws java.io.IOException;
+    descriptor: (JLjava/io/OutputStream;)V
+    Code:
+       0: aload_2
+       1: lload_0
+       2: iconst_0
+       3: lushr
+       4: ldc2_w        #21                 // long 255l
+       7: land
+       8: l2i
+       9: i2b
+      10: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      13: aload_2
+      14: lload_0
+      15: bipush        8
+      17: lushr
+      18: ldc2_w        #21                 // long 255l
+      21: land
+      22: l2i
+      23: i2b
+      24: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      27: aload_2
+      28: lload_0
+      29: bipush        16
+      31: lushr
+      32: ldc2_w        #21                 // long 255l
+      35: land
+      36: l2i
+      37: i2b
+      38: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      41: aload_2
+      42: lload_0
+      43: bipush        24
+      45: lushr
+      46: ldc2_w        #21                 // long 255l
+      49: land
+      50: l2i
+      51: i2b
+      52: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      55: return
+
+  public static void putUShort(byte[], int, int);
+    descriptor: ([BII)V
+    Code:
+       0: iload_1
+       1: istore_3
+       2: aload_0
+       3: iload_3
+       4: iinc          3, 1
+       7: iload_2
+       8: iconst_0
+       9: iushr
+      10: sipush        255
+      13: iand
+      14: i2b
+      15: bastore
+      16: aload_0
+      17: iload_3
+      18: iinc          3, 1
+      21: iload_2
+      22: bipush        8
+      24: iushr
+      25: sipush        255
+      28: iand
+      29: i2b
+      30: bastore
+      31: return
+
+  public static void putUShort(int, java.io.OutputStream) throws java.io.IOException;
+    descriptor: (ILjava/io/OutputStream;)V
+    Code:
+       0: aload_1
+       1: iload_0
+       2: iconst_0
+       3: iushr
+       4: sipush        255
+       7: iand
+       8: i2b
+       9: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      12: aload_1
+      13: iload_0
+      14: bipush        8
+      16: iushr
+      17: sipush        255
+      20: iand
+      21: i2b
+      22: invokevirtual #20                 // Method java/io/OutputStream.write:(I)V
+      25: return
+
+  public static int readInt(java.io.InputStream) throws java.io.IOException, org.apache.poi.util.LittleEndian$BufferUnderrunException;
+    descriptor: (Ljava/io/InputStream;)I
+    Code:
+       0: aload_0
+       1: invokevirtual #24                 // Method java/io/InputStream.read:()I
+       4: istore_1
+       5: aload_0
+       6: invokevirtual #24                 // Method java/io/InputStream.read:()I
+       9: istore_2
+      10: aload_0
+      11: invokevirtual #24                 // Method java/io/InputStream.read:()I
+      14: istore_3
+      15: aload_0
+      16: invokevirtual #24                 // Method java/io/InputStream.read:()I
+      19: istore        4
+      21: iload_1
+      22: iload_2
+      23: ior
+      24: iload_3
+      25: ior
+      26: iload         4
+      28: ior
+      29: ifge          40
+      32: new           #25                 // class org/apache/poi/util/LittleEndian$BufferUnderrunException
+      35: dup
+      36: invokespecial #26                 // Method org/apache/poi/util/LittleEndian$BufferUnderrunException."<init>":()V
+      39: athrow
+      40: iload         4
+      42: bipush        24
+      44: ishl
+      45: iload_3
+      46: bipush        16
+      48: ishl
+      49: iadd
+      50: iload_2
+      51: bipush        8
+      53: ishl
+      54: iadd
+      55: iload_1
+      56: iconst_0
+      57: ishl
+      58: iadd
+      59: ireturn
+
+  public static long readUInt(java.io.InputStream) throws java.io.IOException, org.apache.poi.util.LittleEndian$BufferUnderrunException;
+    descriptor: (Ljava/io/InputStream;)J
+    Code:
+       0: aload_0
+       1: invokestatic  #27                 // Method readInt:(Ljava/io/InputStream;)I
+       4: i2l
+       5: lstore_1
+       6: lload_1
+       7: ldc2_w        #11                 // long 4294967295l
+      10: land
+      11: lreturn
+
+  public static long readLong(java.io.InputStream) throws java.io.IOException, org.apache.poi.util.LittleEndian$BufferUnderrunException;
+    descriptor: (Ljava/io/InputStream;)J
+    Code:
+       0: aload_0
+       1: invokevirtual #24                 // Method java/io/InputStream.read:()I
+       4: istore_1
+       5: aload_0
+       6: invokevirtual #24                 // Method java/io/InputStream.read:()I
+       9: istore_2
+      10: aload_0
+      11: invokevirtual #24                 // Method java/io/InputStream.read:()I
+      14: istore_3
+      15: aload_0
+      16: invokevirtual #24                 // Method java/io/InputStream.read:()I
+      19: istore        4
+      21: aload_0
+      22: invokevirtual #24                 // Method java/io/InputStream.read:()I
+      25: istore        5
+      27: aload_0
+      28: invokevirtual #24                 // Method java/io/InputStream.read:()I
+      31: istore        6
+      33: aload_0
+      34: invokevirtual #24                 // Method java/io/InputStream.read:()I
+      37: istore        7
+      39: aload_0
+      40: invokevirtual #24                 // Method java/io/InputStream.read:()I
+      43: istore        8
+      45: iload_1
+      46: iload_2
+      47: ior
+      48: iload_3
+      49: ior
+      50: iload         4
+      52: ior
+      53: iload         5
+      55: ior
+      56: iload         6
+      58: ior
+      59: iload         7
+      61: ior
+      62: iload         8
+      64: ior
+      65: ifge          76
+      68: new           #25                 // class org/apache/poi/util/LittleEndian$BufferUnderrunException
+      71: dup
+      72: invokespecial #26                 // Method org/apache/poi/util/LittleEndian$BufferUnderrunException."<init>":()V
+      75: athrow
+      76: iload         8
+      78: i2l
+      79: bipush        56
+      81: lshl
+      82: iload         7
+      84: i2l
+      85: bipush        48
+      87: lshl
+      88: ladd
+      89: iload         6
+      91: i2l
+      92: bipush        40
+      94: lshl
+      95: ladd
+      96: iload         5
+      98: i2l
+      99: bipush        32
+     101: lshl
+     102: ladd
+     103: iload         4
+     105: i2l
+     106: bipush        24
+     108: lshl
+     109: ladd
+     110: iload_3
+     111: bipush        16
+     113: ishl
+     114: i2l
+     115: ladd
+     116: iload_2
+     117: bipush        8
+     119: ishl
+     120: i2l
+     121: ladd
+     122: iload_1
+     123: iconst_0
+     124: ishl
+     125: i2l
+     126: ladd
+     127: lreturn
+
+  public static short readShort(java.io.InputStream) throws java.io.IOException, org.apache.poi.util.LittleEndian$BufferUnderrunException;
+    descriptor: (Ljava/io/InputStream;)S
+    Code:
+       0: aload_0
+       1: invokestatic  #28                 // Method readUShort:(Ljava/io/InputStream;)I
+       4: i2s
+       5: ireturn
+
+  public static int readUShort(java.io.InputStream) throws java.io.IOException, org.apache.poi.util.LittleEndian$BufferUnderrunException;
+    descriptor: (Ljava/io/InputStream;)I
+    Code:
+       0: aload_0
+       1: invokevirtual #24                 // Method java/io/InputStream.read:()I
+       4: istore_1
+       5: aload_0
+       6: invokevirtual #24                 // Method java/io/InputStream.read:()I
+       9: istore_2
+      10: iload_1
+      11: iload_2
+      12: ior
+      13: ifge          24
+      16: new           #25                 // class org/apache/poi/util/LittleEndian$BufferUnderrunException
+      19: dup
+      20: invokespecial #26                 // Method org/apache/poi/util/LittleEndian$BufferUnderrunException."<init>":()V
+      23: athrow
+      24: iload_2
+      25: bipush        8
+      27: ishl
+      28: iload_1
+      29: iconst_0
+      30: ishl
+      31: iadd
+      32: ireturn
+
+  public static int ubyteToInt(byte);
+    descriptor: (B)I
+    Code:
+       0: iload_0
+       1: sipush        255
+       4: iand
+       5: ireturn
+
+  private org.apache.poi.util.LittleEndian();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #29                 // Method java/lang/Object."<init>":()V
+       4: return
+}

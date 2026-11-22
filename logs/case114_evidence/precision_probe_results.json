@@ -1,0 +1,73 @@
+{
+  "purpose": "Isolate changed acceptance of the column precision through unchanged JDBC calls; not a repair",
+  "sql": "CREATE TABLE precision_probe (stored_data VARCHAR(10000000) NOT NULL)",
+  "compile_command": [
+    "C:/Program Files/Java/jdk-21.0.11/bin/javac.exe",
+    "--release",
+    "11",
+    "-d",
+    "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case114_evidence\\precision_probe_classes",
+    "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case114_evidence\\H2PrecisionProbe.java"
+  ],
+  "compile_exit_code": 0,
+  "class_sha256": "56997b76980f24689e26a3e60de567147fcc9392f6571034d7971bbd4046d5ec",
+  "runs": [
+    {
+      "phase": "pre",
+      "image_id": "sha256:2c5dc4ce6eda4ab4b092e53af11ff00e25876f6e1df4187231e4b722da88b0c1",
+      "resolved_h2_path": "/root/.m2/repository/com/h2database/h2/1.3.175/h2-1.3.175.jar",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "research-case114-precision-pre",
+        "--mount",
+        "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case114_evidence\\precision_probe_classes,target=/probe-classes,readonly",
+        "--entrypoint",
+        "java",
+        "sha256:2c5dc4ce6eda4ab4b092e53af11ff00e25876f6e1df4187231e4b722da88b0c1",
+        "-classpath",
+        "/probe-classes:/root/.m2/repository/com/h2database/h2/1.3.175/h2-1.3.175.jar",
+        "H2PrecisionProbe",
+        "CREATE TABLE precision_probe (stored_data VARCHAR(10000000) NOT NULL)"
+      ],
+      "exit_code": 0,
+      "stdout": "database=1.3.175 (2014-01-18)\nsql=CREATE TABLE precision_probe (stored_data VARCHAR(10000000) NOT NULL)\nCREATE TABLE accepted\n",
+      "stderr": ""
+    },
+    {
+      "phase": "breaking",
+      "image_id": "sha256:84da0e212cec47c3ea7fc44820419aad4a3f8b8cdc65c0498635503237fa7f23",
+      "resolved_h2_path": "/root/.m2/repository/com/h2database/h2/2.1.210/h2-2.1.210.jar",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "research-case114-precision-breaking",
+        "--mount",
+        "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case114_evidence\\precision_probe_classes,target=/probe-classes,readonly",
+        "--entrypoint",
+        "java",
+        "sha256:84da0e212cec47c3ea7fc44820419aad4a3f8b8cdc65c0498635503237fa7f23",
+        "-classpath",
+        "/probe-classes:/root/.m2/repository/com/h2database/h2/2.1.210/h2-2.1.210.jar",
+        "H2PrecisionProbe",
+        "CREATE TABLE precision_probe (stored_data VARCHAR(10000000) NOT NULL)"
+      ],
+      "exit_code": 1,
+      "stdout": "database=2.1.210 (2022-01-17)\nsql=CREATE TABLE precision_probe (stored_data VARCHAR(10000000) NOT NULL)\n",
+      "stderr": "Exception in thread \"main\" org.h2.jdbc.JdbcSQLSyntaxErrorException: Precision (\"10000000\") must be between \"1\" and \"1048576\" inclusive; SQL statement:\nCREATE TABLE precision_probe (stored_data VARCHAR(10000000) NOT NULL) [90150-210]\n\tat org.h2.message.DbException.getJdbcSQLException(DbException.java:651)\n\tat org.h2.message.DbException.getJdbcSQLException(DbException.java:496)\n\tat org.h2.message.DbException.get(DbException.java:227)\n\tat org.h2.command.Parser.getInvalidPrecisionException(Parser.java:6311)\n\tat org.h2.command.Parser.readIfDataType1(Parser.java:6270)\n\tat org.h2.command.Parser.readIfDataType(Parser.java:6075)\n\tat org.h2.command.Parser.parseColumnWithType(Parser.java:6057)\n\tat org.h2.command.Parser.parseColumnForTable(Parser.java:5932)\n\tat org.h2.command.Parser.parseTableColumnDefinition(Parser.java:9360)\n\tat org.h2.command.Parser.parseCreateTable(Parser.java:9298)\n\tat org.h2.command.Parser.parseCreate(Parser.java:6779)\n\tat org.h2.command.Parser.parsePrepared(Parser.java:746)\n\tat org.h2.command.Parser.parse(Parser.java:674)\n\tat org.h2.command.Parser.parse(Parser.java:644)\n\tat org.h2.command.Parser.prepareCommand(Parser.java:551)\n\tat org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:615)\n\tat org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:553)\n\tat org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)\n\tat org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)\n\tat org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)\n\tat H2PrecisionProbe.main(H2PrecisionProbe.java:11)\n"
+    }
+  ],
+  "persistence_test_classpath_difference": {
+    "property": "surefire.test.class.path",
+    "removed": [
+      "/root/.m2/repository/com/h2database/h2/1.3.175/h2-1.3.175.jar"
+    ],
+    "added": [
+      "/root/.m2/repository/com/h2database/h2/2.1.210/h2-2.1.210.jar"
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "case_id": "ff77ec9ef379e9fee5f45f4fd88230e9bbbe4b89",
+  "phase": "pre",
+  "path_filter": "/(slf4j-api|logback-classic|logback-core)/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar",
+      "sha256": "4d8e899621a3006c2f66e19feab002b11e6cfc5cb1854fc41f01532c00deb2aa",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": true,
+          "major_version": 50
+        },
+        "ch.qos.logback.classic.LoggerContext": {
+          "present": true,
+          "major_version": 50
+        }
+      },
+      "services": {
+        "META-INF/services/javax.servlet.ServletContainerInitializer": "ch.qos.logback.classic.servlet.LogbackServletContainerInitializer"
+      },
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar",
+      "sha256": "6ce1e9397be8298a2e99029f55f955c6fa3cef255171c554d0b9c201cffd0159",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": false,
+          "major_version": null
+        },
+        "ch.qos.logback.classic.LoggerContext": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar",
+      "sha256": "d3ef575e3e4979678dc01bf1dcce51021493b4d11fb7f1be8ad982877c16a1c0",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": false,
+          "major_version": null
+        },
+        "ch.qos.logback.classic.LoggerContext": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.slf4j.LoggerFactory",
+          "file": "slf4j-api-1.7.36_LoggerFactory_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case186_evidence\\pre\\jars\\slf4j-api-1.7.36.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.slf4j.LoggerFactory"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

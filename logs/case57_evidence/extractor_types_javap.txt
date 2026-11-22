@@ -1,0 +1,50 @@
+PRE
+Compiled from "POITextExtractor.java"
+public abstract class org.apache.poi.extractor.POITextExtractor implements java.io.Closeable {
+  private java.io.Closeable fsToClose;
+  public org.apache.poi.extractor.POITextExtractor();
+  public abstract java.lang.String getText();
+  public abstract org.apache.poi.extractor.POITextExtractor getMetadataTextExtractor();
+  public void setFilesystem(java.io.Closeable);
+  public void close() throws java.io.IOException;
+  public abstract java.lang.Object getDocument();
+}
+Compiled from "POIXMLTextExtractor.java"
+public abstract class org.apache.poi.ooxml.extractor.POIXMLTextExtractor extends org.apache.poi.extractor.POITextExtractor {
+  private final org.apache.poi.ooxml.POIXMLDocument _document;
+  public org.apache.poi.ooxml.extractor.POIXMLTextExtractor(org.apache.poi.ooxml.POIXMLDocument);
+  public org.apache.poi.ooxml.POIXMLProperties$CoreProperties getCoreProperties();
+  public org.apache.poi.ooxml.POIXMLProperties$ExtendedProperties getExtendedProperties();
+  public org.apache.poi.ooxml.POIXMLProperties$CustomProperties getCustomProperties();
+  public final org.apache.poi.ooxml.POIXMLDocument getDocument();
+  public org.apache.poi.openxml4j.opc.OPCPackage getPackage();
+  public org.apache.poi.ooxml.extractor.POIXMLPropertiesTextExtractor getMetadataTextExtractor();
+  public void close() throws java.io.IOException;
+  protected void checkMaxTextSize(java.lang.CharSequence, java.lang.String);
+  public java.lang.Object getDocument();
+  public org.apache.poi.extractor.POITextExtractor getMetadataTextExtractor();
+}
+BREAKING
+Compiled from "POITextExtractor.java"
+public abstract class org.apache.poi.extractor.POITextExtractor implements java.io.Closeable {
+  private java.io.Closeable fsToClose;
+  public org.apache.poi.extractor.POITextExtractor();
+  public abstract java.lang.String getText();
+  public abstract org.apache.poi.extractor.POITextExtractor getMetadataTextExtractor();
+  public void setFilesystem(java.io.Closeable);
+  public void close() throws java.io.IOException;
+  public abstract java.lang.Object getDocument();
+}
+Compiled from "POIXMLTextExtractor.java"
+public interface org.apache.poi.ooxml.extractor.POIXMLTextExtractor extends org.apache.poi.extractor.POITextExtractor {
+  public default org.apache.poi.ooxml.POIXMLProperties$CoreProperties getCoreProperties();
+  public default org.apache.poi.ooxml.POIXMLProperties$ExtendedProperties getExtendedProperties();
+  public default org.apache.poi.ooxml.POIXMLProperties$CustomProperties getCustomProperties();
+  public abstract org.apache.poi.ooxml.POIXMLDocument getDocument();
+  public default org.apache.poi.openxml4j.opc.OPCPackage getPackage();
+  public default org.apache.poi.ooxml.extractor.POIXMLPropertiesTextExtractor getMetadataTextExtractor();
+  public default void close() throws java.io.IOException;
+  public default void checkMaxTextSize(java.lang.CharSequence, java.lang.String);
+  public default java.lang.Object getDocument();
+  public default org.apache.poi.extractor.POITextExtractor getMetadataTextExtractor();
+}

@@ -1,0 +1,9 @@
+# Case 105 review
+
+quickperf updates Log4j Core from 2.11.1 to 2.16.0 in spring/junit4-spring-boot-test/pom.xml. A supplementary archive covers all 44 POMs at every module depth and confirms this is the sole POM change. All archived source files match. Only Log4j Core changes on the failing module's test classpath; Log4j API, JUL and SLF4J binding remain at 2.11.2.
+
+PRE succeeds with 309 reactor tests and no failures, errors or skips. BREAKING fails in the final Spring Boot test module with 309 reactor tests, six failures, four errors and no skips. That module alone reports ten tests; the automated triage's last-module count must not be mistaken for the reactor total. Raw fresh XML sums to 319 tests because TestNG also writes ten duplicate tests under nested junitreports directories. Reconciliation matches those test identities and statuses to the top-level reports, excludes only the duplicate formats, and gives 309 tests in agreement with Maven in both phases.
+
+The primary missing type is org.apache.logging.log4j.spi.LoggerContextShutdownAware. The first fresh error reports ClassNotFoundException for it; three further errors report failed initialization of Spring/QuickPerf runner classes. Six assertions reflect missing expected performance diagnostics or a nonzero nested test result. The log also records the underlying NoClassDefFoundError for the missing Log4j type. Inspection of all four resolved Log4j JARs per phase confirms the interface is unavailable; disassembly shows Core 2.16.0 ClassLoaderContextSelector implements that interface, whereas Core 2.11.1 does not. This establishes incompatible Log4j Core/API versions and supports a non-behavioral assessment.
+
+Both original Docker images were run. Explicit Maven outcomes and fresh reports establish results because the tee pipeline masks Maven failure in the container exit code. Independent human review remains pending. No repair or substitution control was run.

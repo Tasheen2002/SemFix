@@ -1,0 +1,39 @@
+﻿
+=== Case 109  94380c9eb5be989b7e60e0353a03b03ff4687674 ===
+Project : pmckeown/dependency-track-maven-plugin
+Update  : com.google.inject:guice  5.1.0 -> 7.0.0
+Running breaking in container manual-case109-breaking (this can take several minutes) ...
+Finished in 68 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case109_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 223, Failures: 0, Errors: 54, Skipped: 3
+First failing tests / errors:
+  [ERROR] io.github.pmckeown.dependencytrack.upload.UploadBomMojoIntegrationTest.thatProjectVersionDefaultsToPomVersion -- Time elapsed: 4.415 s <<< ERROR!
+      java.lang.ExceptionInInitializerError
+      at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+      at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+  [ERROR] io.github.pmckeown.dependencytrack.upload.UploadBomMojoIntegrationTest.thatWhenFailOnErrorIsTrueAFailureFromToDependencyTrackDoesFailTheBuild -- Time elapsed: 0.048 s <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.eclipse.sisu.wire.ParameterKeys
+      at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+      at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+  [ERROR] io.github.pmckeown.dependencytrack.upload.UploadBomMojoIntegrationTest.thatProjectVersionCanBeProvided -- Time elapsed: 0.045 s <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.eclipse.sisu.wire.ParameterKeys
+      at org.eclipse.sisu.wire.DependencyAnalyzer.<init>(DependencyAnalyzer.java:93)
+      at org.eclipse.sisu.wire.ElementAnalyzer.<init>(ElementAnalyzer.java:104)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+  Caused by: java.lang.IllegalArgumentException: org.eclipse.sisu.Parameters is not a binding annotation. Please annotate it with @BindingAnnotation.
+Linkage / bytecode signals:
+  NoClassDefFoundError x53
+SLF4J console:
+  SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R3: javax/jakarta namespace migration)
+Cause   : Guice 7.0.0 only recognises jakarta.inject qualifiers; org.eclipse.sisu.Parameters is annotated @javax.inject.Qualifier, so Key.get rejects it ('not a binding annotation') -> ExceptionInInitializerError ParameterKeys -> 53 follow-on errors. AnnotationCompatibilityProbe reproduces with Guice 7 and passes with 5.1.0
+Codex   : PROVISIONAL_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

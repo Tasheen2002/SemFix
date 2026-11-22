@@ -1,0 +1,52 @@
+﻿
+=== Case 37  31a177fb212d6dd4972ded3901f338b110d68cc1 ===
+Project : International-Data-Spaces-Association/IDS-Messaging-Services
+Update  : org.springframework:spring-tx  5.3.24 -> 6.0.4
+Running breaking in container manual-case37-breaking (this can take several minutes) ...
+Finished in 66 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case37_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+  [ERROR] Tests run: 12, Failures: 0, Errors: 5, Skipped: 0
+  reactor: messaging-services ................................. SUCCESS [  5.453 s]
+  reactor: core ............................................... SUCCESS [ 33.313 s]
+  reactor: messaging .......................................... FAILURE [ 18.134 s]
+  reactor: clearinghouse ...................................... SKIPPED
+  reactor: broker ............................................. SKIPPED
+  reactor: vocol .............................................. SKIPPED
+  reactor: paris .............................................. SKIPPED
+  reactor: appstore ........................................... SKIPPED
+First failing tests / errors:
+  [ERROR] ids.messaging.endpoint.EndpointServiceTest  Time elapsed: 0.434 s  <<< ERROR!
+      org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.test.context.transaction.TransactionalTestExecutionListener]: Unresolvable class definition; nested exception is java.lang.UnsupportedClassVersionError: org/springframework/transaction/TransactionDefinition has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+      Caused by: java.lang.UnsupportedClassVersionError: org/springframework/transaction/TransactionDefinition has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+      
+  [ERROR] ids.messaging.endpoint.MessageControllerTest  Time elapsed: 0.07 s  <<< ERROR!
+      org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.test.context.transaction.TransactionalTestExecutionListener]: Unresolvable class definition; nested exception is java.lang.UnsupportedClassVersionError: org/springframework/transaction/TransactionDefinition has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+      Caused by: java.lang.UnsupportedClassVersionError: org/springframework/transaction/TransactionDefinition has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+      
+  [ERROR] ids.messaging.protocol.http.IdsHttpServiceTest  Time elapsed: 0.02 s  <<< ERROR!
+      org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.test.context.transaction.TransactionalTestExecutionListener]: Unresolvable class definition; nested exception is java.lang.UnsupportedClassVersionError: org/springframework/transaction/TransactionDefinition has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+      Caused by: java.lang.UnsupportedClassVersionError: org/springframework/transaction/TransactionDefinition has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+      
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+  Caused by: java.io.EOFException: SSL peer shut down incorrectly
+  Caused by: java.lang.UnsupportedClassVersionError: org/springframework/transaction/TransactionDefinition has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+  Caused by: java.lang.UnsupportedClassVersionError: org/springframework/transaction/TransactionDefinition has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+  Caused by: java.lang.UnsupportedClassVersionError: org/springframework/transaction/TransactionDefinition has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+Linkage / bytecode signals:
+  UnsupportedClassVersionError x10
+SLF4J console:
+  SLF4J: No SLF4J providers were found.
+  SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : spring-tx 6.0.4 classes are Java 17 bytecode (class file 61) on Java 11 -> UnsupportedClassVersionError TransactionDefinition, wrapped in BeanInstantiationException
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

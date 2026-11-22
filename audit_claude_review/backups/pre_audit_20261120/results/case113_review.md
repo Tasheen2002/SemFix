@@ -1,0 +1,11 @@
+# Case 113 review
+
+gax-java updates mockito-core from 4.11.0 to 5.1.0. The root POM version is the sole archived source/POM change. The affected classpath also updates transitive Byte Buddy and its agent from 1.12.19 to 1.12.22. OpenCensus API remains 0.31.1, and no project MockMaker override exists in the original sources.
+
+Both original images were run. PRE succeeds with 787 reactor tests, zero failures, errors or skips. BREAKING stops in the gax module after 529 tests with two assertion failures, zero errors and zero skips. Maven and fresh Surefire XML agree. The failures are Mockito argument-verification assertions; reports render their type as the assertion message rather than a useful Java class name, so the record uses the conservative AssertionError base category.
+
+OpencensusTracerFactoryTest.testImplicitParentSpan attaches a parent span to the context. The real final Tracer.getCurrentSpan method reads that context, but the inline mock intercepts the unstubbed method and returns null, causing a different parent argument. OpencensusTracerTest.testLongRunningExample expects addAnnotation(String, Map). The real final Span.addAnnotation(String) convenience method delegates to that overload, but inline mocking intercepts it, leaving only the single-argument invocation. Disassembly confirms both methods are final, their delegations, and the default Mockito mapping changes from ByteBuddyMockMaker to InlineByteBuddyMockMaker.
+
+A separate BREAKING-image control keeps Mockito 5.1.0 and its Byte Buddy dependencies, adds only a mock-maker-subclass test-resource selection, and reruns exactly the two failing methods. Both pass, with Maven BUILD SUCCESS, two tests and no failures/errors/skips. The control's fresh XML confirms Mockito 5.1.0 remains on the classpath. Its command, image ID, state, log and reports are archived. This isolates changed default mocking behavior and supports PROVISIONAL_BEHAVIORAL with binary_linkage_incompatibility=NO.
+
+Independent human review remains pending, with reviewer/final labels blank. Automated triage is separate from this agent assessment. Original build outcomes use explicit Maven output and fresh reports because the tee pipeline masks Maven failures in Docker's exit code. The focused two-test control is not a full-reactor verified repair; no entry was added to verified_repairs.

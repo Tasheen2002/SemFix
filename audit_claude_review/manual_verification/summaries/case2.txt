@@ -1,0 +1,41 @@
+﻿
+=== Case 2  04c07b066b60a2e9d4f797b98dcd439a3a42f0b9 ===
+Project : feedzai/pdb
+Update  : org.slf4j:slf4j-api  1.7.36 -> 2.0.4
+Running breaking in container manual-case2-breaking (this can take several minutes) ...
+Finished in 35 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case2_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 94, Failures: 0, Errors: 3, Skipped: 10
+First failing tests / errors:
+  [ERROR] com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest  Time elapsed: 0.045 s  <<< ERROR!
+      java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+      at com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest.initStatic(BatchUpdateTest.java:143)
+      
+  [ERROR] com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest  Time elapsed: 0.013 s  <<< ERROR!
+      java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+      at com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest.initStatic(EngineGeneralTest.java:181)
+      
+  [ERROR] com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest  Time elapsed: 0.001 s  <<< ERROR!
+      java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')
+      at com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest.initStatic(EngineCloseTest.java:102)
+      
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  none
+SLF4J console:
+  SLF4J: No SLF4J providers were found.
+  SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+
+--- Proposed classification ---
+Label   : BEHAVIORAL   (rule R5: Provider selection changed while old provider present)
+Category: PROVIDER_OR_IMPLEMENTATION_SELECTION
+Cause   : slf4j-api 2.0.4 ignores logback-classic 1.2.11 binding, NOP fallback; class-level setup in BatchUpdateTest/EngineGeneralTest/EngineCloseTest casts to logback Logger -> ClassCastException
+Change  : LoggerFactory returns NOPLogger instead of logback Logger
+Codex   : PROVISIONAL_BEHAVIORAL   Claude blind: BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

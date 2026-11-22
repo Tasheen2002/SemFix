@@ -1,0 +1,1221 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< co.nordlander.a:a >--------------------------
+[INFO] Building a 1.5.3-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ a ---
+[INFO] Deleting /a/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ a ---
+[INFO] Copying 1 resource
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- compiler:3.9.0:compile (default-compile) @ a ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /a/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ a ---
+[INFO] Copying 11 resources
+[INFO] 
+[INFO] --- compiler:3.9.0:testCompile (default-testCompile) @ a ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /a/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ a ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running co.nordlander.a.AOpenWireTest
+13:09:34,580 [main] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+13:09:34,621 [main] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4b7dc788, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@6304101a, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5170bcf4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2812b107, org.springframework.test.context.transaction.TransactionalTestExecutionListener@df6620a, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@4e31276e, org.springframework.test.context.event.EventPublishingTestExecutionListener@1a72a540]
+13:09:37,258 [main] INFO  o.a.a.b.BrokerService - Using Persistence Adapter: KahaDBPersistenceAdapter[/a/target/amqdata/kahadb]
+13:09:37,764 [main] INFO  o.a.a.s.k.p.PListStoreImpl - PListStore:[/a/target/amqdata/localhost/tmp_storage] started
+13:09:37,930 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:6e4cb28d713d-41663-1794229777792-0:1) is starting
+13:09:37,955 [main] INFO  o.a.a.t.TransportServerThreadSupport - Listening for connections at: tcp://6e4cb28d713d:61916?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+13:09:37,956 [main] INFO  o.a.a.b.TransportConnector - Connector openwire started
+13:09:37,957 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:6e4cb28d713d-41663-1794229777792-0:1) started
+13:09:37,957 [main] INFO  o.a.a.b.BrokerService - For help or more information please see: http://activemq.apache.org
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Message sent
+Operation completed in 37ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+2 msgs copied from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 35ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Testing cmd: -b tcp://localhost:61916 -p "test" -t bytes TEST.QUEUE
+Message sent
+Operation completed in 19ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Testing cmd: -b tcp://localhost:61916 -p "test" TEST.QUEUE
+Message sent
+Operation completed in 12ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Message sent
+Operation completed in 6ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+-----------------
+Message Properties
+Payload:
+test
+-----------------
+Message Properties
+Payload:
+test
+Operation completed in 10ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+-----------------
+Message Properties
+Payload:
+test
+Operation completed in 7ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+-----------------
+Message Properties
+Payload:
+test
+Operation completed in 292ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+File file1.txt sent
+File file2.txt sent
+Operation completed in 1040ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Testing cmd: -b tcp://localhost:61916 -p "test-PLACEHOLDER" -W /tmp/junit15935813347784191454/junit1647054225171533345/batch.txt -S "msg.body=msg.body.replace('PLACEHOLDER',entry);" -y foo.jmstype -r foo.reply.to -E foo.corr.id TEST.QUEUE
+Error processing batch Could not find option with name js.charset.
+Message sent
+Operation completed in 197ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+4 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 80ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Writing 1 messages to dump file /tmp/junit7257491620103445373/junit8855863813363670922/dump.json
+Failed to write all messages to dump file. Reason: Could not find option with name js.charset.
+Rolling back JMS transaction
+Operation completed in 33ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+2 messages restored to TEST.QUEUE
+Operation completed in 178ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+1 msgs copied from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 48ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Message sent
+Operation completed in 20ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Writing 2 messages to dump file /tmp/junit16753217734315308886/junit33142847892892902/dump.json
+2 messages written to /tmp/junit16753217734315308886/junit33142847892892902/dump.json
+Operation completed in 99ms (excluding connect)
+[{"JMSCorrelationID":"MyCorrelationId","JMSMessageID":"ID:6e4cb28d713d-41663-1794229777792-64:1:1:1:1","JMSType":"myJmsType","JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229787330,"JMSPriority":4,"stringProperties":{"myStringProperty":"String Value - å"},"intProperties":{"myIntProperty":42},"longProperties":{},"floatProperties":{},"doubleProperties":{"myDoubleProperty":3.141592653589793},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"Utf-8 Text - 😁","type":"TextMessage"},{"JMSCorrelationID":null,"JMSMessageID":"ID:6e4cb28d713d-41663-1794229777792-64:1:1:1:2","JMSType":null,"JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229787338,"JMSPriority":4,"stringProperties":{},"intProperties":{},"longProperties":{},"floatProperties":{},"doubleProperties":{},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"VXRmLTggVGV4dCAtIPCfmIE=","type":"BytesMessage"}]
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Running a with -b tcp://localhost:61916 -x /tmp/junit14729648272672511403/junit9905129696593668012/dump.json -w 200 -c 20 TEST.QUEUE
+Writing 10 messages to dump file /tmp/junit14729648272672511403/junit9905129696593668012/dump.json
+10 messages written to /tmp/junit14729648272672511403/junit9905129696593668012/dump.json
+Operation completed in 358ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Testing cmd: -b tcp://localhost:61916 -p test MY/QUEUE
+Message sent
+Operation completed in 15ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+-----------------
+Message Properties
+  identity: theOne
+Payload:
+theOne
+Operation completed in 9ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Writing 1 messages to dump file /tmp/junit13164462012255806981/junit16038784913987111075/dump.json
+Failed to write all messages to dump file. Reason: Could not find option with name js.charset.
+Rolling back JMS transaction
+Operation completed in 38ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+No message received, due to the timeout expiring or the consumer is closed
+2 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 147ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+No message received, due to the timeout expiring or the consumer is closed
+2 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 142ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+File: /tmp/junit15695036359064914663/junit17214616581590802932/file1.json sent
+Operation completed in 33ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+No message received, due to the timeout expiring or the consumer is closed
+1 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 120ms (excluding connect)
+13:09:50,451 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:6e4cb28d713d-41663-1794229777792-0:1) is shutting down
+13:09:50,453 [main] INFO  o.a.a.b.TransportConnector - Connector openwire stopped
+13:09:50,459 [main] INFO  o.a.a.s.k.p.PListStoreImpl - PListStore:[/a/target/amqdata/localhost/tmp_storage] stopped
+13:09:50,459 [main] INFO  o.a.a.s.k.KahaDBStore - Stopping async queue tasks
+13:09:50,460 [main] INFO  o.a.a.s.k.KahaDBStore - Stopping async topic tasks
+13:09:50,460 [main] INFO  o.a.a.s.k.KahaDBStore - Stopped KahaDB
+13:09:50,495 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:6e4cb28d713d-41663-1794229777792-0:1) uptime 13.512 seconds
+13:09:50,496 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:6e4cb28d713d-41663-1794229777792-0:1) is shutdown
+[ERROR] Tests run: 27, Failures: 1, Errors: 3, Skipped: 1, Time elapsed: 17.901 s <<< FAILURE! - in co.nordlander.a.AOpenWireTest
+[ERROR] co.nordlander.a.AOpenWireTest.testBatch  Time elapsed: 2.289 s  <<< FAILURE!
+java.lang.AssertionError: A message is expected
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at co.nordlander.a.BaseTest.testBatch(BaseTest.java:749)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[ERROR] co.nordlander.a.AOpenWireTest.testCopyQueueWithTransformer  Time elapsed: 0.21 s  <<< ERROR!
+java.lang.IllegalArgumentException: Could not find option with name js.charset.
+	at com.oracle.truffle.polyglot.PolyglotEngineException.illegalArgument(PolyglotEngineException.java:125)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:274)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:254)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.findDescriptor(OptionValuesImpl.java:231)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.put(OptionValuesImpl.java:134)
+	at com.oracle.truffle.polyglot.PolyglotContextConfig.<init>(PolyglotContextConfig.java:169)
+	at com.oracle.truffle.polyglot.PolyglotEngineImpl.createContext(PolyglotEngineImpl.java:1708)
+	at com.oracle.truffle.polyglot.PolyglotEngineDispatch.createContext(PolyglotEngineDispatch.java:160)
+	at org.graalvm.polyglot.Context$Builder.build(Context.java:1832)
+	at com.oracle.truffle.js.scriptengine.GraalJSScriptEngine.createDefaultContext(GraalJSScriptEngine.java:342)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.initContext(GraalJSBindings.java:91)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.requireContext(GraalJSBindings.java:86)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.put(GraalJSBindings.java:129)
+	at co.nordlander.a.MessageDumpTransformer.doTransformMessage(MessageDumpTransformer.java:83)
+	at co.nordlander.a.MessageDumpTransformer.transformMessage(MessageDumpTransformer.java:59)
+	at co.nordlander.a.A.transformMessage(A.java:752)
+	at co.nordlander.a.A.sendWithOptionalTransformer(A.java:324)
+	at co.nordlander.a.A.executeCopy(A.java:312)
+	at co.nordlander.a.A.executeCommandLine(A.java:224)
+	at co.nordlander.a.A.run(A.java:192)
+	at co.nordlander.a.BaseTest.testCopyQueueWithTransformer(BaseTest.java:277)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[ERROR] co.nordlander.a.AOpenWireTest.testDumpMessagesAndTransform  Time elapsed: 0.182 s  <<< ERROR!
+java.io.FileNotFoundException: /tmp/junit13164462012255806981/junit16038784913987111075/dump.json (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at org.apache.commons.io.FileUtils.openInputStream(FileUtils.java:2388)
+	at org.apache.commons.io.FileUtils.readFileToString(FileUtils.java:2506)
+	at co.nordlander.a.BaseTest.testDumpMessagesAndTransform(BaseTest.java:719)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[ERROR] co.nordlander.a.AOpenWireTest.testMoveQueueWithTransformer  Time elapsed: 0.144 s  <<< ERROR!
+java.lang.IllegalArgumentException: Could not find option with name js.charset.
+	at com.oracle.truffle.polyglot.PolyglotEngineException.illegalArgument(PolyglotEngineException.java:125)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:274)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:254)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.findDescriptor(OptionValuesImpl.java:231)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.put(OptionValuesImpl.java:134)
+	at com.oracle.truffle.polyglot.PolyglotContextConfig.<init>(PolyglotContextConfig.java:169)
+	at com.oracle.truffle.polyglot.PolyglotEngineImpl.createContext(PolyglotEngineImpl.java:1708)
+	at com.oracle.truffle.polyglot.PolyglotEngineDispatch.createContext(PolyglotEngineDispatch.java:160)
+	at org.graalvm.polyglot.Context$Builder.build(Context.java:1832)
+	at com.oracle.truffle.js.scriptengine.GraalJSScriptEngine.createDefaultContext(GraalJSScriptEngine.java:342)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.initContext(GraalJSBindings.java:91)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.requireContext(GraalJSBindings.java:86)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.put(GraalJSBindings.java:129)
+	at co.nordlander.a.MessageDumpTransformer.doTransformMessage(MessageDumpTransformer.java:83)
+	at co.nordlander.a.MessageDumpTransformer.transformMessage(MessageDumpTransformer.java:59)
+	at co.nordlander.a.A.transformMessage(A.java:752)
+	at co.nordlander.a.A.sendWithOptionalTransformer(A.java:324)
+	at co.nordlander.a.A.executeMove(A.java:270)
+	at co.nordlander.a.A.executeCommandLine(A.java:226)
+	at co.nordlander.a.A.run(A.java:192)
+	at co.nordlander.a.BaseTest.testMoveQueueWithTransformer(BaseTest.java:322)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[INFO] Running co.nordlander.a.AMQPTest
+13:09:50,514 [main] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+13:09:50,516 [main] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@7f323b3a, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4f169009, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@9dada78, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4207852d, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2c829dbc, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@57efc6fd, org.springframework.test.context.event.EventPublishingTestExecutionListener@839df62]
+13:09:50,904 [main] INFO  o.a.a.b.BrokerService - Using Persistence Adapter: KahaDBPersistenceAdapter[/a/target/amqdata/kahadb]
+13:09:50,953 [main] INFO  o.a.a.s.k.MessageDatabase - KahaDB is version 7
+13:09:50,991 [main] INFO  o.a.a.s.k.p.PListStoreImpl - PListStore:[/a/target/amqdata_amqp/localhost/tmp_storage] started
+13:09:50,993 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:6e4cb28d713d-41663-1794229777792-0:2) is starting
+13:09:51,012 [main] INFO  o.a.a.t.TransportServerThreadSupport - Listening for connections at: amqp://6e4cb28d713d:5677?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+13:09:51,013 [main] INFO  o.a.a.b.TransportConnector - Connector amqp started
+13:09:51,014 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:6e4cb28d713d-41663-1794229777792-0:2) started
+13:09:51,014 [main] INFO  o.a.a.b.BrokerService - For help or more information please see: http://activemq.apache.org
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Message sent
+Operation completed in 54ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+2 msgs copied from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 78ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Testing cmd: -A -b amqp://guest:guest@localhost:5677 -p "test" -t bytes TEST.QUEUE
+Message sent
+Operation completed in 29ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Testing cmd: -A -b amqp://guest:guest@localhost:5677 -p "test" TEST.QUEUE
+Message sent
+Operation completed in 27ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Message sent
+Operation completed in 13ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+-----------------
+Message Properties
+Payload:
+test
+-----------------
+Message Properties
+Payload:
+test
+Operation completed in 8ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+-----------------
+Message Properties
+Payload:
+test
+Operation completed in 6ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+-----------------
+Message Properties
+Payload:
+test
+Operation completed in 250ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+File file1.txt sent
+File file2.txt sent
+Operation completed in 1025ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Testing cmd: -A -b amqp://guest:guest@localhost:5677 -p "test-PLACEHOLDER" -W /tmp/junit2287257207272450390/junit12658016338720779021/batch.txt -S "msg.body=msg.body.replace('PLACEHOLDER',entry);" -y foo.jmstype -r foo.reply.to -E foo.corr.id TEST.QUEUE
+Error processing batch Could not find option with name js.charset.
+Message sent
+Operation completed in 10ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+4 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 228ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Writing 1 messages to dump file /tmp/junit7574408239057911548/junit13043623153813723903/dump.json
+Failed to write all messages to dump file. Reason: Could not find option with name js.charset.
+Rolling back JMS transaction
+Operation completed in 59ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+2 messages restored to TEST.QUEUE
+Operation completed in 61ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+1 msgs copied from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 28ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Message sent
+Operation completed in 21ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Writing 2 messages to dump file /tmp/junit9126927075176079663/junit6407452726960019274/dump.json
+2 messages written to /tmp/junit9126927075176079663/junit6407452726960019274/dump.json
+Operation completed in 64ms (excluding connect)
+[{"JMSCorrelationID":"MyCorrelationId","JMSMessageID":"ID:e714769e-1be9-4050-a012-913410d64064","JMSType":"myJmsType","JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229804355,"JMSPriority":4,"stringProperties":{"myStringProperty":"String Value - å"},"intProperties":{"myIntProperty":42},"longProperties":{},"floatProperties":{},"doubleProperties":{"myDoubleProperty":3.141592653589793},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"Utf-8 Text - 😁","type":"TextMessage"},{"JMSCorrelationID":null,"JMSMessageID":"ID:2aa5827e-d181-4e97-a519-db8a2f57ce27","JMSType":null,"JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229804364,"JMSPriority":4,"stringProperties":{},"intProperties":{},"longProperties":{},"floatProperties":{},"doubleProperties":{},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"VXRmLTggVGV4dCAtIPCfmIE=","type":"BytesMessage"}]
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Running a with -A -b amqp://guest:guest@localhost:5677 -x /tmp/junit6337703519391934480/junit17827969679199590216/dump.json -w 200 -c 20 TEST.QUEUE
+Writing 10 messages to dump file /tmp/junit6337703519391934480/junit17827969679199590216/dump.json
+10 messages written to /tmp/junit6337703519391934480/junit17827969679199590216/dump.json
+Operation completed in 328ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Testing cmd: -A -b amqp://guest:guest@localhost:5677 -p test MY/QUEUE
+Message sent
+Operation completed in 18ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+-----------------
+Message Properties
+  identity: theOne
+Payload:
+theOne
+Operation completed in 7ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Writing 1 messages to dump file /tmp/junit13296129974579511850/junit13862701101166121204/dump.json
+Failed to write all messages to dump file. Reason: Could not find option with name js.charset.
+Rolling back JMS transaction
+Operation completed in 59ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+No message received, due to the timeout expiring or the consumer is closed
+2 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 204ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+No message received, due to the timeout expiring or the consumer is closed
+2 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 214ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+File: /tmp/junit10020898530190089100/junit11619213146051197169/file1.json sent
+Operation completed in 11ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+No message received, due to the timeout expiring or the consumer is closed
+1 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 157ms (excluding connect)
+13:10:10,155 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:6e4cb28d713d-41663-1794229777792-0:2) is shutting down
+13:10:10,156 [main] INFO  o.a.a.b.TransportConnector - Connector amqp stopped
+13:10:10,157 [main] INFO  o.a.a.s.k.p.PListStoreImpl - PListStore:[/a/target/amqdata_amqp/localhost/tmp_storage] stopped
+13:10:10,157 [main] INFO  o.a.a.s.k.KahaDBStore - Stopping async queue tasks
+13:10:10,157 [main] INFO  o.a.a.s.k.KahaDBStore - Stopping async topic tasks
+13:10:10,157 [main] INFO  o.a.a.s.k.KahaDBStore - Stopped KahaDB
+13:10:10,178 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:6e4cb28d713d-41663-1794229777792-0:2) uptime 19.276 seconds
+13:10:10,178 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:6e4cb28d713d-41663-1794229777792-0:2) is shutdown
+[ERROR] Tests run: 26, Failures: 1, Errors: 3, Skipped: 0, Time elapsed: 19.532 s <<< FAILURE! - in co.nordlander.a.AMQPTest
+[ERROR] co.nordlander.a.AMQPTest.testBatch  Time elapsed: 2.324 s  <<< FAILURE!
+java.lang.AssertionError: A message is expected
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at co.nordlander.a.BaseTest.testBatch(BaseTest.java:749)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[ERROR] co.nordlander.a.AMQPTest.testCopyQueueWithTransformer  Time elapsed: 0.396 s  <<< ERROR!
+java.lang.IllegalArgumentException: Could not find option with name js.charset.
+	at com.oracle.truffle.polyglot.PolyglotEngineException.illegalArgument(PolyglotEngineException.java:125)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:274)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:254)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.findDescriptor(OptionValuesImpl.java:231)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.put(OptionValuesImpl.java:134)
+	at com.oracle.truffle.polyglot.PolyglotContextConfig.<init>(PolyglotContextConfig.java:169)
+	at com.oracle.truffle.polyglot.PolyglotEngineImpl.createContext(PolyglotEngineImpl.java:1708)
+	at com.oracle.truffle.polyglot.PolyglotEngineDispatch.createContext(PolyglotEngineDispatch.java:160)
+	at org.graalvm.polyglot.Context$Builder.build(Context.java:1832)
+	at com.oracle.truffle.js.scriptengine.GraalJSScriptEngine.createDefaultContext(GraalJSScriptEngine.java:342)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.initContext(GraalJSBindings.java:91)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.requireContext(GraalJSBindings.java:86)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.put(GraalJSBindings.java:129)
+	at co.nordlander.a.MessageDumpTransformer.doTransformMessage(MessageDumpTransformer.java:83)
+	at co.nordlander.a.MessageDumpTransformer.transformMessage(MessageDumpTransformer.java:59)
+	at co.nordlander.a.A.transformMessage(A.java:752)
+	at co.nordlander.a.A.sendWithOptionalTransformer(A.java:324)
+	at co.nordlander.a.A.executeCopy(A.java:312)
+	at co.nordlander.a.A.executeCommandLine(A.java:224)
+	at co.nordlander.a.A.run(A.java:192)
+	at co.nordlander.a.BaseTest.testCopyQueueWithTransformer(BaseTest.java:277)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[ERROR] co.nordlander.a.AMQPTest.testDumpMessagesAndTransform  Time elapsed: 0.445 s  <<< ERROR!
+java.io.FileNotFoundException: /tmp/junit13296129974579511850/junit13862701101166121204/dump.json (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at org.apache.commons.io.FileUtils.openInputStream(FileUtils.java:2388)
+	at org.apache.commons.io.FileUtils.readFileToString(FileUtils.java:2506)
+	at co.nordlander.a.BaseTest.testDumpMessagesAndTransform(BaseTest.java:719)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[ERROR] co.nordlander.a.AMQPTest.testMoveQueueWithTransformer  Time elapsed: 0.459 s  <<< ERROR!
+java.lang.IllegalArgumentException: Could not find option with name js.charset.
+	at com.oracle.truffle.polyglot.PolyglotEngineException.illegalArgument(PolyglotEngineException.java:125)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:274)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:254)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.findDescriptor(OptionValuesImpl.java:231)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.put(OptionValuesImpl.java:134)
+	at com.oracle.truffle.polyglot.PolyglotContextConfig.<init>(PolyglotContextConfig.java:169)
+	at com.oracle.truffle.polyglot.PolyglotEngineImpl.createContext(PolyglotEngineImpl.java:1708)
+	at com.oracle.truffle.polyglot.PolyglotEngineDispatch.createContext(PolyglotEngineDispatch.java:160)
+	at org.graalvm.polyglot.Context$Builder.build(Context.java:1832)
+	at com.oracle.truffle.js.scriptengine.GraalJSScriptEngine.createDefaultContext(GraalJSScriptEngine.java:342)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.initContext(GraalJSBindings.java:91)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.requireContext(GraalJSBindings.java:86)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.put(GraalJSBindings.java:129)
+	at co.nordlander.a.MessageDumpTransformer.doTransformMessage(MessageDumpTransformer.java:83)
+	at co.nordlander.a.MessageDumpTransformer.transformMessage(MessageDumpTransformer.java:59)
+	at co.nordlander.a.A.transformMessage(A.java:752)
+	at co.nordlander.a.A.sendWithOptionalTransformer(A.java:324)
+	at co.nordlander.a.A.executeMove(A.java:270)
+	at co.nordlander.a.A.executeCommandLine(A.java:226)
+	at co.nordlander.a.A.run(A.java:192)
+	at co.nordlander.a.BaseTest.testMoveQueueWithTransformer(BaseTest.java:322)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[INFO] Running co.nordlander.a.DataStructureTypeAsStringTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in co.nordlander.a.DataStructureTypeAsStringTest
+[INFO] Running co.nordlander.a.ArtemisJmsTest
+Starting Artemis
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+2 msgs copied from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 51ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Testing cmd: -a -b tcp://localhost:61616 -p "test" -t bytes TEST.QUEUE
+Message sent
+Operation completed in 19ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Testing cmd: -a -b tcp://localhost:61616 -p "test" TEST.QUEUE
+Message sent
+Operation completed in 18ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Message sent
+Operation completed in 12ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+[{"JMSCorrelationID":null,"JMSMessageID":"ID:e736d76f-dc3e-11f1-a97c-6eeb19594934","JMSType":null,"JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229815041,"JMSPriority":4,"stringProperties":{},"intProperties":{"JMSXDeliveryCount":0},"longProperties":{},"floatProperties":{},"doubleProperties":{},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"test","type":"TextMessage"}]
+-----------------
+Message Properties
+  JMSXDeliveryCount: 1
+Payload:
+test
+-----------------
+Message Properties
+  JMSXDeliveryCount: 1
+Payload:
+test
+Operation completed in 17ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+-----------------
+Message Properties
+  JMSXDeliveryCount: 1
+Payload:
+test
+Operation completed in 12ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+-----------------
+Message Properties
+  JMSXDeliveryCount: 1
+Payload:
+test
+Operation completed in 264ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+File file1.txt sent
+File file2.txt sent
+Operation completed in 1026ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Testing cmd: -a -b tcp://localhost:61616 -p "test-PLACEHOLDER" -W /tmp/junit10796207455120345970/junit4982886922449678359/batch.txt -S "msg.body=msg.body.replace('PLACEHOLDER',entry);" -y foo.jmstype -r foo.reply.to -E foo.corr.id TEST.QUEUE
+Error processing batch Could not find option with name js.charset.
+Message sent
+Operation completed in 15ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+4 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 57ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Writing 1 messages to dump file /tmp/junit17856930139867579377/junit1689874429340006638/dump.json
+Failed to write all messages to dump file. Reason: Could not find option with name js.charset.
+Rolling back JMS transaction
+Operation completed in 26ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+2 messages restored to TEST.QUEUE
+Operation completed in 22ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+1 msgs copied from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 73ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Message sent
+Operation completed in 15ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Writing 2 messages to dump file /tmp/junit15205142740004472738/junit16393394236208570176/dump.json
+2 messages written to /tmp/junit15205142740004472738/junit16393394236208570176/dump.json
+Operation completed in 29ms (excluding connect)
+[{"JMSCorrelationID":"MyCorrelationId","JMSMessageID":"ID:eb9d3f53-dc3e-11f1-a97c-6eeb19594934","JMSType":"myJmsType","JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229822423,"JMSPriority":4,"stringProperties":{"myStringProperty":"String Value - å"},"intProperties":{"JMSXDeliveryCount":1,"myIntProperty":42},"longProperties":{},"floatProperties":{},"doubleProperties":{"myDoubleProperty":3.141592653589793},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"Utf-8 Text - 😁","type":"TextMessage"},{"JMSCorrelationID":null,"JMSMessageID":"ID:eb9e50c4-dc3e-11f1-a97c-6eeb19594934","JMSType":null,"JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229822430,"JMSPriority":4,"stringProperties":{},"intProperties":{"JMSXDeliveryCount":1},"longProperties":{},"floatProperties":{},"doubleProperties":{},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"VXRmLTggVGV4dCAtIPCfmIE=","type":"BytesMessage"}]
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Running a with -a -b tcp://localhost:61616 -x /tmp/junit15492139215373124257/junit16214918331779682968/dump.json -w 200 -c 20 TEST.QUEUE
+Writing 10 messages to dump file /tmp/junit15492139215373124257/junit16214918331779682968/dump.json
+10 messages written to /tmp/junit15492139215373124257/junit16214918331779682968/dump.json
+Operation completed in 256ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Testing cmd: -a -b tcp://localhost:61616 -p test MY/QUEUE
+Message sent
+Operation completed in 31ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+-----------------
+Message Properties
+  JMSXDeliveryCount: 1
+  identity: theOne
+Payload:
+theOne
+Operation completed in 8ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+1 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+1 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Writing 1 messages to dump file /tmp/junit4005230493826572990/junit15478803095371701219/dump.json
+Failed to write all messages to dump file. Reason: Could not find option with name js.charset.
+Rolling back JMS transaction
+Operation completed in 23ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+1 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+No message received, due to the timeout expiring or the consumer is closed
+2 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 138ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+1 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+No message received, due to the timeout expiring or the consumer is closed
+2 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 126ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+File: /tmp/junit7914731183857576691/junit5951792636895776613/file1.json sent
+Operation completed in 18ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+No message received, due to the timeout expiring or the consumer is closed
+1 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 125ms (excluding connect)
+[ERROR] Tests run: 25, Failures: 1, Errors: 3, Skipped: 0, Time elapsed: 15.123 s <<< FAILURE! - in co.nordlander.a.ArtemisJmsTest
+[ERROR] co.nordlander.a.ArtemisJmsTest.testBatch  Time elapsed: 2.152 s  <<< FAILURE!
+java.lang.AssertionError: A message is expected
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at co.nordlander.a.BaseTest.testBatch(BaseTest.java:749)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[ERROR] co.nordlander.a.ArtemisJmsTest.testCopyQueueWithTransformer  Time elapsed: 0.118 s  <<< ERROR!
+java.lang.IllegalArgumentException: Could not find option with name js.charset.
+	at com.oracle.truffle.polyglot.PolyglotEngineException.illegalArgument(PolyglotEngineException.java:125)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:274)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:254)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.findDescriptor(OptionValuesImpl.java:231)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.put(OptionValuesImpl.java:134)
+	at com.oracle.truffle.polyglot.PolyglotContextConfig.<init>(PolyglotContextConfig.java:169)
+	at com.oracle.truffle.polyglot.PolyglotEngineImpl.createContext(PolyglotEngineImpl.java:1708)
+	at com.oracle.truffle.polyglot.PolyglotEngineDispatch.createContext(PolyglotEngineDispatch.java:160)
+	at org.graalvm.polyglot.Context$Builder.build(Context.java:1832)
+	at com.oracle.truffle.js.scriptengine.GraalJSScriptEngine.createDefaultContext(GraalJSScriptEngine.java:342)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.initContext(GraalJSBindings.java:91)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.requireContext(GraalJSBindings.java:86)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.put(GraalJSBindings.java:129)
+	at co.nordlander.a.MessageDumpTransformer.doTransformMessage(MessageDumpTransformer.java:83)
+	at co.nordlander.a.MessageDumpTransformer.transformMessage(MessageDumpTransformer.java:59)
+	at co.nordlander.a.A.transformMessage(A.java:752)
+	at co.nordlander.a.A.sendWithOptionalTransformer(A.java:324)
+	at co.nordlander.a.A.executeCopy(A.java:312)
+	at co.nordlander.a.A.executeCommandLine(A.java:224)
+	at co.nordlander.a.A.run(A.java:192)
+	at co.nordlander.a.BaseTest.testCopyQueueWithTransformer(BaseTest.java:277)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[ERROR] co.nordlander.a.ArtemisJmsTest.testDumpMessagesAndTransform  Time elapsed: 0.144 s  <<< ERROR!
+java.io.FileNotFoundException: /tmp/junit4005230493826572990/junit15478803095371701219/dump.json (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:219)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at org.apache.commons.io.FileUtils.openInputStream(FileUtils.java:2388)
+	at org.apache.commons.io.FileUtils.readFileToString(FileUtils.java:2506)
+	at co.nordlander.a.BaseTest.testDumpMessagesAndTransform(BaseTest.java:719)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[ERROR] co.nordlander.a.ArtemisJmsTest.testMoveQueueWithTransformer  Time elapsed: 0.199 s  <<< ERROR!
+java.lang.IllegalArgumentException: Could not find option with name js.charset.
+	at com.oracle.truffle.polyglot.PolyglotEngineException.illegalArgument(PolyglotEngineException.java:125)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:274)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:254)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.findDescriptor(OptionValuesImpl.java:231)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.put(OptionValuesImpl.java:134)
+	at com.oracle.truffle.polyglot.PolyglotContextConfig.<init>(PolyglotContextConfig.java:169)
+	at com.oracle.truffle.polyglot.PolyglotEngineImpl.createContext(PolyglotEngineImpl.java:1708)
+	at com.oracle.truffle.polyglot.PolyglotEngineDispatch.createContext(PolyglotEngineDispatch.java:160)
+	at org.graalvm.polyglot.Context$Builder.build(Context.java:1832)
+	at com.oracle.truffle.js.scriptengine.GraalJSScriptEngine.createDefaultContext(GraalJSScriptEngine.java:342)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.initContext(GraalJSBindings.java:91)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.requireContext(GraalJSBindings.java:86)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.put(GraalJSBindings.java:129)
+	at co.nordlander.a.MessageDumpTransformer.doTransformMessage(MessageDumpTransformer.java:83)
+	at co.nordlander.a.MessageDumpTransformer.transformMessage(MessageDumpTransformer.java:59)
+	at co.nordlander.a.A.transformMessage(A.java:752)
+	at co.nordlander.a.A.sendWithOptionalTransformer(A.java:324)
+	at co.nordlander.a.A.executeMove(A.java:270)
+	at co.nordlander.a.A.executeCommandLine(A.java:226)
+	at co.nordlander.a.A.run(A.java:192)
+	at co.nordlander.a.BaseTest.testMoveQueueWithTransformer(BaseTest.java:322)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   AMQPTest>BaseTest.testBatch:749 A message is expected
+[ERROR]   AOpenWireTest>BaseTest.testBatch:749 A message is expected
+[ERROR]   ArtemisJmsTest>BaseTest.testBatch:749 A message is expected
+[ERROR] Errors: 
+[ERROR]   AMQPTest>BaseTest.testCopyQueueWithTransformer:277 » IllegalArgument Could not find option with name js.charset.
+[ERROR]   AMQPTest>BaseTest.testDumpMessagesAndTransform:719 » FileNotFound /tmp/junit13296129974579511850/junit13862701101166121204/dump.json (No such file or directory)
+[ERROR]   AMQPTest>BaseTest.testMoveQueueWithTransformer:322 » IllegalArgument Could not find option with name js.charset.
+[ERROR]   AOpenWireTest>BaseTest.testCopyQueueWithTransformer:277 » IllegalArgument Could not find option with name js.charset.
+[ERROR]   AOpenWireTest>BaseTest.testDumpMessagesAndTransform:719 » FileNotFound /tmp/junit13164462012255806981/junit16038784913987111075/dump.json (No such file or directory)
+[ERROR]   AOpenWireTest>BaseTest.testMoveQueueWithTransformer:322 » IllegalArgument Could not find option with name js.charset.
+[ERROR]   ArtemisJmsTest>BaseTest.testCopyQueueWithTransformer:277 » IllegalArgument Could not find option with name js.charset.
+[ERROR]   ArtemisJmsTest>BaseTest.testDumpMessagesAndTransform:719 » FileNotFound /tmp/junit4005230493826572990/junit15478803095371701219/dump.json (No such file or directory)
+[ERROR]   ArtemisJmsTest>BaseTest.testMoveQueueWithTransformer:322 » IllegalArgument Could not find option with name js.charset.
+[INFO] 
+[ERROR] Tests run: 80, Failures: 3, Errors: 9, Skipped: 1
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:13 min
+[INFO] Finished at: 2026-11-09T13:10:25Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 2 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.9.0
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project a: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /a/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

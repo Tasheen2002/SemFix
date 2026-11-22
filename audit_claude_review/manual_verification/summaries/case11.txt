@@ -1,0 +1,42 @@
+﻿
+=== Case 11  125f1253d8331f14752a4a8d49559445301ab02d ===
+Project : leonardehrenfried/jspc-maven-plugin
+Update  : org.codehaus.plexus:plexus-utils  3.5.1 -> 4.0.0
+Image not present locally, pulling ghcr.io/chains-project/breaking-updates:125f1253d8331f14752a4a8d49559445301ab02d-breaking ...
+Running breaking in container manual-case11-breaking (this can take several minutes) ...
+Finished in 27 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case11_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 22, Failures: 0, Errors: 16, Skipped: 0
+First failing tests / errors:
+  [ERROR] io.leonard.maven.plugins.jspc.TestJspcMojoStrictQuoteEscaping.should_throw_error_when_not_escaped  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+      at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+      at io.leonard.maven.plugins.jspc.TestJspcMojoStrictQuoteEscaping.<init>(TestJspcMojoStrictQuoteEscaping.java:17)
+  [ERROR] io.leonard.maven.plugins.jspc.TestJspcMojoStrictQuoteEscaping.should_compile_even_if_not_escaped  Time elapsed: 0.008 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+      at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+      at io.leonard.maven.plugins.jspc.TestJspcMojoStrictQuoteEscaping.<init>(TestJspcMojoStrictQuoteEscaping.java:17)
+  [ERROR] io.leonard.maven.plugins.jspc.TestJspcMojoMultithreading.should_return_one_time_jsp_declaration_in_web_xml_when_executeMojo_on_project_five_jsp_with_4_threads  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+      at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+      at io.leonard.maven.plugins.jspc.TestJspcMojoMultithreading.<init>(TestJspcMojoMultithreading.java:18)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+  Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+  Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+  Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+  Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+Linkage / bytecode signals:
+  NoClassDefFoundError x16
+  ClassNotFoundException x16
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : plexus-utils 4.0.0 removed org.codehaus.plexus.util.xml.XmlStreamReader (moved to plexus-xml) -> NoClassDefFoundError
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

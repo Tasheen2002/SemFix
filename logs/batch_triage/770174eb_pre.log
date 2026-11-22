@@ -1,0 +1,161 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< uk.gov.pay:pay-cardid >------------------------
+[INFO] Building pay-cardid 0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ pay-cardid ---
+[INFO] Deleting /pay-cardid/target
+[INFO] 
+[INFO] --- resources:3.3.1:copy-resources (copy-resources) @ pay-cardid ---
+[INFO] Copying 1 resource from src/main/resources/config to target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ pay-cardid ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ pay-cardid ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 15 source files with javac [debug release 11] to target/classes
+[INFO] /pay-cardid/src/main/java/uk/gov/pay/card/model/CardInformationRequest.java: /pay-cardid/src/main/java/uk/gov/pay/card/model/CardInformationRequest.java uses or overrides a deprecated API.
+[INFO] /pay-cardid/src/main/java/uk/gov/pay/card/model/CardInformationRequest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ pay-cardid ---
+[INFO] Copying 6 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ pay-cardid ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 8 source files with javac [debug release 11] to target/test-classes
+[WARNING] /pay-cardid/src/test/java/uk/gov/pay/card/it/resources/CardIdResourceITest.java:[36,8] deprecated item is not annotated with @Deprecated
+[INFO] 
+[INFO] --- surefire:3.1.0:test (default-test) @ pay-cardid ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running uk.gov.pay.card.resources.HealthCheckResourceTest
+05:43:09.089 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $[*]
+05:43:09.098 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['ping']['healthy']
+05:43:09.098 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['deadlocks']['healthy']
+05:43:09.125 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $[*]
+05:43:09.126 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['ping']['healthy']
+05:43:09.126 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['deadlocks']['healthy']
+05:43:09.139 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $[*]
+05:43:09.139 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['ping']['healthy']
+05:43:09.140 [main] DEBUG com.jayway.jsonpath.internal.path.CompiledPath - Evaluating path: $['deadlocks']['healthy']
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.753 s - in uk.gov.pay.card.resources.HealthCheckResourceTest
+[INFO] Running uk.gov.pay.card.service.CardServiceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 s - in uk.gov.pay.card.service.CardServiceTest
+[INFO] Running uk.gov.pay.card.it.resources.CardIdResourceITest
+{"@timestamp":"2026-11-10T05:43:11.257Z","@version":"1","message":"Logging initialized @5306ms to org.eclipse.jetty.util.log.Slf4jLog","logger_name":"org.eclipse.jetty.util.log","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:11.446Z","@version":"1","message":"Registering jersey handler with root path prefix: /","logger_name":"io.dropwizard.server.DefaultServerFactory","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:11.45Z","@version":"1","message":"Registering admin handler with root path prefix: /","logger_name":"io.dropwizard.server.DefaultServerFactory","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:11.57Z","@version":"1","message":"Starting CardApi","logger_name":"io.dropwizard.server.ServerFactory","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:11.822Z","@version":"1","message":"Opened application@4b32465{HTTP/1.1, (http/1.1)}{0.0.0.0:39661}","logger_name":"org.eclipse.jetty.setuid.SetUIDListener","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:11.822Z","@version":"1","message":"Opened admin@146f3d22{HTTP/1.1, (http/1.1)}{0.0.0.0:35411}","logger_name":"org.eclipse.jetty.setuid.SetUIDListener","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:11.827Z","@version":"1","message":"jetty-9.4.51.v20230217; built: 2023-02-17T08:19:37.309Z; git: b45c405e4544384de066f814ed42ae3dceacdd49; jvm 11.0.19+7-alpine-r1","logger_name":"org.eclipse.jetty.server.Server","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:11.849Z","@version":"1","message":"Loading Worldpay data in to card information store","logger_name":"uk.gov.pay.card.db.loader.BinRangeDataLoader","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:11.866Z","@version":"1","message":"8 records loaded... DONE","logger_name":"uk.gov.pay.card.db.loader.BinRangeDataLoader","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:11.867Z","@version":"1","message":"Finished initialising the card information store - keys=6","logger_name":"uk.gov.pay.card.db.loader.BinRangeDataLoader","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:11.868Z","@version":"1","message":"Loading Discover data in to card information store","logger_name":"uk.gov.pay.card.db.loader.BinRangeDataLoader","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:11.869Z","@version":"1","message":"2 records loaded... DONE","logger_name":"uk.gov.pay.card.db.loader.BinRangeDataLoader","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:11.869Z","@version":"1","message":"Finished initialising the card information store - keys=7","logger_name":"uk.gov.pay.card.db.loader.BinRangeDataLoader","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:11.869Z","@version":"1","message":"Loading Test Cards data in to card information store","logger_name":"uk.gov.pay.card.db.loader.BinRangeDataLoader","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:11.87Z","@version":"1","message":"4 records loaded... DONE","logger_name":"uk.gov.pay.card.db.loader.BinRangeDataLoader","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:11.871Z","@version":"1","message":"Finished initialising the card information store - keys=10","logger_name":"uk.gov.pay.card.db.loader.BinRangeDataLoader","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+
+{"@timestamp":"2026-11-10T05:43:12.89Z","@version":"1","message":"The following paths were found for the configured resources:\n\n    GET     /healthcheck (uk.gov.pay.card.resources.HealthCheckResource)\n    POST    /v1/api/card (uk.gov.pay.card.resources.CardIdResource)\n","logger_name":"io.dropwizard.jersey.DropwizardResourceConfig","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:12.894Z","@version":"1","message":"Started i.d.j.MutableServletContextHandler@639948a2{/,null,AVAILABLE}","logger_name":"org.eclipse.jetty.server.handler.ContextHandler","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:12.899Z","@version":"1","message":"tasks = \n\n    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)\n    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)\n","logger_name":"io.dropwizard.setup.AdminEnvironment","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:12.9Z","@version":"1","message":"Started i.d.j.MutableServletContextHandler@75f65d54{/,null,AVAILABLE}","logger_name":"org.eclipse.jetty.server.handler.ContextHandler","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:12.942Z","@version":"1","message":"Started application@4b32465{HTTP/1.1, (http/1.1)}{0.0.0.0:39661}","logger_name":"org.eclipse.jetty.server.AbstractConnector","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:12.951Z","@version":"1","message":"Started admin@146f3d22{HTTP/1.1, (http/1.1)}{0.0.0.0:35411}","logger_name":"org.eclipse.jetty.server.AbstractConnector","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:12.951Z","@version":"1","message":"Started @7000ms","logger_name":"org.eclipse.jetty.server.Server","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:16.788Z","@version":"1","message":"POST to /v1/api/card began","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-27","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:17.128Z","@version":"1","message":"POST to /v1/api/card ended - total time 340ms","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-27","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"container":"cardid","status_code":422,"method":"POST","x_request_id":"-","http_version":"HTTP/1.1","remote_address":"-","url":"/v1/api/card","environment":"${ENVIRONMENT}","@timestamp":"2026-11-10T05:43:17.136+0000","@version":1,"response_time":380,"content_length":48,"user_agent":"Apache-HttpClient/4.5.14 (Java/11.0.19)"}
+{"@timestamp":"2026-11-10T05:43:17.331Z","@version":"1","message":"POST to /v1/api/card began","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-22","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:17.39Z","@version":"1","message":"Card Information Request - CardInformation request, card number length 16","logger_name":"uk.gov.pay.card.resources.CardIdResource","thread_name":"dw-22 - POST /v1/api/card","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:17.398Z","@version":"1","message":"POST to /v1/api/card ended - total time 67ms","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-22","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"container":"cardid","status_code":404,"method":"POST","x_request_id":"-","http_version":"HTTP/1.1","remote_address":"-","url":"/v1/api/card","environment":"${ENVIRONMENT}","@timestamp":"2026-11-10T05:43:17.421+0000","@version":1,"response_time":91,"content_length":373,"user_agent":"Apache-HttpClient/4.5.14 (Java/11.0.19)"}
+{"@timestamp":"2026-11-10T05:43:17.484Z","@version":"1","message":"POST to /v1/api/card began","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-23","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:17.489Z","@version":"1","message":"Card Information Request - CardInformation request, card number length 16","logger_name":"uk.gov.pay.card.resources.CardIdResource","thread_name":"dw-23 - POST /v1/api/card","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:17.495Z","@version":"1","message":"Card Information Response - CardInformationResponse{brand='visa', type='D', label='VISA CREDIT', corporate=false', prepaidStatus=PREPAID}","logger_name":"uk.gov.pay.card.resources.CardIdResource","thread_name":"dw-23 - POST /v1/api/card","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:17.57Z","@version":"1","message":"POST to /v1/api/card ended - total time 85ms","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-23","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"container":"cardid","status_code":200,"method":"POST","x_request_id":"-","http_version":"HTTP/1.1","remote_address":"-","url":"/v1/api/card","environment":"${ENVIRONMENT}","@timestamp":"2026-11-10T05:43:17.570+0000","@version":1,"response_time":86,"content_length":87,"user_agent":"Apache-HttpClient/4.5.14 (Java/11.0.19)"}
+{"@timestamp":"2026-11-10T05:43:19.513Z","@version":"1","message":"POST to /v1/api/card began","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-20","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:19.516Z","@version":"1","message":"Card Information Request - CardInformation request, card number length 16","logger_name":"uk.gov.pay.card.resources.CardIdResource","thread_name":"dw-20 - POST /v1/api/card","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:19.517Z","@version":"1","message":"Card Information Response - CardInformationResponse{brand='unionpay', type='CD', label='UNIONPAY', corporate=false', prepaidStatus=NOT_PREPAID}","logger_name":"uk.gov.pay.card.resources.CardIdResource","thread_name":"dw-20 - POST /v1/api/card","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:19.518Z","@version":"1","message":"POST to /v1/api/card ended - total time 5ms","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-20","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"container":"cardid","status_code":200,"method":"POST","x_request_id":"-","http_version":"HTTP/1.1","remote_address":"-","url":"/v1/api/card","environment":"${ENVIRONMENT}","@timestamp":"2026-11-10T05:43:19.519+0000","@version":1,"response_time":6,"content_length":93,"user_agent":"Apache-HttpClient/4.5.14 (Java/11.0.19)"}
+{"@timestamp":"2026-11-10T05:43:19.699Z","@version":"1","message":"POST to /v1/api/card began","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-22","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:19.712Z","@version":"1","message":"POST to /v1/api/card ended - total time 13ms","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-22","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"container":"cardid","status_code":422,"method":"POST","x_request_id":"-","http_version":"HTTP/1.1","remote_address":"-","url":"/v1/api/card","environment":"${ENVIRONMENT}","@timestamp":"2026-11-10T05:43:19.713+0000","@version":1,"response_time":15,"content_length":56,"user_agent":"Apache-HttpClient/4.5.14 (Java/11.0.19)"}
+{"@timestamp":"2026-11-10T05:43:19.748Z","@version":"1","message":"POST to /v1/api/card began","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-25","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:19.752Z","@version":"1","message":"Card Information Request - CardInformation request, card number length 16","logger_name":"uk.gov.pay.card.resources.CardIdResource","thread_name":"dw-25 - POST /v1/api/card","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:19.752Z","@version":"1","message":"Card Information Response - CardInformationResponse{brand='master-card', type='D', label='DEBIT MASTERCARD', corporate=false', prepaidStatus=NOT_PREPAID}","logger_name":"uk.gov.pay.card.resources.CardIdResource","thread_name":"dw-25 - POST /v1/api/card","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:19.754Z","@version":"1","message":"POST to /v1/api/card ended - total time 6ms","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-25","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"container":"cardid","status_code":200,"method":"POST","x_request_id":"-","http_version":"HTTP/1.1","remote_address":"-","url":"/v1/api/card","environment":"${ENVIRONMENT}","@timestamp":"2026-11-10T05:43:19.755+0000","@version":1,"response_time":8,"content_length":103,"user_agent":"Apache-HttpClient/4.5.14 (Java/11.0.19)"}
+{"@timestamp":"2026-11-10T05:43:19.91Z","@version":"1","message":"POST to /v1/api/card began","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-27","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:19.919Z","@version":"1","message":"POST to /v1/api/card ended - total time 8ms","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-27","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"container":"cardid","status_code":422,"method":"POST","x_request_id":"-","http_version":"HTTP/1.1","remote_address":"-","url":"/v1/api/card","environment":"${ENVIRONMENT}","@timestamp":"2026-11-10T05:43:19.919+0000","@version":1,"response_time":9,"content_length":56,"user_agent":"Apache-HttpClient/4.5.14 (Java/11.0.19)"}
+{"@timestamp":"2026-11-10T05:43:19.955Z","@version":"1","message":"POST to /v1/api/card began","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-26","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:19.959Z","@version":"1","message":"Card Information Request - CardInformation request, card number length 16","logger_name":"uk.gov.pay.card.resources.CardIdResource","thread_name":"dw-26 - POST /v1/api/card","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:19.959Z","@version":"1","message":"Card Information Response - CardInformationResponse{brand='american-express', type='C', label='AMEX', corporate=false', prepaidStatus=NOT_PREPAID}","logger_name":"uk.gov.pay.card.resources.CardIdResource","thread_name":"dw-26 - POST /v1/api/card","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:19.962Z","@version":"1","message":"POST to /v1/api/card ended - total time 7ms","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-26","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"container":"cardid","status_code":200,"method":"POST","x_request_id":"-","http_version":"HTTP/1.1","remote_address":"-","url":"/v1/api/card","environment":"${ENVIRONMENT}","@timestamp":"2026-11-10T05:43:19.963+0000","@version":1,"response_time":9,"content_length":96,"user_agent":"Apache-HttpClient/4.5.14 (Java/11.0.19)"}
+{"@timestamp":"2026-11-10T05:43:20.118Z","@version":"1","message":"POST to /v1/api/card began","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-23","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:20.127Z","@version":"1","message":"POST to /v1/api/card ended - total time 8ms","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-23","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"container":"cardid","status_code":422,"method":"POST","x_request_id":"-","http_version":"HTTP/1.1","remote_address":"-","url":"/v1/api/card","environment":"${ENVIRONMENT}","@timestamp":"2026-11-10T05:43:20.128+0000","@version":1,"response_time":10,"content_length":42,"user_agent":"Apache-HttpClient/4.5.14 (Java/11.0.19)"}
+{"@timestamp":"2026-11-10T05:43:20.151Z","@version":"1","message":"POST to /v1/api/card began","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-22","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:20.155Z","@version":"1","message":"Card Information Request - CardInformation request, card number length 16","logger_name":"uk.gov.pay.card.resources.CardIdResource","thread_name":"dw-22 - POST /v1/api/card","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:20.155Z","@version":"1","message":"Card Information Response - CardInformationResponse{brand='master-card', type='C', label='MC', corporate=false', prepaidStatus=NOT_PREPAID}","logger_name":"uk.gov.pay.card.resources.CardIdResource","thread_name":"dw-22 - POST /v1/api/card","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:20.157Z","@version":"1","message":"POST to /v1/api/card ended - total time 6ms","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-22","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"container":"cardid","status_code":200,"method":"POST","x_request_id":"-","http_version":"HTTP/1.1","remote_address":"-","url":"/v1/api/card","environment":"${ENVIRONMENT}","@timestamp":"2026-11-10T05:43:20.158+0000","@version":1,"response_time":7,"content_length":89,"user_agent":"Apache-HttpClient/4.5.14 (Java/11.0.19)"}
+{"@timestamp":"2026-11-10T05:43:20.305Z","@version":"1","message":"POST to /v1/api/card began","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-25","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:20.309Z","@version":"1","message":"Card Information Request - CardInformation request, card number length 16","logger_name":"uk.gov.pay.card.resources.CardIdResource","thread_name":"dw-25 - POST /v1/api/card","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:20.309Z","@version":"1","message":"Card Information Response - CardInformationResponse{brand='master-card', type='C', label='MASTERCARD CREDIT', corporate=true', prepaidStatus=NOT_PREPAID}","logger_name":"uk.gov.pay.card.resources.CardIdResource","thread_name":"dw-25 - POST /v1/api/card","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:20.312Z","@version":"1","message":"POST to /v1/api/card ended - total time 6ms","logger_name":"uk.gov.service.payments.logging.LoggingFilter","thread_name":"dw-25","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"container":"cardid","status_code":200,"method":"POST","x_request_id":"-","http_version":"HTTP/1.1","remote_address":"-","url":"/v1/api/card","environment":"${ENVIRONMENT}","@timestamp":"2026-11-10T05:43:20.312+0000","@version":1,"response_time":7,"content_length":103,"user_agent":"Apache-HttpClient/4.5.14 (Java/11.0.19)"}
+{"@timestamp":"2026-11-10T05:43:20.457Z","@version":"1","message":"Stopped application@4b32465{HTTP/1.1, (http/1.1)}{0.0.0.0:0}","logger_name":"org.eclipse.jetty.server.AbstractConnector","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:20.461Z","@version":"1","message":"Stopped admin@146f3d22{HTTP/1.1, (http/1.1)}{0.0.0.0:0}","logger_name":"org.eclipse.jetty.server.AbstractConnector","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:20.463Z","@version":"1","message":"Stopped i.d.j.MutableServletContextHandler@75f65d54{/,null,STOPPED}","logger_name":"org.eclipse.jetty.server.handler.ContextHandler","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+{"@timestamp":"2026-11-10T05:43:20.474Z","@version":"1","message":"Stopped i.d.j.MutableServletContextHandler@639948a2{/,null,STOPPED}","logger_name":"org.eclipse.jetty.server.handler.ContextHandler","thread_name":"main","level":"INFO","level_value":20000,"container":"cardid","environment":"${ENVIRONMENT}"}
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.252 s - in uk.gov.pay.card.it.resources.CardIdResourceITest
+[INFO] Running uk.gov.pay.card.db.RangeSetCardInformationStoreTest
+INFO  [2026-11-10 05:43:20,495] uk.gov.pay.card.db.loader.BinRangeDataLoader: Loading Worldpay data in to card information store
+INFO  [2026-11-10 05:43:20,498] uk.gov.pay.card.db.loader.BinRangeDataLoader: 6 records loaded... DONE
+INFO  [2026-11-10 05:43:20,498] uk.gov.pay.card.db.loader.BinRangeDataLoader: Finished initialising the card information store - keys=4
+INFO  [2026-11-10 05:43:20,552] uk.gov.pay.card.db.loader.BinRangeDataLoader: Loading Worldpay data in to card information store
+INFO  [2026-11-10 05:43:20,553] uk.gov.pay.card.db.loader.BinRangeDataLoader: 6 records loaded... DONE
+INFO  [2026-11-10 05:43:20,554] uk.gov.pay.card.db.loader.BinRangeDataLoader: Finished initialising the card information store - keys=4
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s - in uk.gov.pay.card.db.RangeSetCardInformationStoreTest
+[INFO] Running uk.gov.pay.card.db.loader.BinRangeParserTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s - in uk.gov.pay.card.db.loader.BinRangeParserTest
+[INFO] Running uk.gov.pay.card.db.loader.BinRangeDataLoaderTest
+INFO  [2026-11-10 05:43:20,633] uk.gov.pay.card.db.loader.BinRangeDataLoader: Loading Discover data in to card information store
+INFO  [2026-11-10 05:43:20,635] uk.gov.pay.card.db.loader.BinRangeDataLoader: 5 records loaded... DONE
+INFO  [2026-11-10 05:43:20,635] uk.gov.pay.card.db.loader.BinRangeDataLoader: Finished initialising the card information store - Mock for CardInformationStore, hashCode: 299830215
+INFO  [2026-11-10 05:43:20,645] uk.gov.pay.card.db.loader.BinRangeDataLoader: Loading Worldpay data in to card information store
+INFO  [2026-11-10 05:43:20,649] uk.gov.pay.card.db.loader.BinRangeDataLoader: 3 records loaded... DONE
+INFO  [2026-11-10 05:43:20,649] uk.gov.pay.card.db.loader.BinRangeDataLoader: Finished initialising the card information store - Mock for CardInformationStore, hashCode: 1163358778
+INFO  [2026-11-10 05:43:20,654] uk.gov.pay.card.db.loader.BinRangeDataLoader: Loading Test Cards data in to card information store
+INFO  [2026-11-10 05:43:20,657] uk.gov.pay.card.db.loader.BinRangeDataLoader: 4 records loaded... DONE
+INFO  [2026-11-10 05:43:20,657] uk.gov.pay.card.db.loader.BinRangeDataLoader: Finished initialising the card information store - Mock for CardInformationStore, hashCode: 901189533
+INFO  [2026-11-10 05:43:20,667] uk.gov.pay.card.db.loader.BinRangeDataLoader: Loading Worldpay data in to card information store
+INFO  [2026-11-10 05:43:20,674] uk.gov.pay.card.db.loader.BinRangeDataLoader: Loading Worldpay data in to card information store
+INFO  [2026-11-10 05:43:20,676] uk.gov.pay.card.db.loader.BinRangeDataLoader: 6 records loaded... DONE
+INFO  [2026-11-10 05:43:20,677] uk.gov.pay.card.db.loader.BinRangeDataLoader: Finished initialising the card information store - Mock for CardInformationStore, hashCode: 250243497
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in uk.gov.pay.card.db.loader.BinRangeDataLoaderTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  24.097 s
+[INFO] Finished at: 2026-11-10T05:43:20Z
+[INFO] ------------------------------------------------------------------------

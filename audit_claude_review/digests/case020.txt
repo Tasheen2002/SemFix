@@ -1,0 +1,40 @@
+=== CASE 20 19e20b0d69cb6dadbc54313cb6c6e5f70670ac93
+  project=apache/logging-chainsaw dep=com.thoughtworks.xstream:xstream 1.4.17 -> 1.4.19 scope=compile type=patch java=11
+  PR=https://github.com/apache/logging-chainsaw/pull/14
+  PRE log logs/batch_triage/19e20b0d_pre.log:
+  lines=92
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/19e20b0d_breaking.log:
+  lines=117
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 5, Failures: 0, Errors: 1, Skipped: 0
+  failing classes: Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.609 s <<< FAILURE! - in org.apache.log4j.chainsaw.LogPanelPreferenceModelTest
+  section: Errors: | org.apache.log4j.chainsaw.LogPanelPreferenceModelTest#testLogPanelPreferenceModelSerialization ForbiddenClassException | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  16.603 s | [INFO] Finished at: 2026-11-09T06:25:52Z | [INFO] ------------------------------------------------------------------------ | [WARNING] | [WARNING] Plugin validation issues were detected in 7 plugin(s) | [WARNING]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project apache-chainsaw: There are test failures.
+  FAILBLOCK: [ERROR] testLogPanelPreferenceModelSerialization(org.apache.log4j.chainsaw.LogPanelPreferenceModelTest)  Time elapsed: 0.601 s  <<< ERROR!
+      com.thoughtworks.xstream.security.ForbiddenClassException: org.apache.log4j.chainsaw.LogPanelPreferenceModel
+      at com.thoughtworks.xstream.security.NoTypePermission.allows(NoTypePermission.java:26)
+      at com.thoughtworks.xstream.mapper.SecurityMapper.realClass(SecurityMapper.java:74)
+      at com.thoughtworks.xstream.mapper.MapperWrapper.realClass(MapperWrapper.java:125)
+      at com.thoughtworks.xstream.mapper.CachingMapper.realClass(CachingMapper.java:47)
+      at com.thoughtworks.xstream.core.util.HierarchicalStreams.readClassType(HierarchicalStreams.java:29)
+  distinct fail signatures (count): 1x com.thoughtworks.xstream.security.ForbiddenClassException: org.apache.log4j.chainsaw.LogPanelPreferenceModel
+  exception names: com.thoughtworks.xstream.security.ForbiddenClassExceptionx1
+  EVIDENCE logs/case20_evidence: breaking/archive_summary.json, breaking/artifacts.tar, pre/archive_summary.json, pre/artifacts.tar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B reports=2 sum(t,f,e,s)=[5, 0, 0, 0]
+  breaking archive: exit=1 cmd=sh -c mvn clean test -B reports=2 sum(t,f,e,s)=[5, 0, 1, 0]
+  archived non-report files: pre=317 breaking=317 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -163,3 +163,3 @@
+           <artifactId>xstream</artifactId>
+    -      <version>1.4.17</version>
+    +      <version>1.4.19</version>
+         </dependency>
+  BREAKING surefire failures/errors:
+    ERROR org.apache.log4j.chainsaw.LogPanelPreferenceModelTest#testLogPanelPreferenceModelSerialization type=com.thoughtworks.xstream.security.ForbiddenClassException msg=org.apache.log4j.chainsaw.LogPanelPreferenceModel
+       at com.thoughtworks.xstream.security.NoTypePermission.allows(NoTypePermission.java:26)
+       at com.thoughtworks.xstream.mapper.SecurityMapper.realClass(SecurityMapper.java:74)
+       at com.thoughtworks.xstream.mapper.MapperWrapper.realClass(MapperWrapper.java:125)
+       at com.thoughtworks.xstream.mapper.CachingMapper.realClass(CachingMapper.java:47)

@@ -1,0 +1,101 @@
+=== CASE 125 aac5842369f198d9442cacc2949a09fe00a55367
+  project=pac4j/dropwizard-pac4j dep=org.eclipse.jetty:jetty-server 9.4.35.v20201120 -> 10.0.14 scope=compile type=other java=11
+  PR=https://github.com/pac4j/dropwizard-pac4j/pull/386
+  PRE log logs/batch_triage/aac58423_pre.log:
+  lines=461
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/aac58423_breaking.log:
+  lines=479
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 16, Failures: 0, Errors: 10, Skipped: 0
+  failing classes: Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 12.148 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndServletTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 2.538 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 2.95 s <<< FAILURE! - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+  section: Errors: | BundleFactoryTest.emptyPac4jInConfig:47->AbstractApplicationTest.setup:31 » NoClassDefFound Could not initialize class io.dropwizard.jetty.MutableServletContextHandler | BundleFactoryTest.noPac4jInConfig:31->AbstractApplicationTest.setup:31 » NoClassDefFound Could not initialize class io.dropwizard.jetty.MutableServletContextHandler | BundleFactoryTest.sessionEnabledForced:68->AbstractApplicationTest.setup:31 » NoClassDefFound Could not initialize class io.dropwizard.jetty.MutableServletContextHandler | BundleFactoryTest.sessiondisabledForced:83->AbstractApplicationTest.setup:31 » NoClassDefFound Could not initialize class io.dropwizard.jetty.MutableServletContextHandler | EndToEndServletTest.grantsAccessToResources:54->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound org/eclipse/jetty/util/component/AbstractLifeCycle$StopException | EndToEndServletTest.grantsAccessToResourcesForm:36->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound Could not initialize class io.dropwizard.jetty.MutableServletContextHandler | EndToEndServletTest.restrictsAccessToResources:69->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound Could not initialize class io
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project dropwizard-pac4j: 
+  FAILBLOCK: [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources  Time elapsed: 9.075 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: org/eclipse/jetty/util/component/AbstractLifeCycle$StopException
+      at org.eclipse.jetty.server.handler.ContextHandler.<clinit>(ContextHandler.java:141)
+      at io.dropwizard.setup.Environment.<init>(Environment.java:74)
+      at io.dropwizard.cli.EnvironmentCommand.run(EnvironmentCommand.java:37)
+      at io.dropwizard.cli.ConfiguredCommand.run(ConfiguredCommand.java:87)
+      at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:330)
+      Caused by: java.lang.ClassNotFoundException: org.eclipse.jetty.util.component.AbstractLifeCycle$StopException
+  FAILBLOCK: [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResourcesForm  Time elapsed: 1.761 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+      at io.dropwizard.setup.Environment.<init>(Environment.java:74)
+      at io.dropwizard.cli.EnvironmentCommand.run(EnvironmentCommand.java:37)
+      at io.dropwizard.cli.ConfiguredCommand.run(ConfiguredCommand.java:87)
+      at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:330)
+      at io.dropwizard.testing.DropwizardTestSupport.before(DropwizardTestSupport.java:223)
+  distinct fail signatures (count): 1x java.lang.NoClassDefFoundError: org/eclipse/jetty/util/component/AbstractLifeCycle$StopException || 9x java.lang.NoClassDefFoundError: Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx10, java.lang.ClassNotFoundExceptionx1, org.eclipse.jetty.util.component.AbstractLifeCycle$StopExceptionx1
+  EVIDENCE logs/case125_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/jetty-server-10.0.14.jar, breaking/jars/jetty-util-9.4.35.v20201120.jar, breaking/jetty-server-10.0.14_ContextHandler_javap.txt, breaking/jetty-server-10.0.14_Server_StopException_javap.txt, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/jetty-server-9.4.35.v20201120.jar, pre/jars/jetty-util-9.4.35.v20201120.jar, pre/jetty-server-9.4.35.v20201120_ContextHandler_javap.txt, sha256_manifest.json, stop_exception_references.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[16, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[16, 0, 10, 0]
+  archived non-report files: pre=27 breaking=27 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -153,3 +153,3 @@
+             <artifactId>jetty-server</artifactId>
+    -        <version>9.4.35.v20201120</version>
+    +        <version>10.0.14</version>
+           </dependency>
+  BREAKING surefire failures/errors:
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#emptyPac4jInConfig type=java.lang.NoClassDefFoundError msg=Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+       at io.dropwizard.setup.Environment.<init>(Environment.java:74)
+       at io.dropwizard.cli.EnvironmentCommand.run(EnvironmentCommand.java:37)
+       at io.dropwizard.cli.ConfiguredCommand.run(ConfiguredCommand.java:87)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:330)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#sessiondisabledForced type=java.lang.NoClassDefFoundError msg=Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+       at io.dropwizard.setup.Environment.<init>(Environment.java:74)
+       at io.dropwizard.cli.EnvironmentCommand.run(EnvironmentCommand.java:37)
+       at io.dropwizard.cli.ConfiguredCommand.run(ConfiguredCommand.java:87)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:330)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#noPac4jInConfig type=java.lang.NoClassDefFoundError msg=Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+       at io.dropwizard.setup.Environment.<init>(Environment.java:74)
+       at io.dropwizard.cli.EnvironmentCommand.run(EnvironmentCommand.java:37)
+       at io.dropwizard.cli.ConfiguredCommand.run(ConfiguredCommand.java:87)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:330)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#sessionEnabledForced type=java.lang.NoClassDefFoundError msg=Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+       at io.dropwizard.setup.Environment.<init>(Environment.java:74)
+       at io.dropwizard.cli.EnvironmentCommand.run(EnvironmentCommand.java:37)
+       at io.dropwizard.cli.ConfiguredCommand.run(ConfiguredCommand.java:87)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:330)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#grantsAccessToResources type=java.lang.NoClassDefFoundError msg=org/eclipse/jetty/util/component/AbstractLifeCycle$StopException
+       Caused by: java.lang.ClassNotFoundException: org.eclipse.jetty.util.component.AbstractLifeCycle$StopException
+       at org.eclipse.jetty.server.handler.ContextHandler.<clinit>(ContextHandler.java:141)
+       at io.dropwizard.setup.Environment.<init>(Environment.java:74)
+       at io.dropwizard.cli.EnvironmentCommand.run(EnvironmentCommand.java:37)
+       at io.dropwizard.cli.ConfiguredCommand.run(ConfiguredCommand.java:87)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#grantsAccessToResourcesForm type=java.lang.NoClassDefFoundError msg=Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+       at io.dropwizard.setup.Environment.<init>(Environment.java:74)
+       at io.dropwizard.cli.EnvironmentCommand.run(EnvironmentCommand.java:37)
+       at io.dropwizard.cli.ConfiguredCommand.run(ConfiguredCommand.java:87)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:330)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#restrictsAccessToResources type=java.lang.NoClassDefFoundError msg=Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+       at io.dropwizard.setup.Environment.<init>(Environment.java:74)
+       at io.dropwizard.cli.EnvironmentCommand.run(EnvironmentCommand.java:37)
+       at io.dropwizard.cli.ConfiguredCommand.run(ConfiguredCommand.java:87)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:330)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndTest#grantsAccessToResources type=java.lang.NoClassDefFoundError msg=Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+       at io.dropwizard.setup.Environment.<init>(Environment.java:74)
+       at io.dropwizard.cli.EnvironmentCommand.run(EnvironmentCommand.java:37)
+       at io.dropwizard.cli.ConfiguredCommand.run(ConfiguredCommand.java:87)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:330)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndTest#grantsAccessToResourcesForm type=java.lang.NoClassDefFoundError msg=Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+       at io.dropwizard.setup.Environment.<init>(Environment.java:74)
+       at io.dropwizard.cli.EnvironmentCommand.run(EnvironmentCommand.java:37)
+       at io.dropwizard.cli.ConfiguredCommand.run(ConfiguredCommand.java:87)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:330)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndTest#restrictsAccessToResources type=java.lang.NoClassDefFoundError msg=Could not initialize class io.dropwizard.jetty.MutableServletContextHandler
+       at io.dropwizard.setup.Environment.<init>(Environment.java:74)
+       at io.dropwizard.cli.EnvironmentCommand.run(EnvironmentCommand.java:37)
+       at io.dropwizard.cli.ConfiguredCommand.run(ConfiguredCommand.java:87)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:330)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -        <version>9.4.35.v20201120</version> / +        <version>10.0.14</version>
+  JSON breaking/jar_inspection.json: {"case_id":"aac5842369f198d9442cacc2949a09fe00a55367","phase":"breaking","path_filter":"/org/eclipse/jetty/(jetty-server|jetty-util)/","path_source":"Fresh test report effective classpaths, preferring surefire.test.class.path when present","artifacts":[{"resolved_path":"/root/.m2/repository/org/eclipse/jetty/jetty-server/10.0.14/jetty-server-10.0.14.jar","classes":{"org.eclipse.jetty.util.component.AbstractLifeCycle$StopException":{"present":false,"major_version":null},"org.eclipse.jetty.server.handler.ContextHandler":{"present":true,"major_version":55}},"services":{},"disassemblies":[{"class":"org.eclipse.jetty.server.handler.ContextHandler","file":"jetty-server-10.0.14_ContextHandler_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/org/eclipse/jetty/jetty-util/9.4.35.v20201120/jetty-util-9.4.35.v20201120.jar","classes":{"org.eclipse.jetty.util.component.AbstractLifeCycle$StopException":{"present":false,"major_version":null},"org.eclipse.jetty.server.handler.ContextHandler":{"present":false,"major_version":null}},"services":{},"disassemblies":[]}]}
+  JSON pre/jar_inspection.json: {"case_id":"aac5842369f198d9442cacc2949a09fe00a55367","phase":"pre","path_filter":"/org/eclipse/jetty/(jetty-server|jetty-util)/","path_source":"Fresh test report effective classpaths, preferring surefire.test.class.path when present","artifacts":[{"resolved_path":"/root/.m2/repository/org/eclipse/jetty/jetty-server/9.4.35.v20201120/jetty-server-9.4.35.v20201120.jar","classes":{"org.eclipse.jetty.util.component.AbstractLifeCycle$StopException":{"present":false,"major_version":null},"org.eclipse.jetty.server.handler.ContextHandler":{"present":true,"major_version":52}},"services":{},"disassemblies":[{"class":"org.eclipse.jetty.server.handler.ContextHandler","file":"jetty-server-9.4.35.v20201120_ContextHandler_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/org/eclipse/jetty/jetty-util/9.4.35.v20201120/jetty-util-9.4.35.v20201120.jar","classes":{"org.eclipse.jetty.util.component.AbstractLifeCycle$StopException":{"present":false,"major_version":null},"org.eclipse.jetty.server.handler.ContextHandler":{"present":false,"major_version":null}},"services":{},"disassemblies":[]}]}
+  JSON stop_exception_references.json: {"referenced_binary_type":"org/eclipse/jetty/util/component/AbstractLifeCycle$StopException","artifact":"jetty-server-10.0.14.jar","references":[{"class":"org.eclipse.jetty.server.Server","file":"jetty-server-10.0.14_Server_StopException_javap.txt","exit_code":0}]}
+  JARS: breaking/jars/jetty-server-10.0.14.jar, breaking/jars/jetty-util-9.4.35.v20201120.jar, pre/jars/jetty-server-9.4.35.v20201120.jar, pre/jars/jetty-util-9.4.35.v20201120.jar

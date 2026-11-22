@@ -1,0 +1,493 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] FSCrawler                                                          [pom]
+[INFO] FSCrawler Test Framework                                           [jar]
+[INFO] FSCrawler Framework                                                [jar]
+[INFO] FSCrawler Settings                                                 [jar]
+[INFO] FSCrawler Test Documents                                           [jar]
+[INFO] FSCrawler Beans                                                    [jar]
+[INFO] FSCrawler 3rd Party libraries                                      [pom]
+[INFO] FSCrawler Workplace Search Client                                  [jar]
+[INFO] FSCrawler Elasticsearch Client                                     [jar]
+[INFO] FSCrawler Tika                                                     [jar]
+[INFO] FSCrawler Crawlers                                                 [pom]
+[INFO] FSCrawler Abstract Crawler                                         [jar]
+[INFO] FSCrawler Crawlers: FS                                             [jar]
+[INFO] FSCrawler Crawlers: FTP                                            [jar]
+[INFO] FSCrawler Crawlers: SSH                                            [jar]
+[INFO] FSCrawler Core                                                     [jar]
+[INFO] FSCrawler Rest Server                                              [jar]
+[INFO] FSCrawler Integration Tests                                        [jar]
+[INFO] FSCrawler Cli                                                      [jar]
+[INFO] FSCrawler ZIP Distribution                                         [jar]
+[INFO] FSCrawler Documentation                                            [pom]
+[INFO] 
+[INFO] ----------< fr.pilato.elasticsearch.crawler:fscrawler-parent >----------
+[INFO] Building FSCrawler 2.10-SNAPSHOT                                  [1/21]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ fscrawler-parent ---
+[INFO] 
+[INFO] ------< fr.pilato.elasticsearch.crawler:fscrawler-test-framework >------
+[INFO] Building FSCrawler Test Framework 2.10-SNAPSHOT                   [2/21]
+[INFO]   from test-framework/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ fscrawler-test-framework ---
+[INFO] Deleting /fscrawler/test-framework/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce) @ fscrawler-test-framework ---
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ fscrawler-test-framework ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /fscrawler/test-framework/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.0:compile (default-compile) @ fscrawler-test-framework ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /fscrawler/test-framework/target/classes
+[WARNING] No processor claimed any of these annotations: /com.carrotsearch.randomizedtesting.annotations.TimeoutSuite,/org.junit.ClassRule,/org.junit.BeforeClass,/com.carrotsearch.randomizedtesting.annotations.ThreadLeakLingering,/org.junit.Rule,/com.carrotsearch.randomizedtesting.annotations.ThreadLeakScope,/org.junit.runner.RunWith,/org.junit.AfterClass,/com.carrotsearch.randomizedtesting.annotations.Listeners
+[INFO] /fscrawler/test-framework/src/main/java/fr/pilato/elasticsearch/crawler/fs/test/framework/AbstractFSCrawlerTestCase.java: /fscrawler/test-framework/src/main/java/fr/pilato/elasticsearch/crawler/fs/test/framework/AbstractFSCrawlerTestCase.java uses unchecked or unsafe operations.
+[INFO] /fscrawler/test-framework/src/main/java/fr/pilato/elasticsearch/crawler/fs/test/framework/AbstractFSCrawlerTestCase.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ fscrawler-test-framework ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.0:testCompile (default-testCompile) @ fscrawler-test-framework ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /fscrawler/test-framework/target/test-classes
+[WARNING] No processor claimed any of these annotations: /com.carrotsearch.randomizedtesting.annotations.ThreadLeakLingering,/com.carrotsearch.randomizedtesting.annotations.ThreadLeakScope,/org.junit.Test,/com.carrotsearch.randomizedtesting.annotations.TimeoutSuite,/org.junit.runner.RunWith
+[INFO] 
+[INFO] --- junit4:2.7.9:junit4 (unit-tests) @ fscrawler-test-framework ---
+[INFO] <JUnit4> says ᐊᐃ! Master seed: D6BA6192F61ADDD7
+Executing 1 suite with 1 JVM.
+
+Started J0 PID(60@20ddb689d220).
+[INFO] JVM J0:     1.10 ..     4.39 =     3.30s
+[INFO] Execution time total: 4.41 sec.
+[INFO] Tests summary: 1 suite, 2 tests
+[INFO] 
+[INFO] --------< fr.pilato.elasticsearch.crawler:fscrawler-framework >---------
+[INFO] Building FSCrawler Framework 2.10-SNAPSHOT                        [3/21]
+[INFO]   from framework/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ fscrawler-framework ---
+[INFO] Deleting /fscrawler/framework/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce) @ fscrawler-framework ---
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ fscrawler-framework ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.0:compile (default-compile) @ fscrawler-framework ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 28 source files to /fscrawler/framework/target/classes
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ fscrawler-framework ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.0:testCompile (default-testCompile) @ fscrawler-framework ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /fscrawler/framework/target/test-classes
+[WARNING] No processor claimed any of these annotations: /org.junit.BeforeClass,/com.carrotsearch.randomizedtesting.annotations.ThreadLeakLingering,/com.carrotsearch.randomizedtesting.annotations.ThreadLeakScope,/org.junit.Test,/com.carrotsearch.randomizedtesting.annotations.TimeoutSuite,/org.junit.runner.RunWith
+[INFO] 
+[INFO] ---------< fr.pilato.elasticsearch.crawler:fscrawler-settings >---------
+[INFO] Building FSCrawler Settings 2.10-SNAPSHOT                         [4/21]
+[INFO]   from settings/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ fscrawler-settings ---
+[INFO] Deleting /fscrawler/settings/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce) @ fscrawler-settings ---
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ fscrawler-settings ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- compiler:3.10.0:compile (default-compile) @ fscrawler-settings ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 11 source files to /fscrawler/settings/target/classes
+[WARNING] No processor claimed any of these annotations: /com.fasterxml.jackson.annotation.JsonIgnore,/com.fasterxml.jackson.annotation.JsonProperty
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ fscrawler-settings ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- compiler:3.10.0:testCompile (default-testCompile) @ fscrawler-settings ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /fscrawler/settings/target/test-classes
+[WARNING] No processor claimed any of these annotations: /org.junit.BeforeClass,/com.carrotsearch.randomizedtesting.annotations.ThreadLeakLingering,/com.carrotsearch.randomizedtesting.annotations.ThreadLeakScope,/org.junit.Test,/com.carrotsearch.randomizedtesting.annotations.TimeoutSuite,/org.junit.runner.RunWith
+[INFO] 
+[INFO] --- junit4:2.7.9:junit4 (unit-tests) @ fscrawler-settings ---
+[INFO] <JUnit4> says नमस्ते! Master seed: 7A17A762F444F415
+Executing 8 suites with 4 JVMs.
+
+Started J1 PID(103@20ddb689d220).
+Started J2 PID(102@20ddb689d220).
+Started J0 PID(106@20ddb689d220).
+Started J3 PID(122@20ddb689d220).
+[INFO] JVM J0:     1.90 ..    10.75 =     8.85s
+[INFO] JVM J1:     1.88 ..    11.26 =     9.38s
+[INFO] JVM J2:     1.89 ..    13.48 =    11.59s
+[INFO] JVM J3:     1.92 ..    11.84 =     9.91s
+[INFO] Execution time total: 13 seconds
+[INFO] Tests summary: 8 suites, 50 tests
+[INFO] 
+[INFO] ------< fr.pilato.elasticsearch.crawler:fscrawler-test-documents >------
+[INFO] Building FSCrawler Test Documents 2.10-SNAPSHOT                   [5/21]
+[INFO]   from test-documents/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ fscrawler-test-documents ---
+[INFO] Deleting /fscrawler/test-documents/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce) @ fscrawler-test-documents ---
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ fscrawler-test-documents ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 30 resources
+[INFO] 
+[INFO] --- compiler:3.10.0:compile (default-compile) @ fscrawler-test-documents ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ fscrawler-test-documents ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /fscrawler/test-documents/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.0:testCompile (default-testCompile) @ fscrawler-test-documents ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] ----------< fr.pilato.elasticsearch.crawler:fscrawler-beans >-----------
+[INFO] Building FSCrawler Beans 2.10-SNAPSHOT                            [6/21]
+[INFO]   from beans/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ fscrawler-beans ---
+[INFO] Deleting /fscrawler/beans/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce) @ fscrawler-beans ---
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ fscrawler-beans ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /fscrawler/beans/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.0:compile (default-compile) @ fscrawler-beans ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /fscrawler/beans/target/classes
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ fscrawler-beans ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.0:testCompile (default-testCompile) @ fscrawler-beans ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /fscrawler/beans/target/test-classes
+[WARNING] No processor claimed any of these annotations: /com.carrotsearch.randomizedtesting.annotations.ThreadLeakLingering,/com.carrotsearch.randomizedtesting.annotations.ThreadLeakScope,/org.junit.Test,/com.carrotsearch.randomizedtesting.annotations.TimeoutSuite,/org.junit.runner.RunWith
+[INFO] 
+[INFO] --- junit4:2.7.9:junit4 (unit-tests) @ fscrawler-beans ---
+[INFO] <JUnit4> says नमस्ते! Master seed: 25A5686D56C02596
+Executing 1 suite with 1 JVM.
+
+Started J0 PID(264@20ddb689d220).
+[INFO] JVM J0:     1.31 ..     5.57 =     4.26s
+[INFO] Execution time total: 5.57 sec.
+[INFO] Tests summary: 1 suite, 3 tests
+[INFO] 
+[INFO] ---------< fr.pilato.elasticsearch.crawler:fscrawler-3rdparty >---------
+[INFO] Building FSCrawler 3rd Party libraries 2.10-SNAPSHOT              [7/21]
+[INFO]   from 3rdparty/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ fscrawler-3rdparty ---
+[INFO] 
+[INFO] --< fr.pilato.elasticsearch.crawler:fscrawler-workplacesearch-client >--
+[INFO] Building FSCrawler Workplace Search Client 2.10-SNAPSHOT          [8/21]
+[INFO]   from 3rdparty/workplacesearch-client/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ fscrawler-workplacesearch-client ---
+[INFO] Deleting /fscrawler/3rdparty/workplacesearch-client/target
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ fscrawler-workplacesearch-client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.0:compile (default-compile) @ fscrawler-workplacesearch-client ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /fscrawler/3rdparty/workplacesearch-client/target/classes
+[WARNING] /fscrawler/3rdparty/workplacesearch-client/src/main/java/fr/pilato/elasticsearch/crawler/fs/thirdparty/wpsearch/WPSearchClient.java:[342,31] parseJson(java.lang.String) in fr.pilato.elasticsearch.crawler.fs.framework.JsonUtil has been deprecated
+[WARNING] /fscrawler/3rdparty/workplacesearch-client/src/main/java/fr/pilato/elasticsearch/crawler/fs/thirdparty/wpsearch/WPSearchClient.java:[391,27] parseJson(java.lang.String) in fr.pilato.elasticsearch.crawler.fs.framework.JsonUtil has been deprecated
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ fscrawler-workplacesearch-client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /fscrawler/3rdparty/workplacesearch-client/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.0:testCompile (default-testCompile) @ fscrawler-workplacesearch-client ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] ---< fr.pilato.elasticsearch.crawler:fscrawler-elasticsearch-client >---
+[INFO] Building FSCrawler Elasticsearch Client 2.10-SNAPSHOT             [9/21]
+[INFO]   from elasticsearch-client/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ fscrawler-elasticsearch-client ---
+[INFO] Deleting /fscrawler/elasticsearch-client/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce) @ fscrawler-elasticsearch-client ---
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ fscrawler-elasticsearch-client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /fscrawler/elasticsearch-client/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.0:compile (default-compile) @ fscrawler-elasticsearch-client ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 22 source files to /fscrawler/elasticsearch-client/target/classes
+[WARNING] /fscrawler/elasticsearch-client/src/main/java/fr/pilato/elasticsearch/crawler/fs/client/ElasticsearchClient.java:[407,17] createIndices() in fr.pilato.elasticsearch.crawler.fs.client.IElasticsearchClient has been deprecated
+[WARNING] /fscrawler/elasticsearch-client/src/main/java/fr/pilato/elasticsearch/crawler/fs/client/ElasticsearchClient.java:[170,27] parseJson(java.lang.String) in fr.pilato.elasticsearch.crawler.fs.framework.JsonUtil has been deprecated
+[WARNING] /fscrawler/elasticsearch-client/src/main/java/fr/pilato/elasticsearch/crawler/fs/client/ElasticsearchClient.java:[274,27] parseJson(java.lang.String) in fr.pilato.elasticsearch.crawler.fs.framework.JsonUtil has been deprecated
+[WARNING] /fscrawler/elasticsearch-client/src/main/java/fr/pilato/elasticsearch/crawler/fs/client/ElasticsearchClient.java:[535,32] setSourceAsMap(java.util.Map<java.lang.String,java.lang.Object>) in fr.pilato.elasticsearch.crawler.fs.client.ESSearchHit has been deprecated
+[WARNING] /fscrawler/elasticsearch-client/src/main/java/fr/pilato/elasticsearch/crawler/fs/client/ElasticsearchClient.java:[537,32] setSourceAsMap(java.util.Map<java.lang.String,java.lang.Object>) in fr.pilato.elasticsearch.crawler.fs.client.ESSearchHit has been deprecated
+[WARNING] /fscrawler/elasticsearch-client/src/main/java/fr/pilato/elasticsearch/crawler/fs/client/ElasticsearchClient.java:[635,31] parseJson(java.lang.String) in fr.pilato.elasticsearch.crawler.fs.framework.JsonUtil has been deprecated
+[WARNING] /fscrawler/elasticsearch-client/src/main/java/fr/pilato/elasticsearch/crawler/fs/client/ElasticsearchClient.java:[667,12] setSourceAsMap(java.util.Map<java.lang.String,java.lang.Object>) in fr.pilato.elasticsearch.crawler.fs.client.ESSearchHit has been deprecated
+[INFO] /fscrawler/elasticsearch-client/src/main/java/fr/pilato/elasticsearch/crawler/fs/client/ElasticsearchBulkResponse.java: Some input files use unchecked or unsafe operations.
+[INFO] /fscrawler/elasticsearch-client/src/main/java/fr/pilato/elasticsearch/crawler/fs/client/ElasticsearchBulkResponse.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ fscrawler-elasticsearch-client ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.0:testCompile (default-testCompile) @ fscrawler-elasticsearch-client ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /fscrawler/elasticsearch-client/target/test-classes
+[WARNING] No processor claimed any of these annotations: /com.carrotsearch.randomizedtesting.annotations.ThreadLeakLingering,/com.carrotsearch.randomizedtesting.annotations.ThreadLeakScope,/org.junit.Test,/com.carrotsearch.randomizedtesting.annotations.TimeoutSuite,/org.junit.runner.RunWith
+[INFO] 
+[INFO] --- junit4:2.7.9:junit4 (unit-tests) @ fscrawler-elasticsearch-client ---
+[INFO] <JUnit4> says jolly good day! Master seed: 530C280388D23ACC
+Executing 1 suite with 1 JVM.
+
+Started J0 PID(306@20ddb689d220).
+[INFO] JVM J0:     1.63 ..     4.64 =     3.01s
+[INFO] Execution time total: 4.65 sec.
+[INFO] Tests summary: 1 suite, 3 tests
+[INFO] 
+[INFO] -----------< fr.pilato.elasticsearch.crawler:fscrawler-tika >-----------
+[INFO] Building FSCrawler Tika 2.10-SNAPSHOT                            [10/21]
+[INFO]   from tika/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ fscrawler-tika ---
+[INFO] Deleting /fscrawler/tika/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce) @ fscrawler-tika ---
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ fscrawler-tika ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /fscrawler/tika/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.0:compile (default-compile) @ fscrawler-tika ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /fscrawler/tika/target/classes
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ fscrawler-tika ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.0:testCompile (default-testCompile) @ fscrawler-tika ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /fscrawler/tika/target/test-classes
+[WARNING] No processor claimed any of these annotations: /org.junit.BeforeClass,/com.carrotsearch.randomizedtesting.annotations.ThreadLeakLingering,/com.carrotsearch.randomizedtesting.annotations.ThreadLeakScope,/org.junit.Test,/com.carrotsearch.randomizedtesting.annotations.TimeoutSuite,/org.junit.runner.RunWith
+[INFO] 
+[INFO] --- junit4:2.7.9:junit4 (unit-tests) @ fscrawler-tika ---
+[INFO] <JUnit4> says ahoj! Master seed: 2CADC98574246965
+Executing 2 suites with 2 JVMs.
+
+Started J1 PID(352@20ddb689d220).
+Started J0 PID(344@20ddb689d220).
+  1> 06:27:39,207 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test.txt]
+  1> 06:27:39,352 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:42,067 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test.txt]
+  1> 06:27:42,076 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test.wav]
+  1> 06:27:42,079 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:42,232 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test.mp3]
+  1> 06:27:42,237 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:42,364 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test.odt]
+  1> 06:27:42,368 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:42,599 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [issue-163.xml]
+  1> 06:27:42,603 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:42,707 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test.doc]
+  1> 06:27:42,711 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:43,089 ERROR [f.document] [adcd46a474daa5d22e2b5d15a4192ceb][/] 'byte[] org.apache.poi.util.IOUtils.toByteArray(java.io.InputStream, int, int)'
+  1> 06:27:43,091 WARN  [f.p.e.c.f.t.TikaDocParser] Failed to extract [100000] characters of text for [/documents/test.doc]: 'byte[] org.apache.poi.util.IOUtils.toByteArray(java.io.InputStream, int, int)'
+  2> REPRODUCE WITH:
+  2> mvn integration-test -Dtests.seed=2CADC98574246965 -Dtests.class=fr.pilato.elasticsearch.crawler.fs.tika.TikaDocParserTest -Dtests.method="testExtractFromDoc" -Dtests.locale=gd -Dtests.timezone=America/Argentina/Jujuy
+FAILURE 0.45s J0 | TikaDocParserTest.testExtractFromDoc <<<
+   > Throwable #1: java.lang.AssertionError: 
+   > Expected: a string containing "This is a sample text available in page"
+   >      but: was null
+   > 	at __randomizedtesting.SeedInfo.seed([2CADC98574246965:2995319F7250854A]:0)
+   > 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+   > 	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:8)
+   > 	at fr.pilato.elasticsearch.crawler.fs.tika.TikaDocParserTest.testExtractFromDoc(TikaDocParserTest.java:153)
+   > 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   > 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+   > 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   > 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+   > 	at com.carrotsearch.randomizedtesting.RandomizedRunner.invoke(RandomizedRunner.java:1758)
+   > 	at com.carrotsearch.randomizedtesting.RandomizedRunner$8.evaluate(RandomizedRunner.java:946)
+   > 	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:61)
+   > 	at com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)
+   > 	at com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:375)
+   > 	at com.carrotsearch.randomizedtesting.ThreadLeakControl.forkTimeoutingTask(ThreadLeakControl.java:824)
+   > 	at com.carrotsearch.randomizedtesting.ThreadLeakControl$3.evaluate(ThreadLeakControl.java:475)
+   > 	at com.carrotsearch.randomizedtesting.RandomizedRunner.runSingleTest(RandomizedRunner.java:955)
+   > 	at com.carrotsearch.randomizedtesting.RandomizedRunner$5.evaluate(RandomizedRunner.java:840)
+   > 	at com.carrotsearch.randomizedtesting.RandomizedRunner$6.evaluate(RandomizedRunner.java:891)
+   > 	at com.carrotsearch.randomizedtesting.RandomizedRunner$7.evaluate(RandomizedRunner.java:902)
+   > 	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+   > 	at com.carrotsearch.randomizedtesting.rules.StatementAdapter.evaluate(StatementAdapter.java:36)
+   > 	at com.carrotsearch.randomizedtesting.ThreadLeakControl$StatementRunner.run(ThreadLeakControl.java:375)
+   > 	at com.carrotsearch.randomizedtesting.ThreadLeakControl.lambda$forkTimeoutingTask$0(ThreadLeakControl.java:831)
+   > 	at java.base/java.lang.Thread.run(Thread.java:829)
+  1> 06:27:43,160 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test-protected.docx]
+  1> 06:27:43,168 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:44,411 ERROR [f.document] [543318f22fa821f2bb0bbc8794de8d][/] Unable to process: document is encrypted
+  1> 06:27:44,412 WARN  [f.p.e.c.f.t.TikaDocParser] Failed to extract [100000] characters of text for [/documents/test-protected.docx]: Unable to process: document is encrypted
+  1> 06:27:44,417 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test.html]
+  1> 06:27:44,422 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:44,990 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [issue-834.txt]
+  1> 06:27:44,993 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:45,128 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test.txt]
+  1> 06:27:45,133 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:45,271 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [issue-1097.pdf]
+  1> 06:27:45,272 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:45,907 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test.rtf]
+  1> 06:27:45,912 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:46,130 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test.txt]
+  1> 06:27:46,134 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:46,243 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test.txt]
+  1> 06:27:46,247 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:48,698 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test-fr.txt]
+  1> 06:27:48,702 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:48,829 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test-de.txt]
+  1> 06:27:48,834 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:48,937 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test-enfrde.txt]
+  1> 06:27:48,941 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+IGNOR/A 0.01s J0 | TikaDocParserTest.testOcr
+   > Assumption #1: Tesseract is not installed so we are skipping this test
+  1> 06:27:49,053 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [issue-400-shiftjis.txt]
+  1> 06:27:49,056 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:49,145 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [issue-stackoverflow.docx]
+  1> 06:27:49,147 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:50,961 WARN  [o.a.p.p.PDPageTree] COSDictionary expected, but got null
+  1> 06:27:50,961 WARN  [o.a.p.p.PDPageTree] COSDictionary expected, but got null
+  1> 06:27:50,961 ERROR [o.a.p.p.PDPageTree] This page tree node has already been visited
+  1> 06:27:50,961 ERROR [o.a.p.p.PDPageTree] This page tree node has already been visited
+  1> 06:27:50,962 WARN  [o.a.p.p.PDPageTree] COSDictionary expected, but got null
+  1> 06:27:50,962 WARN  [o.a.p.p.PDPageTree] COSDictionary expected, but got null
+  1> 06:27:50,962 WARN  [o.a.p.p.PDPageTree] COSDictionary expected, but got null
+  1> 06:27:50,962 WARN  [o.a.p.p.PDPageTree] COSDictionary expected, but got null
+  1> 06:27:50,962 WARN  [o.a.p.p.PDPageTree] COSDictionary expected, but got null
+  1> 06:27:50,962 WARN  [o.a.p.p.PDPageTree] COSDictionary expected, but got null
+  1> 06:27:50,962 WARN  [o.a.p.p.PDPageTree] COSDictionary expected, but got null
+  1> 06:27:50,963 WARN  [o.a.p.p.PDPageTree] COSDictionary expected, but got null
+  1> 06:27:50,963 WARN  [o.a.p.p.PDPageTree] COSDictionary expected, but got null
+  1> 06:27:50,963 WARN  [o.a.p.p.PDPageTree] COSDictionary expected, but got null
+  1> 06:27:50,963 WARN  [o.a.p.p.PDPageTree] COSDictionary expected, but got null
+  1> 06:27:50,963 WARN  [o.a.p.p.PDPageTree] COSDictionary expected, but got null
+  1> 06:27:50,963 WARN  [o.a.p.p.PDPageTree] COSDictionary expected, but got null
+  1> 06:27:50,964 WARN  [o.a.p.p.PDPageTree] COSDictionary expected, but got null
+  1> 06:27:50,970 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test.txt]
+  1> 06:27:50,972 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:51,028 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [issue-221-doc1.pdf]
+  1> 06:27:51,030 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:51,145 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [issue-221-doc2.pdf]
+  1> 06:27:51,147 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:51,213 WARN  [o.a.p.p.f.PDFont] Invalid ToUnicode CMap in font RobotoSlab-Regular
+  1> 06:27:51,213 WARN  [o.a.p.p.f.PDFont] Using predefined identity CMap instead
+  1> 06:27:51,255 WARN  [o.a.p.p.f.PDCIDFontType2] Found CFF/OTF but expected embedded TTF font RobotoSlab-Regular
+  1> 06:27:51,274 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test.docx]
+  1> 06:27:51,276 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+  1> 06:27:51,457 INFO  [f.p.e.c.f.t.TikaDocParserTest] Test extraction of [test.pdf]
+  1> 06:27:51,459 INFO  [f.p.e.c.f.t.TikaInstance] OCR is disabled.
+
+Tests with failures [seed: 2CADC98574246965]:
+  - fr.pilato.elasticsearch.crawler.fs.tika.TikaDocParserTest.testExtractFromDoc
+
+
+[INFO] JVM J0:     2.13 ..    21.51 =    19.38s
+[INFO] JVM J1:     1.90 ..    10.19 =     8.29s
+[INFO] Execution time total: 21 seconds
+[INFO] Tests summary: 2 suites, 24 tests, 1 failure, 1 ignored (1 assumption)
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for FSCrawler 2.10-SNAPSHOT:
+[INFO] 
+[INFO] FSCrawler .......................................... SUCCESS [  0.622 s]
+[INFO] FSCrawler Test Framework ........................... SUCCESS [ 15.809 s]
+[INFO] FSCrawler Framework ................................ SUCCESS [  5.117 s]
+[INFO] FSCrawler Settings ................................. SUCCESS [ 18.353 s]
+[INFO] FSCrawler Test Documents ........................... SUCCESS [  0.074 s]
+[INFO] FSCrawler Beans .................................... SUCCESS [  6.713 s]
+[INFO] FSCrawler 3rd Party libraries ...................... SUCCESS [  0.007 s]
+[INFO] FSCrawler Workplace Search Client .................. SUCCESS [  1.000 s]
+[INFO] FSCrawler Elasticsearch Client ..................... SUCCESS [  9.939 s]
+[INFO] FSCrawler Tika ..................................... FAILURE [ 29.010 s]
+[INFO] FSCrawler Crawlers ................................. SKIPPED
+[INFO] FSCrawler Abstract Crawler ......................... SKIPPED
+[INFO] FSCrawler Crawlers: FS ............................. SKIPPED
+[INFO] FSCrawler Crawlers: FTP ............................ SKIPPED
+[INFO] FSCrawler Crawlers: SSH ............................ SKIPPED
+[INFO] FSCrawler Core ..................................... SKIPPED
+[INFO] FSCrawler Rest Server .............................. SKIPPED
+[INFO] FSCrawler Integration Tests ........................ SKIPPED
+[INFO] FSCrawler Cli ...................................... SKIPPED
+[INFO] FSCrawler ZIP Distribution ......................... SKIPPED
+[INFO] FSCrawler Documentation ............................ SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:27 min
+[INFO] Finished at: 2026-11-10T09:27:51Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.2.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.0
+[WARNING]  * com.carrotsearch.randomizedtesting:junit4-maven-plugin:2.7.9
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal com.carrotsearch.randomizedtesting:junit4-maven-plugin:2.7.9:junit4 (unit-tests) on project fscrawler-tika: There were test failures: 2 suites, 24 tests, 1 failure, 1 ignored (1 assumption) [seed: 2CADC98574246965] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :fscrawler-tika

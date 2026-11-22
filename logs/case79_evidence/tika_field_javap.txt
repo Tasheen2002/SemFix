@@ -1,0 +1,871 @@
+Compiled from "POIFSContainerDetector.java"
+public class org.apache.tika.detect.microsoft.POIFSContainerDetector implements org.apache.tika.detect.Detector {
+  public static final org.apache.tika.mime.MediaType OLE;
+
+  public static final org.apache.tika.mime.MediaType OOXML_PROTECTED;
+
+  public static final org.apache.tika.mime.MediaType GENERAL_EMBEDDED;
+
+  public static final org.apache.tika.mime.MediaType OLE10_NATIVE;
+
+  public static final org.apache.tika.mime.MediaType COMP_OBJ;
+
+  public static final org.apache.tika.mime.MediaType MS_GRAPH_CHART;
+
+  public static final org.apache.tika.mime.MediaType MS_EQUATION;
+
+  public static final org.apache.tika.mime.MediaType XLS;
+
+  public static final org.apache.tika.mime.MediaType DOC;
+
+  public static final org.apache.tika.mime.MediaType PPT;
+
+  public static final org.apache.tika.mime.MediaType PUB;
+
+  public static final org.apache.tika.mime.MediaType VSD;
+
+  public static final org.apache.tika.mime.MediaType WPS;
+
+  public static final org.apache.tika.mime.MediaType XLR;
+
+  public static final org.apache.tika.mime.MediaType MSG;
+
+  public static final org.apache.tika.mime.MediaType MPP;
+
+  public static final org.apache.tika.mime.MediaType SDC;
+
+  public static final org.apache.tika.mime.MediaType SDA;
+
+  public static final org.apache.tika.mime.MediaType SDD;
+
+  public static final org.apache.tika.mime.MediaType SDW;
+
+  public static final org.apache.tika.mime.MediaType SLDWORKS;
+
+  public static final org.apache.tika.mime.MediaType ESRI_LAYER;
+
+  private static final long serialVersionUID;
+
+  private static final byte[] STAR_IMPRESS;
+
+  private static final byte[] STAR_DRAW;
+
+  private static final byte[] WORKS_QUILL96;
+
+  private static final byte[] MS_GRAPH_CHART_BYTES;
+
+  private static final java.util.regex.Pattern mppDataMatch;
+
+  private int markLimit;
+
+  public org.apache.tika.detect.microsoft.POIFSContainerDetector();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: ldc           #2                  // int 16777216
+       7: putfield      #3                  // Field markLimit:I
+      10: return
+
+  public static org.apache.tika.mime.MediaType detect(java.util.Set<java.lang.String>);
+    Code:
+       0: aload_0
+       1: aconst_null
+       2: invokestatic  #4                  // Method detect:(Ljava/util/Set;Lorg/apache/poi/poifs/filesystem/DirectoryEntry;)Lorg/apache/tika/mime/MediaType;
+       5: areturn
+
+  public static org.apache.tika.mime.MediaType detect(java.util.Set<java.lang.String>, org.apache.poi.poifs.filesystem.DirectoryEntry);
+    Code:
+       0: aload_0
+       1: ifnull        13
+       4: aload_0
+       5: invokeinterface #5,  1            // InterfaceMethod java/util/Set.size:()I
+      10: ifne          17
+      13: getstatic     #6                  // Field OLE:Lorg/apache/tika/mime/MediaType;
+      16: areturn
+      17: getstatic     #7                  // Field org/apache/poi/hssf/model/InternalWorkbook.WORKBOOK_DIR_ENTRY_NAMES:[Ljava/lang/String;
+      20: astore_2
+      21: aload_2
+      22: arraylength
+      23: istore_3
+      24: iconst_0
+      25: istore        4
+      27: iload         4
+      29: iload_3
+      30: if_icmpge     81
+      33: aload_2
+      34: iload         4
+      36: aaload
+      37: astore        5
+      39: aload_0
+      40: aload         5
+      42: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+      47: ifeq          75
+      50: aload_1
+      51: invokestatic  #9                  // Method processCompObjFormatType:(Lorg/apache/poi/poifs/filesystem/DirectoryEntry;)Lorg/apache/tika/mime/MediaType;
+      54: astore        6
+      56: aload         6
+      58: getstatic     #10                 // Field MS_GRAPH_CHART:Lorg/apache/tika/mime/MediaType;
+      61: invokevirtual #11                 // Method org/apache/tika/mime/MediaType.equals:(Ljava/lang/Object;)Z
+      64: ifeq          71
+      67: getstatic     #10                 // Field MS_GRAPH_CHART:Lorg/apache/tika/mime/MediaType;
+      70: areturn
+      71: getstatic     #12                 // Field XLS:Lorg/apache/tika/mime/MediaType;
+      74: areturn
+      75: iinc          4, 1
+      78: goto          27
+      81: aload_0
+      82: ldc           #13                 // String SwDocContentMgr
+      84: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+      89: ifeq          107
+      92: aload_0
+      93: ldc           #14                 // String SwDocMgrTempStorage
+      95: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     100: ifeq          107
+     103: getstatic     #15                 // Field SLDWORKS:Lorg/apache/tika/mime/MediaType;
+     106: areturn
+     107: aload_0
+     108: ldc           #16                 // String StarCalcDocument
+     110: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     115: ifeq          122
+     118: getstatic     #17                 // Field SDC:Lorg/apache/tika/mime/MediaType;
+     121: areturn
+     122: aload_0
+     123: ldc           #18                 // String StarWriterDocument
+     125: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     130: ifeq          137
+     133: getstatic     #19                 // Field SDW:Lorg/apache/tika/mime/MediaType;
+     136: areturn
+     137: aload_0
+     138: ldc           #20                 // String StarDrawDocument3
+     140: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     145: ifeq          161
+     148: aload_1
+     149: ifnonnull     156
+     152: getstatic     #6                  // Field OLE:Lorg/apache/tika/mime/MediaType;
+     155: areturn
+     156: aload_1
+     157: invokestatic  #9                  // Method processCompObjFormatType:(Lorg/apache/poi/poifs/filesystem/DirectoryEntry;)Lorg/apache/tika/mime/MediaType;
+     160: areturn
+     161: aload_0
+     162: ldc           #21                 // String WksSSWorkBook
+     164: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     169: ifeq          176
+     172: getstatic     #22                 // Field XLR:Lorg/apache/tika/mime/MediaType;
+     175: areturn
+     176: aload_0
+     177: ldc           #23                 // String Book
+     179: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     184: ifeq          191
+     187: getstatic     #12                 // Field XLS:Lorg/apache/tika/mime/MediaType;
+     190: areturn
+     191: aload_0
+     192: ldc           #24                 // String EncryptedPackage
+     194: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     199: ifeq          217
+     202: aload_0
+     203: ldc           #25                 // String EncryptionInfo
+     205: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     210: ifeq          217
+     213: getstatic     #26                 // Field OOXML_PROTECTED:Lorg/apache/tika/mime/MediaType;
+     216: areturn
+     217: aload_0
+     218: ldc           #24                 // String EncryptedPackage
+     220: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     225: ifeq          232
+     228: getstatic     #6                  // Field OLE:Lorg/apache/tika/mime/MediaType;
+     231: areturn
+     232: aload_0
+     233: ldc           #27                 // String WordDocument
+     235: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     240: ifeq          247
+     243: getstatic     #28                 // Field DOC:Lorg/apache/tika/mime/MediaType;
+     246: areturn
+     247: aload_0
+     248: ldc           #29                 // String Quill
+     250: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     255: ifeq          262
+     258: getstatic     #30                 // Field PUB:Lorg/apache/tika/mime/MediaType;
+     261: areturn
+     262: aload_0
+     263: ldc           #31                 // String PowerPoint Document
+     265: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     270: ifeq          277
+     273: getstatic     #32                 // Field PPT:Lorg/apache/tika/mime/MediaType;
+     276: areturn
+     277: aload_0
+     278: ldc           #33                 // String VisioDocument
+     280: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     285: ifeq          292
+     288: getstatic     #34                 // Field VSD:Lorg/apache/tika/mime/MediaType;
+     291: areturn
+     292: aload_0
+     293: ldc           #35                 // String \u0001Ole10Native
+     295: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     300: ifeq          307
+     303: getstatic     #36                 // Field OLE10_NATIVE:Lorg/apache/tika/mime/MediaType;
+     306: areturn
+     307: aload_0
+     308: ldc           #37                 // String MatOST
+     310: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     315: ifeq          322
+     318: getstatic     #38                 // Field WPS:Lorg/apache/tika/mime/MediaType;
+     321: areturn
+     322: aload_0
+     323: ldc           #39                 // String CONTENTS
+     325: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     330: ifeq          348
+     333: aload_0
+     334: ldc           #40                 // String SPELLING
+     336: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     341: ifeq          348
+     344: getstatic     #38                 // Field WPS:Lorg/apache/tika/mime/MediaType;
+     347: areturn
+     348: aload_0
+     349: ldc           #41                 // String Contents
+     351: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     356: ifeq          374
+     359: aload_0
+     360: ldc           #42                 // String \u0003ObjInfo
+     362: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     367: ifeq          374
+     370: getstatic     #43                 // Field COMP_OBJ:Lorg/apache/tika/mime/MediaType;
+     373: areturn
+     374: aload_0
+     375: ldc           #39                 // String CONTENTS
+     377: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     382: ifeq          424
+     385: aload_0
+     386: ldc           #44                 // String \u0001CompObj
+     388: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     393: ifeq          424
+     396: aload_1
+     397: ifnull        420
+     400: aload_1
+     401: invokestatic  #9                  // Method processCompObjFormatType:(Lorg/apache/poi/poifs/filesystem/DirectoryEntry;)Lorg/apache/tika/mime/MediaType;
+     404: astore_2
+     405: aload_2
+     406: getstatic     #38                 // Field WPS:Lorg/apache/tika/mime/MediaType;
+     409: if_acmpne     416
+     412: getstatic     #38                 // Field WPS:Lorg/apache/tika/mime/MediaType;
+     415: areturn
+     416: getstatic     #43                 // Field COMP_OBJ:Lorg/apache/tika/mime/MediaType;
+     419: areturn
+     420: getstatic     #43                 // Field COMP_OBJ:Lorg/apache/tika/mime/MediaType;
+     423: areturn
+     424: aload_0
+     425: ldc           #39                 // String CONTENTS
+     427: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     432: ifeq          439
+     435: getstatic     #6                  // Field OLE:Lorg/apache/tika/mime/MediaType;
+     438: areturn
+     439: aload_0
+     440: ldc           #44                 // String \u0001CompObj
+     442: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     447: ifeq          532
+     450: aload_0
+     451: ldc           #45                 // String Props
+     453: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     458: ifne          483
+     461: aload_0
+     462: ldc           #46                 // String Props9
+     464: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     469: ifne          483
+     472: aload_0
+     473: ldc           #47                 // String Props12
+     475: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     480: ifeq          532
+     483: aload_0
+     484: invokeinterface #48,  1           // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+     489: astore_2
+     490: aload_2
+     491: invokeinterface #49,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+     496: ifeq          529
+     499: aload_2
+     500: invokeinterface #50,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     505: checkcast     #51                 // class java/lang/String
+     508: astore_3
+     509: getstatic     #52                 // Field mppDataMatch:Ljava/util/regex/Pattern;
+     512: aload_3
+     513: invokevirtual #53                 // Method java/util/regex/Pattern.matcher:(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+     516: invokevirtual #54                 // Method java/util/regex/Matcher.matches:()Z
+     519: ifeq          526
+     522: getstatic     #55                 // Field MPP:Lorg/apache/tika/mime/MediaType;
+     525: areturn
+     526: goto          490
+     529: goto          604
+     532: aload_0
+     533: ldc           #56                 // String Equation Native
+     535: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     540: ifeq          547
+     543: getstatic     #57                 // Field MS_EQUATION:Lorg/apache/tika/mime/MediaType;
+     546: areturn
+     547: aload_0
+     548: ldc           #58                 // String Layer
+     550: invokeinterface #8,  2            // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+     555: ifeq          562
+     558: getstatic     #59                 // Field ESRI_LAYER:Lorg/apache/tika/mime/MediaType;
+     561: areturn
+     562: aload_0
+     563: invokeinterface #48,  1           // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+     568: astore_2
+     569: aload_2
+     570: invokeinterface #49,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+     575: ifeq          604
+     578: aload_2
+     579: invokeinterface #50,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     584: checkcast     #51                 // class java/lang/String
+     587: astore_3
+     588: aload_3
+     589: ldc           #60                 // String __substg1.0_
+     591: invokevirtual #61                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+     594: ifeq          601
+     597: getstatic     #62                 // Field MSG:Lorg/apache/tika/mime/MediaType;
+     600: areturn
+     601: goto          569
+     604: getstatic     #6                  // Field OLE:Lorg/apache/tika/mime/MediaType;
+     607: areturn
+
+  private static org.apache.tika.mime.MediaType processCompObjFormatType(org.apache.poi.poifs.filesystem.DirectoryEntry);
+    Code:
+       0: aload_0
+       1: ldc           #44                 // String \u0001CompObj
+       3: invokeinterface #63,  2           // InterfaceMethod org/apache/poi/poifs/filesystem/DirectoryEntry.hasEntry:(Ljava/lang/String;)Z
+       8: ifne          15
+      11: getstatic     #6                  // Field OLE:Lorg/apache/tika/mime/MediaType;
+      14: areturn
+      15: aload_0
+      16: ldc           #44                 // String \u0001CompObj
+      18: invokeinterface #64,  2           // InterfaceMethod org/apache/poi/poifs/filesystem/DirectoryEntry.getEntry:(Ljava/lang/String;)Lorg/apache/poi/poifs/filesystem/Entry;
+      23: astore_1
+      24: aload_1
+      25: ifnull        117
+      28: aload_1
+      29: invokeinterface #65,  1           // InterfaceMethod org/apache/poi/poifs/filesystem/Entry.isDocumentEntry:()Z
+      34: ifeq          117
+      37: aload_1
+      38: checkcast     #66                 // class org/apache/poi/poifs/filesystem/DocumentNode
+      41: astore_2
+      42: new           #67                 // class org/apache/poi/poifs/filesystem/DocumentInputStream
+      45: dup
+      46: aload_2
+      47: invokespecial #68                 // Method org/apache/poi/poifs/filesystem/DocumentInputStream."<init>":(Lorg/apache/poi/poifs/filesystem/DocumentEntry;)V
+      50: astore_3
+      51: aload_3
+      52: invokestatic  #69                 // Method org/apache/commons/io/IOUtils.toByteArray:(Ljava/io/InputStream;)[B
+      55: astore        4
+      57: aload         4
+      59: getstatic     #70                 // Field MS_GRAPH_CHART_BYTES:[B
+      62: invokestatic  #71                 // Method arrayContains:([B[B)Z
+      65: ifeq          72
+      68: getstatic     #10                 // Field MS_GRAPH_CHART:Lorg/apache/tika/mime/MediaType;
+      71: areturn
+      72: aload         4
+      74: getstatic     #72                 // Field STAR_DRAW:[B
+      77: invokestatic  #71                 // Method arrayContains:([B[B)Z
+      80: ifeq          87
+      83: getstatic     #73                 // Field SDA:Lorg/apache/tika/mime/MediaType;
+      86: areturn
+      87: aload         4
+      89: getstatic     #74                 // Field STAR_IMPRESS:[B
+      92: invokestatic  #71                 // Method arrayContains:([B[B)Z
+      95: ifeq          102
+      98: getstatic     #75                 // Field SDD:Lorg/apache/tika/mime/MediaType;
+     101: areturn
+     102: aload         4
+     104: getstatic     #76                 // Field WORKS_QUILL96:[B
+     107: invokestatic  #71                 // Method arrayContains:([B[B)Z
+     110: ifeq          117
+     113: getstatic     #38                 // Field WPS:Lorg/apache/tika/mime/MediaType;
+     116: areturn
+     117: goto          124
+     120: astore_1
+     121: aload_1
+     122: athrow
+     123: astore_1
+     124: getstatic     #6                  // Field OLE:Lorg/apache/tika/mime/MediaType;
+     127: areturn
+    Exception table:
+       from    to  target type
+           0    14   120   Class java/lang/SecurityException
+          15    71   120   Class java/lang/SecurityException
+          72    86   120   Class java/lang/SecurityException
+          87   101   120   Class java/lang/SecurityException
+         102   116   120   Class java/lang/SecurityException
+           0    14   123   Class java/lang/Exception
+          15    71   123   Class java/lang/Exception
+          72    86   123   Class java/lang/Exception
+          87   101   123   Class java/lang/Exception
+         102   116   123   Class java/lang/Exception
+
+  private static boolean arrayContains(byte[], byte[]);
+    Code:
+       0: iconst_0
+       1: istore_2
+       2: iconst_0
+       3: istore_3
+       4: iload_2
+       5: aload_0
+       6: arraylength
+       7: if_icmpge     44
+      10: aload_0
+      11: iload_2
+      12: baload
+      13: aload_1
+      14: iload_3
+      15: baload
+      16: if_icmpne     33
+      19: iinc          2, 1
+      22: iinc          3, 1
+      25: iload_3
+      26: aload_1
+      27: arraylength
+      28: if_icmpne     4
+      31: iconst_1
+      32: ireturn
+      33: iload_2
+      34: iload_3
+      35: isub
+      36: iconst_1
+      37: iadd
+      38: istore_2
+      39: iconst_0
+      40: istore_3
+      41: goto          4
+      44: iconst_0
+      45: ireturn
+
+  private static java.util.Set<java.lang.String> getTopLevelNames(org.apache.poi.poifs.filesystem.DirectoryNode);
+    Code:
+       0: new           #79                 // class java/util/HashSet
+       3: dup
+       4: invokespecial #80                 // Method java/util/HashSet."<init>":()V
+       7: astore_1
+       8: aload_0
+       9: invokevirtual #81                 // Method org/apache/poi/poifs/filesystem/DirectoryNode.iterator:()Ljava/util/Iterator;
+      12: astore_2
+      13: aload_2
+      14: invokeinterface #49,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+      19: ifeq          48
+      22: aload_2
+      23: invokeinterface #50,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      28: checkcast     #82                 // class org/apache/poi/poifs/filesystem/Entry
+      31: astore_3
+      32: aload_1
+      33: aload_3
+      34: invokeinterface #83,  1           // InterfaceMethod org/apache/poi/poifs/filesystem/Entry.getName:()Ljava/lang/String;
+      39: invokeinterface #84,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+      44: pop
+      45: goto          13
+      48: aload_1
+      49: areturn
+
+  public void setMarkLimit(int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #3                  // Field markLimit:I
+       5: return
+
+  private java.util.Set<java.lang.String> getTopLevelNames(org.apache.tika.io.TikaInputStream) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #3                  // Field markLimit:I
+       5: invokevirtual #85                 // Method org/apache/tika/io/TikaInputStream.getPath:(I)Ljava/nio/file/Path;
+       8: astore_2
+       9: aload_2
+      10: ifnonnull     17
+      13: invokestatic  #86                 // Method java/util/Collections.emptySet:()Ljava/util/Set;
+      16: areturn
+      17: new           #87                 // class org/apache/poi/poifs/filesystem/POIFSFileSystem
+      20: dup
+      21: aload_2
+      22: invokeinterface #88,  1           // InterfaceMethod java/nio/file/Path.toFile:()Ljava/io/File;
+      27: iconst_1
+      28: invokespecial #89                 // Method org/apache/poi/poifs/filesystem/POIFSFileSystem."<init>":(Ljava/io/File;Z)V
+      31: astore_3
+      32: aload_1
+      33: aload_3
+      34: invokevirtual #90                 // Method org/apache/tika/io/TikaInputStream.setOpenContainer:(Ljava/lang/Object;)V
+      37: aload_3
+      38: invokevirtual #91                 // Method org/apache/poi/poifs/filesystem/POIFSFileSystem.getRoot:()Lorg/apache/poi/poifs/filesystem/DirectoryNode;
+      41: invokestatic  #92                 // Method getTopLevelNames:(Lorg/apache/poi/poifs/filesystem/DirectoryNode;)Ljava/util/Set;
+      44: areturn
+      45: astore_3
+      46: invokestatic  #86                 // Method java/util/Collections.emptySet:()Ljava/util/Set;
+      49: areturn
+      50: astore_3
+      51: invokestatic  #86                 // Method java/util/Collections.emptySet:()Ljava/util/Set;
+      54: areturn
+    Exception table:
+       from    to  target type
+          17    44    45   Class java/io/IOException
+          17    44    50   Class java/lang/RuntimeException
+
+  public org.apache.tika.mime.MediaType detect(java.io.InputStream, org.apache.tika.metadata.Metadata) throws java.io.IOException;
+    Code:
+       0: aload_1
+       1: ifnonnull     8
+       4: getstatic     #95                 // Field org/apache/tika/mime/MediaType.OCTET_STREAM:Lorg/apache/tika/mime/MediaType;
+       7: areturn
+       8: aload_1
+       9: invokestatic  #96                 // Method org/apache/tika/io/TikaInputStream.cast:(Ljava/io/InputStream;)Lorg/apache/tika/io/TikaInputStream;
+      12: astore_3
+      13: aconst_null
+      14: astore        4
+      16: aload_3
+      17: ifnull        68
+      20: aload_3
+      21: invokevirtual #97                 // Method org/apache/tika/io/TikaInputStream.getOpenContainer:()Ljava/lang/Object;
+      24: astore        5
+      26: aload         5
+      28: instanceof    #87                 // class org/apache/poi/poifs/filesystem/POIFSFileSystem
+      31: ifeq          50
+      34: aload         5
+      36: checkcast     #87                 // class org/apache/poi/poifs/filesystem/POIFSFileSystem
+      39: invokevirtual #91                 // Method org/apache/poi/poifs/filesystem/POIFSFileSystem.getRoot:()Lorg/apache/poi/poifs/filesystem/DirectoryNode;
+      42: invokestatic  #92                 // Method getTopLevelNames:(Lorg/apache/poi/poifs/filesystem/DirectoryNode;)Ljava/util/Set;
+      45: astore        4
+      47: goto          68
+      50: aload         5
+      52: instanceof    #98                 // class org/apache/poi/poifs/filesystem/DirectoryNode
+      55: ifeq          68
+      58: aload         5
+      60: checkcast     #98                 // class org/apache/poi/poifs/filesystem/DirectoryNode
+      63: invokestatic  #92                 // Method getTopLevelNames:(Lorg/apache/poi/poifs/filesystem/DirectoryNode;)Ljava/util/Set;
+      66: astore        4
+      68: aload         4
+      70: ifnonnull     199
+      73: aload_1
+      74: bipush        8
+      76: invokevirtual #99                 // Method java/io/InputStream.mark:(I)V
+      79: aload_1
+      80: invokevirtual #100                // Method java/io/InputStream.read:()I
+      83: sipush        208
+      86: if_icmpne     157
+      89: aload_1
+      90: invokevirtual #100                // Method java/io/InputStream.read:()I
+      93: sipush        207
+      96: if_icmpne     157
+      99: aload_1
+     100: invokevirtual #100                // Method java/io/InputStream.read:()I
+     103: bipush        17
+     105: if_icmpne     157
+     108: aload_1
+     109: invokevirtual #100                // Method java/io/InputStream.read:()I
+     112: sipush        224
+     115: if_icmpne     157
+     118: aload_1
+     119: invokevirtual #100                // Method java/io/InputStream.read:()I
+     122: sipush        161
+     125: if_icmpne     157
+     128: aload_1
+     129: invokevirtual #100                // Method java/io/InputStream.read:()I
+     132: sipush        177
+     135: if_icmpne     157
+     138: aload_1
+     139: invokevirtual #100                // Method java/io/InputStream.read:()I
+     142: bipush        26
+     144: if_icmpne     157
+     147: aload_1
+     148: invokevirtual #100                // Method java/io/InputStream.read:()I
+     151: sipush        225
+     154: if_icmpeq     169
+     157: getstatic     #95                 // Field org/apache/tika/mime/MediaType.OCTET_STREAM:Lorg/apache/tika/mime/MediaType;
+     160: astore        5
+     162: aload_1
+     163: invokevirtual #101                // Method java/io/InputStream.reset:()V
+     166: aload         5
+     168: areturn
+     169: aload_1
+     170: invokevirtual #101                // Method java/io/InputStream.reset:()V
+     173: goto          199
+     176: astore        5
+     178: getstatic     #95                 // Field org/apache/tika/mime/MediaType.OCTET_STREAM:Lorg/apache/tika/mime/MediaType;
+     181: astore        6
+     183: aload_1
+     184: invokevirtual #101                // Method java/io/InputStream.reset:()V
+     187: aload         6
+     189: areturn
+     190: astore        7
+     192: aload_1
+     193: invokevirtual #101                // Method java/io/InputStream.reset:()V
+     196: aload         7
+     198: athrow
+     199: aload         4
+     201: ifnonnull     215
+     204: aload_3
+     205: ifnull        215
+     208: aload_0
+     209: aload_3
+     210: invokespecial #102                // Method getTopLevelNames:(Lorg/apache/tika/io/TikaInputStream;)Ljava/util/Set;
+     213: astore        4
+     215: aload_3
+     216: ifnull        252
+     219: aload_3
+     220: invokevirtual #97                 // Method org/apache/tika/io/TikaInputStream.getOpenContainer:()Ljava/lang/Object;
+     223: ifnull        252
+     226: aload_3
+     227: invokevirtual #97                 // Method org/apache/tika/io/TikaInputStream.getOpenContainer:()Ljava/lang/Object;
+     230: instanceof    #87                 // class org/apache/poi/poifs/filesystem/POIFSFileSystem
+     233: ifeq          252
+     236: aload         4
+     238: aload_3
+     239: invokevirtual #97                 // Method org/apache/tika/io/TikaInputStream.getOpenContainer:()Ljava/lang/Object;
+     242: checkcast     #87                 // class org/apache/poi/poifs/filesystem/POIFSFileSystem
+     245: invokevirtual #91                 // Method org/apache/poi/poifs/filesystem/POIFSFileSystem.getRoot:()Lorg/apache/poi/poifs/filesystem/DirectoryNode;
+     248: invokestatic  #4                  // Method detect:(Ljava/util/Set;Lorg/apache/poi/poifs/filesystem/DirectoryEntry;)Lorg/apache/tika/mime/MediaType;
+     251: areturn
+     252: aload         4
+     254: aconst_null
+     255: invokestatic  #4                  // Method detect:(Ljava/util/Set;Lorg/apache/poi/poifs/filesystem/DirectoryEntry;)Lorg/apache/tika/mime/MediaType;
+     258: areturn
+    Exception table:
+       from    to  target type
+          79   162   176   Class java/io/IOException
+          79   162   190   any
+         176   183   190   any
+         190   192   190   any
+
+  static {};
+    Code:
+       0: ldc           #103                // String x-tika-msoffice
+       2: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+       5: putstatic     #6                  // Field OLE:Lorg/apache/tika/mime/MediaType;
+       8: ldc           #105                // String x-tika-ooxml-protected
+      10: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+      13: putstatic     #26                 // Field OOXML_PROTECTED:Lorg/apache/tika/mime/MediaType;
+      16: ldc           #106                // String x-tika-msoffice-embedded
+      18: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+      21: putstatic     #107                // Field GENERAL_EMBEDDED:Lorg/apache/tika/mime/MediaType;
+      24: new           #108                // class org/apache/tika/mime/MediaType
+      27: dup
+      28: getstatic     #107                // Field GENERAL_EMBEDDED:Lorg/apache/tika/mime/MediaType;
+      31: ldc           #109                // String format
+      33: ldc           #110                // String ole10_native
+      35: invokespecial #111                // Method org/apache/tika/mime/MediaType."<init>":(Lorg/apache/tika/mime/MediaType;Ljava/lang/String;Ljava/lang/String;)V
+      38: putstatic     #36                 // Field OLE10_NATIVE:Lorg/apache/tika/mime/MediaType;
+      41: new           #108                // class org/apache/tika/mime/MediaType
+      44: dup
+      45: getstatic     #107                // Field GENERAL_EMBEDDED:Lorg/apache/tika/mime/MediaType;
+      48: ldc           #109                // String format
+      50: ldc           #112                // String comp_obj
+      52: invokespecial #111                // Method org/apache/tika/mime/MediaType."<init>":(Lorg/apache/tika/mime/MediaType;Ljava/lang/String;Ljava/lang/String;)V
+      55: putstatic     #43                 // Field COMP_OBJ:Lorg/apache/tika/mime/MediaType;
+      58: ldc           #113                // String vnd.ms-graph
+      60: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+      63: putstatic     #10                 // Field MS_GRAPH_CHART:Lorg/apache/tika/mime/MediaType;
+      66: ldc           #114                // String vnd.ms-equation
+      68: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+      71: putstatic     #57                 // Field MS_EQUATION:Lorg/apache/tika/mime/MediaType;
+      74: ldc           #115                // String vnd.ms-excel
+      76: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+      79: putstatic     #12                 // Field XLS:Lorg/apache/tika/mime/MediaType;
+      82: ldc           #116                // String msword
+      84: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+      87: putstatic     #28                 // Field DOC:Lorg/apache/tika/mime/MediaType;
+      90: ldc           #117                // String vnd.ms-powerpoint
+      92: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+      95: putstatic     #32                 // Field PPT:Lorg/apache/tika/mime/MediaType;
+      98: ldc           #118                // String x-mspublisher
+     100: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+     103: putstatic     #30                 // Field PUB:Lorg/apache/tika/mime/MediaType;
+     106: ldc           #119                // String vnd.visio
+     108: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+     111: putstatic     #34                 // Field VSD:Lorg/apache/tika/mime/MediaType;
+     114: ldc           #120                // String vnd.ms-works
+     116: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+     119: putstatic     #38                 // Field WPS:Lorg/apache/tika/mime/MediaType;
+     122: ldc           #121                // String x-tika-msworks-spreadsheet
+     124: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+     127: putstatic     #22                 // Field XLR:Lorg/apache/tika/mime/MediaType;
+     130: ldc           #122                // String vnd.ms-outlook
+     132: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+     135: putstatic     #62                 // Field MSG:Lorg/apache/tika/mime/MediaType;
+     138: ldc           #123                // String vnd.ms-project
+     140: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+     143: putstatic     #55                 // Field MPP:Lorg/apache/tika/mime/MediaType;
+     146: ldc           #124                // String vnd.stardivision.calc
+     148: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+     151: putstatic     #17                 // Field SDC:Lorg/apache/tika/mime/MediaType;
+     154: ldc           #125                // String vnd.stardivision.draw
+     156: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+     159: putstatic     #73                 // Field SDA:Lorg/apache/tika/mime/MediaType;
+     162: ldc           #126                // String vnd.stardivision.impress
+     164: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+     167: putstatic     #75                 // Field SDD:Lorg/apache/tika/mime/MediaType;
+     170: ldc           #127                // String vnd.stardivision.writer
+     172: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+     175: putstatic     #19                 // Field SDW:Lorg/apache/tika/mime/MediaType;
+     178: ldc           #128                // String sldworks
+     180: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+     183: putstatic     #15                 // Field SLDWORKS:Lorg/apache/tika/mime/MediaType;
+     186: ldc           #129                // String x-esri-layer
+     188: invokestatic  #104                // Method org/apache/tika/mime/MediaType.application:(Ljava/lang/String;)Lorg/apache/tika/mime/MediaType;
+     191: putstatic     #59                 // Field ESRI_LAYER:Lorg/apache/tika/mime/MediaType;
+     194: ldc           #130                // String StarImpress
+     196: getstatic     #131                // Field java/nio/charset/StandardCharsets.US_ASCII:Ljava/nio/charset/Charset;
+     199: invokevirtual #132                // Method java/lang/String.getBytes:(Ljava/nio/charset/Charset;)[B
+     202: putstatic     #74                 // Field STAR_IMPRESS:[B
+     205: ldc           #133                // String StarDraw
+     207: getstatic     #131                // Field java/nio/charset/StandardCharsets.US_ASCII:Ljava/nio/charset/Charset;
+     210: invokevirtual #132                // Method java/lang/String.getBytes:(Ljava/nio/charset/Charset;)[B
+     213: putstatic     #72                 // Field STAR_DRAW:[B
+     216: ldc           #134                // String Quill96
+     218: getstatic     #131                // Field java/nio/charset/StandardCharsets.US_ASCII:Ljava/nio/charset/Charset;
+     221: invokevirtual #132                // Method java/lang/String.getBytes:(Ljava/nio/charset/Charset;)[B
+     224: putstatic     #76                 // Field WORKS_QUILL96:[B
+     227: ldc           #135                // String MSGraph.Chart
+     229: getstatic     #131                // Field java/nio/charset/StandardCharsets.US_ASCII:Ljava/nio/charset/Charset;
+     232: invokevirtual #132                // Method java/lang/String.getBytes:(Ljava/nio/charset/Charset;)[B
+     235: putstatic     #70                 // Field MS_GRAPH_CHART_BYTES:[B
+     238: ldc           #136                // String \\s\\s\\s\\d+
+     240: invokestatic  #137                // Method java/util/regex/Pattern.compile:(Ljava/lang/String;)Ljava/util/regex/Pattern;
+     243: putstatic     #52                 // Field mppDataMatch:Ljava/util/regex/Pattern;
+     246: return
+}
+Compiled from "ExcelExtractor.java"
+public class org.apache.tika.parser.microsoft.ExcelExtractor extends org.apache.tika.parser.microsoft.AbstractPOIFSExtractor {
+  private static final java.lang.String BOOK_ENTRY;
+
+  private boolean listenForAllRecords;
+
+  public org.apache.tika.parser.microsoft.ExcelExtractor(org.apache.tika.parser.ParseContext, org.apache.tika.metadata.Metadata);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokespecial #1                  // Method org/apache/tika/parser/microsoft/AbstractPOIFSExtractor."<init>":(Lorg/apache/tika/parser/ParseContext;Lorg/apache/tika/metadata/Metadata;)V
+       6: aload_0
+       7: iconst_0
+       8: putfield      #2                  // Field listenForAllRecords:Z
+      11: return
+
+  private static java.lang.String findWorkbookEntry(org.apache.poi.poifs.filesystem.DirectoryNode);
+    Code:
+       0: getstatic     #3                  // Field org/apache/poi/hssf/model/InternalWorkbook.WORKBOOK_DIR_ENTRY_NAMES:[Ljava/lang/String;
+       3: astore_1
+       4: aload_1
+       5: arraylength
+       6: istore_2
+       7: iconst_0
+       8: istore_3
+       9: iload_3
+      10: iload_2
+      11: if_icmpge     37
+      14: aload_1
+      15: iload_3
+      16: aaload
+      17: astore        4
+      19: aload_0
+      20: aload         4
+      22: invokevirtual #4                  // Method org/apache/poi/poifs/filesystem/DirectoryNode.hasEntry:(Ljava/lang/String;)Z
+      25: ifeq          31
+      28: aload         4
+      30: areturn
+      31: iinc          3, 1
+      34: goto          9
+      37: aconst_null
+      38: areturn
+
+  public boolean isListenForAllRecords();
+    Code:
+       0: aload_0
+       1: getfield      #2                  // Field listenForAllRecords:Z
+       4: ireturn
+
+  public void setListenForAllRecords(boolean);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #2                  // Field listenForAllRecords:Z
+       5: return
+
+  protected void parse(org.apache.poi.poifs.filesystem.POIFSFileSystem, org.apache.tika.sax.XHTMLContentHandler, java.util.Locale) throws java.io.IOException, org.xml.sax.SAXException, org.apache.tika.exception.TikaException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #5                  // Method org/apache/poi/poifs/filesystem/POIFSFileSystem.getRoot:()Lorg/apache/poi/poifs/filesystem/DirectoryNode;
+       5: aload_2
+       6: aload_3
+       7: invokevirtual #6                  // Method parse:(Lorg/apache/poi/poifs/filesystem/DirectoryNode;Lorg/apache/tika/sax/XHTMLContentHandler;Ljava/util/Locale;)V
+      10: return
+
+  protected void parse(org.apache.poi.poifs.filesystem.DirectoryNode, org.apache.tika.sax.XHTMLContentHandler, java.util.Locale) throws java.io.IOException, org.xml.sax.SAXException, org.apache.tika.exception.TikaException;
+    Code:
+       0: aload_1
+       1: invokestatic  #7                  // Method findWorkbookEntry:(Lorg/apache/poi/poifs/filesystem/DirectoryNode;)Ljava/lang/String;
+       4: astore        4
+       6: aload         4
+       8: ifnonnull     47
+      11: aload_1
+      12: ldc           #9                  // String Book
+      14: invokevirtual #4                  // Method org/apache/poi/poifs/filesystem/DirectoryNode.hasEntry:(Ljava/lang/String;)Z
+      17: ifeq          37
+      20: new           #10                 // class org/apache/poi/hssf/extractor/OldExcelExtractor
+      23: dup
+      24: aload_1
+      25: invokespecial #11                 // Method org/apache/poi/hssf/extractor/OldExcelExtractor."<init>":(Lorg/apache/poi/poifs/filesystem/DirectoryNode;)V
+      28: astore        5
+      30: aload         5
+      32: aload_2
+      33: invokestatic  #12                 // Method org/apache/tika/parser/microsoft/OldExcelParser.parse:(Lorg/apache/poi/hssf/extractor/OldExcelExtractor;Lorg/apache/tika/sax/XHTMLContentHandler;)V
+      36: return
+      37: new           #13                 // class org/apache/tika/exception/TikaException
+      40: dup
+      41: ldc           #14                 // String Couldn\'t find workbook entry
+      43: invokespecial #15                 // Method org/apache/tika/exception/TikaException."<init>":(Ljava/lang/String;)V
+      46: athrow
+      47: aload_0
+      48: invokevirtual #16                 // Method getPassword:()Ljava/lang/String;
+      51: invokestatic  #17                 // Method org/apache/poi/hssf/record/crypto/Biff8EncryptionKey.setCurrentUserPassword:(Ljava/lang/String;)V
+      54: new           #18                 // class org/apache/tika/parser/microsoft/ExcelExtractor$TikaHSSFListener
+      57: dup
+      58: aload         4
+      60: aload_2
+      61: aload_3
+      62: aload_0
+      63: aload_0
+      64: getfield      #19                 // Field officeParserConfig:Lorg/apache/tika/parser/microsoft/OfficeParserConfig;
+      67: aconst_null
+      68: invokespecial #20                 // Method org/apache/tika/parser/microsoft/ExcelExtractor$TikaHSSFListener."<init>":(Ljava/lang/String;Lorg/apache/tika/sax/XHTMLContentHandler;Ljava/util/Locale;Lorg/apache/tika/parser/microsoft/AbstractPOIFSExtractor;Lorg/apache/tika/parser/microsoft/OfficeParserConfig;Lorg/apache/tika/parser/microsoft/ExcelExtractor$1;)V
+      71: astore        5
+      73: aload         5
+      75: aload_1
+      76: aload_0
+      77: invokevirtual #21                 // Method isListenForAllRecords:()Z
+      80: invokevirtual #22                 // Method org/apache/tika/parser/microsoft/ExcelExtractor$TikaHSSFListener.processFile:(Lorg/apache/poi/poifs/filesystem/DirectoryNode;Z)V
+      83: aload         5
+      85: invokevirtual #23                 // Method org/apache/tika/parser/microsoft/ExcelExtractor$TikaHSSFListener.throwStoredException:()V
+      88: aload_1
+      89: invokevirtual #24                 // Method org/apache/poi/poifs/filesystem/DirectoryNode.iterator:()Ljava/util/Iterator;
+      92: astore        6
+      94: aload         6
+      96: invokeinterface #25,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+     101: ifeq          157
+     104: aload         6
+     106: invokeinterface #26,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     111: checkcast     #27                 // class org/apache/poi/poifs/filesystem/Entry
+     114: astore        7
+     116: aload         7
+     118: invokeinterface #28,  1           // InterfaceMethod org/apache/poi/poifs/filesystem/Entry.getName:()Ljava/lang/String;
+     123: ldc           #29                 // String MBD
+     125: invokevirtual #30                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+     128: ifeq          154
+     131: aload         7
+     133: instanceof    #31                 // class org/apache/poi/poifs/filesystem/DirectoryEntry
+     136: ifeq          154
+     139: aload_0
+     140: aload         7
+     142: checkcast     #31                 // class org/apache/poi/poifs/filesystem/DirectoryEntry
+     145: aload_2
+     146: invokevirtual #32                 // Method handleEmbeddedOfficeDoc:(Lorg/apache/poi/poifs/filesystem/DirectoryEntry;Lorg/apache/tika/sax/XHTMLContentHandler;)V
+     149: goto          154
+     152: astore        8
+     154: goto          94
+     157: return
+    Exception table:
+       from    to  target type
+         139   149   152   Class org/apache/tika/exception/TikaException
+}

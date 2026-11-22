@@ -1,0 +1,34 @@
+﻿
+=== Case 32  2b60dcd83ece76e58dee05be56f00eba6deb4ac6 ===
+Project : matteobaccan/html2pop3
+Update  : ch.qos.logback:logback-classic  1.2.11 -> 1.4.0
+Image not present locally, pulling ghcr.io/chains-project/breaking-updates:2b60dcd83ece76e58dee05be56f00eba6deb4ac6-breaking ...
+Running breaking in container manual-case32-breaking (this can take several minutes) ...
+Finished in 23 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case32_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 5, Failures: 0, Errors: 2, Skipped: 0
+First failing tests / errors:
+  [ERROR] it.baccan.html2pop3.utils.FilterTest.testAdd  Time elapsed: 0.023 s  <<< ERROR!
+      java.lang.NoSuchMethodError: 'java.lang.String ch.qos.logback.core.util.EnvUtil.logbackVersion()'
+      at ch.qos.logback.classic.util.ContextInitializer.autoConfig(ContextInitializer.java:81)
+      at ch.qos.logback.classic.util.ContextInitializer.autoConfig(ContextInitializer.java:77)
+  [ERROR] it.baccan.html2pop3.utils.FilterTest.testIsAllow  Time elapsed: 0.002 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class it.baccan.html2pop3.utils.FilterTest
+      at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  NoSuchMethodError x1
+  NoClassDefFoundError x1
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : logback-classic 1.4.0 with logback-core 1.2.11 (archived) -> NoSuchMethodError EnvUtil.logbackVersion(); second error is follow-on 'Could not initialize class FilterTest'
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

@@ -1,0 +1,138 @@
+{
+  "purpose": "Class-origin diagnostic because original XML exposes only Maven launcher classpath",
+  "only_adjustment": "Add and select one standalone diagnostic test in separate containers; original production source and dependency versions retained",
+  "runs": [
+    {
+      "phase": "pre",
+      "image_id": "sha256:95825983b55ce6ca5acd271ebb2af1c3d73546d0cd0e4952da26029d7f41eaae",
+      "command": [
+        "docker",
+        "run",
+        "--name",
+        "research-case128-origins-pre",
+        "--mount",
+        "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case128_evidence\\Case128ClassOriginsTest.java,target=/IDS-Messaging-Services/messaging/src/test/java/Case128ClassOriginsTest.java,readonly",
+        "--entrypoint",
+        "mvn",
+        "sha256:95825983b55ce6ca5acd271ebb2af1c3d73546d0cd0e4952da26029d7f41eaae",
+        "clean",
+        "test",
+        "-B",
+        "-pl",
+        "messaging",
+        "-am",
+        "-Dtest=Case128ClassOriginsTest",
+        "-Dsurefire.failIfNoSpecifiedTests=false"
+      ],
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-11-10T10:43:15.4153917Z",
+        "FinishedAt": "2026-11-10T10:43:58.852016609Z"
+      },
+      "exit_code": 0,
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "resources": [
+        {
+          "resource": "com/fasterxml/jackson/databind/ObjectMapper.class",
+          "origin": "jar:file:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.10.8/jackson-databind-2.9.10.8.jar!/com/fasterxml/jackson/databind/ObjectMapper.class"
+        },
+        {
+          "resource": "com/fasterxml/jackson/core/JsonFactory.class",
+          "origin": "jar:file:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.10/jackson-core-2.9.10.jar!/com/fasterxml/jackson/core/JsonFactory.class"
+        },
+        {
+          "resource": "com/fasterxml/jackson/annotation/JsonProperty.class",
+          "origin": "jar:file:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.11.2/jackson-annotations-2.11.2.jar!/com/fasterxml/jackson/annotation/JsonProperty.class"
+        },
+        {
+          "resource": "com/fasterxml/jackson/annotation/JsonKey.class",
+          "origin": "ABSENT"
+        }
+      ],
+      "resolved_jackson_paths": [
+        "/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.11.2/jackson-annotations-2.11.2.jar",
+        "/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.10/jackson-core-2.9.10.jar",
+        "/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.10.8/jackson-databind-2.9.10.8.jar"
+      ]
+    },
+    {
+      "phase": "breaking",
+      "image_id": "sha256:1ce8a2830ccf92c3da6442bcdef98a5ad545ba85c6c8e1c6a69ad0da2fef96b8",
+      "command": [
+        "docker",
+        "run",
+        "--name",
+        "research-case128-origins-breaking",
+        "--mount",
+        "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case128_evidence\\Case128ClassOriginsTest.java,target=/IDS-Messaging-Services/messaging/src/test/java/Case128ClassOriginsTest.java,readonly",
+        "--entrypoint",
+        "mvn",
+        "sha256:1ce8a2830ccf92c3da6442bcdef98a5ad545ba85c6c8e1c6a69ad0da2fef96b8",
+        "clean",
+        "test",
+        "-B",
+        "-pl",
+        "messaging",
+        "-am",
+        "-Dtest=Case128ClassOriginsTest",
+        "-Dsurefire.failIfNoSpecifiedTests=false"
+      ],
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-11-10T10:44:00.194095218Z",
+        "FinishedAt": "2026-11-10T10:44:44.899408235Z"
+      },
+      "exit_code": 0,
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "resources": [
+        {
+          "resource": "com/fasterxml/jackson/databind/ObjectMapper.class",
+          "origin": "jar:file:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2.1/jackson-databind-2.13.2.1.jar!/com/fasterxml/jackson/databind/ObjectMapper.class"
+        },
+        {
+          "resource": "com/fasterxml/jackson/core/JsonFactory.class",
+          "origin": "jar:file:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar!/com/fasterxml/jackson/core/JsonFactory.class"
+        },
+        {
+          "resource": "com/fasterxml/jackson/annotation/JsonProperty.class",
+          "origin": "jar:file:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.11.2/jackson-annotations-2.11.2.jar!/com/fasterxml/jackson/annotation/JsonProperty.class"
+        },
+        {
+          "resource": "com/fasterxml/jackson/annotation/JsonKey.class",
+          "origin": "ABSENT"
+        }
+      ],
+      "resolved_jackson_paths": [
+        "/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.11.2/jackson-annotations-2.11.2.jar",
+        "/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar",
+        "/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2.1/jackson-databind-2.13.2.1.jar"
+      ]
+    }
+  ]
+}

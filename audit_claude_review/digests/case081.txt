@@ -1,0 +1,99 @@
+=== CASE 81 6b2f30ebeacbc54b3b86971b2f2513c7ba9cf872
+  project=pac4j/dropwizard-pac4j dep=org.hibernate.validator:hibernate-validator 6.2.4.Final -> 8.0.0.Final scope=compile type=other java=11
+  PR=https://github.com/pac4j/dropwizard-pac4j/pull/326
+  PRE log logs/batch_triage/6b2f30eb_pre.log:
+  lines=474
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/6b2f30eb_breaking.log:
+  lines=724
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 16, Failures: 0, Errors: 16, Skipped: 0
+  failing classes: Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 1.293 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndServletTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndTest || Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 1.047 s <<< FAILURE! - in org.pac4j.dropwizard.factory.DefaultConfigurationTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.026 s <<< FAILURE! - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+  section: Errors: | BundleFactoryTest.emptyPac4jInConfig:47->AbstractApplicationTest.setup:31 » NoClassDefFound jakarta/validation/spi/ValidationProvider | BundleFactoryTest.noPac4jInConfig:31->AbstractApplicationTest.setup:31 » NoClassDefFound jakarta/validation/spi/ValidationProvider | BundleFactoryTest.sessionEnabledForced:68->AbstractApplicationTest.setup:31 » NoClassDefFound jakarta/validation/spi/ValidationProvider | BundleFactoryTest.sessiondisabledForced:83->AbstractApplicationTest.setup:31 » NoClassDefFound jakarta/validation/spi/ValidationProvider | EndToEndServletTest.grantsAccessToResources:54->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound jakarta/validation/spi/ValidationProvider | EndToEndServletTest.grantsAccessToResourcesForm:36->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound jakarta/validation/spi/ValidationProvider | EndToEndServletTest.restrictsAccessToResources:69->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound jakarta/validation/spi/ValidationProvider | EndToEndTest.grantsAccessToResources:54->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound jakarta/validation/spi/ValidationProvider | EndToEndTest.grantsAccessToResou
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project dropwizard-pac4j: 
+  FAILBLOCK: [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources  Time elapsed: 0.926 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: jakarta/validation/spi/ValidationProvider
+      at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+      at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+      at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:174)
+      at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:800)
+      at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:698)
+      Caused by: java.lang.ClassNotFoundException: jakarta.validation.spi.ValidationProvider
+  distinct fail signatures (count): 16x java.lang.NoClassDefFoundError: jakarta/validation/spi/ValidationProvider
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx16, java.lang.ClassNotFoundExceptionx1
+  EVIDENCE logs/case81_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/hibernate-validator-8.0.0.Final.jar, breaking/jakarta.validation-api-2.0.2.jar, pre/archive_summary.json, pre/artifacts.tar, pre/hibernate-validator-6.2.4.Final.jar, pre/jakarta.validation-api-2.0.2.jar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[16, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[16, 0, 16, 0]
+  archived non-report files: pre=27 breaking=27 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -195,3 +195,3 @@
+             <artifactId>hibernate-validator</artifactId>
+    -        <version>6.2.4.Final</version>
+    +        <version>8.0.0.Final</version>
+           </dependency>
+  BREAKING surefire failures/errors:
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#emptyPac4jInConfig type=java.lang.NoClassDefFoundError msg=jakarta/validation/spi/ValidationProvider
+       at io.dropwizard.validation.BaseValidator.newConfiguration(BaseValidator.java:24)
+       at io.dropwizard.jersey.validation.Validators.newConfiguration(Validators.java:33)
+       at io.dropwizard.jersey.validation.Validators.newValidatorFactory(Validators.java:26)
+       at io.dropwizard.setup.Bootstrap.<init>(Bootstrap.java:67)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#sessiondisabledForced type=java.lang.NoClassDefFoundError msg=jakarta/validation/spi/ValidationProvider
+       at io.dropwizard.validation.BaseValidator.newConfiguration(BaseValidator.java:24)
+       at io.dropwizard.jersey.validation.Validators.newConfiguration(Validators.java:33)
+       at io.dropwizard.jersey.validation.Validators.newValidatorFactory(Validators.java:26)
+       at io.dropwizard.setup.Bootstrap.<init>(Bootstrap.java:67)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#noPac4jInConfig type=java.lang.NoClassDefFoundError msg=jakarta/validation/spi/ValidationProvider
+       at io.dropwizard.validation.BaseValidator.newConfiguration(BaseValidator.java:24)
+       at io.dropwizard.jersey.validation.Validators.newConfiguration(Validators.java:33)
+       at io.dropwizard.jersey.validation.Validators.newValidatorFactory(Validators.java:26)
+       at io.dropwizard.setup.Bootstrap.<init>(Bootstrap.java:67)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#sessionEnabledForced type=java.lang.NoClassDefFoundError msg=jakarta/validation/spi/ValidationProvider
+       at io.dropwizard.validation.BaseValidator.newConfiguration(BaseValidator.java:24)
+       at io.dropwizard.jersey.validation.Validators.newConfiguration(Validators.java:33)
+       at io.dropwizard.jersey.validation.Validators.newValidatorFactory(Validators.java:26)
+       at io.dropwizard.setup.Bootstrap.<init>(Bootstrap.java:67)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#grantsAccessToResources type=java.lang.NoClassDefFoundError msg=jakarta/validation/spi/ValidationProvider
+       Caused by: java.lang.ClassNotFoundException: jakarta.validation.spi.ValidationProvider
+       at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+       at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+       at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:174)
+       at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:800)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#grantsAccessToResourcesForm type=java.lang.NoClassDefFoundError msg=jakarta/validation/spi/ValidationProvider
+       at io.dropwizard.validation.BaseValidator.newConfiguration(BaseValidator.java:24)
+       at io.dropwizard.jersey.validation.Validators.newConfiguration(Validators.java:33)
+       at io.dropwizard.jersey.validation.Validators.newValidatorFactory(Validators.java:26)
+       at io.dropwizard.setup.Bootstrap.<init>(Bootstrap.java:67)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#restrictsAccessToResources type=java.lang.NoClassDefFoundError msg=jakarta/validation/spi/ValidationProvider
+       at io.dropwizard.validation.BaseValidator.newConfiguration(BaseValidator.java:24)
+       at io.dropwizard.jersey.validation.Validators.newConfiguration(Validators.java:33)
+       at io.dropwizard.jersey.validation.Validators.newValidatorFactory(Validators.java:26)
+       at io.dropwizard.setup.Bootstrap.<init>(Bootstrap.java:67)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndTest#grantsAccessToResources type=java.lang.NoClassDefFoundError msg=jakarta/validation/spi/ValidationProvider
+       at io.dropwizard.validation.BaseValidator.newConfiguration(BaseValidator.java:24)
+       at io.dropwizard.jersey.validation.Validators.newConfiguration(Validators.java:33)
+       at io.dropwizard.jersey.validation.Validators.newValidatorFactory(Validators.java:26)
+       at io.dropwizard.setup.Bootstrap.<init>(Bootstrap.java:67)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndTest#grantsAccessToResourcesForm type=java.lang.NoClassDefFoundError msg=jakarta/validation/spi/ValidationProvider
+       at io.dropwizard.validation.BaseValidator.newConfiguration(BaseValidator.java:24)
+       at io.dropwizard.jersey.validation.Validators.newConfiguration(Validators.java:33)
+       at io.dropwizard.jersey.validation.Validators.newValidatorFactory(Validators.java:26)
+       at io.dropwizard.setup.Bootstrap.<init>(Bootstrap.java:67)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndTest#restrictsAccessToResources type=java.lang.NoClassDefFoundError msg=jakarta/validation/spi/ValidationProvider
+       at io.dropwizard.validation.BaseValidator.newConfiguration(BaseValidator.java:24)
+       at io.dropwizard.jersey.validation.Validators.newConfiguration(Validators.java:33)
+       at io.dropwizard.jersey.validation.Validators.newValidatorFactory(Validators.java:26)
+       at io.dropwizard.setup.Bootstrap.<init>(Bootstrap.java:67)
+    ERROR org.pac4j.dropwizard.factory.DefaultConfigurationTest#matchers type=java.lang.NoClassDefFoundError msg=jakarta/validation/spi/ValidationProvider
+       at io.dropwizard.validation.BaseValidator.newConfiguration(BaseValidator.java:24)
+       at io.dropwizard.jersey.validation.Validators.newConfiguration(Validators.java:33)
+       at io.dropwizard.jersey.validation.Validators.newValidatorFactory(Validators.java:26)
+       at io.dropwizard.jersey.validation.Validators.newValidator(Validators.java:19)
+    ERROR org.pac4j.dropwizard.factory.DefaultConfigurationTest#allOptionsClients type=java.lang.NoClassDefFoundError msg=jakarta/validation/spi/ValidationProvider
+       at io.dropwizard.validation.BaseValidator.newConfiguration(BaseValidator.java:24)
+       at io.dropwizard.jersey.validation.Validators.newConfiguration(Validators.java:33)
+       at io.dropwizard.jersey.validation.Validators.newValidatorFactory(Validators.java:26)
+    ... truncated (81 lines)
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"jakarta.validation-api-2.0.2.jar","entries":{"validation/spi/ValidationProvider.class":["javax/validation/spi/ValidationProvider.class"],"META-INF/services/javax.validation.spi.ValidationProvider":[],"META-INF/services/jakarta.validation.spi.ValidationProvider":[]}},{"phase":"pre","jar":"hibernate-validator-6.2.4.Final.jar","entries":{"validation/spi/ValidationProvider.class":[],"META-INF/services/javax.validation.spi.ValidationProvider":["META-INF/services/javax.validation.spi.ValidationProvider"],"META-INF/services/jakarta.validation.spi.ValidationProvider":[]}},{"phase":"breaking","jar":"jakarta.validation-api-2.0.2.jar","entries":{"validation/spi/ValidationProvider.class":["javax/validation/spi/ValidationProvider.class"],"META-INF/services/javax.validation.spi.ValidationProvider":[],"META-INF/services/jakarta.validation.spi.ValidationProvider":[]}},{"phase":"breaking","jar":"hibernate-validator-8.0.0.Final.jar","entries":{"validation/spi/ValidationProvider.class":[],"META-INF/services/javax.validation.spi.ValidationProvider":[],"META-INF/services/jakarta.validation.spi.ValidationProvider":["META-INF/services/jakarta.validation.spi.ValidationProvider"]}}]

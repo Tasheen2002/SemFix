@@ -1,0 +1,47 @@
+case_id:
+02363207c365b3befd6426f6dda5c8eac904d760
+
+project:
+recheck
+
+dependency:
+org.slf4j:slf4j-api
+
+old_version:
+1.7.36
+
+new_version:
+2.0.3
+
+is_semantic:
+NO
+
+semantic_category:
+NONE
+
+root_cause_category:
+RUNTIME_PROVIDER_COMPATIBILITY
+
+exception:
+java.lang.ClassCastException
+
+failing_tests:
+de.retest.recheck.ui.diff.AttributeDifferenceTest
+
+root_cause:
+After upgrading SLF4J API from 1.7.36 to 2.0.3,
+the existing Logback 1.2.11 binding is ignored because
+it uses the older SLF4J 1.7 binding mechanism.
+
+SLF4J 2.0.3 cannot find a compatible logging provider
+and therefore falls back to NOPLogger.
+
+LogUnit expects a ch.qos.logback.classic.Logger and
+attempts to cast the returned NOPLogger to that type,
+which causes java.lang.ClassCastException and test errors.
+
+confidence:
+HIGH
+
+manual_verified:
+YES

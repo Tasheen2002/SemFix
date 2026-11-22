@@ -1,0 +1,42 @@
+=== CASE 87 770174eb3091f7a6cf44cc533db18246d7d8e241
+  project=alphagov/pay-cardid dep=org.dhatim:dropwizard-sentry 2.1.2-4 -> 4.0.1-2 scope=compile type=other java=11
+  PR=https://github.com/alphagov/pay-cardid/pull/1038
+  PRE log logs/batch_triage/770174eb_pre.log:
+  lines=162
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 47, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/770174eb_breaking.log:
+  lines=174
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 37, Failures: 0, Errors: 1, Skipped: 0
+  failing classes: Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.738 s <<< FAILURE! - in uk.gov.pay.card.it.resources.CardIdResourceITest
+  section: Errors: | CardIdResourceITest » ConfigurationParsing /pay-cardid/target/classes/config/config.yaml has an error: | * Failed to parse configuration at: logging.appenders.[1]; Could not resolve type id 'sentry' as a subtype of `io.dropwizard.logging.AppenderFactory<ch.qos.logback.classic.spi.ILoggingEvent>`: known type ids = [console, file, logstash-console, syslog, tcp, tls, udp] (for POJO property 'appenders') | at [Source: UNKNOWN; byte offset: #UNKNOWN] (through reference chain: uk.gov.pay.card.app.config.CardConfiguration["logging"]->io.dropwizard.logging.DefaultLoggingFactory["appenders"]->java.util.ArrayList[1]) | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  21.224 s | [INFO] Finished at: 2026-11-10T05:43:45Z | [INFO] ------------------------------------------------------------------------
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.0:test (default-test) on project pay-cardid: 
+  FAILBLOCK: [ERROR] uk.gov.pay.card.it.resources.CardIdResourceITest  Time elapsed: 2.738 s  <<< ERROR!
+      io.dropwizard.configuration.ConfigurationParsingException:
+      /pay-cardid/target/classes/config/config.yaml has an error:
+      * Failed to parse configuration at: logging.appenders.[1]; Could not resolve type id 'sentry' as a subtype of `io.dropwizard.logging.AppenderFactory<ch.qos.logback.classic.spi.ILoggingEvent>`: known type ids = [console, file, logstash-console, syslog, tcp, tls
+      at [Source: UNKNOWN; byte offset: #UNKNOWN] (through reference chain: uk.gov.pay.card.app.config.CardConfiguration["logging"]->io.dropwizard.logging.DefaultLoggingFactory["appenders"]->java.util.ArrayList[1])
+      at io.dropwizard.configuration.ConfigurationParsingException$Builder.build(ConfigurationParsingException.java:277)
+      Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'sentry' as a subtype of `io.dropwizard.logging.AppenderFactory<ch.qos.logback.classic.spi.ILoggingEvent>`: known type ids = [console, file, logstash-console, syslo
+  distinct fail signatures (count): 1x io.dropwizard.configuration.ConfigurationParsingException:
+  exception names: io.dropwizard.configuration.ConfigurationParsingExceptionx2, com.fasterxml.jackson.databind.exc.InvalidTypeIdExceptionx2
+  EVIDENCE logs/case87_evidence: appender_javap.txt, breaking/archive_summary.json, breaking/artifacts.tar, breaking/dropwizard-logging-2.1.6.jar, breaking/dropwizard-sentry-4.0.1-2.jar, pre/archive_summary.json, pre/artifacts.tar, pre/dropwizard-logging-2.1.6.jar, pre/dropwizard-sentry-2.1.2-4.jar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=6 sum(t,f,e,s)=[47, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=6 sum(t,f,e,s)=[37, 0, 1, 0]
+  archived non-report files: pre=31 breaking=31 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -59,3 +59,3 @@
+                 <artifactId>dropwizard-sentry</artifactId>
+    -            <version>2.1.2-4</version>
+    +            <version>4.0.1-2</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    ERROR uk.gov.pay.card.it.resources.CardIdResourceITest# type=io.dropwizard.configuration.ConfigurationParsingException msg=/pay-cardid/target/classes/config/config.yaml has an error:   * Failed to parse configuration at: logging.appenders.[1]; Could not resolve type id 'sentry' as a subtype of `io.dropwizard.logging.AppenderFactory<ch.qos.logback.classic.spi.ILoggingEvent>`: known type ids = [console, file, logstash-con
+       Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'sentry' as a subtype of `io.dropwizard.logging.AppenderFactory<ch.qos.logback.classic.spi.ILoggingEvent>`: known type ids = [console, file, logstash-cons
+       at [Source: UNKNOWN; byte offset: #UNKNOWN] (through reference chain: uk.gov.pay.card.app.config.CardConfiguration["logging"]->io.dropwizard.logging.DefaultLoggingFactory["appenders"]->java.util.Array
+       at io.dropwizard.configuration.ConfigurationParsingException$Builder.build(ConfigurationParsingException.java:277)
+       at io.dropwizard.configuration.BaseConfigurationFactory.build(BaseConfigurationFactory.java:177)
+       at io.dropwizard.configuration.BaseConfigurationFactory.build(BaseConfigurationFactory.java:94)
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"dropwizard-logging-2.1.6.jar","entries":{"AppenderFactory.class":["io/dropwizard/logging/AbstractAppenderFactory.class","io/dropwizard/logging/AbstractOutputStreamAppenderFactory.class","io/dropwizard/logging/AppenderFactory.class","io/dropwizard/logging/ConsoleAppenderFactory.class","io/dropwizard/logging/FileAppenderFactory.class","io/dropwizard/logging/SyslogAppenderFactory.class","io/dropwizard/logging/TcpSocketAppenderFactory.class","io/dropwizard/logging/TlsSocketAppenderFactory.class","io/dropwizard/logging/UdpSocketAppenderFactory.class","io/dropwizard/logging/async/AsyncAppenderFactory.class","io/dropwizard/logging/async/AsyncLoggingEventAppenderFactory.class"],"META-INF/services/io.dropwizard.logging.AppenderFactory":["META-INF/services/io.dropwizard.logging.AppenderFactory"],"META-INF/services/io.dropwizard.logging.common.AppenderFactory":[]}},{"phase":"pre","jar":"dropwizard-sentry-2.1.2-4.jar","entries":{"AppenderFactory.class":["org/dhatim/dropwizard/sentry/logging/SentryAppenderFactory.class"],"META-INF/services/io.dropwizard.logging.AppenderFactory":["META-INF/services/io.dropwizard.logging.AppenderFactory"],"META-INF/services/io.dropwizard.logging.common.AppenderFactory":[]}},{"phase":"breaking","jar":"dropwizard-logging-2.1.6.jar","entries":{"AppenderFactory.class":["io/dropwizard/logging/AbstractAppenderFactory.class","io/dropwizard/log...

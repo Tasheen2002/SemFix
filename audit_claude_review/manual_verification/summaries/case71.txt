@@ -1,0 +1,45 @@
+﻿
+=== Case 71  5743793a5d54e43d9acf27e46fdb3a257ee0196f ===
+Project : googleapis/java-pubsublite
+Update  : com.google.flogger:google-extensions  0.6 -> 0.7.1
+Image not present locally, pulling ghcr.io/chains-project/breaking-updates:5743793a5d54e43d9acf27e46fdb3a257ee0196f-breaking ...
+Running breaking in container manual-case71-breaking (this can take several minutes) ...
+Finished in 123 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case71_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 331, Failures: 0, Errors: 123, Skipped: 0
+  reactor: Google Cloud Pub/Sub Lite Parent 1.2.1-SNAPSHOT .... SUCCESS [  5.873 s]
+  reactor: proto-google-cloud-pubsublite-v1 1.2.1-SNAPSHOT .... SUCCESS [ 32.153 s]
+  reactor: grpc-google-cloud-pubsublite-v1 1.2.1-SNAPSHOT ..... SUCCESS [ 17.069 s]
+  reactor: Google Cloud Pub/Sub Lite 1.2.1-SNAPSHOT ........... FAILURE [ 58.413 s]
+  reactor: Pub/Sub Lite IO 0.21.1-SNAPSHOT .................... SKIPPED
+First failing tests / errors:
+  [ERROR] com.google.cloud.pubsublite.internal.BlockingPullSubscriberImplTest.closeStops  Time elapsed: 1.651 s  <<< ERROR!
+      java.lang.ExceptionInInitializerError
+      at com.google.cloud.pubsublite.internal.BlockingPullSubscriberImplTest.closeStops(BlockingPullSubscriberImplTest.java:103)
+      Caused by: java.lang.IllegalStateException:
+  [ERROR] com.google.cloud.pubsublite.internal.BufferingPullSubscriberTest.closeStops  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ApiServiceUtils
+      at com.google.cloud.pubsublite.internal.BufferingPullSubscriberTest.closeStops(BufferingPullSubscriberTest.java:144)
+      
+  [ERROR] com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.responseAfterClose_Dropped  Time elapsed: 0.087 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class com.google.common.flogger.backend.Platform$LazyHolder
+      at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.initialize(BatchPublisherImplTest.java:203)
+      at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.responseAfterClose_Dropped(BatchPublisherImplTest.java:208)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+  Caused by: java.lang.IllegalStateException:
+  Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ApiExceptionCommitter
+Linkage / bytecode signals:
+  NoSuchMethodError x1
+  NoClassDefFoundError x122
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : google-extensions 0.7.1 with an older flogger core: DefaultPlatform fails with NoSuchMethodError StaticMethodCaller.callGetterFromSystemProperty -> IllegalStateException 'No logging platforms found' -> ExceptionInInitializerError, then 'Could not initialize class ApiServiceUtils' follow-ons [post-comparison provenance note: see root_cause_comparison]
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

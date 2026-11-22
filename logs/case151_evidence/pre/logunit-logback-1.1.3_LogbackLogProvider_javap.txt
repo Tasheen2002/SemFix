@@ -1,0 +1,245 @@
+Compiled from "LogbackLogProvider.java"
+public class io.github.netmikey.logunit.logback.LogbackLogProvider extends io.github.netmikey.logunit.core.BaseLogProvider {
+  private final io.github.netmikey.logunit.logback.ConcurrentListAppender<ch.qos.logback.classic.spi.ILoggingEvent> listAppender;
+    descriptor: Lio/github/netmikey/logunit/logback/ConcurrentListAppender;
+
+  private final java.util.Map<java.lang.String, ch.qos.logback.classic.Level> originalLevels;
+    descriptor: Ljava/util/Map;
+
+  public io.github.netmikey.logunit.logback.LogbackLogProvider();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method io/github/netmikey/logunit/core/BaseLogProvider."<init>":()V
+       4: aload_0
+       5: new           #2                  // class io/github/netmikey/logunit/logback/ConcurrentListAppender
+       8: dup
+       9: invokespecial #3                  // Method io/github/netmikey/logunit/logback/ConcurrentListAppender."<init>":()V
+      12: putfield      #4                  // Field listAppender:Lio/github/netmikey/logunit/logback/ConcurrentListAppender;
+      15: aload_0
+      16: new           #5                  // class java/util/HashMap
+      19: dup
+      20: invokespecial #6                  // Method java/util/HashMap."<init>":()V
+      23: putfield      #7                  // Field originalLevels:Ljava/util/Map;
+      26: return
+
+  public java.util.List<org.slf4j.event.LoggingEvent> getEvents();
+    descriptor: ()Ljava/util/List;
+    Code:
+       0: aload_0
+       1: getfield      #4                  // Field listAppender:Lio/github/netmikey/logunit/logback/ConcurrentListAppender;
+       4: invokevirtual #8                  // Method io/github/netmikey/logunit/logback/ConcurrentListAppender.spliterator:()Ljava/util/Spliterator;
+       7: iconst_0
+       8: invokestatic  #9                  // Method java/util/stream/StreamSupport.stream:(Ljava/util/Spliterator;Z)Ljava/util/stream/Stream;
+      11: aload_0
+      12: invokedynamic #10,  0             // InvokeDynamic #0:apply:(Lio/github/netmikey/logunit/logback/LogbackLogProvider;)Ljava/util/function/Function;
+      17: invokeinterface #11,  2           // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      22: invokestatic  #12                 // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+      25: invokeinterface #13,  2           // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+      30: checkcast     #14                 // class java/util/List
+      33: areturn
+
+  public void beforeTestExecution(org.junit.jupiter.api.extension.ExtensionContext);
+    descriptor: (Lorg/junit/jupiter/api/extension/ExtensionContext;)V
+    Code:
+       0: aload_0
+       1: invokespecial #15                 // Method addAppenderToLoggingSources:()V
+       4: aload_0
+       5: getfield      #4                  // Field listAppender:Lio/github/netmikey/logunit/logback/ConcurrentListAppender;
+       8: invokevirtual #16                 // Method io/github/netmikey/logunit/logback/ConcurrentListAppender.start:()V
+      11: return
+
+  public void afterTestExecution(org.junit.jupiter.api.extension.ExtensionContext);
+    descriptor: (Lorg/junit/jupiter/api/extension/ExtensionContext;)V
+    Code:
+       0: aload_0
+       1: getfield      #4                  // Field listAppender:Lio/github/netmikey/logunit/logback/ConcurrentListAppender;
+       4: invokevirtual #17                 // Method io/github/netmikey/logunit/logback/ConcurrentListAppender.stop:()V
+       7: aload_0
+       8: invokespecial #18                 // Method detachAppenderFromLoggingSources:()V
+      11: return
+
+  private void addAppenderToLoggingSources();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokevirtual #19                 // Method getLoggerTypes:()Ljava/util/Map;
+       4: invokeinterface #20,  1           // InterfaceMethod java/util/Map.entrySet:()Ljava/util/Set;
+       9: invokeinterface #21,  1           // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      14: astore_1
+      15: aload_1
+      16: invokeinterface #22,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+      21: ifeq          62
+      24: aload_1
+      25: invokeinterface #23,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      30: checkcast     #24                 // class java/util/Map$Entry
+      33: astore_2
+      34: aload_0
+      35: aload_2
+      36: invokeinterface #25,  1           // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+      41: checkcast     #26                 // class java/lang/Class
+      44: aload_2
+      45: invokeinterface #27,  1           // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+      50: checkcast     #28                 // class org/slf4j/event/Level
+      53: invokestatic  #29                 // Method io/github/netmikey/logunit/logback/LevelMapper.mapLevel:(Lorg/slf4j/event/Level;)Lch/qos/logback/classic/Level;
+      56: invokespecial #30                 // Method addAppenderToType:(Ljava/lang/Class;Lch/qos/logback/classic/Level;)V
+      59: goto          15
+      62: aload_0
+      63: invokevirtual #31                 // Method getLoggerNames:()Ljava/util/Map;
+      66: invokeinterface #20,  1           // InterfaceMethod java/util/Map.entrySet:()Ljava/util/Set;
+      71: invokeinterface #21,  1           // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      76: astore_1
+      77: aload_1
+      78: invokeinterface #22,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+      83: ifeq          124
+      86: aload_1
+      87: invokeinterface #23,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      92: checkcast     #24                 // class java/util/Map$Entry
+      95: astore_2
+      96: aload_0
+      97: aload_2
+      98: invokeinterface #25,  1           // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+     103: checkcast     #32                 // class java/lang/String
+     106: aload_2
+     107: invokeinterface #27,  1           // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+     112: checkcast     #28                 // class org/slf4j/event/Level
+     115: invokestatic  #29                 // Method io/github/netmikey/logunit/logback/LevelMapper.mapLevel:(Lorg/slf4j/event/Level;)Lch/qos/logback/classic/Level;
+     118: invokespecial #33                 // Method addAppenderToLogger:(Ljava/lang/String;Lch/qos/logback/classic/Level;)V
+     121: goto          77
+     124: return
+
+  private void detachAppenderFromLoggingSources();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokevirtual #19                 // Method getLoggerTypes:()Ljava/util/Map;
+       4: invokeinterface #20,  1           // InterfaceMethod java/util/Map.entrySet:()Ljava/util/Set;
+       9: invokeinterface #21,  1           // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      14: astore_1
+      15: aload_1
+      16: invokeinterface #22,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+      21: ifeq          50
+      24: aload_1
+      25: invokeinterface #23,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      30: checkcast     #24                 // class java/util/Map$Entry
+      33: astore_2
+      34: aload_0
+      35: aload_2
+      36: invokeinterface #25,  1           // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+      41: checkcast     #26                 // class java/lang/Class
+      44: invokespecial #34                 // Method detachAppenderFromType:(Ljava/lang/Class;)V
+      47: goto          15
+      50: aload_0
+      51: invokevirtual #31                 // Method getLoggerNames:()Ljava/util/Map;
+      54: invokeinterface #20,  1           // InterfaceMethod java/util/Map.entrySet:()Ljava/util/Set;
+      59: invokeinterface #21,  1           // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      64: astore_1
+      65: aload_1
+      66: invokeinterface #22,  1           // InterfaceMethod java/util/Iterator.hasNext:()Z
+      71: ifeq          100
+      74: aload_1
+      75: invokeinterface #23,  1           // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      80: checkcast     #24                 // class java/util/Map$Entry
+      83: astore_2
+      84: aload_0
+      85: aload_2
+      86: invokeinterface #25,  1           // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+      91: checkcast     #32                 // class java/lang/String
+      94: invokespecial #35                 // Method detachAppenderFromLogger:(Ljava/lang/String;)V
+      97: goto          65
+     100: return
+
+  private void addAppenderToType(java.lang.Class<?>, ch.qos.logback.classic.Level);
+    descriptor: (Ljava/lang/Class;Lch/qos/logback/classic/Level;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #36                 // Method org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+       5: checkcast     #37                 // class ch/qos/logback/classic/Logger
+       8: aload_2
+       9: invokespecial #38                 // Method addAppenderToLogger:(Lch/qos/logback/classic/Logger;Lch/qos/logback/classic/Level;)V
+      12: return
+
+  private void addAppenderToLogger(java.lang.String, ch.qos.logback.classic.Level);
+    descriptor: (Ljava/lang/String;Lch/qos/logback/classic/Level;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #39                 // Method org/slf4j/LoggerFactory.getLogger:(Ljava/lang/String;)Lorg/slf4j/Logger;
+       5: checkcast     #37                 // class ch/qos/logback/classic/Logger
+       8: aload_2
+       9: invokespecial #38                 // Method addAppenderToLogger:(Lch/qos/logback/classic/Logger;Lch/qos/logback/classic/Level;)V
+      12: return
+
+  private void addAppenderToLogger(ch.qos.logback.classic.Logger, ch.qos.logback.classic.Level);
+    descriptor: (Lch/qos/logback/classic/Logger;Lch/qos/logback/classic/Level;)V
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #4                  // Field listAppender:Lio/github/netmikey/logunit/logback/ConcurrentListAppender;
+       5: invokevirtual #40                 // Method ch/qos/logback/classic/Logger.addAppender:(Lch/qos/logback/core/Appender;)V
+       8: aload_0
+       9: getfield      #7                  // Field originalLevels:Ljava/util/Map;
+      12: aload_1
+      13: invokevirtual #41                 // Method ch/qos/logback/classic/Logger.getName:()Ljava/lang/String;
+      16: aload_1
+      17: invokevirtual #42                 // Method ch/qos/logback/classic/Logger.getLevel:()Lch/qos/logback/classic/Level;
+      20: invokeinterface #43,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      25: pop
+      26: aload_1
+      27: aload_2
+      28: invokevirtual #44                 // Method ch/qos/logback/classic/Logger.setLevel:(Lch/qos/logback/classic/Level;)V
+      31: return
+
+  private void detachAppenderFromType(java.lang.Class<?>);
+    descriptor: (Ljava/lang/Class;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #36                 // Method org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+       5: checkcast     #37                 // class ch/qos/logback/classic/Logger
+       8: invokespecial #45                 // Method detachAppenderFromLogger:(Lch/qos/logback/classic/Logger;)V
+      11: return
+
+  private void detachAppenderFromLogger(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #39                 // Method org/slf4j/LoggerFactory.getLogger:(Ljava/lang/String;)Lorg/slf4j/Logger;
+       5: checkcast     #37                 // class ch/qos/logback/classic/Logger
+       8: invokespecial #45                 // Method detachAppenderFromLogger:(Lch/qos/logback/classic/Logger;)V
+      11: return
+
+  private void detachAppenderFromLogger(ch.qos.logback.classic.Logger);
+    descriptor: (Lch/qos/logback/classic/Logger;)V
+    Code:
+       0: aload_1
+       1: aload_0
+       2: getfield      #4                  // Field listAppender:Lio/github/netmikey/logunit/logback/ConcurrentListAppender;
+       5: invokevirtual #46                 // Method ch/qos/logback/classic/Logger.detachAppender:(Lch/qos/logback/core/Appender;)Z
+       8: pop
+       9: aload_0
+      10: getfield      #7                  // Field originalLevels:Ljava/util/Map;
+      13: aload_1
+      14: invokevirtual #41                 // Method ch/qos/logback/classic/Logger.getName:()Ljava/lang/String;
+      17: invokeinterface #47,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      22: checkcast     #48                 // class ch/qos/logback/classic/Level
+      25: astore_2
+      26: aload_2
+      27: ifnull        35
+      30: aload_1
+      31: aload_2
+      32: invokevirtual #44                 // Method ch/qos/logback/classic/Logger.setLevel:(Lch/qos/logback/classic/Level;)V
+      35: return
+
+  private org.slf4j.event.LoggingEvent mapEvent(ch.qos.logback.classic.spi.ILoggingEvent);
+    descriptor: (Lch/qos/logback/classic/spi/ILoggingEvent;)Lorg/slf4j/event/LoggingEvent;
+    Code:
+       0: new           #49                 // class io/github/netmikey/logunit/logback/LogbackLogProvider$1
+       3: dup
+       4: aload_0
+       5: aload_1
+       6: invokespecial #50                 // Method io/github/netmikey/logunit/logback/LogbackLogProvider$1."<init>":(Lio/github/netmikey/logunit/logback/LogbackLogProvider;Lch/qos/logback/classic/spi/ILoggingEvent;)V
+       9: areturn
+}

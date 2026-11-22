@@ -1,0 +1,109 @@
+=== CASE 30 25926ea2f0e0adaec0238bc7623d0a78e70c96bd
+  project=retest/recheck dep=org.eclipse.persistence:org.eclipse.persistence.moxy 3.0.2 -> 4.0.1 scope=compile type=major java=11
+  PR=https://github.com/retest/recheck/pull/1068
+  PRE log logs/batch_triage/25926ea2_pre.log:
+  lines=1329
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 737, Failures: 0, Errors: 0, Skipped: 4
+  provider/console lines: WARNING: An illegal reflective access operation has occurred
+  linkage/compile signals: ClassNotFoundException
+  exception names: org.mozilla.javascript.EcmaErrorx2, com.esotericsoftware.kryo.kryo5.KryoExceptionx1, java.lang.ClassNotFoundExceptionx1, org.mozilla.javascript.JavaScriptExceptionx1, com.sun.phobos.script.util.ExtendedScriptExceptionx1, java.lang.IllegalArgumentExceptionx1
+  BREAKING log logs/batch_triage/25926ea2_breaking.log:
+  lines=2807
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 737, Failures: 0, Errors: 15, Skipped: 4
+  failing classes: Tests run: 24, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 2.054 s <<< FAILURE! - in de.retest.util.XsdRegressionTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.05 s <<< FAILURE! - in de.retest.recheck.persistence.xml.XmlTransformerTest || Tests run: 4, Failures: 0, Errors: 2, Skipped: 1, Time elapsed: 0.125 s <<< FAILURE! - in de.retest.recheck.persistence.xml.XmlZipPersistenceTest || Tests run: 4, Failures: 0, Errors: 2, Skipped: 1, Time elapsed: 0.082 s <<< FAILURE! - in de.retest.recheck.persistence.xml.XmlFolderPersistenceTest || Tests run: 13, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.095 s <<< FAILURE! - in de.retest.recheck.ui.diff.IdentifyingAttributesDifferenceFinderTest || Tests run: 12, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.345 s <<< FAILURE! - in de.retest.recheck.ui.diff.AttributesDifferenceFinderTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.07 s <<< FAILURE! - in de.retest.recheck.LegacyCompatibilityFileNamerStrategyTest
+  section: Errors: | LegacyCompatibilityFileNamerStrategyTest.default_test_class_name_should_be_implemented:68 » NoClassDefFound Could not initialize class org.eclipse.persistence.asm.ASMFactory | XmlFolderPersistenceTest.simple_load_from_folder:57 » NoClassDefFound Could not initialize class org.eclipse.persistence.asm.ASMFactory | XmlFolderPersistenceTest.simple_save_to_folder:37 » NoClassDefFound Could not initialize class org.eclipse.persistence.asm.ASMFactory | XmlTransformerTest.should_not_mix_data_from_multiple_xml_files:24 » NoClassDefFound Could not initialize class org.eclipse.persistence.asm.ASMFactory | XmlZipPersistenceTest.simple_load_from_folder:69 » NoClassDefFound Could not initialize class org.eclipse.persistence.asm.ASMFactory | XmlZipPersistenceTest.simple_save_to_file:41 » NoClassDefFound Could not initialize class org.eclipse.persistence.asm.ASMFactory | AttributesDifferenceFinderTest.attributesDifference_with_different_key_and_different_values:99 » NoClassDefFound Could not initialize class org.eclipse.persistence.asm.ASMFactory | AttributesDifferenceFinderTest.attributesDifference_with_less_expected_than_actual:139 » NoClassDefFound Could not initialize class org.eclip
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M6:test (default-test) on project recheck: 
+  FAILBLOCK: [ERROR] de.retest.util.XsdRegressionTest.checkXsd(Class)[4]  Time elapsed: 0.095 s  <<< ERROR!
+      java.lang.ExceptionInInitializerError
+      at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+      at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+      at org.eclipse.persistence.asm.EclipseLinkASMClassWriter.<init>(EclipseLinkASMClassWriter.java:26)
+      at org.eclipse.persistence.jaxb.compiler.MappingsGenerator.generateMapEntryClass(MappingsGenerator.java:1972)
+      at org.eclipse.persistence.jaxb.compiler.MappingsGenerator.generateMapEntryClassAndDescriptor(MappingsGenerator.java:1957)
+      Caused by: Exception [EclipseLink-7359] (Eclipse Persistence Services - 4.0.1.v202302241130): org.eclipse.persistence.exceptions.ValidationException
+  FAILBLOCK: [ERROR] de.retest.util.XsdRegressionTest.checkXsd(Class)[5]  Time elapsed: 0.014 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.eclipse.persistence.asm.ASMFactory
+      at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+      at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+      at org.eclipse.persistence.asm.EclipseLinkASMClassWriter.<init>(EclipseLinkASMClassWriter.java:26)
+      at org.eclipse.persistence.jaxb.compiler.MappingsGenerator.generateMapEntryClass(MappingsGenerator.java:1972)
+      at org.eclipse.persistence.jaxb.compiler.MappingsGenerator.generateMapEntryClassAndDescriptor(MappingsGenerator.java:1957)
+  distinct fail signatures (count): 1x java.lang.ExceptionInInitializerError || 14x java.lang.NoClassDefFoundError: Could not initialize class org.eclipse.persistence.asm.ASMFactory
+  provider/console lines: WARNING: An illegal reflective access operation has occurred
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx14, org.eclipse.persistence.exceptions.ValidationExceptionx2, org.mozilla.javascript.EcmaErrorx2, java.lang.ExceptionInInitializerErrorx1, com.esotericsoftware.kryo.kryo5.KryoExceptionx1, java.lang.ClassNotFoundExceptionx1, org.mozilla.javascript.JavaScriptExceptionx1, com.sun.phobos.script.util.ExtendedScriptExceptionx1, java.lang.IllegalArgumentExceptionx1
+  EVIDENCE logs/case30_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/asm_factory_javap.txt, breaking/eclipselink-core-4.0.1.jar, breaking/org.eclipse.persistence.core-4.0.1.pom, breaking/org.eclipse.persistence.moxy-4.0.1.pom, pre/archive_summary.json, pre/artifacts.tar, pre/eclipselink-asm-9.1.0.jar, pre/org.eclipse.persistence.core-3.0.2.pom, pre/org.eclipse.persistence.moxy-3.0.2.pom, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=134 sum(t,f,e,s)=[737, 0, 0, 4]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=134 sum(t,f,e,s)=[737, 0, 15, 4]
+  archived non-report files: pre=596 breaking=596 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -150,3 +150,3 @@
+     			<artifactId>org.eclipse.persistence.moxy</artifactId>
+    -			<version>3.0.2</version>
+    +			<version>4.0.1</version>
+     		</dependency>
+  BREAKING surefire failures/errors:
+    ERROR de.retest.recheck.LegacyCompatibilityFileNamerStrategyTest#default_test_class_name_should_be_implemented(Path) type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.persistence.asm.ASMFactory
+       at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+       at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+       at org.eclipse.persistence.asm.EclipseLinkASMClassWriter.<init>(EclipseLinkASMClassWriter.java:26)
+       at org.eclipse.persistence.jaxb.compiler.MappingsGenerator.generateMapEntryClass(MappingsGenerator.java:1972)
+    ERROR de.retest.recheck.persistence.xml.XmlFolderPersistenceTest#simple_save_to_folder type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.persistence.asm.ASMFactory
+       at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+       at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+       at org.eclipse.persistence.asm.EclipseLinkASMClassWriter.<init>(EclipseLinkASMClassWriter.java:26)
+       at org.eclipse.persistence.jaxb.compiler.MappingsGenerator.generateMapEntryClass(MappingsGenerator.java:1972)
+    ERROR de.retest.recheck.persistence.xml.XmlFolderPersistenceTest#simple_load_from_folder type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.persistence.asm.ASMFactory
+       at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+       at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+       at org.eclipse.persistence.asm.EclipseLinkASMClassWriter.<init>(EclipseLinkASMClassWriter.java:26)
+       at org.eclipse.persistence.jaxb.compiler.MappingsGenerator.generateMapEntryClass(MappingsGenerator.java:1972)
+    ERROR de.retest.recheck.persistence.xml.XmlTransformerTest#should_not_mix_data_from_multiple_xml_files type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.persistence.asm.ASMFactory
+       at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+       at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+       at org.eclipse.persistence.asm.EclipseLinkASMClassWriter.<init>(EclipseLinkASMClassWriter.java:26)
+       at org.eclipse.persistence.jaxb.compiler.MappingsGenerator.generateMapEntryClass(MappingsGenerator.java:1972)
+    ERROR de.retest.recheck.persistence.xml.XmlZipPersistenceTest#simple_save_to_file type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.persistence.asm.ASMFactory
+       at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+       at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+       at org.eclipse.persistence.asm.EclipseLinkASMClassWriter.<init>(EclipseLinkASMClassWriter.java:26)
+       at org.eclipse.persistence.jaxb.compiler.MappingsGenerator.generateMapEntryClass(MappingsGenerator.java:1972)
+    ERROR de.retest.recheck.persistence.xml.XmlZipPersistenceTest#simple_load_from_folder type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.persistence.asm.ASMFactory
+       at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+       at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+       at org.eclipse.persistence.asm.EclipseLinkASMClassWriter.<init>(EclipseLinkASMClassWriter.java:26)
+       at org.eclipse.persistence.jaxb.compiler.MappingsGenerator.generateMapEntryClass(MappingsGenerator.java:1972)
+    ERROR de.retest.recheck.ui.diff.AttributesDifferenceFinderTest#attributesDifference_with_less_expected_than_actual type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.persistence.asm.ASMFactory
+       at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+       at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+       at org.eclipse.persistence.asm.EclipseLinkASMClassWriter.<init>(EclipseLinkASMClassWriter.java:26)
+       at org.eclipse.persistence.jaxb.compiler.MappingsGenerator.generateMapEntryClass(MappingsGenerator.java:1972)
+    ERROR de.retest.recheck.ui.diff.AttributesDifferenceFinderTest#attributesDifference_with_different_key_and_different_values type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.persistence.asm.ASMFactory
+       at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+       at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+       at org.eclipse.persistence.asm.EclipseLinkASMClassWriter.<init>(EclipseLinkASMClassWriter.java:26)
+       at org.eclipse.persistence.jaxb.compiler.MappingsGenerator.generateMapEntryClass(MappingsGenerator.java:1972)
+    ERROR de.retest.recheck.ui.diff.AttributesDifferenceFinderTest#attributesDifference_with_the_same_key_but_different_values type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.persistence.asm.ASMFactory
+       at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+       at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+       at org.eclipse.persistence.asm.EclipseLinkASMClassWriter.<init>(EclipseLinkASMClassWriter.java:26)
+       at org.eclipse.persistence.jaxb.compiler.MappingsGenerator.generateMapEntryClass(MappingsGenerator.java:1972)
+    ERROR de.retest.recheck.ui.diff.AttributesDifferenceFinderTest#attributesDifference_with_more_expected_than_actual type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.persistence.asm.ASMFactory
+       at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+       at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+       at org.eclipse.persistence.asm.EclipseLinkASMClassWriter.<init>(EclipseLinkASMClassWriter.java:26)
+       at org.eclipse.persistence.jaxb.compiler.MappingsGenerator.generateMapEntryClass(MappingsGenerator.java:1972)
+    ERROR de.retest.recheck.ui.diff.IdentifyingAttributesDifferenceFinderTest#different_paths_and_components_should_be_recognized_accordingly type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.persistence.asm.ASMFactory
+       at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+       at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+       at org.eclipse.persistence.asm.EclipseLinkASMClassWriter.<init>(EclipseLinkASMClassWriter.java:26)
+       at org.eclipse.persistence.jaxb.compiler.MappingsGenerator.generateMapEntryClass(MappingsGenerator.java:1972)
+    ERROR de.retest.recheck.ui.diff.IdentifyingAttributesDifferenceFinderTest#differences_should_be_recognized_accordingly type=java.lang.NoClassDefFoundError msg=Could not initialize class org.eclipse.persistence.asm.ASMFactory
+       at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+       at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+       at org.eclipse.persistence.asm.EclipseLinkASMClassWriter.<init>(EclipseLinkASMClassWriter.java:26)
+       at org.eclipse.persistence.jaxb.compiler.MappingsGenerator.generateMapEntryClass(MappingsGenerator.java:1972)
+    ... truncated (76 lines)

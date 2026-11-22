@@ -1,0 +1,474 @@
+Unable to find image 'ghcr.io/chains-project/breaking-updates:8929dc34435f6b4e54bc889c83a5cb27b2931e51-pre' locally
+8929dc34435f6b4e54bc889c83a5cb27b2931e51-pre: Pulling from chains-project/breaking-updates
+3b5487209762: Pulling fs layer
+31e352740f53: Pulling fs layer
+6d9b75cf1d94: Pulling fs layer
+42276f95e61f: Pulling fs layer
+6d9b75cf1d94: Download complete
+31e352740f53: Download complete
+31e352740f53: Pull complete
+3b5487209762: Download complete
+42276f95e61f: Download complete
+42276f95e61f: Pull complete
+6d9b75cf1d94: Pull complete
+3b5487209762: Pull complete
+Digest: sha256:614d720608d377537de74429973e52bceef9b239e07f2e53e0ff7dc426c9a77f
+Status: Downloaded newer image for ghcr.io/chains-project/breaking-updates:8929dc34435f6b4e54bc889c83a5cb27b2931e51-pre
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< org.pac4j:dropwizard-pac4j >---------------------
+[INFO] Building Dropwizard pac4j Support 5.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ dropwizard-pac4j ---
+[INFO] Deleting /dropwizard-pac4j/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven) @ dropwizard-pac4j ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (dependency-convergence) @ dropwizard-pac4j ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ dropwizard-pac4j ---
+[INFO] skip non existing resourceDirectory /dropwizard-pac4j/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ dropwizard-pac4j ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /dropwizard-pac4j/target/classes
+[INFO] 
+[INFO] >>> pmd:3.14.0:check (run-pmd) > :pmd @ dropwizard-pac4j >>>
+[INFO] 
+[INFO] --- pmd:3.14.0:pmd (pmd) @ dropwizard-pac4j ---
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[WARNING] Unable to locate Source XRef to link to - DISABLED
+[INFO] 
+[INFO] <<< pmd:3.14.0:check (run-pmd) < :pmd @ dropwizard-pac4j <<<
+[INFO] 
+[INFO] 
+[INFO] --- pmd:3.14.0:check (run-pmd) @ dropwizard-pac4j ---
+[INFO] PMD version: 6.29.0
+[INFO] 
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ dropwizard-pac4j ---
+[INFO] Copying 10 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ dropwizard-pac4j ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /dropwizard-pac4j/target/test-classes
+[INFO] /dropwizard-pac4j/src/test/java/org/pac4j/dropwizard/factory/FakeConfigFactory.java: /dropwizard-pac4j/src/test/java/org/pac4j/dropwizard/factory/FakeConfigFactory.java uses unchecked or unsafe operations.
+[INFO] /dropwizard-pac4j/src/test/java/org/pac4j/dropwizard/factory/FakeConfigFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ dropwizard-pac4j ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.pac4j.dropwizard.e2e.EndToEndServletTest
+INFO  [2026-11-10 06:54:57,796] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-11-10 06:54:57,826] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-11-10 06:54:58,035] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-11-10 06:54:58,241] org.eclipse.jetty.setuid.SetUIDListener: Opened application@5633ed82{HTTP/1.1, (http/1.1)}{0.0.0.0:45809}
+INFO  [2026-11-10 06:54:58,242] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@767191b1{HTTP/1.1, (http/1.1)}{0.0.0.0:33423}
+INFO  [2026-11-10 06:54:58,249] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-11-10 06:54:58,283] org.eclipse.jetty.server.session: DefaultSessionIdManager workerName=node0
+INFO  [2026-11-10 06:54:58,283] org.eclipse.jetty.server.session: No SessionScavenger set, using defaults
+INFO  [2026-11-10 06:54:58,286] org.eclipse.jetty.server.session: node0 Scavenging every 660000ms
+INFO  [2026-11-10 06:54:59,414] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    GET     /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+    POST    /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+
+INFO  [2026-11-10 06:54:59,419] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@477021ee{/,null,AVAILABLE}
+INFO  [2026-11-10 06:54:59,425] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-11-10 06:54:59,426] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-11-10 06:54:59,428] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@5f726750{/,null,AVAILABLE}
+INFO  [2026-11-10 06:54:59,457] org.eclipse.jetty.server.AbstractConnector: Started application@5633ed82{HTTP/1.1, (http/1.1)}{0.0.0.0:45809}
+INFO  [2026-11-10 06:54:59,468] org.eclipse.jetty.server.AbstractConnector: Started admin@767191b1{HTTP/1.1, (http/1.1)}{0.0.0.0:33423}
+INFO  [2026-11-10 06:54:59,468] org.eclipse.jetty.server.Server: Started @8306ms
+127.0.0.1 - - [10/Nov/2026:06:55:00 +0000] "GET /dogs/pierre HTTP/1.1" 200 6 "-" "Jersey/2.32 (HttpUrlConnection 11.0.19)" 268
+INFO  [2026-11-10 06:55:00,381] org.eclipse.jetty.server.AbstractConnector: Stopped application@5633ed82{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:00,387] org.eclipse.jetty.server.AbstractConnector: Stopped admin@767191b1{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:00,387] org.eclipse.jetty.server.session: node0 Stopped scavenging
+INFO  [2026-11-10 06:55:00,390] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@5f726750{/,null,STOPPED}
+INFO  [2026-11-10 06:55:00,403] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@477021ee{/,null,STOPPED}
+INFO  [2026-11-10 06:55:00,852] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-11-10 06:55:00,852] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-11-10 06:55:00,854] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-11-10 06:55:00,880] org.eclipse.jetty.setuid.SetUIDListener: Opened application@72c9ebfa{HTTP/1.1, (http/1.1)}{0.0.0.0:36997}
+INFO  [2026-11-10 06:55:00,881] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@686cf8ad{HTTP/1.1, (http/1.1)}{0.0.0.0:39677}
+INFO  [2026-11-10 06:55:00,881] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-11-10 06:55:00,883] org.eclipse.jetty.server.session: DefaultSessionIdManager workerName=node0
+INFO  [2026-11-10 06:55:00,884] org.eclipse.jetty.server.session: No SessionScavenger set, using defaults
+INFO  [2026-11-10 06:55:00,884] org.eclipse.jetty.server.session: node0 Scavenging every 660000ms
+INFO  [2026-11-10 06:55:01,386] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    GET     /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+    POST    /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+
+INFO  [2026-11-10 06:55:01,392] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@5329f6b3{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:01,393] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-11-10 06:55:01,394] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-11-10 06:55:01,396] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@77324a58{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:01,410] org.eclipse.jetty.server.AbstractConnector: Started application@72c9ebfa{HTTP/1.1, (http/1.1)}{0.0.0.0:36997}
+INFO  [2026-11-10 06:55:01,421] org.eclipse.jetty.server.AbstractConnector: Started admin@686cf8ad{HTTP/1.1, (http/1.1)}{0.0.0.0:39677}
+INFO  [2026-11-10 06:55:01,422] org.eclipse.jetty.server.Server: Started @10260ms
+WARN  [2026-11-10 06:55:01,641] org.glassfish.jersey.servlet.WebComponent: A servlet request to the URI http://localhost:36997/dogs/pierre contains form parameters in the request body but the request body has been consumed by the servlet or a servlet filter accessing the request parameters. Only resource methods using @FormParam will work as expected. Resource methods consuming the request body by other means will not work as expected.
+127.0.0.1 - - [10/Nov/2026:06:55:01 +0000] "POST /dogs/pierre HTTP/1.1" 200 6 "-" "Jersey/2.32 (HttpUrlConnection 11.0.19)" 87
+INFO  [2026-11-10 06:55:01,722] org.eclipse.jetty.server.AbstractConnector: Stopped application@72c9ebfa{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:01,739] org.eclipse.jetty.server.AbstractConnector: Stopped admin@686cf8ad{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:01,739] org.eclipse.jetty.server.session: node0 Stopped scavenging
+INFO  [2026-11-10 06:55:01,744] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@77324a58{/,null,STOPPED}
+INFO  [2026-11-10 06:55:01,749] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@5329f6b3{/,null,STOPPED}
+INFO  [2026-11-10 06:55:02,418] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-11-10 06:55:02,418] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-11-10 06:55:02,421] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-11-10 06:55:02,444] org.eclipse.jetty.setuid.SetUIDListener: Opened application@44faa4f2{HTTP/1.1, (http/1.1)}{0.0.0.0:43727}
+INFO  [2026-11-10 06:55:02,444] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@6793f752{HTTP/1.1, (http/1.1)}{0.0.0.0:37965}
+INFO  [2026-11-10 06:55:02,445] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-11-10 06:55:02,447] org.eclipse.jetty.server.session: DefaultSessionIdManager workerName=node0
+INFO  [2026-11-10 06:55:02,447] org.eclipse.jetty.server.session: No SessionScavenger set, using defaults
+INFO  [2026-11-10 06:55:02,448] org.eclipse.jetty.server.session: node0 Scavenging every 600000ms
+INFO  [2026-11-10 06:55:02,789] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    GET     /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+    POST    /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+
+INFO  [2026-11-10 06:55:02,792] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@4217bce6{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:02,793] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-11-10 06:55:02,794] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-11-10 06:55:02,796] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@77fc19cf{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:02,810] org.eclipse.jetty.server.AbstractConnector: Started application@44faa4f2{HTTP/1.1, (http/1.1)}{0.0.0.0:43727}
+INFO  [2026-11-10 06:55:02,831] org.eclipse.jetty.server.AbstractConnector: Started admin@6793f752{HTTP/1.1, (http/1.1)}{0.0.0.0:37965}
+INFO  [2026-11-10 06:55:02,832] org.eclipse.jetty.server.Server: Started @11670ms
+INFO  [2026-11-10 06:55:02,960] org.pac4j.http.client.direct.DirectBasicAuthClient: Failed to retrieve or validate credentials: Username : 'boy' does not match password
+127.0.0.1 - - [10/Nov/2026:06:55:02 +0000] "GET /dogs/pierre HTTP/1.1" 401 0 "-" "Jersey/2.32 (HttpUrlConnection 11.0.19)" 26
+INFO  [2026-11-10 06:55:03,006] org.eclipse.jetty.server.AbstractConnector: Stopped application@44faa4f2{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:03,008] org.eclipse.jetty.server.AbstractConnector: Stopped admin@6793f752{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:03,009] org.eclipse.jetty.server.session: node0 Stopped scavenging
+INFO  [2026-11-10 06:55:03,009] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@77fc19cf{/,null,STOPPED}
+INFO  [2026-11-10 06:55:03,014] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@4217bce6{/,null,STOPPED}
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.17 s - in org.pac4j.dropwizard.e2e.EndToEndServletTest
+[INFO] Running org.pac4j.dropwizard.e2e.EndToEndTest
+INFO  [2026-11-10 06:55:03,417] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-11-10 06:55:03,418] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-11-10 06:55:03,422] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-11-10 06:55:03,448] org.eclipse.jetty.setuid.SetUIDListener: Opened application@4af12a63{HTTP/1.1, (http/1.1)}{0.0.0.0:43757}
+INFO  [2026-11-10 06:55:03,450] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@1eab8437{HTTP/1.1, (http/1.1)}{0.0.0.0:46215}
+INFO  [2026-11-10 06:55:03,451] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-11-10 06:55:03,456] org.eclipse.jetty.server.session: DefaultSessionIdManager workerName=node0
+INFO  [2026-11-10 06:55:03,456] org.eclipse.jetty.server.session: No SessionScavenger set, using defaults
+INFO  [2026-11-10 06:55:03,457] org.eclipse.jetty.server.session: node0 Scavenging every 600000ms
+INFO  [2026-11-10 06:55:03,759] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    GET     /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+    POST    /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+
+INFO  [2026-11-10 06:55:03,765] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@22c8ee48{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:03,766] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-11-10 06:55:03,766] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-11-10 06:55:03,768] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@51f01535{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:03,777] org.eclipse.jetty.server.AbstractConnector: Started application@4af12a63{HTTP/1.1, (http/1.1)}{0.0.0.0:43757}
+INFO  [2026-11-10 06:55:03,794] org.eclipse.jetty.server.AbstractConnector: Started admin@1eab8437{HTTP/1.1, (http/1.1)}{0.0.0.0:46215}
+INFO  [2026-11-10 06:55:03,795] org.eclipse.jetty.server.Server: Started @12633ms
+127.0.0.1 - - [10/Nov/2026:06:55:04 +0000] "GET /dogs/pierre HTTP/1.1" 200 6 "-" "Jersey/2.32 (HttpUrlConnection 11.0.19)" 143
+INFO  [2026-11-10 06:55:04,048] org.eclipse.jetty.server.AbstractConnector: Stopped application@4af12a63{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:04,052] org.eclipse.jetty.server.AbstractConnector: Stopped admin@1eab8437{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:04,052] org.eclipse.jetty.server.session: node0 Stopped scavenging
+INFO  [2026-11-10 06:55:04,052] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@51f01535{/,null,STOPPED}
+INFO  [2026-11-10 06:55:04,071] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@22c8ee48{/,null,STOPPED}
+INFO  [2026-11-10 06:55:04,531] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-11-10 06:55:04,531] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-11-10 06:55:04,543] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-11-10 06:55:04,567] org.eclipse.jetty.setuid.SetUIDListener: Opened application@3005623b{HTTP/1.1, (http/1.1)}{0.0.0.0:43161}
+INFO  [2026-11-10 06:55:04,568] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@58aa5c94{HTTP/1.1, (http/1.1)}{0.0.0.0:35083}
+INFO  [2026-11-10 06:55:04,568] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-11-10 06:55:04,570] org.eclipse.jetty.server.session: DefaultSessionIdManager workerName=node0
+INFO  [2026-11-10 06:55:04,571] org.eclipse.jetty.server.session: No SessionScavenger set, using defaults
+INFO  [2026-11-10 06:55:04,571] org.eclipse.jetty.server.session: node0 Scavenging every 600000ms
+INFO  [2026-11-10 06:55:04,902] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    GET     /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+    POST    /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+
+INFO  [2026-11-10 06:55:04,909] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@6f289728{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:04,913] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-11-10 06:55:04,913] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-11-10 06:55:04,916] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@350d26f3{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:04,939] org.eclipse.jetty.server.AbstractConnector: Started application@3005623b{HTTP/1.1, (http/1.1)}{0.0.0.0:43161}
+INFO  [2026-11-10 06:55:04,959] org.eclipse.jetty.server.AbstractConnector: Started admin@58aa5c94{HTTP/1.1, (http/1.1)}{0.0.0.0:35083}
+INFO  [2026-11-10 06:55:04,959] org.eclipse.jetty.server.Server: Started @13797ms
+127.0.0.1 - - [10/Nov/2026:06:55:05 +0000] "POST /dogs/pierre HTTP/1.1" 200 6 "-" "Jersey/2.32 (HttpUrlConnection 11.0.19)" 87
+INFO  [2026-11-10 06:55:05,148] org.eclipse.jetty.server.AbstractConnector: Stopped application@3005623b{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:05,152] org.eclipse.jetty.server.AbstractConnector: Stopped admin@58aa5c94{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:05,152] org.eclipse.jetty.server.session: node0 Stopped scavenging
+INFO  [2026-11-10 06:55:05,153] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@350d26f3{/,null,STOPPED}
+INFO  [2026-11-10 06:55:05,161] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@6f289728{/,null,STOPPED}
+INFO  [2026-11-10 06:55:05,473] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-11-10 06:55:05,473] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-11-10 06:55:05,476] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-11-10 06:55:05,491] org.eclipse.jetty.setuid.SetUIDListener: Opened application@604c7e9b{HTTP/1.1, (http/1.1)}{0.0.0.0:44655}
+INFO  [2026-11-10 06:55:05,492] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@19d27c27{HTTP/1.1, (http/1.1)}{0.0.0.0:35509}
+INFO  [2026-11-10 06:55:05,492] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-11-10 06:55:05,495] org.eclipse.jetty.server.session: DefaultSessionIdManager workerName=node0
+INFO  [2026-11-10 06:55:05,495] org.eclipse.jetty.server.session: No SessionScavenger set, using defaults
+INFO  [2026-11-10 06:55:05,496] org.eclipse.jetty.server.session: node0 Scavenging every 660000ms
+INFO  [2026-11-10 06:55:05,683] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    GET     /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+    POST    /dogs/{name} (org.pac4j.dropwizard.e2e.DogsResource)
+
+INFO  [2026-11-10 06:55:05,685] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@780129bc{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:05,685] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-11-10 06:55:05,685] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-11-10 06:55:05,686] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@44de8e00{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:05,691] org.eclipse.jetty.server.AbstractConnector: Started application@604c7e9b{HTTP/1.1, (http/1.1)}{0.0.0.0:44655}
+INFO  [2026-11-10 06:55:05,697] org.eclipse.jetty.server.AbstractConnector: Started admin@19d27c27{HTTP/1.1, (http/1.1)}{0.0.0.0:35509}
+INFO  [2026-11-10 06:55:05,698] org.eclipse.jetty.server.Server: Started @14536ms
+INFO  [2026-11-10 06:55:05,792] org.pac4j.http.client.direct.DirectBasicAuthClient: Failed to retrieve or validate credentials: Username : 'boy' does not match password
+127.0.0.1 - - [10/Nov/2026:06:55:05 +0000] "GET /dogs/pierre HTTP/1.1" 401 0 "-" "Jersey/2.32 (HttpUrlConnection 11.0.19)" 45
+INFO  [2026-11-10 06:55:05,809] org.eclipse.jetty.server.AbstractConnector: Stopped application@604c7e9b{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:05,811] org.eclipse.jetty.server.AbstractConnector: Stopped admin@19d27c27{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:05,811] org.eclipse.jetty.server.session: node0 Stopped scavenging
+INFO  [2026-11-10 06:55:05,812] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@44de8e00{/,null,STOPPED}
+INFO  [2026-11-10 06:55:05,816] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@780129bc{/,null,STOPPED}
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.582 s - in org.pac4j.dropwizard.e2e.EndToEndTest
+[INFO] Running org.pac4j.dropwizard.factory.DefaultConfigurationTest
+WARN  [2026-11-10 06:55:07,612] org.pac4j.core.matching.matcher.PathMatcher: Be careful when using the 'excludeBranch' or 'excludeRegex' methods. They use regular expressions and their definitions may be error prone. You could exclude more URLs than expected.
+INFO  [2026-11-10 06:55:07,744] org.pac4j.core.config.ConfigBuilder: Build the configuration from factory: org.pac4j.dropwizard.factory.FakeConfigFactory
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.194 s - in org.pac4j.dropwizard.factory.DefaultConfigurationTest
+[INFO] Running org.pac4j.dropwizard.bundle.BundleFactoryTest
+INFO  [2026-11-10 06:55:08,471] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-11-10 06:55:08,471] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-11-10 06:55:08,473] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-11-10 06:55:08,533] org.eclipse.jetty.setuid.SetUIDListener: Opened application@64e89bb2{HTTP/1.1, (http/1.1)}{0.0.0.0:36753}
+INFO  [2026-11-10 06:55:08,534] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@15fe020d{HTTP/1.1, (http/1.1)}{0.0.0.0:39923}
+INFO  [2026-11-10 06:55:08,534] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-11-10 06:55:08,540] org.eclipse.jetty.server.session: DefaultSessionIdManager workerName=node0
+INFO  [2026-11-10 06:55:08,540] org.eclipse.jetty.server.session: No SessionScavenger set, using defaults
+INFO  [2026-11-10 06:55:08,540] org.eclipse.jetty.server.session: node0 Scavenging every 660000ms
+INFO  [2026-11-10 06:55:08,786] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    NONE
+
+INFO  [2026-11-10 06:55:08,788] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@1c5d376c{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:08,788] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-11-10 06:55:08,789] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-11-10 06:55:08,790] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@3bbc47c9{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:08,793] org.eclipse.jetty.server.AbstractConnector: Started application@64e89bb2{HTTP/1.1, (http/1.1)}{0.0.0.0:36753}
+INFO  [2026-11-10 06:55:08,802] org.eclipse.jetty.server.AbstractConnector: Started admin@15fe020d{HTTP/1.1, (http/1.1)}{0.0.0.0:39923}
+INFO  [2026-11-10 06:55:08,802] org.eclipse.jetty.server.Server: Started @17640ms
+INFO  [2026-11-10 06:55:08,826] org.eclipse.jetty.server.AbstractConnector: Stopped application@64e89bb2{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:08,829] org.eclipse.jetty.server.AbstractConnector: Stopped admin@15fe020d{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:08,829] org.eclipse.jetty.server.session: node0 Stopped scavenging
+INFO  [2026-11-10 06:55:08,830] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@3bbc47c9{/,null,STOPPED}
+INFO  [2026-11-10 06:55:08,834] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@1c5d376c{/,null,STOPPED}
+INFO  [2026-11-10 06:55:09,088] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-11-10 06:55:09,088] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-11-10 06:55:09,089] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-11-10 06:55:09,106] org.eclipse.jetty.setuid.SetUIDListener: Opened application@3c8dea0b{HTTP/1.1, (http/1.1)}{0.0.0.0:45951}
+INFO  [2026-11-10 06:55:09,107] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@4b9beefe{HTTP/1.1, (http/1.1)}{0.0.0.0:40447}
+INFO  [2026-11-10 06:55:09,107] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-11-10 06:55:09,304] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    NONE
+
+INFO  [2026-11-10 06:55:09,306] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@6765b6a2{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:09,307] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-11-10 06:55:09,308] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-11-10 06:55:09,310] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@426913c4{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:09,313] org.eclipse.jetty.server.AbstractConnector: Started application@3c8dea0b{HTTP/1.1, (http/1.1)}{0.0.0.0:45951}
+INFO  [2026-11-10 06:55:09,320] org.eclipse.jetty.server.AbstractConnector: Started admin@4b9beefe{HTTP/1.1, (http/1.1)}{0.0.0.0:40447}
+INFO  [2026-11-10 06:55:09,321] org.eclipse.jetty.server.Server: Started @18159ms
+INFO  [2026-11-10 06:55:09,326] org.eclipse.jetty.server.AbstractConnector: Stopped application@3c8dea0b{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:09,330] org.eclipse.jetty.server.AbstractConnector: Stopped admin@4b9beefe{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:09,330] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@426913c4{/,null,STOPPED}
+INFO  [2026-11-10 06:55:09,334] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@6765b6a2{/,null,STOPPED}
+INFO  [2026-11-10 06:55:09,613] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-11-10 06:55:09,614] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-11-10 06:55:09,615] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-11-10 06:55:09,626] org.eclipse.jetty.setuid.SetUIDListener: Opened application@29174dfe{HTTP/1.1, (http/1.1)}{0.0.0.0:40541}
+INFO  [2026-11-10 06:55:09,627] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@319d106c{HTTP/1.1, (http/1.1)}{0.0.0.0:35721}
+INFO  [2026-11-10 06:55:09,627] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-11-10 06:55:09,834] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    NONE
+
+INFO  [2026-11-10 06:55:09,836] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@5aa334c{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:09,837] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-11-10 06:55:09,837] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-11-10 06:55:09,840] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@698e1bf5{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:09,845] org.eclipse.jetty.server.AbstractConnector: Started application@29174dfe{HTTP/1.1, (http/1.1)}{0.0.0.0:40541}
+INFO  [2026-11-10 06:55:09,852] org.eclipse.jetty.server.AbstractConnector: Started admin@319d106c{HTTP/1.1, (http/1.1)}{0.0.0.0:35721}
+INFO  [2026-11-10 06:55:09,853] org.eclipse.jetty.server.Server: Started @18695ms
+INFO  [2026-11-10 06:55:09,859] org.eclipse.jetty.server.AbstractConnector: Stopped application@29174dfe{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:09,864] org.eclipse.jetty.server.AbstractConnector: Stopped admin@319d106c{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:09,864] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@698e1bf5{/,null,STOPPED}
+INFO  [2026-11-10 06:55:09,869] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@5aa334c{/,null,STOPPED}
+INFO  [2026-11-10 06:55:10,167] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2026-11-10 06:55:10,167] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2026-11-10 06:55:10,168] io.dropwizard.server.ServerFactory: Starting App
+INFO  [2026-11-10 06:55:10,184] org.eclipse.jetty.setuid.SetUIDListener: Opened application@30adae45{HTTP/1.1, (http/1.1)}{0.0.0.0:32907}
+INFO  [2026-11-10 06:55:10,184] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@792eeae6{HTTP/1.1, (http/1.1)}{0.0.0.0:33579}
+INFO  [2026-11-10 06:55:10,184] org.eclipse.jetty.server.Server: jetty-9.4.35.v20201120; built: 2020-11-20T21:17:03.964Z; git: bdc54f03a5e0a7e280fab27f55c3c75ee8da89fb; jvm 11.0.19+7-alpine-r1
+INFO  [2026-11-10 06:55:10,190] org.eclipse.jetty.server.session: DefaultSessionIdManager workerName=node0
+INFO  [2026-11-10 06:55:10,191] org.eclipse.jetty.server.session: No SessionScavenger set, using defaults
+INFO  [2026-11-10 06:55:10,191] org.eclipse.jetty.server.session: node0 Scavenging every 600000ms
+INFO  [2026-11-10 06:55:10,424] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    NONE
+
+INFO  [2026-11-10 06:55:10,425] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@57f83c82{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:10,426] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+WARN  [2026-11-10 06:55:10,426] io.dropwizard.setup.AdminEnvironment: 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!    THIS APPLICATION HAS NO HEALTHCHECKS. THIS MEANS YOU WILL NEVER KNOW      !
+!     IF IT DIES IN PRODUCTION, WHICH MEANS YOU WILL NEVER KNOW IF YOU'RE      !
+!    LETTING YOUR USERS DOWN. YOU SHOULD ADD A HEALTHCHECK FOR EACH OF YOUR    !
+!         APPLICATION'S DEPENDENCIES WHICH FULLY (BUT LIGHTLY) TESTS IT.       !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+INFO  [2026-11-10 06:55:10,427] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@69d1ad64{/,null,AVAILABLE}
+INFO  [2026-11-10 06:55:10,432] org.eclipse.jetty.server.AbstractConnector: Started application@30adae45{HTTP/1.1, (http/1.1)}{0.0.0.0:32907}
+INFO  [2026-11-10 06:55:10,440] org.eclipse.jetty.server.AbstractConnector: Started admin@792eeae6{HTTP/1.1, (http/1.1)}{0.0.0.0:33579}
+INFO  [2026-11-10 06:55:10,440] org.eclipse.jetty.server.Server: Started @19283ms
+INFO  [2026-11-10 06:55:10,449] org.eclipse.jetty.server.AbstractConnector: Stopped application@30adae45{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:10,453] org.eclipse.jetty.server.AbstractConnector: Stopped admin@792eeae6{HTTP/1.1, (http/1.1)}{0.0.0.0:0}
+INFO  [2026-11-10 06:55:10,454] org.eclipse.jetty.server.session: node0 Stopped scavenging
+INFO  [2026-11-10 06:55:10,454] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@69d1ad64{/,null,STOPPED}
+INFO  [2026-11-10 06:55:10,460] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@57f83c82{/,null,STOPPED}
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.304 s - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  54.075 s
+[INFO] Finished at: 2026-11-10T06:55:10Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-pmd-plugin:3.14.0
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 

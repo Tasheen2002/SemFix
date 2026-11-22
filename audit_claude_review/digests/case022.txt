@@ -1,0 +1,96 @@
+=== CASE 22 1ca02168f00f994c625eeea6b5af4ab0a06f3a27
+  project=s4u/sign-maven-plugin dep=org.slf4j:slf4j-api 1.7.36 -> 2.0.0 scope=compile type=major java=11
+  PR=https://github.com/s4u/sign-maven-plugin/pull/131
+  PRE log logs/batch_triage/1ca02168_pre.log:
+  lines=105
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 38, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/1ca02168_breaking.log:
+  lines=1306
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 38, Failures: 0, Errors: 12, Skipped: 0
+  failing classes: Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.505 s <<< FAILURE! - in org.simplify4u.plugins.sign.SignMojoTest || Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.101 s <<< FAILURE! - in org.simplify4u.plugins.sign.utils.EnvironmentTest
+  section: Errors: | SignMojoTest.emptyKeyInfoShouldBreakExecution » ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app') | SignMojoTest.emptyKeyInfoShouldSkipExecution » ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app') | SignMojoTest.excludeArtifact » ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app') | SignMojoTest.skipExecution » ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app') | SignMojoTest.standardFlow » ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmoc
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M6:test (default-test) on project sign-maven-plugin: 
+  FAILBLOCK: [ERROR] org.simplify4u.plugins.sign.SignMojoTest.excludeArtifact  Time elapsed: 0.471 s  <<< ERROR!
+      java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app')
+      at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.findLoggersMocks(LoggerAnnotationEngine.java:166)
+      at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.process(LoggerAnnotationEngine.java:59)
+      at org.mockito.MockitoAnnotations.openMocks(MockitoAnnotations.java:81)
+      at org.mockito.internal.framework.DefaultMockitoSession.<init>(DefaultMockitoSession.java:43)
+      at org.mockito.internal.session.DefaultMockitoSessionBuilder.startMocking(DefaultMockitoSessionBuilder.java:83)
+  distinct fail signatures (count): 12x java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMo
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions prior to 1.8. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/org/simplify4u/slf4j-mock/2.2.0/slf4j-mock-2.2.0.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See http://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+  exception names: java.lang.ClassCastExceptionx12, java.lang.NullPointerExceptionx12
+  EVIDENCE logs/case22_evidence: breaking/archive_summary.json, breaking/artifacts.tar, pre/archive_summary.json, pre/artifacts.tar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=6 sum(t,f,e,s)=[38, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=6 sum(t,f,e,s)=[38, 0, 12, 0]
+  archived non-report files: pre=71 breaking=71 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -155,3 +155,3 @@
+                     <artifactId>slf4j-api</artifactId>
+    -                <version>1.7.36</version>
+    +                <version>2.0.0</version>
+                 </dependency>
+  BREAKING surefire failures/errors:
+    ERROR org.simplify4u.plugins.sign.SignMojoTest#excludeArtifact type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app')
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.findLoggersMocks(LoggerAnnotationEngine.java:166)
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.process(LoggerAnnotationEngine.java:59)
+       at org.mockito.MockitoAnnotations.openMocks(MockitoAnnotations.java:81)
+       at org.mockito.internal.framework.DefaultMockitoSession.<init>(DefaultMockitoSession.java:43)
+    ERROR org.simplify4u.plugins.sign.SignMojoTest#skipExecution type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app')
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.findLoggersMocks(LoggerAnnotationEngine.java:166)
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.process(LoggerAnnotationEngine.java:59)
+       at org.mockito.MockitoAnnotations.openMocks(MockitoAnnotations.java:81)
+       at org.mockito.internal.framework.DefaultMockitoSession.<init>(DefaultMockitoSession.java:43)
+    ERROR org.simplify4u.plugins.sign.SignMojoTest#standardFlow type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app')
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.findLoggersMocks(LoggerAnnotationEngine.java:166)
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.process(LoggerAnnotationEngine.java:59)
+       at org.mockito.MockitoAnnotations.openMocks(MockitoAnnotations.java:81)
+       at org.mockito.internal.framework.DefaultMockitoSession.<init>(DefaultMockitoSession.java:43)
+    ERROR org.simplify4u.plugins.sign.SignMojoTest#emptyKeyInfoShouldSkipExecution type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app')
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.findLoggersMocks(LoggerAnnotationEngine.java:166)
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.process(LoggerAnnotationEngine.java:59)
+       at org.mockito.MockitoAnnotations.openMocks(MockitoAnnotations.java:81)
+       at org.mockito.internal.framework.DefaultMockitoSession.<init>(DefaultMockitoSession.java:43)
+    ERROR org.simplify4u.plugins.sign.SignMojoTest#emptyKeyInfoShouldBreakExecution type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app')
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.findLoggersMocks(LoggerAnnotationEngine.java:166)
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.process(LoggerAnnotationEngine.java:59)
+       at org.mockito.MockitoAnnotations.openMocks(MockitoAnnotations.java:81)
+       at org.mockito.internal.framework.DefaultMockitoSession.<init>(DefaultMockitoSession.java:43)
+    ERROR org.simplify4u.plugins.sign.utils.EnvironmentTest#debugLogForNotEmptyValue type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app')
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.findLoggersMocks(LoggerAnnotationEngine.java:166)
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.process(LoggerAnnotationEngine.java:59)
+       at org.mockito.MockitoAnnotations.openMocks(MockitoAnnotations.java:81)
+       at org.mockito.internal.framework.DefaultMockitoSession.<init>(DefaultMockitoSession.java:43)
+    ERROR org.simplify4u.plugins.sign.utils.EnvironmentTest#shouldReadProperEnvironmentVariable(String, String)[1] type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app')
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.findLoggersMocks(LoggerAnnotationEngine.java:166)
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.process(LoggerAnnotationEngine.java:59)
+       at org.mockito.MockitoAnnotations.openMocks(MockitoAnnotations.java:81)
+       at org.mockito.internal.framework.DefaultMockitoSession.<init>(DefaultMockitoSession.java:43)
+    ERROR org.simplify4u.plugins.sign.utils.EnvironmentTest#shouldReadProperEnvironmentVariable(String, String)[2] type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app')
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.findLoggersMocks(LoggerAnnotationEngine.java:166)
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.process(LoggerAnnotationEngine.java:59)
+       at org.mockito.MockitoAnnotations.openMocks(MockitoAnnotations.java:81)
+       at org.mockito.internal.framework.DefaultMockitoSession.<init>(DefaultMockitoSession.java:43)
+    ERROR org.simplify4u.plugins.sign.utils.EnvironmentTest#shouldReadProperEnvironmentVariable(String, String)[3] type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app')
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.findLoggersMocks(LoggerAnnotationEngine.java:166)
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.process(LoggerAnnotationEngine.java:59)
+       at org.mockito.MockitoAnnotations.openMocks(MockitoAnnotations.java:81)
+       at org.mockito.internal.framework.DefaultMockitoSession.<init>(DefaultMockitoSession.java:43)
+    ERROR org.simplify4u.plugins.sign.utils.EnvironmentTest#shouldReadProperEnvironmentVariable(String, String)[4] type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app')
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.findLoggersMocks(LoggerAnnotationEngine.java:166)
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.process(LoggerAnnotationEngine.java:59)
+       at org.mockito.MockitoAnnotations.openMocks(MockitoAnnotations.java:81)
+       at org.mockito.internal.framework.DefaultMockitoSession.<init>(DefaultMockitoSession.java:43)
+    ERROR org.simplify4u.plugins.sign.utils.EnvironmentTest#shouldReadProperEnvironmentVariable(String, String)[5] type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app')
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.findLoggersMocks(LoggerAnnotationEngine.java:166)
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.process(LoggerAnnotationEngine.java:59)
+       at org.mockito.MockitoAnnotations.openMocks(MockitoAnnotations.java:81)
+       at org.mockito.internal.framework.DefaultMockitoSession.<init>(DefaultMockitoSession.java:43)
+    ERROR org.simplify4u.plugins.sign.utils.EnvironmentTest#debugLogForEmptyValue type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app')
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.findLoggersMocks(LoggerAnnotationEngine.java:166)
+       at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.process(LoggerAnnotationEngine.java:59)
+       at org.mockito.MockitoAnnotations.openMocks(MockitoAnnotations.java:81)
+       at org.mockito.internal.framework.DefaultMockitoSession.<init>(DefaultMockitoSession.java:43)

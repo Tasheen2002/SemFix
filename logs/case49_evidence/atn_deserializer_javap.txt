@@ -1,0 +1,55 @@
+PRE
+Compiled from "ATNDeserializer.java"
+public class org.antlr.v4.runtime.atn.ATNDeserializer {
+  public static final int SERIALIZED_VERSION;
+  private static final java.util.UUID BASE_SERIALIZED_UUID;
+  private static final java.util.UUID ADDED_PRECEDENCE_TRANSITIONS;
+  private static final java.util.UUID ADDED_LEXER_ACTIONS;
+  private static final java.util.UUID ADDED_UNICODE_SMP;
+  private static final java.util.List<java.util.UUID> SUPPORTED_UUIDS;
+  public static final java.util.UUID SERIALIZED_UUID;
+  private final org.antlr.v4.runtime.atn.ATNDeserializationOptions deserializationOptions;
+  static org.antlr.v4.runtime.atn.ATNDeserializer$UnicodeDeserializer getUnicodeDeserializer(org.antlr.v4.runtime.atn.ATNDeserializer$UnicodeDeserializingMode);
+  public org.antlr.v4.runtime.atn.ATNDeserializer();
+  public org.antlr.v4.runtime.atn.ATNDeserializer(org.antlr.v4.runtime.atn.ATNDeserializationOptions);
+  protected static boolean isFeatureSupported(java.util.UUID, java.util.UUID);
+  public org.antlr.v4.runtime.atn.ATN deserialize(char[]);
+  private int deserializeSets(char[], int, java.util.List<org.antlr.v4.runtime.misc.IntervalSet>, org.antlr.v4.runtime.atn.ATNDeserializer$UnicodeDeserializer);
+  protected void markPrecedenceDecisions(org.antlr.v4.runtime.atn.ATN);
+  protected void verifyATN(org.antlr.v4.runtime.atn.ATN);
+  protected void checkCondition(boolean);
+  protected void checkCondition(boolean, java.lang.String);
+  protected static int toInt(char);
+  protected static int toInt32(char[], int);
+  protected static long toLong(char[], int);
+  protected static java.util.UUID toUUID(char[], int);
+  protected org.antlr.v4.runtime.atn.Transition edgeFactory(org.antlr.v4.runtime.atn.ATN, int, int, int, int, int, int, java.util.List<org.antlr.v4.runtime.misc.IntervalSet>);
+  protected org.antlr.v4.runtime.atn.ATNState stateFactory(int, int);
+  protected org.antlr.v4.runtime.atn.LexerAction lexerActionFactory(org.antlr.v4.runtime.atn.LexerActionType, int, int);
+  static {};
+}
+BREAKING
+Compiled from "ATNDeserializer.java"
+public class org.antlr.v4.runtime.atn.ATNDeserializer {
+  public static final int SERIALIZED_VERSION;
+  private final org.antlr.v4.runtime.atn.ATNDeserializationOptions deserializationOptions;
+  public org.antlr.v4.runtime.atn.ATNDeserializer();
+  public org.antlr.v4.runtime.atn.ATNDeserializer(org.antlr.v4.runtime.atn.ATNDeserializationOptions);
+  public org.antlr.v4.runtime.atn.ATN deserialize(char[]);
+  public org.antlr.v4.runtime.atn.ATN deserialize(int[]);
+  private int deserializeSets(int[], int, java.util.List<org.antlr.v4.runtime.misc.IntervalSet>);
+  protected void markPrecedenceDecisions(org.antlr.v4.runtime.atn.ATN);
+  protected void verifyATN(org.antlr.v4.runtime.atn.ATN);
+  protected void checkCondition(boolean);
+  protected void checkCondition(boolean, java.lang.String);
+  protected static int toInt(char);
+  protected static int toInt32(char[], int);
+  protected static int toInt32(int[], int);
+  protected org.antlr.v4.runtime.atn.Transition edgeFactory(org.antlr.v4.runtime.atn.ATN, int, int, int, int, int, int, java.util.List<org.antlr.v4.runtime.misc.IntervalSet>);
+  protected org.antlr.v4.runtime.atn.ATNState stateFactory(int, int);
+  protected org.antlr.v4.runtime.atn.LexerAction lexerActionFactory(org.antlr.v4.runtime.atn.LexerActionType, int, int);
+  public static org.antlr.v4.runtime.misc.IntegerList encodeIntsWith16BitWords(org.antlr.v4.runtime.misc.IntegerList);
+  public static int[] decodeIntsEncodedAs16BitWords(char[]);
+  public static int[] decodeIntsEncodedAs16BitWords(char[], boolean);
+  static {};
+}

@@ -1,0 +1,447 @@
+{
+  "case_id": "851e6b1628f8ecb86db912dc5431a496ddf02148",
+  "phase": "pre",
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-10T05:56:09.242560553Z",
+    "FinishedAt": "2026-11-10T05:57:00.321958175Z"
+  },
+  "working_directory": "/semantic-metrics",
+  "command": [
+    "sh",
+    "-c",
+    "mvn clean test -B | tee %s.log"
+  ],
+  "image_id": "sha256:f62c4ba5af00830575c55ab7c1e26f3786e34572a2eda4053d57de403c384a8c",
+  "image_digests": [
+    "ghcr.io/chains-project/breaking-updates@sha256:f62c4ba5af00830575c55ab7c1e26f3786e34572a2eda4053d57de403c384a8c"
+  ],
+  "platform": "linux/amd64",
+  "cleaned_modules": [
+    ".",
+    "api",
+    "core",
+    "examples",
+    "ffwd-reporter",
+    "guava",
+    "jmh-benchmarks",
+    "remote"
+  ],
+  "freshness_rule": "Only report directories under a target explicitly deleted in this run are included",
+  "report_count": 21,
+  "reports": [
+    {
+      "path": "api/target/surefire-reports/TEST-com.spotify.metrics.core.MetricIdTest.xml",
+      "module": "api",
+      "test_class": "com.spotify.metrics.core.MetricIdTest",
+      "counts": {
+        "tests": 18,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/api/target/test-classes:/semantic-metrics/api/target/classes:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "core/target/surefire-reports/TEST-com.spotify.metrics.DerivedLongGaugeTest.xml",
+      "module": "core",
+      "test_class": "com.spotify.metrics.DerivedLongGaugeTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/core/target/test-classes:/semantic-metrics/core/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/com/tdunning/t-digest/3.2/t-digest-3.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-core/4.0.2/metrics-core-4.0.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-jvm/4.0.2/metrics-jvm-4.0.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.16.1/protobuf-java-3.16.1.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "core/target/surefire-reports/TEST-com.spotify.metrics.core.DelegatingDerivingMeterTest.xml",
+      "module": "core",
+      "test_class": "com.spotify.metrics.core.DelegatingDerivingMeterTest",
+      "counts": {
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/core/target/test-classes:/semantic-metrics/core/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/com/tdunning/t-digest/3.2/t-digest-3.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-core/4.0.2/metrics-core-4.0.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-jvm/4.0.2/metrics-jvm-4.0.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.16.1/protobuf-java-3.16.1.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "core/target/surefire-reports/TEST-com.spotify.metrics.core.InstrumentedExecutorServiceTest.xml",
+      "module": "core",
+      "test_class": "com.spotify.metrics.core.InstrumentedExecutorServiceTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/core/target/test-classes:/semantic-metrics/core/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/com/tdunning/t-digest/3.2/t-digest-3.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-core/4.0.2/metrics-core-4.0.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-jvm/4.0.2/metrics-jvm-4.0.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.16.1/protobuf-java-3.16.1.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "core/target/surefire-reports/TEST-com.spotify.metrics.core.InstrumentedScheduledExecutorServiceTest.xml",
+      "module": "core",
+      "test_class": "com.spotify.metrics.core.InstrumentedScheduledExecutorServiceTest",
+      "counts": {
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/core/target/test-classes:/semantic-metrics/core/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/com/tdunning/t-digest/3.2/t-digest-3.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-core/4.0.2/metrics-core-4.0.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-jvm/4.0.2/metrics-jvm-4.0.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.16.1/protobuf-java-3.16.1.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "core/target/surefire-reports/TEST-com.spotify.metrics.core.MetricIdCacheTest.xml",
+      "module": "core",
+      "test_class": "com.spotify.metrics.core.MetricIdCacheTest",
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/core/target/test-classes:/semantic-metrics/core/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/com/tdunning/t-digest/3.2/t-digest-3.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-core/4.0.2/metrics-core-4.0.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-jvm/4.0.2/metrics-jvm-4.0.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.16.1/protobuf-java-3.16.1.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "core/target/surefire-reports/TEST-com.spotify.metrics.core.ReservoirWithTtlTest.xml",
+      "module": "core",
+      "test_class": "com.spotify.metrics.core.ReservoirWithTtlTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/core/target/test-classes:/semantic-metrics/core/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/com/tdunning/t-digest/3.2/t-digest-3.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-core/4.0.2/metrics-core-4.0.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-jvm/4.0.2/metrics-jvm-4.0.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.16.1/protobuf-java-3.16.1.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "core/target/surefire-reports/TEST-com.spotify.metrics.core.SemanticMetricBuilderFactoryTest.xml",
+      "module": "core",
+      "test_class": "com.spotify.metrics.core.SemanticMetricBuilderFactoryTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/core/target/test-classes:/semantic-metrics/core/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/com/tdunning/t-digest/3.2/t-digest-3.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-core/4.0.2/metrics-core-4.0.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-jvm/4.0.2/metrics-jvm-4.0.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.16.1/protobuf-java-3.16.1.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "core/target/surefire-reports/TEST-com.spotify.metrics.core.SemanticMetricBuilderTest.xml",
+      "module": "core",
+      "test_class": "com.spotify.metrics.core.SemanticMetricBuilderTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/core/target/test-classes:/semantic-metrics/core/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/com/tdunning/t-digest/3.2/t-digest-3.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-core/4.0.2/metrics-core-4.0.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-jvm/4.0.2/metrics-jvm-4.0.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.16.1/protobuf-java-3.16.1.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "core/target/surefire-reports/TEST-com.spotify.metrics.core.SemanticMetricDistributionTest.xml",
+      "module": "core",
+      "test_class": "com.spotify.metrics.core.SemanticMetricDistributionTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/core/target/test-classes:/semantic-metrics/core/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/com/tdunning/t-digest/3.2/t-digest-3.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-core/4.0.2/metrics-core-4.0.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-jvm/4.0.2/metrics-jvm-4.0.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.16.1/protobuf-java-3.16.1.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "core/target/surefire-reports/TEST-com.spotify.metrics.core.SemanticMetricRegistryAdapterTest.xml",
+      "module": "core",
+      "test_class": "com.spotify.metrics.core.SemanticMetricRegistryAdapterTest",
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/core/target/test-classes:/semantic-metrics/core/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/com/tdunning/t-digest/3.2/t-digest-3.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-core/4.0.2/metrics-core-4.0.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-jvm/4.0.2/metrics-jvm-4.0.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.16.1/protobuf-java-3.16.1.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "core/target/surefire-reports/TEST-com.spotify.metrics.core.SemanticMetricRegistryTest.xml",
+      "module": "core",
+      "test_class": "com.spotify.metrics.core.SemanticMetricRegistryTest",
+      "counts": {
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/core/target/test-classes:/semantic-metrics/core/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/com/tdunning/t-digest/3.2/t-digest-3.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-core/4.0.2/metrics-core-4.0.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-jvm/4.0.2/metrics-jvm-4.0.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.16.1/protobuf-java-3.16.1.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "core/target/surefire-reports/TEST-com.spotify.metrics.tags.EnvironmentTagExtractorTest.xml",
+      "module": "core",
+      "test_class": "com.spotify.metrics.tags.EnvironmentTagExtractorTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/core/target/test-classes:/semantic-metrics/core/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/com/tdunning/t-digest/3.2/t-digest-3.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-core/4.0.2/metrics-core-4.0.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-jvm/4.0.2/metrics-jvm-4.0.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.16.1/protobuf-java-3.16.1.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "core/target/surefire-reports/TEST-com.spotify.metrics.tags.NoopTagExtractorTest.xml",
+      "module": "core",
+      "test_class": "com.spotify.metrics.tags.NoopTagExtractorTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/core/target/test-classes:/semantic-metrics/core/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/com/tdunning/t-digest/3.2/t-digest-3.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-core/4.0.2/metrics-core-4.0.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-jvm/4.0.2/metrics-jvm-4.0.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.16.1/protobuf-java-3.16.1.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "ffwd-reporter/target/surefire-reports/TEST-com.spotify.metrics.ffwd.FastForwardReporterTest.xml",
+      "module": "ffwd-reporter",
+      "test_class": "com.spotify.metrics.ffwd.FastForwardReporterTest",
+      "counts": {
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/ffwd-reporter/target/test-classes:/semantic-metrics/ffwd-reporter/target/classes:/semantic-metrics/core/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/com/tdunning/t-digest/3.2/t-digest-3.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-core/4.0.2/metrics-core-4.0.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-jvm/4.0.2/metrics-jvm-4.0.2.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.16.1/protobuf-java-3.16.1.jar:/root/.m2/repository/com/spotify/ffwd/ffwd-client/0.2.4/ffwd-client-0.2.4.jar:/root/.m2/repository/com/google/auto/value/auto-value/1.2/auto-value-1.2.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.0/logback-classic-1.2.0.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.0/logback-core-1.2.0.jar:/root/.m2/repository/org/jmock/jmock/2.12.0/jmock-2.12.0.jar:/root/.m2/repository/org/jmock/jmock-testjar/2.12.0/jmock-testjar-2.12.0.jar:/root/.m2/repository/com/google/code/findbugs/annotations/3.0.1/annotations-3.0.1.jar:/root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/2.1/hamcrest-library-2.1.jar:/root/.m2/repository/org/ow2/asm/asm/7.1/asm-7.1.jar:/root/.m2/repository/org/apache-extras/beanshell/bsh/2.0b6/bsh-2.0b6.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "ffwd-reporter/target/surefire-reports/TEST-com.spotify.metrics.ffwd.PercentileTest.xml",
+      "module": "ffwd-reporter",
+      "test_class": "com.spotify.metrics.ffwd.PercentileTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/ffwd-reporter/target/test-classes:/semantic-metrics/ffwd-reporter/target/classes:/semantic-metrics/core/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/com/tdunning/t-digest/3.2/t-digest-3.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-core/4.0.2/metrics-core-4.0.2.jar:/root/.m2/repository/io/dropwizard/metrics/metrics-jvm/4.0.2/metrics-jvm-4.0.2.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.16.1/protobuf-java-3.16.1.jar:/root/.m2/repository/com/spotify/ffwd/ffwd-client/0.2.4/ffwd-client-0.2.4.jar:/root/.m2/repository/com/google/auto/value/auto-value/1.2/auto-value-1.2.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.0/logback-classic-1.2.0.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.0/logback-core-1.2.0.jar:/root/.m2/repository/org/jmock/jmock/2.12.0/jmock-2.12.0.jar:/root/.m2/repository/org/jmock/jmock-testjar/2.12.0/jmock-testjar-2.12.0.jar:/root/.m2/repository/com/google/code/findbugs/annotations/3.0.1/annotations-3.0.1.jar:/root/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/2.1/hamcrest-library-2.1.jar:/root/.m2/repository/org/ow2/asm/asm/7.1/asm-7.1.jar:/root/.m2/repository/org/apache-extras/beanshell/bsh/2.0b6/bsh-2.0b6.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "guava/target/surefire-reports/TEST-com.spotify.metrics.guava.GuavaCacheTest.xml",
+      "module": "guava",
+      "test_class": "com.spotify.metrics.guava.GuavaCacheTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/guava/target/test-classes:/semantic-metrics/guava/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "remote/target/surefire-reports/TEST-com.spotify.metrics.remote.LimitedRemoteTest.xml",
+      "module": "remote",
+      "test_class": "com.spotify.metrics.remote.LimitedRemoteTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/remote/target/test-classes:/semantic-metrics/remote/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/squareup/okhttp3/okhttp/3.3.1/okhttp-3.3.1.jar:/root/.m2/repository/com/squareup/okio/okio/1.8.0/okio-1.8.0.jar:/root/.m2/repository/com/spotify/futures-extra/4.1.1/futures-extra-4.1.1.jar:/root/.m2/repository/com/google/api/api-common/1.7.0/api-common-1.7.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2.2/jackson-databind-2.13.2.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/com/squareup/okhttp3/mockwebserver/3.3.1/mockwebserver-3.3.1.jar:/root/.m2/repository/com/squareup/okhttp3/okhttp-ws/3.3.1/okhttp-ws-3.3.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.50/bcprov-jdk15on-1.50.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "remote/target/surefire-reports/TEST-com.spotify.metrics.remote.OkRemoteTest.xml",
+      "module": "remote",
+      "test_class": "com.spotify.metrics.remote.OkRemoteTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/remote/target/test-classes:/semantic-metrics/remote/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/squareup/okhttp3/okhttp/3.3.1/okhttp-3.3.1.jar:/root/.m2/repository/com/squareup/okio/okio/1.8.0/okio-1.8.0.jar:/root/.m2/repository/com/spotify/futures-extra/4.1.1/futures-extra-4.1.1.jar:/root/.m2/repository/com/google/api/api-common/1.7.0/api-common-1.7.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2.2/jackson-databind-2.13.2.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/com/squareup/okhttp3/mockwebserver/3.3.1/mockwebserver-3.3.1.jar:/root/.m2/repository/com/squareup/okhttp3/okhttp-ws/3.3.1/okhttp-ws-3.3.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.50/bcprov-jdk15on-1.50.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "remote/target/surefire-reports/TEST-com.spotify.metrics.remote.SemanticAggregatorMetricRegistryTest.xml",
+      "module": "remote",
+      "test_class": "com.spotify.metrics.remote.SemanticAggregatorMetricRegistryTest",
+      "counts": {
+        "tests": 17,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/remote/target/test-classes:/semantic-metrics/remote/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/squareup/okhttp3/okhttp/3.3.1/okhttp-3.3.1.jar:/root/.m2/repository/com/squareup/okio/okio/1.8.0/okio-1.8.0.jar:/root/.m2/repository/com/spotify/futures-extra/4.1.1/futures-extra-4.1.1.jar:/root/.m2/repository/com/google/api/api-common/1.7.0/api-common-1.7.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2.2/jackson-databind-2.13.2.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/com/squareup/okhttp3/mockwebserver/3.3.1/mockwebserver-3.3.1.jar:/root/.m2/repository/com/squareup/okhttp3/okhttp-ws/3.3.1/okhttp-ws-3.3.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.50/bcprov-jdk15on-1.50.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "remote/target/surefire-reports/TEST-com.spotify.metrics.remote.SharderTest.xml",
+      "module": "remote",
+      "test_class": "com.spotify.metrics.remote.SharderTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/semantic-metrics/remote/target/test-classes:/semantic-metrics/remote/target/classes:/semantic-metrics/api/target/classes:/root/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/root/.m2/repository/com/squareup/okhttp3/okhttp/3.3.1/okhttp-3.3.1.jar:/root/.m2/repository/com/squareup/okio/okio/1.8.0/okio-1.8.0.jar:/root/.m2/repository/com/spotify/futures-extra/4.1.1/futures-extra-4.1.1.jar:/root/.m2/repository/com/google/api/api-common/1.7.0/api-common-1.7.0.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2.2/jackson-databind-2.13.2.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/junit/junit/4.13.1/junit-4.13.1.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar:/root/.m2/repository/org/objenesis/objenesis/1.0/objenesis-1.0.jar:/root/.m2/repository/com/squareup/okhttp3/mockwebserver/3.3.1/mockwebserver-3.3.1.jar:/root/.m2/repository/com/squareup/okhttp3/okhttp-ws/3.3.1/okhttp-ws-3.3.1.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.50/bcprov-jdk15on-1.50.jar:",
+      "errors": [],
+      "failures": []
+    }
+  ],
+  "source_and_pom_sha256": {
+    "api/pom.xml": "160ff23699b70364f81a417f50e4d0c137ea371b3b684c1161dfbbb86eba29fe",
+    "api/src/main/java/com/spotify/metrics/core/MetricId.java": "d897c35caa22bf25ff417366ce2936836ec453707a44dc331d5d501fbc4141e4",
+    "api/src/main/java/com/spotify/metrics/core/MetricIdCache.java": "59a59e862e6501279b8e21a88adb3496935530fd1de924be016070db5c154eac",
+    "api/src/main/java/com/spotify/metrics/core/RemoteCounter.java": "342c0868e5bda63a034fb62d1ba3b6b2a34fe300c8d390124130f97cab127d5a",
+    "api/src/main/java/com/spotify/metrics/core/RemoteDerivingMeter.java": "8507b5d713b6baa66a9e9c5cc04d57ab30f401c2ef015fac36bb8292232f6b8f",
+    "api/src/main/java/com/spotify/metrics/core/RemoteHistogram.java": "84ca5176f85d7fd2edea967e2fc9c3f05aae3391847fcd6346ca428b546d53f0",
+    "api/src/main/java/com/spotify/metrics/core/RemoteMeter.java": "413f989b61086004b7579be6d8b5896b3f975b32a059befb00deceac2da0cd6e",
+    "api/src/main/java/com/spotify/metrics/core/RemoteMetric.java": "2df65b55e56a8baf79d6fedbf14d8cbd78a510b70fac74f4f2d2b0359ca99053",
+    "api/src/main/java/com/spotify/metrics/core/RemoteSemanticMetricRegistry.java": "b59eaa8d853db74ed9236e0687d3a3eabc2d4db6719ab560cac11b74774dde93",
+    "api/src/main/java/com/spotify/metrics/core/RemoteTimer.java": "b5c051a347ce5d8e338f9bca13d72ba6fa762187f549fc6b44baca67716c2665",
+    "api/src/test/java/com/spotify/metrics/core/MetricIdTest.java": "6a860485468b8b83f716892fb903f56e722881249278cc664cd29d757df909c4",
+    "core/pom.xml": "c751b20ea59a4d2f51331a8ee2a86181a1b9ad74c240ee9869bfe658c9d17970",
+    "core/src/main/java/com/spotify/metrics/core/DelegatingDerivingMeter.java": "c97273752680c87a61d1821a3a031526e8e16708e60cc3941533dcb2e3783ae8",
+    "core/src/main/java/com/spotify/metrics/core/DerivedLongGauge.java": "b656d99fef32e73862c715d6671e6ac20954adbf72e4c05d3a646d1fdb1dfc6f",
+    "core/src/main/java/com/spotify/metrics/core/DerivingMeter.java": "7e354274c1b0893d543d0521f04095276df5ba0efaa22f2542ed2c2937664a89",
+    "core/src/main/java/com/spotify/metrics/core/Distribution.java": "11e6383979c18fc27343fd4b182499d60bdb2487281e2458514441d67b1a7392",
+    "core/src/main/java/com/spotify/metrics/core/HistogramWithTtl.java": "1520eefe960f45ac2da1b4415a86cf47c14deeab2ddd07f811141a8b3cd754b0",
+    "core/src/main/java/com/spotify/metrics/core/InstrumentedExecutorService.java": "da753a32d211b6f968afec61169d1667cd7fe232401354f6102e89f1b2d24f85",
+    "core/src/main/java/com/spotify/metrics/core/InstrumentedScheduledExecutorService.java": "82e71850a171cfad8c536d72fb10cee6bf364d45cb89c2bfb3394644643aabbc",
+    "core/src/main/java/com/spotify/metrics/core/LockFreeExponentiallyDecayingReservoir.java": "a1e83bc5c013af4b7f0e5c971c950ec33adcf70ad0a32c0ce8b2c0771fc1f260",
+    "core/src/main/java/com/spotify/metrics/core/OverwritingFixedConcurrentRingBuffer.java": "ffd071aec90d4d7ebed8b3c4bca535608210a6e3a9c8393faa02eb12167f6743",
+    "core/src/main/java/com/spotify/metrics/core/ReservoirWithTtl.java": "eec9d90ccab11c44496583a799b52f687e986e396e8f3729bc56d114beb04183",
+    "core/src/main/java/com/spotify/metrics/core/SemanticMetricBuilder.java": "dea87cdbcb6a4e07beb87b84b5d12023e0220948bfa80efaa221b89ed0a6950b",
+    "core/src/main/java/com/spotify/metrics/core/SemanticMetricBuilderFactory.java": "e2ba51d54b97d4fa2f34f9404c47791a4ac19f986ec292f0969ecccbb1bdbd50",
+    "core/src/main/java/com/spotify/metrics/core/SemanticMetricDistribution.java": "00c42156bce6f38e1b5b626110548ca328cbc772ea6a327090a02960fdc4714b",
+    "core/src/main/java/com/spotify/metrics/core/SemanticMetricFilter.java": "447d2d2069e27c37738255025b755fde811819c6b0ab83dec68299eb2d4f5d2b",
+    "core/src/main/java/com/spotify/metrics/core/SemanticMetricIdAdapter.java": "a6efb832660e8496eb8e03390447133290955c42407947539a9ef23cce22c2bd",
+    "core/src/main/java/com/spotify/metrics/core/SemanticMetricRegistry.java": "9c55731f8e6bb30428239973ad031a96ea52cc994cf3c40386bf77ce520745f6",
+    "core/src/main/java/com/spotify/metrics/core/SemanticMetricRegistryAdapter.java": "0aa0b7e8d9c5370ec7c73eae69b5396918ff103acb0bcb091d5dc7bbc7007561",
+    "core/src/main/java/com/spotify/metrics/core/SemanticMetricRegistryListener.java": "425edb40be64b4fce642a186a5535835471f31b7e83ce6ba2ed100fde840f163",
+    "core/src/main/java/com/spotify/metrics/core/SemanticMetricSet.java": "30303d77ef39909365bb16ab980d23c4d835670b67c6f1fa6d4a8b24a05f470c",
+    "core/src/main/java/com/spotify/metrics/jvm/CpuGaugeSet.java": "5be6cd627f0fb9c871bbd2c034e9c584a055bd6d312fa5b533da49023894dfe1",
+    "core/src/main/java/com/spotify/metrics/jvm/FileDescriptorGaugeSet.java": "3f747b43a43a661c1037e8beab0a4c01070ebfc3dba0596b83adb077414427e1",
+    "core/src/main/java/com/spotify/metrics/jvm/GarbageCollectorMetricSet.java": "d7bea9477244a69ef30ef2140563e72d14bc12fa6c084c11ecf1a07f92f7492b",
+    "core/src/main/java/com/spotify/metrics/jvm/MemoryUsageGaugeSet.java": "114ca71fa780e0fc5621bd375883442436e57afdeb68fe6ddde45297128da5b8",
+    "core/src/main/java/com/spotify/metrics/jvm/ThreadStatesMetricSet.java": "1577c09f5b0bf7a46d2f214582e5a780a09a871c084a3ba697ca1283ff4287b9",
+    "core/src/main/java/com/spotify/metrics/tags/EnvironmentTagExtractor.java": "b8fac4b8b4cd3a5dad74b067cd960281b8fb64078bca06e18c783a34d6d8c1ac",
+    "core/src/main/java/com/spotify/metrics/tags/NoopTagExtractor.java": "b738b96f7eb4b4fc70ea563c8d1373147476b036686f340cbabd4555e534ebb2",
+    "core/src/main/java/com/spotify/metrics/tags/TagExtractor.java": "748e04e0393c85fb30eef3abcceed42215e512eba7ae4633fdfc5bbe04f5511d",
+    "core/src/test/java/com/spotify/metrics/DerivedLongGaugeTest.java": "2fbc0d9aed3935010657426cdebcb34f913a1988f72453e5eb6fb0b814873350",
+    "core/src/test/java/com/spotify/metrics/core/DelegatingDerivingMeterTest.java": "dbfd88761d2f16faeacf5466610117b6f3b4a68b4cd430925c6279f46b9de90b",
+    "core/src/test/java/com/spotify/metrics/core/InstrumentedExecutorServiceTest.java": "7691146e88f98486663793d05af2f90e7631fe324a5c4595b42399bfd3b23b2b",
+    "core/src/test/java/com/spotify/metrics/core/InstrumentedScheduledExecutorServiceTest.java": "2cc9a7e0fb8a4ba335a0428b0e55608138282d615882f34f63bfc2b8f7f29496",
+    "core/src/test/java/com/spotify/metrics/core/MetricIdCacheTest.java": "290bf6d800c1ca62c468105fcd1e2f2885744caea1b35dd2ca1aea30ccb739e2",
+    "core/src/test/java/com/spotify/metrics/core/ReservoirWithTtlTest.java": "7d2b3a55e20ca0ea577b48c34d7dd170802aec3eb603a7a97de6f2efd7f17b90",
+    "core/src/test/java/com/spotify/metrics/core/SemanticMetricBuilderFactoryTest.java": "8e6780ff7576a7434cecec8a5d31d6cf420fd3552c5e8e555546120b2ca0469a",
+    "core/src/test/java/com/spotify/metrics/core/SemanticMetricBuilderTest.java": "9959879917d7b13ead9a219da1a9ce1e0c18f637d6bbacc642879e7075113f77",
+    "core/src/test/java/com/spotify/metrics/core/SemanticMetricDistributionTest.java": "05b4527f655520748ae58c9990e73f1820c14bfcfed6ef6052b5169d628283b8",
+    "core/src/test/java/com/spotify/metrics/core/SemanticMetricRegistryAdapterTest.java": "1644e07784d50a47523dc85dab84b8a674e9ef8e871a28cbe7fd308f19857e78",
+    "core/src/test/java/com/spotify/metrics/core/SemanticMetricRegistryTest.java": "86c36943313385b3dbdd34d9d6b3bd146ba011555d79edf683ce1bd51f300385",
+    "core/src/test/java/com/spotify/metrics/tags/EnvironmentTagExtractorTest.java": "e13828fbd8262c2ecd99eff002ffd68423168f761eedb23c73ed4f5cc7dea237",
+    "core/src/test/java/com/spotify/metrics/tags/NoopTagExtractorTest.java": "cb82b2705b9ce7bf6940788f53d497c614f6acac9f92969031d319a7abfd851b",
+    "examples/pom.xml": "3f85265c889839ca7f20ded2f2b69bbf674474b444836405469c84f84e34d7db",
+    "examples/src/main/java/com/spotify/metrics/example/CustomPercentiles.java": "da03cc4e0f87521434dd49abd629ce2a4258bbd8087db7d51cfd42b65222b81f",
+    "examples/src/main/java/com/spotify/metrics/example/DynamicMetricExample.java": "89c73db01f505dcdc9190d085b980c6f5ef07d0192f8e5a77c9432c28566e564",
+    "examples/src/main/java/com/spotify/metrics/example/JvmExample.java": "c7f0f677d05a1db0ebe0ec3c313c5bc99c862158e177aa3b591452506e24b610",
+    "examples/src/main/java/com/spotify/metrics/example/MetricTypesExample.java": "2ff1a1ff213b7ad1b8519e4b1796a855d36c105d5efe23e9e22b31dc07b6e0d2",
+    "ffwd-reporter/pom.xml": "2e644a4e095f65f9c625f4a9b108a43bef347e9a4a421c5d55b584305349df0f",
+    "ffwd-reporter/src/main/java/com/spotify/metrics/ffwd/FastForwardReporter.java": "19c0a348085348e6f0100c4e29a97cbc6038d472079e3138594439b895b7d93d",
+    "ffwd-reporter/src/main/java/com/spotify/metrics/ffwd/Percentile.java": "56e3576cd88819c2d02263192520bc6691e526880e48c51889ea0e418ddc4a15",
+    "ffwd-reporter/src/test/java/com/spotify/metrics/ffwd/FastForwardReporterTest.java": "511900bc56388d27046612108a52a1517418b6e22f518fd67f0f324170f8a7a2",
+    "ffwd-reporter/src/test/java/com/spotify/metrics/ffwd/PercentileTest.java": "6710b4fda64f2307a7c28c3d78c0be320b9ad3c5942b7f09394c13e9ede2bf3b",
+    "guava/pom.xml": "a5c8fa3328fa58c77c4b2b2d6a6e27bbe1898153b006a47761b760759f5bcd3f",
+    "guava/src/main/java/com/spotify/metrics/guava/GuavaCache.java": "e4f84c2527e1c1462162be6b228c6c68c3765b0f82b48abd9f8024f6d61967d0",
+    "guava/src/test/java/com/spotify/metrics/guava/GuavaCacheTest.java": "e6cfe8b90771e465e60e2a759effef34045054bd8a3a702e3dd6c37e89c698ec",
+    "jmh-benchmarks/pom.xml": "aae303bcc62b209b3a6bcab9944751a76bfe8abe8f24d193ad7de1724d9d910b",
+    "jmh-benchmarks/src/main/java/com/spotify/metrics/jmh/DistributionBenchmark.java": "a133d7c6a5cfb125824d81c3c17cb21f4d2a3961b0a24b637c1c4fbc01d7efaa",
+    "pom.xml": "379f42628a4f213340cb34cd9b89f77b9d6212c69d314fe466ccd2bf44941f85",
+    "remote/pom.xml": "9d5d4f3e0c2398bffe6646302c024d25ea2a1a443cd6e56730f35a04fbf767f5",
+    "remote/src/main/java/com/spotify/metrics/remote/LimitedRemote.java": "6cf540248cf58ca4d97244df8f27a06e6c62a9ecfa95f883b6de71e42c6fa642",
+    "remote/src/main/java/com/spotify/metrics/remote/OkRemote.java": "bba8d05ab14000bfc965685c66b301152b0e8307918333ed32495f3d9e0792d6",
+    "remote/src/main/java/com/spotify/metrics/remote/Remote.java": "543287c26a89a22a4742cd309c9709ee3454dfa33ac2f715e3419a8d91017e1d",
+    "remote/src/main/java/com/spotify/metrics/remote/SemanticAggregator.java": "4b017836db3775cc903948813dd9560e1943ddf77a47e6eb5010919b15d25880",
+    "remote/src/main/java/com/spotify/metrics/remote/SemanticAggregatorMetricBuilder.java": "ac3397f1dfd662c2d30bdc43fbd23b66da48d1f58b00b515d9fbf6f0cb51127d",
+    "remote/src/main/java/com/spotify/metrics/remote/SemanticAggregatorMetricRegistry.java": "16885b19ad77af984d84a8f9ee9cf919a0719056b139434410c298d79f3434a4",
+    "remote/src/main/java/com/spotify/metrics/remote/SemanticAggregatorTimer.java": "12deea7db44c15c99c2feb0d48507160a2f9944548fc42e4edc9b9233f1d0d93",
+    "remote/src/main/java/com/spotify/metrics/remote/Sharder.java": "693dbd4f572dd3d48d3617aee9d5a71d5d851abb0431615a5cb242d1b0235a0f",
+    "remote/src/test/java/com/spotify/metrics/remote/LimitedRemoteTest.java": "682b7a5043614f56df1463b6e6bdb4c88021b94c6bc0dba804a5992bbbd1a51c",
+    "remote/src/test/java/com/spotify/metrics/remote/OkRemoteTest.java": "65cd5600495515308c4e5a79f1b4b63eb64fbe9eaf6977ad6d897addd6ab3de2",
+    "remote/src/test/java/com/spotify/metrics/remote/SemanticAggregatorMetricRegistryTest.java": "2eb9236b234324d3f48203b6d1845aafa7c535f8d61e2c4cc94fde6cbab586ff",
+    "remote/src/test/java/com/spotify/metrics/remote/SharderTest.java": "1de601e66d40995680ba0859f51d91dadcb18c169ba3ec3a9517da4bb05338e5",
+    "semantic-metrics-bom/pom.xml": "0593ca9a4e79b2af6820c78a9df55052882e288c72b83c3b3879a67b74df00ab"
+  },
+  "aggregate_counts": {
+    "tests": 111,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

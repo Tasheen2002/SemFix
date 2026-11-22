@@ -1,0 +1,616 @@
+Compiled from "StringUtils.java"
+public final class org.apache.maven.surefire.util.internal.StringUtils {
+  public static final java.lang.String NL;
+    descriptor: Ljava/lang/String;
+
+  private static final byte[] HEX_CHARS;
+    descriptor: [B
+
+  private static final java.nio.charset.Charset DEFAULT_CHARSET;
+    descriptor: Ljava/nio/charset/Charset;
+
+  public static final java.nio.charset.Charset US_ASCII;
+    descriptor: Ljava/nio/charset/Charset;
+
+  public static final java.nio.charset.Charset ISO_8859_1;
+    descriptor: Ljava/nio/charset/Charset;
+
+  public static final java.nio.charset.Charset UTF_8;
+    descriptor: Ljava/nio/charset/Charset;
+
+  private org.apache.maven.surefire.util.internal.StringUtils();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #23                 // Method java/lang/Object."<init>":()V
+       4: new           #25                 // class java/lang/IllegalStateException
+       7: dup
+       8: ldc           #27                 // String no instantiable constructor
+      10: invokespecial #30                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+      13: athrow
+
+  public static java.lang.String[] split(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+    Code:
+       0: aload_1
+       1: ifnonnull     16
+       4: new           #36                 // class java/util/StringTokenizer
+       7: dup
+       8: aload_0
+       9: invokespecial #37                 // Method java/util/StringTokenizer."<init>":(Ljava/lang/String;)V
+      12: astore_2
+      13: goto          26
+      16: new           #36                 // class java/util/StringTokenizer
+      19: dup
+      20: aload_0
+      21: aload_1
+      22: invokespecial #40                 // Method java/util/StringTokenizer."<init>":(Ljava/lang/String;Ljava/lang/String;)V
+      25: astore_2
+      26: aload_2
+      27: invokevirtual #44                 // Method java/util/StringTokenizer.countTokens:()I
+      30: anewarray     #46                 // class java/lang/String
+      33: astore_3
+      34: iconst_0
+      35: istore        4
+      37: aload_2
+      38: invokevirtual #52                 // Method java/util/StringTokenizer.hasMoreTokens:()Z
+      41: ifeq          58
+      44: aload_3
+      45: iload         4
+      47: aload_2
+      48: invokevirtual #56                 // Method java/util/StringTokenizer.nextToken:()Ljava/lang/String;
+      51: aastore
+      52: iinc          4, 1
+      55: goto          37
+      58: aload_3
+      59: areturn
+
+  public static boolean isBlank(java.lang.String);
+    descriptor: (Ljava/lang/String;)Z
+    Code:
+       0: aload_0
+       1: ifnull        14
+       4: aload_0
+       5: invokevirtual #68                 // Method java/lang/String.trim:()Ljava/lang/String;
+       8: invokevirtual #71                 // Method java/lang/String.isEmpty:()Z
+      11: ifeq          18
+      14: iconst_1
+      15: goto          19
+      18: iconst_0
+      19: ireturn
+
+  public static boolean isNotBlank(java.lang.String);
+    descriptor: (Ljava/lang/String;)Z
+    Code:
+       0: aload_0
+       1: invokestatic  #75                 // Method isBlank:(Ljava/lang/String;)Z
+       4: ifne          11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: ireturn
+
+  public static void escapeToPrintable(java.lang.StringBuilder, java.lang.CharSequence);
+    descriptor: (Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)V
+    Code:
+       0: aload_0
+       1: ifnonnull     14
+       4: new           #79                 // class java/lang/IllegalArgumentException
+       7: dup
+       8: ldc           #81                 // String The target buffer must not be null
+      10: invokespecial #82                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      13: athrow
+      14: aload_1
+      15: ifnonnull     19
+      18: return
+      19: iconst_0
+      20: istore_2
+      21: iload_2
+      22: aload_1
+      23: invokeinterface #87,  1           // InterfaceMethod java/lang/CharSequence.length:()I
+      28: if_icmpge     151
+      31: aload_1
+      32: iload_2
+      33: invokeinterface #91,  2           // InterfaceMethod java/lang/CharSequence.charAt:(I)C
+      38: istore_3
+      39: iload_3
+      40: bipush        32
+      42: if_icmplt     63
+      45: iload_3
+      46: bipush        126
+      48: if_icmpgt     63
+      51: iload_3
+      52: bipush        92
+      54: if_icmpeq     63
+      57: iload_3
+      58: bipush        44
+      60: if_icmpne     139
+      63: aload_0
+      64: bipush        92
+      66: invokevirtual #97                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      69: pop
+      70: aload_0
+      71: getstatic     #99                 // Field HEX_CHARS:[B
+      74: ldc           #100                // int 61440
+      76: iload_3
+      77: iand
+      78: bipush        12
+      80: ishr
+      81: baload
+      82: i2c
+      83: invokevirtual #97                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      86: pop
+      87: aload_0
+      88: getstatic     #99                 // Field HEX_CHARS:[B
+      91: sipush        3840
+      94: iload_3
+      95: iand
+      96: bipush        8
+      98: ishr
+      99: baload
+     100: i2c
+     101: invokevirtual #97                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+     104: pop
+     105: aload_0
+     106: getstatic     #99                 // Field HEX_CHARS:[B
+     109: sipush        240
+     112: iload_3
+     113: iand
+     114: iconst_4
+     115: ishr
+     116: baload
+     117: i2c
+     118: invokevirtual #97                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+     121: pop
+     122: aload_0
+     123: getstatic     #99                 // Field HEX_CHARS:[B
+     126: bipush        15
+     128: iload_3
+     129: iand
+     130: baload
+     131: i2c
+     132: invokevirtual #97                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+     135: pop
+     136: goto          145
+     139: aload_0
+     140: iload_3
+     141: invokevirtual #97                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+     144: pop
+     145: iinc          2, 1
+     148: goto          21
+     151: return
+
+  public static void unescapeString(java.lang.StringBuilder, java.lang.CharSequence);
+    descriptor: (Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)V
+    Code:
+       0: aload_0
+       1: ifnonnull     14
+       4: new           #79                 // class java/lang/IllegalArgumentException
+       7: dup
+       8: ldc           #81                 // String The target buffer must not be null
+      10: invokespecial #82                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      13: athrow
+      14: aload_1
+      15: ifnonnull     19
+      18: return
+      19: iconst_0
+      20: istore_2
+      21: iload_2
+      22: aload_1
+      23: invokeinterface #87,  1           // InterfaceMethod java/lang/CharSequence.length:()I
+      28: if_icmpge     129
+      31: aload_1
+      32: iload_2
+      33: invokeinterface #91,  2           // InterfaceMethod java/lang/CharSequence.charAt:(I)C
+      38: istore_3
+      39: iload_3
+      40: bipush        92
+      42: if_icmpne     117
+      45: aload_0
+      46: aload_1
+      47: iinc          2, 1
+      50: iload_2
+      51: invokeinterface #91,  2           // InterfaceMethod java/lang/CharSequence.charAt:(I)C
+      56: invokestatic  #110                // Method digit:(C)I
+      59: bipush        12
+      61: ishl
+      62: aload_1
+      63: iinc          2, 1
+      66: iload_2
+      67: invokeinterface #91,  2           // InterfaceMethod java/lang/CharSequence.charAt:(I)C
+      72: invokestatic  #110                // Method digit:(C)I
+      75: bipush        8
+      77: ishl
+      78: ior
+      79: aload_1
+      80: iinc          2, 1
+      83: iload_2
+      84: invokeinterface #91,  2           // InterfaceMethod java/lang/CharSequence.charAt:(I)C
+      89: invokestatic  #110                // Method digit:(C)I
+      92: iconst_4
+      93: ishl
+      94: ior
+      95: aload_1
+      96: iinc          2, 1
+      99: iload_2
+     100: invokeinterface #91,  2           // InterfaceMethod java/lang/CharSequence.charAt:(I)C
+     105: invokestatic  #110                // Method digit:(C)I
+     108: ior
+     109: i2c
+     110: invokevirtual #97                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+     113: pop
+     114: goto          123
+     117: aload_0
+     118: iload_3
+     119: invokevirtual #97                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+     122: pop
+     123: iinc          2, 1
+     126: goto          21
+     129: return
+
+  private static int digit(char);
+    descriptor: (C)I
+    Code:
+       0: iload_0
+       1: bipush        97
+       3: if_icmplt     14
+       6: bipush        10
+       8: iload_0
+       9: iadd
+      10: bipush        97
+      12: isub
+      13: ireturn
+      14: iload_0
+      15: bipush        65
+      17: if_icmplt     28
+      20: bipush        10
+      22: iload_0
+      23: iadd
+      24: bipush        65
+      26: isub
+      27: ireturn
+      28: iload_0
+      29: bipush        48
+      31: isub
+      32: ireturn
+
+  public static org.apache.maven.surefire.util.internal.StringUtils$EncodedArray escapeBytesToPrintable(byte[], byte[], int, int);
+    descriptor: ([B[BII)Lorg/apache/maven/surefire/util/internal/StringUtils$EncodedArray;
+    Code:
+       0: aload_1
+       1: arraylength
+       2: ifne          9
+       5: invokestatic  #117                // Method org/apache/maven/surefire/util/internal/StringUtils$EncodedArray.access$000:()Lorg/apache/maven/surefire/util/internal/StringUtils$EncodedArray;
+       8: areturn
+       9: iload_2
+      10: iflt          37
+      13: iload_3
+      14: iflt          37
+      17: iload_2
+      18: aload_1
+      19: arraylength
+      20: if_icmpge     37
+      23: iload_3
+      24: aload_1
+      25: arraylength
+      26: if_icmpgt     37
+      29: iload_2
+      30: iload_3
+      31: iadd
+      32: aload_1
+      33: arraylength
+      34: if_icmple     47
+      37: new           #119                // class java/lang/IndexOutOfBoundsException
+      40: dup
+      41: ldc           #121                // String off < 0 || len < 0 || off >= input.length || len > input.length || off + len > input.length
+      43: invokespecial #122                // Method java/lang/IndexOutOfBoundsException."<init>":(Ljava/lang/String;)V
+      46: athrow
+      47: aload_0
+      48: arraylength
+      49: iconst_3
+      50: iload_3
+      51: imul
+      52: iadd
+      53: iconst_1
+      54: iadd
+      55: newarray       byte
+      57: astore        4
+      59: aload_0
+      60: iconst_0
+      61: aload         4
+      63: iconst_0
+      64: aload_0
+      65: arraylength
+      66: invokestatic  #128                // Method java/lang/System.arraycopy:(Ljava/lang/Object;ILjava/lang/Object;II)V
+      69: aload_0
+      70: arraylength
+      71: istore        5
+      73: iload_2
+      74: iload_3
+      75: iadd
+      76: istore        6
+      78: iload_2
+      79: istore        7
+      81: iload         7
+      83: iload         6
+      85: if_icmpge     196
+      88: aload_1
+      89: iload         7
+      91: baload
+      92: istore        8
+      94: iload         8
+      96: bipush        32
+      98: if_icmplt     122
+     101: iload         8
+     103: bipush        126
+     105: if_icmpgt     122
+     108: iload         8
+     110: bipush        92
+     112: if_icmpeq     122
+     115: iload         8
+     117: bipush        44
+     119: if_icmpne     180
+     122: sipush        240
+     125: iload         8
+     127: iand
+     128: iconst_4
+     129: ishr
+     130: istore        9
+     132: bipush        15
+     134: iload         8
+     136: iand
+     137: istore        10
+     139: aload         4
+     141: iload         5
+     143: iinc          5, 1
+     146: bipush        92
+     148: bastore
+     149: aload         4
+     151: iload         5
+     153: iinc          5, 1
+     156: getstatic     #99                 // Field HEX_CHARS:[B
+     159: iload         9
+     161: baload
+     162: bastore
+     163: aload         4
+     165: iload         5
+     167: iinc          5, 1
+     170: getstatic     #99                 // Field HEX_CHARS:[B
+     173: iload         10
+     175: baload
+     176: bastore
+     177: goto          190
+     180: aload         4
+     182: iload         5
+     184: iinc          5, 1
+     187: iload         8
+     189: bastore
+     190: iinc          7, 1
+     193: goto          81
+     196: aload         4
+     198: iload         5
+     200: iinc          5, 1
+     203: bipush        10
+     205: bastore
+     206: new           #9                  // class org/apache/maven/surefire/util/internal/StringUtils$EncodedArray
+     209: dup
+     210: aload         4
+     212: iload         5
+     214: aconst_null
+     215: invokespecial #132                // Method org/apache/maven/surefire/util/internal/StringUtils$EncodedArray."<init>":([BILorg/apache/maven/surefire/util/internal/StringUtils$1;)V
+     218: areturn
+
+  public static java.nio.ByteBuffer unescapeBytes(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)Ljava/nio/ByteBuffer;
+    Code:
+       0: iconst_0
+       1: istore_2
+       2: aload_0
+       3: ifnonnull     13
+       6: iconst_0
+       7: newarray       byte
+       9: invokestatic  #153                // Method java/nio/ByteBuffer.wrap:([B)Ljava/nio/ByteBuffer;
+      12: areturn
+      13: aload_0
+      14: invokevirtual #154                // Method java/lang/String.length:()I
+      17: newarray       byte
+      19: astore_3
+      20: iconst_0
+      21: istore        4
+      23: iload         4
+      25: aload_0
+      26: invokevirtual #154                // Method java/lang/String.length:()I
+      29: if_icmpge     107
+      32: aload_0
+      33: iload         4
+      35: invokevirtual #155                // Method java/lang/String.charAt:(I)C
+      38: istore        5
+      40: iload         5
+      42: bipush        92
+      44: if_icmpne     92
+      47: aload_0
+      48: iinc          4, 1
+      51: iload         4
+      53: invokevirtual #155                // Method java/lang/String.charAt:(I)C
+      56: invokestatic  #110                // Method digit:(C)I
+      59: istore        6
+      61: aload_0
+      62: iinc          4, 1
+      65: iload         4
+      67: invokevirtual #155                // Method java/lang/String.charAt:(I)C
+      70: invokestatic  #110                // Method digit:(C)I
+      73: istore        7
+      75: aload_3
+      76: iload_2
+      77: iinc          2, 1
+      80: iload         6
+      82: iconst_4
+      83: ishl
+      84: iload         7
+      86: ior
+      87: i2b
+      88: bastore
+      89: goto          101
+      92: aload_3
+      93: iload_2
+      94: iinc          2, 1
+      97: iload         5
+      99: i2b
+     100: bastore
+     101: iinc          4, 1
+     104: goto          23
+     107: aload_1
+     108: invokestatic  #161                // Method java/nio/charset/Charset.forName:(Ljava/lang/String;)Ljava/nio/charset/Charset;
+     111: astore        4
+     113: getstatic     #163                // Field DEFAULT_CHARSET:Ljava/nio/charset/Charset;
+     116: aload         4
+     118: invokevirtual #167                // Method java/nio/charset/Charset.equals:(Ljava/lang/Object;)Z
+     121: ifne          151
+     124: aload         4
+     126: invokevirtual #171                // Method java/nio/charset/Charset.newDecoder:()Ljava/nio/charset/CharsetDecoder;
+     129: aload_3
+     130: iconst_0
+     131: iload_2
+     132: invokestatic  #174                // Method java/nio/ByteBuffer.wrap:([BII)Ljava/nio/ByteBuffer;
+     135: invokevirtual #180                // Method java/nio/charset/CharsetDecoder.decode:(Ljava/nio/ByteBuffer;)Ljava/nio/CharBuffer;
+     138: astore        5
+     140: getstatic     #163                // Field DEFAULT_CHARSET:Ljava/nio/charset/Charset;
+     143: aload         5
+     145: invokevirtual #184                // Method java/nio/charset/Charset.encode:(Ljava/nio/CharBuffer;)Ljava/nio/ByteBuffer;
+     148: areturn
+     149: astore        6
+     151: aload_3
+     152: iconst_0
+     153: iload_2
+     154: invokestatic  #174                // Method java/nio/ByteBuffer.wrap:([BII)Ljava/nio/ByteBuffer;
+     157: areturn
+    Exception table:
+       from    to  target type
+         124   148   149   Class java/nio/charset/CharacterCodingException
+
+  public static byte[] encodeStringForForkCommunication(java.lang.String);
+    descriptor: (Ljava/lang/String;)[B
+    Code:
+       0: aload_0
+       1: getstatic     #194                // Field ISO_8859_1:Ljava/nio/charset/Charset;
+       4: invokevirtual #198                // Method java/lang/String.getBytes:(Ljava/nio/charset/Charset;)[B
+       7: areturn
+
+  public static boolean startsWith(java.lang.StringBuffer, java.lang.String);
+    descriptor: (Ljava/lang/StringBuffer;Ljava/lang/String;)Z
+    Code:
+       0: aload_0
+       1: invokevirtual #204                // Method java/lang/StringBuffer.length:()I
+       4: aload_1
+       5: invokevirtual #154                // Method java/lang/String.length:()I
+       8: if_icmpge     13
+      11: iconst_0
+      12: ireturn
+      13: iconst_0
+      14: istore_2
+      15: aload_1
+      16: invokevirtual #154                // Method java/lang/String.length:()I
+      19: istore_3
+      20: iload_2
+      21: iload_3
+      22: if_icmpge     46
+      25: aload_0
+      26: iload_2
+      27: invokevirtual #205                // Method java/lang/StringBuffer.charAt:(I)C
+      30: aload_1
+      31: iload_2
+      32: invokevirtual #155                // Method java/lang/String.charAt:(I)C
+      35: if_icmpeq     40
+      38: iconst_0
+      39: ireturn
+      40: iinc          2, 1
+      43: goto          20
+      46: iconst_1
+      47: ireturn
+
+  static {};
+    descriptor: ()V
+    Code:
+       0: ldc           #211                // String line.separator
+       2: invokestatic  #215                // Method java/lang/System.getProperty:(Ljava/lang/String;)Ljava/lang/String;
+       5: putstatic     #217                // Field NL:Ljava/lang/String;
+       8: bipush        16
+      10: newarray       byte
+      12: dup
+      13: iconst_0
+      14: bipush        48
+      16: bastore
+      17: dup
+      18: iconst_1
+      19: bipush        49
+      21: bastore
+      22: dup
+      23: iconst_2
+      24: bipush        50
+      26: bastore
+      27: dup
+      28: iconst_3
+      29: bipush        51
+      31: bastore
+      32: dup
+      33: iconst_4
+      34: bipush        52
+      36: bastore
+      37: dup
+      38: iconst_5
+      39: bipush        53
+      41: bastore
+      42: dup
+      43: bipush        6
+      45: bipush        54
+      47: bastore
+      48: dup
+      49: bipush        7
+      51: bipush        55
+      53: bastore
+      54: dup
+      55: bipush        8
+      57: bipush        56
+      59: bastore
+      60: dup
+      61: bipush        9
+      63: bipush        57
+      65: bastore
+      66: dup
+      67: bipush        10
+      69: bipush        65
+      71: bastore
+      72: dup
+      73: bipush        11
+      75: bipush        66
+      77: bastore
+      78: dup
+      79: bipush        12
+      81: bipush        67
+      83: bastore
+      84: dup
+      85: bipush        13
+      87: bipush        68
+      89: bastore
+      90: dup
+      91: bipush        14
+      93: bipush        69
+      95: bastore
+      96: dup
+      97: bipush        15
+      99: bipush        70
+     101: bastore
+     102: putstatic     #99                 // Field HEX_CHARS:[B
+     105: invokestatic  #221                // Method java/nio/charset/Charset.defaultCharset:()Ljava/nio/charset/Charset;
+     108: putstatic     #163                // Field DEFAULT_CHARSET:Ljava/nio/charset/Charset;
+     111: ldc           #223                // String US-ASCII
+     113: invokestatic  #161                // Method java/nio/charset/Charset.forName:(Ljava/lang/String;)Ljava/nio/charset/Charset;
+     116: putstatic     #225                // Field US_ASCII:Ljava/nio/charset/Charset;
+     119: ldc           #227                // String ISO-8859-1
+     121: invokestatic  #161                // Method java/nio/charset/Charset.forName:(Ljava/lang/String;)Ljava/nio/charset/Charset;
+     124: putstatic     #194                // Field ISO_8859_1:Ljava/nio/charset/Charset;
+     127: ldc           #229                // String UTF-8
+     129: invokestatic  #161                // Method java/nio/charset/Charset.forName:(Ljava/lang/String;)Ljava/nio/charset/Charset;
+     132: putstatic     #231                // Field UTF_8:Ljava/nio/charset/Charset;
+     135: return
+}

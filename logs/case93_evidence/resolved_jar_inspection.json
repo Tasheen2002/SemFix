@@ -1,0 +1,46 @@
+[
+  {
+    "phase": "pre",
+    "jar": "jakarta.validation-api-2.0.2.jar",
+    "entries": {
+      "validation/spi/ValidationProvider.class": [
+        "javax/validation/spi/ValidationProvider.class"
+      ],
+      "META-INF/services/javax.validation.spi.ValidationProvider": [],
+      "META-INF/services/jakarta.validation.spi.ValidationProvider": []
+    }
+  },
+  {
+    "phase": "pre",
+    "jar": "hibernate-validator-6.1.7.Final.jar",
+    "entries": {
+      "validation/spi/ValidationProvider.class": [],
+      "META-INF/services/javax.validation.spi.ValidationProvider": [
+        "META-INF/services/javax.validation.spi.ValidationProvider"
+      ],
+      "META-INF/services/jakarta.validation.spi.ValidationProvider": []
+    }
+  },
+  {
+    "phase": "breaking",
+    "jar": "jakarta.validation-api-2.0.2.jar",
+    "entries": {
+      "validation/spi/ValidationProvider.class": [
+        "javax/validation/spi/ValidationProvider.class"
+      ],
+      "META-INF/services/javax.validation.spi.ValidationProvider": [],
+      "META-INF/services/jakarta.validation.spi.ValidationProvider": []
+    }
+  },
+  {
+    "phase": "breaking",
+    "jar": "hibernate-validator-7.0.4.Final.jar",
+    "entries": {
+      "validation/spi/ValidationProvider.class": [],
+      "META-INF/services/javax.validation.spi.ValidationProvider": [],
+      "META-INF/services/jakarta.validation.spi.ValidationProvider": [
+        "META-INF/services/jakarta.validation.spi.ValidationProvider"
+      ]
+    }
+  }
+]

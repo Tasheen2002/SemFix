@@ -1,0 +1,41 @@
+=== CASE 64 52ba94ad488d562bce56eee92fb46c63fba6541b
+  project=jenkinsci/github-checks-plugin dep=org.jenkins-ci.plugins:github-api 1.117 -> 1.303-400.v35c2d8258028 scope=compile type=other java=11
+  PR=https://github.com/jenkinsci/github-checks-plugin/pull/265
+  PRE log logs/batch_triage/52ba94ad_pre.log:
+  lines=408
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 49, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/52ba94ad_breaking.log:
+  lines=437
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 49, Failures: 1, Errors: 0, Skipped: 0
+  failing classes: Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.839 s <<< FAILURE! - in io.jenkins.plugins.checks.ArchitectureTest
+  section: Failures: | Architecture Violation [Priority: MEDIUM] - Rule 'no classes that do not have simple name 'JenkinsFacade' should call method Jenkins.getInstance() or should call method Jenkins.getInstanceOrNull() or should call method Jenkins.getActiveInstance() or should call method Jenkins.get()' was violated (2 times): | Method <io.jenkins.plugins.okhttp.api.JenkinsOkHttpClient.newClientBuilder(okhttp3.OkHttpClient)> calls method <jenkins.model.Jenkins.get()> in (JenkinsOkHttpClient.java:28) | Method <io.jenkins.plugins.okhttp.api.JenkinsOkHttpClient.newClientBuilder(okhttp3.OkHttpClient)> calls method <jenkins.model.Jenkins.get()> in (JenkinsOkHttpClient.java:29) | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  01:11 min | [INFO] Finished at: 2026-11-09T11:03:56Z | [INFO] ------------------------------------------------------------------------ | [WARNING]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M4:test (default-test) on project github-checks: There are test failures.
+  FAILBLOCK: [ERROR] ArchitectureTest.NO_JENKINS_INSTANCE_CALL  Time elapsed: 2.682 s  <<< FAILURE!
+      java.lang.AssertionError:
+      Architecture Violation [Priority: MEDIUM] - Rule 'no classes that do not have simple name 'JenkinsFacade' should call method Jenkins.getInstance() or should call method Jenkins.getInstanceOrNull() or should call method Jenkins.getActiveInstance() or should cal
+      Method <io.jenkins.plugins.okhttp.api.JenkinsOkHttpClient.newClientBuilder(okhttp3.OkHttpClient)> calls method <jenkins.model.Jenkins.get()> in (JenkinsOkHttpClient.java:28)
+      Method <io.jenkins.plugins.okhttp.api.JenkinsOkHttpClient.newClientBuilder(okhttp3.OkHttpClient)> calls method <jenkins.model.Jenkins.get()> in (JenkinsOkHttpClient.java:29)
+      at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+      at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:82)
+  distinct fail signatures (count): 1x java.lang.AssertionError:
+  exception names: java.lang.AssertionErrorx1
+  EVIDENCE logs/case64_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/github-api-1.303-400.v35c2d8258028.jar, breaking/okhttp-api-4.9.2-20211102.jar, jenkins_okhttp_javap.txt, pre/archive_summary.json, pre/artifacts.tar, pre/github-api-1.117.jar, pre/okhttp-api-3.14.9.jar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=8 sum(t,f,e,s)=[49, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=8 sum(t,f,e,s)=[49, 1, 0, 0]
+  archived non-report files: pre=55 breaking=55 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -94,3 +94,3 @@
+           <artifactId>github-api</artifactId>
+    -      <version>1.117</version>
+    +      <version>1.303-400.v35c2d8258028</version>
+         </dependency>
+  BREAKING surefire failures/errors:
+    FAILURE ArchitectureTest#NO_JENKINS_INSTANCE_CALL type=java.lang.AssertionError msg=
+       at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+       at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:82)
+       at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:198)
+       at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"github-api-1.117.jar","relevant_classes":[]},{"phase":"pre","jar":"okhttp-api-3.14.9.jar","relevant_classes":[]},{"phase":"breaking","jar":"github-api-1.303-400.v35c2d8258028.jar","relevant_classes":[]},{"phase":"breaking","jar":"okhttp-api-4.9.2-20211102.jar","relevant_classes":["io/jenkins/plugins/okhttp/api/JenkinsOkHttpClient.class"]}]

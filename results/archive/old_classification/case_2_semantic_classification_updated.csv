@@ -1,0 +1,53 @@
+case_id:
+<full ID beginning with 04c07b06>
+
+project:
+pdb
+
+dependency:
+org.slf4j:slf4j-api
+
+old_version:
+1.7.36
+
+new_version:
+2.0.4
+
+is_semantic:
+NO
+
+semantic_category:
+NONE
+
+root_cause_category:
+RUNTIME_PROVIDER_COMPATIBILITY
+
+exception:
+java.lang.ClassCastException
+
+failing_tests:
+com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest;
+com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest;
+com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest
+
+root_cause:
+After upgrading SLF4J API from 1.7.36 to 2.0.4,
+the existing Logback 1.2.11 binding is ignored because
+it targets the older SLF4J 1.7 binding mechanism.
+
+SLF4J cannot find a compatible provider and falls back
+to NOPLogger.
+
+The affected test setup code expects
+ch.qos.logback.classic.Logger and casts NOPLogger to that
+type, causing java.lang.ClassCastException.
+
+The PRE version completes successfully, while the
+BREAKING version produces three test errors and
+BUILD FAILURE.
+
+confidence:
+HIGH
+
+manual_verified:
+YES

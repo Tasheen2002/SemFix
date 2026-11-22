@@ -1,0 +1,123 @@
+candidate_number,case_id,project,organisation,dependency_group,dependency_artifact,previous_version,new_version,dependency_scope,version_update_type,java_version,bump_failure_category,pull_request_url,pre_exit_code,pre_timeout,pre_duration_seconds,pre_build_success,pre_build_failure,pre_compilation_error,pre_tests,pre_failures,pre_errors,pre_skipped,pre_all_test_summaries,pre_log,breaking_exit_code,breaking_timeout,breaking_duration_seconds,breaking_build_success,breaking_build_failure,breaking_compilation_error,breaking_tests,breaking_failures,breaking_errors,breaking_skipped,breaking_all_test_summaries,assertion_signal,binary_linkage_signal,linkage_types,runtime_exception_signal,runtime_exception_types,exception_names,important_log_lines,breaking_log,auto_triage,human_review_status,reviewer_1_label,reviewer_2_label,final_label,notes
+187,ff854f4235725ac7ea3e370b69026d405688ba2e,wsdoc,versly,com.fasterxml.jackson.core,jackson-databind,2.4.2,2.12.7.1,compile,other,11,TEST_FAILURE,https://github.com/versly/wsdoc/pull/80,0,False,201.67,True,False,False,59,0,0,0,"[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 103.279 s - in TestSuite
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0",C:\Users\TASHEEN\Desktop\Research Implementation\logs\batch_triage\ff854f42_pre.log,0,False,100.17,False,True,False,59,33,0,0,"[ERROR] Tests run: 59, Failures: 33, Errors: 0, Skipped: 0, Time elapsed: 58.692 s <<< FAILURE! - in TestSuite
+[ERROR] Tests run: 59, Failures: 33, Errors: 0, Skipped: 0",False,True,ClassNotFoundException,True,RuntimeException,"java.lang.RuntimeException, java.lang.NoClassDefFoundError, java.lang.ClassNotFoundException, MojoFailureException","[ERROR] Tests run: 59, Failures: 33, Errors: 0, Skipped: 0, Time elapsed: 58.692 s <<< FAILURE! - in TestSuite
+[ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.assertGenericResponse  Time elapsed: 0.894 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonMerge
+Caused by: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonMerge
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.annotation.JsonMerge
+[ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.assertJavaDocComments  Time elapsed: 0.716 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.assertNoRedundantUriParametersForResource  Time elapsed: 0.489 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.assertOverriddenPaths  Time elapsed: 0.842 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.assertParams  Time elapsed: 0.459 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.assertPathVariableWithOverriddenName  Time elapsed: 0.506 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.assertReturnValueComments  Time elapsed: 0.513 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.assertUuidIsNotTraversedInto  Time elapsed: 0.872 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.genericTypeResolution  Time elapsed: 0.233 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.testEnumsTypesInPathForRaml  Time elapsed: 0.431 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.testEnumsTypesQueryForRaml  Time elapsed: 0.32 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.JaxRSRestAnnotationProcessorTest.assertRequestBody  Time elapsed: 0.247 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.assertGenericResponse  Time elapsed: 0.345 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.assertJavaDocComments  Time elapsed: 0.41 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.assertNoRedundantUriParametersForResource  Time elapsed: 0.425 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.assertOverriddenPaths  Time elapsed: 0.579 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.assertParams  Time elapsed: 0.491 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.assertPathVariableWithOverriddenName  Time elapsed: 0.341 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.assertReturnValueComments  Time elapsed: 0.401 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.assertUuidIsNotTraversedInto  Time elapsed: 0.346 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.genericTypeResolution  Time elapsed: 0.225 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.testEnumsTypesInPathForRaml  Time elapsed: 0.382 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.testEnumsTypesQueryForRaml  Time elapsed: 0.256 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.assertAsync  Time elapsed: 0.324 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.assertMultipart  Time elapsed: 0.295 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.assertOptionalIsNotTraversedInto  Time elapsed: 0.299 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.assertQueryParams  Time elapsed: 0.374 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.assertSpring43ComposedAnnotationController  Time elapsed: 1.138 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.assertWildcardTypes  Time elapsed: 0.269 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.multipleBindingsForOneEndpoint  Time elapsed: 0.236 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.processControllerThatReturnsDomainObjectWithGenericParentsExpectsSuccess  Time elapsed: 0.167 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.processControllerThatReturnsEnumSetExpectsSuccess  Time elapsed: 0.182 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR] org.versly.rest.wsdoc.SpringMVCRestAnnotationProcessorTest.processControllerThatReturnsGenericDomainObjectExpectsSuccess  Time elapsed: 0.31 s  <<< FAILURE!
+java.lang.RuntimeException: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertGenericResponse:237->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonMerge
+[ERROR]   JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertJavaDocComments:146->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertNoRedundantUriParametersForResource:275->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertOverriddenPaths:178->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertParams:171->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertPathVariableWithOverriddenName:163->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   JaxRSRestAnnotationProcessorTest.assertRequestBody:72->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertReturnValueComments:155->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertUuidIsNotTraversedInto:185->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.genericTypeResolution:268->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.testEnumsTypesInPathForRaml:331->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   JaxRSRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.testEnumsTypesQueryForRaml:315->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   SpringMVCRestAnnotationProcessorTest.assertAsync:118->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   SpringMVCRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertGenericResponse:237->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   SpringMVCRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertJavaDocComments:146->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   SpringMVCRestAnnotationProcessorTest.assertMultipart:43->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   SpringMVCRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertNoRedundantUriParametersForResource:275->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   SpringMVCRestAnnotationProcessorTest.assertOptionalIsNotTraversedInto:87->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper
+[ERROR]   SpringMVCRestAnnotationProcessorTest>AbstractRestAnnotationProcessorTest.assertOverriddenPaths:178->AbstractRestAnnotationProcessorTest.processResource:60->AbstractRestAnnotationProcessorTest.processResource:67->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:113->AbstractRestAnnotationProcessorTest.runAnnotationProcessor:140 » Runtime java.lang.NoClassDefFoundError: Could not initialize class com.fasterxml.jackson.databind.ObjectMapper",C:\Users\TASHEEN\Desktop\Research Implementation\logs\batch_triage\ff854f42_breaking.log,AUTO_NON_BEHAVIORAL_CANDIDATE,PENDING_MANUAL_REVIEW,,,,

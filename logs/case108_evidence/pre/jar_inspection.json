@@ -1,0 +1,116 @@
+{
+  "case_id": "93ac5faf37905e0fb4b44f5401271f2d3d76f57a",
+  "phase": "pre",
+  "path_filter": "/org/apache/sshd/(sshd-common|sshd-core)/",
+  "path_source": "Fresh test report classpaths or retained runner events; Case 106 PRE uses explicit POM versions because successful runner events are deleted",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/sshd/sshd-common/2.9.2/sshd-common-2.9.2.jar",
+      "sha256": "ef912297d2355031f8f574f507f7ae4b8ec6d09381ee5724378496ba0b2114d1",
+      "classes": {
+        "org.apache.sshd.common.future.CloseFuture": {
+          "present": true,
+          "major_version": 52
+        },
+        "org.apache.sshd.common.future.WaitableFuture": {
+          "present": true,
+          "major_version": 52
+        },
+        "org.apache.sshd.common.future.SshFuture": {
+          "present": true,
+          "major_version": 52
+        },
+        "org.apache.sshd.server.SshServer": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/java.nio.file.spi.FileSystemProvider": "##\n## Licensed to the Apache Software Foundation (ASF) under one\n## or more contributor license agreements.  See the NOTICE file\n## distributed with this work for additional information\n## regarding copyright ownership.  The ASF licenses this file\n## to you under the Apache License, Version 2.0 (the\n## \"License\"); you may not use this file except in compliance\n## with the License.  You may obtain a copy of the License at\n##\n##  http://www.apache.org/licenses/LICENSE-2.0\n##\n## Unless required by applicable law or agreed to in writing,\n## software distributed under the License is distributed on an\n## \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n## KIND, either express or implied.  See the License for the\n## specific language governing permissions and limitations\n## under the License.\n##\n\norg.apache.sshd.common.file.root.RootedFileSystemProvider\n"
+      },
+      "disassemblies": [
+        {
+          "class": "org.apache.sshd.common.future.CloseFuture",
+          "file": "sshd-common-2.9.2_CloseFuture_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case108_evidence\\pre\\jars\\sshd-common-2.9.2.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.apache.sshd.common.future.CloseFuture"
+          ],
+          "exit_code": 0
+        },
+        {
+          "class": "org.apache.sshd.common.future.WaitableFuture",
+          "file": "sshd-common-2.9.2_WaitableFuture_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case108_evidence\\pre\\jars\\sshd-common-2.9.2.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.apache.sshd.common.future.WaitableFuture"
+          ],
+          "exit_code": 0
+        },
+        {
+          "class": "org.apache.sshd.common.future.SshFuture",
+          "file": "sshd-common-2.9.2_SshFuture_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case108_evidence\\pre\\jars\\sshd-common-2.9.2.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.apache.sshd.common.future.SshFuture"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/apache/sshd/sshd-core/2.9.2/sshd-core-2.9.2.jar",
+      "sha256": "b4b66fe8c65af57895eabc1aab6b3104922e1dbca7b2525e32a8ca5b7312848e",
+      "classes": {
+        "org.apache.sshd.common.future.CloseFuture": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.sshd.common.future.WaitableFuture": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.sshd.common.future.SshFuture": {
+          "present": false,
+          "major_version": null
+        },
+        "org.apache.sshd.server.SshServer": {
+          "present": true,
+          "major_version": 52
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.apache.sshd.server.SshServer",
+          "file": "sshd-core-2.9.2_SshServer_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case108_evidence\\pre\\jars\\sshd-core-2.9.2.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.apache.sshd.server.SshServer"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

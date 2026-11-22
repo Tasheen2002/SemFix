@@ -1,0 +1,40 @@
+Compiled from "POITextExtractor.java"
+public abstract class org.apache.poi.extractor.POITextExtractor implements java.io.Closeable {
+  private java.io.Closeable fsToClose;
+    descriptor: Ljava/io/Closeable;
+
+  public org.apache.poi.extractor.POITextExtractor();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public abstract java.lang.String getText();
+    descriptor: ()Ljava/lang/String;
+
+  public abstract org.apache.poi.extractor.POITextExtractor getMetadataTextExtractor();
+    descriptor: ()Lorg/apache/poi/extractor/POITextExtractor;
+
+  public void setFilesystem(java.io.Closeable);
+    descriptor: (Ljava/io/Closeable;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #2                  // Field fsToClose:Ljava/io/Closeable;
+       5: return
+
+  public void close() throws java.io.IOException;
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: getfield      #2                  // Field fsToClose:Ljava/io/Closeable;
+       4: ifnull        16
+       7: aload_0
+       8: getfield      #2                  // Field fsToClose:Ljava/io/Closeable;
+      11: invokeinterface #3,  1            // InterfaceMethod java/io/Closeable.close:()V
+      16: return
+
+  public abstract java.lang.Object getDocument();
+    descriptor: ()Ljava/lang/Object;
+}

@@ -1,0 +1,645 @@
+{
+  "case_id": "b5eb721e10cb05e68c0283d8a76c46cc257a0331",
+  "phase": "breaking",
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-10T11:01:47.217219939Z",
+    "FinishedAt": "2026-11-10T11:02:20.559744789Z"
+  },
+  "working_directory": "/pdb",
+  "command": [
+    "sh",
+    "-c",
+    "mvn clean test -B | tee %s.log"
+  ],
+  "image_id": "sha256:c1f7c2d8a80c7c93e57fd7d58c8b7cb0c3163b9d8e573408f629f418c041b63a",
+  "image_digests": [
+    "ghcr.io/chains-project/breaking-updates@sha256:c1f7c2d8a80c7c93e57fd7d58c8b7cb0c3163b9d8e573408f629f418c041b63a"
+  ],
+  "platform": "linux/amd64",
+  "cleaned_modules": [
+    "."
+  ],
+  "freshness_rule": "Only report directories under a target explicitly deleted in this run are included",
+  "report_count": 25,
+  "reports": [
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.dml.DmlTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.dml.DmlTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.DatabaseFactoryTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.DatabaseFactoryTest",
+      "counts": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 1,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [
+        {
+          "test_name": "com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest",
+          "type": "java.lang.ClassCastException",
+          "message": "class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')",
+          "stacktrace": "java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')\n\tat com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest.initStatic(BatchUpdateTest.java:143)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 1,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [
+        {
+          "test_name": "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest",
+          "type": "java.lang.ClassCastException",
+          "message": "class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')",
+          "stacktrace": "java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')\n\tat com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest.initStatic(EngineCloseTest.java:102)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCreateTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCreateTest",
+      "counts": {
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 1,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [
+        {
+          "test_name": "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest",
+          "type": "java.lang.ClassCastException",
+          "message": "class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')",
+          "stacktrace": "java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')\n\tat com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest.initStatic(EngineGeneralTest.java:181)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineIsolationTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineIsolationTest",
+      "counts": {
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.abs.ForeignKeyTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.abs.ForeignKeyTest",
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.abs.JSonTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.abs.JSonTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.abs.LongOverflowTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.abs.LongOverflowTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.abs.QueryTimeoutsTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.abs.QueryTimeoutsTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 4
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.abs.SelectForUpdateTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.abs.SelectForUpdateTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.abs.TimeoutsTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.abs.TimeoutsTest",
+      "counts": {
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 5
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.abs.UnderflowTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.abs.UnderflowTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.cockroach.CockroachDBEngineSchemaTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.cockroach.CockroachDBEngineSchemaTest",
+      "counts": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.db2.DB2EngineSchemaTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.db2.DB2EngineSchemaTest",
+      "counts": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.h2.H2EngineSchemaTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.h2.H2EngineSchemaTest",
+      "counts": {
+        "tests": 30,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.mysql.MySqlEngineSchemaTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.mysql.MySqlEngineSchemaTest",
+      "counts": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.oracle.OracleEngineSchemaTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.oracle.OracleEngineSchemaTest",
+      "counts": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.postgresql.PostgreSqlEngineSchemaTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.postgresql.PostgreSqlEngineSchemaTest",
+      "counts": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.sqlserver.SqlServerEngineGeneralTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.sqlserver.SqlServerEngineGeneralTest",
+      "counts": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.sqlserver.SqlServerEngineIsolationTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.sqlserver.SqlServerEngineIsolationTest",
+      "counts": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.impl.sqlserver.SqlServerEngineSchemaTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.impl.sqlserver.SqlServerEngineSchemaTest",
+      "counts": {
+        "tests": 0,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.engine.pool.DatabaseEnginePoolTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.engine.pool.DatabaseEnginePoolTest",
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.feedzai.commons.sql.abstraction.util.StringUtilsTest.xml",
+      "module": ".",
+      "test_class": "com.feedzai.commons.sql.abstraction.util.StringUtilsTest",
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/pdb/target/test-classes:/pdb/target/classes:/root/.m2/repository/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar:/root/.m2/repository/org/postgresql/postgresql/42.5.0/postgresql-42.5.0.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/root/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/ojdbc8-21.7.0.0.jar:/root/.m2/repository/com/h2database/h2/2.1.214/h2-2.1.214.jar:/root/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/11.2.1.jre8/mssql-jdbc-11.2.1.jre8.jar:/root/.m2/repository/com/ibm/db2/jcc/11.5.8.0/jcc-11.5.8.0.jar:/root/.m2/repository/org/jmockit/jmockit/1.49/jmockit-1.49.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar:/root/.m2/repository/com/google/guava/guava/25.1-jre/guava-25.1-jre.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/root/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/com/google/inject/guice/5.0.1/guice-5.0.1.jar:/root/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/root/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/root/.m2/repository/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    }
+  ],
+  "source_and_pom_sha256": {
+    "pom.xml": "7973fcdf65585b5aabb210932b817e2d47a5b9e0ded2d1501d740f5984d081d9",
+    "src/main/java/com/feedzai/commons/sql/abstraction/FailureListener.java": "69ba5139f4f8c480e9d12efb6b974b3b1f2591ee6cf78d01a0c464596f9ec94f",
+    "src/main/java/com/feedzai/commons/sql/abstraction/batch/AbstractBatch.java": "72f3ea6718b7edc0e9dd5cb0c31a951571b3e496bc5d63fe285d3af76ad3db68",
+    "src/main/java/com/feedzai/commons/sql/abstraction/batch/AbstractBatchConfig.java": "942e27102b60609394ebd0d950bcf2a74926a6ffe8ab8653d7919e41a72c30b3",
+    "src/main/java/com/feedzai/commons/sql/abstraction/batch/AbstractPdbBatch.java": "1dc9321f1008a469bf6424d051e1c823352f2df3bb5a059062dce047645a5289",
+    "src/main/java/com/feedzai/commons/sql/abstraction/batch/BatchConfig.java": "1811c3cc2d4bdd379f7406844e4e07e8f3f583b765acda7b2833818d06bbabef",
+    "src/main/java/com/feedzai/commons/sql/abstraction/batch/BatchEntry.java": "8ef2717975c2cf2cb5bd9fab5f2594bcabe9f5bb146e32f13f9e0e6cc189e579",
+    "src/main/java/com/feedzai/commons/sql/abstraction/batch/DefaultBatch.java": "3b32740c243848e7ec659fae698e8585a7362ec23e761ab0739241d6cc8072e2",
+    "src/main/java/com/feedzai/commons/sql/abstraction/batch/PdbBatch.java": "cadaab635e68bf3052192c4adb464dfe336afcb68944eb7754b631f423f647a7",
+    "src/main/java/com/feedzai/commons/sql/abstraction/batch/impl/DefaultBatch.java": "cb3b923ffb87fd850eac6e9fd028496b8c63aca50d16b3b29ef6e63bc145ae34",
+    "src/main/java/com/feedzai/commons/sql/abstraction/batch/impl/DefaultBatchConfig.java": "aa8a907f8d83970fd7981aa0c9e202ea5670cdd05a36c7e3887148f67431048c",
+    "src/main/java/com/feedzai/commons/sql/abstraction/batch/impl/MultithreadedBatch.java": "9ca7e8f371701ba774b02cbf362472a3310256e9eb05fd4bde589d712138475e",
+    "src/main/java/com/feedzai/commons/sql/abstraction/batch/impl/MultithreadedBatchConfig.java": "b4b9564b28778d8a8ee53c3e5f3ecba7ad37fcecc54915d9a0998d462e24bfb7",
+    "src/main/java/com/feedzai/commons/sql/abstraction/batch/package-info.java": "65970316d0897e83d5dbedaf6bfa2098a41b114207d5e7c0fac5467631f0fb6a",
+    "src/main/java/com/feedzai/commons/sql/abstraction/ddl/AlterColumn.java": "ba284895224c63c8af8b48af93c11779bbb3b8573a56a625cc310223efa4297f",
+    "src/main/java/com/feedzai/commons/sql/abstraction/ddl/DbColumn.java": "9e922cbc23b0181c63921691cdbeefedc9229843aa3fe9a053a1ee4da22c5535",
+    "src/main/java/com/feedzai/commons/sql/abstraction/ddl/DbColumnConstraint.java": "7d219e2689b7715e8aefb5d0626784e8fd146feab8498e01a8ede661e063c49a",
+    "src/main/java/com/feedzai/commons/sql/abstraction/ddl/DbColumnType.java": "f49a5ef1e9a2073ee8647682144e399eb42c46b2e0fd53161467e73cd51afbd1",
+    "src/main/java/com/feedzai/commons/sql/abstraction/ddl/DbEntity.java": "9209ba0a7e18f2917d4982bf9b2e177be8d1e9d299e527266d089fd3befd7de3",
+    "src/main/java/com/feedzai/commons/sql/abstraction/ddl/DbEntityType.java": "e2aa120b09e04f3a529551ecffd05f022ba44e903a6dd25fcbdf3efc57d9854f",
+    "src/main/java/com/feedzai/commons/sql/abstraction/ddl/DbFk.java": "683e7ac82574360276e339252146b0e08864f84349413bb968b940a6571c4062",
+    "src/main/java/com/feedzai/commons/sql/abstraction/ddl/DbIndex.java": "60d4f56b22bf08f07a38a202744987b92a31619004ca269e36a18a9835c24adb",
+    "src/main/java/com/feedzai/commons/sql/abstraction/ddl/DropPrimaryKey.java": "e27f7004a7d1cb3d4374066f921eef4da1ff13a0efe541be29448bfff113df44",
+    "src/main/java/com/feedzai/commons/sql/abstraction/ddl/Rename.java": "932968a2b9cb078524f3f5a54991d11d2b0f6afcca98c12d3556333e1014fe2e",
+    "src/main/java/com/feedzai/commons/sql/abstraction/ddl/package-info.java": "5b026add2afe9c8ded2a8085ef0800fde90ce3ed1c60f65ba06701876df70955",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/All.java": "7295f2ff5a498918be59eb9fcc264b895de5618fc4a57f09be22d85f1008a2dd",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Between.java": "63feb625dc4b748f9f2d8d52d8047659d1177d8ef209c947b093f45650ca905d",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Case.java": "6c85f2d2d710c61580ed4050f6188f0ef9f8b2f0b040e5101fb7dadabcec1512",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Cast.java": "7d136447dc1d95489a3d903255dfc291f2bc94f7ecb0e4b526e18679f90294b5",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Coalesce.java": "fcbe25d72ae6c4d6586248927d7f7a68355d0907eaacbee602e4db44cb57769a",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Concat.java": "f63905ca10af4403cd7dc056ba4f0a4af57b303055e7cfeadd11d9ec2b3a169f",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Delete.java": "ec44c24b6348d91f762fea4bff6a6f1d850d4c0d0f3e27b7883ddb213a5d9a56",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Expression.java": "3a6a635f2cc2a0c46e8b3681516d9745f4da778a017a47f04c3ee5fb6d21e312",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Function.java": "e8e2e4efab36a320ff43194dfcbcb50743bfeaca3aa24a80d5fa0ea8d5789ef4",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/InternalFunction.java": "a133166a047b265df6db613a0cd6b3bf3344e5cada6e86f6df6254bc0f9997b5",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Join.java": "61f75e8ec076407ce616c0b71fa08f9fad492e7ed0add1a3a0a39cbe863c30b4",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/K.java": "e30ed1317774666b9b4413c7d6e774b1ea6b6e153e67d76ffe78abe9180505f6",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Literal.java": "082efc3c12866c9cdba2f1f8226cb803ea7ea99ac1b40d532fa004e92607f1f0",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Modulo.java": "74d2b8bbdd0a867bbdd28cd06ea0ee267778a491fedda9c6b74e8c177c3f65cf",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Name.java": "aa1b1ed3cba855a14dca2ed3234e61d0e99788dc4f38825ef5becd793f698ebe",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Query.java": "166a33502289de061cbe6a3f65074cc43e832839d63dc68b23e65157b1ddfef1",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/RepeatDelimiter.java": "792276e5aa40cbc5f44b87aa134bbdd801db44dfd23d81ed1a3dd6dd3722b819",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/StringAgg.java": "fcf0e43c55da7a5cba78d760f6e0b9dfa4da0eefeec758f3635fc4c2d09afb47",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Truncate.java": "c70d7d91f57eeb0381a0abfb1b169bfc7de1d5c535520c2134a6162cefc2c4dd",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Union.java": "c597524124e306bc76090c534164460cf7c80db0915189e344a97f8ed4df838d",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Update.java": "6a98cfb1354b5ebabd00dc834d26710f424974c44a96437698c7dd3ab0cdfddc",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/Values.java": "0277e65cd0068685f36c40ba24a782bd4f34113e5a04ef4f235d036620468d18",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/View.java": "8b534cc0a7845224e579b1d8d421934a87433b9d770317a7861cfa49c28edb67",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/When.java": "93de6c9e7f71a78b260489a6082d84165006d87c69a22419bc10b346284181ae",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/With.java": "14051099f811618297904cf775f8b0f5d72739aa260e6e8b1e234075666fa354",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/dialect/Dialect.java": "0678e715eb031a2abe3df4b9c93d798df2221d3de44205bc3e318880547cf5bb",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/dialect/SqlBuilder.java": "ffe3d521138d458ad2b32175cdfac31c0902c0c1769c2cc25580574255fb5ea3",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/dialect/package-info.java": "8ee11a46e3930c77d9a63fb161f9c01a4c1fe1cebddab713aa7cb3ae3bf12da1",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/package-info.java": "0570a7839eb6d323aa47c569fc9cc491a1a87ae5d5adacf3656b5051a301fc79",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/result/DB2ResultColumn.java": "04e5638e2510894109bedcda659331c78848b2170389d90bc3c5f373a95764b1",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/result/DB2ResultIterator.java": "a9f7950a4603b5da478eed2814cf2be9ad5d1aee56852e124bfe48ff195c7edb",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/result/H2ResultColumn.java": "f63231aaa797daee9f4971675dca31bfefceec1ee3bebd8a89ed538125c9e3cd",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/result/H2ResultIterator.java": "fcd90f9e8144d51a382a7da78340b8791eb599485bec08b6617050ea5bfb027c",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/result/MySqlResultColumn.java": "5353333aaaa5428eb0717bc55e73bd0e6c2afa10863c74a959f86f412044ca21",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/result/MySqlResultIterator.java": "9276325e084125ac16a442872732789aaf2aa0b55684a20b7890e9302d846430",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/result/OracleResultColumn.java": "798f5ba0cf4ff9e9c2ed3ebc1b7fefac77db3e2bb25fc5b64ba6ad497152924b",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/result/OracleResultIterator.java": "031a6fb6686e0dab22b251b6a751bc441b0efc86684896b605d0f39647cc6583",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/result/PostgreSqlResultColumn.java": "e21f307982122bc2fbd1c137e6ad3e65054ac0b233492cfd7c66fb1b0cb75e7c",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/result/PostgreSqlResultIterator.java": "c5f6227b487c389f640869684d30ea97862361a93fc6f617dfd0d966e7092642",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/result/ResultColumn.java": "8ae6654dd9e3832c62d91b0c6ce4a00d17183a55f0130755065a3b23349d526f",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/result/ResultIterator.java": "76cf993b1bdc9e9a2d43e1e015f8952e714515d686b6f40a0c65b8425ef09944",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/result/SqlServerResultColumn.java": "f7ccde829c48c892793544bd09e7584978f2e1a4eb5e064aa4b1a96ab665f2df",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/result/SqlServerResultIterator.java": "71e6ea8745d7d79c8259f803c9166f9b196ff74862c2eb80cf73465f0658c04a",
+    "src/main/java/com/feedzai/commons/sql/abstraction/dml/result/package-info.java": "0212ed2de15f1f4e39f6efccfb00e8c03f8584c220724eb070829ab8efd17c03",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/AbstractDatabaseEngine.java": "fa032fd81b6f6c4ba5081ff0352055d8d0321b89e72bae240d54ad59d8eb963b",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/AbstractTranslator.java": "b1692563bc53ee8fff0f8b7332ab0384e3a0af464b2cd5c957933296c7e8b246",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/ConnectionResetException.java": "9d2fbc90e1810877bd120bf5923779dfc305214e44bdeee4de8d8685166fafce",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/DatabaseEngine.java": "77d68c8558886d2122e278cda11fd0ce5b2a05d05dcd9f8c14ae0d297ebf884e",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/DatabaseEngineDriver.java": "c22be0503feb4d9bb6bd0d77097f4ccc8e4d706e9d3988f4e71577505c1955c8",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/DatabaseEngineException.java": "7fe640f247469f1c71dd86d42b900c411ea699849a68ff4a3dfe1d66883a5ee0",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/DatabaseEngineRuntimeException.java": "1444a4e536cce91d09a7cfb3d7337f9b32b3bd388c16779e0f9e8d2c911ca0de",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/DatabaseEngineTimeoutException.java": "5a6c4e6423777d24857917f9c8899ca76827b07d120ccc7c2d3144dee83b7c3d",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/DatabaseFactory.java": "376fc4ea5ed7061cabc671b2627da27a9d930e2b5d5a9834c4108dac611fe37b",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/DatabaseFactoryException.java": "8efb9d56c2e91e2a74f7fa2a7d04ff3fc3a21ab87a264a865205d4315e691708",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/DuplicateEngineException.java": "b4e45d5c4c2f7dab202d0f00235975a8fc5748941c93f7faf8aed4d9b9674d9a",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/MappedEntity.java": "e4c6a6d1120359269778bc617966b0bf8825e05bc8f6ad7f00b1b4a713e7742f",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/NameAlreadyExistsException.java": "a5546500360db964cd0ba42b5fb8dad5f3be6a0e8deeaafb70b4b3e8f02fe420",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/OperationNotSupportedRuntimeException.java": "bf7bce93382b3fbee462bad3891d35c72d7bf0c3972b657f9095ee9a23ef551d",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/RecoveryException.java": "89d92bdbe31d393f15a7ff03ba6d21fcbb0bf4516d6bb8c891913361dae6479f",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/RetryLimitExceededException.java": "5cfed520a79308decdf743009cb84aa024fd7c8b66213b44de49e9b732eebdca",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/configuration/IsolationLevel.java": "f6ee28e55d30f0d3fedf7633f9ba00a5208eb2070f045aa7c88477fa199452d1",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/configuration/PdbConfigurationException.java": "0669613679d35f5b0ce584ba9f35c234193c804ba70f8cc8142713da1f24ebcf",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/configuration/PdbProperties.java": "10f42df00cf14d3cf209c9d5fbb9640f183b6dc2040ce71d978c4712bacacc48",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/configuration/package-info.java": "3d56a9df7430360fea0455e85a124da91de0164976cc4ae47757ec936a04e587",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/handler/ExceptionHandler.java": "1c8a9731fa974360743974e9cd00c1f0548be92e6616081f35805394547763e1",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/handler/OperationFault.java": "441f085dfa217025f5534d23aca9c2265cb21b29ce873f2b8657e699d40f65d7",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/handler/QueryExceptionHandler.java": "eca33d31cf2fa50565e3fee61aac1182a8ec73e9b98715f39f3c4e71c3c3802d",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/handler/package-info.java": "8885fe71296d7ed9bffd19efa547d0f3fb38156256f1fbc21a8919388841f03d",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/CockroachDBEngine.java": "437624bb4618a594da5e5ca0428ab34e31d011576ba478e229b885f064f4f3dc",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/CockroachDBTranslator.java": "5c0b700c23e1e351395b248fd3a857584ed621d619f67c9d6bbd859a0cc88778",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/DB2Engine.java": "6ee8e9b88bfbdbabfbaf6f44d9c3bb8b0574760a54dcb9be075e5772f9b6e5d5",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/DB2Translator.java": "6d449adb9d0f7b8a4bea9de12b9cbb03f586867c62cb7c9f7804ff9fe58a8147",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/H2Engine.java": "1c340acc6a8618bc33bf5a0262ca263315840f13a96634591af8eccefb72b3c6",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/H2EngineV2.java": "c1a183bcb6dabce52247e988a34c9fdeeca7bfb66e3d63f81e515b465e06705c",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/H2Translator.java": "84cfd975aebb87108329ad62b9c0d35ec21077e01729d8ac8b55f28d1fb2045d",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/MySqlEngine.java": "051206da9a8f2a22df198aebd03d34e4916fda7b2042144e6ee9355e8348d255",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/MySqlTranslator.java": "524478b13fd492607733766c3651acb4526d626830bee5ae029d74e0441b7fb6",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/OracleEngine.java": "c76101c86c91009ba8c833a5fb9695e330432acd6de26cce185a461286d671ce",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/OracleTranslator.java": "9461345f9dbc5f5769060f1be280addc39b4b7885eed24bcc01bc60ccded1844",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/PostgreSqlEngine.java": "b54140dfb090a9fa883ed7acdf287d481fdb7a383360e269737a4cc50ef73de6",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/PostgreSqlTranslator.java": "e9d7b07e94e7d80eba1cdd626da0089c861dda43922c43acbdc8b4947d1dc9af",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/SqlServerEngine.java": "93535cf76dd656b14677f08f1fe657396da447382e03129996efc03b72b39c9a",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/SqlServerTranslator.java": "792a32f54b060572247cb656e180be57ab7f8b10ebabae81a65782c60e0bb3f1",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/h2/H2QueryExceptionHandler.java": "8f068a00cc3088ebdda0611bf93a45a98f0871c1df019652fe316c6cdd60dbfe",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/mysql/MySqlQueryExceptionHandler.java": "dad65200472c202937b448ebf4ff3180160e47180f52e0bef4012dc7a4a9890b",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/oracle/OracleQueryExceptionHandler.java": "dab68da970b1040f4167fba4809da33765825a0ac07973b0f1e2174055feecf3",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/package-info.java": "a65d6c052298719b04296afd39722e7cfa7fb6102cceee8f10dd5e9b42e42c9a",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/postgresql/PostgresSqlQueryExceptionHandler.java": "1dbfe84e24822447c079bf883a44424f09609ca9a9aaeae6a0df3bb8d0315024",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/impl/sqlserver/SQLServerQueryExceptionHandler.java": "102c01c6897bcf887c8f037adef77480ea6714512e65d4a21f880c144cbf139c",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/package-info.java": "5bf088889ead9f7d333d8e0625d988b0d1ac5e081e6faffffda3d788191b35c2",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/pool/DatabaseEnginePool.java": "f7f06b0662050ce8bb392fafb73a9416c8b9f6b2dbe478367633798cf901e60b",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/pool/PooledDatabaseEngine.java": "b35330d1504d996bdb19bb8f82abaf1c79c57c4dbe5d5cbdfb3141eaefc21784",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/pool/PooledDatabaseEngineFactory.java": "17ae81e100cf5a7eed0b266b74f8e47da6c217c103995ad0df2924b7463dc49c",
+    "src/main/java/com/feedzai/commons/sql/abstraction/engine/pool/package-info.java": "b2268ccc413f4be3a2cc7c15d1f2d060372be4a72e18d685b608746eb967d918",
+    "src/main/java/com/feedzai/commons/sql/abstraction/entry/EntityEntry.java": "43639b9f374d27ac9232a861b2fbecbdcf8422ad7849e3c6c17a658850a8eb0f",
+    "src/main/java/com/feedzai/commons/sql/abstraction/entry/package-info.java": "e7be6c1497ad75ae254e945cf0f1a9b716733a621baab929e9a429e6a18bab7a",
+    "src/main/java/com/feedzai/commons/sql/abstraction/exceptions/DatabaseEngineRetryableException.java": "ad02ef70166b7a1c2257679bd2b1475a027951cc10d55aaae909498c74dee178",
+    "src/main/java/com/feedzai/commons/sql/abstraction/exceptions/DatabaseEngineRetryableRuntimeException.java": "2dc2086da01a6e70d0ad8465c0da7720be04d9bac1f4246db24aec08279c789b",
+    "src/main/java/com/feedzai/commons/sql/abstraction/exceptions/DatabaseEngineUniqueConstraintViolationException.java": "936d9cd81c77325d689a28a421ca68d118841fb2d1270404fca1f5b8c18768dc",
+    "src/main/java/com/feedzai/commons/sql/abstraction/listeners/BatchListener.java": "db3ee485e46a5647b93d370de2548e2e7bc20f8feee1e3c5b8c9c69993646bae",
+    "src/main/java/com/feedzai/commons/sql/abstraction/listeners/MetricsListener.java": "ad868eedabefa74808273bb0380b4a123cf0746104fbc54851eea1cd102305b2",
+    "src/main/java/com/feedzai/commons/sql/abstraction/listeners/impl/NoopBatchListener.java": "615fef838413ef37f2a4c9fc67dd4bec6bbcf7eecdbd2510764ea2811e5d95f3",
+    "src/main/java/com/feedzai/commons/sql/abstraction/listeners/impl/NoopMetricsListener.java": "d5dc9506a4c7435bf7795ce5e90257605eefc2e6ccc3af1c7a22adf4a56569d0",
+    "src/main/java/com/feedzai/commons/sql/abstraction/listeners/impl/package-info.java": "c4455af52e1bbae08bb0c0022880a2eeae66fa35a8bed051d1284f64aa36403e",
+    "src/main/java/com/feedzai/commons/sql/abstraction/listeners/package-info.java": "4946a82a674fa05c9776bf5f309587b8db5c6c4b26edca40605154761c55f2d8",
+    "src/main/java/com/feedzai/commons/sql/abstraction/util/AESHelper.java": "9100a897010c3f13de70a73ca8e8deb530a3193ee0ced1d7e7fa9a9b660dfb72",
+    "src/main/java/com/feedzai/commons/sql/abstraction/util/Builder.java": "c34f5c714b5c893757a47a62206c4f37b743886842e6058986a237b841454996",
+    "src/main/java/com/feedzai/commons/sql/abstraction/util/Cloneable.java": "da625caa2a9015cf5cf37fcd30bc87ffecc158a2310bd261626f8fd2991aab33",
+    "src/main/java/com/feedzai/commons/sql/abstraction/util/Constants.java": "aa20afce0b78e5819f96b255d7d954d3cbd009e637aa75e1f66161c3058cccc2",
+    "src/main/java/com/feedzai/commons/sql/abstraction/util/InitiallyReusableByteArrayOutputStream.java": "e9c7ef62ecbdd55c4fc46571278271473c2ac789d964817845166d6eb58805f3",
+    "src/main/java/com/feedzai/commons/sql/abstraction/util/PreparedStatementCapsule.java": "51988384a0405cdf648dec08b818d3257eba22466047c639a1ed4919be19f33e",
+    "src/main/java/com/feedzai/commons/sql/abstraction/util/StringUtils.java": "055d0eb72e8afe496f99ef9e3014d790bcb2c6b1010e2f84f1485487e88f8282",
+    "src/main/java/com/feedzai/commons/sql/abstraction/util/package-info.java": "c70d293246edf44707cba2ff1700b3aec4498d17620cafb31d1be1189987fe4e",
+    "src/main/resources/.keep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/test/java/com/feedzai/commons/sql/abstraction/dml/DmlTest.java": "74a4abb915dbd0fc96f0d412d2b542ac00dec046b111205137ebf8409b75e0fd",
+    "src/test/java/com/feedzai/commons/sql/abstraction/dml/package-info.java": "84d8799dd6c61a65b8fec8b6b7bc8541bb51cba9410be40043446aa9cb3a4cb7",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/DatabaseFactoryTest.java": "257417fcd2e419165554fc85283830d7d24e44ef68c3732b8fb970a26de721b1",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/EngineTestUtils.java": "2efaf2fb53c0441c6f00d0c7db2ffa7ccfe9c524d6af16357788b4e7f0177b79",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/AbstractEngineSchemaTest.java": "41984ce940ddfdb4599b2d9a8c196b4713599d9d4ab309ddf5c1a0f9d0aecee4",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/BatchUpdateTest.java": "bfb0099429fca7a54c94460c322d4bc92217af6a4e84b033a08e5c34f7fd739c",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/EngineCloseTest.java": "c65b253661e4782a70625ba28fe197dab4774d5f93c2459222ab94ba0a5aad96",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/EngineCreateTest.java": "8e909d78a4078176be3737b6f3235d871366d7aa46935c8d1eae2b7d37d9e608",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/EngineGeneralTest.java": "bbeab77569996cdd6835e5c119e8ba2191909f05908e195fa48a5c3b06b0fb41",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/EngineIsolationTest.java": "99629dca20583b2d9a2f49e0210b0572e7ed7e52d2391be5a642494af5e123af",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/ForeignKeyTest.java": "cd2956c5bd3f3a3bc94cc120ba16b2528c2675bddedc487305f21a6b49bc1484",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/JSonTest.java": "898538732bb42f03453700dc3ae9bbaf392919301b7005bab67281e5cccd03b4",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/LongOverflowTest.java": "302ef9b46a2fcfa15f057a6b570f2e13d07b41713d90573f2339459a3ec27aad",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/QueryTimeoutsTest.java": "476f39dd4733a4c395c9f1d9bd01fb7edb8676cc378c9a664165c0c9bcb7cc3e",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/SelectForUpdateTest.java": "7615340bc2857a2dbc6b0203607d6a4c031ecd243a9a44ed52993819f9a543dd",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/TestRouter.java": "efbf776439f79adf05276374d450abb1efdeab9a5c84177987ba71ed1eb819db",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/TimeoutsTest.java": "7bf96f7b64375d461eebf199ff9cad597fec3dd3134fab4911777808cc7e6b72",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/abs/UnderflowTest.java": "7c08a90211497656a81f4a82b4bf6e3eb5d133e9d25b4135845895496c3ff44c",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/cockroach/CockroachDBEngineSchemaTest.java": "9a4a8197f5e37d289136f70a1066c9ca6f10184c5b5ccf3b90a8b98b4d75e713",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/cockroach/SkipTestCockroachDB.java": "9eeaa688b37adbc667f1860bb519463f7fce45ecbb0399696c30f50b4fda5608",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/db2/DB2EngineSchemaTest.java": "c2bdee19e2802e5b815d10591af25c71f10671a207a2a82104e7884313c910c8",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/h2/H2EngineSchemaTest.java": "eb2fc06818e409dc09128f806a8244bca638cc13a07f972562433cc934326504",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/mysql/MySqlEngineSchemaTest.java": "9420dd4342440355eed6bf6f5c079162396c6f08680545552168d07e01b25f29",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/oracle/OracleEngineSchemaTest.java": "c2815a99ce9de82b3ebc78b1f31f0051738d00c8de03d6758ee3ca881eedc892",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/postgresql/PostgreSqlEngineSchemaTest.java": "26a214608021762c54d7488950699bcb32c0c278cfd0824f731c15e82aede172",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/sqlserver/SqlServerEngineGeneralTest.java": "4e8a4574a2613389acdb58edbfef62e76125edcd7e872fb04402ed2489b972d4",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/sqlserver/SqlServerEngineIsolationTest.java": "d2c0bc5ad27298d1b9084e56ed3cc543491e73aa98d4188d9a6944de83b21392",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/impl/sqlserver/SqlServerEngineSchemaTest.java": "c12df295b9b2dc92256150f88db0dad9a986250684c93af70329dd8fb91e30aa",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/pool/DatabaseEnginePoolTest.java": "18842819b24d978730b2b9eb230ee5b63a6630107d4a21e5b536039bae6725bf",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/testconfig/BlobTest.java": "81f1bbfd331c19a316eace360792e4e4577caa267a7ee0505a1cee9e7ca1453d",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/testconfig/CustomTranslator.java": "092a83fbb2a51f6ea66f4cd6812c00397da901d2077913da59e8640b1de6aa8f",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/testconfig/DatabaseConfiguration.java": "c718e9ef97d2dad8f8743001230223078cc54ee5b95978f6a068a6cafd3af129",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/testconfig/DatabaseConfigurationUtil.java": "8062f298101f67be93f07acc1e1d05bc9bdcf4a10282b764133cb29b5b1e2750",
+    "src/test/java/com/feedzai/commons/sql/abstraction/engine/testconfig/DatabaseTestUtil.java": "398d9d6a48848f943d7ff3f130aa5720de84e822639b2f873bcf599384134f80",
+    "src/test/java/com/feedzai/commons/sql/abstraction/util/StringUtilsTest.java": "55702b5d6a1a0d8aac703be6e4ee15dee98d47344f28fde9e9c2d764a3ddf24b",
+    "src/test/resources/connections.properties": "cc795c017a1a3b0ee16c45035fd2e5e12f168f9590574e85d80c0a5fe96ada02",
+    "src/test/resources/logback-test.xml": "eeea2664e0fa3db09b63317b75b50e095615e211779d4ce221d1c80acb33d863",
+    "src/test/resources/udfs/db2.sql": "c78ea0f358be31b9a76b7c299c16913e6929a0fcfc555145d739a468c984de49",
+    "src/test/resources/udfs/mysql.sql": "0fdcadcdd71f979d178bc4f6afb54cf304f53d6bafcffc251cb3da3ece7255a5",
+    "src/test/resources/udfs/oracle.sql": "50a26a8d22529aad49ad03b615e508376de4801295ad44c675efbcf3bd09fb32",
+    "src/test/resources/udfs/postgresql.sql": "4632d0b711cbcc6f076b1f162d89775d4b6eab4a115d4765a12e616bac20b8a6",
+    "src/test/resources/udfs/sqlserver.sql": "276d70a8643ba992f62716f291d9396000cbfa5a3c9e48aef90d31ee26bce183"
+  },
+  "aggregate_counts": {
+    "tests": 94,
+    "failures": 0,
+    "errors": 3,
+    "skipped": 10
+  }
+}

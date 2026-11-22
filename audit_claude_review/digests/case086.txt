@@ -1,0 +1,36 @@
+=== CASE 86 746846c51abe7965b025db5f7cd5b4a16fa6e535
+  project=googleapis/java-datastore dep=org.apache.maven.surefire:surefire-junit47 3.0.0-M5 -> 3.0.0-M6 scope=compile type=other java=11
+  PR=https://github.com/googleapis/java-datastore/pull/700
+  PRE log logs/batch_triage/746846c5_pre.log:
+  lines=1144
+  status: [INFO] BUILD SUCCESS
+  reactor: Google Cloud Datastore Parent 2.3.1-SNAPSHOT   SUCCESS [ 15.889 s]; proto-google-cloud-datastore-v1 0.94.1-SNAPSHOT   SUCCESS [01:41 min]; datastore-v1-proto-client 2.3.1-SNAPSHOT   SUCCESS [01:02 min]; Google Cloud Datastore 2.3.1-SNAPSHOT   SUCCESS [ 51.356 s]; Google Cloud datastore BOM 2.3.1-SNAPSHOT   SUCCESS [  0.866 s]; BUILD SUCCESS
+  aggregate summaries: Tests run: 72, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 165, Failures: 0, Errors: 0, Skipped: 0
+  exception names: com.google.cloud.datastore.DatastoreExceptionx2
+  BREAKING log logs/batch_triage/746846c5_breaking.log:
+  lines=608
+  status: [INFO] BUILD FAILURE
+  reactor: Google Cloud Datastore Parent 2.3.1-SNAPSHOT   SUCCESS [  4.233 s]; proto-google-cloud-datastore-v1 0.94.1-SNAPSHOT   SUCCESS [ 29.415 s]; datastore-v1-proto-client 2.3.1-SNAPSHOT   FAILURE [ 15.869 s]; Google Cloud Datastore 2.3.1-SNAPSHOT   SKIPPED; Google Cloud datastore BOM 2.3.1-SNAPSHOT   SKIPPED; BUILD FAILURE
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project datastore-v1-proto-client: Execution default-test of goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test failed: An API incompat
+    [ERROR] -----------------------------------------------------
+    [ERROR] realm =    plugin>org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5--752323534
+    [ERROR] strategy = org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy
+    [ERROR] urls[0] = file:/root/.m2/repository/org/apache/maven/plugins/maven-surefire-plugin/3.0.0-M5/maven-surefire-plugin-3.0.0-M5.jar
+    [ERROR] urls[1] = file:/root/.m2/repository/org/apache/maven/surefire/surefire-junit47/3.0.0-M6/surefire-junit47-3.0.0-M6.jar
+    [ERROR] urls[2] = file:/root/.m2/repository/org/apache/maven/surefire/common-junit48/3.0.0-M6/common-junit48-3.0.0-M6.jar
+    [ERROR] urls[3] = file:/root/.m2/repository/org/apache/maven/surefire/common-junit4/3.0.0-M6/common-junit4-3.0.0-M6.jar
+    [ERROR] urls[4] = file:/root/.m2/repository/org/apache/maven/surefire/common-junit3/3.0.0-M6/common-junit3-3.0.0-M6.jar
+    [ERROR] urls[5] = file:/root/.m2/repository/org/apache/maven/surefire/common-java5/3.0.0-M6/common-java5-3.0.0-M6.jar
+  linkage/compile signals: NoSuchMethodError
+  exception names: java.lang.NoSuchMethodErrorx1
+  EVIDENCE logs/case86_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/maven-surefire-common-3.0.0-M5.jar, breaking/surefire-api-3.0.0-M6.jar, directoryscanner_javap.txt, pre/archive_summary.json, pre/artifacts.tar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=40 sum(t,f,e,s)=[237, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=0 sum(t,f,e,s)=[0, 0, 0, 0]
+  archived non-report files: pre=209 breaking=209 changed=1 added=0 removed=0
+  DIFF datastore-v1-proto-client/pom.xml (7 lines):
+    @@ -125,3 +125,3 @@
+                 <artifactId>surefire-junit47</artifactId>
+    -            <version>3.0.0-M5</version>
+    +            <version>3.0.0-M6</version>
+               </dependency>

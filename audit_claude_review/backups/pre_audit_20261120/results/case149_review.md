@@ -1,0 +1,9 @@
+# Case 149 review
+
+PRE: BUILD SUCCESS, 16 tests, no failures/errors/skips. BREAKING: BUILD FAILURE, Maven reports 16 distinct test methods, 10 errored, no failures/skips. Raw XML contains 22 entries and 16 error entries: each of six end-to-end methods is reported twice, once for ProcessingException/SocketException during the request and once for RuntimeException wrapping AbstractMethodError in AbstractApplicationTest.tearDown. Four BundleFactoryTest methods also report teardown errors. These duplicate entries are not six additional tests.
+
+scripts/reconcile_case_149_reports.py independently parses the archived XML, checks the six exact request/teardown pairs, verifies identical PRE/BREAKING class/method identities, and reconciles the unique totals with the final Maven summary. All raw XML and original aggregate counts remain preserved alongside reconciled_counts.json.
+
+Both original Docker images were run. All archived client source files match; only pom.xml changes jetty-server 9.4.35.v20201120 to 9.4.49.v20220914. The affected test classpath retains jetty-util and other Jetty modules at 9.4.35.v20201120. Resolved-JAR disassembly shows the new AllowedResourceAliasChecker$AllowedResourceAliasCheckListener implements LifeCycle$Listener but supplies only lifeCycleStarted. The actual retained interface requires abstract lifeCycleStarting, lifeCycleFailure, lifeCycleStopping and lifeCycleStopped callbacks. Original stack traces explicitly report AbstractMethodError for lifeCycleFailure. This is direct binary interface incompatibility. Request EOF errors are also preserved; they are not separately classified as a confirmed behavioral change.
+
+Agent assessment: NON_BEHAVIORAL, binary linkage flag YES. Evidence: logs/case149_evidence/ and logs/batch_triage/c4662398_*.log. Independent human review pending; final label blank. No repair attempted.

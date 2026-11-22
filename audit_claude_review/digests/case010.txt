@@ -1,0 +1,39 @@
+=== CASE 10 11fa4228dbff2f7e96f71120afac3528cafa85b4
+  project=International-Data-Spaces-Association/IDS-Messaging-Services dep=com.fasterxml.jackson.core:jackson-databind 2.9.10.8 -> 2.13.1 scope=compile type=other java=11
+  PR=https://github.com/International-Data-Spaces-Association/IDS-Messaging-Services/pull/424
+  PRE log logs/11fa4228_pre.log:
+  lines=753
+  status: [INFO] BUILD SUCCESS
+  reactor: messaging-services   SUCCESS [  1.621 s]; core   SUCCESS [ 20.762 s]; messaging   SUCCESS [  8.393 s]; clearinghouse   SUCCESS [  3.871 s]; broker   SUCCESS [  3.485 s]; vocol   SUCCESS [  0.259 s]; paris   SUCCESS [  3.335 s]; appstore   SUCCESS [  3.253 s]; BUILD SUCCESS
+  aggregate summaries: Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 12, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 2, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 3, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions prior to 1.8. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.10/logback-classic-1.2.10.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See http://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+  exception names: java.net.ConnectExceptionx2
+  BREAKING log logs/11fa4228_breaking.log:
+  lines=567
+  status: [INFO] BUILD FAILURE
+  reactor: messaging-services   SUCCESS [  1.210 s]; core   SUCCESS [ 19.654 s]; messaging   FAILURE [  6.689 s]; clearinghouse   SKIPPED; broker   SKIPPED; vocol   SKIPPED; paris   SKIPPED; appstore   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 6, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 12, Failures: 1, Errors: 5, Skipped: 0
+  failing classes: Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.56 sec <<< FAILURE! - in de.fraunhofer.ids.messaging.util.IdsMessageUtilsTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.051 sec <<< FAILURE! - in de.fraunhofer.ids.messaging.util.InfomodelMessageBuilderTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.525 sec <<< FAILURE! - in de.fraunhofer.ids.messaging.endpoint.MessageControllerTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.039 sec <<< FAILURE! - in de.fraunhofer.ids.messaging.protocol.multipart.MultipartResponseConverterTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.13 sec <<< FAILURE! - in de.fraunhofer.ids.messaging.requests.InfrastructureServiceTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.014 sec <<< FAILURE! - in de.fraunhofer.ids.messaging.response.MessageResponseTest
+  section: Failed tests: | IdsMessageUtilsTest.testUtils:54 Unexpected exception thrown: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey | Tests in error: | MessageControllerTest.testGetValidMultipartReturn:151 » NoClassDefFound com/fa... | MultipartResponseConverterTest.testConvertResponse:100->buildMultipart:205 » NoClassDefFound | InfrastructureServiceTest.testInfrastructureService:154 » NoClassDefFound com/... | MessageResponseTest.testResponses:44 » NoClassDefFound com/fasterxml/jackson/a... | InfomodelMessageBuilderTest.testBuildMessage:35 » NoClassDefFound com/fasterxm... | [INFO] ------------------------------------------------------------------------ | [INFO] Reactor Summary for messaging-services 6.0.1: | [INFO]
+  section: Tests in error: | MessageControllerTest.testGetValidMultipartReturn:151 » NoClassDefFound com/fa... | MultipartResponseConverterTest.testConvertResponse:100->buildMultipart:205 » NoClassDefFound | InfrastructureServiceTest.testInfrastructureService:154 » NoClassDefFound com/... | MessageResponseTest.testResponses:44 » NoClassDefFound com/fasterxml/jackson/a... | InfomodelMessageBuilderTest.testBuildMessage:35 » NoClassDefFound com/fasterxm... | [INFO] ------------------------------------------------------------------------ | [INFO] Reactor Summary for messaging-services 6.0.1: | [INFO] | [INFO] messaging-services ................................. SUCCESS [  1.210 s] | [INFO] core ............................................... SUCCESS [ 19.654 s]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project messaging: There are test failures.
+  FAILBLOCK: testUtils  Time elapsed: 0.553 sec  <<< FAILURE!
+      org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+      at de.fraunhofer.ids.messaging.util.IdsMessageUtilsTest.testUtils(IdsMessageUtilsTest.java:54)
+      Caused by: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+      at de.fraunhofer.ids.messaging.util.IdsMessageUtilsTest.lambda$testUtils$0(IdsMessageUtilsTest.java:54)
+      at de.fraunhofer.ids.messaging.util.IdsMessageUtilsTest.testUtils(IdsMessageUtilsTest.java:54)
+      Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.annotation.JsonKey
+      Caused by: java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+      Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.annotation.JsonKey
+  FAILBLOCK: testBuildMessage  Time elapsed: 0.051 sec  <<< ERROR!
+      java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+      at de.fraunhofer.ids.messaging.util.InfomodelMessageBuilderTest.testBuildMessage(InfomodelMessageBuilderTest.java:35)
+      Running de.fraunhofer.ids.messaging.endpoint.EndpointServiceTest
+      .   ____          _            __ _ _
+  distinct fail signatures (count): 1x org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.NoClassDefFoundError: com/fasterxml/jackson/ || 5x java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions prior to 1.8. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.10/logback-classic-1.2.10.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See http://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx8, java.net.ConnectExceptionx2, org.opentest4j.AssertionFailedErrorx1, java.lang.ClassNotFoundExceptionx1
+  EVIDENCE: no logs/case10_evidence directory

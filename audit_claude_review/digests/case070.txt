@@ -1,0 +1,54 @@
+=== CASE 70 57062474434f91f25595516ae8b759a53073a40f
+  project=jericks/geoserver-shell dep=org.json:json 20090211 -> 20230227 scope=compile type=other java=11
+  PR=https://github.com/jericks/geoserver-shell/pull/15
+  PRE log logs/batch_triage/57062474_pre.log:
+  lines=1360
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 205, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/57062474_breaking.log:
+  lines=1449
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 205, Failures: 0, Errors: 2, Skipped: 0
+  failing classes: Tests run: 28, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 5.968 s <<< FAILURE! - in org.geoserver.shell.ScriptCommandsTest
+  section: Errors: | ScriptCommandsTest.getSession:437 » JSON JSONObject["id"] is not a string (class java.lang.Integer : 1). | ScriptCommandsTest.listSession:422 » JSON JSONObject["id"] is not a string (class java.lang.Integer : 0). | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  01:05 min | [INFO] Finished at: 2026-11-09T13:12:54Z | [INFO] ------------------------------------------------------------------------ | [WARNING] | [WARNING] Plugin validation issues were detected in 2 plugin(s)
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project geoserver-shell: 
+  FAILBLOCK: [ERROR] org.geoserver.shell.ScriptCommandsTest.listSession  Time elapsed: 0.227 s  <<< ERROR!
+      org.json.JSONException: JSONObject["id"] is not a string (class java.lang.Integer : 0).
+      at org.json.JSONObject.wrongValueFormatException(JSONObject.java:2702)
+      at org.json.JSONObject.getString(JSONObject.java:861)
+      at org.geoserver.shell.ScriptCommands.listSession(ScriptCommands.java:298)
+      at org.geoserver.shell.ScriptCommandsTest.listSession(ScriptCommandsTest.java:422)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  FAILBLOCK: [ERROR] org.geoserver.shell.ScriptCommandsTest.getSession  Time elapsed: 0.21 s  <<< ERROR!
+      org.json.JSONException: JSONObject["id"] is not a string (class java.lang.Integer : 1).
+      at org.json.JSONObject.wrongValueFormatException(JSONObject.java:2702)
+      at org.json.JSONObject.getString(JSONObject.java:861)
+      at org.geoserver.shell.ScriptCommands.getSession(ScriptCommands.java:314)
+      at org.geoserver.shell.ScriptCommandsTest.getSession(ScriptCommandsTest.java:437)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  distinct fail signatures (count): 1x org.json.JSONException: JSONObject["id"] is not a string (class java.lang.Integer : 0). || 1x org.json.JSONException: JSONObject["id"] is not a string (class java.lang.Integer : 1).
+  exception names: org.json.JSONExceptionx2
+  EVIDENCE logs/case70_evidence: JsonStringProbe.java, breaking/archive_summary.json, breaking/artifacts.tar, breaking/json-20230227.jar, json_probe.log, pre/archive_summary.json, pre/artifacts.tar, pre/json-20090211.jar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=28 sum(t,f,e,s)=[205, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=28 sum(t,f,e,s)=[205, 0, 2, 0]
+  archived non-report files: pre=123 breaking=123 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -36,3 +36,3 @@
+                 <artifactId>json</artifactId>
+    -            <version>20090211</version>
+    +            <version>20230227</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    ERROR org.geoserver.shell.ScriptCommandsTest#listSession type=org.json.JSONException msg=JSONObject["id"] is not a string (class java.lang.Integer : 0).
+       at org.json.JSONObject.wrongValueFormatException(JSONObject.java:2702)
+       at org.json.JSONObject.getString(JSONObject.java:861)
+       at org.geoserver.shell.ScriptCommands.listSession(ScriptCommands.java:298)
+       at org.geoserver.shell.ScriptCommandsTest.listSession(ScriptCommandsTest.java:422)
+    ERROR org.geoserver.shell.ScriptCommandsTest#getSession type=org.json.JSONException msg=JSONObject["id"] is not a string (class java.lang.Integer : 1).
+       at org.json.JSONObject.wrongValueFormatException(JSONObject.java:2702)
+       at org.json.JSONObject.getString(JSONObject.java:861)
+       at org.geoserver.shell.ScriptCommands.getSession(ScriptCommands.java:314)
+       at org.geoserver.shell.ScriptCommandsTest.getSession(ScriptCommandsTest.java:437)
+  LOG json_probe.log (11 lines): exit=0 | Exception in thread "main" org.json.JSONException: JSONObject["id"] is not a string (class java.lang.Integer : 1). | at org.json.JSONObject.wrongValueFormatException(JSONObject.java:2702) | exit=1
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"json-20090211.jar","entries":{"org/json/JSONObject.class":["org/json/JSONObject.class"]}},{"phase":"breaking","jar":"json-20230227.jar","entries":{"org/json/JSONObject.class":["org/json/JSONObject.class"]}}]

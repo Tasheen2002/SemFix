@@ -1,0 +1,68 @@
+{
+  "candidate_number": 17,
+  "case_id": "18102f7a87e7ab8308a86208d47696c060110d0c",
+  "project": "ORCID-Source",
+  "dependency": "com.fasterxml.jackson.core:jackson-databind",
+  "old_version": "2.10.0",
+  "new_version": "2.12.6.1",
+  "assessment_author": "CODEX_AGENT",
+  "assessment_status": "INCONCLUSIVE_BASELINE_REPRODUCTION_PENDING_HUMAN_REVIEW",
+  "auto_triage": "AUTO_BASELINE_PROBLEM",
+  "agent_assessment": "UNCERTAIN",
+  "observed_update_failure_type": "NON_BEHAVIORAL_LINKAGE_CANDIDATE",
+  "primary_observed_update_exception": "java.lang.NoClassDefFoundError",
+  "missing_class": "com.fasterxml.jackson.core.util.JacksonFeature",
+  "binary_linkage_incompatibility_observed": true,
+  "reviewer_1_label": null,
+  "reviewer_2_label": null,
+  "final_label": null,
+  "repair_status": "NOT_ATTEMPTED_BASELINE_REPRODUCTION_PROBLEM",
+  "pre_run_status": "COMPLETED_BUILD_FAILURE",
+  "breaking_run_status": "INTERRUPTED_AFTER_ROOT_CAUSE_IDENTIFIED",
+  "pre_counts": {
+    "tests": 4104,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0
+  },
+  "breaking_completed_report_counts": {
+    "tests": 222,
+    "failures": 0,
+    "errors": 13,
+    "skipped": 0
+  },
+  "breaking_counts_are_partial": true,
+  "baseline_failure": {
+    "test_class": "org.orcid.listener.converter.OrcidRecordToSolrDocumentTest",
+    "test_name": "convertTest",
+    "line": 62,
+    "expected_current_affiliations": 5,
+    "actual_current_affiliations": 2,
+    "explanation_status": "STATIC_DATE_SENSITIVITY_ANALYSIS_NOT_TIME_CONTROLLED_RERUN",
+    "fixture_end_year": 2025,
+    "run_date": "2026-11-08",
+    "uses_system_clock": "LocalDate.now() at OrcidRecordToSolrDocument.java:816"
+  },
+  "source_comparison": {
+    "file_counts": {
+      "pre": 4574,
+      "breaking": 4574
+    },
+    "changed_paths": [
+      "pom.xml"
+    ],
+    "identical_except_root_pom": true
+  },
+  "phase_archive_summaries": {
+    "pre": "logs/case17_evidence/pre/archive_summary.json",
+    "breaking": "logs/case17_evidence/breaking/archive_summary.json"
+  },
+  "run_limitations": [
+    "Full PRE build does not pass; do not count as a confirmed semantic or nonsemantic benchmark case.",
+    "BREAKING was deliberately stopped after repeated Spring initialization failures; no full BREAKING Maven BUILD FAILURE or complete reactor counts are claimed.",
+    "Fresh report totals cover only completed reports from modules whose target directories were deleted during the current run.",
+    "Classpath path comparison does not establish byte equality for every dependency JAR.",
+    "BREAKING requested snapshot metadata; remote repository warnings are preserved."
+  ],
+  "next_required_step": "Reproduce a passing PRE baseline with an explicitly documented, isolated historical-clock setup or approved deterministic fixture adjustment before final adjudication; retain both original unmodified runs."
+}

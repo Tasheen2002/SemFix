@@ -1,0 +1,62 @@
+﻿
+=== Case 181  fa6503da9fd5431abca41561a34d54e07fbbf7d0 ===
+Project : SPARQL-Anything/sparql.anything
+Update  : org.jsoup:jsoup  1.14.2 -> 1.15.3
+Running breaking in container manual-case181-breaking (this can take several minutes) ...
+Finished in 55 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case181_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+  [WARNING] Tests run: 7, Failures: 0, Errors: 0, Skipped: 4
+  [ERROR] Tests run: 5, Failures: 2, Errors: 0, Skipped: 0
+  reactor: sparql.anything .................................... SUCCESS [  0.358 s]
+  reactor: sparql-anything-model .............................. SUCCESS [  9.594 s]
+  reactor: sparql-anything-metadata ........................... SUCCESS [  1.708 s]
+  reactor: sparql-anything-parser ............................. SUCCESS [  3.319 s]
+  reactor: sparql-anything-csv ................................ SUCCESS [  4.005 s]
+  reactor: sparql-anything-testutils .......................... SUCCESS [  0.286 s]
+  reactor: sparql-anything-xml ................................ SUCCESS [  3.489 s]
+  reactor: sparql-anything-docs ............................... SUCCESS [  5.465 s]
+  reactor: sparql-anything-html ............................... FAILURE [ 19.980 s]
+  reactor: sparql-anything-text ............................... SKIPPED
+  reactor: sparql-anything-json ............................... SKIPPED
+  reactor: sparql-anything-yaml ............................... SKIPPED
+  reactor: sparql-anything-markdown ........................... SKIPPED
+  reactor: sparql-anything-bib ................................ SKIPPED
+  reactor: sparql-anything-archive ............................ SKIPPED
+  reactor: sparql-anything-binary ............................. SKIPPED
+  reactor: sparql-anything-spreadsheet ........................ SKIPPED
+  reactor: sparql-anything-rdf ................................ SKIPPED
+  reactor: sparql-anything-engine ............................. SKIPPED
+  reactor: sparql-anything-cli ................................ SKIPPED
+  reactor: sparql-anything-it ................................. SKIPPED
+  reactor: sparql-anything-fuseki ............................. SKIPPED
+First failing tests / errors:
+  [ERROR] com.github.sparqlanything.html.HTMLMicrodataTest.testMicrodata1  Time elapsed: 6.287 s  <<< FAILURE!
+      java.lang.AssertionError
+      at org.junit.Assert.fail(Assert.java:87)
+      at org.junit.Assert.assertTrue(Assert.java:42)
+  [ERROR] com.github.sparqlanything.html.HTMLMicrodataRemoteTest.testMicrodata1  Time elapsed: 2.216 s  <<< FAILURE!
+      java.lang.AssertionError
+      at org.junit.Assert.fail(Assert.java:87)
+      at org.junit.Assert.assertTrue(Assert.java:42)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  none
+
+--- Proposed classification ---
+Label   : BEHAVIORAL   (rule R12: Core behavioral change (same API, same input, different observable result))
+Category: OUTPUT_FORMAT
+Cause   : jsoup 1.15.3 serialises the same HTML fixture differently (archived html_probe_by_element: PRE '<body> | <div ...' vs BREAKING '<body>| <div ...', whitespace/pretty-print change), so the HTML triplifier output differs and HTMLMicrodataTest isomorphism assertions fail
+Change  : Element.html()/outerHtml output format (whitespace normalisation) changed
+Codex   : PROVISIONAL_BEHAVIORAL   Claude blind: BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

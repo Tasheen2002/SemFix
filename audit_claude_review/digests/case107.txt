@@ -1,0 +1,103 @@
+=== CASE 107 923528a3dd1bcdba21490f7583c80a67d01285b2
+  project=s4u/pgpverify-maven-plugin dep=org.junit.jupiter:junit-jupiter-params 5.9.1 -> 5.9.2 scope=compile type=patch java=11
+  PR=https://github.com/s4u/pgpverify-maven-plugin/pull/445
+  PRE log logs/batch_triage/923528a3_pre.log:
+  lines=249
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 300, Failures: 0, Errors: 0, Skipped: 0
+  exception names: java.lang.NumberFormatExceptionx2
+  BREAKING log logs/batch_triage/923528a3_breaking.log:
+  lines=1590
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 161, Failures: 0, Errors: 15, Skipped: 0
+  failing classes: Tests run: 8, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.173 s <<< FAILURE! - in org.simplify4u.plugins.ArtifactResolverTest || Tests run: 19, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.52 s <<< FAILURE! - in org.simplify4u.plugins.pgp.SignatureUtilsTest || Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in org.simplify4u.plugins.keysmap.ArtifactPatternTest || Tests run: 13, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.047 s <<< FAILURE! - in org.simplify4u.plugins.keysmap.KeyItemsTest || Tests run: 4, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.045 s <<< FAILURE! - in org.simplify4u.plugins.keysmap.KeysMapMultiTest || Tests run: 6, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.32 s <<< FAILURE! - in org.simplify4u.plugins.ShowMojoTest || Tests run: 6, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.548 s <<< FAILURE! - in org.simplify4u.plugins.keyserver.PGPKeysServerClientTest || Tests run: 17, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.62 s <<< FAILURE! - in org.simplify4u.plugins.keyserver.PGPKeysCacheTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in org.simplify4u.plugins.utils.ExceptionUtilsTest
+  section: Errors: | ArtifactResolverTest.testEnablingValidatingPluginDependenciesEnablesPlugins(boolean, boolean, boolean, boolean) » NoSuchMethod 'java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)' | ShowMojoTest.shouldThrowExceptionForInvalidArtifact(String) » NoSuchMethod 'java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)' | PGPKeysCacheTest.createKeyServerListReturnCorrectImplementation(List, boolean,Class) » NoSuchMethod 'java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)' | PGPKeysCacheTest.throwsExceptionForAllFailedExecute(PGPKeysCache$KeyServerList) » NoSuchMethod 'java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)' | PGPKeysCacheTest.throwsPGPKeyNotFoundWhenKeyNotFoundOnFirstServer(PGPKeysCache$KeyServerList) » NoSuchMethod 'java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)' | PGPKeysCacheTest.throwsPGPKeyNotFoundWhenKeyNotFoundOnLastServer(PGPKeysCache$KeyServerList) » NoSuchMethod 'java.
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project pgpverify-maven-plugin: 
+  FAILBLOCK: [ERROR] org.simplify4u.plugins.ArtifactResolverTest.testEnablingValidatingPluginDependenciesEnablesPlugins(boolean, boolean, boolean, boolean)  Time elapsed: 1.006 s  <<< ERROR!
+      java.lang.NoSuchMethodError: 'java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)'
+      at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethodBySimpleOrQualifiedName(MethodArgumentsProvider.java:105)
+      at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethod(MethodArgumentsProvider.java:69)
+      at org.junit.jupiter.params.provider.MethodArgumentsProvider.lambda$provideArguments$0(MethodArgumentsProvider.java:54)
+      at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+      at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+  distinct fail signatures (count): 15x java.lang.NoSuchMethodError: 'java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodNam
+  linkage/compile signals: NoSuchMethodError
+  exception names: java.lang.NoSuchMethodErrorx15, org.junit.platform.commons.PreconditionViolationExceptionx15, java.lang.NumberFormatExceptionx2
+  EVIDENCE logs/case107_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/junit-jupiter-api-5.9.1.jar, breaking/jars/junit-jupiter-params-5.9.2.jar, breaking/jars/junit-platform-commons-1.9.1.jar, breaking/junit-jupiter-params-5.9.2_MethodArgumentsProvider_javap.txt, breaking/junit-platform-commons-1.9.1_ReflectionUtils_javap.txt, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/junit-jupiter-api-5.9.1.jar, pre/jars/junit-jupiter-params-5.9.1.jar, pre/jars/junit-platform-commons-1.9.1.jar, pre/junit-jupiter-params-5.9.1_MethodArgumentsProvider_javap.txt, pre/junit-platform-commons-1.9.1_ReflectionUtils_javap.txt, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=28 sum(t,f,e,s)=[300, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=28 sum(t,f,e,s)=[161, 0, 15, 0]
+  archived non-report files: pre=346 breaking=346 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -290,3 +290,3 @@
+                     <artifactId>junit-jupiter-params</artifactId>
+    -                <version>5.9.1</version>
+    +                <version>5.9.2</version>
+                 </dependency>
+  BREAKING surefire failures/errors:
+    ERROR org.simplify4u.plugins.ArtifactResolverTest#testEnablingValidatingPluginDependenciesEnablesPlugins(boolean, boolean, boolean, boolean) type=java.lang.NoSuchMethodError msg='java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)'
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethodBySimpleOrQualifiedName(MethodArgumentsProvider.java:105)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethod(MethodArgumentsProvider.java:69)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.lambda$provideArguments$0(MethodArgumentsProvider.java:54)
+       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+    ERROR org.simplify4u.plugins.ShowMojoTest#shouldThrowExceptionForInvalidArtifact(String) type=java.lang.NoSuchMethodError msg='java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)'
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethodBySimpleOrQualifiedName(MethodArgumentsProvider.java:105)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethod(MethodArgumentsProvider.java:69)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.lambda$provideArguments$0(MethodArgumentsProvider.java:54)
+       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+    ERROR org.simplify4u.plugins.keyserver.PGPKeysCacheTest#useSecondServerForFailedExecute(PGPKeysCache$KeyServerList) type=java.lang.NoSuchMethodError msg='java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)'
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethodBySimpleOrQualifiedName(MethodArgumentsProvider.java:105)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethod(MethodArgumentsProvider.java:69)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.lambda$provideArguments$0(MethodArgumentsProvider.java:54)
+       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+    ERROR org.simplify4u.plugins.keyserver.PGPKeysCacheTest#throwsPGPKeyNotFoundWhenKeyNotFoundOnFirstServer(PGPKeysCache$KeyServerList) type=java.lang.NoSuchMethodError msg='java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)'
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethodBySimpleOrQualifiedName(MethodArgumentsProvider.java:105)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethod(MethodArgumentsProvider.java:69)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.lambda$provideArguments$0(MethodArgumentsProvider.java:54)
+       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+    ERROR org.simplify4u.plugins.keyserver.PGPKeysCacheTest#throwsPGPKeyNotFoundWhenKeyNotFoundOnLastServer(PGPKeysCache$KeyServerList) type=java.lang.NoSuchMethodError msg='java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)'
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethodBySimpleOrQualifiedName(MethodArgumentsProvider.java:105)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethod(MethodArgumentsProvider.java:69)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.lambda$provideArguments$0(MethodArgumentsProvider.java:54)
+       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+    ERROR org.simplify4u.plugins.keyserver.PGPKeysCacheTest#throwsExceptionForAllFailedExecute(PGPKeysCache$KeyServerList) type=java.lang.NoSuchMethodError msg='java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)'
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethodBySimpleOrQualifiedName(MethodArgumentsProvider.java:105)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethod(MethodArgumentsProvider.java:69)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.lambda$provideArguments$0(MethodArgumentsProvider.java:54)
+       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+    ERROR org.simplify4u.plugins.keyserver.PGPKeysCacheTest#createKeyServerListReturnCorrectImplementation(List, boolean,Class) type=java.lang.NoSuchMethodError msg='java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)'
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethodBySimpleOrQualifiedName(MethodArgumentsProvider.java:105)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethod(MethodArgumentsProvider.java:69)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.lambda$provideArguments$0(MethodArgumentsProvider.java:54)
+       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+    ERROR org.simplify4u.plugins.keyserver.PGPKeysServerClientTest#emptyProxyNotConfigureClient(Proxy) type=java.lang.NoSuchMethodError msg='java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)'
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethodBySimpleOrQualifiedName(MethodArgumentsProvider.java:105)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethod(MethodArgumentsProvider.java:69)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.lambda$provideArguments$0(MethodArgumentsProvider.java:54)
+       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+    ERROR org.simplify4u.plugins.keysmap.ArtifactPatternTest#testMatchArtifact(String,Artifact, boolean) type=java.lang.NoSuchMethodError msg='java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)'
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethodBySimpleOrQualifiedName(MethodArgumentsProvider.java:105)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethod(MethodArgumentsProvider.java:69)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.lambda$provideArguments$0(MethodArgumentsProvider.java:54)
+       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+    ERROR org.simplify4u.plugins.keysmap.KeyItemsTest#testIsKeyMatch(String,String, boolean) type=java.lang.NoSuchMethodError msg='java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)'
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethodBySimpleOrQualifiedName(MethodArgumentsProvider.java:105)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethod(MethodArgumentsProvider.java:69)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.lambda$provideArguments$0(MethodArgumentsProvider.java:54)
+       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+    ERROR org.simplify4u.plugins.keysmap.KeysMapMultiTest#keyShouldBeValid(Artifact,KeyFingerprint) type=java.lang.NoSuchMethodError msg='java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)'
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethodBySimpleOrQualifiedName(MethodArgumentsProvider.java:105)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethod(MethodArgumentsProvider.java:69)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.lambda$provideArguments$0(MethodArgumentsProvider.java:54)
+       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+    ERROR org.simplify4u.plugins.keysmap.KeysMapMultiTest#noSigShouldBeFound(Artifact) type=java.lang.NoSuchMethodError msg='java.lang.String[] org.junit.platform.commons.util.ReflectionUtils.parseQualifiedMethodName(java.lang.String)'
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethodBySimpleOrQualifiedName(MethodArgumentsProvider.java:105)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.getFactoryMethod(MethodArgumentsProvider.java:69)
+       at org.junit.jupiter.params.provider.MethodArgumentsProvider.lambda$provideArguments$0(MethodArgumentsProvider.java:54)
+       at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+    ... truncated (75 lines)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -                <version>5.9.1</version> / +                <version>5.9.2</version>
+  JSON breaking/jar_inspection.json: {"case_id":"923528a3dd1bcdba21490f7583c80a67d01285b2","phase":"breaking","path_filter":"/(junit-jupiter-params|junit-platform-commons|junit-jupiter-api)/","path_source":"Fresh test report classpaths or retained runner events; Case 106 PRE uses explicit POM versions because successful runner events are deleted","artifacts":[{"resolved_path":"/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.1/junit-jupiter-api-5.9.1.jar","classes":{"org.junit.jupiter.params.provider.MethodArgumentsProvider":{"present":false,"major_version":null},"org.junit.platform.commons.util.ReflectionUtils":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.2/junit-jupiter-params-5.9.2.jar","classes":{"org.junit.jupiter.params.provider.MethodArgumentsProvider":{"present":true,"major_version":52},"org.junit.platform.commons.util.ReflectionUtils":{"present":false,"major_version":null}},"services":{},"disassemblies":[{"class":"org.junit.jupiter.params.provider.MethodArgumentsProvider","file":"junit-jupiter-params-5.9.2_MethodArgumentsProvider_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/org/junit/platform/junit-platform-commons/1.9.1/junit-platform-commons-1.9.1.jar","classes":{"org.junit.jupiter.params.provider.MethodArgumentsProvider":{"present":false,"major_version":null},...
+  JSON pre/jar_inspection.json: {"case_id":"923528a3dd1bcdba21490f7583c80a67d01285b2","phase":"pre","path_filter":"/(junit-jupiter-params|junit-platform-commons|junit-jupiter-api)/","path_source":"Fresh test report classpaths or retained runner events; Case 106 PRE uses explicit POM versions because successful runner events are deleted","artifacts":[{"resolved_path":"/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.1/junit-jupiter-api-5.9.1.jar","classes":{"org.junit.jupiter.params.provider.MethodArgumentsProvider":{"present":false,"major_version":null},"org.junit.platform.commons.util.ReflectionUtils":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.1/junit-jupiter-params-5.9.1.jar","classes":{"org.junit.jupiter.params.provider.MethodArgumentsProvider":{"present":true,"major_version":52},"org.junit.platform.commons.util.ReflectionUtils":{"present":false,"major_version":null}},"services":{},"disassemblies":[{"class":"org.junit.jupiter.params.provider.MethodArgumentsProvider","file":"junit-jupiter-params-5.9.1_MethodArgumentsProvider_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/org/junit/platform/junit-platform-commons/1.9.1/junit-platform-commons-1.9.1.jar","classes":{"org.junit.jupiter.params.provider.MethodArgumentsProvider":{"present":false,"major_version":null},"org....
+  JARS: breaking/jars/junit-jupiter-api-5.9.1.jar, breaking/jars/junit-jupiter-params-5.9.2.jar, breaking/jars/junit-platform-commons-1.9.1.jar, pre/jars/junit-jupiter-api-5.9.1.jar, pre/jars/junit-jupiter-params-5.9.1.jar, pre/jars/junit-platform-commons-1.9.1.jar

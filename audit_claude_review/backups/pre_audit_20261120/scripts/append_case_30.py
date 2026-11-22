@@ -1,0 +1,89 @@
+"""Save the evidence-backed Case 30 assessment without claiming human review."""
+
+import csv
+import io
+import os
+import shutil
+from datetime import datetime
+from pathlib import Path
+
+CASE_ID = '25926ea2f0e0adaec0238bc7623d0a78e70c96bd'
+RECORD = {'case_id': '25926ea2f0e0adaec0238bc7623d0a78e70c96bd',
+ 'project': 'recheck',
+ 'dependency_group': 'org.eclipse.persistence',
+ 'dependency_artifact': 'org.eclipse.persistence.moxy',
+ 'old_version': '3.0.2',
+ 'new_version': '4.0.1',
+ 'bump_category': 'TEST_FAILURE',
+ 'pre_build_status': 'SUCCESS',
+ 'breaking_build_status': 'FAILURE',
+ 'pre_tests': '737',
+ 'breaking_tests': '737',
+ 'breaking_failures': '0',
+ 'breaking_errors': '15',
+ 'test_effect_type': 'TEST_ERROR',
+ 'test_effect_subtype': 'JAVA_ERROR',
+ 'main_exception': 'java.lang.ExceptionInInitializerError',
+ 'failure_origin': 'UPDATED_LIBRARY',
+ 'origin_library': 'org.eclipse.persistence:org.eclipse.persistence.moxy:4.0.1',
+ 'binary_linkage_incompatibility': 'NO',
+ 'behavioral_status': 'NON_BEHAVIORAL',
+ 'behavior_change_type': '',
+ 'behavior_description': 'MOXy 4.0.1 changes its ASM dependency to test scope, removing the '
+                         'EclipseLink ASM implementation from the downstream runtime classpath. '
+                         'ASMFactory fails its availability check, causing one initialization '
+                         'error and 14 downstream errors.',
+ 'pre_log': 'logs/batch_triage/25926ea2_pre.log',
+ 'breaking_log': 'logs/batch_triage/25926ea2_breaking.log',
+ 'review_status': 'PENDING_HUMAN_REVIEW',
+ 'reviewer_1_label': '',
+ 'reviewer_2_label': '',
+ 'final_label': '',
+ 'notes': 'Agent assessment pending human review. Root cause is a missing runtime implementation, '
+          'not a direct binary linkage error. ClassNotFoundException for not existent is present '
+          'in both runs. Resolved POMs, classpaths and ASMFactory disassembly support the '
+          'diagnosis. Maven and fresh reports agree; the tee pipeline masks the failing exit code. '
+          'See results/case30_review.md and logs/case30_evidence/.'}
+
+
+def main():
+    path = Path(__file__).resolve().parents[1] / 'results' / 'behavioral_classification.csv'
+    original = path.read_bytes()
+    reader = csv.DictReader(io.StringIO(original.decode('utf-8-sig'), newline=''))
+    fields = reader.fieldnames
+    rows = list(reader)
+    if not fields or len(fields) != len(RECORD) or set(fields) != set(RECORD):
+        raise ValueError('Classification CSV schema differs; no changes made')
+    ids = [row['case_id'] for row in rows]
+    if len(ids) != len(set(ids)) or any(not value for value in ids):
+        raise ValueError('Missing/duplicate case IDs; no changes made')
+    existing = [row for row in rows if row['case_id'] == CASE_ID]
+    if existing:
+        if existing[0] != RECORD:
+            raise ValueError('Case 30 differs from saved record; no changes made')
+        print(f'Case 30 already recorded; no changes made. Total: {len(rows)}')
+        return
+    if any(None in row or any(value is None for value in row.values()) for row in rows):
+        raise ValueError('Malformed existing classification row; no changes made')
+    extra = io.StringIO(newline='')
+    csv.DictWriter(extra, fieldnames=fields).writerow(RECORD)
+    separator = b'' if original.endswith((b'\n', b'\r')) else b'\r\n'
+    updated = original + separator + extra.getvalue().encode('utf-8')
+    # Preserve existing bytes and save a backup before the atomic replacement.
+    backup_dir = path.parent / 'backups'
+    backup_dir.mkdir(exist_ok=True)
+    backup = backup_dir / (path.name + '.before_case30.' +
+                          datetime.now().strftime('%Y%m%d_%H%M%S_%f') + '.bak')
+    shutil.copy2(path, backup)
+    temporary = path.with_name(path.name + '.case30.tmp')
+    with temporary.open('xb') as stream:
+        stream.write(updated)
+    if path.read_bytes() != original:
+        temporary.unlink()
+        raise RuntimeError('Classification changed concurrently; original retained')
+    os.replace(temporary, path)
+    print(f'Case 30 appended. Total: {len(rows) + 1}. Backup: {backup}')
+
+
+if __name__ == '__main__':
+    main()

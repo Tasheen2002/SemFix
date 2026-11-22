@@ -1,0 +1,135 @@
+=== CASE 71 5743793a5d54e43d9acf27e46fdb3a257ee0196f
+  project=googleapis/java-pubsublite dep=com.google.flogger:google-extensions 0.6 -> 0.7.1 scope=compile type=minor java=11
+  PR=https://github.com/googleapis/java-pubsublite/pull/901
+  PRE log logs/batch_triage/5743793a_pre.log:
+  lines=1358
+  status: [INFO] BUILD SUCCESS
+  reactor: Google Cloud Pub/Sub Lite Parent 1.2.1-SNAPSHOT   SUCCESS [ 13.206 s]; proto-google-cloud-pubsublite-v1 1.2.1-SNAPSHOT   SUCCESS [01:41 min]; grpc-google-cloud-pubsublite-v1 1.2.1-SNAPSHOT   SUCCESS [ 17.222 s]; Google Cloud Pub/Sub Lite 1.2.1-SNAPSHOT   SUCCESS [01:21 min]; Pub/Sub Lite IO 0.21.1-SNAPSHOT   SUCCESS [01:06 min]; BUILD SUCCESS
+  aggregate summaries: Tests run: 331, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 41, Failures: 0, Errors: 0, Skipped: 0
+  first [ERROR] lines:
+    [ERROR] WARNING: An illegal reflective access operation has occurred
+    [ERROR] WARNING: Illegal reflective access by org.xerial.snappy.pure.UnsafeUtil (file:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.4/snappy-java-1.1.8.4.jar) to field java.nio.Buffer.address
+    [ERROR] WARNING: Please consider reporting this to the maintainers of org.xerial.snappy.pure.UnsafeUtil
+    [ERROR] WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+    [ERROR] WARNING: All illegal access operations will be denied in a future release
+  provider/console lines: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+  exception names: com.google.cloud.pubsublite.internal.CheckedApiExceptionx9, com.google.api.gax.rpc.ApiExceptionx4, java.lang.IllegalStateExceptionx1
+  BREAKING log logs/batch_triage/5743793a_breaking.log:
+  lines=1628
+  status: [INFO] BUILD FAILURE
+  reactor: Google Cloud Pub/Sub Lite Parent 1.2.1-SNAPSHOT   SUCCESS [  8.071 s]; proto-google-cloud-pubsublite-v1 1.2.1-SNAPSHOT   SUCCESS [ 34.607 s]; grpc-google-cloud-pubsublite-v1 1.2.1-SNAPSHOT   SUCCESS [ 10.829 s]; Google Cloud Pub/Sub Lite 1.2.1-SNAPSHOT   FAILURE [01:23 min]; Pub/Sub Lite IO 0.21.1-SNAPSHOT   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 331, Failures: 0, Errors: 123, Skipped: 0
+  failing classes: Tests run: 9, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.214 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.BlockingPullSubscriberImplTest || Tests run: 6, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.039 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.BufferingPullSubscriberTest || Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.136 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest || Tests run: 12, Failures: 0, Errors: 12, Skipped: 0, Time elapsed: 0.229 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.SubscriberImplTest || Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.044 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.ConnectedAssignerImplTest || Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.132 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.CommitterImplTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.201 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.RoutingPublisherTest || Tests run: 10, Failures: 0, Errors: 10, Skipped: 0, Time elapsed: 0.112 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.PublisherImplTest || Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.077 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.PartitionCountWatcherImplTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.061 s <<< FAILURE! - in com.google.cloud.pubsublite.internal.wire.PublisherBuilderTest
+  section: Errors: | PublisherSettingsTest.testSettings:71 » NoClassDefFound Could not initialize c... | SubscriberSettingsTest.testSettingsWithPartitons:57 » Api | SubscriberSettingsTest.testSettingsWithoutPartitons:72 » NoClassDefFound Could... | com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.ackAfterShutdown | Run 1: AckSetTrackerImplTest.setUp:66 NoClassDefFound Could not initialize class com.... | Run 2: AckSetTrackerImplTest.tearDown:73 NullPointer | [INFO] | com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.duplicateAckFails | Run 1: AckSetTrackerImplTest.setUp:66 NoClassDefFound Could not initialize class com.... | Run 2: AckSetTrackerImplTest.tearDown:73 NullPointer | [INFO] | com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.trackAndAggregateAcks | Run 1: AckSetTrackerImplTest.setUp:66 NoClassDefFound Could not initialize class com....
+  first [ERROR] lines:
+    [ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.ackAfterShutdown
+    [ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.duplicateAckFails
+    [ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.trackAndAggregateAcks
+    [ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.waitUntilCommittedDiscardsPendingAcks
+    [ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest.badTimestampCannotBeTransformed
+    [ERROR] com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest.validPublish
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project google-cloud-pubsublite: There are test failures.
+  FAILBLOCK: [ERROR] com.google.cloud.pubsublite.internal.BlockingPullSubscriberImplTest.closeStops  Time elapsed: 1.95 s  <<< ERROR!
+      java.lang.ExceptionInInitializerError
+      at com.google.cloud.pubsublite.internal.BlockingPullSubscriberImplTest.closeStops(BlockingPullSubscriberImplTest.java:103)
+      Caused by: java.lang.IllegalStateException:
+      No logging platforms found:
+      com.google.common.flogger.backend.system.DefaultPlatform: java.lang.NoSuchMethodError: 'java.lang.Object com.google.common.flogger.util.StaticMethodCaller.callGetterFromSystemProperty(java.lang.String, java.lang.Class)'
+      at com.google.cloud.pubsublite.internal.BlockingPullSubscriberImplTest.closeStops(BlockingPullSubscriberImplTest.java:103)
+      Caused by: java.lang.IllegalStateException:
+  FAILBLOCK: [ERROR] com.google.cloud.pubsublite.internal.BufferingPullSubscriberTest.closeStops  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ApiServiceUtils
+      at com.google.cloud.pubsublite.internal.BufferingPullSubscriberTest.closeStops(BufferingPullSubscriberTest.java:144)
+      [INFO] Running com.google.cloud.pubsublite.internal.wire.PubsubContextTest
+      [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.253 s - in com.google.cloud.pubsublite.internal.wire.PubsubContextTest
+      [INFO] Running com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest
+  FAILBLOCK: [ERROR] com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.responseAfterClose_Dropped  Time elapsed: 0.109 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class com.google.common.flogger.backend.Platform$LazyHolder
+      at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.initialize(BatchPublisherImplTest.java:203)
+      at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.responseAfterClose_Dropped(BatchPublisherImplTest.java:208)
+      [ERROR] com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.duplicateInitial_Abort  Time elapsed: 0.002 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.BatchPublisherImpl
+  FAILBLOCK: [ERROR] com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.duplicateInitial_Abort  Time elapsed: 0.002 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.BatchPublisherImpl
+      at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.initialize(BatchPublisherImplTest.java:203)
+      at com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.duplicateInitial_Abort(BatchPublisherImplTest.java:217)
+      [ERROR] com.google.cloud.pubsublite.internal.wire.BatchPublisherImplTest.offsetResponseOutOfOrder_Exception  Time elapsed: 0.003 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.BatchPublisherImpl
+  distinct fail signatures (count): 1x java.lang.ExceptionInInitializerError || 1x java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ApiServiceUtils || 1x java.lang.NoClassDefFoundError: Could not initialize class com.google.common.flogger.backend.Platform$LazyHolder || 1x java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.BatchPublisherImpl
+  linkage/compile signals: NoClassDefFoundError, NoSuchMethodError
+  exception names: java.lang.NoClassDefFoundErrorx122, java.lang.NullPointerExceptionx6, java.lang.ExceptionInInitializerErrorx1, java.lang.IllegalStateExceptionx1, java.lang.NoSuchMethodErrorx1, com.google.api.gax.rpc.ApiExceptionx1
+  EVIDENCE logs/case71_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/flogger-0.7.1.jar, breaking/flogger-system-backend-0.6.jar, breaking/google-extensions-0.7.1.jar, breaking/unique_test_counts.json, flogger_javap.txt, pre/archive_summary.json, pre/artifacts.tar, pre/flogger-0.6.jar, pre/flogger-system-backend-0.6.jar, pre/google-extensions-0.6.jar, pre/unique_test_counts.json, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=54 sum(t,f,e,s)=[372, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=46 sum(t,f,e,s)=[337, 0, 129, 0]
+  archived non-report files: pre=474 breaking=474 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -36,3 +36,3 @@
+             <artifactId>google-extensions</artifactId>
+    -        <version>0.6</version>
+    +        <version>0.7.1</version>
+           </dependency>
+  BREAKING surefire failures/errors:
+    ERROR com.google.cloud.pubsublite.cloudpubsub.PublisherSettingsTest(sponge_log)#testSettings type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisher
+       at com.google.cloud.pubsublite.cloudpubsub.PublisherSettingsTest.testSettings(PublisherSettingsTest.java:71)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.SubscriberSettingsTest(sponge_log)#testSettingsWithoutPartitons type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.internal.wire.AssignerSettings
+       at com.google.cloud.pubsublite.cloudpubsub.SubscriberSettingsTest.testSettingsWithoutPartitons(SubscriberSettingsTest.java:72)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.SubscriberSettingsTest(sponge_log)#testSettingsWithPartitons type=com.google.api.gax.rpc.ApiException msg=
+       Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.google.cloud.pubsublite.internal.wire.ApiExceptionCommitter
+       at com.google.cloud.pubsublite.cloudpubsub.SubscriberSettingsTest.testSettingsWithPartitons(SubscriberSettingsTest.java:57)
+       at com.google.cloud.pubsublite.cloudpubsub.SubscriberSettingsTest.testSettingsWithPartitons(SubscriberSettingsTest.java:57)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest(sponge_log)#waitUntilCommittedDiscardsPendingAcks type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.internal.ProxyService
+       at com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.setUp(AckSetTrackerImplTest.java:66)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest(sponge_log)#waitUntilCommittedDiscardsPendingAcks type=java.lang.NullPointerException msg=
+       at com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.tearDown(AckSetTrackerImplTest.java:73)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest(sponge_log)#ackAfterShutdown type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImpl
+       at com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.setUp(AckSetTrackerImplTest.java:66)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest(sponge_log)#ackAfterShutdown type=java.lang.NullPointerException msg=
+       at com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.tearDown(AckSetTrackerImplTest.java:73)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest(sponge_log)#trackAndAggregateAcks type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImpl
+       at com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.setUp(AckSetTrackerImplTest.java:66)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest(sponge_log)#trackAndAggregateAcks type=java.lang.NullPointerException msg=
+       at com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.tearDown(AckSetTrackerImplTest.java:73)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest(sponge_log)#duplicateAckFails type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImpl
+       at com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.setUp(AckSetTrackerImplTest.java:66)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest(sponge_log)#duplicateAckFails type=java.lang.NullPointerException msg=
+       at com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest.tearDown(AckSetTrackerImplTest.java:73)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest(sponge_log)#startStop type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.internal.ProxyService
+       at com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.setUp(AssigningSubscriberTest.java:80)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest(sponge_log)#assignmentHandlerReentrantSafe type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriber
+       at com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.setUp(AssigningSubscriberTest.java:80)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest(sponge_log)#stopStopsSubs type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriber
+       at com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.setUp(AssigningSubscriberTest.java:80)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest(sponge_log)#createAndEvict type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriber
+       at com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.setUp(AssigningSubscriberTest.java:80)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest(sponge_log)#assignerErrorFailsSubs type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriber
+       at com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.setUp(AssigningSubscriberTest.java:80)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest(sponge_log)#failedCreate type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriber
+       at com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.setUp(AssigningSubscriberTest.java:80)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest(sponge_log)#createSubscribers type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriber
+       at com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.setUp(AssigningSubscriberTest.java:80)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest(sponge_log)#assignmentHandlerFailure type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriber
+       at com.google.cloud.pubsublite.cloudpubsub.internal.AssigningSubscriberTest.setUp(AssigningSubscriberTest.java:80)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest(sponge_log)#onSubscriberResetWaitsForAckSetTracker type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.internal.ProxyService
+       at com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.setUp(SinglePartitionSubscriberTest.java:94)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest(sponge_log)#multiMessageAck type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriber
+       at com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.setUp(SinglePartitionSubscriberTest.java:94)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest(sponge_log)#singleMessageNackHandlerFailedFuture type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriber
+       at com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.setUp(SinglePartitionSubscriberTest.java:94)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest(sponge_log)#singleMessageNackHandlerSuccessFuture type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriber
+       at com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.setUp(SinglePartitionSubscriberTest.java:94)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest(sponge_log)#singleMessageNackAfterShutdownNoNackHandler type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriber
+       at com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.setUp(SinglePartitionSubscriberTest.java:94)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest(sponge_log)#ackSetTrackerFailure type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriber
+       at com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.setUp(SinglePartitionSubscriberTest.java:94)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest(sponge_log)#wireSubscriberFailure type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriber
+       at com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.setUp(SinglePartitionSubscriberTest.java:94)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest(sponge_log)#singleMessageAck type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriber
+       at com.google.cloud.pubsublite.cloudpubsub.internal.SinglePartitionSubscriberTest.setUp(SinglePartitionSubscriberTest.java:94)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest(sponge_log)#validPublish type=java.lang.NoClassDefFoundError msg=Could not initialize class com.google.cloud.pubsublite.internal.ProxyService
+       at com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest.setUp(WrappingPublisherTest.java:60)
+    ERROR com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest(sponge_log)#validPublish type=java.lang.NullPointerException msg=
+       at com.google.cloud.pubsublite.cloudpubsub.internal.WrappingPublisherTest.tearDown(WrappingPublisherTest.java:69)
+    ... truncated (281 lines)
+  JSON breaking/unique_test_counts.json: {"aggregate_counts":{"tests":331,"failures":0,"errors":123,"skipped":0},"raw_xml_counts":{"tests":337,"failures":0,"errors":129,"skipped":0},"duplicate_test_entries":[{"report":"google-cloud-pubsublite/target/surefire-reports/TEST-com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest-sponge_log.xml","class":"com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest(sponge_log)","test":"waitUntilCommittedDiscardsPendingAcks","statuses":["errors","errors"]},{"report":"google-cloud-pubsublite/target/surefire-reports/TEST-com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest-sponge_log.xml","class":"com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest(sponge_log)","test":"ackAfterShutdown","statuses":["errors","errors"]},{"report":"google-cloud-pubsublite/target/surefire-reports/TEST-com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest-sponge_log.xml","class":"com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest(sponge_log)","test":"trackAndAggregateAcks","statuses":["errors","errors"]},{"report":"google-cloud-pubsublite/target/surefire-reports/TEST-com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest-sponge_log.xml","class":"com.google.cloud.pubsublite.cloudpubsub.internal.AckSetTrackerImplTest(sponge_log)","test":"duplicateAckFails","statuses":["errors","errors"]...
+  JSON pre/unique_test_counts.json: {"aggregate_counts":{"tests":372,"failures":0,"errors":0,"skipped":0},"raw_xml_counts":{"tests":372,"failures":0,"errors":0,"skipped":0},"duplicate_test_entries":[]}
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"google-extensions-0.6.jar","entries":{"StaticMethodCaller.class":[],"DefaultPlatform.class":[]}},{"phase":"pre","jar":"flogger-0.6.jar","entries":{"StaticMethodCaller.class":["com/google/common/flogger/util/StaticMethodCaller.class"],"DefaultPlatform.class":[]}},{"phase":"pre","jar":"flogger-system-backend-0.6.jar","entries":{"StaticMethodCaller.class":[],"DefaultPlatform.class":["com/google/common/flogger/backend/system/DefaultPlatform.class"]}},{"phase":"breaking","jar":"google-extensions-0.7.1.jar","entries":{"StaticMethodCaller.class":[],"DefaultPlatform.class":[]}},{"phase":"breaking","jar":"flogger-0.7.1.jar","entries":{"StaticMethodCaller.class":["com/google/common/flogger/util/StaticMethodCaller.class"],"DefaultPlatform.class":[]}},{"phase":"breaking","jar":"flogger-system-backend-0.6.jar","entries":{"StaticMethodCaller.class":[],"DefaultPlatform.class":["com/google/common/flogger/backend/system/DefaultPlatform.class"]}}]

@@ -1,0 +1,41 @@
+Compiled from "AbstractForkInputStream.java"
+public abstract class org.apache.maven.plugin.surefire.booterclient.lazytestprovider.AbstractForkInputStream extends java.io.InputStream implements org.apache.maven.plugin.surefire.booterclient.lazytestprovider.NotifiableTestStream {
+  private volatile org.apache.maven.plugin.surefire.booterclient.lazytestprovider.FlushReceiverProvider flushReceiverProvider;
+    descriptor: Lorg/apache/maven/plugin/surefire/booterclient/lazytestprovider/FlushReceiverProvider;
+
+  public org.apache.maven.plugin.surefire.booterclient.lazytestprovider.AbstractForkInputStream();
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/io/InputStream."<init>":()V
+       4: return
+
+  public void setFlushReceiverProvider(org.apache.maven.plugin.surefire.booterclient.lazytestprovider.FlushReceiverProvider);
+    descriptor: (Lorg/apache/maven/plugin/surefire/booterclient/lazytestprovider/FlushReceiverProvider;)V
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #2                  // Method org/apache/maven/surefire/util/internal/StringUtils.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+       5: checkcast     #3                  // class org/apache/maven/plugin/surefire/booterclient/lazytestprovider/FlushReceiverProvider
+       8: putfield      #4                  // Field flushReceiverProvider:Lorg/apache/maven/plugin/surefire/booterclient/lazytestprovider/FlushReceiverProvider;
+      11: return
+
+  protected boolean tryFlush() throws java.io.IOException;
+    descriptor: ()Z
+    Code:
+       0: aload_0
+       1: getfield      #4                  // Field flushReceiverProvider:Lorg/apache/maven/plugin/surefire/booterclient/lazytestprovider/FlushReceiverProvider;
+       4: ifnull        29
+       7: aload_0
+       8: getfield      #4                  // Field flushReceiverProvider:Lorg/apache/maven/plugin/surefire/booterclient/lazytestprovider/FlushReceiverProvider;
+      11: invokeinterface #5,  1            // InterfaceMethod org/apache/maven/plugin/surefire/booterclient/lazytestprovider/FlushReceiverProvider.getFlushReceiver:()Lorg/apache/maven/plugin/surefire/booterclient/lazytestprovider/FlushReceiver;
+      16: astore_1
+      17: aload_1
+      18: ifnull        29
+      21: aload_1
+      22: invokeinterface #6,  1            // InterfaceMethod org/apache/maven/plugin/surefire/booterclient/lazytestprovider/FlushReceiver.flush:()V
+      27: iconst_1
+      28: ireturn
+      29: iconst_0
+      30: ireturn
+}

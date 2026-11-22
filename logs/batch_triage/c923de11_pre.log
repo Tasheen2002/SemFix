@@ -1,0 +1,493 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.equinor:neqsim >-------------------------
+[INFO] Building neqsim 2.3.3
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ neqsim ---
+[INFO] Deleting /neqsim/target
+[INFO] 
+[INFO] --- flatten:1.2.7:clean (flatten.clean) @ neqsim ---
+[INFO] Deleting /neqsim/.flattened-pom.xml
+[INFO] 
+[INFO] --- enforcer:3.0.0:enforce (enforce-maven) @ neqsim ---
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ neqsim ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/neqsim/target/jacoco.exec,excludes=neqsim/physicalProperties/util/parameterFitting/**/*:neqsim/fluidMechanics/util/parameterFitting/**/*:neqsim/PVTsimulation/util/parameterFitting/**/*:neqsim/thermo/util/parameterFitting/**/*:neqsim/statistics/util/parameterFitting/**/*:neqsim/PVTsimulation/util/parameterfitting/**/*
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ neqsim ---
+[INFO] Copying 222 resources
+[INFO] 
+[INFO] --- flatten:1.2.7:flatten (flatten) @ neqsim ---
+[INFO] Generating flattened POM of project com.equinor:neqsim:jar:2.3.3...
+[INFO] 
+[INFO] --- compiler:3.9.0:compile (default-compile) @ neqsim ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 907 source files to /neqsim/target/classes
+[INFO] /neqsim/src/main/java/neqsim/thermo/system/SystemThermo.java: Some input files use or override a deprecated API.
+[INFO] /neqsim/src/main/java/neqsim/thermo/system/SystemThermo.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ neqsim ---
+[INFO] skip non existing resourceDirectory /neqsim/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.9.0:testCompile (default-testCompile) @ neqsim ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 212 source files to /neqsim/target/test-classes
+[INFO] /neqsim/src/test/java/neqsim/processSimulation/util/example/MasstransferMeOH.java: Some input files use or override a deprecated API.
+[INFO] /neqsim/src/test/java/neqsim/processSimulation/util/example/MasstransferMeOH.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:3.0.0-M5:test (default-test) @ neqsim ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running neqsim.thermo.component.ComponentTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.102 s - in neqsim.thermo.component.ComponentTest
+[INFO] Running neqsim.thermo.component.ComponentHydrateGFTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.873 s - in neqsim.thermo.component.ComponentHydrateGFTest
+[INFO] Running neqsim.thermo.util.example.VapourPressureTTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.306 s - in neqsim.thermo.util.example.VapourPressureTTest
+[INFO] Running neqsim.thermo.util.example.SrkOilCharacterizationTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.601 s - in neqsim.thermo.util.example.SrkOilCharacterizationTest
+[INFO] Running neqsim.thermo.util.example.FlashWaterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.322 s - in neqsim.thermo.util.example.FlashWaterTest
+[INFO] Running neqsim.thermo.util.example.KlabFlashBugTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.418 s - in neqsim.thermo.util.example.KlabFlashBugTest
+[INFO] Running neqsim.thermo.util.example.SrkEoSTest
+[WARNING] Tests run: 5, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.27 s - in neqsim.thermo.util.example.SrkEoSTest
+[INFO] Running neqsim.thermo.util.example.FlashOilTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.848 s - in neqsim.thermo.util.example.FlashOilTest
+[INFO] Running neqsim.thermo.util.example.FlashGasTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.192 s - in neqsim.thermo.util.example.FlashGasTest
+[INFO] Running neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.223 s - in neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest
+[INFO] Running neqsim.thermo.system.SystemPropertiesTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in neqsim.thermo.system.SystemPropertiesTest
+[INFO] Running neqsim.thermo.system.SystemUMRPRUMCEosNewTest
+Cricondenbar 42.55193248668678 130.6861407275032
+molar volume gas+oil is 486.6435506862638
+molar volume gas is 243.3217753431319
+molar volume liquid is 243.3217753431319
+[WARNING] Tests run: 9, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 1.421 s - in neqsim.thermo.system.SystemUMRPRUMCEosNewTest
+[INFO] Running neqsim.thermo.system.SystemSrkSchwartzentruberEosTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.18 s - in neqsim.thermo.system.SystemSrkSchwartzentruberEosTest
+[INFO] Running neqsim.thermo.system.SystemSrkCPAstatoilTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.277 s - in neqsim.thermo.system.SystemSrkCPAstatoilTest
+[INFO] Running neqsim.thermo.system.SystemElectrolyteCPATest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.53 s - in neqsim.thermo.system.SystemElectrolyteCPATest
+[INFO] Running neqsim.thermo.system.SystemPrEoSTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.272 s - in neqsim.thermo.system.SystemPrEoSTest
+[INFO] Running neqsim.thermo.system.SystemThermoSetMolarCompositionTest
+14:08:41.379 [main] ERROR neqsim.thermo.system.SystemThermo - must be larger than 0 (1e-100) when setting molar composition
+neqsim.thermo.system.SystemSrkEos@3ebbd50c
+neqsim.thermo.system.SystemSrkEos@1199a91
+neqsim.thermo.system.SystemSrkEos@3729c576
+14:08:41.679 [main] ERROR neqsim.thermo.system.SystemThermo - must be larger than 0 (1e-100) when setting molar composition
+14:08:41.712 [main] ERROR neqsim.thermo.system.SystemThermo - must be larger than 0 (1e-100) when setting molar composition
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.393 s - in neqsim.thermo.system.SystemThermoSetMolarCompositionTest
+[INFO] Running neqsim.thermo.system.SystemThermoAddComponentTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 s - in neqsim.thermo.system.SystemThermoAddComponentTest
+[INFO] Running neqsim.PVTsimulation.simulation.SaturationPressureTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.737 s - in neqsim.PVTsimulation.simulation.SaturationPressureTest
+[INFO] Running neqsim.PVTsimulation.simulation.SaturationTemperatureTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.425 s - in neqsim.PVTsimulation.simulation.SaturationTemperatureTest
+[INFO] Running neqsim.standards.gasQuality.Draft_ISO18453Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.234 s - in neqsim.standards.gasQuality.Draft_ISO18453Test
+[INFO] Running neqsim.standards.gasQuality.Standard_ISO6976Test
+14:08:44.732 [main] ERROR neqsim.standards.gasQuality.Standard_ISO6976 - energy reference temperature not in valid range...setting it to 25C
+14:08:44.732 [main] ERROR neqsim.standards.gasQuality.Standard_ISO6976 - volume reference temperature not in valid range...setting it to 15C
+14:08:44.733 [main] ERROR neqsim.standards.gasQuality.Standard_ISO6976 - energy reference temperature not in valid range...setting it to 25C
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.543 s - in neqsim.standards.gasQuality.Standard_ISO6976Test
+[INFO] Running neqsim.standards.gasQuality.Standard_ISO6578Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.302 s - in neqsim.standards.gasQuality.Standard_ISO6578Test
+[INFO] Running neqsim.standards.gasQuality.Draft_GERG2004Test
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.003 s - in neqsim.standards.gasQuality.Draft_GERG2004Test
+[INFO] Running neqsim.standards.salesContract.BaseContractTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.618 s - in neqsim.standards.salesContract.BaseContractTest
+[INFO] Running neqsim.thermodynamicOperations.flashOps.TVFlashTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.635 s - in neqsim.thermodynamicOperations.flashOps.TVFlashTest
+[INFO] Running neqsim.thermodynamicOperations.flashOps.WaxFlashTest
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.002 s - in neqsim.thermodynamicOperations.flashOps.WaxFlashTest
+[INFO] Running neqsim.thermodynamicOperations.flashOps.TPFlashTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.605 s - in neqsim.thermodynamicOperations.flashOps.TPFlashTest
+[INFO] Running neqsim.thermodynamicOperations.flashOps.PSFlashGERG2008Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 s - in neqsim.thermodynamicOperations.flashOps.PSFlashGERG2008Test
+[INFO] Running neqsim.thermodynamicOperations.flashOps.PHFlashGERG2008Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 s - in neqsim.thermodynamicOperations.flashOps.PHFlashGERG2008Test
+[INFO] Running neqsim.thermodynamicOperations.flashOps.PHFlashTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.41 s - in neqsim.thermodynamicOperations.flashOps.PHFlashTest
+[INFO] Running neqsim.thermodynamicOperations.ThermodynamicOperationsTest
+14:08:49.547 [main] ERROR neqsim.thermodynamicOperations.flashOps.TPflash - error in beta calcneqsim.util.exception.IsNaNException: SystemSrkEos:calcBeta - Variable beta is NaN
+14:08:49.550 [main] ERROR neqsim.thermodynamicOperations.flashOps.TPflash - error in beta calcneqsim.util.exception.IsNaNException: SystemSrkEos:calcBeta - Variable beta is NaN
+14:08:49.551 [main] ERROR neqsim.thermodynamicOperations.flashOps.TPflash - error in beta calcneqsim.util.exception.IsNaNException: SystemSrkEos:calcBeta - Variable beta is NaN
+14:08:49.551 [main] ERROR neqsim.thermodynamicOperations.flashOps.TPflash - error in beta calcneqsim.util.exception.IsNaNException: SystemSrkEos:calcBeta - Variable beta is NaN
+14:08:49.552 [main] ERROR neqsim.thermodynamicOperations.flashOps.TPflash - error in beta calcneqsim.util.exception.IsNaNException: SystemSrkEos:calcBeta - Variable beta is NaN
+14:08:49.552 [main] ERROR neqsim.thermodynamicOperations.flashOps.TPflash - error in beta calcneqsim.util.exception.IsNaNException: SystemSrkEos:calcBeta - Variable beta is NaN
+14:08:49.566 [main] ERROR neqsim.thermodynamicOperations.flashOps.TPflash - error in beta calcneqsim.util.exception.IsNaNException: SystemSrkEos:calcBeta - Variable beta is NaN
+14:08:49.567 [main] ERROR neqsim.thermodynamicOperations.flashOps.TPflash - error in beta calcneqsim.util.exception.IsNaNException: SystemSrkEos:calcBeta - Variable beta is NaN
+14:08:49.567 [main] ERROR neqsim.thermodynamicOperations.flashOps.TPflash - error in beta calcneqsim.util.exception.IsNaNException: SystemSrkEos:calcBeta - Variable beta is NaN
+14:08:49.568 [main] ERROR neqsim.thermodynamicOperations.flashOps.TPflash - error in beta calcneqsim.util.exception.IsNaNException: SystemSrkEos:calcBeta - Variable beta is NaN
+14:08:49.568 [main] ERROR neqsim.thermodynamicOperations.flashOps.TPflash - error in beta calcneqsim.util.exception.IsNaNException: SystemSrkEos:calcBeta - Variable beta is NaN
+14:08:49.569 [main] ERROR neqsim.thermodynamicOperations.flashOps.TPflash - error in beta calcneqsim.util.exception.IsNaNException: SystemSrkEos:calcBeta - Variable beta is NaN
+14:08:49.569 [main] ERROR neqsim.thermodynamicOperations.flashOps.TPflash - error in beta calcneqsim.util.exception.IsNaNException: SystemSrkEos:calcBeta - Variable beta is NaN
+14:08:49.569 [main] ERROR neqsim.thermodynamicOperations.flashOps.TPflash - error in beta calcneqsim.util.exception.IsNaNException: SystemSrkEos:calcBeta - Variable beta is NaN
+14:08:49.569 [main] ERROR neqsim.thermodynamicOperations.flashOps.TPflash - error in beta calcneqsim.util.exception.IsNaNException: SystemSrkEos:calcBeta - Variable beta is NaN
+14:08:49.570 [main] ERROR neqsim.thermodynamicOperations.flashOps.TPflash - error in beta calcneqsim.util.exception.IsNaNException: SystemSrkEos:calcBeta - Variable beta is NaN
+14:08:49.600 [main] ERROR neqsim.thermodynamicOperations.ThermodynamicOperations - neqsim.util.exception.InvalidInputException: ThermodynamicOperations:propertyFlash - Input mode must be 1, 2 or 3
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.468 s - in neqsim.thermodynamicOperations.ThermodynamicOperationsTest
+[INFO] Running neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.354 s - in neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest
+[INFO] Running neqsim.processSimulation.measurementDevice.pHProbeTest
+pH 5.629055432357595
+pH 4.079098133484792
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 26.316 s - in neqsim.processSimulation.measurementDevice.pHProbeTest
+[INFO] Running neqsim.processSimulation.measurementDevice.WellAllocatorTest
+name alloc
+gas flow 1057.938959805943
+oil flow 1442.0610401940564
+total flow 2500.0
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.283 s - in neqsim.processSimulation.measurementDevice.WellAllocatorTest
+[INFO] Running neqsim.processSimulation.util.example.process1Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.805 s - in neqsim.processSimulation.util.example.process1Test
+[INFO] Running neqsim.processSimulation.processSystem.ProcessSystemControllerTest
+flow rate 64.61621732093765 controller response 96.13504566017265 valve opening 100.0 pressure 5.0
+flow rate 63.989466411258796 controller response 95.20257499231751 valve opening 100.0 pressure 5.0
+flow rate 63.26594800079571 controller response 94.12613507816438 valve opening 100.0 pressure 5.0
+flow rate 64.65026127793566 controller response 96.18569575230354 valve opening 100.0 pressure 5.0
+flow rate 63.530668052924796 controller response 94.51998162867034 valve opening 100.0 pressure 5.0
+flow rate 62.671366310960735 controller response 93.24152529642663 valve opening 100.0 pressure 5.0
+flow rate 62.011933767447225 controller response 92.26043138055103 valve opening 100.0 pressure 5.0
+flow rate 62.47576572580135 controller response 92.95051365933169 valve opening 100.0 pressure 5.0
+flow rate 62.10456568605818 controller response 92.39824776929169 valve opening 100.0 pressure 5.0
+flow rate 63.27451215056385 controller response 94.13887669262486 valve opening 100.0 pressure 5.0
+flow rate 62.47541011687745 controller response 92.94998458967152 valve opening 100.0 pressure 5.0
+flow rate 63.07443691744511 controller response 93.84120774094659 valve opening 100.0 pressure 5.0
+flow rate 63.04938875255701 controller response 93.80394145432288 valve opening 100.0 pressure 5.0
+flow rate 62.54533869928339 controller response 93.05402329297654 valve opening 100.0 pressure 5.0
+flow rate 62.15857999566327 controller response 92.47860945456945 valve opening 100.0 pressure 5.0
+flow rate 62.58922872945223 controller response 93.11932222611206 valve opening 100.0 pressure 5.0
+flow rate 63.64722778870949 controller response 94.69339746739304 valve opening 100.0 pressure 5.0
+flow rate 64.94419069558258 controller response 96.62299956174823 valve opening 100.0 pressure 5.0
+flow rate 64.24240694822828 controller response 95.57889615562684 valve opening 100.0 pressure 5.0
+flow rate 65.40084580491772 controller response 97.30240423145898 valve opening 100.0 pressure 5.0
+flow rate 66.0473843894221 controller response 98.26431470717863 valve opening 100.0 pressure 5.0
+flow rate 66.54340393990948 controller response 99.0022852060954 valve opening 100.0 pressure 5.0
+flow rate 65.95405452562919 controller response 98.12545992599229 valve opening 100.0 pressure 5.0
+flow rate 65.25904430184022 controller response 97.09143406733853 valve opening 100.0 pressure 5.0
+flow rate 64.96790201406188 controller response 96.65827690819752 valve opening 100.0 pressure 5.0
+flow rate 64.01698292017534 controller response 95.24351364442028 valve opening 100.0 pressure 5.0
+flow rate 63.52954507965949 controller response 94.51831088577312 valve opening 100.0 pressure 5.0
+flow rate 63.88279309407756 controller response 95.04386801993309 valve opening 100.0 pressure 5.0
+flow rate 65.36616374333859 controller response 97.25080477683699 valve opening 100.0 pressure 5.0
+flow rate 65.77721924577729 controller response 97.86236703062126 valve opening 100.0 pressure 5.0
+flow rate 65.60763695443747 controller response 97.61006502352394 valve opening 100.0 pressure 5.0
+flow rate 64.9924094596852 controller response 96.6947387207533 valve opening 100.0 pressure 5.0
+flow rate 65.00498560305007 controller response 96.7134493195276 valve opening 100.0 pressure 5.0
+flow rate 64.52963462504249 controller response 96.00622921488434 valve opening 100.0 pressure 5.0
+flow rate 65.13451596644309 controller response 96.90616266480622 valve opening 100.0 pressure 5.0
+flow rate 65.59866914580502 controller response 97.59672285141768 valve opening 100.0 pressure 5.0
+flow rate 64.50007409028113 controller response 95.96224949157582 valve opening 100.0 pressure 5.0
+flow rate 64.86904392859152 controller response 96.51119732114333 valve opening 100.0 pressure 5.0
+flow rate 65.39460282574996 controller response 97.29311602004344 valve opening 100.0 pressure 5.0
+flow rate 65.07050680830623 controller response 96.81093079275793 valve opening 100.0 pressure 5.0
+flow rate 65.306539126253 controller response 97.16209615965613 valve opening 100.0 pressure 5.0
+flow rate 66.21491926225046 controller response 98.51357059551138 valve opening 100.0 pressure 5.0
+flow rate 65.45723284328274 controller response 97.38629602724359 valve opening 100.0 pressure 5.0
+flow rate 65.84532889912052 controller response 97.96369955835996 valve opening 100.0 pressure 5.0
+flow rate 64.44589458855997 controller response 95.88164203592817 valve opening 100.0 pressure 5.0
+flow rate 65.55376599306359 controller response 97.52991660960936 valve opening 100.0 pressure 5.0
+flow rate 65.67661286368346 controller response 97.71268635389183 valve opening 100.0 pressure 5.0
+flow rate 66.0131939857865 controller response 98.21344673392161 valve opening 100.0 pressure 5.0
+flow rate 65.78644899970985 controller response 97.87609892104328 valve opening 100.0 pressure 5.0
+flow rate 66.3395925617049 controller response 98.69905767340884 valve opening 100.0 pressure 5.0
+flow rate 66.52148769155687 controller response 98.96967853824265 valve opening 100.0 pressure 5.0
+flow rate 64.96372949533803 controller response 96.65206909699057 valve opening 100.0 pressure 5.0
+flow rate 64.01045579921788 controller response 95.2338026910823 valve opening 100.0 pressure 5.0
+flow rate 63.03634796969435 controller response 93.78453957182461 valve opening 100.0 pressure 5.0
+flow rate 62.77368954173508 controller response 93.39376027505017 valve opening 100.0 pressure 5.0
+flow rate 60.147745581316 controller response 89.48691996463575 valve opening 100.0 pressure 5.0
+flow rate 59.587309202964946 controller response 88.65311106872336 valve opening 100.0 pressure 5.0
+flow rate 58.915150932759566 controller response 87.6530840062275 valve opening 100.0 pressure 5.0
+flow rate 57.18751089245803 controller response 85.08272688776901 valve opening 100.0 pressure 5.0
+flow rate 55.86215071224338 controller response 83.11087575311858 valve opening 100.0 pressure 5.0
+flow rate 56.54281836563031 controller response 84.12356294916334 valve opening 100.0 pressure 5.0
+flow rate 55.12639925467555 controller response 82.01623569369652 valve opening 100.0 pressure 5.0
+flow rate 55.252336719443896 controller response 82.2036035779182 valve opening 100.0 pressure 5.0
+flow rate 55.83473212693529 controller response 83.07008279030187 valve opening 100.0 pressure 5.0
+flow rate 54.82782724831663 controller response 81.57202470991825 valve opening 100.0 pressure 5.0
+flow rate 55.0256410196478 controller response 81.8663290924339 valve opening 100.0 pressure 5.0
+flow rate 53.96606554736225 controller response 80.28990848733038 valve opening 100.0 pressure 5.0
+flow rate 54.36596892388746 controller response 80.88487877429347 valve opening 100.0 pressure 5.0
+flow rate 53.704001533264645 controller response 79.90001355064551 valve opening 100.0 pressure 5.0
+flow rate 54.65154184940528 controller response 81.30974991921988 valve opening 100.0 pressure 5.0
+flow rate 55.62210316115542 controller response 82.75373658216036 valve opening 100.0 pressure 5.0
+flow rate 56.36778174393499 controller response 83.86314607060622 valve opening 100.0 pressure 5.0
+flow rate 56.698324358947964 controller response 84.3549224497322 valve opening 100.0 pressure 5.0
+flow rate 55.013056713689274 controller response 81.84760634947419 valve opening 100.0 pressure 5.0
+flow rate 55.41745270915586 controller response 82.44926068797996 valve opening 100.0 pressure 5.0
+flow rate 55.00122415169602 controller response 81.83000203998878 valve opening 100.0 pressure 5.0
+flow rate 55.89475088811005 controller response 83.15937780918766 valve opening 100.0 pressure 5.0
+flow rate 54.88409629412757 controller response 81.65574095813841 valve opening 100.0 pressure 5.0
+flow rate 55.80626992317035 controller response 83.02773714748987 valve opening 100.0 pressure 5.0
+flow rate 54.575149589908236 controller response 81.19609465341637 valve opening 100.0 pressure 5.0
+flow rate 53.87343428486613 controller response 80.15209307474755 valve opening 100.0 pressure 5.0
+flow rate 54.30546559572265 controller response 80.79486282385757 valve opening 100.0 pressure 5.0
+flow rate 54.39540331375198 controller response 80.92867082110351 valve opening 100.0 pressure 5.0
+flow rate 53.2529607100925 controller response 79.22896173226238 valve opening 100.0 pressure 5.0
+flow rate 53.58920120859345 controller response 79.72921533757072 valve opening 100.0 pressure 5.0
+flow rate 53.84811040543656 controller response 80.11441658413588 valve opening 100.0 pressure 5.0
+flow rate 54.774975183811485 controller response 81.4933921955882 valve opening 100.0 pressure 5.0
+flow rate 55.00218372276505 controller response 81.83142967553223 valve opening 100.0 pressure 5.0
+flow rate 56.1470362344338 controller response 83.53472418961351 valve opening 100.0 pressure 5.0
+flow rate 56.056514144999014 controller response 83.40004677329495 valve opening 100.0 pressure 5.0
+flow rate 55.50269009722746 controller response 82.57607560432692 valve opening 100.0 pressure 5.0
+flow rate 54.1084154000021 controller response 80.50169447776186 valve opening 100.0 pressure 5.0
+flow rate 53.281432114847654 controller response 79.27132106417048 valve opening 100.0 pressure 5.0
+flow rate 53.85973573823344 controller response 80.13171258110968 valve opening 100.0 pressure 5.0
+flow rate 52.849661347186405 controller response 78.62893894734549 valve opening 100.0 pressure 5.0
+flow rate 52.31766969452201 controller response 77.83744969062077 valve opening 100.0 pressure 5.0
+flow rate 52.15267087769082 controller response 77.59196690862552 valve opening 100.0 pressure 5.0
+flow rate 52.996706434835 controller response 78.84771043848669 valve opening 100.0 pressure 5.0
+flow rate 52.917989044390275 controller response 78.73059587749239 valve opening 100.0 pressure 5.0
+flow rate 52.61591630552899 controller response 78.28117655604116 valve opening 100.0 pressure 5.0
+flow rate 54.32446415331248 controller response 80.82312859485282 valve opening 100.0 pressure 5.0
+flow rate 55.151589294269584 controller response 82.05371305939434 valve opening 100.0 pressure 5.0
+flow rate 56.27189006313264 controller response 83.72047985623186 valve opening 100.0 pressure 5.0
+flow rate 56.404858596123844 controller response 83.91830845902653 valve opening 100.0 pressure 5.0
+flow rate 56.02243897704179 controller response 83.34935024596368 valve opening 100.0 pressure 5.0
+flow rate 55.00202289264238 controller response 81.83119039487126 valve opening 100.0 pressure 5.0
+flow rate 55.91649547728961 controller response 83.19172908507947 valve opening 100.0 pressure 5.0
+flow rate 56.1339471888508 controller response 83.51525050255874 valve opening 100.0 pressure 5.0
+flow rate 56.058828363039716 controller response 83.40348983242511 valve opening 100.0 pressure 5.0
+flow rate 56.72894512981241 controller response 84.40047957652246 valve opening 100.0 pressure 5.0
+flow rate 57.00119843821629 controller response 84.80553399350491 valve opening 100.0 pressure 5.0
+flow rate 55.513355643988284 controller response 82.5919436459325 valve opening 100.0 pressure 5.0
+flow rate 55.34163859083633 controller response 82.3364655720087 valve opening 100.0 pressure 5.0
+flow rate 54.24053041335239 controller response 80.69825322674792 valve opening 100.0 pressure 5.0
+flow rate 54.365764686054554 controller response 80.88457491228776 valve opening 100.0 pressure 5.0
+flow rate 54.22000929818461 controller response 80.66772221726694 valve opening 100.0 pressure 5.0
+flow rate 53.38137049786391 controller response 79.42000790182225 valve opening 100.0 pressure 5.0
+flow rate 53.7081287194738 controller response 79.90615391681223 valve opening 100.0 pressure 5.0
+flow rate 54.92933918356393 controller response 81.72305265514093 valve opening 100.0 pressure 5.0
+flow rate 55.382263639463005 controller response 82.39690691423823 valve opening 100.0 pressure 5.0
+flow rate 55.002998671100066 controller response 81.83264214352617 valve opening 100.0 pressure 5.0
+flow rate 54.954819106885964 controller response 81.76096130553152 valve opening 100.0 pressure 5.0
+flow rate 55.64565778955999 controller response 82.78878080745034 valve opening 100.0 pressure 5.0
+flow rate 54.47916966347799 controller response 81.05329714851132 valve opening 100.0 pressure 5.0
+flow rate 55.76638681934101 controller response 82.96839965967837 valve opening 100.0 pressure 5.0
+flow rate 55.78496757336691 controller response 82.99604382875455 valve opening 100.0 pressure 5.0
+flow rate 54.344914901154766 controller response 80.85355491287513 valve opening 100.0 pressure 5.0
+flow rate 54.694816149780564 controller response 81.37413277873995 valve opening 100.0 pressure 5.0
+flow rate 55.44874981967835 controller response 82.49582406283929 valve opening 100.0 pressure 5.0
+flow rate 56.02781984909588 controller response 83.35735582725674 valve opening 100.0 pressure 5.0
+flow rate 56.47261359084966 controller response 84.01911333095707 valve opening 100.0 pressure 5.0
+flow rate 57.29919367261691 controller response 85.24888686455463 valve opening 100.0 pressure 5.0
+flow rate 55.509348682516695 controller response 82.58598214833945 valve opening 100.0 pressure 5.0
+flow rate 54.37839218348707 controller response 80.90336191487906 valve opening 100.0 pressure 5.0
+flow rate 53.51082009485397 controller response 79.61260108404956 valve opening 100.0 pressure 5.0
+flow rate 54.785072555102154 controller response 81.50841491419237 valve opening 100.0 pressure 5.0
+flow rate 54.79375597876423 controller response 81.52133398257567 valve opening 100.0 pressure 5.0
+flow rate 54.800849540564805 controller response 81.53188767816272 valve opening 100.0 pressure 5.0
+flow rate 55.29161413761425 controller response 82.26203993562788 valve opening 100.0 pressure 5.0
+flow rate 55.91111569382188 controller response 83.18372512336899 valve opening 100.0 pressure 5.0
+flow rate 56.87181150349926 controller response 84.61303403927404 valve opening 100.0 pressure 5.0
+flow rate 56.39715331761346 controller response 83.90684466043025 valve opening 100.0 pressure 5.0
+flow rate 56.76043071917442 controller response 84.4473233673919 valve opening 100.0 pressure 5.0
+flow rate 57.28192411476351 controller response 85.22319347361349 valve opening 100.0 pressure 5.0
+flow rate 57.43990499639286 controller response 85.45823507614868 valve opening 100.0 pressure 5.0
+flow rate 55.62172068065828 controller response 82.75316753337385 valve opening 100.0 pressure 5.0
+flow rate 54.22651010148692 controller response 80.67739401558966 valve opening 100.0 pressure 5.0
+flow rate 54.85322117514547 controller response 81.6098054160071 valve opening 100.0 pressure 5.0
+flow rate 54.60729403984713 controller response 81.24391868723818 valve opening 100.0 pressure 5.0
+flow rate 55.146289759992655 controller response 82.04582849123474 valve opening 100.0 pressure 5.0
+flow rate 55.075448666803204 controller response 81.940432167978 valve opening 100.0 pressure 5.0
+flow rate 54.53653578464489 controller response 81.13864560910494 valve opening 100.0 pressure 5.0
+flow rate 55.57799297093661 controller response 82.6881100981818 valve opening 100.0 pressure 5.0
+flow rate 55.40786212865962 controller response 82.43499196517098 valve opening 100.0 pressure 5.0
+flow rate 55.03514497399017 controller response 81.88046893414126 valve opening 100.0 pressure 5.0
+flow rate 60.810619472215656 controller response 90.4731338658931 valve opening 100.0 pressure 5.0
+flow rate 63.546174228117955 controller response 94.54305148515533 valve opening 100.0 pressure 5.0
+flow rate 66.61512464797661 controller response 99.10899020726494 valve opening 100.0 pressure 5.0
+flow rate 69.45477558330532 controller response 103.33378057174708 valve opening 100.0 pressure 5.0
+flow rate 72.11815681320851 controller response 107.29631949406529 valve opening 100.0 pressure 5.0
+flow rate 73.19130224412639 controller response 108.89292928149513 valve opening 100.0 pressure 5.0
+flow rate 72.55888584232413 controller response 107.95202957884712 valve opening 100.0 pressure 5.0
+flow rate 73.28438520073522 controller response 109.03141671785065 valve opening 100.0 pressure 5.0
+flow rate 74.32473889873275 controller response 110.57923945348011 valve opening 100.0 pressure 5.0
+flow rate 74.15197868751721 controller response 110.32220938452743 valve opening 100.0 pressure 5.0
+flow rate 74.2603751382636 controller response 110.48348000936365 valve opening 100.0 pressure 5.0
+flow rate 74.82702287351796 controller response 111.32653006955742 valve opening 100.0 pressure 5.0
+flow rate 75.26045972266012 controller response 111.97139095759309 valve opening 100.0 pressure 5.0
+flow rate 74.86427914415594 controller response 111.3819593940739 valve opening 100.0 pressure 5.0
+flow rate 75.28607538572739 controller response 112.00950155955472 valve opening 100.0 pressure 5.0
+flow rate 76.3356758842892 controller response 113.57108154733095 valve opening 100.0 pressure 5.0
+flow rate 76.41236468179333 controller response 113.68517799796463 valve opening 100.0 pressure 5.0
+flow rate 75.25741478408257 controller response 111.96686074333228 valve opening 100.0 pressure 5.0
+flow rate 76.55153410494059 controller response 113.89223219277004 valve opening 100.0 pressure 5.0
+flow rate 75.1187885102025 controller response 111.76061463791626 valve opening 100.0 pressure 5.0
+flow rate 74.2601462896248 controller response 110.48313953176762 valve opening 100.0 pressure 5.0
+flow rate 75.29693991115488 controller response 112.02566563865666 valve opening 100.0 pressure 5.0
+flow rate 76.33378153927013 controller response 113.56826316902827 valve opening 100.0 pressure 5.0
+flow rate 77.37057129999967 controller response 115.11078353187597 valve opening 100.0 pressure 5.0
+flow rate 77.67988902578907 controller response 115.57098183696343 valve opening 100.0 pressure 5.0
+flow rate 77.43082641963473 controller response 115.20043020135836 valve opening 100.0 pressure 5.0
+flow rate 77.23812003127765 controller response 114.91372450715622 valve opening 100.0 pressure 5.0
+flow rate 78.05849620224973 controller response 116.13426795468118 valve opening 100.0 pressure 5.0
+flow rate 76.50456379616905 controller response 113.82235046701079 valve opening 100.0 pressure 5.0
+flow rate 77.25003744957404 controller response 114.93145506458549 valve opening 100.0 pressure 5.0
+flow rate 77.57830858917917 controller response 115.41985197643376 valve opening 100.0 pressure 5.0
+flow rate 77.58634136048235 controller response 115.43180301392904 valve opening 100.0 pressure 5.0
+flow rate 77.10614349649481 controller response 114.71737178452005 valve opening 100.0 pressure 5.0
+flow rate 76.97861452713359 controller response 114.52763608347077 valve opening 100.0 pressure 5.0
+flow rate 76.152007680178 controller response 113.2978227290246 valve opening 100.0 pressure 5.0
+flow rate 74.78892460135324 controller response 111.2698480277113 valve opening 100.0 pressure 5.0
+flow rate 73.7415653241983 controller response 109.71160249576083 valve opening 100.0 pressure 5.0
+flow rate 72.93665201562571 controller response 108.51406446459171 valve opening 100.0 pressure 5.0
+flow rate 74.49994895642696 controller response 110.83991436753311 valve opening 100.0 pressure 5.0
+flow rate 75.94121613483622 controller response 112.9842102076422 valve opening 100.0 pressure 5.0
+flow rate 74.86420728598098 controller response 111.38185248455166 valve opening 100.0 pressure 5.0
+flow rate 75.24870833281697 controller response 111.95390741482355 valve opening 100.0 pressure 5.0
+flow rate 75.05781530469477 controller response 111.66989961096849 valve opening 100.0 pressure 5.0
+flow rate 74.4253131424514 controller response 110.72887231521372 valve opening 100.0 pressure 5.0
+flow rate 74.90861951729575 controller response 111.44792834077373 valve opening 100.0 pressure 5.0
+flow rate 74.30873290127644 controller response 110.55542596887688 valve opening 100.0 pressure 5.0
+flow rate 74.81710503086815 controller response 111.31177445099118 valve opening 100.0 pressure 5.0
+flow rate 75.69117538097167 controller response 112.6122032984437 valve opening 100.0 pressure 5.0
+flow rate 76.84585817760384 controller response 114.3301231640697 valve opening 100.0 pressure 5.0
+flow rate 75.54889011198864 controller response 112.40051339461478 valve opening 100.0 pressure 5.0
+flow rate 74.79479869536225 controller response 111.27858741728235 valve opening 100.0 pressure 5.0
+flow rate 76.15460977934043 controller response 113.30169409339983 valve opening 100.0 pressure 5.0
+flow rate 75.25763476500211 controller response 111.9671880276679 valve opening 100.0 pressure 5.0
+flow rate 76.26530340390741 controller response 113.46638241922962 valve opening 100.0 pressure 5.0
+flow rate 75.34050232264721 controller response 112.09047714560539 valve opening 100.0 pressure 5.0
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.881 s - in neqsim.processSimulation.processSystem.ProcessSystemControllerTest
+[INFO] Running neqsim.processSimulation.processSystem.GlycolRigTest
+error iter 4.6882890898317555 iteration 1
+error iter 0.2365945005023491 iteration 2
+error iter 0.04668309884095834 iteration 3
+error iter 0.009296042100913837 iteration 4
+error iter 0.0018497586021908319 iteration 5
+error iter 3.6806287891977263E-4 iteration 6
+error iter 7.32360658730613E-5 iteration 7
+stripping gas recirc recycle error: 0.46890780402814436
+error iter 1.2775902860100814 iteration 1
+error iter 0.2237996642335247 iteration 2
+error iter 0.03928610352602391 iteration 3
+error iter 0.006957066014138036 iteration 4
+error iter 0.0012349537547606815 iteration 5
+error iter 2.1932734949814403E-4 iteration 6
+error iter 3.8956169532866625E-5 iteration 7
+stripping gas recirc recycle error: 0.03080326494607491
+error iter 0.13342113347556506 iteration 1
+error iter 0.02316672652756324 iteration 2
+error iter 0.004065147992037055 iteration 3
+error iter 7.159870765462983E-4 iteration 4
+error iter 1.2616629226158693E-4 iteration 5
+error iter 2.2233985816910717E-5 iteration 6
+stripping gas recirc recycle error: 0.002759255281992501
+error iter 0.01203063321696618 iteration 1
+error iter 0.0020940092607588667 iteration 2
+error iter 3.6772815764152256E-4 iteration 3
+error iter 6.474969541159226E-5 iteration 4
+stripping gas recirc recycle error: 2.467930853125022E-4
+error iter 0.001087762790632496 iteration 1
+error iter 1.8940204654427362E-4 iteration 2
+error iter 3.326435819417384E-5 iteration 3
+stripping gas recirc recycle error: 2.2231555615037646E-5
+error iter 1.0282535009764615E-4 iteration 1
+error iter 1.7913959084125963E-5 iteration 2
+FEED gas recirc recycle error: 0.057651627341844834
+error iter 3.146625260797009E-6 iteration 1
+stripping gas recirc recycle error: 0.036196753737225806
+error iter 0.1597953343429026 iteration 1
+error iter 0.0304212433852058 iteration 2
+error iter 0.005282669687574071 iteration 3
+error iter 9.232007693071864E-4 iteration 4
+error iter 1.6149247983321402E-4 iteration 5
+error iter 2.8253678522105474E-5 iteration 6
+stripping gas recirc recycle error: 0.003400158338943221
+error iter 0.015146614268473968 iteration 1
+error iter 0.0026033086144821027 iteration 2
+error iter 4.534531148578935E-4 iteration 3
+error iter 7.926522391699109E-5 iteration 4
+stripping gas recirc recycle error: 2.958811612916168E-4
+error iter 0.0013321891597684044 iteration 1
+error iter 2.2912227444749078E-4 iteration 2
+error iter 3.991794915236824E-5 iteration 3
+stripping gas recirc recycle error: 2.5926546564261632E-5
+error iter 1.2250595455043367E-4 iteration 1
+error iter 2.108700891767512E-5 iteration 2
+FEED gas recirc recycle error: 2.2364149472159208E-7
+wtpRichTEG 97.08808480434064
+wtpWaterFromReboil 99.36939693753365
+wtpWaterFromStripper 99.88825515775525
+water to regenerator 11.644944174949451
+TEG to regenerator 388.3523392173625
+nitrogen to regenerator 0.0027166076880303603
+water liquid from regenerator 2.490983341179188
+water gas from regenerator 11.483730748831599
+water balance -7.2986345664993735E-6
+wt water to reboil 2.911236043737363
+wt water from mixer 2.911163522345802
+stripping gas rate 13.201565333319593
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.681 s - in neqsim.processSimulation.processSystem.GlycolRigTest
+[INFO] Running neqsim.processSimulation.processSystem.ProcessSystemTest
+[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.344 s - in neqsim.processSimulation.processSystem.ProcessSystemTest
+[INFO] Running neqsim.processSimulation.processSystem.ProcessSystemRunTransientTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.387 s - in neqsim.processSimulation.processSystem.ProcessSystemRunTransientTest
+[INFO] Running neqsim.processSimulation.processEquipment.powerGeneration.GasTurbineTest
+[WARNING] Tests run: 3, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.096 s - in neqsim.processSimulation.processEquipment.powerGeneration.GasTurbineTest
+[INFO] Running neqsim.processSimulation.processEquipment.mixer.MixerTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.348 s - in neqsim.processSimulation.processEquipment.mixer.MixerTest
+[INFO] Running neqsim.processSimulation.processEquipment.stream.StreamTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 s - in neqsim.processSimulation.processEquipment.stream.StreamTest
+[INFO] Running neqsim.processSimulation.processEquipment.pump.PumpTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 s - in neqsim.processSimulation.processEquipment.pump.PumpTest
+[INFO] Running neqsim.processSimulation.processEquipment.adsorber.SimpleAdsorberTest
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.001 s - in neqsim.processSimulation.processEquipment.adsorber.SimpleAdsorberTest
+[INFO] Running neqsim.processSimulation.processEquipment.splitter.ComponentSplitterTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in neqsim.processSimulation.processEquipment.splitter.ComponentSplitterTest
+[INFO] Running neqsim.processSimulation.processEquipment.absorber.SimpleAbsorberTest
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.002 s - in neqsim.processSimulation.processEquipment.absorber.SimpleAbsorberTest
+[INFO] Running neqsim.processSimulation.processEquipment.separator.SeparatorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.342 s - in neqsim.processSimulation.processEquipment.separator.SeparatorTest
+[INFO] Running neqsim.processSimulation.processEquipment.compressor.CompressorChartTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.425 s - in neqsim.processSimulation.processEquipment.compressor.CompressorChartTest
+[INFO] Running neqsim.processSimulation.processEquipment.compressor.CompressorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.012 s - in neqsim.processSimulation.processEquipment.compressor.CompressorTest
+[INFO] Running neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 s - in neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest
+[INFO] Running neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.634 s - in neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest
+[INFO] Running neqsim.physicalProperties.physicalPropertyMethods.liquidPhysicalProperties.density.CostaldTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s - in neqsim.physicalProperties.physicalPropertyMethods.liquidPhysicalProperties.density.CostaldTest
+[INFO] Running neqsim.physicalProperties.physicalPropertyMethods.commonPhasePhysicalProperties.viscosity.FrictionTheoryViscosityMethodTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s - in neqsim.physicalProperties.physicalPropertyMethods.commonPhasePhysicalProperties.viscosity.FrictionTheoryViscosityMethodTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 180, Failures: 0, Errors: 0, Skipped: 9
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.7:report (generate-report-after-test) @ neqsim ---
+[INFO] Loading execution data file /neqsim/target/jacoco.exec
+[INFO] Analyzed bundle 'neqsim' with 704 classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:07 min
+[INFO] Finished at: 2026-11-10T14:09:50Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 6 plugin(s)
+[WARNING] 
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.7
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.9.0
+[WARNING]  * org.codehaus.mojo:flatten-maven-plugin:1.2.7
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.0.0
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 

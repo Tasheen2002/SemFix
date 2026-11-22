@@ -1,0 +1,128 @@
+{
+  "case_id": "dbb2ae9a870a786e725eb095d86196a2d9081ec9",
+  "phase": "pre",
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-10T17:21:24.759292789Z",
+    "FinishedAt": "2026-11-10T17:21:38.408219838Z"
+  },
+  "working_directory": "/jcabi-simpledb",
+  "command": [
+    "sh",
+    "-c",
+    "mvn clean test -B | tee %s.log"
+  ],
+  "image_id": "sha256:31921a1c854a2b3bfcc542e4b3ebabc15d961bbff19e92d9449fcd4de5714262",
+  "image_digests": [
+    "ghcr.io/chains-project/breaking-updates@sha256:31921a1c854a2b3bfcc542e4b3ebabc15d961bbff19e92d9449fcd4de5714262"
+  ],
+  "platform": "linux/amd64",
+  "cleaned_modules": [
+    "."
+  ],
+  "freshness_rule": "Only report directories under a target explicitly deleted in this run are included",
+  "report_count": 4,
+  "reports": [
+    {
+      "path": "target/surefire-reports/TEST-com.jcabi.simpledb.AwsDomainTest.xml",
+      "module": ".",
+      "test_class": "com.jcabi.simpledb.AwsDomainTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jcabi-simpledb/target/test-classes:/jcabi-simpledb/target/classes:/root/.m2/repository/com/jcabi/jcabi-aspects/0.24.1/jcabi-aspects-0.24.1.jar:/root/.m2/repository/com/jcabi/jcabi-log/0.22.0/jcabi-log-0.22.0.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar:/root/.m2/repository/com/amazonaws/aws-java-sdk-core/1.12.437/aws-java-sdk-core-1.12.437.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/software/amazon/ion/ion-java/1.0.2/ion-java-1.0.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.7.1/jackson-databind-2.12.7.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.7/jackson-annotations-2.12.7.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.7/jackson-core-2.12.7.jar:/root/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-cbor/2.12.6/jackson-dataformat-cbor-2.12.6.jar:/root/.m2/repository/joda-time/joda-time/2.8.1/joda-time-2.8.1.jar:/root/.m2/repository/com/amazonaws/aws-java-sdk-simpledb/1.12.437/aws-java-sdk-simpledb-1.12.437.jar:/root/.m2/repository/com/amazonaws/jmespath-java/1.12.437/jmespath-java-1.12.437.jar:/root/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar:/root/.m2/repository/javax/el/javax.el-api/3.0.1-b06/javax.el-api-3.0.1-b06.jar:/root/.m2/repository/org/glassfish/javax.el/3.0.1-b12/javax.el-3.0.1-b12.jar:/root/.m2/repository/org/hibernate/validator/hibernate-validator/6.2.5.Final/hibernate-validator-6.2.5.Final.jar:/root/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar:/root/.m2/repository/org/jboss/logging/jboss-logging/3.4.1.Final/jboss-logging-3.4.1.Final.jar:/root/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar:/root/.m2/repository/org/aspectj/aspectjrt/1.9.19/aspectjrt-1.9.19.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/org/slf4j/slf4j-reload4j/2.0.7/slf4j-reload4j-2.0.7.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7.jar:/root/.m2/repository/ch/qos/reload4j/reload4j/1.2.22/reload4j-1.2.22.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.1/junit-jupiter-engine-5.9.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.9.1/junit-platform-engine-1.9.1.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.1/junit-jupiter-params-5.9.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.1/junit-jupiter-api-5.9.1.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.9.1/junit-platform-commons-1.9.1.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/mockito/mockito-core/4.8.1/mockito-core-4.8.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.16/byte-buddy-1.12.16.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.16/byte-buddy-agent-1.12.16.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.jcabi.simpledb.AwsItemTest.xml",
+      "module": ".",
+      "test_class": "com.jcabi.simpledb.AwsItemTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jcabi-simpledb/target/test-classes:/jcabi-simpledb/target/classes:/root/.m2/repository/com/jcabi/jcabi-aspects/0.24.1/jcabi-aspects-0.24.1.jar:/root/.m2/repository/com/jcabi/jcabi-log/0.22.0/jcabi-log-0.22.0.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar:/root/.m2/repository/com/amazonaws/aws-java-sdk-core/1.12.437/aws-java-sdk-core-1.12.437.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/software/amazon/ion/ion-java/1.0.2/ion-java-1.0.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.7.1/jackson-databind-2.12.7.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.7/jackson-annotations-2.12.7.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.7/jackson-core-2.12.7.jar:/root/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-cbor/2.12.6/jackson-dataformat-cbor-2.12.6.jar:/root/.m2/repository/joda-time/joda-time/2.8.1/joda-time-2.8.1.jar:/root/.m2/repository/com/amazonaws/aws-java-sdk-simpledb/1.12.437/aws-java-sdk-simpledb-1.12.437.jar:/root/.m2/repository/com/amazonaws/jmespath-java/1.12.437/jmespath-java-1.12.437.jar:/root/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar:/root/.m2/repository/javax/el/javax.el-api/3.0.1-b06/javax.el-api-3.0.1-b06.jar:/root/.m2/repository/org/glassfish/javax.el/3.0.1-b12/javax.el-3.0.1-b12.jar:/root/.m2/repository/org/hibernate/validator/hibernate-validator/6.2.5.Final/hibernate-validator-6.2.5.Final.jar:/root/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar:/root/.m2/repository/org/jboss/logging/jboss-logging/3.4.1.Final/jboss-logging-3.4.1.Final.jar:/root/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar:/root/.m2/repository/org/aspectj/aspectjrt/1.9.19/aspectjrt-1.9.19.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/org/slf4j/slf4j-reload4j/2.0.7/slf4j-reload4j-2.0.7.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7.jar:/root/.m2/repository/ch/qos/reload4j/reload4j/1.2.22/reload4j-1.2.22.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.1/junit-jupiter-engine-5.9.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.9.1/junit-platform-engine-1.9.1.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.1/junit-jupiter-params-5.9.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.1/junit-jupiter-api-5.9.1.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.9.1/junit-platform-commons-1.9.1.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/mockito/mockito-core/4.8.1/mockito-core-4.8.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.16/byte-buddy-1.12.16.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.16/byte-buddy-agent-1.12.16.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.jcabi.simpledb.CredentialsTest.xml",
+      "module": ".",
+      "test_class": "com.jcabi.simpledb.CredentialsTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jcabi-simpledb/target/test-classes:/jcabi-simpledb/target/classes:/root/.m2/repository/com/jcabi/jcabi-aspects/0.24.1/jcabi-aspects-0.24.1.jar:/root/.m2/repository/com/jcabi/jcabi-log/0.22.0/jcabi-log-0.22.0.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar:/root/.m2/repository/com/amazonaws/aws-java-sdk-core/1.12.437/aws-java-sdk-core-1.12.437.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/software/amazon/ion/ion-java/1.0.2/ion-java-1.0.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.7.1/jackson-databind-2.12.7.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.7/jackson-annotations-2.12.7.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.7/jackson-core-2.12.7.jar:/root/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-cbor/2.12.6/jackson-dataformat-cbor-2.12.6.jar:/root/.m2/repository/joda-time/joda-time/2.8.1/joda-time-2.8.1.jar:/root/.m2/repository/com/amazonaws/aws-java-sdk-simpledb/1.12.437/aws-java-sdk-simpledb-1.12.437.jar:/root/.m2/repository/com/amazonaws/jmespath-java/1.12.437/jmespath-java-1.12.437.jar:/root/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar:/root/.m2/repository/javax/el/javax.el-api/3.0.1-b06/javax.el-api-3.0.1-b06.jar:/root/.m2/repository/org/glassfish/javax.el/3.0.1-b12/javax.el-3.0.1-b12.jar:/root/.m2/repository/org/hibernate/validator/hibernate-validator/6.2.5.Final/hibernate-validator-6.2.5.Final.jar:/root/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar:/root/.m2/repository/org/jboss/logging/jboss-logging/3.4.1.Final/jboss-logging-3.4.1.Final.jar:/root/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar:/root/.m2/repository/org/aspectj/aspectjrt/1.9.19/aspectjrt-1.9.19.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/org/slf4j/slf4j-reload4j/2.0.7/slf4j-reload4j-2.0.7.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7.jar:/root/.m2/repository/ch/qos/reload4j/reload4j/1.2.22/reload4j-1.2.22.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.1/junit-jupiter-engine-5.9.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.9.1/junit-platform-engine-1.9.1.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.1/junit-jupiter-params-5.9.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.1/junit-jupiter-api-5.9.1.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.9.1/junit-platform-commons-1.9.1.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/mockito/mockito-core/4.8.1/mockito-core-4.8.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.16/byte-buddy-1.12.16.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.16/byte-buddy-agent-1.12.16.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.jcabi.simpledb.RegionTest.xml",
+      "module": ".",
+      "test_class": "com.jcabi.simpledb.RegionTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/jcabi-simpledb/target/test-classes:/jcabi-simpledb/target/classes:/root/.m2/repository/com/jcabi/jcabi-aspects/0.24.1/jcabi-aspects-0.24.1.jar:/root/.m2/repository/com/jcabi/jcabi-log/0.22.0/jcabi-log-0.22.0.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar:/root/.m2/repository/com/amazonaws/aws-java-sdk-core/1.12.437/aws-java-sdk-core-1.12.437.jar:/root/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/software/amazon/ion/ion-java/1.0.2/ion-java-1.0.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.7.1/jackson-databind-2.12.7.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.7/jackson-annotations-2.12.7.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.7/jackson-core-2.12.7.jar:/root/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-cbor/2.12.6/jackson-dataformat-cbor-2.12.6.jar:/root/.m2/repository/joda-time/joda-time/2.8.1/joda-time-2.8.1.jar:/root/.m2/repository/com/amazonaws/aws-java-sdk-simpledb/1.12.437/aws-java-sdk-simpledb-1.12.437.jar:/root/.m2/repository/com/amazonaws/jmespath-java/1.12.437/jmespath-java-1.12.437.jar:/root/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar:/root/.m2/repository/javax/el/javax.el-api/3.0.1-b06/javax.el-api-3.0.1-b06.jar:/root/.m2/repository/org/glassfish/javax.el/3.0.1-b12/javax.el-3.0.1-b12.jar:/root/.m2/repository/org/hibernate/validator/hibernate-validator/6.2.5.Final/hibernate-validator-6.2.5.Final.jar:/root/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar:/root/.m2/repository/org/jboss/logging/jboss-logging/3.4.1.Final/jboss-logging-3.4.1.Final.jar:/root/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar:/root/.m2/repository/org/aspectj/aspectjrt/1.9.19/aspectjrt-1.9.19.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/org/slf4j/slf4j-reload4j/2.0.7/slf4j-reload4j-2.0.7.jar:/root/.m2/repository/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7.jar:/root/.m2/repository/ch/qos/reload4j/reload4j/1.2.22/reload4j-1.2.22.jar:/root/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.1/junit-jupiter-engine-5.9.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.9.1/junit-platform-engine-1.9.1.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.1/junit-jupiter-params-5.9.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.1/junit-jupiter-api-5.9.1.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.9.1/junit-platform-commons-1.9.1.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/mockito/mockito-core/4.8.1/mockito-core-4.8.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.16/byte-buddy-1.12.16.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.16/byte-buddy-agent-1.12.16.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:",
+      "classpath_property": "surefire.test.class.path",
+      "errors": [],
+      "failures": []
+    }
+  ],
+  "source_and_pom_sha256": {
+    "pom.xml": "1b60615673226ab94e3ecfcce4c4c63c479b17cea7284b6058f3df5262673ec7",
+    "src/main/aspect/README.txt": "78dd987e1d12384b85cc1db3152a3a9ceef01186edf30db513fb6415458ebf44",
+    "src/main/java/com/jcabi/simpledb/AwsDomain.java": "3e0486c83f405b181925360219fe2c05566d5ce7295f809736a6cfc9c200f67b",
+    "src/main/java/com/jcabi/simpledb/AwsItem.java": "0149008424e230481e6711bb364b0ae6ec1e29336aec9436a4c26fad783c24d6",
+    "src/main/java/com/jcabi/simpledb/AwsIterator.java": "975d52be86602a57fbc8e4e826b8584879021d20b945e04461a28cc79b0c4ee1",
+    "src/main/java/com/jcabi/simpledb/Credentials.java": "82e532fbd11acde7179ef78cbf1b36d55b154c1f03d8ee9494cfede0c019f956",
+    "src/main/java/com/jcabi/simpledb/Domain.java": "f0bec62002cc7184a8fd0b99070c236939005988d782436f308ceb08bd17ab5a",
+    "src/main/java/com/jcabi/simpledb/Item.java": "671b864fe9e3f75fc93d03cf6a8da053f940df1bd3e36f09a6f24d5d6a3b887b",
+    "src/main/java/com/jcabi/simpledb/Region.java": "41ce5a7f5698b656ceb3cff97172bff51fa0155a54f19889f56b90e001e0564d",
+    "src/main/java/com/jcabi/simpledb/package-info.java": "3476972eea99fc4e5d4666bd598b88b7ab3ef0fd69c0eb172a9ed88112c88dc4",
+    "src/site/apt/index.apt.vm": "c15843fa03b9f78929428fb0f3e41177a8a08d46a7defbe7beed0586ea350e31",
+    "src/site/resources/CNAME": "240ce26e3e5d6871387ca6c4bdd53bf571174e591c2c659d75107802e7818cd9",
+    "src/site/site.xml": "9a3df32de4b63d94baf7b89cb60b4f2f59aa7fda66e9dff78774d28f32f05cba",
+    "src/test/aspect/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/test/java/com/jcabi/simpledb/AwsDomainTest.java": "e8713bdedc85085bbb0538f651d8feaf757a4682c4e99de00e628483603048f0",
+    "src/test/java/com/jcabi/simpledb/AwsItemTest.java": "62e102578f87070bd5ec8711e884c8b113b7c31ae676f8faefbeb0908726dfb1",
+    "src/test/java/com/jcabi/simpledb/CredentialsTest.java": "bd4a40fda96f015e0faa5fd204158df7e96fcfbb070a4ed7e5dd5269e9b7ffae",
+    "src/test/java/com/jcabi/simpledb/RegionITCase.java": "125303bcdcab2068ea61bd82367d89efbf4ea7dfbb18b1b23215cc82f64b5e47",
+    "src/test/java/com/jcabi/simpledb/RegionTest.java": "02a7d802cfac2ae1e011b4db874ceba3dbeff6b9a4004ccb9e6b4dac23740d97",
+    "src/test/java/com/jcabi/simpledb/package-info.java": "5316e953a78fddd166a18309d69fd32aeae29f7a735cee1c54fd76bd5bf65b7d",
+    "src/test/resources/log4j.properties": "3aa754c91a8553d301aa9f7e373d97ae307a4f7b3bbb9e2d3973989d08e9142e"
+  },
+  "aggregate_counts": {
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

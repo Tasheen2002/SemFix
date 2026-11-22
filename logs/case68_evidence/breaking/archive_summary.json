@@ -1,0 +1,1066 @@
+{
+  "case_id": "55931d4c3a2e17683deff5d4e8065a929866290b",
+  "phase": "breaking",
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-09T13:06:28.814491324Z",
+    "FinishedAt": "2026-11-09T13:07:22.713007769Z"
+  },
+  "working_directory": "/kafka-connect-splunk",
+  "command": [
+    "sh",
+    "-c",
+    "mvn clean test -B | tee %s.log"
+  ],
+  "image_id": "sha256:1b4cb616cbfe8e7cf5d07ab625c7fa662a2ca34ef214ebc8e30cfbc09b129d04",
+  "image_digests": [
+    "ghcr.io/chains-project/breaking-updates@sha256:1b4cb616cbfe8e7cf5d07ab625c7fa662a2ca34ef214ebc8e30cfbc09b129d04"
+  ],
+  "platform": "linux/amd64",
+  "cleaned_modules": [
+    "."
+  ],
+  "freshness_rule": "Only report directories under a target explicitly deleted in this run are included",
+  "report_count": 23,
+  "reports": [
+    {
+      "path": "target/surefire-reports/TEST-ConcurrentHecTest.xml",
+      "module": ".",
+      "test_class": "ConcurrentHecTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 3,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "create",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.hecclient.ConcurrentHecTest.create(ConcurrentHecTest.java:27)\n"
+        },
+        {
+          "test_name": "send",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.hecclient.ConcurrentHecTest.send(ConcurrentHecTest.java:41)\n"
+        },
+        {
+          "test_name": "sendWithFailure",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.hecclient.ConcurrentHecTest.sendWithFailure(ConcurrentHecTest.java:57)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-DoubleSerializerTest.xml",
+      "module": ".",
+      "test_class": "DoubleSerializerTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 1,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "serialize",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature\n\tat com.splunk.hecclient.DoubleSerializerTest.serialize(DoubleSerializerTest.java:34)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature\n\tat com.splunk.hecclient.DoubleSerializerTest.serialize(DoubleSerializerTest.java:34)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-HecAckPollResponseTest.xml",
+      "module": ".",
+      "test_class": "HecAckPollResponseTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 2,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "getSuccessIds",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature\n\tat com.splunk.hecclient.HecAckPollResponseTest.<clinit>(HecAckPollResponseTest.java:27)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature\n\tat com.splunk.hecclient.HecAckPollResponseTest.<clinit>(HecAckPollResponseTest.java:27)\n"
+        },
+        {
+          "test_name": "getAcks",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPollResponseTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPollResponseTest\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-HecAckPollerTest.xml",
+      "module": ".",
+      "test_class": "HecAckPollerTest",
+      "counts": {
+        "tests": 12,
+        "failures": 0,
+        "errors": 12,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "startStop",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.hecclient.HecAckPollerTest.startStop(HecAckPollerTest.java:39)\n"
+        },
+        {
+          "test_name": "addWithNoAckReady",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.hecclient.HecAckPollerTest.addWithNoAckReady(HecAckPollerTest.java:150)\n"
+        },
+        {
+          "test_name": "emptyPoll",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.hecclient.HecAckPollerTest.emptyPoll(HecAckPollerTest.java:82)\n"
+        },
+        {
+          "test_name": "getMinLoadChannel",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.hecclient.HecAckPollerTest.getMinLoadChannel(HecAckPollerTest.java:266)\n"
+        },
+        {
+          "test_name": "getterSetter",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.hecclient.HecAckPollerTest.getterSetter(HecAckPollerTest.java:26)\n"
+        },
+        {
+          "test_name": "addWithoutCallback",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.hecclient.HecAckPollerTest.addWithoutCallback(HecAckPollerTest.java:122)\n"
+        },
+        {
+          "test_name": "addWithWrongAckId",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.hecclient.HecAckPollerTest.addWithWrongAckId(HecAckPollerTest.java:210)\n"
+        },
+        {
+          "test_name": "add",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.hecclient.HecAckPollerTest.add(HecAckPollerTest.java:93)\n"
+        },
+        {
+          "test_name": "fail",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.hecclient.HecAckPollerTest.fail(HecAckPollerTest.java:59)\n"
+        },
+        {
+          "test_name": "addWithTimeoutError",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.hecclient.HecAckPollerTest.addWithTimeoutError(HecAckPollerTest.java:180)\n"
+        },
+        {
+          "test_name": "stickySessionHandler",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.hecclient.HecAckPollerTest.stickySessionHandler(HecAckPollerTest.java:330)\n"
+        },
+        {
+          "test_name": "addWithDupId",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.hecclient.HecAckPollerTest.addWithDupId(HecAckPollerTest.java:239)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-HecChannelTest.xml",
+      "module": ".",
+      "test_class": "HecChannelTest",
+      "counts": {
+        "tests": 5,
+        "failures": 0,
+        "errors": 2,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "setTracking",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEvent\n\tat com.splunk.hecclient.HecChannelTest.setTracking(HecChannelTest.java:64)\n"
+        },
+        {
+          "test_name": "send",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEvent\n\tat com.splunk.hecclient.HecChannelTest.send(HecChannelTest.java:87)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-HecConfigTest.xml",
+      "module": ".",
+      "test_class": "HecConfigTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-HecTest.xml",
+      "module": ".",
+      "test_class": "HecTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 4,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "create",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.hecclient.HecTest.create(HecTest.java:25)\n"
+        },
+        {
+          "test_name": "send",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature\n\tat com.splunk.hecclient.HecTest.send(HecTest.java:59)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature\n\tat com.splunk.hecclient.HecTest.send(HecTest.java:59)\n"
+        },
+        {
+          "test_name": "close",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.Indexer",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Indexer\n\tat com.splunk.hecclient.HecTest.close(HecTest.java:69)\n"
+        },
+        {
+          "test_name": "sendEmptyBatch",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.Indexer",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Indexer\n\tat com.splunk.hecclient.HecTest.sendEmptyBatch(HecTest.java:49)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-HttpClientBuilderTest.xml",
+      "module": ".",
+      "test_class": "HttpClientBuilderTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-IndexerTest.xml",
+      "module": ".",
+      "test_class": "IndexerTest",
+      "counts": {
+        "tests": 12,
+        "failures": 0,
+        "errors": 12,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "ConfirmShortBackPressureConfig",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.Indexer",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Indexer\n\tat com.splunk.hecclient.IndexerTest.assertFailure(IndexerTest.java:187)\n\tat com.splunk.hecclient.IndexerTest.ConfirmShortBackPressureConfig(IndexerTest.java:152)\n"
+        },
+        {
+          "test_name": "sendWithCloseError",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.Indexer",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Indexer\n\tat com.splunk.hecclient.IndexerTest.assertFailure(IndexerTest.java:187)\n\tat com.splunk.hecclient.IndexerTest.sendWithCloseError(IndexerTest.java:173)\n"
+        },
+        {
+          "test_name": "sendWithServerBusy",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.Indexer",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Indexer\n\tat com.splunk.hecclient.IndexerTest.assertFailure(IndexerTest.java:187)\n\tat com.splunk.hecclient.IndexerTest.sendWithServerBusy(IndexerTest.java:138)\n"
+        },
+        {
+          "test_name": "sendWithIOError",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.Indexer",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Indexer\n\tat com.splunk.hecclient.IndexerTest.assertFailure(IndexerTest.java:187)\n\tat com.splunk.hecclient.IndexerTest.sendWithIOError(IndexerTest.java:165)\n"
+        },
+        {
+          "test_name": "getterSetter",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.Indexer",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Indexer\n\tat com.splunk.hecclient.IndexerTest.getterSetter(IndexerTest.java:79)\n"
+        },
+        {
+          "test_name": "toStr",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.Indexer",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Indexer\n\tat com.splunk.hecclient.IndexerTest.toStr(IndexerTest.java:90)\n"
+        },
+        {
+          "test_name": "sendWithSuccess",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.Indexer",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Indexer\n\tat com.splunk.hecclient.IndexerTest.sendWithSuccess(IndexerTest.java:103)\n"
+        },
+        {
+          "test_name": "sendWithReadError",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.Indexer",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Indexer\n\tat com.splunk.hecclient.IndexerTest.assertFailure(IndexerTest.java:187)\n\tat com.splunk.hecclient.IndexerTest.sendWithReadError(IndexerTest.java:181)\n"
+        },
+        {
+          "test_name": "sendWithInvalidData",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.Indexer",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Indexer\n\tat com.splunk.hecclient.IndexerTest.sendWithInvalidData(IndexerTest.java:121)\n"
+        },
+        {
+          "test_name": "sendCompressedRawBatchWithSuccess",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.Indexer",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Indexer\n\tat com.splunk.hecclient.IndexerTest.sendCompressedRawBatchWithSuccess(IndexerTest.java:229)\n"
+        },
+        {
+          "test_name": "getHeaders",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.Indexer",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Indexer\n\tat com.splunk.hecclient.IndexerTest.getHeaders(IndexerTest.java:30)\n"
+        },
+        {
+          "test_name": "sendCompressedBatchWithSuccess",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.Indexer",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Indexer\n\tat com.splunk.hecclient.IndexerTest.sendCompressedBatchWithSuccess(IndexerTest.java:207)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-JsonEvenBatchTest.xml",
+      "module": ".",
+      "test_class": "JsonEvenBatchTest",
+      "counts": {
+        "tests": 10,
+        "failures": 0,
+        "errors": 6,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "add",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEvent\n\tat com.splunk.hecclient.JsonEvenBatchTest.add(JsonEvenBatchTest.java:34)\n"
+        },
+        {
+          "test_name": "toStr",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEvent\n\tat com.splunk.hecclient.JsonEvenBatchTest.toStr(JsonEvenBatchTest.java:129)\n"
+        },
+        {
+          "test_name": "getHttpEntity",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEvent\n\tat com.splunk.hecclient.JsonEvenBatchTest.getHttpEntity(JsonEvenBatchTest.java:147)\n"
+        },
+        {
+          "test_name": "addWithFailure",
+          "type": "java.lang.Exception",
+          "message": "Unexpected exception, expected<com.splunk.hecclient.HecException> but was<java.lang.NoClassDefFoundError>",
+          "stacktrace": "java.lang.Exception: Unexpected exception, expected<com.splunk.hecclient.HecException> but was<java.lang.NoClassDefFoundError>\n\tat com.splunk.hecclient.JsonEvenBatchTest.addWithFailure(JsonEvenBatchTest.java:46)\n"
+        },
+        {
+          "test_name": "setterGetter",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEvent\n\tat com.splunk.hecclient.JsonEvenBatchTest.setterGetter(JsonEvenBatchTest.java:105)\n"
+        },
+        {
+          "test_name": "testGZIPCompressionForJsonEvent",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEvent\n\tat com.splunk.hecclient.JsonEvenBatchTest.testGZIPCompressionForJsonEvent(JsonEvenBatchTest.java:187)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-JsonEventTest.xml",
+      "module": ".",
+      "test_class": "JsonEventTest",
+      "counts": {
+        "tests": 8,
+        "failures": 0,
+        "errors": 8,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "createInvalidJsonEventWithEmptyString",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature\n\tat com.splunk.hecclient.JsonEventTest.<clinit>(JsonEventTest.java:30)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature\n\tat com.splunk.hecclient.JsonEventTest.<clinit>(JsonEventTest.java:30)\n"
+        },
+        {
+          "test_name": "getInputStream",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEventTest\n"
+        },
+        {
+          "test_name": "getterSetter",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEventTest\n"
+        },
+        {
+          "test_name": "addFields",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEventTest\n"
+        },
+        {
+          "test_name": "toStr",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEventTest\n"
+        },
+        {
+          "test_name": "createValidJsonEvent",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEventTest\n"
+        },
+        {
+          "test_name": "createInvalidJsonEventWithNullData",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEventTest\n"
+        },
+        {
+          "test_name": "getBytes",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEventTest\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-KafkaRecordTrackerTest.xml",
+      "module": ".",
+      "test_class": "KafkaRecordTrackerTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 4,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "addNonFailedEventBatch",
+          "type": "java.lang.Exception",
+          "message": "Unexpected exception, expected<java.lang.RuntimeException> but was<java.lang.NoClassDefFoundError>",
+          "stacktrace": "java.lang.Exception: Unexpected exception, expected<java.lang.RuntimeException> but was<java.lang.NoClassDefFoundError>\n\tat com.splunk.kafka.connect.KafkaRecordTrackerTest.addNonFailedEventBatch(KafkaRecordTrackerTest.java:46)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature\n\tat com.splunk.kafka.connect.KafkaRecordTrackerTest.addNonFailedEventBatch(KafkaRecordTrackerTest.java:46)\n"
+        },
+        {
+          "test_name": "addFailedEventBatch",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEvent\n\tat com.splunk.kafka.connect.KafkaRecordTrackerTest.addFailedEventBatch(KafkaRecordTrackerTest.java:34)\n"
+        },
+        {
+          "test_name": "addEventBatch",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEvent\n\tat com.splunk.kafka.connect.KafkaRecordTrackerTest.addEventBatch(KafkaRecordTrackerTest.java:56)\n"
+        },
+        {
+          "test_name": "addEventBatchWithNonSinkRecord",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEvent\n\tat com.splunk.kafka.connect.KafkaRecordTrackerTest.addEventBatchWithNonSinkRecord(KafkaRecordTrackerTest.java:89)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-LoadBalancerTest.xml",
+      "module": ".",
+      "test_class": "LoadBalancerTest",
+      "counts": {
+        "tests": 8,
+        "failures": 0,
+        "errors": 5,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "sendWithOneNotAvailable",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEvent\n\tat com.splunk.hecclient.LoadBalancerTest.sendWithOneNotAvailable(LoadBalancerTest.java:147)\n"
+        },
+        {
+          "test_name": "sendWithoutChannels",
+          "type": "java.lang.Exception",
+          "message": "Unexpected exception, expected<com.splunk.hecclient.HecException> but was<java.lang.NoClassDefFoundError>",
+          "stacktrace": "java.lang.Exception: Unexpected exception, expected<com.splunk.hecclient.HecException> but was<java.lang.NoClassDefFoundError>\n\tat com.splunk.hecclient.LoadBalancerTest.sendWithoutChannels(LoadBalancerTest.java:163)\n"
+        },
+        {
+          "test_name": "send",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEvent\n\tat com.splunk.hecclient.LoadBalancerTest.send(LoadBalancerTest.java:64)\n"
+        },
+        {
+          "test_name": "sendWithAllBackPressure",
+          "type": "java.lang.Exception",
+          "message": "Unexpected exception, expected<com.splunk.hecclient.HecException> but was<java.lang.NoClassDefFoundError>",
+          "stacktrace": "java.lang.Exception: Unexpected exception, expected<com.splunk.hecclient.HecException> but was<java.lang.NoClassDefFoundError>\n\tat com.splunk.hecclient.LoadBalancerTest.sendWithAllBackPressure(LoadBalancerTest.java:92)\n"
+        },
+        {
+          "test_name": "sendWithOneBackPressure",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.JsonEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.JsonEvent\n\tat com.splunk.hecclient.LoadBalancerTest.sendWithOneBackPressure(LoadBalancerTest.java:116)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-PostResponseTest.xml",
+      "module": ".",
+      "test_class": "PostResponseTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 4,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "getterSetter",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature\n\tat com.splunk.hecclient.PostResponseTest.<clinit>(PostResponseTest.java:25)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature\n\tat com.splunk.hecclient.PostResponseTest.<clinit>(PostResponseTest.java:25)\n"
+        },
+        {
+          "test_name": "getText",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.PostResponseTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.PostResponseTest\n"
+        },
+        {
+          "test_name": "isSucceed",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.PostResponseTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.PostResponseTest\n"
+        },
+        {
+          "test_name": "getAckId",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.PostResponseTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.PostResponseTest\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-RawEventBatchTest.xml",
+      "module": ".",
+      "test_class": "RawEventBatchTest",
+      "counts": {
+        "tests": 8,
+        "failures": 0,
+        "errors": 3,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "testGZIPCompressionForRaw",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.RawEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.RawEvent\n\tat com.splunk.hecclient.RawEventBatchTest.testGZIPCompressionForRaw(RawEventBatchTest.java:136)\n"
+        },
+        {
+          "test_name": "add",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.RawEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.RawEvent\n\tat com.splunk.hecclient.RawEventBatchTest.add(RawEventBatchTest.java:31)\n"
+        },
+        {
+          "test_name": "addWithFailure",
+          "type": "java.lang.Exception",
+          "message": "Unexpected exception, expected<com.splunk.hecclient.HecException> but was<java.lang.NoClassDefFoundError>",
+          "stacktrace": "java.lang.Exception: Unexpected exception, expected<com.splunk.hecclient.HecException> but was<java.lang.NoClassDefFoundError>\n\tat com.splunk.hecclient.RawEventBatchTest.addWithFailure(RawEventBatchTest.java:43)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-RawEventTest.xml",
+      "module": ".",
+      "test_class": "RawEventTest",
+      "counts": {
+        "tests": 11,
+        "failures": 0,
+        "errors": 11,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "getInputStreamWithoutLineBreaker",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature\n\tat com.splunk.hecclient.RawEventTest.<clinit>(RawEventTest.java:28)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature\n\tat com.splunk.hecclient.RawEventTest.<clinit>(RawEventTest.java:28)\n"
+        },
+        {
+          "test_name": "writeToWithCarriageReturn",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.RawEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.RawEventTest\n"
+        },
+        {
+          "test_name": "getInputStreamWithLineBreaker",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.RawEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.RawEventTest\n"
+        },
+        {
+          "test_name": "length",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.RawEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.RawEventTest\n"
+        },
+        {
+          "test_name": "getterSetter",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.RawEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.RawEventTest\n"
+        },
+        {
+          "test_name": "createInvalidRawEventWithEmptyString",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.RawEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.RawEventTest\n"
+        },
+        {
+          "test_name": "toStr",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.RawEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.RawEventTest\n"
+        },
+        {
+          "test_name": "writeToWithoutCarriageReturn",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.RawEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.RawEventTest\n"
+        },
+        {
+          "test_name": "createValidRawEvent",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.RawEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.RawEventTest\n"
+        },
+        {
+          "test_name": "getBytes",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.RawEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.RawEventTest\n"
+        },
+        {
+          "test_name": "createInvalidRawEventWithNullData",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.RawEventTest",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.RawEventTest\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-ResponsePollerTest.xml",
+      "module": ".",
+      "test_class": "ResponsePollerTest",
+      "counts": {
+        "tests": 7,
+        "failures": 0,
+        "errors": 7,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "getMinLoadChannel",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.ResponsePoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.ResponsePoller\n\tat com.splunk.hecclient.ResponsePollerTest.getMinLoadChannel(ResponsePollerTest.java:52)\n"
+        },
+        {
+          "test_name": "fail",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.ResponsePoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.ResponsePoller\n\tat com.splunk.hecclient.ResponsePollerTest.fail(ResponsePollerTest.java:37)\n"
+        },
+        {
+          "test_name": "stop",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.ResponsePoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.ResponsePoller\n\tat com.splunk.hecclient.ResponsePollerTest.stop(ResponsePollerTest.java:30)\n"
+        },
+        {
+          "test_name": "start",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.ResponsePoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.ResponsePoller\n\tat com.splunk.hecclient.ResponsePollerTest.start(ResponsePollerTest.java:24)\n"
+        },
+        {
+          "test_name": "addSuccessfulBatch",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.ResponsePoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.ResponsePoller\n\tat com.splunk.hecclient.ResponsePollerTest.addSuccessfulBatch(ResponsePollerTest.java:77)\n"
+        },
+        {
+          "test_name": "getTotalOutstandingEventBatches",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.ResponsePoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.ResponsePoller\n\tat com.splunk.hecclient.ResponsePollerTest.getTotalOutstandingEventBatches(ResponsePollerTest.java:46)\n"
+        },
+        {
+          "test_name": "addFailedBatch",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.ResponsePoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.ResponsePoller\n\tat com.splunk.hecclient.ResponsePollerTest.addFailedBatch(ResponsePollerTest.java:59)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-SplunkSinkConnectorConfigTest.xml",
+      "module": ".",
+      "test_class": "SplunkSinkConnectorConfigTest",
+      "counts": {
+        "tests": 17,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-SplunkSinkTaskTest.xml",
+      "module": ".",
+      "test_class": "SplunkSinkTaskTest",
+      "counts": {
+        "tests": 14,
+        "failures": 0,
+        "errors": 12,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "putWithoutMaxBatchAligned",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithoutMaxBatchAligned(SplunkSinkTaskTest.java:89)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithoutMaxBatchAligned(SplunkSinkTaskTest.java:89)\n"
+        },
+        {
+          "test_name": "putWithFailure",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithFailure(SplunkSinkTaskTest.java:114)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithFailure(SplunkSinkTaskTest.java:114)\n"
+        },
+        {
+          "test_name": "putWithRawAndAckWithoutMeta",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.RawEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.RawEvent\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithSuccess(SplunkSinkTaskTest.java:283)\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithRawAndAckWithoutMeta(SplunkSinkTaskTest.java:251)\n"
+        },
+        {
+          "test_name": "putWithEventAndAck",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithSuccess(SplunkSinkTaskTest.java:283)\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithEventAndAck(SplunkSinkTaskTest.java:67)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithSuccess(SplunkSinkTaskTest.java:283)\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithEventAndAck(SplunkSinkTaskTest.java:67)\n"
+        },
+        {
+          "test_name": "startStopDefault",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.startStopDefault(SplunkSinkTaskTest.java:39)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.startStopDefault(SplunkSinkTaskTest.java:39)\n"
+        },
+        {
+          "test_name": "putWithFailureHandleFailedBatches",
+          "type": "java.lang.Exception",
+          "message": "Unexpected exception, expected<org.apache.kafka.connect.errors.RetriableException> but was<java.lang.NoClassDefFoundError>",
+          "stacktrace": "java.lang.Exception: Unexpected exception, expected<org.apache.kafka.connect.errors.RetriableException> but was<java.lang.NoClassDefFoundError>\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithFailureHandleFailedBatches(SplunkSinkTaskTest.java:158)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithFailureHandleFailedBatches(SplunkSinkTaskTest.java:158)\n"
+        },
+        {
+          "test_name": "putWithEmptyEvent",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithEmptyEvent(SplunkSinkTaskTest.java:219)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithEmptyEvent(SplunkSinkTaskTest.java:219)\n"
+        },
+        {
+          "test_name": "putWithRawAndAck",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.RawEvent",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.RawEvent\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithSuccess(SplunkSinkTaskTest.java:283)\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithRawAndAck(SplunkSinkTaskTest.java:246)\n"
+        },
+        {
+          "test_name": "putWithFailureAndBackpressure",
+          "type": "java.lang.Exception",
+          "message": "Unexpected exception, expected<org.apache.kafka.connect.errors.RetriableException> but was<java.lang.NoClassDefFoundError>",
+          "stacktrace": "java.lang.Exception: Unexpected exception, expected<org.apache.kafka.connect.errors.RetriableException> but was<java.lang.NoClassDefFoundError>\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithFailureAndBackpressure(SplunkSinkTaskTest.java:137)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithFailureAndBackpressure(SplunkSinkTaskTest.java:137)\n"
+        },
+        {
+          "test_name": "startStopConcurrent",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.HecAckPoller",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.HecAckPoller\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.startStopConcurrent(SplunkSinkTaskTest.java:61)\n"
+        },
+        {
+          "test_name": "startStopWithoutAck",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature",
+          "stacktrace": "java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.startStopWithoutAck(SplunkSinkTaskTest.java:50)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.startStopWithoutAck(SplunkSinkTaskTest.java:50)\n"
+        },
+        {
+          "test_name": "putWithMaxEvents",
+          "type": "java.lang.Exception",
+          "message": "Unexpected exception, expected<org.apache.kafka.connect.errors.RetriableException> but was<java.lang.NoClassDefFoundError>",
+          "stacktrace": "java.lang.Exception: Unexpected exception, expected<org.apache.kafka.connect.errors.RetriableException> but was<java.lang.NoClassDefFoundError>\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithMaxEvents(SplunkSinkTaskTest.java:179)\nCaused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature\n\tat com.splunk.kafka.connect.SplunkSinkTaskTest.putWithMaxEvents(SplunkSinkTaskTest.java:179)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-StructEventTest.xml",
+      "module": ".",
+      "test_class": "StructEventTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 1,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [
+        {
+          "test_name": "struct",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "Could not initialize class com.splunk.hecclient.Event",
+          "stacktrace": "java.lang.NoClassDefFoundError: Could not initialize class com.splunk.hecclient.Event\n\tat com.splunk.kafka.connect.StructEventTest.struct(StructEventTest.java:42)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-VersionUtilsTest.xml",
+      "module": ".",
+      "test_class": "VersionUtilsTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.splunk.kafka.connect.SplunkSinkConnecterTest.xml",
+      "module": ".",
+      "test_class": "com.splunk.kafka.connect.SplunkSinkConnecterTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-com.splunk.kafka.connect.SplunkSinkRecordTest.xml",
+      "module": ".",
+      "test_class": "com.splunk.kafka.connect.SplunkSinkRecordTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/kafka-connect-splunk/target/test-classes:/kafka-connect-splunk/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.5/jackson-core-2.10.5.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/root/.m2/repository/org/apache/kafka/connect-api/2.8.1/connect-api-2.8.1.jar:/root/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar:/root/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar:/root/.m2/repository/org/lz4/lz4-java/1.7.1/lz4-java-1.7.1.jar:/root/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.1/snappy-java-1.1.8.1.jar:/root/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.1.1/javax.ws.rs-api-2.1.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.3.2/junit-jupiter-api-5.3.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.3.2/junit-platform-commons-1.3.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/junit/platform/junit-platform-launcher/1.3.2/junit-platform-launcher-1.3.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.3.2/junit-platform-engine-1.3.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.3.2/junit-jupiter-engine-5.3.2.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.3.2/junit-vintage-engine-5.3.2.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.14/commons-codec-1.14.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.26/slf4j-simple-1.7.26.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.jar:/root/.m2/repository/commons-cli/commons-cli/1.4/commons-cli-1.4.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:",
+      "errors": [],
+      "failures": []
+    }
+  ],
+  "source_and_pom_sha256": {
+    "pom.xml": "ad9a7e2d95c1bac044bf618ca6f23fa1c5a856c5b585ed8d38e6feb567ea965b",
+    "src/changes": "0a2ad21399c7616f8a6912eb29c87a64fdd5b26917c8a7dc0fd69e1d4d957de2",
+    "src/main/java/com/splunk/hecclient/ConcurrentHec.java": "b7709fca6753160690b94e2f55f4b5e6408b0f45ad7f4074baebddecef77c61d",
+    "src/main/java/com/splunk/hecclient/DoubleSerializer.java": "8f2867b7f60d8f7f973575ec76fad2be9761f1a0b832254e1398e419437f4267",
+    "src/main/java/com/splunk/hecclient/Event.java": "3d09612c32b7cdcf6459adabc5450768030a8cb8829ab79bac0d02f1a44f3fa2",
+    "src/main/java/com/splunk/hecclient/EventBatch.java": "1f3f2fc5e330b2213451efbf8a723fa7e235d91d767c34854f7b8bf49bacd745",
+    "src/main/java/com/splunk/hecclient/Hec.java": "6b7af9b61f1d77c0f995a70c6f2e68cf3a88c611186c0ebc83aee79fe5e371b9",
+    "src/main/java/com/splunk/hecclient/HecAckPollResponse.java": "a2905d8c031e588058522830bb93cf815fd4a0b11393b633e9cbc869852ef963",
+    "src/main/java/com/splunk/hecclient/HecAckPoller.java": "cf2c38d6599241000f5858f92d6c459700ee5daa9482d3e7d2eae161e7312aff",
+    "src/main/java/com/splunk/hecclient/HecChannel.java": "b2a87767ba3a7045dee35fb35f529fa1db6c219d0527d36a611f0701acc337a6",
+    "src/main/java/com/splunk/hecclient/HecConfig.java": "312243ab87b4960b719adfaa3fe2d8b17b98202da81e35d32c0e6437f96539c1",
+    "src/main/java/com/splunk/hecclient/HecEmptyEventException.java": "fd6f9b7dd8b98fb5223db5eced9dc9c441f9d00a585258665b9361d48da6423f",
+    "src/main/java/com/splunk/hecclient/HecException.java": "568df81cdacda45f353ac6e04834328b236a384dc313aad053700da198909c8b",
+    "src/main/java/com/splunk/hecclient/HecInf.java": "13bf0feafb2d4c30adbbd825cd7e52ec0c6617eaf06a25e7a3b1d72a4538df01",
+    "src/main/java/com/splunk/hecclient/HecNullEventException.java": "7a4e53c1403a3ca752b742c969742d75dfe784f089ce48fe93da2bcdc3494a22",
+    "src/main/java/com/splunk/hecclient/HttpClientBuilder.java": "e31e3d4a28487b1b44196f87db2a40f58c82695ff451a29fcc23282c3eb71864",
+    "src/main/java/com/splunk/hecclient/Indexer.java": "b17e424a8d7fbefc3b09db963be78a1e5f76b1462e6da3cc92abddede68f1856",
+    "src/main/java/com/splunk/hecclient/IndexerInf.java": "5e5786c30557341cf8ad28ea0a023cb76ebe1a5e0deeee9a194c5e2e443593ec",
+    "src/main/java/com/splunk/hecclient/JsonEvent.java": "615096839ecd275b8160163bfd9e70df2793fec11a687a1b612f6b0cc55065f4",
+    "src/main/java/com/splunk/hecclient/JsonEventBatch.java": "f0721ac03e112e661129f9a607a1440342726a37bd27b261e98cd1016fa0860e",
+    "src/main/java/com/splunk/hecclient/LoadBalancer.java": "dba4f40a3cc3a19cb3f65731df0c5b0273bdd1b5166fa9df29d0b75c4df7124e",
+    "src/main/java/com/splunk/hecclient/LoadBalancerInf.java": "205c44e3e0f0168622bb2cdb5375cef96c1ef4e1a61e9afb37629a5b493834d3",
+    "src/main/java/com/splunk/hecclient/Poller.java": "3864bc2a885e6a72c81406bbc94ebd3b883ca30681c94000a09a23496308218d",
+    "src/main/java/com/splunk/hecclient/PollerCallback.java": "7caf5b07be995e46d15b462fd86b687d37ab7e03cef51e82f25ef79ac7038baf",
+    "src/main/java/com/splunk/hecclient/PostResponse.java": "611ea7b820bb11de579edeedeeed558b4530639689aa4e66c9e4e181114b07ed",
+    "src/main/java/com/splunk/hecclient/RawEvent.java": "148951de4272f579c443edc095d538e80ee45000a571e1cb10742b2ecfc0b9e5",
+    "src/main/java/com/splunk/hecclient/RawEventBatch.java": "27242c3a9ac3e70d34ef8980a06f140ae490f3c58d5701f982c1cf6fa47aa199",
+    "src/main/java/com/splunk/hecclient/ResponsePoller.java": "c6a56591a1739907141785aef7c5f2fa71a3bc506987b191d32454191b439ccb",
+    "src/main/java/com/splunk/hecclient/examples/HecExample.java": "bba8b4939251134e270839307b8f530c23c26250cf81b4ac6a8d113865547d1d",
+    "src/main/java/com/splunk/hecclient/examples/HecPerf.java": "52bfefaf48a12c498a05aa403915fe35110116ec7c0ed28fdf3c1c939fe4d451",
+    "src/main/java/com/splunk/hecclient/examples/HecPerfConfig.java": "37b255724339f93cd2626ca6be0ceabb268fa83956e7dae1d54b4d8d82ef46f9",
+    "src/main/java/com/splunk/hecclient/examples/PrintIt.java": "8fd15059404405debfb93283b162c70ae9eedaa917133921a56c662afe25c402",
+    "src/main/java/com/splunk/hecclient/package-info.java": "8bb90976003fbc8e1181a2edbbb159c128bb6476530d2a3f9fc7fd625a77e5dd",
+    "src/main/java/com/splunk/kafka/connect/JacksonStructModule.java": "0ddec896d64ecb2de0e10938620dcb2baa33b72ed251214c692ad2f362236684",
+    "src/main/java/com/splunk/kafka/connect/KafkaRecordTracker.java": "b136846a3be52d5854357e263be8682dc92705e70523db6c85de8bd8d3b67bd4",
+    "src/main/java/com/splunk/kafka/connect/SplunkSinkConnector.java": "764c9eb14b49e19dcc0fbe593f31b98d81f2abff341d3d8b972bbbac09a2a13c",
+    "src/main/java/com/splunk/kafka/connect/SplunkSinkConnectorConfig.java": "764d9e2c4950f521bb10a5ec13a822c6dc107e69e11b6e3544e413e695c642db",
+    "src/main/java/com/splunk/kafka/connect/SplunkSinkRecord.java": "223e5921193c5eaec20ae0af6385faad15aedd74604be982f1b72a3e0b8510c9",
+    "src/main/java/com/splunk/kafka/connect/SplunkSinkTask.java": "e58e5213b05e094bb7683b4523609abf38d5908fb13d61b436414932e4883a16",
+    "src/main/java/com/splunk/kafka/connect/VersionUtils.java": "e6f5c948a2b6633bf71f6466ea1fa801657c1ec2ba08bdc63541376d3a3f401a",
+    "src/main/resources/version.properties": "948fe6ca4cef8d0e38ef08ddefc49f2a797facf96b3ade1a30ad40bb219d655b",
+    "src/test/java/com/splunk/hecclient/CloseableHttpClientMock.java": "46f7541c6b85a9e418738ef12eeab59c8bc57613fa4c0c7c5139c18a003860d4",
+    "src/test/java/com/splunk/hecclient/CloseableHttpResponseMock.java": "4d2ce7225105869eee488c135f89817e62a1df9e71da6a0acbe0feeceab88cbb",
+    "src/test/java/com/splunk/hecclient/ConcurrentHecTest.java": "645ab3475b40cf567b18557bb92652f68f1e2e56ef5fe911b5e7c717031dd3c7",
+    "src/test/java/com/splunk/hecclient/DoubleSerializerTest.java": "53a00059852189908b11c35920a8c5df31205de738188e13453c2ff6451840e7",
+    "src/test/java/com/splunk/hecclient/HecAckPollResponseTest.java": "75c64774ddc86fe72bd8a920de6f19dff40b7874042cc51e6829db19b87793c6",
+    "src/test/java/com/splunk/hecclient/HecAckPollerTest.java": "48d6fba76114d042724305965f7c230dadead071ebfca64e5a17bdb247167fc3",
+    "src/test/java/com/splunk/hecclient/HecChannelTest.java": "c9766d6a778d7e393c8c290571d97922332a818b03e8a2b0cfc3db9ec361b709",
+    "src/test/java/com/splunk/hecclient/HecConfigTest.java": "019f1b4b5cde538c57a1f2403343e4de9a3c4aaf062528ed3a97de4cbb25a1a3",
+    "src/test/java/com/splunk/hecclient/HecTest.java": "2d9b672b9c8e5a0a5e14b1528792c8378967457a989cfb8aa551c9948604c9ae",
+    "src/test/java/com/splunk/hecclient/HttpClientBuilderTest.java": "ac6bd880ea42c10bd5f1da8dac709d5644e5bb1d11adb31aae36cd8d032a8ada",
+    "src/test/java/com/splunk/hecclient/HttpEntityMock.java": "3521dbd787fd20a1a6ba43df04b09b2b9034a3d2a218a02561414cf40c461205",
+    "src/test/java/com/splunk/hecclient/IndexerMock.java": "665da1203c06b5b981724cdcb0479cd85df4dcd807360688674af95d4d31e669",
+    "src/test/java/com/splunk/hecclient/IndexerTest.java": "39c5ec3efb4ca1df749801fa858828be5b091c09d5cb3e1180d27d815a91e5fb",
+    "src/test/java/com/splunk/hecclient/JsonEvenBatchTest.java": "d35926259c6f2ce01b9c313c58657b538210c89f2da864efd0aa7327af7d1c2b",
+    "src/test/java/com/splunk/hecclient/JsonEventTest.java": "efad60274314507a0b444295c367afbfbf30cea6f1e7b017f262c0fe41d0f492",
+    "src/test/java/com/splunk/hecclient/LoadBalancerMock.java": "9db70d45c745a26e7f2f23068e5ae8bca83977e5a8acaf4d15ad301b92a47810",
+    "src/test/java/com/splunk/hecclient/LoadBalancerTest.java": "df9f0c829465ea37ec77b290920f91e08bcc1ee08d42ea46a5427a162e5438d9",
+    "src/test/java/com/splunk/hecclient/PollerCallbackMock.java": "e5fa976a00698a0dc8252e2a04840b70a25bcc53d67ff635fe6f25c41aa9c2c0",
+    "src/test/java/com/splunk/hecclient/PollerMock.java": "47ed86661cfaa11b63407f1317aee24cc7150458fc31dd7d4b9365ca3a25b13e",
+    "src/test/java/com/splunk/hecclient/PostResponseTest.java": "3856e778addcfd5a4dd176a45cd6e2bad34905960c33cee2b29efdaaa59fdd40",
+    "src/test/java/com/splunk/hecclient/RawEventBatchTest.java": "a92d54dc3a174c4abcad055ae1aa4028ad9b6ba72b88db6b32d2e0ed8cf425a7",
+    "src/test/java/com/splunk/hecclient/RawEventTest.java": "16e4ef9712eb2e12fdf72644a0ad32ae0681fb802e6d7e3faa64d70557f63dea",
+    "src/test/java/com/splunk/hecclient/ResponsePollerTest.java": "7c6872c5a7fde37b64073d8acc59f8b2ebe49bbcc983512a1dd7bffce869af43",
+    "src/test/java/com/splunk/hecclient/StatusLineMock.java": "d6023e7ceefa87dff6b1ff4f804506d51711dd0e2db17ec9ef1a92a39e1d2ac7",
+    "src/test/java/com/splunk/hecclient/UnitUtil.java": "ad59bf4967000334e34078cdb1690ad042bbb65a64e87745c95d6d1ba3d4e796",
+    "src/test/java/com/splunk/kafka/connect/ConfigProfile.java": "874f4041ac5788ce251b351b5ad7a903abbd3ff2c9fc96ec3f1a69eef19a5974",
+    "src/test/java/com/splunk/kafka/connect/HecMock.java": "34fc7b08dd6e6508b42305c50914feb85bd8b6e1efce490c09a00ea4356ee313",
+    "src/test/java/com/splunk/kafka/connect/KafkaRecordTrackerTest.java": "9a44918d52916d624d94f212e99fffadf24d63b77ef1941a8a95b1df86413a1d",
+    "src/test/java/com/splunk/kafka/connect/SplunkSinkConnecterTest.java": "592166e7922cd5110ce47e1e0d5a2ce4a3e29974cb9a0cfc63fdd86d42b49f78",
+    "src/test/java/com/splunk/kafka/connect/SplunkSinkConnectorConfigTest.java": "19afa8449a758c5f6a7a3d80219e4f2a7253edac768eebd14a6f3ee7ea68567a",
+    "src/test/java/com/splunk/kafka/connect/SplunkSinkRecordTest.java": "489da914a359e073aa1d2f7da3d64079e4274f7682d8a5b141a77ee835302296",
+    "src/test/java/com/splunk/kafka/connect/SplunkSinkTaskTest.java": "7c3064f6e83fd1a8e5e26211ba71b1cdc07f40c381ae4128338752db05cda38b",
+    "src/test/java/com/splunk/kafka/connect/StructEventTest.java": "ae3712e55639dba1b3a926dcb221535f3171b29adc3cd026d24634463f796330",
+    "src/test/java/com/splunk/kafka/connect/UnitUtil.java": "e12660d6fe5dd4a564d67aa690edc87fdf3510538ac9e25788bc0faae9c90a94",
+    "src/test/java/com/splunk/kafka/connect/VersionUtilsTest.java": "aaa8304698d747e9e2234f11d86dec91a469d460b952f5d9c86f0fab48fd4968",
+    "src/test/resources/keystoretest.jks": "718f0dd5cf396f1d7a54155ab8ddef7cdfa550ae4523ce1ecdca375e9fceb445",
+    "src/test/resources/log4j2.xml": "5abb854dd45568a72f2478d539ed14d5ffe6471bd0d1b2a87576e77dc21fdc0d",
+    "src/test/resources/testversion.properties": "3fe177e3e2ff601674e7c0c254506daf73bab7fee41e60bf0833b8365eb8f277"
+  },
+  "aggregate_counts": {
+    "tests": 143,
+    "failures": 0,
+    "errors": 97,
+    "skipped": 0
+  }
+}

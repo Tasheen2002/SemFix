@@ -1,0 +1,71 @@
+=== CASE 120 a1b247aa03bcc0131d0646b2adaf434de18dcf80
+  project=jiangxincode/ApkToolBoxGUI dep=org.apache.logging.log4j:log4j-core 2.17.2 -> 2.19.0 scope=compile type=minor java=11
+  PR=https://github.com/jiangxincode/ApkToolBoxGUI/pull/125
+  PRE log logs/batch_triage/a1b247aa_pre.log:
+  lines=129
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 13, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/a1b247aa_breaking.log:
+  lines=206
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 13, Failures: 0, Errors: 6, Skipped: 0
+  failing classes: Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 1.839 s <<< FAILURE! - in edu.jiangxin.common.OsPatternConvertTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.092 s <<< FAILURE! - in edu.jiangxin.encode.EncoderConvertTest
+  section: Errors: | OsPatternConvertTest.testOsDirConvert:34 NoClassDefFound Could not initialize ... | OsPatternConvertTest.testXxx2Xxx:23 » NoClassDefFound Could not initialize cla... | EncoderConvertTest.testDetectEncode01:27 NoClassDefFound Could not initialize ... | EncoderConvertTest.testDetectEncode02:33 NoClassDefFound Could not initialize ... | EncoderConvertTest.testEncodeDir:53 » NoClassDefFound Could not initialize cla... | EncoderConvertTest.testEncodeFile:39 » NoClassDefFound Could not initialize cl... | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  15.806 s
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project ApkToolBoxGUI: There are test failures.
+  FAILBLOCK: [ERROR] edu.jiangxin.common.OsPatternConvertTest.testXxx2Xxx  Time elapsed: 1.827 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.impl.ThreadContextDataInjector
+      at edu.jiangxin.common.OsPatternConvertTest.testXxx2Xxx(OsPatternConvertTest.java:23)
+      [ERROR] edu.jiangxin.common.OsPatternConvertTest.testOsDirConvert  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class edu.jiangxin.apktoolbox.file.core.OsPatternConvert
+      at edu.jiangxin.common.OsPatternConvertTest.testOsDirConvert(OsPatternConvertTest.java:34)
+  FAILBLOCK: [ERROR] edu.jiangxin.common.OsPatternConvertTest.testOsDirConvert  Time elapsed: 0 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class edu.jiangxin.apktoolbox.file.core.OsPatternConvert
+      at edu.jiangxin.common.OsPatternConvertTest.testOsDirConvert(OsPatternConvertTest.java:34)
+      [INFO] Running edu.jiangxin.encode.EncoderConvertTest
+      [ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.092 s <<< FAILURE! - in edu.jiangxin.encode.EncoderConvertTest
+      [ERROR] edu.jiangxin.encode.EncoderConvertTest.testEncodeDir  Time elapsed: 0.061 s  <<< ERROR!
+  FAILBLOCK: [ERROR] edu.jiangxin.encode.EncoderConvertTest.testEncodeDir  Time elapsed: 0.061 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+      at edu.jiangxin.encode.EncoderConvertTest.testEncodeDir(EncoderConvertTest.java:53)
+      [ERROR] edu.jiangxin.encode.EncoderConvertTest.testEncodeFile  Time elapsed: 0.008 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+      at edu.jiangxin.encode.EncoderConvertTest.testEncodeFile(EncoderConvertTest.java:39)
+  FAILBLOCK: [ERROR] edu.jiangxin.encode.EncoderConvertTest.testDetectEncode01  Time elapsed: 0.003 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class edu.jiangxin.apktoolbox.file.core.EncoderDetector
+      at edu.jiangxin.encode.EncoderConvertTest.testDetectEncode01(EncoderConvertTest.java:27)
+      [ERROR] edu.jiangxin.encode.EncoderConvertTest.testDetectEncode02  Time elapsed: 0.002 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class edu.jiangxin.apktoolbox.file.core.EncoderDetector
+      at edu.jiangxin.encode.EncoderConvertTest.testDetectEncode02(EncoderConvertTest.java:33)
+  distinct fail signatures (count): 1x java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.impl.ThreadContextDataInjector || 1x java.lang.NoClassDefFoundError: Could not initialize class edu.jiangxin.apktoolbox.file.core.OsPatternConvert || 2x java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext || 1x java.lang.NoClassDefFoundError: Could not initialize class edu.jiangxin.apktoolbox.file.core.EncoderDetector
+  provider/console lines: ERROR StatusLogger Unable to create Lookup for ctx
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx7, java.lang.ClassNotFoundExceptionx1
+  EVIDENCE logs/case120_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/log4j-api-2.17.2.jar, breaking/jars/log4j-core-2.19.0.jar, breaking/log4j-core-2.19.0_ThreadContextDataInjector_javap.txt, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/log4j-api-2.17.2.jar, pre/jars/log4j-core-2.17.2.jar, pre/log4j-core-2.17.2_ThreadContextDataInjector_javap.txt, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[13, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[13, 0, 6, 0]
+  archived non-report files: pre=306 breaking=306 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -91,3 +91,3 @@
+                 <artifactId>log4j-core</artifactId>
+    -            <version>2.17.2</version>
+    +            <version>2.19.0</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    ERROR edu.jiangxin.common.OsPatternConvertTest#testXxx2Xxx type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.impl.ThreadContextDataInjector
+       at edu.jiangxin.common.OsPatternConvertTest.testXxx2Xxx(OsPatternConvertTest.java:23)
+    ERROR edu.jiangxin.common.OsPatternConvertTest#testOsDirConvert type=java.lang.NoClassDefFoundError msg=Could not initialize class edu.jiangxin.apktoolbox.file.core.OsPatternConvert
+       at edu.jiangxin.common.OsPatternConvertTest.testOsDirConvert(OsPatternConvertTest.java:34)
+    ERROR edu.jiangxin.encode.EncoderConvertTest#testEncodeDir type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at edu.jiangxin.encode.EncoderConvertTest.testEncodeDir(EncoderConvertTest.java:53)
+    ERROR edu.jiangxin.encode.EncoderConvertTest#testEncodeFile type=java.lang.NoClassDefFoundError msg=Could not initialize class org.apache.logging.log4j.core.LoggerContext
+       at edu.jiangxin.encode.EncoderConvertTest.testEncodeFile(EncoderConvertTest.java:39)
+    ERROR edu.jiangxin.encode.EncoderConvertTest#testDetectEncode01 type=java.lang.NoClassDefFoundError msg=Could not initialize class edu.jiangxin.apktoolbox.file.core.EncoderDetector
+       at edu.jiangxin.encode.EncoderConvertTest.testDetectEncode01(EncoderConvertTest.java:27)
+    ERROR edu.jiangxin.encode.EncoderConvertTest#testDetectEncode02 type=java.lang.NoClassDefFoundError msg=Could not initialize class edu.jiangxin.apktoolbox.file.core.EncoderDetector
+       at edu.jiangxin.encode.EncoderConvertTest.testDetectEncode02(EncoderConvertTest.java:33)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -            <version>2.17.2</version> / +            <version>2.19.0</version>
+  JSON breaking/jar_inspection.json: {"case_id":"a1b247aa03bcc0131d0646b2adaf434de18dcf80","phase":"breaking","path_filter":"/org/apache/logging/log4j/(log4j-api|log4j-core)/","path_source":"Fresh test report effective classpaths, preferring surefire.test.class.path when present","artifacts":[{"resolved_path":"/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.2/log4j-api-2.17.2.jar","classes":{"org.apache.logging.log4j.util.ServiceLoaderUtil":{"present":false,"major_version":null},"org.apache.logging.log4j.core.impl.ThreadContextDataInjector":{"present":false,"major_version":null}},"services":{"META-INF/services/org.apache.logging.log4j.util.PropertySource":"# Licensed to the Apache Software Foundation (ASF) under one or more\n# contributor license agreements. See the NOTICE file distributed with\n# this work for additional information regarding copyright ownership.\n# The ASF licenses this file to You under the Apache license, Version 2.0\n# (the \"License\"..."},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.19.0/log4j-core-2.19.0.jar","classes":{"org.apache.logging.log4j.util.ServiceLoaderUtil":{"present":false,"major_version":null},"org.apache.logging.log4j.core.impl.ThreadContextDataInjector":{"present":true,"major_version":52}},"services":{"META-INF/services/javax.annotation.processing.Processor":"#\n# Licensed to the Apache Software Foundation (AS...
+  JSON pre/jar_inspection.json: {"case_id":"a1b247aa03bcc0131d0646b2adaf434de18dcf80","phase":"pre","path_filter":"/org/apache/logging/log4j/(log4j-api|log4j-core)/","path_source":"Fresh test report effective classpaths, preferring surefire.test.class.path when present","artifacts":[{"resolved_path":"/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.2/log4j-api-2.17.2.jar","classes":{"org.apache.logging.log4j.util.ServiceLoaderUtil":{"present":false,"major_version":null},"org.apache.logging.log4j.core.impl.ThreadContextDataInjector":{"present":false,"major_version":null}},"services":{"META-INF/services/org.apache.logging.log4j.util.PropertySource":"# Licensed to the Apache Software Foundation (ASF) under one or more\n# contributor license agreements. See the NOTICE file distributed with\n# this work for additional information regarding copyright ownership.\n# The ASF licenses this file to You under the Apache license, Version 2.0\n# (the \"License\"..."},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.2/log4j-core-2.17.2.jar","classes":{"org.apache.logging.log4j.util.ServiceLoaderUtil":{"present":false,"major_version":null},"org.apache.logging.log4j.core.impl.ThreadContextDataInjector":{"present":true,"major_version":52}},"services":{"META-INF/services/javax.annotation.processing.Processor":"#\n# Licensed to the Apache Software Foundation (ASF) un...
+  JARS: breaking/jars/log4j-api-2.17.2.jar, breaking/jars/log4j-core-2.19.0.jar, pre/jars/log4j-api-2.17.2.jar, pre/jars/log4j-core-2.17.2.jar

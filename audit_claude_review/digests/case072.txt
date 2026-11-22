@@ -1,0 +1,100 @@
+=== CASE 72 5b7634ef016e7e65084fb0253e96bffa5810c0df
+  project=pac4j/dropwizard-pac4j dep=com.fasterxml.jackson.core:jackson-databind 2.10.5.1 -> 2.14.2 scope=compile type=other java=11
+  PR=https://github.com/pac4j/dropwizard-pac4j/pull/368
+  PRE log logs/batch_triage/5b7634ef_pre.log:
+  lines=462
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/5b7634ef_breaking.log:
+  lines=798
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 16, Failures: 0, Errors: 16, Skipped: 0
+  failing classes: Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.653 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndServletTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndTest || Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.pac4j.dropwizard.factory.DefaultConfigurationTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+  section: Errors: | BundleFactoryTest.emptyPac4jInConfig:47->AbstractApplicationTest.setup:31 » NoClassDefFound com/fasterxml/jackson/core/util/JacksonFeature | BundleFactoryTest.noPac4jInConfig:31->AbstractApplicationTest.setup:31 » NoClassDefFound com/fasterxml/jackson/core/util/JacksonFeature | BundleFactoryTest.sessionEnabledForced:68->AbstractApplicationTest.setup:31 » NoClassDefFound com/fasterxml/jackson/core/util/JacksonFeature | BundleFactoryTest.sessiondisabledForced:83->AbstractApplicationTest.setup:31 » NoClassDefFound com/fasterxml/jackson/core/util/JacksonFeature | EndToEndServletTest.grantsAccessToResources:54->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound com/fasterxml/jackson/core/util/JacksonFeature | EndToEndServletTest.grantsAccessToResourcesForm:36->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound com/fasterxml/jackson/core/util/JacksonFeature | EndToEndServletTest.restrictsAccessToResources:69->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound com/fasterxml/jackson/core/util/JacksonFeature | EndToEndTest.grantsAccessToResources:54->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound com/fasterxml/jackson/core/util/JacksonFe
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project dropwizard-pac4j: 
+  FAILBLOCK: [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources  Time elapsed: 0.421 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+      at com.fasterxml.jackson.databind.cfg.DatatypeFeatures.defaultFeatures(DatatypeFeatures.java:33)
+      at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:672)
+      at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+      at io.dropwizard.jackson.Jackson.newObjectMapper(Jackson.java:28)
+      at io.dropwizard.setup.Bootstrap.<init>(Bootstrap.java:64)
+      Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+  distinct fail signatures (count): 16x java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx16, java.lang.ClassNotFoundExceptionx16
+  EVIDENCE logs/case72_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/jackson-core-2.10.5.jar, breaking/jackson-databind-2.14.2.jar, databind_jacksonfeature_references.txt, pre/archive_summary.json, pre/artifacts.tar, pre/jackson-core-2.10.5.jar, pre/jackson-databind-2.10.5.1.jar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[16, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[16, 0, 16, 0]
+  archived non-report files: pre=27 breaking=27 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -117,3 +117,3 @@
+             <artifactId>jackson-databind</artifactId>
+    -        <version>2.10.5.1</version>
+    +        <version>2.14.2</version>
+           </dependency>
+  BREAKING surefire failures/errors:
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#emptyPac4jInConfig type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.cfg.DatatypeFeatures.defaultFeatures(DatatypeFeatures.java:33)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:672)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at io.dropwizard.jackson.Jackson.newObjectMapper(Jackson.java:28)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#sessiondisabledForced type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.cfg.DatatypeFeatures.defaultFeatures(DatatypeFeatures.java:33)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:672)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at io.dropwizard.jackson.Jackson.newObjectMapper(Jackson.java:28)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#noPac4jInConfig type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.cfg.DatatypeFeatures.defaultFeatures(DatatypeFeatures.java:33)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:672)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at io.dropwizard.jackson.Jackson.newObjectMapper(Jackson.java:28)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#sessionEnabledForced type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.cfg.DatatypeFeatures.defaultFeatures(DatatypeFeatures.java:33)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:672)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at io.dropwizard.jackson.Jackson.newObjectMapper(Jackson.java:28)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#grantsAccessToResources type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.cfg.DatatypeFeatures.defaultFeatures(DatatypeFeatures.java:33)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:672)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at io.dropwizard.jackson.Jackson.newObjectMapper(Jackson.java:28)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#grantsAccessToResourcesForm type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.cfg.DatatypeFeatures.defaultFeatures(DatatypeFeatures.java:33)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:672)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at io.dropwizard.jackson.Jackson.newObjectMapper(Jackson.java:28)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#restrictsAccessToResources type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.cfg.DatatypeFeatures.defaultFeatures(DatatypeFeatures.java:33)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:672)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at io.dropwizard.jackson.Jackson.newObjectMapper(Jackson.java:28)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndTest#grantsAccessToResources type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.cfg.DatatypeFeatures.defaultFeatures(DatatypeFeatures.java:33)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:672)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at io.dropwizard.jackson.Jackson.newObjectMapper(Jackson.java:28)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndTest#grantsAccessToResourcesForm type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.cfg.DatatypeFeatures.defaultFeatures(DatatypeFeatures.java:33)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:672)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at io.dropwizard.jackson.Jackson.newObjectMapper(Jackson.java:28)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndTest#restrictsAccessToResources type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/util/JacksonFeature
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+       at com.fasterxml.jackson.databind.cfg.DatatypeFeatures.defaultFeatures(DatatypeFeatures.java:33)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:672)
+       at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+       at io.dropwizard.jackson.Jackson.newObjectMapper(Jackson.java:28)
+    ... truncated (96 lines)
+  LOG databind_jacksonfeature_references.txt (6 lines): 
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"jackson-core-2.10.5.jar","entries":{"com/fasterxml/jackson/core/util/JacksonFeature.class":[],"com/fasterxml/jackson/databind/cfg/DatatypeFeatures.class":[]}},{"phase":"pre","jar":"jackson-databind-2.10.5.1.jar","entries":{"com/fasterxml/jackson/core/util/JacksonFeature.class":[],"com/fasterxml/jackson/databind/cfg/DatatypeFeatures.class":[]}},{"phase":"breaking","jar":"jackson-core-2.10.5.jar","entries":{"com/fasterxml/jackson/core/util/JacksonFeature.class":[],"com/fasterxml/jackson/databind/cfg/DatatypeFeatures.class":[]}},{"phase":"breaking","jar":"jackson-databind-2.14.2.jar","entries":{"com/fasterxml/jackson/core/util/JacksonFeature.class":[],"com/fasterxml/jackson/databind/cfg/DatatypeFeatures.class":["com/fasterxml/jackson/databind/cfg/DatatypeFeatures.class"]}}]

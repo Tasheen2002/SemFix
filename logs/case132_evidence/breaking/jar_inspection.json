@@ -1,0 +1,42 @@
+{
+  "case_id": "b5eb721e10cb05e68c0283d8a76c46cc257a0331",
+  "phase": "breaking",
+  "path_filter": "/(slf4j-api|logback-classic)/",
+  "path_source": "Fresh test report classpath or retained randomized-runner classpath",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar",
+      "sha256": "4d8e899621a3006c2f66e19feab002b11e6cfc5cb1854fc41f01532c00deb2aa",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": true,
+          "major_version": 50
+        },
+        "org.slf4j.spi.SLF4JServiceProvider": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/javax.servlet.ServletContainerInitializer": "ch.qos.logback.classic.servlet.LogbackServletContainerInitializer"
+      },
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar",
+      "sha256": "f4a2974509291acc49fda4a79b0d59e15e2b524095d6421c66391b92387af4c9",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": false,
+          "major_version": null
+        },
+        "org.slf4j.spi.SLF4JServiceProvider": {
+          "present": true,
+          "major_version": 52
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    }
+  ]
+}

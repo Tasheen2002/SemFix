@@ -1,0 +1,53 @@
+﻿
+=== Case 6  097d93fbb2f9998ef1390ad10f92d1b70fda8b90 ===
+Project : dadoonet/fscrawler
+Update  : org.apache.poi:poi-ooxml  4.1.2 -> 5.1.0
+Image not present locally, pulling ghcr.io/chains-project/breaking-updates:097d93fbb2f9998ef1390ad10f92d1b70fda8b90-breaking ...
+Running breaking in container manual-case6-breaking (this can take several minutes) ...
+Finished in 102 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case6_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  reactor: FSCrawler .......................................... SUCCESS [  1.111 s]
+  reactor: FSCrawler Test Framework ........................... SUCCESS [ 13.086 s]
+  reactor: FSCrawler Framework ................................ SUCCESS [  2.542 s]
+  reactor: FSCrawler Settings ................................. SUCCESS [ 14.707 s]
+  reactor: FSCrawler Test Documents ........................... SUCCESS [  0.083 s]
+  reactor: FSCrawler Beans .................................... SUCCESS [  5.971 s]
+  reactor: FSCrawler 3rd Party libraries ...................... SUCCESS [  0.003 s]
+  reactor: FSCrawler Workplace Search Client .................. SUCCESS [  0.586 s]
+  reactor: FSCrawler Elasticsearch Client ..................... SUCCESS [  0.042 s]
+  reactor: FSCrawler Elasticsearch Client Base ................ SUCCESS [  6.776 s]
+  reactor: FSCrawler Elasticsearch Client V7 .................. SUCCESS [ 10.155 s]
+  reactor: FSCrawler Elasticsearch Client V6 .................. SUCCESS [  6.710 s]
+  reactor: FSCrawler Tika ..................................... FAILURE [ 22.231 s]
+  reactor: FSCrawler Crawlers ................................. SKIPPED
+  reactor: FSCrawler Abstract Crawler ......................... SKIPPED
+  reactor: FSCrawler Crawlers: FS ............................. SKIPPED
+  reactor: FSCrawler Crawlers: FTP ............................ SKIPPED
+  reactor: FSCrawler Crawlers: SSH ............................ SKIPPED
+  reactor: FSCrawler Core ..................................... SKIPPED
+  reactor: FSCrawler Rest Server .............................. SKIPPED
+  reactor: FSCrawler Integration Tests ........................ SKIPPED
+  reactor: FSCrawler Integration Common Tests ................. SKIPPED
+  reactor: FSCrawler Integration Tests for Elasticsearch 7.x .. SKIPPED
+  reactor: FSCrawler Integration Tests for Elasticsearch 6.x .. SKIPPED
+  reactor: FSCrawler Cli ...................................... SKIPPED
+  reactor: FSCrawler ZIP Distribution ......................... SKIPPED
+  reactor: FSCrawler ZIP Distribution for Elasticsearch 7.x ... SKIPPED
+  reactor: FSCrawler ZIP Distribution for Elasticsearch 6.x ... SKIPPED
+  reactor: FSCrawler Documentation ............................ SKIPPED
+First failing tests / errors:
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  ClassNotFoundException x2
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : poi-ooxml 5.1.0 mixed with an older poi core on the classpath: IncompatibleClassChangeError 'POIXMLTextExtractor can not implement POITextExtractor, because it is not an interface' plus ClassNotFoundException AgileEncryptionInfoBuilder; Tika swallows these and tests fail on assertions
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

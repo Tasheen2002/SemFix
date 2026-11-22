@@ -1,0 +1,29 @@
+=== CASE 11 125f1253d8331f14752a4a8d49559445301ab02d
+  project=leonardehrenfried/jspc-maven-plugin dep=org.codehaus.plexus:plexus-utils 3.5.1 -> 4.0.0 scope=compile type=major java=11
+  PR=https://github.com/leonardehrenfried/jspc-maven-plugin/pull/165
+  PRE log logs/test_failure_evidence/125f1253_pre.log:
+  lines=509
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 22, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+  exception names: org.apache.jasper.JasperExceptionx2, java.util.concurrent.ExecutionExceptionx1, java.net.URISyntaxExceptionx1
+  BREAKING log logs/test_failure_evidence/125f1253_breaking.log:
+  lines=722
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 22, Failures: 0, Errors: 16, Skipped: 0
+  failing classes: Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in io.leonard.maven.plugins.jspc.TestJspcMojoStrictQuoteEscaping || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in io.leonard.maven.plugins.jspc.TestJspcMojoMultithreading || Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in io.leonard.maven.plugins.jspc.TestJspcMojo || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in io.leonard.maven.plugins.jspc.TestJspcMojoMultithreadingWithDifferentCompiler || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in io.leonard.maven.plugins.jspc.TestIncludesExcludesMojo || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in io.leonard.maven.plugins.jspc.TestJspcMojoWithDifferentCompiler
+  section: Errors: | TestIncludesExcludesMojo.<init>:18 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | TestJspcMojo.<init>:21 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | TestJspcMojo.<init>:21 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | TestJspcMojo.<init>:21 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | TestJspcMojo.<init>:21 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | TestJspcMojo.<init>:21 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | TestJspcMojo.<init>:21 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | TestJspcMojo.<init>:21 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | TestJspcMojo.<init>:21 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | TestJspcMojoMultithreading.<init>:18 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | TestJspcMojoMultithreading.<init>:18 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | TestJspcMojoMultithreading.<init>:18 » NoClassDefFound org/codehaus/plexus/util/xml/XmlStreamReader | TestJspcMojoMultithreadingWithDifferentCompiler.<init>:16 » NoClassDefFound org/
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project jspc-maven-plugin: 
+  FAILBLOCK: [ERROR] io.leonard.maven.plugins.jspc.TestJspcMojoStrictQuoteEscaping.should_throw_error_when_not_escaped  Time elapsed: 0.006 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+      at org.apache.maven.plugin.testing.MojoRule.<init>(MojoRule.java:67)
+      at io.leonard.maven.plugins.jspc.TestJspcMojoStrictQuoteEscaping.<init>(TestJspcMojoStrictQuoteEscaping.java:17)
+      at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+      at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+      Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.util.xml.XmlStreamReader
+  distinct fail signatures (count): 16x java.lang.NoClassDefFoundError: org/codehaus/plexus/util/xml/XmlStreamReader
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx16, java.lang.ClassNotFoundExceptionx16
+  EVIDENCE: no logs/case11_evidence directory

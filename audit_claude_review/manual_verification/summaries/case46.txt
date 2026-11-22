@@ -1,0 +1,34 @@
+﻿
+=== Case 46  41164ec5392b2c853ae871f10a9541c055028b36 ===
+Project : retest/recheck.cli
+Update  : ch.qos.logback:logback-classic  1.2.11 -> 1.4.3
+Running breaking in container manual-case46-breaking (this can take several minutes) ...
+Finished in 34 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case46_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 12, Failures: 2, Errors: 0, Skipped: 0
+First failing tests / errors:
+  [ERROR] should_warn_when_not_a_recheck_project  Time elapsed: 0.061 s  <<< FAILURE!
+      java.lang.AssertionError:
+      
+      Expecting actual:
+  [ERROR] should_repeatedly_ask_yes_or_no_when_input_is_invalid  Time elapsed: 0 s  <<< FAILURE!
+      java.lang.AssertionError:
+      
+      Expecting actual:
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  none
+SLF4J console:
+  SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R6: Retained API references a removed binding class)
+Cause   : logback-classic 1.4.3 no longer ships org.slf4j.impl.StaticLoggerBinder; the retained slf4j-api 1.7.36 (archived) looks up that removed binding class, fails ('Failed to load class StaticLoggerBinder') and falls back to NOP, so CLI log output is empty and 2 assertions fail
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

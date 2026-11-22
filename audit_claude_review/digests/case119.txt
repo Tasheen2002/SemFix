@@ -1,0 +1,58 @@
+=== CASE 119 a18e08bb3fe120b33a5864ee94305a72290ef831
+  project=matteobaccan/html2pop3 dep=ch.qos.logback:logback-classic 1.4.5 -> 1.4.6 scope=compile type=patch java=11
+  PR=https://github.com/matteobaccan/html2pop3/pull/376
+  PRE log logs/batch_triage/a18e08bb_pre.log:
+  lines=152
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/a18e08bb_breaking.log:
+  lines=322
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 5, Failures: 0, Errors: 2, Skipped: 0
+  failing classes: Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.456 s <<< FAILURE! - in it.baccan.html2pop3.utils.FilterTest
+  section: Errors: | FilterTest.<clinit>:19 » NoSuchMethod 'void ch.qos.logback.core.util.CachingDateFormatter.<init>(java.lang.String, java.time.ZoneId, java.util.Locale)' | FilterTest.testIsAllow » NoClassDefFound Could not initialize class it.baccan.html2pop3.utils.FilterTest | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  21.736 s | [INFO] Finished at: 2026-11-10T09:55:49Z | [INFO] ------------------------------------------------------------------------ | [WARNING] | [WARNING] Plugin validation issues were detected in 2 plugin(s)
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project HTML2POP3: 
+  FAILBLOCK: [ERROR] it.baccan.html2pop3.utils.FilterTest.testAdd  Time elapsed: 0.021 s  <<< ERROR!
+      java.lang.NoSuchMethodError: 'void ch.qos.logback.core.util.CachingDateFormatter.<init>(java.lang.String, java.time.ZoneId, java.util.Locale)'
+      at ch.qos.logback.classic.pattern.DateConverter.start(DateConverter.java:58)
+      at ch.qos.logback.core.pattern.ConverterUtil.startConverters(ConverterUtil.java:37)
+      at ch.qos.logback.core.pattern.PatternLayoutBase.start(PatternLayoutBase.java:90)
+      at ch.qos.logback.classic.encoder.PatternLayoutEncoder.start(PatternLayoutEncoder.java:28)
+      at ch.qos.logback.core.model.processor.ImplicitModelHandler.postHandleComplex(ImplicitModelHandler.java:208)
+  FAILBLOCK: [ERROR] it.baccan.html2pop3.utils.FilterTest.testIsAllow  Time elapsed: 0.001 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class it.baccan.html2pop3.utils.FilterTest
+      at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+      at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+      at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+      at org.junit.platform.commons.util.ReflectionUtils.newInstance(ReflectionUtils.java:552)
+  distinct fail signatures (count): 1x java.lang.NoSuchMethodError: 'void ch.qos.logback.core.util.CachingDateFormatter.<init>(java.lang.String, java.time.Zone || 1x java.lang.NoClassDefFoundError: Could not initialize class it.baccan.html2pop3.utils.FilterTest
+  linkage/compile signals: NoClassDefFoundError, NoSuchMethodError
+  exception names: java.lang.NoSuchMethodErrorx1, java.lang.NoClassDefFoundErrorx1
+  EVIDENCE logs/case119_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/logback-classic-1.4.6.jar, breaking/jars/logback-core-1.4.5.jar, breaking/logback-classic-1.4.6_DateConverter_javap.txt, breaking/logback-core-1.4.5_CachingDateFormatter_javap.txt, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/logback-classic-1.4.5.jar, pre/jars/logback-core-1.4.5.jar, pre/logback-classic-1.4.5_DateConverter_javap.txt, pre/logback-core-1.4.5_CachingDateFormatter_javap.txt, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=2 sum(t,f,e,s)=[5, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=2 sum(t,f,e,s)=[5, 0, 2, 0]
+  archived non-report files: pre=66 breaking=66 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -47,3 +47,3 @@
+                 <artifactId>logback-classic</artifactId>
+    -            <version>1.4.5</version>
+    +            <version>1.4.6</version>
+                 <type>jar</type>
+  BREAKING surefire failures/errors:
+    ERROR it.baccan.html2pop3.utils.FilterTest#testAdd type=java.lang.NoSuchMethodError msg='void ch.qos.logback.core.util.CachingDateFormatter.<init>(java.lang.String, java.time.ZoneId, java.util.Locale)'
+       at ch.qos.logback.classic.pattern.DateConverter.start(DateConverter.java:58)
+       at ch.qos.logback.core.pattern.ConverterUtil.startConverters(ConverterUtil.java:37)
+       at ch.qos.logback.core.pattern.PatternLayoutBase.start(PatternLayoutBase.java:90)
+       at ch.qos.logback.classic.encoder.PatternLayoutEncoder.start(PatternLayoutEncoder.java:28)
+    ERROR it.baccan.html2pop3.utils.FilterTest#testIsAllow type=java.lang.NoClassDefFoundError msg=Could not initialize class it.baccan.html2pop3.utils.FilterTest
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+       at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+       at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -            <version>1.4.5</version> / +            <version>1.4.6</version>
+  JSON breaking/jar_inspection.json: {"case_id":"a18e08bb3fe120b33a5864ee94305a72290ef831","phase":"breaking","path_filter":"/(logback-classic|logback-core)/","path_source":"Fresh test report effective classpaths, preferring surefire.test.class.path when present","artifacts":[{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-classic/1.4.6/logback-classic-1.4.6.jar","classes":{"ch.qos.logback.core.util.CachingDateFormatter":{"present":false,"major_version":null},"ch.qos.logback.classic.pattern.DateConverter":{"present":true,"major_version":55}},"services":{"META-INF/services/ch.qos.logback.classic.spi.Configurator":"ch.qos.logback.classic.util.DefaultJoranConfigurator","META-INF/services/jakarta.servlet.ServletContainerInitializer":"ch.qos.logback.classic.servlet.LogbackServletContainerInitializer","META-INF/services/org.slf4j.spi.SLF4JServiceProvider":"ch.qos.logback.classic.spi.LogbackServiceProvider"},"disassemblies":[{"class":"ch.qos.logback.classic.pattern.DateConverter","file":"logback-classic-1.4.6_DateConverter_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-core/1.4.5/logback-core-1.4.5.jar","classes":{"ch.qos.logback.core.util.CachingDateFormatter":{"present":true,"major_version":55},"ch.qos.logback.classic.pattern.DateConverter":{"present":false,"major_version":null}},"services":{},"disassemblies":[{"class":"ch.qos.logback.core.util.CachingDateFormatt...
+  JSON pre/jar_inspection.json: {"case_id":"a18e08bb3fe120b33a5864ee94305a72290ef831","phase":"pre","path_filter":"/(logback-classic|logback-core)/","path_source":"Fresh test report effective classpaths, preferring surefire.test.class.path when present","artifacts":[{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-classic/1.4.5/logback-classic-1.4.5.jar","classes":{"ch.qos.logback.core.util.CachingDateFormatter":{"present":false,"major_version":null},"ch.qos.logback.classic.pattern.DateConverter":{"present":true,"major_version":55}},"services":{"META-INF/services/ch.qos.logback.classic.spi.Configurator":"ch.qos.logback.classic.util.DefaultJoranConfigurator","META-INF/services/jakarta.servlet.ServletContainerInitializer":"ch.qos.logback.classic.servlet.LogbackServletContainerInitializer","META-INF/services/org.slf4j.spi.SLF4JServiceProvider":"ch.qos.logback.classic.spi.LogbackServiceProvider"},"disassemblies":[{"class":"ch.qos.logback.classic.pattern.DateConverter","file":"logback-classic-1.4.5_DateConverter_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-core/1.4.5/logback-core-1.4.5.jar","classes":{"ch.qos.logback.core.util.CachingDateFormatter":{"present":true,"major_version":55},"ch.qos.logback.classic.pattern.DateConverter":{"present":false,"major_version":null}},"services":{},"disassemblies":[{"class":"ch.qos.logback.core.util.CachingDateFormatter","...
+  JARS: breaking/jars/logback-classic-1.4.6.jar, breaking/jars/logback-core-1.4.5.jar, pre/jars/logback-classic-1.4.5.jar, pre/jars/logback-core-1.4.5.jar

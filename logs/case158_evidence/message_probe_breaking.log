@@ -1,0 +1,64 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< com.github.lookfirst:sardine >--------------------
+[INFO] Building Sardine WebDAV client 5.11-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ sardine ---
+[INFO] Deleting /sardine/target
+[INFO] 
+[INFO] --- enforcer:1.2:enforce (enforce-maven) @ sardine ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ sardine ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.3:compile (default-compile) @ sardine ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 125 source files to /sardine/target/classes
+[INFO] /sardine/src/main/java/com/github/sardine/util/SardineUtil.java: Some input files use or override a deprecated API.
+[INFO] /sardine/src/main/java/com/github/sardine/util/SardineUtil.java: Recompile with -Xlint:deprecation for details.
+[INFO] /sardine/src/main/java/com/github/sardine/impl/SardineImpl.java: /sardine/src/main/java/com/github/sardine/impl/SardineImpl.java uses unchecked or unsafe operations.
+[INFO] /sardine/src/main/java/com/github/sardine/impl/SardineImpl.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ sardine ---
+[INFO] skip non existing resourceDirectory /sardine/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.3:testCompile (default-testCompile) @ sardine ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 12 source files to /sardine/target/test-classes
+[INFO] /sardine/src/test/java/com/github/sardine/DavResourceTest.java: Some input files use or override a deprecated API.
+[INFO] /sardine/src/test/java/com/github/sardine/DavResourceTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:2.19:test (default-test) @ sardine ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running Case158MessageProbeTest
+CASE158_ORIGIN httpclient=file:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar
+CASE158_ORIGIN httpcore=file:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar
+CASE158_PARENT status code: 400, reason phrase: m
+CASE158_CLIENT status code: 400, reason phrase: m (400 response phrase)
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in Case158MessageProbeTest
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  12.801 s
+[INFO] Finished at: 2026-11-10T14:25:17Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.3
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:1.2
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.19
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 

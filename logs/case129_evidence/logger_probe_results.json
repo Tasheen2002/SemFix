@@ -1,0 +1,49 @@
+{
+  "class_sha256": "19155b7462d286606b5fa7fa853a6ac921d0c4d6dd31e038426fc85b7df75195",
+  "runs": [
+    {
+      "phase": "pre",
+      "image_id": "sha256:008771babcb4244406aacd765d0299316546ffbf83d1432979729eebb14819da",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "research-case129-logger-pre",
+        "--mount",
+        "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case129_evidence\\pre\\Case129LoggerProbe.class,target=/probe/Case129LoggerProbe.class,readonly",
+        "--entrypoint",
+        "java",
+        "sha256:008771babcb4244406aacd765d0299316546ffbf83d1432979729eebb14819da",
+        "-cp",
+        "/probe:/root/.m2/repository/javax/vecmath/vecmath/1.5.2/vecmath-1.5.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter/5.5.1/junit-jupiter-5.5.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.5.1/junit-jupiter-api-5.5.1.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.5.1/junit-platform-commons-1.5.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.5.1/junit-jupiter-params-5.5.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.5.1/junit-jupiter-engine-5.5.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.5.1/junit-platform-engine-1.5.1.jar:/root/.m2/repository/org/mockito/mockito-core/3.0.0/mockito-core-3.0.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.9.10/byte-buddy-1.9.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.9.10/byte-buddy-agent-1.9.10.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/3.7.7/mockito-junit-jupiter-3.7.7.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.8.0-beta4/slf4j-api-1.8.0-beta4.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-slf4j18-impl/2.12.1/log4j-slf4j18-impl-2.12.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.12.1/log4j-api-2.12.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.12.1/log4j-core-2.12.1.jar:/root/.m2/repository/com/google/code/gson/gson/2.8.6/gson-2.8.6.jar",
+        "Case129LoggerProbe"
+      ],
+      "exit_code": 0,
+      "stdout": "org.apache.logging.log4j.core.LoggerContext\n",
+      "stderr": "ERROR StatusLogger No Log4j 2 configuration file found. Using default configuration (logging only errors to the console), or user programmatically provided configurations. Set system property 'log4j2.debug' to show Log4j 2 internal initialization logging. See https://logging.apache.org/log4j/2.x/manual/configuration.html for instructions on how to configure Log4j 2\n"
+    },
+    {
+      "phase": "breaking",
+      "image_id": "sha256:a8c7175ba31245078be1270ed17f8da8714b3e0a09a8700a8dded8f6a68d69cd",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "research-case129-logger-breaking",
+        "--mount",
+        "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case129_evidence\\pre\\Case129LoggerProbe.class,target=/probe/Case129LoggerProbe.class,readonly",
+        "--entrypoint",
+        "java",
+        "sha256:a8c7175ba31245078be1270ed17f8da8714b3e0a09a8700a8dded8f6a68d69cd",
+        "-cp",
+        "/probe:/root/.m2/repository/javax/vecmath/vecmath/1.5.2/vecmath-1.5.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter/5.5.1/junit-jupiter-5.5.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.5.1/junit-jupiter-api-5.5.1.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.5.1/junit-platform-commons-1.5.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.5.1/junit-jupiter-params-5.5.1.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.5.1/junit-jupiter-engine-5.5.1.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.5.1/junit-platform-engine-1.5.1.jar:/root/.m2/repository/org/mockito/mockito-core/3.0.0/mockito-core-3.0.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.9.10/byte-buddy-1.9.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.9.10/byte-buddy-agent-1.9.10.jar:/root/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/root/.m2/repository/org/mockito/mockito-junit-jupiter/3.7.7/mockito-junit-jupiter-3.7.7.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.8.0-beta4/slf4j-api-1.8.0-beta4.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-slf4j18-impl/2.12.1/log4j-slf4j18-impl-2.12.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.12.1/log4j-api-2.12.1.jar:/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.15.0/log4j-core-2.15.0.jar:/root/.m2/repository/com/google/code/gson/gson/2.8.6/gson-2.8.6.jar",
+        "Case129LoggerProbe"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Exception in thread \"main\" java.lang.NoSuchFieldError: EMPTY_BYTE_ARRAY\n\tat org.apache.logging.log4j.core.config.ConfigurationSource.<clinit>(ConfigurationSource.java:56)\n\tat org.apache.logging.log4j.core.config.NullConfiguration.<init>(NullConfiguration.java:32)\n\tat org.apache.logging.log4j.core.LoggerContext.<clinit>(LoggerContext.java:85)\n\tat org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.createContext(ClassLoaderContextSelector.java:254)\n\tat org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.locateContext(ClassLoaderContextSelector.java:218)\n\tat org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.getContext(ClassLoaderContextSelector.java:140)\n\tat org.apache.logging.log4j.core.selector.ClassLoaderContextSelector.getContext(ClassLoaderContextSelector.java:123)\n\tat org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:230)\n\tat org.apache.logging.log4j.core.impl.Log4jContextFactory.getContext(Log4jContextFactory.java:47)\n\tat org.apache.logging.log4j.LogManager.getContext(LogManager.java:174)\n\tat Case129LoggerProbe.main(Case129LoggerProbe.java:5)\n"
+    }
+  ]
+}

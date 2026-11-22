@@ -1,0 +1,2652 @@
+pre/js-scriptengine-22.0.0.jar
+Compiled from "GraalJSScriptEngine.java"
+public final class com.oracle.truffle.js.scriptengine.GraalJSScriptEngine extends javax.script.AbstractScriptEngine implements javax.script.Compilable,javax.script.Invocable,java.lang.AutoCloseable {
+  private static final java.lang.String ID;
+
+  private static final java.lang.String POLYGLOT_CONTEXT;
+
+  private static final java.lang.String OUT_SYMBOL;
+
+  private static final java.lang.String IN_SYMBOL;
+
+  private static final java.lang.String ERR_SYMBOL;
+
+  private static final java.lang.String JS_SYNTAX_EXTENSIONS_OPTION;
+
+  private static final java.lang.String JS_SCRIPT_ENGINE_GLOBAL_SCOPE_IMPORT_OPTION;
+
+  private static final java.lang.String JS_LOAD_OPTION;
+
+  private static final java.lang.String JS_PRINT_OPTION;
+
+  private static final java.lang.String JS_GLOBAL_ARGUMENTS_OPTION;
+
+  private static final java.lang.String NASHORN_COMPATIBILITY_MODE_SYSTEM_PROPERTY;
+
+  private static final java.lang.String INSECURE_SCRIPTENGINE_ACCESS_SYSTEM_PROPERTY;
+
+  static final java.lang.String MAGIC_OPTION_PREFIX;
+
+  private static final org.graalvm.polyglot.HostAccess NASHORN_HOST_ACCESS;
+
+  private static final com.oracle.truffle.js.scriptengine.GraalJSScriptEngine$MagicBindingsOptionSetter[] MAGIC_OPTION_SETTERS;
+
+  private static final org.graalvm.collections.EconomicSet<java.lang.String> MAGIC_BINDINGS_OPTION_KEYS;
+
+  static final org.graalvm.collections.EconomicMap<java.lang.String, com.oracle.truffle.js.scriptengine.GraalJSScriptEngine$MagicBindingsOptionSetter> MAGIC_BINDINGS_OPTION_MAP;
+
+  private static final boolean NASHORN_COMPATIBILITY_MODE;
+
+  private final com.oracle.truffle.js.scriptengine.GraalJSEngineFactory factory;
+
+  private final org.graalvm.polyglot.Context$Builder contextConfig;
+
+  private boolean evalCalled;
+
+  private static final java.lang.String JRUNSCRIPT_INIT_NAME;
+
+  private static final java.lang.String JSADAPTER_POLYFILL;
+
+  private static org.graalvm.polyglot.HostAccess createNashornHostAccess();
+    Code:
+       0: getstatic     #4                  // Field org/graalvm/polyglot/HostAccess.ALL:Lorg/graalvm/polyglot/HostAccess;
+       3: invokestatic  #5                  // Method org/graalvm/polyglot/HostAccess.newBuilder:(Lorg/graalvm/polyglot/HostAccess;)Lorg/graalvm/polyglot/HostAccess$Builder;
+       6: astore_0
+       7: aload_0
+       8: ldc           #6                  // class org/graalvm/polyglot/Value
+      10: ldc           #7                  // class java/lang/String
+      12: invokedynamic #8,  0              // InvokeDynamic #0:test:()Ljava/util/function/Predicate;
+      17: invokedynamic #9,  0              // InvokeDynamic #1:apply:()Ljava/util/function/Function;
+      22: getstatic     #10                 // Field org/graalvm/polyglot/HostAccess$TargetMappingPrecedence.LOWEST:Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;
+      25: invokevirtual #11                 // Method org/graalvm/polyglot/HostAccess$Builder.targetTypeMapping:(Ljava/lang/Class;Ljava/lang/Class;Ljava/util/function/Predicate;Ljava/util/function/Function;Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;)Lorg/graalvm/polyglot/HostAccess$Builder;
+      28: pop
+      29: aload_0
+      30: ldc           #12                 // class java/lang/Number
+      32: ldc           #13                 // class java/lang/Integer
+      34: invokedynamic #14,  0             // InvokeDynamic #2:test:()Ljava/util/function/Predicate;
+      39: invokedynamic #15,  0             // InvokeDynamic #3:apply:()Ljava/util/function/Function;
+      44: getstatic     #10                 // Field org/graalvm/polyglot/HostAccess$TargetMappingPrecedence.LOWEST:Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;
+      47: invokevirtual #11                 // Method org/graalvm/polyglot/HostAccess$Builder.targetTypeMapping:(Ljava/lang/Class;Ljava/lang/Class;Ljava/util/function/Predicate;Ljava/util/function/Function;Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;)Lorg/graalvm/polyglot/HostAccess$Builder;
+      50: pop
+      51: aload_0
+      52: ldc           #12                 // class java/lang/Number
+      54: ldc           #16                 // class java/lang/Double
+      56: invokedynamic #17,  0             // InvokeDynamic #4:test:()Ljava/util/function/Predicate;
+      61: invokedynamic #18,  0             // InvokeDynamic #5:apply:()Ljava/util/function/Function;
+      66: getstatic     #10                 // Field org/graalvm/polyglot/HostAccess$TargetMappingPrecedence.LOWEST:Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;
+      69: invokevirtual #11                 // Method org/graalvm/polyglot/HostAccess$Builder.targetTypeMapping:(Ljava/lang/Class;Ljava/lang/Class;Ljava/util/function/Predicate;Ljava/util/function/Function;Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;)Lorg/graalvm/polyglot/HostAccess$Builder;
+      72: pop
+      73: aload_0
+      74: ldc           #12                 // class java/lang/Number
+      76: ldc           #19                 // class java/lang/Long
+      78: invokedynamic #20,  0             // InvokeDynamic #6:test:()Ljava/util/function/Predicate;
+      83: invokedynamic #21,  0             // InvokeDynamic #7:apply:()Ljava/util/function/Function;
+      88: getstatic     #10                 // Field org/graalvm/polyglot/HostAccess$TargetMappingPrecedence.LOWEST:Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;
+      91: invokevirtual #11                 // Method org/graalvm/polyglot/HostAccess$Builder.targetTypeMapping:(Ljava/lang/Class;Ljava/lang/Class;Ljava/util/function/Predicate;Ljava/util/function/Function;Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;)Lorg/graalvm/polyglot/HostAccess$Builder;
+      94: pop
+      95: aload_0
+      96: ldc           #12                 // class java/lang/Number
+      98: ldc           #22                 // class java/lang/Boolean
+     100: invokedynamic #23,  0             // InvokeDynamic #8:test:()Ljava/util/function/Predicate;
+     105: invokedynamic #24,  0             // InvokeDynamic #9:apply:()Ljava/util/function/Function;
+     110: getstatic     #10                 // Field org/graalvm/polyglot/HostAccess$TargetMappingPrecedence.LOWEST:Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;
+     113: invokevirtual #11                 // Method org/graalvm/polyglot/HostAccess$Builder.targetTypeMapping:(Ljava/lang/Class;Ljava/lang/Class;Ljava/util/function/Predicate;Ljava/util/function/Function;Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;)Lorg/graalvm/polyglot/HostAccess$Builder;
+     116: pop
+     117: aload_0
+     118: ldc           #7                  // class java/lang/String
+     120: ldc           #22                 // class java/lang/Boolean
+     122: invokedynamic #25,  0             // InvokeDynamic #10:test:()Ljava/util/function/Predicate;
+     127: invokedynamic #26,  0             // InvokeDynamic #11:apply:()Ljava/util/function/Function;
+     132: getstatic     #10                 // Field org/graalvm/polyglot/HostAccess$TargetMappingPrecedence.LOWEST:Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;
+     135: invokevirtual #11                 // Method org/graalvm/polyglot/HostAccess$Builder.targetTypeMapping:(Ljava/lang/Class;Ljava/lang/Class;Ljava/util/function/Predicate;Ljava/util/function/Function;Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;)Lorg/graalvm/polyglot/HostAccess$Builder;
+     138: pop
+     139: aload_0
+     140: invokevirtual #27                 // Method org/graalvm/polyglot/HostAccess$Builder.build:()Lorg/graalvm/polyglot/HostAccess;
+     143: areturn
+
+  private static java.lang.String toString(org.graalvm.polyglot.Value);
+    Code:
+       0: aload_0
+       1: invokestatic  #28                 // Method toPrimitive:(Lorg/graalvm/polyglot/Value;)Lorg/graalvm/polyglot/Value;
+       4: invokevirtual #29                 // Method org/graalvm/polyglot/Value.toString:()Ljava/lang/String;
+       7: areturn
+
+  private static boolean isPrimitive(org.graalvm.polyglot.Value);
+    Code:
+       0: aload_0
+       1: invokevirtual #30                 // Method org/graalvm/polyglot/Value.isString:()Z
+       4: ifne          28
+       7: aload_0
+       8: invokevirtual #31                 // Method org/graalvm/polyglot/Value.isNumber:()Z
+      11: ifne          28
+      14: aload_0
+      15: invokevirtual #32                 // Method org/graalvm/polyglot/Value.isBoolean:()Z
+      18: ifne          28
+      21: aload_0
+      22: invokevirtual #33                 // Method org/graalvm/polyglot/Value.isNull:()Z
+      25: ifeq          32
+      28: iconst_1
+      29: goto          33
+      32: iconst_0
+      33: ireturn
+
+  private static org.graalvm.polyglot.Value toPrimitive(org.graalvm.polyglot.Value);
+    Code:
+       0: aload_0
+       1: invokevirtual #34                 // Method org/graalvm/polyglot/Value.hasMembers:()Z
+       4: ifeq          75
+       7: iconst_2
+       8: anewarray     #7                  // class java/lang/String
+      11: dup
+      12: iconst_0
+      13: ldc           #35                 // String toString
+      15: aastore
+      16: dup
+      17: iconst_1
+      18: ldc           #36                 // String valueOf
+      20: aastore
+      21: astore_1
+      22: aload_1
+      23: arraylength
+      24: istore_2
+      25: iconst_0
+      26: istore_3
+      27: iload_3
+      28: iload_2
+      29: if_icmpge     75
+      32: aload_1
+      33: iload_3
+      34: aaload
+      35: astore        4
+      37: aload_0
+      38: aload         4
+      40: invokevirtual #37                 // Method org/graalvm/polyglot/Value.canInvokeMember:(Ljava/lang/String;)Z
+      43: ifeq          69
+      46: aload_0
+      47: aload         4
+      49: iconst_0
+      50: anewarray     #38                 // class java/lang/Object
+      53: invokevirtual #39                 // Method org/graalvm/polyglot/Value.invokeMember:(Ljava/lang/String;[Ljava/lang/Object;)Lorg/graalvm/polyglot/Value;
+      56: astore        5
+      58: aload         5
+      60: invokestatic  #40                 // Method isPrimitive:(Lorg/graalvm/polyglot/Value;)Z
+      63: ifeq          69
+      66: aload         5
+      68: areturn
+      69: iinc          3, 1
+      72: goto          27
+      75: aload_0
+      76: invokestatic  #40                 // Method isPrimitive:(Lorg/graalvm/polyglot/Value;)Z
+      79: ifeq          84
+      82: aload_0
+      83: areturn
+      84: new           #41                 // class java/lang/ClassCastException
+      87: dup
+      88: invokespecial #42                 // Method java/lang/ClassCastException."<init>":()V
+      91: athrow
+
+  private static boolean toBoolean(double);
+    Code:
+       0: dload_0
+       1: dconst_0
+       2: dcmpl
+       3: ifeq          17
+       6: dload_0
+       7: invokestatic  #43                 // Method java/lang/Double.isNaN:(D)Z
+      10: ifne          17
+      13: iconst_1
+      14: goto          18
+      17: iconst_0
+      18: ireturn
+
+  private static boolean toBoolean(com.oracle.truffle.js.scriptengine.GraalJSScriptEngine$MagicBindingsOptionSetter, java.lang.Object);
+    Code:
+       0: aload_1
+       1: instanceof    #22                 // class java/lang/Boolean
+       4: ifne          18
+       7: aload_0
+       8: invokeinterface #44,  1           // InterfaceMethod com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter.getOptionKey:()Ljava/lang/String;
+      13: aload_1
+      14: invokestatic  #45                 // Method magicOptionValueErrorBool:(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;
+      17: athrow
+      18: aload_1
+      19: checkcast     #22                 // class java/lang/Boolean
+      22: invokevirtual #46                 // Method java/lang/Boolean.booleanValue:()Z
+      25: ireturn
+
+  com.oracle.truffle.js.scriptengine.GraalJSScriptEngine(com.oracle.truffle.js.scriptengine.GraalJSEngineFactory);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_1
+       3: invokevirtual #47                 // Method com/oracle/truffle/js/scriptengine/GraalJSEngineFactory.getPolyglotEngine:()Lorg/graalvm/polyglot/Engine;
+       6: aconst_null
+       7: invokespecial #48                 // Method "<init>":(Lcom/oracle/truffle/js/scriptengine/GraalJSEngineFactory;Lorg/graalvm/polyglot/Engine;Lorg/graalvm/polyglot/Context$Builder;)V
+      10: return
+
+  com.oracle.truffle.js.scriptengine.GraalJSScriptEngine(com.oracle.truffle.js.scriptengine.GraalJSEngineFactory, org.graalvm.polyglot.Engine, org.graalvm.polyglot.Context$Builder);
+    Code:
+       0: aload_0
+       1: invokespecial #49                 // Method javax/script/AbstractScriptEngine."<init>":()V
+       4: aload_2
+       5: astore        4
+       7: aload         4
+       9: ifnonnull     24
+      12: invokestatic  #50                 // Method org/graalvm/polyglot/Engine.newBuilder:()Lorg/graalvm/polyglot/Engine$Builder;
+      15: iconst_1
+      16: invokevirtual #51                 // Method org/graalvm/polyglot/Engine$Builder.allowExperimentalOptions:(Z)Lorg/graalvm/polyglot/Engine$Builder;
+      19: invokevirtual #52                 // Method org/graalvm/polyglot/Engine$Builder.build:()Lorg/graalvm/polyglot/Engine;
+      22: astore        4
+      24: aload_3
+      25: astore        5
+      27: aload         5
+      29: ifnonnull     117
+      32: iconst_1
+      33: anewarray     #7                  // class java/lang/String
+      36: dup
+      37: iconst_0
+      38: ldc           #54                 // String js
+      40: aastore
+      41: invokestatic  #55                 // Method org/graalvm/polyglot/Context.newBuilder:([Ljava/lang/String;)Lorg/graalvm/polyglot/Context$Builder;
+      44: iconst_1
+      45: invokevirtual #56                 // Method org/graalvm/polyglot/Context$Builder.allowExperimentalOptions:(Z)Lorg/graalvm/polyglot/Context$Builder;
+      48: astore        5
+      50: aload         5
+      52: ldc           #57                 // String js.syntax-extensions
+      54: ldc           #58                 // String true
+      56: invokevirtual #59                 // Method org/graalvm/polyglot/Context$Builder.option:(Ljava/lang/String;Ljava/lang/String;)Lorg/graalvm/polyglot/Context$Builder;
+      59: pop
+      60: aload         5
+      62: ldc           #60                 // String js.load
+      64: ldc           #58                 // String true
+      66: invokevirtual #59                 // Method org/graalvm/polyglot/Context$Builder.option:(Ljava/lang/String;Ljava/lang/String;)Lorg/graalvm/polyglot/Context$Builder;
+      69: pop
+      70: aload         5
+      72: ldc           #61                 // String js.print
+      74: ldc           #58                 // String true
+      76: invokevirtual #59                 // Method org/graalvm/polyglot/Context$Builder.option:(Ljava/lang/String;Ljava/lang/String;)Lorg/graalvm/polyglot/Context$Builder;
+      79: pop
+      80: aload         5
+      82: ldc           #62                 // String js.global-arguments
+      84: ldc           #58                 // String true
+      86: invokevirtual #59                 // Method org/graalvm/polyglot/Context$Builder.option:(Ljava/lang/String;Ljava/lang/String;)Lorg/graalvm/polyglot/Context$Builder;
+      89: pop
+      90: getstatic     #63                 // Field NASHORN_COMPATIBILITY_MODE:Z
+      93: ifeq          104
+      96: aload         5
+      98: invokestatic  #2                  // Method updateForNashornCompatibilityMode:(Lorg/graalvm/polyglot/Context$Builder;)V
+     101: goto          117
+     104: ldc           #64                 // String graaljs.insecure-scriptengine-access
+     106: invokestatic  #65                 // Method java/lang/Boolean.getBoolean:(Ljava/lang/String;)Z
+     109: ifeq          117
+     112: aload         5
+     114: invokestatic  #66                 // Method updateForScriptEngineAccessibility:(Lorg/graalvm/polyglot/Context$Builder;)V
+     117: aload_0
+     118: aload_1
+     119: ifnonnull     134
+     122: new           #67                 // class com/oracle/truffle/js/scriptengine/GraalJSEngineFactory
+     125: dup
+     126: aload         4
+     128: invokespecial #68                 // Method com/oracle/truffle/js/scriptengine/GraalJSEngineFactory."<init>":(Lorg/graalvm/polyglot/Engine;)V
+     131: goto          135
+     134: aload_1
+     135: putfield      #69                 // Field factory:Lcom/oracle/truffle/js/scriptengine/GraalJSEngineFactory;
+     138: aload_0
+     139: aload         5
+     141: ldc           #70                 // String js.script-engine-global-scope-import
+     143: ldc           #58                 // String true
+     145: invokevirtual #59                 // Method org/graalvm/polyglot/Context$Builder.option:(Ljava/lang/String;Ljava/lang/String;)Lorg/graalvm/polyglot/Context$Builder;
+     148: aload         4
+     150: invokevirtual #71                 // Method org/graalvm/polyglot/Context$Builder.engine:(Lorg/graalvm/polyglot/Engine;)Lorg/graalvm/polyglot/Context$Builder;
+     153: putfield      #72                 // Field contextConfig:Lorg/graalvm/polyglot/Context$Builder;
+     156: aload_0
+     157: getfield      #73                 // Field context:Ljavax/script/ScriptContext;
+     160: new           #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+     163: dup
+     164: aload_0
+     165: getfield      #72                 // Field contextConfig:Lorg/graalvm/polyglot/Context$Builder;
+     168: aload_0
+     169: getfield      #73                 // Field context:Ljavax/script/ScriptContext;
+     172: invokespecial #75                 // Method com/oracle/truffle/js/scriptengine/GraalJSBindings."<init>":(Lorg/graalvm/polyglot/Context$Builder;Ljavax/script/ScriptContext;)V
+     175: bipush        100
+     177: invokeinterface #77,  3           // InterfaceMethod javax/script/ScriptContext.setBindings:(Ljavax/script/Bindings;I)V
+     182: return
+
+  private static void updateForNashornCompatibilityMode(org.graalvm.polyglot.Context$Builder);
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: invokevirtual #78                 // Method org/graalvm/polyglot/Context$Builder.allowAllAccess:(Z)Lorg/graalvm/polyglot/Context$Builder;
+       5: pop
+       6: aload_0
+       7: getstatic     #79                 // Field NASHORN_HOST_ACCESS:Lorg/graalvm/polyglot/HostAccess;
+      10: invokevirtual #80                 // Method org/graalvm/polyglot/Context$Builder.allowHostAccess:(Lorg/graalvm/polyglot/HostAccess;)Lorg/graalvm/polyglot/Context$Builder;
+      13: pop
+      14: return
+
+  private static void updateForScriptEngineAccessibility(org.graalvm.polyglot.Context$Builder);
+    Code:
+       0: aload_0
+       1: getstatic     #4                  // Field org/graalvm/polyglot/HostAccess.ALL:Lorg/graalvm/polyglot/HostAccess;
+       4: invokevirtual #80                 // Method org/graalvm/polyglot/Context$Builder.allowHostAccess:(Lorg/graalvm/polyglot/HostAccess;)Lorg/graalvm/polyglot/Context$Builder;
+       7: pop
+       8: return
+
+  static org.graalvm.polyglot.Context createDefaultContext(org.graalvm.polyglot.Context$Builder);
+    Code:
+       0: new           #81                 // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingInputStream
+       3: dup
+       4: invokespecial #82                 // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingInputStream."<init>":()V
+       7: astore_1
+       8: new           #83                 // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream
+      11: dup
+      12: aconst_null
+      13: invokespecial #84                 // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream."<init>":(Lcom/oracle/truffle/js/scriptengine/GraalJSScriptEngine$1;)V
+      16: astore_2
+      17: new           #83                 // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream
+      20: dup
+      21: aconst_null
+      22: invokespecial #84                 // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream."<init>":(Lcom/oracle/truffle/js/scriptengine/GraalJSScriptEngine$1;)V
+      25: astore_3
+      26: aload_0
+      27: aload_1
+      28: invokevirtual #85                 // Method org/graalvm/polyglot/Context$Builder.in:(Ljava/io/InputStream;)Lorg/graalvm/polyglot/Context$Builder;
+      31: aload_2
+      32: invokevirtual #86                 // Method org/graalvm/polyglot/Context$Builder.out:(Ljava/io/OutputStream;)Lorg/graalvm/polyglot/Context$Builder;
+      35: aload_3
+      36: invokevirtual #87                 // Method org/graalvm/polyglot/Context$Builder.err:(Ljava/io/OutputStream;)Lorg/graalvm/polyglot/Context$Builder;
+      39: pop
+      40: aload_0
+      41: invokevirtual #88                 // Method org/graalvm/polyglot/Context$Builder.build:()Lorg/graalvm/polyglot/Context;
+      44: astore        4
+      46: aload         4
+      48: invokevirtual #89                 // Method org/graalvm/polyglot/Context.getPolyglotBindings:()Lorg/graalvm/polyglot/Value;
+      51: ldc           #90                 // String $$internal.out$$
+      53: aload_2
+      54: invokevirtual #91                 // Method org/graalvm/polyglot/Value.putMember:(Ljava/lang/String;Ljava/lang/Object;)V
+      57: aload         4
+      59: invokevirtual #89                 // Method org/graalvm/polyglot/Context.getPolyglotBindings:()Lorg/graalvm/polyglot/Value;
+      62: ldc           #92                 // String $$internal.err$$
+      64: aload_3
+      65: invokevirtual #91                 // Method org/graalvm/polyglot/Value.putMember:(Ljava/lang/String;Ljava/lang/Object;)V
+      68: aload         4
+      70: invokevirtual #89                 // Method org/graalvm/polyglot/Context.getPolyglotBindings:()Lorg/graalvm/polyglot/Value;
+      73: ldc           #93                 // String $$internal.in$$
+      75: aload_1
+      76: invokevirtual #91                 // Method org/graalvm/polyglot/Value.putMember:(Ljava/lang/String;Ljava/lang/Object;)V
+      79: aload         4
+      81: areturn
+
+  public void close();
+    Code:
+       0: aload_0
+       1: invokevirtual #94                 // Method getPolyglotContext:()Lorg/graalvm/polyglot/Context;
+       4: invokevirtual #95                 // Method org/graalvm/polyglot/Context.close:()V
+       7: return
+
+  public org.graalvm.polyglot.Engine getPolyglotEngine();
+    Code:
+       0: aload_0
+       1: getfield      #69                 // Field factory:Lcom/oracle/truffle/js/scriptengine/GraalJSEngineFactory;
+       4: invokevirtual #47                 // Method com/oracle/truffle/js/scriptengine/GraalJSEngineFactory.getPolyglotEngine:()Lorg/graalvm/polyglot/Engine;
+       7: areturn
+
+  public org.graalvm.polyglot.Context getPolyglotContext();
+    Code:
+       0: aload_0
+       1: aload_0
+       2: getfield      #73                 // Field context:Ljavax/script/ScriptContext;
+       5: invokevirtual #96                 // Method getPolyglotContext:(Ljavax/script/ScriptContext;)Lorg/graalvm/polyglot/Context;
+       8: areturn
+
+  public org.graalvm.polyglot.Context getPolyglotContext(javax.script.ScriptContext);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #97                 // Method getOrCreateGraalJSBindings:(Ljavax/script/ScriptContext;)Lcom/oracle/truffle/js/scriptengine/GraalJSBindings;
+       5: invokevirtual #98                 // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.getContext:()Lorg/graalvm/polyglot/Context;
+       8: areturn
+
+  static org.graalvm.polyglot.Value evalInternal(org.graalvm.polyglot.Context, java.lang.String);
+    Code:
+       0: aload_0
+       1: ldc           #54                 // String js
+       3: aload_1
+       4: ldc           #99                 // String internal-script
+       6: invokestatic  #100                // Method org/graalvm/polyglot/Source.newBuilder:(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/String;)Lorg/graalvm/polyglot/Source$Builder;
+       9: iconst_1
+      10: invokevirtual #101                // Method org/graalvm/polyglot/Source$Builder.internal:(Z)Lorg/graalvm/polyglot/Source$Builder;
+      13: invokevirtual #102                // Method org/graalvm/polyglot/Source$Builder.buildLiteral:()Lorg/graalvm/polyglot/Source;
+      16: invokevirtual #103                // Method org/graalvm/polyglot/Context.eval:(Lorg/graalvm/polyglot/Source;)Lorg/graalvm/polyglot/Value;
+      19: areturn
+
+  public javax.script.Bindings createBindings();
+    Code:
+       0: new           #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+       3: dup
+       4: aload_0
+       5: getfield      #72                 // Field contextConfig:Lorg/graalvm/polyglot/Context$Builder;
+       8: aconst_null
+       9: invokespecial #75                 // Method com/oracle/truffle/js/scriptengine/GraalJSBindings."<init>":(Lorg/graalvm/polyglot/Context$Builder;Ljavax/script/ScriptContext;)V
+      12: areturn
+
+  public void setBindings(javax.script.Bindings, int);
+    Code:
+       0: iload_2
+       1: bipush        100
+       3: if_icmpne     27
+       6: aload_0
+       7: iload_2
+       8: invokevirtual #104                // Method getBindings:(I)Ljavax/script/Bindings;
+      11: astore_3
+      12: aload_3
+      13: instanceof    #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+      16: ifeq          27
+      19: aload_3
+      20: checkcast     #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+      23: aconst_null
+      24: invokevirtual #105                // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.updateEngineScriptContext:(Ljavax/script/ScriptContext;)V
+      27: aload_0
+      28: aload_1
+      29: iload_2
+      30: invokespecial #106                // Method javax/script/AbstractScriptEngine.setBindings:(Ljavax/script/Bindings;I)V
+      33: iload_2
+      34: bipush        100
+      36: if_icmpne     57
+      39: aload_1
+      40: instanceof    #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+      43: ifeq          57
+      46: aload_1
+      47: checkcast     #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+      50: aload_0
+      51: invokevirtual #107                // Method getContext:()Ljavax/script/ScriptContext;
+      54: invokevirtual #105                // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.updateEngineScriptContext:(Ljavax/script/ScriptContext;)V
+      57: return
+
+  public java.lang.Object eval(java.io.Reader, javax.script.ScriptContext) throws javax.script.ScriptException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #108                // Method read:(Ljava/io/Reader;)Ljava/lang/String;
+       5: aload_2
+       6: invokestatic  #109                // Method createSource:(Ljava/lang/String;Ljavax/script/ScriptContext;)Lorg/graalvm/polyglot/Source;
+       9: aload_2
+      10: invokespecial #1                  // Method eval:(Lorg/graalvm/polyglot/Source;Ljavax/script/ScriptContext;)Ljava/lang/Object;
+      13: areturn
+
+  static java.lang.String read(java.io.Reader) throws javax.script.ScriptException;
+    Code:
+       0: new           #110                // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #111                // Method java/lang/StringBuilder."<init>":()V
+       7: astore_1
+       8: sipush        1024
+      11: newarray       char
+      13: astore_2
+      14: aload_0
+      15: aload_2
+      16: invokevirtual #112                // Method java/io/Reader.read:([C)I
+      19: istore_3
+      20: iload_3
+      21: iconst_m1
+      22: if_icmpne     28
+      25: goto          39
+      28: aload_1
+      29: aload_2
+      30: iconst_0
+      31: iload_3
+      32: invokevirtual #113                // Method java/lang/StringBuilder.append:([CII)Ljava/lang/StringBuilder;
+      35: pop
+      36: goto          14
+      39: aload_0
+      40: invokevirtual #114                // Method java/io/Reader.close:()V
+      43: goto          55
+      46: astore        4
+      48: aload_0
+      49: invokevirtual #114                // Method java/io/Reader.close:()V
+      52: aload         4
+      54: athrow
+      55: aload_1
+      56: invokevirtual #115                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      59: areturn
+      60: astore_3
+      61: new           #117                // class javax/script/ScriptException
+      64: dup
+      65: aload_3
+      66: invokespecial #118                // Method javax/script/ScriptException."<init>":(Ljava/lang/Exception;)V
+      69: athrow
+    Exception table:
+       from    to  target type
+          14    39    46   any
+          46    48    46   any
+          14    59    60   Class java/io/IOException
+
+  public java.lang.Object eval(java.lang.String, javax.script.ScriptContext) throws javax.script.ScriptException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokestatic  #109                // Method createSource:(Ljava/lang/String;Ljavax/script/ScriptContext;)Lorg/graalvm/polyglot/Source;
+       6: aload_2
+       7: invokespecial #1                  // Method eval:(Lorg/graalvm/polyglot/Source;Ljavax/script/ScriptContext;)Ljava/lang/Object;
+      10: areturn
+
+  private static org.graalvm.polyglot.Source createSource(java.lang.String, javax.script.ScriptContext) throws javax.script.ScriptException;
+    Code:
+       0: aload_1
+       1: ldc           #120                // String javax.script.filename
+       3: invokeinterface #121,  2          // InterfaceMethod javax/script/ScriptContext.getAttribute:(Ljava/lang/String;)Ljava/lang/Object;
+       8: astore_2
+       9: aload_2
+      10: ifnonnull     25
+      13: ldc           #54                 // String js
+      15: aload_0
+      16: ldc           #122                // String <eval>
+      18: invokestatic  #100                // Method org/graalvm/polyglot/Source.newBuilder:(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/String;)Lorg/graalvm/polyglot/Source$Builder;
+      21: invokevirtual #102                // Method org/graalvm/polyglot/Source$Builder.buildLiteral:()Lorg/graalvm/polyglot/Source;
+      24: areturn
+      25: ldc           #54                 // String js
+      27: new           #123                // class java/io/File
+      30: dup
+      31: aload_2
+      32: invokevirtual #124                // Method java/lang/Object.toString:()Ljava/lang/String;
+      35: invokespecial #125                // Method java/io/File."<init>":(Ljava/lang/String;)V
+      38: invokestatic  #126                // Method org/graalvm/polyglot/Source.newBuilder:(Ljava/lang/String;Ljava/io/File;)Lorg/graalvm/polyglot/Source$Builder;
+      41: aload_0
+      42: invokevirtual #127                // Method org/graalvm/polyglot/Source$Builder.content:(Ljava/lang/String;)Lorg/graalvm/polyglot/Source$Builder;
+      45: invokevirtual #128                // Method org/graalvm/polyglot/Source$Builder.build:()Lorg/graalvm/polyglot/Source;
+      48: areturn
+      49: astore_3
+      50: new           #117                // class javax/script/ScriptException
+      53: dup
+      54: aload_3
+      55: invokespecial #118                // Method javax/script/ScriptException."<init>":(Ljava/lang/Exception;)V
+      58: athrow
+    Exception table:
+       from    to  target type
+          25    48    49   Class java/io/IOException
+
+  private static void updateDelegatingIOStreams(org.graalvm.polyglot.Context, javax.script.ScriptContext);
+    Code:
+       0: aload_0
+       1: invokevirtual #89                 // Method org/graalvm/polyglot/Context.getPolyglotBindings:()Lorg/graalvm/polyglot/Value;
+       4: astore_2
+       5: aload_2
+       6: ldc           #90                 // String $$internal.out$$
+       8: invokevirtual #129                // Method org/graalvm/polyglot/Value.getMember:(Ljava/lang/String;)Lorg/graalvm/polyglot/Value;
+      11: invokevirtual #130                // Method org/graalvm/polyglot/Value.asProxyObject:()Lorg/graalvm/polyglot/proxy/Proxy;
+      14: checkcast     #83                 // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream
+      17: aload_1
+      18: invokeinterface #131,  1          // InterfaceMethod javax/script/ScriptContext.getWriter:()Ljava/io/Writer;
+      23: invokevirtual #132                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream.setWriter:(Ljava/io/Writer;)V
+      26: aload_2
+      27: ldc           #92                 // String $$internal.err$$
+      29: invokevirtual #129                // Method org/graalvm/polyglot/Value.getMember:(Ljava/lang/String;)Lorg/graalvm/polyglot/Value;
+      32: invokevirtual #130                // Method org/graalvm/polyglot/Value.asProxyObject:()Lorg/graalvm/polyglot/proxy/Proxy;
+      35: checkcast     #83                 // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream
+      38: aload_1
+      39: invokeinterface #133,  1          // InterfaceMethod javax/script/ScriptContext.getErrorWriter:()Ljava/io/Writer;
+      44: invokevirtual #132                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream.setWriter:(Ljava/io/Writer;)V
+      47: aload_2
+      48: ldc           #93                 // String $$internal.in$$
+      50: invokevirtual #129                // Method org/graalvm/polyglot/Value.getMember:(Ljava/lang/String;)Lorg/graalvm/polyglot/Value;
+      53: invokevirtual #130                // Method org/graalvm/polyglot/Value.asProxyObject:()Lorg/graalvm/polyglot/proxy/Proxy;
+      56: checkcast     #81                 // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingInputStream
+      59: aload_1
+      60: invokeinterface #134,  1          // InterfaceMethod javax/script/ScriptContext.getReader:()Ljava/io/Reader;
+      65: invokevirtual #135                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingInputStream.setReader:(Ljava/io/Reader;)V
+      68: return
+
+  private java.lang.Object eval(org.graalvm.polyglot.Source, javax.script.ScriptContext) throws javax.script.ScriptException;
+    Code:
+       0: aload_0
+       1: aload_2
+       2: invokespecial #97                 // Method getOrCreateGraalJSBindings:(Ljavax/script/ScriptContext;)Lcom/oracle/truffle/js/scriptengine/GraalJSBindings;
+       5: astore_3
+       6: aload_3
+       7: invokevirtual #98                 // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.getContext:()Lorg/graalvm/polyglot/Context;
+      10: astore        4
+      12: aload         4
+      14: aload_2
+      15: invokestatic  #136                // Method updateDelegatingIOStreams:(Lorg/graalvm/polyglot/Context;Ljavax/script/ScriptContext;)V
+      18: aload_0
+      19: getfield      #137                // Field evalCalled:Z
+      22: ifne          31
+      25: aload_1
+      26: aload         4
+      28: invokestatic  #138                // Method jrunscriptInitWorkaround:(Lorg/graalvm/polyglot/Source;Lorg/graalvm/polyglot/Context;)V
+      31: aload_3
+      32: aload_2
+      33: invokevirtual #139                // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.importGlobalBindings:(Ljavax/script/ScriptContext;)V
+      36: aload         4
+      38: aload_1
+      39: invokevirtual #103                // Method org/graalvm/polyglot/Context.eval:(Lorg/graalvm/polyglot/Source;)Lorg/graalvm/polyglot/Value;
+      42: ldc           #38                 // class java/lang/Object
+      44: invokevirtual #140                // Method org/graalvm/polyglot/Value.as:(Ljava/lang/Class;)Ljava/lang/Object;
+      47: astore        5
+      49: aload_0
+      50: iconst_1
+      51: putfield      #137                // Field evalCalled:Z
+      54: aload         5
+      56: areturn
+      57: astore        5
+      59: aload         5
+      61: invokestatic  #142                // Method toScriptException:(Lorg/graalvm/polyglot/PolyglotException;)Ljavax/script/ScriptException;
+      64: athrow
+      65: astore        6
+      67: aload_0
+      68: iconst_1
+      69: putfield      #137                // Field evalCalled:Z
+      72: aload         6
+      74: athrow
+    Exception table:
+       from    to  target type
+          18    49    57   Class org/graalvm/polyglot/PolyglotException
+          18    49    65   any
+          57    67    65   any
+
+  private static javax.script.ScriptException toScriptException(org.graalvm.polyglot.PolyglotException);
+    Code:
+       0: aload_0
+       1: invokevirtual #143                // Method org/graalvm/polyglot/PolyglotException.isHostException:()Z
+       4: ifeq          56
+       7: aload_0
+       8: invokevirtual #144                // Method org/graalvm/polyglot/PolyglotException.asHostException:()Ljava/lang/Throwable;
+      11: astore_2
+      12: aload_2
+      13: instanceof    #145                // class java/lang/Exception
+      16: ifeq          27
+      19: aload_2
+      20: checkcast     #145                // class java/lang/Exception
+      23: astore_3
+      24: goto          36
+      27: new           #145                // class java/lang/Exception
+      30: dup
+      31: aload_2
+      32: invokespecial #146                // Method java/lang/Exception."<init>":(Ljava/lang/Throwable;)V
+      35: astore_3
+      36: new           #117                // class javax/script/ScriptException
+      39: dup
+      40: aload_3
+      41: invokespecial #118                // Method javax/script/ScriptException."<init>":(Ljava/lang/Exception;)V
+      44: astore_1
+      45: aload_1
+      46: aload_0
+      47: invokevirtual #147                // Method org/graalvm/polyglot/PolyglotException.getStackTrace:()[Ljava/lang/StackTraceElement;
+      50: invokevirtual #148                // Method javax/script/ScriptException.setStackTrace:([Ljava/lang/StackTraceElement;)V
+      53: goto          65
+      56: new           #117                // class javax/script/ScriptException
+      59: dup
+      60: aload_0
+      61: invokespecial #118                // Method javax/script/ScriptException."<init>":(Ljava/lang/Exception;)V
+      64: astore_1
+      65: aload_1
+      66: areturn
+
+  private com.oracle.truffle.js.scriptengine.GraalJSBindings getOrCreateGraalJSBindings(javax.script.ScriptContext);
+    Code:
+       0: aload_1
+       1: bipush        100
+       3: invokeinterface #149,  2          // InterfaceMethod javax/script/ScriptContext.getBindings:(I)Ljavax/script/Bindings;
+       8: astore_2
+       9: aload_2
+      10: instanceof    #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+      13: ifeq          21
+      16: aload_2
+      17: checkcast     #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+      20: areturn
+      21: new           #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+      24: dup
+      25: aload_0
+      26: aload_2
+      27: invokespecial #150                // Method createContext:(Ljavax/script/Bindings;)Lorg/graalvm/polyglot/Context;
+      30: aload_1
+      31: invokespecial #151                // Method com/oracle/truffle/js/scriptengine/GraalJSBindings."<init>":(Lorg/graalvm/polyglot/Context;Ljavax/script/ScriptContext;)V
+      34: astore_3
+      35: aload_3
+      36: aload_2
+      37: invokevirtual #152                // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.putAll:(Ljava/util/Map;)V
+      40: aload_3
+      41: areturn
+
+  private org.graalvm.polyglot.Context createContext(javax.script.Bindings);
+    Code:
+       0: aload_1
+       1: ldc           #153                // String polyglot.context
+       3: invokeinterface #154,  2          // InterfaceMethod javax/script/Bindings.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       8: astore_2
+       9: aload_2
+      10: instanceof    #155                // class org/graalvm/polyglot/Context
+      13: ifne          114
+      16: aload_0
+      17: getfield      #72                 // Field contextConfig:Lorg/graalvm/polyglot/Context$Builder;
+      20: astore_3
+      21: getstatic     #156                // Field MAGIC_OPTION_SETTERS:[Lcom/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter;
+      24: astore        4
+      26: aload         4
+      28: arraylength
+      29: istore        5
+      31: iconst_0
+      32: istore        6
+      34: iload         6
+      36: iload         5
+      38: if_icmpge     99
+      41: aload         4
+      43: iload         6
+      45: aaload
+      46: astore        7
+      48: aload_1
+      49: aload         7
+      51: invokeinterface #44,  1           // InterfaceMethod com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter.getOptionKey:()Ljava/lang/String;
+      56: invokeinterface #154,  2          // InterfaceMethod javax/script/Bindings.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      61: astore        8
+      63: aload         8
+      65: ifnull        93
+      68: aload         7
+      70: aload_3
+      71: aload         8
+      73: invokeinterface #157,  3          // InterfaceMethod com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter.setOption:(Lorg/graalvm/polyglot/Context$Builder;Ljava/lang/Object;)Lorg/graalvm/polyglot/Context$Builder;
+      78: astore_3
+      79: aload_1
+      80: aload         7
+      82: invokeinterface #44,  1           // InterfaceMethod com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter.getOptionKey:()Ljava/lang/String;
+      87: invokeinterface #158,  2          // InterfaceMethod javax/script/Bindings.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+      92: pop
+      93: iinc          6, 1
+      96: goto          34
+      99: aload_3
+     100: invokestatic  #159                // Method createDefaultContext:(Lorg/graalvm/polyglot/Context$Builder;)Lorg/graalvm/polyglot/Context;
+     103: astore_2
+     104: aload_1
+     105: ldc           #153                // String polyglot.context
+     107: aload_2
+     108: invokeinterface #160,  3          // InterfaceMethod javax/script/Bindings.put:(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+     113: pop
+     114: aload_2
+     115: checkcast     #155                // class org/graalvm/polyglot/Context
+     118: areturn
+
+  public com.oracle.truffle.js.scriptengine.GraalJSEngineFactory getFactory();
+    Code:
+       0: aload_0
+       1: getfield      #69                 // Field factory:Lcom/oracle/truffle/js/scriptengine/GraalJSEngineFactory;
+       4: areturn
+
+  public java.lang.Object invokeMethod(java.lang.Object, java.lang.String, java.lang.Object...) throws javax.script.ScriptException, java.lang.NoSuchMethodException;
+    Code:
+       0: aload_1
+       1: ifnonnull     14
+       4: new           #161                // class java/lang/IllegalArgumentException
+       7: dup
+       8: ldc           #162                // String thiz is not a valid object.
+      10: invokespecial #163                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      13: athrow
+      14: aload_0
+      15: aload_0
+      16: getfield      #73                 // Field context:Ljavax/script/ScriptContext;
+      19: invokespecial #97                 // Method getOrCreateGraalJSBindings:(Ljavax/script/ScriptContext;)Lcom/oracle/truffle/js/scriptengine/GraalJSBindings;
+      22: astore        4
+      24: aload         4
+      26: aload_0
+      27: getfield      #73                 // Field context:Ljavax/script/ScriptContext;
+      30: invokevirtual #139                // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.importGlobalBindings:(Ljavax/script/ScriptContext;)V
+      33: aload         4
+      35: invokevirtual #98                 // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.getContext:()Lorg/graalvm/polyglot/Context;
+      38: aload_1
+      39: invokevirtual #164                // Method org/graalvm/polyglot/Context.asValue:(Ljava/lang/Object;)Lorg/graalvm/polyglot/Value;
+      42: astore        5
+      44: aload         5
+      46: aload_2
+      47: invokevirtual #37                 // Method org/graalvm/polyglot/Value.canInvokeMember:(Ljava/lang/String;)Z
+      50: ifne          72
+      53: aload         5
+      55: aload_2
+      56: invokevirtual #165                // Method org/graalvm/polyglot/Value.hasMember:(Ljava/lang/String;)Z
+      59: ifne          67
+      62: aload_2
+      63: invokestatic  #166                // Method noSuchMethod:(Ljava/lang/String;)Ljava/lang/NoSuchMethodException;
+      66: athrow
+      67: aload_2
+      68: invokestatic  #167                // Method notCallable:(Ljava/lang/String;)Ljava/lang/NoSuchMethodException;
+      71: athrow
+      72: aload         5
+      74: aload_2
+      75: aload_3
+      76: invokevirtual #39                 // Method org/graalvm/polyglot/Value.invokeMember:(Ljava/lang/String;[Ljava/lang/Object;)Lorg/graalvm/polyglot/Value;
+      79: ldc           #38                 // class java/lang/Object
+      81: invokevirtual #140                // Method org/graalvm/polyglot/Value.as:(Ljava/lang/Class;)Ljava/lang/Object;
+      84: areturn
+      85: astore        6
+      87: aload         6
+      89: invokestatic  #142                // Method toScriptException:(Lorg/graalvm/polyglot/PolyglotException;)Ljavax/script/ScriptException;
+      92: athrow
+    Exception table:
+       from    to  target type
+          72    84    85   Class org/graalvm/polyglot/PolyglotException
+
+  public java.lang.Object invokeFunction(java.lang.String, java.lang.Object...) throws javax.script.ScriptException, java.lang.NoSuchMethodException;
+    Code:
+       0: aload_0
+       1: aload_0
+       2: getfield      #73                 // Field context:Ljavax/script/ScriptContext;
+       5: invokespecial #97                 // Method getOrCreateGraalJSBindings:(Ljavax/script/ScriptContext;)Lcom/oracle/truffle/js/scriptengine/GraalJSBindings;
+       8: astore_3
+       9: aload_3
+      10: aload_0
+      11: getfield      #73                 // Field context:Ljavax/script/ScriptContext;
+      14: invokevirtual #139                // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.importGlobalBindings:(Ljavax/script/ScriptContext;)V
+      17: aload_3
+      18: invokevirtual #98                 // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.getContext:()Lorg/graalvm/polyglot/Context;
+      21: ldc           #54                 // String js
+      23: invokevirtual #168                // Method org/graalvm/polyglot/Context.getBindings:(Ljava/lang/String;)Lorg/graalvm/polyglot/Value;
+      26: aload_1
+      27: invokevirtual #129                // Method org/graalvm/polyglot/Value.getMember:(Ljava/lang/String;)Lorg/graalvm/polyglot/Value;
+      30: astore        4
+      32: aload         4
+      34: ifnonnull     42
+      37: aload_1
+      38: invokestatic  #166                // Method noSuchMethod:(Ljava/lang/String;)Ljava/lang/NoSuchMethodException;
+      41: athrow
+      42: aload         4
+      44: invokevirtual #169                // Method org/graalvm/polyglot/Value.canExecute:()Z
+      47: ifne          55
+      50: aload_1
+      51: invokestatic  #167                // Method notCallable:(Ljava/lang/String;)Ljava/lang/NoSuchMethodException;
+      54: athrow
+      55: aload         4
+      57: aload_2
+      58: invokevirtual #170                // Method org/graalvm/polyglot/Value.execute:([Ljava/lang/Object;)Lorg/graalvm/polyglot/Value;
+      61: ldc           #38                 // class java/lang/Object
+      63: invokevirtual #140                // Method org/graalvm/polyglot/Value.as:(Ljava/lang/Class;)Ljava/lang/Object;
+      66: areturn
+      67: astore        5
+      69: aload         5
+      71: invokestatic  #142                // Method toScriptException:(Lorg/graalvm/polyglot/PolyglotException;)Ljavax/script/ScriptException;
+      74: athrow
+    Exception table:
+       from    to  target type
+          55    66    67   Class org/graalvm/polyglot/PolyglotException
+
+  private static java.lang.NoSuchMethodException noSuchMethod(java.lang.String) throws java.lang.NoSuchMethodException;
+    Code:
+       0: new           #171                // class java/lang/NoSuchMethodException
+       3: dup
+       4: aload_0
+       5: invokespecial #172                // Method java/lang/NoSuchMethodException."<init>":(Ljava/lang/String;)V
+       8: athrow
+
+  private static java.lang.NoSuchMethodException notCallable(java.lang.String) throws java.lang.NoSuchMethodException;
+    Code:
+       0: new           #171                // class java/lang/NoSuchMethodException
+       3: dup
+       4: new           #110                // class java/lang/StringBuilder
+       7: dup
+       8: invokespecial #111                // Method java/lang/StringBuilder."<init>":()V
+      11: aload_0
+      12: invokevirtual #173                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      15: ldc           #174                // String  is not a function
+      17: invokevirtual #173                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      20: invokevirtual #115                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      23: invokespecial #172                // Method java/lang/NoSuchMethodException."<init>":(Ljava/lang/String;)V
+      26: athrow
+
+  public <T> T getInterface(java.lang.Class<T>);
+    Code:
+       0: aload_1
+       1: invokestatic  #175                // Method checkInterface:(Ljava/lang/Class;)V
+       4: aload_0
+       5: invokevirtual #94                 // Method getPolyglotContext:()Lorg/graalvm/polyglot/Context;
+       8: ldc           #176                // String this
+      10: invokestatic  #177                // Method evalInternal:(Lorg/graalvm/polyglot/Context;Ljava/lang/String;)Lorg/graalvm/polyglot/Value;
+      13: aload_1
+      14: invokestatic  #178                // Method getInterfaceInner:(Lorg/graalvm/polyglot/Value;Ljava/lang/Class;)Ljava/lang/Object;
+      17: areturn
+
+  public <T> T getInterface(java.lang.Object, java.lang.Class<T>);
+    Code:
+       0: aload_1
+       1: ifnonnull     14
+       4: new           #161                // class java/lang/IllegalArgumentException
+       7: dup
+       8: ldc           #179                // String this cannot be null
+      10: invokespecial #163                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      13: athrow
+      14: aload_2
+      15: invokestatic  #175                // Method checkInterface:(Ljava/lang/Class;)V
+      18: aload_0
+      19: invokevirtual #94                 // Method getPolyglotContext:()Lorg/graalvm/polyglot/Context;
+      22: aload_1
+      23: invokevirtual #164                // Method org/graalvm/polyglot/Context.asValue:(Ljava/lang/Object;)Lorg/graalvm/polyglot/Value;
+      26: astore_3
+      27: aload_3
+      28: invokestatic  #180                // Method checkThis:(Lorg/graalvm/polyglot/Value;)V
+      31: aload_3
+      32: aload_2
+      33: invokestatic  #178                // Method getInterfaceInner:(Lorg/graalvm/polyglot/Value;Ljava/lang/Class;)Ljava/lang/Object;
+      36: areturn
+
+  private static void checkInterface(java.lang.Class<?>);
+    Code:
+       0: aload_0
+       1: ifnull        11
+       4: aload_0
+       5: invokevirtual #181                // Method java/lang/Class.isInterface:()Z
+       8: ifne          21
+      11: new           #161                // class java/lang/IllegalArgumentException
+      14: dup
+      15: ldc           #182                // String interface Class expected in getInterface
+      17: invokespecial #163                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      20: athrow
+      21: return
+
+  private static void checkThis(org.graalvm.polyglot.Value);
+    Code:
+       0: aload_0
+       1: invokevirtual #183                // Method org/graalvm/polyglot/Value.isHostObject:()Z
+       4: ifne          14
+       7: aload_0
+       8: invokevirtual #34                 // Method org/graalvm/polyglot/Value.hasMembers:()Z
+      11: ifne          24
+      14: new           #161                // class java/lang/IllegalArgumentException
+      17: dup
+      18: ldc           #184                // String getInterface cannot be called on non-script object
+      20: invokespecial #163                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      23: athrow
+      24: return
+
+  private static <T> T getInterfaceInner(org.graalvm.polyglot.Value, java.lang.Class<T>);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokestatic  #185                // Method isInterfaceImplemented:(Ljava/lang/Class;Lorg/graalvm/polyglot/Value;)Z
+       5: ifne          10
+       8: aconst_null
+       9: areturn
+      10: aload_0
+      11: aload_1
+      12: invokevirtual #140                // Method org/graalvm/polyglot/Value.as:(Ljava/lang/Class;)Ljava/lang/Object;
+      15: areturn
+
+  public javax.script.CompiledScript compile(java.lang.String) throws javax.script.ScriptException;
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokevirtual #107                // Method getContext:()Ljavax/script/ScriptContext;
+       5: invokestatic  #109                // Method createSource:(Ljava/lang/String;Ljavax/script/ScriptContext;)Lorg/graalvm/polyglot/Source;
+       8: astore_2
+       9: aload_0
+      10: aload_2
+      11: invokespecial #186                // Method compile:(Lorg/graalvm/polyglot/Source;)Ljavax/script/CompiledScript;
+      14: areturn
+
+  public javax.script.CompiledScript compile(java.io.Reader) throws javax.script.ScriptException;
+    Code:
+       0: aload_1
+       1: invokestatic  #108                // Method read:(Ljava/io/Reader;)Ljava/lang/String;
+       4: aload_0
+       5: invokevirtual #107                // Method getContext:()Ljavax/script/ScriptContext;
+       8: invokestatic  #109                // Method createSource:(Ljava/lang/String;Ljavax/script/ScriptContext;)Lorg/graalvm/polyglot/Source;
+      11: astore_2
+      12: aload_0
+      13: aload_2
+      14: invokespecial #186                // Method compile:(Lorg/graalvm/polyglot/Source;)Ljavax/script/CompiledScript;
+      17: areturn
+
+  private javax.script.CompiledScript compile(org.graalvm.polyglot.Source) throws javax.script.ScriptException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #187                // Method checkSyntax:(Lorg/graalvm/polyglot/Source;)V
+       5: new           #188                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$10
+       8: dup
+       9: aload_0
+      10: aload_1
+      11: invokespecial #189                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$10."<init>":(Lcom/oracle/truffle/js/scriptengine/GraalJSScriptEngine;Lorg/graalvm/polyglot/Source;)V
+      14: areturn
+
+  private void checkSyntax(org.graalvm.polyglot.Source) throws javax.script.ScriptException;
+    Code:
+       0: aload_0
+       1: invokevirtual #94                 // Method getPolyglotContext:()Lorg/graalvm/polyglot/Context;
+       4: aload_1
+       5: invokevirtual #190                // Method org/graalvm/polyglot/Context.parse:(Lorg/graalvm/polyglot/Source;)Lorg/graalvm/polyglot/Value;
+       8: pop
+       9: goto          18
+      12: astore_2
+      13: aload_2
+      14: invokestatic  #142                // Method toScriptException:(Lorg/graalvm/polyglot/PolyglotException;)Ljavax/script/ScriptException;
+      17: athrow
+      18: return
+    Exception table:
+       from    to  target type
+           0     9    12   Class org/graalvm/polyglot/PolyglotException
+
+  public static com.oracle.truffle.js.scriptengine.GraalJSScriptEngine create();
+    Code:
+       0: aconst_null
+       1: aconst_null
+       2: invokestatic  #191                // Method create:(Lorg/graalvm/polyglot/Engine;Lorg/graalvm/polyglot/Context$Builder;)Lcom/oracle/truffle/js/scriptengine/GraalJSScriptEngine;
+       5: areturn
+
+  public static com.oracle.truffle.js.scriptengine.GraalJSScriptEngine create(org.graalvm.polyglot.Engine, org.graalvm.polyglot.Context$Builder);
+    Code:
+       0: new           #53                 // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine
+       3: dup
+       4: aconst_null
+       5: aload_0
+       6: aload_1
+       7: invokespecial #48                 // Method "<init>":(Lcom/oracle/truffle/js/scriptengine/GraalJSEngineFactory;Lorg/graalvm/polyglot/Engine;Lorg/graalvm/polyglot/Context$Builder;)V
+      10: areturn
+
+  private static boolean isInterfaceImplemented(java.lang.Class<?>, org.graalvm.polyglot.Value);
+    Code:
+       0: aload_0
+       1: invokevirtual #192                // Method java/lang/Class.getMethods:()[Ljava/lang/reflect/Method;
+       4: astore_2
+       5: aload_2
+       6: arraylength
+       7: istore_3
+       8: iconst_0
+       9: istore        4
+      11: iload         4
+      13: iload_3
+      14: if_icmpge     70
+      17: aload_2
+      18: iload         4
+      20: aaload
+      21: astore        5
+      23: aload         5
+      25: invokevirtual #193                // Method java/lang/reflect/Method.getDeclaringClass:()Ljava/lang/Class;
+      28: ldc           #38                 // class java/lang/Object
+      30: if_acmpne     36
+      33: goto          64
+      36: aload         5
+      38: invokevirtual #194                // Method java/lang/reflect/Method.getModifiers:()I
+      41: invokestatic  #195                // Method java/lang/reflect/Modifier.isAbstract:(I)Z
+      44: ifne          50
+      47: goto          64
+      50: aload_1
+      51: aload         5
+      53: invokevirtual #196                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+      56: invokevirtual #37                 // Method org/graalvm/polyglot/Value.canInvokeMember:(Ljava/lang/String;)Z
+      59: ifne          64
+      62: iconst_0
+      63: ireturn
+      64: iinc          4, 1
+      67: goto          11
+      70: iconst_1
+      71: ireturn
+
+  private static void jrunscriptInitWorkaround(org.graalvm.polyglot.Source, org.graalvm.polyglot.Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #197                // Method org/graalvm/polyglot/Source.getName:()Ljava/lang/String;
+       4: ldc           #198                // String <system-init>
+       6: invokevirtual #199                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       9: ifeq          63
+      12: aload_0
+      13: invokevirtual #200                // Method org/graalvm/polyglot/Source.getCharacters:()Ljava/lang/CharSequence;
+      16: invokeinterface #201,  1          // InterfaceMethod java/lang/CharSequence.toString:()Ljava/lang/String;
+      21: astore_2
+      22: aload_2
+      23: ldc           #202                // String jrunscript
+      25: invokevirtual #203                // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+      28: ifeq          63
+      31: aload_2
+      32: ldc           #204                // String JSAdapter
+      34: invokevirtual #203                // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+      37: ifeq          63
+      40: aload_1
+      41: ldc           #54                 // String js
+      43: invokevirtual #168                // Method org/graalvm/polyglot/Context.getBindings:(Ljava/lang/String;)Lorg/graalvm/polyglot/Value;
+      46: ldc           #204                // String JSAdapter
+      48: invokevirtual #165                // Method org/graalvm/polyglot/Value.hasMember:(Ljava/lang/String;)Z
+      51: ifne          63
+      54: aload_1
+      55: ldc           #54                 // String js
+      57: ldc           #205                // String this.JSAdapter || Object.defineProperty(this, \"JSAdapter\", {configurable:true, writable:true, enumerable: false, value: function(t) {\n    var target = {};\n    var handler = {\n        get: function(target, name) {return typeof t.__get__ == \'function\' ? t.__get__.call(target, name) : undefined;},\n        has: function(target, name) {return typeof t.__has__ == \'function\' ? t.__has__.call(target, name) : false;},\n        deleteProperty: function(target, name) {return typeof t.__delete__ == \'function\' ? t.__delete__.call(target, name) : true;},\n        set: function(target, name, value) {return typeof t.__put__ == \'function\' ? t.__put__.call(target, name, value) : undefined;},\n        ownKeys: function(target) {return typeof t.__getIds__ == \'function\' ? t.__getIds__.call(target) : [];},\n    }\n    return new Proxy(target, handler);\n}});\n
+      59: invokevirtual #206                // Method org/graalvm/polyglot/Context.eval:(Ljava/lang/String;Ljava/lang/CharSequence;)Lorg/graalvm/polyglot/Value;
+      62: pop
+      63: return
+
+  private static java.lang.IllegalArgumentException magicOptionValueErrorBool(java.lang.String, java.lang.Object);
+    Code:
+       0: new           #161                // class java/lang/IllegalArgumentException
+       3: dup
+       4: ldc           #207                // String failed to set graal-js option \"%s\": expected a boolean value, got \"%s\"
+       6: iconst_2
+       7: anewarray     #38                 // class java/lang/Object
+      10: dup
+      11: iconst_0
+      12: aload_0
+      13: aastore
+      14: dup
+      15: iconst_1
+      16: aload_1
+      17: aastore
+      18: invokestatic  #208                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      21: invokespecial #163                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      24: areturn
+
+  public javax.script.ScriptEngineFactory getFactory();
+    Code:
+       0: aload_0
+       1: invokevirtual #209                // Method getFactory:()Lcom/oracle/truffle/js/scriptengine/GraalJSEngineFactory;
+       4: areturn
+
+  private static java.lang.Boolean lambda$createNashornHostAccess$11(java.lang.String);
+    Code:
+       0: aload_0
+       1: invokevirtual #210                // Method java/lang/String.isEmpty:()Z
+       4: ifne          11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: invokestatic  #211                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      15: areturn
+
+  private static boolean lambda$createNashornHostAccess$10(java.lang.String);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  private static java.lang.Boolean lambda$createNashornHostAccess$9(java.lang.Number);
+    Code:
+       0: aload_0
+       1: invokevirtual #212                // Method java/lang/Number.doubleValue:()D
+       4: invokestatic  #213                // Method toBoolean:(D)Z
+       7: invokestatic  #211                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      10: areturn
+
+  private static boolean lambda$createNashornHostAccess$8(java.lang.Number);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  private static java.lang.Long lambda$createNashornHostAccess$7(java.lang.Number);
+    Code:
+       0: aload_0
+       1: invokevirtual #214                // Method java/lang/Number.longValue:()J
+       4: invokestatic  #215                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+       7: areturn
+
+  private static boolean lambda$createNashornHostAccess$6(java.lang.Number);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  private static java.lang.Double lambda$createNashornHostAccess$5(java.lang.Number);
+    Code:
+       0: aload_0
+       1: invokevirtual #212                // Method java/lang/Number.doubleValue:()D
+       4: invokestatic  #216                // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+       7: areturn
+
+  private static boolean lambda$createNashornHostAccess$4(java.lang.Number);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  private static java.lang.Integer lambda$createNashornHostAccess$3(java.lang.Number);
+    Code:
+       0: aload_0
+       1: invokevirtual #217                // Method java/lang/Number.intValue:()I
+       4: invokestatic  #218                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       7: areturn
+
+  private static boolean lambda$createNashornHostAccess$2(java.lang.Number);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  private static java.lang.String lambda$createNashornHostAccess$1(org.graalvm.polyglot.Value);
+    Code:
+       0: aload_0
+       1: invokestatic  #219                // Method toString:(Lorg/graalvm/polyglot/Value;)Ljava/lang/String;
+       4: areturn
+
+  private static boolean lambda$createNashornHostAccess$0(org.graalvm.polyglot.Value);
+    Code:
+       0: aload_0
+       1: invokevirtual #33                 // Method org/graalvm/polyglot/Value.isNull:()Z
+       4: ifne          11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: ireturn
+
+  static boolean access$000(com.oracle.truffle.js.scriptengine.GraalJSScriptEngine$MagicBindingsOptionSetter, java.lang.Object);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #3                  // Method toBoolean:(Lcom/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter;Ljava/lang/Object;)Z
+       5: ireturn
+
+  static void access$100(org.graalvm.polyglot.Context$Builder);
+    Code:
+       0: aload_0
+       1: invokestatic  #2                  // Method updateForNashornCompatibilityMode:(Lorg/graalvm/polyglot/Context$Builder;)V
+       4: return
+
+  static java.lang.Object access$300(com.oracle.truffle.js.scriptengine.GraalJSScriptEngine, org.graalvm.polyglot.Source, javax.script.ScriptContext) throws javax.script.ScriptException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokespecial #1                  // Method eval:(Lorg/graalvm/polyglot/Source;Ljavax/script/ScriptContext;)Ljava/lang/Object;
+       6: areturn
+
+  static {};
+    Code:
+       0: invokestatic  #220                // Method createNashornHostAccess:()Lorg/graalvm/polyglot/HostAccess;
+       3: putstatic     #79                 // Field NASHORN_HOST_ACCESS:Lorg/graalvm/polyglot/HostAccess;
+       6: bipush        9
+       8: anewarray     #221                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter
+      11: dup
+      12: iconst_0
+      13: new           #222                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$1
+      16: dup
+      17: invokespecial #223                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$1."<init>":()V
+      20: aastore
+      21: dup
+      22: iconst_1
+      23: new           #224                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$2
+      26: dup
+      27: invokespecial #225                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$2."<init>":()V
+      30: aastore
+      31: dup
+      32: iconst_2
+      33: new           #226                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$3
+      36: dup
+      37: invokespecial #227                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$3."<init>":()V
+      40: aastore
+      41: dup
+      42: iconst_3
+      43: new           #228                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$4
+      46: dup
+      47: invokespecial #229                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$4."<init>":()V
+      50: aastore
+      51: dup
+      52: iconst_4
+      53: new           #230                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$5
+      56: dup
+      57: invokespecial #231                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$5."<init>":()V
+      60: aastore
+      61: dup
+      62: iconst_5
+      63: new           #232                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$6
+      66: dup
+      67: invokespecial #233                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$6."<init>":()V
+      70: aastore
+      71: dup
+      72: bipush        6
+      74: new           #234                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$7
+      77: dup
+      78: invokespecial #235                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$7."<init>":()V
+      81: aastore
+      82: dup
+      83: bipush        7
+      85: new           #236                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$8
+      88: dup
+      89: invokespecial #237                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$8."<init>":()V
+      92: aastore
+      93: dup
+      94: bipush        8
+      96: new           #238                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$9
+      99: dup
+     100: invokespecial #239                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$9."<init>":()V
+     103: aastore
+     104: putstatic     #156                // Field MAGIC_OPTION_SETTERS:[Lcom/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter;
+     107: invokestatic  #240                // InterfaceMethod org/graalvm/collections/EconomicSet.create:()Lorg/graalvm/collections/EconomicSet;
+     110: putstatic     #241                // Field MAGIC_BINDINGS_OPTION_KEYS:Lorg/graalvm/collections/EconomicSet;
+     113: invokestatic  #242                // InterfaceMethod org/graalvm/collections/EconomicMap.create:()Lorg/graalvm/collections/EconomicMap;
+     116: putstatic     #243                // Field MAGIC_BINDINGS_OPTION_MAP:Lorg/graalvm/collections/EconomicMap;
+     119: ldc           #244                // String polyglot.js.nashorn-compat
+     121: invokestatic  #65                 // Method java/lang/Boolean.getBoolean:(Ljava/lang/String;)Z
+     124: putstatic     #63                 // Field NASHORN_COMPATIBILITY_MODE:Z
+     127: getstatic     #156                // Field MAGIC_OPTION_SETTERS:[Lcom/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter;
+     130: astore_0
+     131: aload_0
+     132: arraylength
+     133: istore_1
+     134: iconst_0
+     135: istore_2
+     136: iload_2
+     137: iload_1
+     138: if_icmpge     182
+     141: aload_0
+     142: iload_2
+     143: aaload
+     144: astore_3
+     145: getstatic     #241                // Field MAGIC_BINDINGS_OPTION_KEYS:Lorg/graalvm/collections/EconomicSet;
+     148: aload_3
+     149: invokeinterface #44,  1           // InterfaceMethod com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter.getOptionKey:()Ljava/lang/String;
+     154: invokeinterface #245,  2          // InterfaceMethod org/graalvm/collections/EconomicSet.add:(Ljava/lang/Object;)Z
+     159: pop
+     160: getstatic     #243                // Field MAGIC_BINDINGS_OPTION_MAP:Lorg/graalvm/collections/EconomicMap;
+     163: aload_3
+     164: invokeinterface #44,  1           // InterfaceMethod com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter.getOptionKey:()Ljava/lang/String;
+     169: aload_3
+     170: invokeinterface #246,  3          // InterfaceMethod org/graalvm/collections/EconomicMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     175: pop
+     176: iinc          2, 1
+     179: goto          136
+     182: return
+}
+breaking/js-scriptengine-22.1.0.jar
+Compiled from "GraalJSScriptEngine.java"
+public final class com.oracle.truffle.js.scriptengine.GraalJSScriptEngine extends javax.script.AbstractScriptEngine implements javax.script.Compilable,javax.script.Invocable,java.lang.AutoCloseable {
+  private static final java.lang.String ID;
+
+  private static final java.lang.String POLYGLOT_CONTEXT;
+
+  private static final java.lang.String OUT_SYMBOL;
+
+  private static final java.lang.String IN_SYMBOL;
+
+  private static final java.lang.String ERR_SYMBOL;
+
+  private static final java.lang.String JS_SYNTAX_EXTENSIONS_OPTION;
+
+  private static final java.lang.String JS_SCRIPT_ENGINE_GLOBAL_SCOPE_IMPORT_OPTION;
+
+  private static final java.lang.String JS_LOAD_OPTION;
+
+  private static final java.lang.String JS_PRINT_OPTION;
+
+  private static final java.lang.String JS_GLOBAL_ARGUMENTS_OPTION;
+
+  private static final java.lang.String JS_CHARSET_OPTION;
+
+  private static final java.lang.String NASHORN_COMPATIBILITY_MODE_SYSTEM_PROPERTY;
+
+  private static final java.lang.String INSECURE_SCRIPTENGINE_ACCESS_SYSTEM_PROPERTY;
+
+  static final java.lang.String MAGIC_OPTION_PREFIX;
+
+  private static final org.graalvm.polyglot.HostAccess NASHORN_HOST_ACCESS;
+
+  private static final com.oracle.truffle.js.scriptengine.GraalJSScriptEngine$MagicBindingsOptionSetter[] MAGIC_OPTION_SETTERS;
+
+  private static final org.graalvm.collections.EconomicSet<java.lang.String> MAGIC_BINDINGS_OPTION_KEYS;
+
+  static final org.graalvm.collections.EconomicMap<java.lang.String, com.oracle.truffle.js.scriptengine.GraalJSScriptEngine$MagicBindingsOptionSetter> MAGIC_BINDINGS_OPTION_MAP;
+
+  private static final boolean NASHORN_COMPATIBILITY_MODE;
+
+  private final com.oracle.truffle.js.scriptengine.GraalJSEngineFactory factory;
+
+  private final org.graalvm.polyglot.Context$Builder contextConfig;
+
+  private boolean evalCalled;
+
+  private static final java.lang.String JRUNSCRIPT_INIT_NAME;
+
+  private static final java.lang.String JSADAPTER_POLYFILL;
+
+  private static org.graalvm.polyglot.HostAccess createNashornHostAccess();
+    Code:
+       0: getstatic     #1                  // Field org/graalvm/polyglot/HostAccess.ALL:Lorg/graalvm/polyglot/HostAccess;
+       3: invokestatic  #2                  // Method org/graalvm/polyglot/HostAccess.newBuilder:(Lorg/graalvm/polyglot/HostAccess;)Lorg/graalvm/polyglot/HostAccess$Builder;
+       6: astore_0
+       7: aload_0
+       8: ldc           #3                  // class org/graalvm/polyglot/Value
+      10: ldc           #4                  // class java/lang/String
+      12: invokedynamic #5,  0              // InvokeDynamic #0:test:()Ljava/util/function/Predicate;
+      17: invokedynamic #6,  0              // InvokeDynamic #1:apply:()Ljava/util/function/Function;
+      22: getstatic     #7                  // Field org/graalvm/polyglot/HostAccess$TargetMappingPrecedence.LOWEST:Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;
+      25: invokevirtual #8                  // Method org/graalvm/polyglot/HostAccess$Builder.targetTypeMapping:(Ljava/lang/Class;Ljava/lang/Class;Ljava/util/function/Predicate;Ljava/util/function/Function;Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;)Lorg/graalvm/polyglot/HostAccess$Builder;
+      28: pop
+      29: aload_0
+      30: ldc           #9                  // class java/lang/Number
+      32: ldc           #10                 // class java/lang/Integer
+      34: invokedynamic #11,  0             // InvokeDynamic #2:test:()Ljava/util/function/Predicate;
+      39: invokedynamic #12,  0             // InvokeDynamic #3:apply:()Ljava/util/function/Function;
+      44: getstatic     #7                  // Field org/graalvm/polyglot/HostAccess$TargetMappingPrecedence.LOWEST:Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;
+      47: invokevirtual #8                  // Method org/graalvm/polyglot/HostAccess$Builder.targetTypeMapping:(Ljava/lang/Class;Ljava/lang/Class;Ljava/util/function/Predicate;Ljava/util/function/Function;Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;)Lorg/graalvm/polyglot/HostAccess$Builder;
+      50: pop
+      51: aload_0
+      52: ldc           #9                  // class java/lang/Number
+      54: ldc           #13                 // class java/lang/Double
+      56: invokedynamic #14,  0             // InvokeDynamic #4:test:()Ljava/util/function/Predicate;
+      61: invokedynamic #15,  0             // InvokeDynamic #5:apply:()Ljava/util/function/Function;
+      66: getstatic     #7                  // Field org/graalvm/polyglot/HostAccess$TargetMappingPrecedence.LOWEST:Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;
+      69: invokevirtual #8                  // Method org/graalvm/polyglot/HostAccess$Builder.targetTypeMapping:(Ljava/lang/Class;Ljava/lang/Class;Ljava/util/function/Predicate;Ljava/util/function/Function;Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;)Lorg/graalvm/polyglot/HostAccess$Builder;
+      72: pop
+      73: aload_0
+      74: ldc           #9                  // class java/lang/Number
+      76: ldc           #16                 // class java/lang/Long
+      78: invokedynamic #17,  0             // InvokeDynamic #6:test:()Ljava/util/function/Predicate;
+      83: invokedynamic #18,  0             // InvokeDynamic #7:apply:()Ljava/util/function/Function;
+      88: getstatic     #7                  // Field org/graalvm/polyglot/HostAccess$TargetMappingPrecedence.LOWEST:Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;
+      91: invokevirtual #8                  // Method org/graalvm/polyglot/HostAccess$Builder.targetTypeMapping:(Ljava/lang/Class;Ljava/lang/Class;Ljava/util/function/Predicate;Ljava/util/function/Function;Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;)Lorg/graalvm/polyglot/HostAccess$Builder;
+      94: pop
+      95: aload_0
+      96: ldc           #9                  // class java/lang/Number
+      98: ldc           #19                 // class java/lang/Boolean
+     100: invokedynamic #20,  0             // InvokeDynamic #8:test:()Ljava/util/function/Predicate;
+     105: invokedynamic #21,  0             // InvokeDynamic #9:apply:()Ljava/util/function/Function;
+     110: getstatic     #7                  // Field org/graalvm/polyglot/HostAccess$TargetMappingPrecedence.LOWEST:Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;
+     113: invokevirtual #8                  // Method org/graalvm/polyglot/HostAccess$Builder.targetTypeMapping:(Ljava/lang/Class;Ljava/lang/Class;Ljava/util/function/Predicate;Ljava/util/function/Function;Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;)Lorg/graalvm/polyglot/HostAccess$Builder;
+     116: pop
+     117: aload_0
+     118: ldc           #4                  // class java/lang/String
+     120: ldc           #19                 // class java/lang/Boolean
+     122: invokedynamic #22,  0             // InvokeDynamic #10:test:()Ljava/util/function/Predicate;
+     127: invokedynamic #23,  0             // InvokeDynamic #11:apply:()Ljava/util/function/Function;
+     132: getstatic     #7                  // Field org/graalvm/polyglot/HostAccess$TargetMappingPrecedence.LOWEST:Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;
+     135: invokevirtual #8                  // Method org/graalvm/polyglot/HostAccess$Builder.targetTypeMapping:(Ljava/lang/Class;Ljava/lang/Class;Ljava/util/function/Predicate;Ljava/util/function/Function;Lorg/graalvm/polyglot/HostAccess$TargetMappingPrecedence;)Lorg/graalvm/polyglot/HostAccess$Builder;
+     138: pop
+     139: aload_0
+     140: invokevirtual #24                 // Method org/graalvm/polyglot/HostAccess$Builder.build:()Lorg/graalvm/polyglot/HostAccess;
+     143: areturn
+
+  private static java.lang.String toString(org.graalvm.polyglot.Value);
+    Code:
+       0: aload_0
+       1: invokestatic  #25                 // Method toPrimitive:(Lorg/graalvm/polyglot/Value;)Lorg/graalvm/polyglot/Value;
+       4: invokevirtual #26                 // Method org/graalvm/polyglot/Value.toString:()Ljava/lang/String;
+       7: areturn
+
+  private static boolean isPrimitive(org.graalvm.polyglot.Value);
+    Code:
+       0: aload_0
+       1: invokevirtual #27                 // Method org/graalvm/polyglot/Value.isString:()Z
+       4: ifne          28
+       7: aload_0
+       8: invokevirtual #28                 // Method org/graalvm/polyglot/Value.isNumber:()Z
+      11: ifne          28
+      14: aload_0
+      15: invokevirtual #29                 // Method org/graalvm/polyglot/Value.isBoolean:()Z
+      18: ifne          28
+      21: aload_0
+      22: invokevirtual #30                 // Method org/graalvm/polyglot/Value.isNull:()Z
+      25: ifeq          32
+      28: iconst_1
+      29: goto          33
+      32: iconst_0
+      33: ireturn
+
+  private static org.graalvm.polyglot.Value toPrimitive(org.graalvm.polyglot.Value);
+    Code:
+       0: aload_0
+       1: invokevirtual #31                 // Method org/graalvm/polyglot/Value.hasMembers:()Z
+       4: ifeq          75
+       7: iconst_2
+       8: anewarray     #4                  // class java/lang/String
+      11: dup
+      12: iconst_0
+      13: ldc           #32                 // String toString
+      15: aastore
+      16: dup
+      17: iconst_1
+      18: ldc           #33                 // String valueOf
+      20: aastore
+      21: astore_1
+      22: aload_1
+      23: arraylength
+      24: istore_2
+      25: iconst_0
+      26: istore_3
+      27: iload_3
+      28: iload_2
+      29: if_icmpge     75
+      32: aload_1
+      33: iload_3
+      34: aaload
+      35: astore        4
+      37: aload_0
+      38: aload         4
+      40: invokevirtual #34                 // Method org/graalvm/polyglot/Value.canInvokeMember:(Ljava/lang/String;)Z
+      43: ifeq          69
+      46: aload_0
+      47: aload         4
+      49: iconst_0
+      50: anewarray     #35                 // class java/lang/Object
+      53: invokevirtual #36                 // Method org/graalvm/polyglot/Value.invokeMember:(Ljava/lang/String;[Ljava/lang/Object;)Lorg/graalvm/polyglot/Value;
+      56: astore        5
+      58: aload         5
+      60: invokestatic  #37                 // Method isPrimitive:(Lorg/graalvm/polyglot/Value;)Z
+      63: ifeq          69
+      66: aload         5
+      68: areturn
+      69: iinc          3, 1
+      72: goto          27
+      75: aload_0
+      76: invokestatic  #37                 // Method isPrimitive:(Lorg/graalvm/polyglot/Value;)Z
+      79: ifeq          84
+      82: aload_0
+      83: areturn
+      84: new           #38                 // class java/lang/ClassCastException
+      87: dup
+      88: invokespecial #39                 // Method java/lang/ClassCastException."<init>":()V
+      91: athrow
+
+  private static boolean toBoolean(double);
+    Code:
+       0: dload_0
+       1: dconst_0
+       2: dcmpl
+       3: ifeq          17
+       6: dload_0
+       7: invokestatic  #40                 // Method java/lang/Double.isNaN:(D)Z
+      10: ifne          17
+      13: iconst_1
+      14: goto          18
+      17: iconst_0
+      18: ireturn
+
+  private static boolean toBoolean(com.oracle.truffle.js.scriptengine.GraalJSScriptEngine$MagicBindingsOptionSetter, java.lang.Object);
+    Code:
+       0: aload_1
+       1: instanceof    #19                 // class java/lang/Boolean
+       4: ifne          18
+       7: aload_0
+       8: invokeinterface #41,  1           // InterfaceMethod com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter.getOptionKey:()Ljava/lang/String;
+      13: aload_1
+      14: invokestatic  #42                 // Method magicOptionValueErrorBool:(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;
+      17: athrow
+      18: aload_1
+      19: checkcast     #19                 // class java/lang/Boolean
+      22: invokevirtual #43                 // Method java/lang/Boolean.booleanValue:()Z
+      25: ireturn
+
+  com.oracle.truffle.js.scriptengine.GraalJSScriptEngine(com.oracle.truffle.js.scriptengine.GraalJSEngineFactory);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_1
+       3: invokevirtual #44                 // Method com/oracle/truffle/js/scriptengine/GraalJSEngineFactory.getPolyglotEngine:()Lorg/graalvm/polyglot/Engine;
+       6: aconst_null
+       7: invokespecial #45                 // Method "<init>":(Lcom/oracle/truffle/js/scriptengine/GraalJSEngineFactory;Lorg/graalvm/polyglot/Engine;Lorg/graalvm/polyglot/Context$Builder;)V
+      10: return
+
+  com.oracle.truffle.js.scriptengine.GraalJSScriptEngine(com.oracle.truffle.js.scriptengine.GraalJSEngineFactory, org.graalvm.polyglot.Engine, org.graalvm.polyglot.Context$Builder);
+    Code:
+       0: aload_0
+       1: invokespecial #46                 // Method javax/script/AbstractScriptEngine."<init>":()V
+       4: aload_2
+       5: astore        4
+       7: aload         4
+       9: ifnonnull     24
+      12: invokestatic  #47                 // Method org/graalvm/polyglot/Engine.newBuilder:()Lorg/graalvm/polyglot/Engine$Builder;
+      15: iconst_1
+      16: invokevirtual #48                 // Method org/graalvm/polyglot/Engine$Builder.allowExperimentalOptions:(Z)Lorg/graalvm/polyglot/Engine$Builder;
+      19: invokevirtual #49                 // Method org/graalvm/polyglot/Engine$Builder.build:()Lorg/graalvm/polyglot/Engine;
+      22: astore        4
+      24: aload_3
+      25: astore        5
+      27: aload         5
+      29: ifnonnull     127
+      32: iconst_1
+      33: anewarray     #4                  // class java/lang/String
+      36: dup
+      37: iconst_0
+      38: ldc           #51                 // String js
+      40: aastore
+      41: invokestatic  #52                 // Method org/graalvm/polyglot/Context.newBuilder:([Ljava/lang/String;)Lorg/graalvm/polyglot/Context$Builder;
+      44: iconst_1
+      45: invokevirtual #53                 // Method org/graalvm/polyglot/Context$Builder.allowExperimentalOptions:(Z)Lorg/graalvm/polyglot/Context$Builder;
+      48: astore        5
+      50: aload         5
+      52: ldc           #54                 // String js.syntax-extensions
+      54: ldc           #55                 // String true
+      56: invokevirtual #56                 // Method org/graalvm/polyglot/Context$Builder.option:(Ljava/lang/String;Ljava/lang/String;)Lorg/graalvm/polyglot/Context$Builder;
+      59: pop
+      60: aload         5
+      62: ldc           #57                 // String js.load
+      64: ldc           #55                 // String true
+      66: invokevirtual #56                 // Method org/graalvm/polyglot/Context$Builder.option:(Ljava/lang/String;Ljava/lang/String;)Lorg/graalvm/polyglot/Context$Builder;
+      69: pop
+      70: aload         5
+      72: ldc           #58                 // String js.print
+      74: ldc           #55                 // String true
+      76: invokevirtual #56                 // Method org/graalvm/polyglot/Context$Builder.option:(Ljava/lang/String;Ljava/lang/String;)Lorg/graalvm/polyglot/Context$Builder;
+      79: pop
+      80: aload         5
+      82: ldc           #59                 // String js.global-arguments
+      84: ldc           #55                 // String true
+      86: invokevirtual #56                 // Method org/graalvm/polyglot/Context$Builder.option:(Ljava/lang/String;Ljava/lang/String;)Lorg/graalvm/polyglot/Context$Builder;
+      89: pop
+      90: aload         5
+      92: ldc           #60                 // String js.charset
+      94: ldc           #61                 // String UTF-8
+      96: invokevirtual #56                 // Method org/graalvm/polyglot/Context$Builder.option:(Ljava/lang/String;Ljava/lang/String;)Lorg/graalvm/polyglot/Context$Builder;
+      99: pop
+     100: getstatic     #62                 // Field NASHORN_COMPATIBILITY_MODE:Z
+     103: ifeq          114
+     106: aload         5
+     108: invokestatic  #63                 // Method updateForNashornCompatibilityMode:(Lorg/graalvm/polyglot/Context$Builder;)V
+     111: goto          127
+     114: ldc           #64                 // String graaljs.insecure-scriptengine-access
+     116: invokestatic  #65                 // Method java/lang/Boolean.getBoolean:(Ljava/lang/String;)Z
+     119: ifeq          127
+     122: aload         5
+     124: invokestatic  #66                 // Method updateForScriptEngineAccessibility:(Lorg/graalvm/polyglot/Context$Builder;)V
+     127: aload_0
+     128: aload_1
+     129: ifnonnull     144
+     132: new           #67                 // class com/oracle/truffle/js/scriptengine/GraalJSEngineFactory
+     135: dup
+     136: aload         4
+     138: invokespecial #68                 // Method com/oracle/truffle/js/scriptengine/GraalJSEngineFactory."<init>":(Lorg/graalvm/polyglot/Engine;)V
+     141: goto          145
+     144: aload_1
+     145: putfield      #69                 // Field factory:Lcom/oracle/truffle/js/scriptengine/GraalJSEngineFactory;
+     148: aload_0
+     149: aload         5
+     151: ldc           #70                 // String js.script-engine-global-scope-import
+     153: ldc           #55                 // String true
+     155: invokevirtual #56                 // Method org/graalvm/polyglot/Context$Builder.option:(Ljava/lang/String;Ljava/lang/String;)Lorg/graalvm/polyglot/Context$Builder;
+     158: aload         4
+     160: invokevirtual #71                 // Method org/graalvm/polyglot/Context$Builder.engine:(Lorg/graalvm/polyglot/Engine;)Lorg/graalvm/polyglot/Context$Builder;
+     163: putfield      #72                 // Field contextConfig:Lorg/graalvm/polyglot/Context$Builder;
+     166: aload_0
+     167: getfield      #73                 // Field context:Ljavax/script/ScriptContext;
+     170: new           #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+     173: dup
+     174: aload_0
+     175: getfield      #72                 // Field contextConfig:Lorg/graalvm/polyglot/Context$Builder;
+     178: aload_0
+     179: getfield      #73                 // Field context:Ljavax/script/ScriptContext;
+     182: invokespecial #75                 // Method com/oracle/truffle/js/scriptengine/GraalJSBindings."<init>":(Lorg/graalvm/polyglot/Context$Builder;Ljavax/script/ScriptContext;)V
+     185: bipush        100
+     187: invokeinterface #77,  3           // InterfaceMethod javax/script/ScriptContext.setBindings:(Ljavax/script/Bindings;I)V
+     192: return
+
+  private static void updateForNashornCompatibilityMode(org.graalvm.polyglot.Context$Builder);
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: invokevirtual #78                 // Method org/graalvm/polyglot/Context$Builder.allowAllAccess:(Z)Lorg/graalvm/polyglot/Context$Builder;
+       5: pop
+       6: aload_0
+       7: getstatic     #79                 // Field NASHORN_HOST_ACCESS:Lorg/graalvm/polyglot/HostAccess;
+      10: invokevirtual #80                 // Method org/graalvm/polyglot/Context$Builder.allowHostAccess:(Lorg/graalvm/polyglot/HostAccess;)Lorg/graalvm/polyglot/Context$Builder;
+      13: pop
+      14: aload_0
+      15: iconst_1
+      16: invokevirtual #81                 // Method org/graalvm/polyglot/Context$Builder.useSystemExit:(Z)Lorg/graalvm/polyglot/Context$Builder;
+      19: pop
+      20: return
+
+  private static void updateForScriptEngineAccessibility(org.graalvm.polyglot.Context$Builder);
+    Code:
+       0: aload_0
+       1: getstatic     #1                  // Field org/graalvm/polyglot/HostAccess.ALL:Lorg/graalvm/polyglot/HostAccess;
+       4: invokevirtual #80                 // Method org/graalvm/polyglot/Context$Builder.allowHostAccess:(Lorg/graalvm/polyglot/HostAccess;)Lorg/graalvm/polyglot/Context$Builder;
+       7: pop
+       8: return
+
+  static org.graalvm.polyglot.Context createDefaultContext(org.graalvm.polyglot.Context$Builder);
+    Code:
+       0: new           #82                 // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingInputStream
+       3: dup
+       4: invokespecial #83                 // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingInputStream."<init>":()V
+       7: astore_1
+       8: new           #84                 // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream
+      11: dup
+      12: invokespecial #85                 // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream."<init>":()V
+      15: astore_2
+      16: new           #84                 // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream
+      19: dup
+      20: invokespecial #85                 // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream."<init>":()V
+      23: astore_3
+      24: aload_0
+      25: aload_1
+      26: invokevirtual #86                 // Method org/graalvm/polyglot/Context$Builder.in:(Ljava/io/InputStream;)Lorg/graalvm/polyglot/Context$Builder;
+      29: aload_2
+      30: invokevirtual #87                 // Method org/graalvm/polyglot/Context$Builder.out:(Ljava/io/OutputStream;)Lorg/graalvm/polyglot/Context$Builder;
+      33: aload_3
+      34: invokevirtual #88                 // Method org/graalvm/polyglot/Context$Builder.err:(Ljava/io/OutputStream;)Lorg/graalvm/polyglot/Context$Builder;
+      37: pop
+      38: aload_0
+      39: invokevirtual #89                 // Method org/graalvm/polyglot/Context$Builder.build:()Lorg/graalvm/polyglot/Context;
+      42: astore        4
+      44: aload         4
+      46: invokevirtual #90                 // Method org/graalvm/polyglot/Context.getPolyglotBindings:()Lorg/graalvm/polyglot/Value;
+      49: ldc           #91                 // String $$internal.out$$
+      51: aload_2
+      52: invokevirtual #92                 // Method org/graalvm/polyglot/Value.putMember:(Ljava/lang/String;Ljava/lang/Object;)V
+      55: aload         4
+      57: invokevirtual #90                 // Method org/graalvm/polyglot/Context.getPolyglotBindings:()Lorg/graalvm/polyglot/Value;
+      60: ldc           #93                 // String $$internal.err$$
+      62: aload_3
+      63: invokevirtual #92                 // Method org/graalvm/polyglot/Value.putMember:(Ljava/lang/String;Ljava/lang/Object;)V
+      66: aload         4
+      68: invokevirtual #90                 // Method org/graalvm/polyglot/Context.getPolyglotBindings:()Lorg/graalvm/polyglot/Value;
+      71: ldc           #94                 // String $$internal.in$$
+      73: aload_1
+      74: invokevirtual #92                 // Method org/graalvm/polyglot/Value.putMember:(Ljava/lang/String;Ljava/lang/Object;)V
+      77: aload         4
+      79: areturn
+
+  public void close();
+    Code:
+       0: aload_0
+       1: invokevirtual #95                 // Method getPolyglotContext:()Lorg/graalvm/polyglot/Context;
+       4: invokevirtual #96                 // Method org/graalvm/polyglot/Context.close:()V
+       7: return
+
+  public org.graalvm.polyglot.Engine getPolyglotEngine();
+    Code:
+       0: aload_0
+       1: getfield      #69                 // Field factory:Lcom/oracle/truffle/js/scriptengine/GraalJSEngineFactory;
+       4: invokevirtual #44                 // Method com/oracle/truffle/js/scriptengine/GraalJSEngineFactory.getPolyglotEngine:()Lorg/graalvm/polyglot/Engine;
+       7: areturn
+
+  public org.graalvm.polyglot.Context getPolyglotContext();
+    Code:
+       0: aload_0
+       1: aload_0
+       2: getfield      #73                 // Field context:Ljavax/script/ScriptContext;
+       5: invokevirtual #97                 // Method getPolyglotContext:(Ljavax/script/ScriptContext;)Lorg/graalvm/polyglot/Context;
+       8: areturn
+
+  public org.graalvm.polyglot.Context getPolyglotContext(javax.script.ScriptContext);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #98                 // Method getOrCreateGraalJSBindings:(Ljavax/script/ScriptContext;)Lcom/oracle/truffle/js/scriptengine/GraalJSBindings;
+       5: invokevirtual #99                 // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.getContext:()Lorg/graalvm/polyglot/Context;
+       8: areturn
+
+  static org.graalvm.polyglot.Value evalInternal(org.graalvm.polyglot.Context, java.lang.String);
+    Code:
+       0: aload_0
+       1: ldc           #51                 // String js
+       3: aload_1
+       4: ldc           #100                // String internal-script
+       6: invokestatic  #101                // Method org/graalvm/polyglot/Source.newBuilder:(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/String;)Lorg/graalvm/polyglot/Source$Builder;
+       9: iconst_1
+      10: invokevirtual #102                // Method org/graalvm/polyglot/Source$Builder.internal:(Z)Lorg/graalvm/polyglot/Source$Builder;
+      13: invokevirtual #103                // Method org/graalvm/polyglot/Source$Builder.buildLiteral:()Lorg/graalvm/polyglot/Source;
+      16: invokevirtual #104                // Method org/graalvm/polyglot/Context.eval:(Lorg/graalvm/polyglot/Source;)Lorg/graalvm/polyglot/Value;
+      19: areturn
+
+  public javax.script.Bindings createBindings();
+    Code:
+       0: new           #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+       3: dup
+       4: aload_0
+       5: getfield      #72                 // Field contextConfig:Lorg/graalvm/polyglot/Context$Builder;
+       8: aconst_null
+       9: invokespecial #75                 // Method com/oracle/truffle/js/scriptengine/GraalJSBindings."<init>":(Lorg/graalvm/polyglot/Context$Builder;Ljavax/script/ScriptContext;)V
+      12: areturn
+
+  public void setBindings(javax.script.Bindings, int);
+    Code:
+       0: iload_2
+       1: bipush        100
+       3: if_icmpne     27
+       6: aload_0
+       7: iload_2
+       8: invokevirtual #105                // Method getBindings:(I)Ljavax/script/Bindings;
+      11: astore_3
+      12: aload_3
+      13: instanceof    #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+      16: ifeq          27
+      19: aload_3
+      20: checkcast     #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+      23: aconst_null
+      24: invokevirtual #106                // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.updateEngineScriptContext:(Ljavax/script/ScriptContext;)V
+      27: aload_0
+      28: aload_1
+      29: iload_2
+      30: invokespecial #107                // Method javax/script/AbstractScriptEngine.setBindings:(Ljavax/script/Bindings;I)V
+      33: iload_2
+      34: bipush        100
+      36: if_icmpne     57
+      39: aload_1
+      40: instanceof    #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+      43: ifeq          57
+      46: aload_1
+      47: checkcast     #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+      50: aload_0
+      51: invokevirtual #108                // Method getContext:()Ljavax/script/ScriptContext;
+      54: invokevirtual #106                // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.updateEngineScriptContext:(Ljavax/script/ScriptContext;)V
+      57: return
+
+  public java.lang.Object eval(java.io.Reader, javax.script.ScriptContext) throws javax.script.ScriptException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #109                // Method read:(Ljava/io/Reader;)Ljava/lang/String;
+       5: aload_2
+       6: invokestatic  #110                // Method createSource:(Ljava/lang/String;Ljavax/script/ScriptContext;)Lorg/graalvm/polyglot/Source;
+       9: aload_2
+      10: invokevirtual #111                // Method eval:(Lorg/graalvm/polyglot/Source;Ljavax/script/ScriptContext;)Ljava/lang/Object;
+      13: areturn
+
+  static java.lang.String read(java.io.Reader) throws javax.script.ScriptException;
+    Code:
+       0: new           #112                // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #113                // Method java/lang/StringBuilder."<init>":()V
+       7: astore_1
+       8: sipush        1024
+      11: newarray       char
+      13: astore_2
+      14: aload_0
+      15: aload_2
+      16: invokevirtual #114                // Method java/io/Reader.read:([C)I
+      19: istore_3
+      20: iload_3
+      21: iconst_m1
+      22: if_icmpne     28
+      25: goto          39
+      28: aload_1
+      29: aload_2
+      30: iconst_0
+      31: iload_3
+      32: invokevirtual #115                // Method java/lang/StringBuilder.append:([CII)Ljava/lang/StringBuilder;
+      35: pop
+      36: goto          14
+      39: aload_0
+      40: invokevirtual #116                // Method java/io/Reader.close:()V
+      43: goto          55
+      46: astore        4
+      48: aload_0
+      49: invokevirtual #116                // Method java/io/Reader.close:()V
+      52: aload         4
+      54: athrow
+      55: aload_1
+      56: invokevirtual #117                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      59: areturn
+      60: astore_3
+      61: new           #119                // class javax/script/ScriptException
+      64: dup
+      65: aload_3
+      66: invokespecial #120                // Method javax/script/ScriptException."<init>":(Ljava/lang/Exception;)V
+      69: athrow
+    Exception table:
+       from    to  target type
+          14    39    46   any
+          46    48    46   any
+          14    59    60   Class java/io/IOException
+
+  public java.lang.Object eval(java.lang.String, javax.script.ScriptContext) throws javax.script.ScriptException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: invokestatic  #110                // Method createSource:(Ljava/lang/String;Ljavax/script/ScriptContext;)Lorg/graalvm/polyglot/Source;
+       6: aload_2
+       7: invokevirtual #111                // Method eval:(Lorg/graalvm/polyglot/Source;Ljavax/script/ScriptContext;)Ljava/lang/Object;
+      10: areturn
+
+  private static org.graalvm.polyglot.Source createSource(java.lang.String, javax.script.ScriptContext) throws javax.script.ScriptException;
+    Code:
+       0: aload_1
+       1: ldc           #122                // String javax.script.filename
+       3: invokeinterface #123,  2          // InterfaceMethod javax/script/ScriptContext.getAttribute:(Ljava/lang/String;)Ljava/lang/Object;
+       8: astore_2
+       9: aload_2
+      10: ifnonnull     25
+      13: ldc           #51                 // String js
+      15: aload_0
+      16: ldc           #124                // String <eval>
+      18: invokestatic  #101                // Method org/graalvm/polyglot/Source.newBuilder:(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/String;)Lorg/graalvm/polyglot/Source$Builder;
+      21: invokevirtual #103                // Method org/graalvm/polyglot/Source$Builder.buildLiteral:()Lorg/graalvm/polyglot/Source;
+      24: areturn
+      25: ldc           #51                 // String js
+      27: new           #125                // class java/io/File
+      30: dup
+      31: aload_2
+      32: invokevirtual #126                // Method java/lang/Object.toString:()Ljava/lang/String;
+      35: invokespecial #127                // Method java/io/File."<init>":(Ljava/lang/String;)V
+      38: invokestatic  #128                // Method org/graalvm/polyglot/Source.newBuilder:(Ljava/lang/String;Ljava/io/File;)Lorg/graalvm/polyglot/Source$Builder;
+      41: aload_0
+      42: invokevirtual #129                // Method org/graalvm/polyglot/Source$Builder.content:(Ljava/lang/String;)Lorg/graalvm/polyglot/Source$Builder;
+      45: invokevirtual #130                // Method org/graalvm/polyglot/Source$Builder.build:()Lorg/graalvm/polyglot/Source;
+      48: areturn
+      49: astore_3
+      50: new           #119                // class javax/script/ScriptException
+      53: dup
+      54: aload_3
+      55: invokespecial #120                // Method javax/script/ScriptException."<init>":(Ljava/lang/Exception;)V
+      58: athrow
+    Exception table:
+       from    to  target type
+          25    48    49   Class java/io/IOException
+
+  private static void updateDelegatingIOStreams(org.graalvm.polyglot.Context, javax.script.ScriptContext);
+    Code:
+       0: aload_0
+       1: invokevirtual #90                 // Method org/graalvm/polyglot/Context.getPolyglotBindings:()Lorg/graalvm/polyglot/Value;
+       4: astore_2
+       5: aload_2
+       6: ldc           #91                 // String $$internal.out$$
+       8: invokevirtual #131                // Method org/graalvm/polyglot/Value.getMember:(Ljava/lang/String;)Lorg/graalvm/polyglot/Value;
+      11: invokevirtual #132                // Method org/graalvm/polyglot/Value.asProxyObject:()Lorg/graalvm/polyglot/proxy/Proxy;
+      14: checkcast     #84                 // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream
+      17: aload_1
+      18: invokeinterface #133,  1          // InterfaceMethod javax/script/ScriptContext.getWriter:()Ljava/io/Writer;
+      23: invokevirtual #134                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream.setWriter:(Ljava/io/Writer;)V
+      26: aload_2
+      27: ldc           #93                 // String $$internal.err$$
+      29: invokevirtual #131                // Method org/graalvm/polyglot/Value.getMember:(Ljava/lang/String;)Lorg/graalvm/polyglot/Value;
+      32: invokevirtual #132                // Method org/graalvm/polyglot/Value.asProxyObject:()Lorg/graalvm/polyglot/proxy/Proxy;
+      35: checkcast     #84                 // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream
+      38: aload_1
+      39: invokeinterface #135,  1          // InterfaceMethod javax/script/ScriptContext.getErrorWriter:()Ljava/io/Writer;
+      44: invokevirtual #134                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingOutputStream.setWriter:(Ljava/io/Writer;)V
+      47: aload_2
+      48: ldc           #94                 // String $$internal.in$$
+      50: invokevirtual #131                // Method org/graalvm/polyglot/Value.getMember:(Ljava/lang/String;)Lorg/graalvm/polyglot/Value;
+      53: invokevirtual #132                // Method org/graalvm/polyglot/Value.asProxyObject:()Lorg/graalvm/polyglot/proxy/Proxy;
+      56: checkcast     #82                 // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingInputStream
+      59: aload_1
+      60: invokeinterface #136,  1          // InterfaceMethod javax/script/ScriptContext.getReader:()Ljava/io/Reader;
+      65: invokevirtual #137                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$DelegatingInputStream.setReader:(Ljava/io/Reader;)V
+      68: return
+
+  private java.lang.Object eval(org.graalvm.polyglot.Source, javax.script.ScriptContext) throws javax.script.ScriptException;
+    Code:
+       0: aload_0
+       1: aload_2
+       2: invokevirtual #98                 // Method getOrCreateGraalJSBindings:(Ljavax/script/ScriptContext;)Lcom/oracle/truffle/js/scriptengine/GraalJSBindings;
+       5: astore_3
+       6: aload_3
+       7: invokevirtual #99                 // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.getContext:()Lorg/graalvm/polyglot/Context;
+      10: astore        4
+      12: aload         4
+      14: aload_2
+      15: invokestatic  #138                // Method updateDelegatingIOStreams:(Lorg/graalvm/polyglot/Context;Ljavax/script/ScriptContext;)V
+      18: aload_0
+      19: getfield      #139                // Field evalCalled:Z
+      22: ifne          31
+      25: aload_1
+      26: aload         4
+      28: invokestatic  #140                // Method jrunscriptInitWorkaround:(Lorg/graalvm/polyglot/Source;Lorg/graalvm/polyglot/Context;)V
+      31: aload_3
+      32: aload_2
+      33: invokevirtual #141                // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.importGlobalBindings:(Ljavax/script/ScriptContext;)V
+      36: aload         4
+      38: aload_1
+      39: invokevirtual #104                // Method org/graalvm/polyglot/Context.eval:(Lorg/graalvm/polyglot/Source;)Lorg/graalvm/polyglot/Value;
+      42: ldc           #35                 // class java/lang/Object
+      44: invokevirtual #142                // Method org/graalvm/polyglot/Value.as:(Ljava/lang/Class;)Ljava/lang/Object;
+      47: astore        5
+      49: aload_0
+      50: iconst_1
+      51: putfield      #139                // Field evalCalled:Z
+      54: aload         5
+      56: areturn
+      57: astore        5
+      59: aload         5
+      61: invokestatic  #144                // Method toScriptException:(Lorg/graalvm/polyglot/PolyglotException;)Ljavax/script/ScriptException;
+      64: athrow
+      65: astore        6
+      67: aload_0
+      68: iconst_1
+      69: putfield      #139                // Field evalCalled:Z
+      72: aload         6
+      74: athrow
+    Exception table:
+       from    to  target type
+          18    49    57   Class org/graalvm/polyglot/PolyglotException
+          18    49    65   any
+          57    67    65   any
+
+  private static javax.script.ScriptException toScriptException(org.graalvm.polyglot.PolyglotException);
+    Code:
+       0: aload_0
+       1: invokevirtual #145                // Method org/graalvm/polyglot/PolyglotException.isHostException:()Z
+       4: ifeq          56
+       7: aload_0
+       8: invokevirtual #146                // Method org/graalvm/polyglot/PolyglotException.asHostException:()Ljava/lang/Throwable;
+      11: astore_2
+      12: aload_2
+      13: instanceof    #147                // class java/lang/Exception
+      16: ifeq          27
+      19: aload_2
+      20: checkcast     #147                // class java/lang/Exception
+      23: astore_3
+      24: goto          36
+      27: new           #147                // class java/lang/Exception
+      30: dup
+      31: aload_2
+      32: invokespecial #148                // Method java/lang/Exception."<init>":(Ljava/lang/Throwable;)V
+      35: astore_3
+      36: new           #119                // class javax/script/ScriptException
+      39: dup
+      40: aload_3
+      41: invokespecial #120                // Method javax/script/ScriptException."<init>":(Ljava/lang/Exception;)V
+      44: astore_1
+      45: aload_1
+      46: aload_0
+      47: invokevirtual #149                // Method org/graalvm/polyglot/PolyglotException.getStackTrace:()[Ljava/lang/StackTraceElement;
+      50: invokevirtual #150                // Method javax/script/ScriptException.setStackTrace:([Ljava/lang/StackTraceElement;)V
+      53: goto          65
+      56: new           #119                // class javax/script/ScriptException
+      59: dup
+      60: aload_0
+      61: invokespecial #120                // Method javax/script/ScriptException."<init>":(Ljava/lang/Exception;)V
+      64: astore_1
+      65: aload_1
+      66: areturn
+
+  private com.oracle.truffle.js.scriptengine.GraalJSBindings getOrCreateGraalJSBindings(javax.script.ScriptContext);
+    Code:
+       0: aload_1
+       1: bipush        100
+       3: invokeinterface #151,  2          // InterfaceMethod javax/script/ScriptContext.getBindings:(I)Ljavax/script/Bindings;
+       8: astore_2
+       9: aload_2
+      10: instanceof    #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+      13: ifeq          21
+      16: aload_2
+      17: checkcast     #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+      20: areturn
+      21: new           #74                 // class com/oracle/truffle/js/scriptengine/GraalJSBindings
+      24: dup
+      25: aload_0
+      26: aload_2
+      27: invokevirtual #152                // Method createContext:(Ljavax/script/Bindings;)Lorg/graalvm/polyglot/Context;
+      30: aload_1
+      31: invokespecial #153                // Method com/oracle/truffle/js/scriptengine/GraalJSBindings."<init>":(Lorg/graalvm/polyglot/Context;Ljavax/script/ScriptContext;)V
+      34: astore_3
+      35: aload_3
+      36: aload_2
+      37: invokevirtual #154                // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.putAll:(Ljava/util/Map;)V
+      40: aload_3
+      41: areturn
+
+  private org.graalvm.polyglot.Context createContext(javax.script.Bindings);
+    Code:
+       0: aload_1
+       1: ldc           #155                // String polyglot.context
+       3: invokeinterface #156,  2          // InterfaceMethod javax/script/Bindings.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       8: astore_2
+       9: aload_2
+      10: instanceof    #157                // class org/graalvm/polyglot/Context
+      13: ifne          114
+      16: aload_0
+      17: getfield      #72                 // Field contextConfig:Lorg/graalvm/polyglot/Context$Builder;
+      20: astore_3
+      21: getstatic     #158                // Field MAGIC_OPTION_SETTERS:[Lcom/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter;
+      24: astore        4
+      26: aload         4
+      28: arraylength
+      29: istore        5
+      31: iconst_0
+      32: istore        6
+      34: iload         6
+      36: iload         5
+      38: if_icmpge     99
+      41: aload         4
+      43: iload         6
+      45: aaload
+      46: astore        7
+      48: aload_1
+      49: aload         7
+      51: invokeinterface #41,  1           // InterfaceMethod com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter.getOptionKey:()Ljava/lang/String;
+      56: invokeinterface #156,  2          // InterfaceMethod javax/script/Bindings.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      61: astore        8
+      63: aload         8
+      65: ifnull        93
+      68: aload         7
+      70: aload_3
+      71: aload         8
+      73: invokeinterface #159,  3          // InterfaceMethod com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter.setOption:(Lorg/graalvm/polyglot/Context$Builder;Ljava/lang/Object;)Lorg/graalvm/polyglot/Context$Builder;
+      78: astore_3
+      79: aload_1
+      80: aload         7
+      82: invokeinterface #41,  1           // InterfaceMethod com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter.getOptionKey:()Ljava/lang/String;
+      87: invokeinterface #160,  2          // InterfaceMethod javax/script/Bindings.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+      92: pop
+      93: iinc          6, 1
+      96: goto          34
+      99: aload_3
+     100: invokestatic  #161                // Method createDefaultContext:(Lorg/graalvm/polyglot/Context$Builder;)Lorg/graalvm/polyglot/Context;
+     103: astore_2
+     104: aload_1
+     105: ldc           #155                // String polyglot.context
+     107: aload_2
+     108: invokeinterface #162,  3          // InterfaceMethod javax/script/Bindings.put:(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+     113: pop
+     114: aload_2
+     115: checkcast     #157                // class org/graalvm/polyglot/Context
+     118: areturn
+
+  public com.oracle.truffle.js.scriptengine.GraalJSEngineFactory getFactory();
+    Code:
+       0: aload_0
+       1: getfield      #69                 // Field factory:Lcom/oracle/truffle/js/scriptengine/GraalJSEngineFactory;
+       4: areturn
+
+  public java.lang.Object invokeMethod(java.lang.Object, java.lang.String, java.lang.Object...) throws javax.script.ScriptException, java.lang.NoSuchMethodException;
+    Code:
+       0: aload_1
+       1: ifnonnull     14
+       4: new           #163                // class java/lang/IllegalArgumentException
+       7: dup
+       8: ldc           #164                // String thiz is not a valid object.
+      10: invokespecial #165                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      13: athrow
+      14: aload_0
+      15: aload_0
+      16: getfield      #73                 // Field context:Ljavax/script/ScriptContext;
+      19: invokevirtual #98                 // Method getOrCreateGraalJSBindings:(Ljavax/script/ScriptContext;)Lcom/oracle/truffle/js/scriptengine/GraalJSBindings;
+      22: astore        4
+      24: aload         4
+      26: aload_0
+      27: getfield      #73                 // Field context:Ljavax/script/ScriptContext;
+      30: invokevirtual #141                // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.importGlobalBindings:(Ljavax/script/ScriptContext;)V
+      33: aload         4
+      35: invokevirtual #99                 // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.getContext:()Lorg/graalvm/polyglot/Context;
+      38: aload_1
+      39: invokevirtual #166                // Method org/graalvm/polyglot/Context.asValue:(Ljava/lang/Object;)Lorg/graalvm/polyglot/Value;
+      42: astore        5
+      44: aload         5
+      46: aload_2
+      47: invokevirtual #34                 // Method org/graalvm/polyglot/Value.canInvokeMember:(Ljava/lang/String;)Z
+      50: ifne          72
+      53: aload         5
+      55: aload_2
+      56: invokevirtual #167                // Method org/graalvm/polyglot/Value.hasMember:(Ljava/lang/String;)Z
+      59: ifne          67
+      62: aload_2
+      63: invokestatic  #168                // Method noSuchMethod:(Ljava/lang/String;)Ljava/lang/NoSuchMethodException;
+      66: athrow
+      67: aload_2
+      68: invokestatic  #169                // Method notCallable:(Ljava/lang/String;)Ljava/lang/NoSuchMethodException;
+      71: athrow
+      72: aload         5
+      74: aload_2
+      75: aload_3
+      76: invokevirtual #36                 // Method org/graalvm/polyglot/Value.invokeMember:(Ljava/lang/String;[Ljava/lang/Object;)Lorg/graalvm/polyglot/Value;
+      79: ldc           #35                 // class java/lang/Object
+      81: invokevirtual #142                // Method org/graalvm/polyglot/Value.as:(Ljava/lang/Class;)Ljava/lang/Object;
+      84: areturn
+      85: astore        6
+      87: aload         6
+      89: invokestatic  #144                // Method toScriptException:(Lorg/graalvm/polyglot/PolyglotException;)Ljavax/script/ScriptException;
+      92: athrow
+    Exception table:
+       from    to  target type
+          72    84    85   Class org/graalvm/polyglot/PolyglotException
+
+  public java.lang.Object invokeFunction(java.lang.String, java.lang.Object...) throws javax.script.ScriptException, java.lang.NoSuchMethodException;
+    Code:
+       0: aload_0
+       1: aload_0
+       2: getfield      #73                 // Field context:Ljavax/script/ScriptContext;
+       5: invokevirtual #98                 // Method getOrCreateGraalJSBindings:(Ljavax/script/ScriptContext;)Lcom/oracle/truffle/js/scriptengine/GraalJSBindings;
+       8: astore_3
+       9: aload_3
+      10: aload_0
+      11: getfield      #73                 // Field context:Ljavax/script/ScriptContext;
+      14: invokevirtual #141                // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.importGlobalBindings:(Ljavax/script/ScriptContext;)V
+      17: aload_3
+      18: invokevirtual #99                 // Method com/oracle/truffle/js/scriptengine/GraalJSBindings.getContext:()Lorg/graalvm/polyglot/Context;
+      21: ldc           #51                 // String js
+      23: invokevirtual #170                // Method org/graalvm/polyglot/Context.getBindings:(Ljava/lang/String;)Lorg/graalvm/polyglot/Value;
+      26: aload_1
+      27: invokevirtual #131                // Method org/graalvm/polyglot/Value.getMember:(Ljava/lang/String;)Lorg/graalvm/polyglot/Value;
+      30: astore        4
+      32: aload         4
+      34: ifnonnull     42
+      37: aload_1
+      38: invokestatic  #168                // Method noSuchMethod:(Ljava/lang/String;)Ljava/lang/NoSuchMethodException;
+      41: athrow
+      42: aload         4
+      44: invokevirtual #171                // Method org/graalvm/polyglot/Value.canExecute:()Z
+      47: ifne          55
+      50: aload_1
+      51: invokestatic  #169                // Method notCallable:(Ljava/lang/String;)Ljava/lang/NoSuchMethodException;
+      54: athrow
+      55: aload         4
+      57: aload_2
+      58: invokevirtual #172                // Method org/graalvm/polyglot/Value.execute:([Ljava/lang/Object;)Lorg/graalvm/polyglot/Value;
+      61: ldc           #35                 // class java/lang/Object
+      63: invokevirtual #142                // Method org/graalvm/polyglot/Value.as:(Ljava/lang/Class;)Ljava/lang/Object;
+      66: areturn
+      67: astore        5
+      69: aload         5
+      71: invokestatic  #144                // Method toScriptException:(Lorg/graalvm/polyglot/PolyglotException;)Ljavax/script/ScriptException;
+      74: athrow
+    Exception table:
+       from    to  target type
+          55    66    67   Class org/graalvm/polyglot/PolyglotException
+
+  private static java.lang.NoSuchMethodException noSuchMethod(java.lang.String) throws java.lang.NoSuchMethodException;
+    Code:
+       0: new           #173                // class java/lang/NoSuchMethodException
+       3: dup
+       4: aload_0
+       5: invokespecial #174                // Method java/lang/NoSuchMethodException."<init>":(Ljava/lang/String;)V
+       8: athrow
+
+  private static java.lang.NoSuchMethodException notCallable(java.lang.String) throws java.lang.NoSuchMethodException;
+    Code:
+       0: new           #173                // class java/lang/NoSuchMethodException
+       3: dup
+       4: aload_0
+       5: invokedynamic #175,  0            // InvokeDynamic #12:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      10: invokespecial #174                // Method java/lang/NoSuchMethodException."<init>":(Ljava/lang/String;)V
+      13: athrow
+
+  public <T> T getInterface(java.lang.Class<T>);
+    Code:
+       0: aload_1
+       1: invokestatic  #176                // Method checkInterface:(Ljava/lang/Class;)V
+       4: aload_0
+       5: invokevirtual #95                 // Method getPolyglotContext:()Lorg/graalvm/polyglot/Context;
+       8: ldc           #177                // String this
+      10: invokestatic  #178                // Method evalInternal:(Lorg/graalvm/polyglot/Context;Ljava/lang/String;)Lorg/graalvm/polyglot/Value;
+      13: aload_1
+      14: invokestatic  #179                // Method getInterfaceInner:(Lorg/graalvm/polyglot/Value;Ljava/lang/Class;)Ljava/lang/Object;
+      17: areturn
+
+  public <T> T getInterface(java.lang.Object, java.lang.Class<T>);
+    Code:
+       0: aload_1
+       1: ifnonnull     14
+       4: new           #163                // class java/lang/IllegalArgumentException
+       7: dup
+       8: ldc           #180                // String this cannot be null
+      10: invokespecial #165                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      13: athrow
+      14: aload_2
+      15: invokestatic  #176                // Method checkInterface:(Ljava/lang/Class;)V
+      18: aload_0
+      19: invokevirtual #95                 // Method getPolyglotContext:()Lorg/graalvm/polyglot/Context;
+      22: aload_1
+      23: invokevirtual #166                // Method org/graalvm/polyglot/Context.asValue:(Ljava/lang/Object;)Lorg/graalvm/polyglot/Value;
+      26: astore_3
+      27: aload_3
+      28: invokestatic  #181                // Method checkThis:(Lorg/graalvm/polyglot/Value;)V
+      31: aload_3
+      32: aload_2
+      33: invokestatic  #179                // Method getInterfaceInner:(Lorg/graalvm/polyglot/Value;Ljava/lang/Class;)Ljava/lang/Object;
+      36: areturn
+
+  private static void checkInterface(java.lang.Class<?>);
+    Code:
+       0: aload_0
+       1: ifnull        11
+       4: aload_0
+       5: invokevirtual #182                // Method java/lang/Class.isInterface:()Z
+       8: ifne          21
+      11: new           #163                // class java/lang/IllegalArgumentException
+      14: dup
+      15: ldc           #183                // String interface Class expected in getInterface
+      17: invokespecial #165                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      20: athrow
+      21: return
+
+  private static void checkThis(org.graalvm.polyglot.Value);
+    Code:
+       0: aload_0
+       1: invokevirtual #184                // Method org/graalvm/polyglot/Value.isHostObject:()Z
+       4: ifne          14
+       7: aload_0
+       8: invokevirtual #31                 // Method org/graalvm/polyglot/Value.hasMembers:()Z
+      11: ifne          24
+      14: new           #163                // class java/lang/IllegalArgumentException
+      17: dup
+      18: ldc           #185                // String getInterface cannot be called on non-script object
+      20: invokespecial #165                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      23: athrow
+      24: return
+
+  private static <T> T getInterfaceInner(org.graalvm.polyglot.Value, java.lang.Class<T>);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokestatic  #186                // Method isInterfaceImplemented:(Ljava/lang/Class;Lorg/graalvm/polyglot/Value;)Z
+       5: ifne          10
+       8: aconst_null
+       9: areturn
+      10: aload_0
+      11: aload_1
+      12: invokevirtual #142                // Method org/graalvm/polyglot/Value.as:(Ljava/lang/Class;)Ljava/lang/Object;
+      15: areturn
+
+  public javax.script.CompiledScript compile(java.lang.String) throws javax.script.ScriptException;
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokevirtual #108                // Method getContext:()Ljavax/script/ScriptContext;
+       5: invokestatic  #110                // Method createSource:(Ljava/lang/String;Ljavax/script/ScriptContext;)Lorg/graalvm/polyglot/Source;
+       8: astore_2
+       9: aload_0
+      10: aload_2
+      11: invokevirtual #187                // Method compile:(Lorg/graalvm/polyglot/Source;)Ljavax/script/CompiledScript;
+      14: areturn
+
+  public javax.script.CompiledScript compile(java.io.Reader) throws javax.script.ScriptException;
+    Code:
+       0: aload_1
+       1: invokestatic  #109                // Method read:(Ljava/io/Reader;)Ljava/lang/String;
+       4: aload_0
+       5: invokevirtual #108                // Method getContext:()Ljavax/script/ScriptContext;
+       8: invokestatic  #110                // Method createSource:(Ljava/lang/String;Ljavax/script/ScriptContext;)Lorg/graalvm/polyglot/Source;
+      11: astore_2
+      12: aload_0
+      13: aload_2
+      14: invokevirtual #187                // Method compile:(Lorg/graalvm/polyglot/Source;)Ljavax/script/CompiledScript;
+      17: areturn
+
+  private javax.script.CompiledScript compile(org.graalvm.polyglot.Source) throws javax.script.ScriptException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #188                // Method checkSyntax:(Lorg/graalvm/polyglot/Source;)V
+       5: new           #189                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$10
+       8: dup
+       9: aload_0
+      10: aload_1
+      11: invokespecial #190                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$10."<init>":(Lcom/oracle/truffle/js/scriptengine/GraalJSScriptEngine;Lorg/graalvm/polyglot/Source;)V
+      14: areturn
+
+  private void checkSyntax(org.graalvm.polyglot.Source) throws javax.script.ScriptException;
+    Code:
+       0: aload_0
+       1: invokevirtual #95                 // Method getPolyglotContext:()Lorg/graalvm/polyglot/Context;
+       4: aload_1
+       5: invokevirtual #191                // Method org/graalvm/polyglot/Context.parse:(Lorg/graalvm/polyglot/Source;)Lorg/graalvm/polyglot/Value;
+       8: pop
+       9: goto          18
+      12: astore_2
+      13: aload_2
+      14: invokestatic  #144                // Method toScriptException:(Lorg/graalvm/polyglot/PolyglotException;)Ljavax/script/ScriptException;
+      17: athrow
+      18: return
+    Exception table:
+       from    to  target type
+           0     9    12   Class org/graalvm/polyglot/PolyglotException
+
+  public static com.oracle.truffle.js.scriptengine.GraalJSScriptEngine create();
+    Code:
+       0: aconst_null
+       1: aconst_null
+       2: invokestatic  #192                // Method create:(Lorg/graalvm/polyglot/Engine;Lorg/graalvm/polyglot/Context$Builder;)Lcom/oracle/truffle/js/scriptengine/GraalJSScriptEngine;
+       5: areturn
+
+  public static com.oracle.truffle.js.scriptengine.GraalJSScriptEngine create(org.graalvm.polyglot.Engine, org.graalvm.polyglot.Context$Builder);
+    Code:
+       0: new           #50                 // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine
+       3: dup
+       4: aconst_null
+       5: aload_0
+       6: aload_1
+       7: invokespecial #45                 // Method "<init>":(Lcom/oracle/truffle/js/scriptengine/GraalJSEngineFactory;Lorg/graalvm/polyglot/Engine;Lorg/graalvm/polyglot/Context$Builder;)V
+      10: areturn
+
+  private static boolean isInterfaceImplemented(java.lang.Class<?>, org.graalvm.polyglot.Value);
+    Code:
+       0: aload_0
+       1: invokevirtual #193                // Method java/lang/Class.getMethods:()[Ljava/lang/reflect/Method;
+       4: astore_2
+       5: aload_2
+       6: arraylength
+       7: istore_3
+       8: iconst_0
+       9: istore        4
+      11: iload         4
+      13: iload_3
+      14: if_icmpge     70
+      17: aload_2
+      18: iload         4
+      20: aaload
+      21: astore        5
+      23: aload         5
+      25: invokevirtual #194                // Method java/lang/reflect/Method.getDeclaringClass:()Ljava/lang/Class;
+      28: ldc           #35                 // class java/lang/Object
+      30: if_acmpne     36
+      33: goto          64
+      36: aload         5
+      38: invokevirtual #195                // Method java/lang/reflect/Method.getModifiers:()I
+      41: invokestatic  #196                // Method java/lang/reflect/Modifier.isAbstract:(I)Z
+      44: ifne          50
+      47: goto          64
+      50: aload_1
+      51: aload         5
+      53: invokevirtual #197                // Method java/lang/reflect/Method.getName:()Ljava/lang/String;
+      56: invokevirtual #34                 // Method org/graalvm/polyglot/Value.canInvokeMember:(Ljava/lang/String;)Z
+      59: ifne          64
+      62: iconst_0
+      63: ireturn
+      64: iinc          4, 1
+      67: goto          11
+      70: iconst_1
+      71: ireturn
+
+  private static void jrunscriptInitWorkaround(org.graalvm.polyglot.Source, org.graalvm.polyglot.Context);
+    Code:
+       0: aload_0
+       1: invokevirtual #198                // Method org/graalvm/polyglot/Source.getName:()Ljava/lang/String;
+       4: ldc           #199                // String <system-init>
+       6: invokevirtual #200                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       9: ifeq          63
+      12: aload_0
+      13: invokevirtual #201                // Method org/graalvm/polyglot/Source.getCharacters:()Ljava/lang/CharSequence;
+      16: invokeinterface #202,  1          // InterfaceMethod java/lang/CharSequence.toString:()Ljava/lang/String;
+      21: astore_2
+      22: aload_2
+      23: ldc           #203                // String jrunscript
+      25: invokevirtual #204                // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+      28: ifeq          63
+      31: aload_2
+      32: ldc           #205                // String JSAdapter
+      34: invokevirtual #204                // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+      37: ifeq          63
+      40: aload_1
+      41: ldc           #51                 // String js
+      43: invokevirtual #170                // Method org/graalvm/polyglot/Context.getBindings:(Ljava/lang/String;)Lorg/graalvm/polyglot/Value;
+      46: ldc           #205                // String JSAdapter
+      48: invokevirtual #167                // Method org/graalvm/polyglot/Value.hasMember:(Ljava/lang/String;)Z
+      51: ifne          63
+      54: aload_1
+      55: ldc           #51                 // String js
+      57: ldc           #206                // String this.JSAdapter || Object.defineProperty(this, \"JSAdapter\", {configurable:true, writable:true, enumerable: false, value: function(t) {\n    var target = {};\n    var handler = {\n        get: function(target, name) {return typeof t.__get__ == \'function\' ? t.__get__.call(target, name) : undefined;},\n        has: function(target, name) {return typeof t.__has__ == \'function\' ? t.__has__.call(target, name) : false;},\n        deleteProperty: function(target, name) {return typeof t.__delete__ == \'function\' ? t.__delete__.call(target, name) : true;},\n        set: function(target, name, value) {return typeof t.__put__ == \'function\' ? t.__put__.call(target, name, value) : undefined;},\n        ownKeys: function(target) {return typeof t.__getIds__ == \'function\' ? t.__getIds__.call(target) : [];},\n    }\n    return new Proxy(target, handler);\n}});\n
+      59: invokevirtual #207                // Method org/graalvm/polyglot/Context.eval:(Ljava/lang/String;Ljava/lang/CharSequence;)Lorg/graalvm/polyglot/Value;
+      62: pop
+      63: return
+
+  private static java.lang.IllegalArgumentException magicOptionValueErrorBool(java.lang.String, java.lang.Object);
+    Code:
+       0: new           #163                // class java/lang/IllegalArgumentException
+       3: dup
+       4: ldc           #208                // String failed to set graal-js option \"%s\": expected a boolean value, got \"%s\"
+       6: iconst_2
+       7: anewarray     #35                 // class java/lang/Object
+      10: dup
+      11: iconst_0
+      12: aload_0
+      13: aastore
+      14: dup
+      15: iconst_1
+      16: aload_1
+      17: aastore
+      18: invokestatic  #209                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      21: invokespecial #165                // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      24: areturn
+
+  public javax.script.ScriptEngineFactory getFactory();
+    Code:
+       0: aload_0
+       1: invokevirtual #210                // Method getFactory:()Lcom/oracle/truffle/js/scriptengine/GraalJSEngineFactory;
+       4: areturn
+
+  private static java.lang.Boolean lambda$createNashornHostAccess$11(java.lang.String);
+    Code:
+       0: aload_0
+       1: invokevirtual #211                // Method java/lang/String.isEmpty:()Z
+       4: ifne          11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: invokestatic  #212                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      15: areturn
+
+  private static boolean lambda$createNashornHostAccess$10(java.lang.String);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  private static java.lang.Boolean lambda$createNashornHostAccess$9(java.lang.Number);
+    Code:
+       0: aload_0
+       1: invokevirtual #213                // Method java/lang/Number.doubleValue:()D
+       4: invokestatic  #214                // Method toBoolean:(D)Z
+       7: invokestatic  #212                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+      10: areturn
+
+  private static boolean lambda$createNashornHostAccess$8(java.lang.Number);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  private static java.lang.Long lambda$createNashornHostAccess$7(java.lang.Number);
+    Code:
+       0: aload_0
+       1: invokevirtual #215                // Method java/lang/Number.longValue:()J
+       4: invokestatic  #216                // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+       7: areturn
+
+  private static boolean lambda$createNashornHostAccess$6(java.lang.Number);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  private static java.lang.Double lambda$createNashornHostAccess$5(java.lang.Number);
+    Code:
+       0: aload_0
+       1: invokevirtual #213                // Method java/lang/Number.doubleValue:()D
+       4: invokestatic  #217                // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+       7: areturn
+
+  private static boolean lambda$createNashornHostAccess$4(java.lang.Number);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  private static java.lang.Integer lambda$createNashornHostAccess$3(java.lang.Number);
+    Code:
+       0: aload_0
+       1: invokevirtual #218                // Method java/lang/Number.intValue:()I
+       4: invokestatic  #219                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       7: areturn
+
+  private static boolean lambda$createNashornHostAccess$2(java.lang.Number);
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  private static java.lang.String lambda$createNashornHostAccess$1(org.graalvm.polyglot.Value);
+    Code:
+       0: aload_0
+       1: invokestatic  #220                // Method toString:(Lorg/graalvm/polyglot/Value;)Ljava/lang/String;
+       4: areturn
+
+  private static boolean lambda$createNashornHostAccess$0(org.graalvm.polyglot.Value);
+    Code:
+       0: aload_0
+       1: invokevirtual #30                 // Method org/graalvm/polyglot/Value.isNull:()Z
+       4: ifne          11
+       7: iconst_1
+       8: goto          12
+      11: iconst_0
+      12: ireturn
+
+  static {};
+    Code:
+       0: invokestatic  #221                // Method createNashornHostAccess:()Lorg/graalvm/polyglot/HostAccess;
+       3: putstatic     #79                 // Field NASHORN_HOST_ACCESS:Lorg/graalvm/polyglot/HostAccess;
+       6: bipush        9
+       8: anewarray     #222                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter
+      11: dup
+      12: iconst_0
+      13: new           #223                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$1
+      16: dup
+      17: invokespecial #224                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$1."<init>":()V
+      20: aastore
+      21: dup
+      22: iconst_1
+      23: new           #225                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$2
+      26: dup
+      27: invokespecial #226                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$2."<init>":()V
+      30: aastore
+      31: dup
+      32: iconst_2
+      33: new           #227                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$3
+      36: dup
+      37: invokespecial #228                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$3."<init>":()V
+      40: aastore
+      41: dup
+      42: iconst_3
+      43: new           #229                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$4
+      46: dup
+      47: invokespecial #230                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$4."<init>":()V
+      50: aastore
+      51: dup
+      52: iconst_4
+      53: new           #231                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$5
+      56: dup
+      57: invokespecial #232                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$5."<init>":()V
+      60: aastore
+      61: dup
+      62: iconst_5
+      63: new           #233                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$6
+      66: dup
+      67: invokespecial #234                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$6."<init>":()V
+      70: aastore
+      71: dup
+      72: bipush        6
+      74: new           #235                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$7
+      77: dup
+      78: invokespecial #236                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$7."<init>":()V
+      81: aastore
+      82: dup
+      83: bipush        7
+      85: new           #237                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$8
+      88: dup
+      89: invokespecial #238                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$8."<init>":()V
+      92: aastore
+      93: dup
+      94: bipush        8
+      96: new           #239                // class com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$9
+      99: dup
+     100: invokespecial #240                // Method com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$9."<init>":()V
+     103: aastore
+     104: putstatic     #158                // Field MAGIC_OPTION_SETTERS:[Lcom/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter;
+     107: invokestatic  #241                // InterfaceMethod org/graalvm/collections/EconomicSet.create:()Lorg/graalvm/collections/EconomicSet;
+     110: putstatic     #242                // Field MAGIC_BINDINGS_OPTION_KEYS:Lorg/graalvm/collections/EconomicSet;
+     113: invokestatic  #243                // InterfaceMethod org/graalvm/collections/EconomicMap.create:()Lorg/graalvm/collections/EconomicMap;
+     116: putstatic     #244                // Field MAGIC_BINDINGS_OPTION_MAP:Lorg/graalvm/collections/EconomicMap;
+     119: ldc           #245                // String polyglot.js.nashorn-compat
+     121: invokestatic  #65                 // Method java/lang/Boolean.getBoolean:(Ljava/lang/String;)Z
+     124: putstatic     #62                 // Field NASHORN_COMPATIBILITY_MODE:Z
+     127: getstatic     #158                // Field MAGIC_OPTION_SETTERS:[Lcom/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter;
+     130: astore_0
+     131: aload_0
+     132: arraylength
+     133: istore_1
+     134: iconst_0
+     135: istore_2
+     136: iload_2
+     137: iload_1
+     138: if_icmpge     182
+     141: aload_0
+     142: iload_2
+     143: aaload
+     144: astore_3
+     145: getstatic     #242                // Field MAGIC_BINDINGS_OPTION_KEYS:Lorg/graalvm/collections/EconomicSet;
+     148: aload_3
+     149: invokeinterface #41,  1           // InterfaceMethod com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter.getOptionKey:()Ljava/lang/String;
+     154: invokeinterface #246,  2          // InterfaceMethod org/graalvm/collections/EconomicSet.add:(Ljava/lang/Object;)Z
+     159: pop
+     160: getstatic     #244                // Field MAGIC_BINDINGS_OPTION_MAP:Lorg/graalvm/collections/EconomicMap;
+     163: aload_3
+     164: invokeinterface #41,  1           // InterfaceMethod com/oracle/truffle/js/scriptengine/GraalJSScriptEngine$MagicBindingsOptionSetter.getOptionKey:()Ljava/lang/String;
+     169: aload_3
+     170: invokeinterface #247,  3          // InterfaceMethod org/graalvm/collections/EconomicMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     175: pop
+     176: iinc          2, 1
+     179: goto          136
+     182: return
+}

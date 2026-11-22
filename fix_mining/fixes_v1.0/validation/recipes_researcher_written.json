@@ -1,0 +1,223 @@
+[
+ {
+  "cases": [
+   1,
+   31,
+   38,
+   76,
+   90,
+   145,
+   151
+  ],
+  "file": "pom.xml",
+  "kind": "regex",
+  "old": "<logback\\.version>1\\.2\\.11</logback\\.version>",
+  "new": "<logback.version>1.3.5</logback.version>",
+  "source": "RESEARCHER-WRITTEN (Claude), not a developer fix: shows the case is fixable; NOT a reference answer. Companion upgrade: logback 1.2.11 -> 1.3.5 (an SLF4J-2 provider), as in the validated pdb/jadler developer fixes.",
+  "tree": "ch.qos.logback,org.slf4j"
+ },
+ {
+  "cases": [
+   48,
+   56,
+   59,
+   78,
+   117,
+   142,
+   156
+  ],
+  "kind": "multi",
+  "edits": [
+   {
+    "file": "pom.xml",
+    "kind": "regex",
+    "old": "<groupId>uk\\.org\\.lidalia</groupId>(\\s*)<artifactId>slf4j-test</artifactId>(\\s*)<version>1\\.2\\.0</version>",
+    "new": "<groupId>com.github.valfirst</groupId>\\g<1><artifactId>slf4j-test</artifactId>\\g<2><version>3.0.1</version>"
+   },
+   {
+    "file": "src/test/java/com/github/searls/jasmine/format/JasmineResultLoggerTest.java",
+    "kind": "regex_all",
+    "old": "uk\\.org\\.lidalia\\.slf4jtest",
+    "new": "com.github.valfirst.slf4jtest",
+    "min_matches": 3
+   }
+  ],
+  "source": "RESEARCHER-WRITTEN (Claude), not a developer fix: shows the case is fixable; NOT a reference answer. Replace the unmaintained SLF4J-1 test binding uk.org.lidalia:slf4j-test 1.2.0 with its SLF4J-2 fork com.github.valfirst:slf4j-test 3.0.1 (package rename in the test imports).",
+  "tree": "com.github.valfirst,org.slf4j"
+ },
+ {
+  "cases": [
+   5,
+   22,
+   24,
+   134,
+   144,
+   147,
+   153,
+   155
+  ],
+  "file": "pom.xml",
+  "kind": "subs",
+  "subs": [
+   [
+    "(<artifactId>slf4j-mock</artifactId>\\s*<version>)2\\.[0-3]\\.\\d+(</version>)",
+    "\\g<1>2.3.0\\g<2>",
+    0
+   ],
+   [
+    "<artifactId>slf4j-mock</artifactId>",
+    "<artifactId>slf4j2-mock</artifactId>",
+    2
+   ]
+  ],
+  "source": "RESEARCHER-WRITTEN (Claude), not a developer fix: shows the case is fixable; NOT a reference answer. Replace org.simplify4u:slf4j-mock 2.2.0/2.3.0 (SLF4J-1 binding) with org.simplify4u:slf4j2-mock 2.3.0 (same author and packages, SLF4J-2 provider).",
+  "tree": "org.simplify4u,org.slf4j"
+ },
+ {
+  "cases": [
+   9,
+   52,
+   89,
+   98
+  ],
+  "file": "core/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker",
+  "kind": "new_file",
+  "content": "mock-maker-subclass\n",
+  "source": "RESEARCHER-WRITTEN (Claude), not a developer fix: shows the case is fixable; NOT a reference answer. Restore Mockito's pre-5 default mock maker for the tests (documented Mockito 5 migration option: mockito-extensions/org.mockito.plugins.MockMaker = mock-maker-subclass)."
+ },
+ {
+  "cases": [
+   113
+  ],
+  "file": "gax/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker",
+  "kind": "new_file",
+  "content": "mock-maker-subclass\n",
+  "source": "RESEARCHER-WRITTEN (Claude), not a developer fix: shows the case is fixable; NOT a reference answer. Restore Mockito's pre-5 default mock maker for the gax tests (mock-maker-subclass)."
+ },
+ {
+  "cases": [
+   70
+  ],
+  "file": "src/main/java/org/geoserver/shell/ScriptCommands.java",
+  "kind": "regex_all",
+  "old": "jsonObject\\.getString\\(\"id\"\\)",
+  "new": "jsonObject.get(\"id\")",
+  "min_matches": 2,
+  "source": "RESEARCHER-WRITTEN (Claude), not a developer fix: shows the case is fixable; NOT a reference answer. Client code adaptation: read the numeric session id with get() (StringBuilder.append(Object)) because org.json 20230227 getString() rejects non-string values."
+ },
+ {
+  "cases": [
+   171
+  ],
+  "kind": "multi",
+  "source": "RESEARCHER-WRITTEN (Claude), not a developer fix: shows the case is fixable; NOT a reference answer. Smallest framework step: Dropwizard 2.0.17 -> 3.0.4 (still javax; ships logback 1.4, an SLF4J-2 provider). The minimal logback-only fix fails because logback 1.3 removed JMXConfigurator used by Dropwizard 2.0. Developer fix was Dropwizard 2 -> 4 (f10bef101d). Attempt 2 adds the Dropwizard 3 package move (io.dropwizard.{Application,Configuration,ConfiguredBundle,setup,server,cli} -> io.dropwizard.core.*) in 10 source files. Attempt 1 (POM only) failed to compile. Attempt 3 also removes the unused import io.dropwizard.Bundle (class removed in Dropwizard 3; it was referenced only in Javadoc). Attempt 4 adds junit:junit 4.13.2 (test): Dropwizard 3 testing no longer brings JUnit 4 transitively. Attempt 5 adds org.junit.vintage:junit-vintage-engine (version from the Dropwizard 3 BOM): attempt 4 compiled but ran 0 tests (JUnit 4 tests not discovered on the JUnit Platform). Attempt 6: vintage engine pinned to 5.9.3, the JUnit 5 version Dropwizard 3.0.4 uses (attempt 5 failed: version missing). Attempt 7 removes the jackson-databind 2.10.5.1 pin from dependencyManagement (the developer removed it too): attempt 6 ran the 16 tests but failed with Jackson NoClassDefFoundError.",
+  "tree": "ch.qos.logback,org.slf4j,io.dropwizard:dropwizard-core",
+  "edits": [
+   {
+    "file": "pom.xml",
+    "kind": "subs",
+    "subs": [
+     [
+      "<dropwizard\\.version>2\\.0\\.17</dropwizard\\.version>",
+      "<dropwizard.version>3.0.4</dropwizard.version>",
+      1
+     ],
+     [
+      "(</dependencyManagement>\\s*<dependencies>)",
+      "\\g<1>\n    <dependency>\n      <groupId>junit</groupId>\n      <artifactId>junit</artifactId>\n      <version>4.13.2</version>\n      <scope>test</scope>\n    </dependency>\n    <dependency>\n      <groupId>org.junit.vintage</groupId>\n      <artifactId>junit-vintage-engine</artifactId>\n      <version>5.9.3</version>\n      <scope>test</scope>\n    </dependency>",
+      1
+     ],
+     [
+      "\\s*<dependency>\\s*<groupId>com\\.fasterxml\\.jackson\\.core</groupId>\\s*<artifactId>jackson-databind</artifactId>\\s*<version>2\\.10\\.5\\.1</version>\\s*</dependency>",
+      "",
+      1
+     ]
+    ]
+   },
+   {
+    "file": "src/main/java/org/pac4j/dropwizard/DefaultFeatureSupport.java",
+    "kind": "regex_all",
+    "old": "io\\.dropwizard\\.(Application|Configuration|ConfiguredBundle|setup|server|cli)\\b",
+    "new": "io.dropwizard.core.\\g<1>",
+    "min_matches": 1
+   },
+   {
+    "file": "src/main/java/org/pac4j/dropwizard/J2EHelper.java",
+    "kind": "regex_all",
+    "old": "io\\.dropwizard\\.(Application|Configuration|ConfiguredBundle|setup|server|cli)\\b",
+    "new": "io.dropwizard.core.\\g<1>",
+    "min_matches": 1
+   },
+   {
+    "file": "src/main/java/org/pac4j/dropwizard/Pac4jBundle.java",
+    "kind": "regex_all",
+    "old": "io\\.dropwizard\\.(Application|Configuration|ConfiguredBundle|setup|server|cli)\\b",
+    "new": "io.dropwizard.core.\\g<1>",
+    "min_matches": 1
+   },
+   {
+    "file": "src/main/java/org/pac4j/dropwizard/Pac4jConfiguration.java",
+    "kind": "subs",
+    "subs": [
+     [
+      "import io\\.dropwizard\\.Bundle;\\n",
+      "",
+      1
+     ],
+     [
+      "\\{@link Bundle\\}s",
+      "Bundles",
+      1
+     ],
+     [
+      "io\\.dropwizard\\.(Application|Configuration|ConfiguredBundle|setup|server|cli)\\b",
+      "io.dropwizard.core.\\g<1>",
+      1
+     ]
+    ]
+   },
+   {
+    "file": "src/main/java/org/pac4j/dropwizard/Pac4jFeatureSupport.java",
+    "kind": "regex_all",
+    "old": "io\\.dropwizard\\.(Application|Configuration|ConfiguredBundle|setup|server|cli)\\b",
+    "new": "io.dropwizard.core.\\g<1>",
+    "min_matches": 1
+   },
+   {
+    "file": "src/test/java/org/pac4j/dropwizard/AbstractApplicationTest.java",
+    "kind": "regex_all",
+    "old": "io\\.dropwizard\\.(Application|Configuration|ConfiguredBundle|setup|server|cli)\\b",
+    "new": "io.dropwizard.core.\\g<1>",
+    "min_matches": 1
+   },
+   {
+    "file": "src/test/java/org/pac4j/dropwizard/AbstractConfigurationTest.java",
+    "kind": "regex_all",
+    "old": "io\\.dropwizard\\.(Application|Configuration|ConfiguredBundle|setup|server|cli)\\b",
+    "new": "io.dropwizard.core.\\g<1>",
+    "min_matches": 1
+   },
+   {
+    "file": "src/test/java/org/pac4j/dropwizard/bundle/BundleFactoryTest.java",
+    "kind": "regex_all",
+    "old": "io\\.dropwizard\\.(Application|Configuration|ConfiguredBundle|setup|server|cli)\\b",
+    "new": "io.dropwizard.core.\\g<1>",
+    "min_matches": 1
+   },
+   {
+    "file": "src/test/java/org/pac4j/dropwizard/e2e/EndToEndServletTest.java",
+    "kind": "regex_all",
+    "old": "io\\.dropwizard\\.(Application|Configuration|ConfiguredBundle|setup|server|cli)\\b",
+    "new": "io.dropwizard.core.\\g<1>",
+    "min_matches": 1
+   },
+   {
+    "file": "src/test/java/org/pac4j/dropwizard/e2e/EndToEndTest.java",
+    "kind": "regex_all",
+    "old": "io\\.dropwizard\\.(Application|Configuration|ConfiguredBundle|setup|server|cli)\\b",
+    "new": "io.dropwizard.core.\\g<1>",
+    "min_matches": 1
+   }
+  ]
+ }
+]

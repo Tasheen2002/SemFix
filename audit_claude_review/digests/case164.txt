@@ -1,0 +1,59 @@
+=== CASE 164 dbb2ae9a870a786e725eb095d86196a2d9081ec9
+  project=jcabi/jcabi-simpledb dep=org.hibernate.validator:hibernate-validator 6.2.5.Final -> 8.0.1.Final scope=runtime type=other java=11
+  PR=https://github.com/jcabi/jcabi-simpledb/pull/22
+  PRE log logs/batch_triage/dbb2ae9a_pre.log:
+  lines=106
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/dbb2ae9a_breaking.log:
+  lines=375
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 5, Failures: 0, Errors: 3, Skipped: 0
+  failing classes: Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! - in com.jcabi.simpledb.CredentialsTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in com.jcabi.simpledb.AwsDomainTest
+  section: Errors: | AwsDomainTest.makesAnItem:48 » NoAspectBound Exception while initializing com.jcabi.aspects.aj.MethodValidator: javax.validation.NoProviderFoundException: Unable to create a Configuration, because no Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. | CredentialsTest.instantiatesAwsClient:45 » NoAspectBound Exception while initializing com.jcabi.aspects.aj.MethodValidator: javax.validation.NoProviderFoundException: Unable to create a Configuration, because no Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. | CredentialsTest.instantiatesAwsClientWithCustomRegion:54 » NoAspectBound Exception while initializing com.jcabi.aspects.aj.MethodValidator: javax.validation.NoProviderFoundException: Unable to create a Configuration, because no Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  9.18
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project jcabi-simpledb: 
+  FAILBLOCK: [ERROR] com.jcabi.simpledb.CredentialsTest.instantiatesAwsClient  Time elapsed: 0.008 s  <<< ERROR!
+      org.aspectj.lang.NoAspectBoundException: Exception while initializing com.jcabi.aspects.aj.MethodValidator: javax.validation.NoProviderFoundException: Unable to create a Configuration, because no Bean Validation provider could be found. Add a provider like Hib
+      at com.jcabi.aspects.aj.MethodValidator.aspectOf(MethodValidator.java:1)
+      at com.jcabi.simpledb.Credentials$Simple.<init>(Credentials.java:100)
+      at com.jcabi.simpledb.CredentialsTest.instantiatesAwsClient(CredentialsTest.java:45)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+      Caused by: javax.validation.NoProviderFoundException: Unable to create a Configuration, because no Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+  distinct fail signatures (count): 3x org.aspectj.lang.NoAspectBoundException: Exception while initializing com.jcabi.aspects.aj.MethodValidator: javax.valida
+  exception names: javax.validation.NoProviderFoundExceptionx9, org.aspectj.lang.NoAspectBoundExceptionx3
+  EVIDENCE logs/case164_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/hibernate-validator-8.0.1.Final_HibernateValidator_javap.txt, breaking/jar_inspection.json, breaking/jars/hibernate-validator-8.0.1.Final.jar, breaking/jars/jakarta.validation-api-3.0.2.jar, breaking/jars/validation-api-2.0.1.Final.jar, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/hibernate-validator-6.2.5.Final_HibernateValidator_javap.txt, pre/jar_inspection.json, pre/jars/hibernate-validator-6.2.5.Final.jar, pre/jars/jakarta.validation-api-2.0.2.jar, pre/jars/validation-api-2.0.1.Final.jar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[5, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[5, 0, 3, 0]
+  archived non-report files: pre=21 breaking=21 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -103,3 +103,3 @@
+           <artifactId>hibernate-validator</artifactId>
+    -      <version>6.2.5.Final</version>
+    +      <version>8.0.1.Final</version>
+           <scope>runtime</scope>
+  BREAKING surefire failures/errors:
+    ERROR com.jcabi.simpledb.AwsDomainTest#makesAnItem type=org.aspectj.lang.NoAspectBoundException msg=Exception while initializing com.jcabi.aspects.aj.MethodValidator: javax.validation.NoProviderFoundException: Unable to create a Configuration, because no Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+       Caused by: javax.validation.NoProviderFoundException: Unable to create a Configuration, because no Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+       at com.jcabi.aspects.aj.MethodValidator.aspectOf(MethodValidator.java:1)
+       at com.jcabi.simpledb.AwsDomain.item(AwsDomain.java:95)
+       at com.jcabi.simpledb.AwsDomainTest.makesAnItem(AwsDomainTest.java:48)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    ERROR com.jcabi.simpledb.CredentialsTest#instantiatesAwsClient type=org.aspectj.lang.NoAspectBoundException msg=Exception while initializing com.jcabi.aspects.aj.MethodValidator: javax.validation.NoProviderFoundException: Unable to create a Configuration, because no Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+       Caused by: javax.validation.NoProviderFoundException: Unable to create a Configuration, because no Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+       at com.jcabi.aspects.aj.MethodValidator.aspectOf(MethodValidator.java:1)
+       at com.jcabi.simpledb.Credentials$Simple.<init>(Credentials.java:100)
+       at com.jcabi.simpledb.CredentialsTest.instantiatesAwsClient(CredentialsTest.java:45)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    ERROR com.jcabi.simpledb.CredentialsTest#instantiatesAwsClientWithCustomRegion type=org.aspectj.lang.NoAspectBoundException msg=Exception while initializing com.jcabi.aspects.aj.MethodValidator: javax.validation.NoProviderFoundException: Unable to create a Configuration, because no Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+       Caused by: javax.validation.NoProviderFoundException: Unable to create a Configuration, because no Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+       at com.jcabi.aspects.aj.MethodValidator.aspectOf(MethodValidator.java:1)
+       at com.jcabi.simpledb.Credentials$Simple.<init>(Credentials.java:113)
+       at com.jcabi.simpledb.CredentialsTest.instantiatesAwsClientWithCustomRegion(CredentialsTest.java:54)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -      <version>6.2.5.Final</version> / +      <version>8.0.1.Final</version>
+  JSON breaking/jar_inspection.json: {"case_id":"dbb2ae9a870a786e725eb095d86196a2d9081ec9","phase":"breaking","path_filter":"/(hibernate-validator|jakarta.validation-api|validation-api)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar","classes":{"javax.validation.spi.ValidationProvider":{"present":false,"major_version":null},"jakarta.validation.spi.ValidationProvider":{"present":true,"major_version":52}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar","classes":{"javax.validation.spi.ValidationProvider":{"present":true,"major_version":52},"jakarta.validation.spi.ValidationProvider":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.1.Final/hibernate-validator-8.0.1.Final.jar","classes":{"javax.validation.spi.ValidationProvider":{"present":false,"major_version":null},"jakarta.validation.spi.ValidationProvider":{"present":false,"major_version":null}},"services":{"META-INF/services/jakarta.validation.spi.ValidationProvider":"org.hibernate.validator.HibernateValidator"},"disassemblies":[{"class":"org.hibernate.validator.HibernateValidator","file":"hibernate-validator-8.0.1...
+  JSON pre/jar_inspection.json: {"case_id":"dbb2ae9a870a786e725eb095d86196a2d9081ec9","phase":"pre","path_filter":"/(hibernate-validator|jakarta.validation-api|validation-api)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar","classes":{"javax.validation.spi.ValidationProvider":{"present":true,"major_version":52},"jakarta.validation.spi.ValidationProvider":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar","classes":{"javax.validation.spi.ValidationProvider":{"present":true,"major_version":52},"jakarta.validation.spi.ValidationProvider":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/hibernate/validator/hibernate-validator/6.2.5.Final/hibernate-validator-6.2.5.Final.jar","classes":{"javax.validation.spi.ValidationProvider":{"present":false,"major_version":null},"jakarta.validation.spi.ValidationProvider":{"present":false,"major_version":null}},"services":{"META-INF/services/javax.validation.spi.ValidationProvider":"org.hibernate.validator.HibernateValidator"},"disassemblies":[{"class":"org.hibernate.validator.HibernateValidator","file":"hibernate-validator-6.2.5.Final_...
+  JARS: breaking/jars/hibernate-validator-8.0.1.Final.jar, breaking/jars/jakarta.validation-api-3.0.2.jar, breaking/jars/validation-api-2.0.1.Final.jar, pre/jars/hibernate-validator-6.2.5.Final.jar, pre/jars/jakarta.validation-api-2.0.2.jar, pre/jars/validation-api-2.0.1.Final.jar

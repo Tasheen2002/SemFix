@@ -1,0 +1,77 @@
+Compiled from "TransactionDefinition.java"
+public interface org.springframework.transaction.TransactionDefinition {
+  public static final int PROPAGATION_REQUIRED;
+    descriptor: I
+
+  public static final int PROPAGATION_SUPPORTS;
+    descriptor: I
+
+  public static final int PROPAGATION_MANDATORY;
+    descriptor: I
+
+  public static final int PROPAGATION_REQUIRES_NEW;
+    descriptor: I
+
+  public static final int PROPAGATION_NOT_SUPPORTED;
+    descriptor: I
+
+  public static final int PROPAGATION_NEVER;
+    descriptor: I
+
+  public static final int PROPAGATION_NESTED;
+    descriptor: I
+
+  public static final int ISOLATION_DEFAULT;
+    descriptor: I
+
+  public static final int ISOLATION_READ_UNCOMMITTED;
+    descriptor: I
+
+  public static final int ISOLATION_READ_COMMITTED;
+    descriptor: I
+
+  public static final int ISOLATION_REPEATABLE_READ;
+    descriptor: I
+
+  public static final int ISOLATION_SERIALIZABLE;
+    descriptor: I
+
+  public static final int TIMEOUT_DEFAULT;
+    descriptor: I
+
+  public default int getPropagationBehavior();
+    descriptor: ()I
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public default int getIsolationLevel();
+    descriptor: ()I
+    Code:
+       0: iconst_m1
+       1: ireturn
+
+  public default int getTimeout();
+    descriptor: ()I
+    Code:
+       0: iconst_m1
+       1: ireturn
+
+  public default boolean isReadOnly();
+    descriptor: ()Z
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public default java.lang.String getName();
+    descriptor: ()Ljava/lang/String;
+    Code:
+       0: aconst_null
+       1: areturn
+
+  public static org.springframework.transaction.TransactionDefinition withDefaults();
+    descriptor: ()Lorg/springframework/transaction/TransactionDefinition;
+    Code:
+       0: getstatic     #2                  // Field org/springframework/transaction/StaticTransactionDefinition.INSTANCE:Lorg/springframework/transaction/StaticTransactionDefinition;
+       3: areturn
+}

@@ -1,0 +1,51 @@
+=== CASE 112 99ec071a0ce40e1bf683e66a6717df2f57c7d817
+  project=Refactoring-Bot/Refactoring-Bot dep=org.antlr:antlr4-runtime 4.7.2 -> 4.12.0 scope=compile type=minor java=11
+  PR=https://github.com/Refactoring-Bot/Refactoring-Bot/pull/112
+  PRE log logs/batch_triage/99ec071a_pre.log:
+  lines=123
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 62, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/99ec071a_breaking.log:
+  lines=146
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 62, Failures: 0, Errors: 1, Skipped: 0
+  failing classes: Tests run: 5, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.17 s <<< FAILURE! - in de.refactoringbot.services.main.GrammarServiceTest
+  section: Errors: | GrammarServiceTest.testCheckComment:111 » ExceptionInInitializer | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  25.583 s | [INFO] Finished at: 2026-11-10T09:28:58Z | [INFO] ------------------------------------------------------------------------ | [WARNING] | [WARNING] Plugin validation issues were detected in 5 plugin(s) | [WARNING]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (unit-tests) on project RefactoringBot: There are test failures.
+  FAILBLOCK: [ERROR] testCheckComment(de.refactoringbot.services.main.GrammarServiceTest)  Time elapsed: 0.043 s  <<< ERROR!
+      java.lang.ExceptionInInitializerError
+      at de.refactoringbot.services.main.GrammarServiceTest.testCheckComment(GrammarServiceTest.java:111)
+      Caused by: java.lang.UnsupportedOperationException: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+      at de.refactoringbot.services.main.GrammarServiceTest.testCheckComment(GrammarServiceTest.java:111)
+      Caused by: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+      at de.refactoringbot.services.main.GrammarServiceTest.testCheckComment(GrammarServiceTest.java:111)
+      Caused by: java.lang.UnsupportedOperationException: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+      Caused by: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+  distinct fail signatures (count): 1x java.lang.ExceptionInInitializerError
+  exception names: java.io.InvalidClassExceptionx2, java.lang.ExceptionInInitializerErrorx1, java.lang.UnsupportedOperationExceptionx1
+  EVIDENCE logs/case112_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/antlr4-runtime-4.12.0_ATNDeserializer_javap.txt, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/antlr4-runtime-4.12.0.jar, lexer_probe_breaking.log, lexer_probe_classes/LexerCompatibilityProbe.class, lexer_probe_classes/de/refactoringbot/grammar/botgrammar/BotOperationsLexer.class, lexer_probe_pre.log, lexer_probe_results.json, lexer_probe_sources/BotOperationsLexer.java, lexer_probe_sources/LexerCompatibilityProbe.java, pre/all_poms.tar, pre/all_poms_sha256.json, pre/antlr4-runtime-4.7.2_ATNDeserializer_javap.txt, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/antlr4-runtime-4.7.2.jar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=12 sum(t,f,e,s)=[62, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=12 sum(t,f,e,s)=[62, 0, 1, 0]
+  archived non-report files: pre=153 breaking=153 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -106,3 +106,3 @@
+     			<artifactId>antlr4-runtime</artifactId>
+    -			<version>4.7.2</version>
+    +			<version>4.12.0</version>
+     		</dependency>
+  BREAKING surefire failures/errors:
+    ERROR de.refactoringbot.services.main.GrammarServiceTest#testCheckComment type=java.lang.ExceptionInInitializerError msg=
+       Caused by: java.lang.UnsupportedOperationException: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+       Caused by: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+       at de.refactoringbot.services.main.GrammarServiceTest.testCheckComment(GrammarServiceTest.java:111)
+       at de.refactoringbot.services.main.GrammarServiceTest.testCheckComment(GrammarServiceTest.java:111)
+       at de.refactoringbot.services.main.GrammarServiceTest.testCheckComment(GrammarServiceTest.java:111)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -			<version>4.7.2</version> / +			<version>4.12.0</version>
+  JSON breaking/jar_inspection.json: {"case_id":"99ec071a0ce40e1bf683e66a6717df2f57c7d817","phase":"breaking","path_filter":"/org/antlr/antlr4-runtime/","path_source":"Fresh test report classpaths or retained runner events; Cases 111/115 PRE uses explicit POM versions because successful runner events are deleted","artifacts":[{"resolved_path":"/root/.m2/repository/org/antlr/antlr4-runtime/4.12.0/antlr4-runtime-4.12.0.jar","classes":{"org.antlr.v4.runtime.atn.ATNDeserializer":{"present":true,"major_version":52}},"services":{},"disassemblies":[{"class":"org.antlr.v4.runtime.atn.ATNDeserializer","file":"antlr4-runtime-4.12.0_ATNDeserializer_javap.txt","exit_code":0}]}]}
+  LOG lexer_probe_breaking.log (15 lines): runtime=file:/root/.m2/repository/org/antlr/antlr4-runtime/4.12.0/antlr4-runtime-4.12.0.jar | method=public org.antlr.v4.runtime.atn.ATN org.antlr.v4.runtime.atn.ATNDeserializer.deserialize(char[]) | Exception in thread "main" java.lang.ExceptionInInitializerError | Caused by: java.lang.UnsupportedOperationException: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4). | Caused by: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+  LOG lexer_probe_pre.log (3 lines): runtime=file:/root/.m2/repository/org/antlr/antlr4-runtime/4.7.2/antlr4-runtime-4.7.2.jar | method=public org.antlr.v4.runtime.atn.ATN org.antlr.v4.runtime.atn.ATNDeserializer.deserialize(char[]) | initialized=class de.refactoringbot.grammar.botgrammar.BotOperationsLexer
+  JSON lexer_probe_results.json: {"purpose":"Same generated lexer and same compiled probe in both original images; no client source/dependency substitutions","original_source_path":"src/main/java/de/refactoringbot/grammar/botgrammar/BotOperationsLexer.java","original_source_sha256":"5091661b4b53318ef26cf79b96fc4b90a9789494e0cfb0416c4e940c7794887a","source_identical_between_images":true,"compile_command":["C:/Program Files/Java/jdk-21.0.11/bin/javac.exe","--release","11","-classpath","C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case112_evidence\\pre\\jars\\antlr4-runtime-4.7.2.jar","-d","C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case112_evidence\\lexer_probe_classes","C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case112_evidence\\lexer_probe_sources\\BotOperationsLexer.java","C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case112_evidence\\lexer_probe_sources\\LexerCompatibilityProbe.java"],"compile_exit_code":0,"compile_stderr":"","runs":[{"phase":"pre","exit_code":0,"stdout":"runtime=file:/root/.m2/repository/org/antlr/antlr4-runtime/4.7.2/antlr4-runtime-4.7.2.jar\nmethod=public org.antlr.v4.runtime.atn.ATN org.antlr.v4.runtime.atn.ATNDeserializer.deserialize(char[])\ninitialized=class de.refactoringbot.grammar.botgrammar.BotOperationsLexer\n","stderr":""},{"phase":"breaking","exit_code":1,"stdout":"runtime=file:/root/.m2/repository/org/antlr/antlr...
+  JSON pre/jar_inspection.json: {"case_id":"99ec071a0ce40e1bf683e66a6717df2f57c7d817","phase":"pre","path_filter":"/org/antlr/antlr4-runtime/","path_source":"Fresh test report classpaths or retained runner events; Cases 111/115 PRE uses explicit POM versions because successful runner events are deleted","artifacts":[{"resolved_path":"/root/.m2/repository/org/antlr/antlr4-runtime/4.7.2/antlr4-runtime-4.7.2.jar","classes":{"org.antlr.v4.runtime.atn.ATNDeserializer":{"present":true,"major_version":51}},"services":{},"disassemblies":[{"class":"org.antlr.v4.runtime.atn.ATNDeserializer","file":"antlr4-runtime-4.7.2_ATNDeserializer_javap.txt","exit_code":0}]}]}
+  JARS: breaking/jars/antlr4-runtime-4.12.0.jar, pre/jars/antlr4-runtime-4.7.2.jar

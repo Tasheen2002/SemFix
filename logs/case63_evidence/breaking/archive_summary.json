@@ -1,0 +1,813 @@
+{
+  "case_id": "5275fc9ef87a6d411b719d78c681b81ac914798b",
+  "phase": "breaking",
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-09T10:59:47.889516373Z",
+    "FinishedAt": "2026-11-09T11:01:20.895591227Z"
+  },
+  "working_directory": "/JsonUnit",
+  "command": [
+    "sh",
+    "-c",
+    "mvn clean test -B | tee %s.log"
+  ],
+  "image_id": "sha256:b65b9b7f18edd0a90ceb72c92e35fcd2da9148a2d617a9822921076ee95eb8f0",
+  "image_digests": [
+    "ghcr.io/chains-project/breaking-updates@sha256:b65b9b7f18edd0a90ceb72c92e35fcd2da9148a2d617a9822921076ee95eb8f0"
+  ],
+  "platform": "linux/amd64",
+  "cleaned_modules": [
+    "json-unit",
+    "json-unit-assertj",
+    "json-unit-core",
+    "json-unit-fluent",
+    "json-unit-json-path",
+    "json-unit-spring",
+    "tests/test-base",
+    "tests/test-gson",
+    "tests/test-jackson2",
+    "tests/test-jackson2-config",
+    "tests/test-johnzon",
+    "tests/test-json-path",
+    "tests/test-jsonorg",
+    "tests/test-junit4",
+    "tests/test-kotlin",
+    "tests/test-moshi",
+    "tests/test-no-hamcrest"
+  ],
+  "freshness_rule": "Only report directories under a target explicitly deleted in this run are included",
+  "report_count": 41,
+  "reports": [
+    {
+      "path": "json-unit-assertj/target/surefire-reports/TEST-net.javacrumbs.jsonunit.assertj.JsonAssertionsDslKtTest.xml",
+      "module": "json-unit-assertj",
+      "test_class": "net.javacrumbs.jsonunit.assertj.JsonAssertionsDslKtTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/json-unit-assertj/target/test-classes:/JsonUnit/json-unit-assertj/target/classes:/JsonUnit/json-unit-core/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.6.10/kotlin-stdlib-1.6.10.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.6.10/kotlin-stdlib-common-1.6.10.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "json-unit-core/target/surefire-reports/TEST-net.javacrumbs.jsonunit.core.internal.ConverterTest.xml",
+      "module": "json-unit-core",
+      "test_class": "net.javacrumbs.jsonunit.core.internal.ConverterTest",
+      "counts": {
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/json-unit-core/target/test-classes:/JsonUnit/json-unit-core/target/classes:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/apache/johnzon/johnzon-mapper/1.2.15/johnzon-mapper-1.2.15.jar:/root/.m2/repository/org/apache/johnzon/johnzon-core/1.2.15/johnzon-core-1.2.15.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-json_1.1_spec/1.5/geronimo-json_1.1_spec-1.5.jar:/root/.m2/repository/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar:/root/.m2/repository/org/json/json/20220320/json-20220320.jar:/root/.m2/repository/com/squareup/moshi/moshi/1.13.0/moshi-1.13.0.jar:/root/.m2/repository/com/squareup/okio/okio/2.10.0/okio-2.10.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.4.20/kotlin-stdlib-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.20/kotlin-stdlib-common-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.0/kotlin-stdlib-jdk8-1.6.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.0/kotlin-stdlib-jdk7-1.6.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.8.2/junit-vintage-engine-5.8.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "json-unit-core/target/surefire-reports/TEST-net.javacrumbs.jsonunit.core.internal.DifferenceTest.xml",
+      "module": "json-unit-core",
+      "test_class": "net.javacrumbs.jsonunit.core.internal.DifferenceTest",
+      "counts": {
+        "tests": 19,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/json-unit-core/target/test-classes:/JsonUnit/json-unit-core/target/classes:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/apache/johnzon/johnzon-mapper/1.2.15/johnzon-mapper-1.2.15.jar:/root/.m2/repository/org/apache/johnzon/johnzon-core/1.2.15/johnzon-core-1.2.15.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-json_1.1_spec/1.5/geronimo-json_1.1_spec-1.5.jar:/root/.m2/repository/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar:/root/.m2/repository/org/json/json/20220320/json-20220320.jar:/root/.m2/repository/com/squareup/moshi/moshi/1.13.0/moshi-1.13.0.jar:/root/.m2/repository/com/squareup/okio/okio/2.10.0/okio-2.10.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.4.20/kotlin-stdlib-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.20/kotlin-stdlib-common-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.0/kotlin-stdlib-jdk8-1.6.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.0/kotlin-stdlib-jdk7-1.6.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.8.2/junit-vintage-engine-5.8.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "json-unit-core/target/surefire-reports/TEST-net.javacrumbs.jsonunit.core.internal.JsonUtilsTest.xml",
+      "module": "json-unit-core",
+      "test_class": "net.javacrumbs.jsonunit.core.internal.JsonUtilsTest",
+      "counts": {
+        "tests": 17,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/json-unit-core/target/test-classes:/JsonUnit/json-unit-core/target/classes:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/apache/johnzon/johnzon-mapper/1.2.15/johnzon-mapper-1.2.15.jar:/root/.m2/repository/org/apache/johnzon/johnzon-core/1.2.15/johnzon-core-1.2.15.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-json_1.1_spec/1.5/geronimo-json_1.1_spec-1.5.jar:/root/.m2/repository/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar:/root/.m2/repository/org/json/json/20220320/json-20220320.jar:/root/.m2/repository/com/squareup/moshi/moshi/1.13.0/moshi-1.13.0.jar:/root/.m2/repository/com/squareup/okio/okio/2.10.0/okio-2.10.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.4.20/kotlin-stdlib-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.20/kotlin-stdlib-common-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.0/kotlin-stdlib-jdk8-1.6.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.0/kotlin-stdlib-jdk7-1.6.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.8.2/junit-vintage-engine-5.8.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "json-unit-core/target/surefire-reports/TEST-net.javacrumbs.jsonunit.core.internal.NodeFactoryTest.xml",
+      "module": "json-unit-core",
+      "test_class": "net.javacrumbs.jsonunit.core.internal.NodeFactoryTest",
+      "counts": {
+        "tests": 32,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/json-unit-core/target/test-classes:/JsonUnit/json-unit-core/target/classes:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/apache/johnzon/johnzon-mapper/1.2.15/johnzon-mapper-1.2.15.jar:/root/.m2/repository/org/apache/johnzon/johnzon-core/1.2.15/johnzon-core-1.2.15.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-json_1.1_spec/1.5/geronimo-json_1.1_spec-1.5.jar:/root/.m2/repository/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar:/root/.m2/repository/org/json/json/20220320/json-20220320.jar:/root/.m2/repository/com/squareup/moshi/moshi/1.13.0/moshi-1.13.0.jar:/root/.m2/repository/com/squareup/okio/okio/2.10.0/okio-2.10.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.4.20/kotlin-stdlib-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.20/kotlin-stdlib-common-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.0/kotlin-stdlib-jdk8-1.6.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.0/kotlin-stdlib-jdk7-1.6.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.8.2/junit-vintage-engine-5.8.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "json-unit-core/target/surefire-reports/TEST-net.javacrumbs.jsonunit.core.internal.PathMatcherTest.xml",
+      "module": "json-unit-core",
+      "test_class": "net.javacrumbs.jsonunit.core.internal.PathMatcherTest",
+      "counts": {
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/json-unit-core/target/test-classes:/JsonUnit/json-unit-core/target/classes:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/apache/johnzon/johnzon-mapper/1.2.15/johnzon-mapper-1.2.15.jar:/root/.m2/repository/org/apache/johnzon/johnzon-core/1.2.15/johnzon-core-1.2.15.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-json_1.1_spec/1.5/geronimo-json_1.1_spec-1.5.jar:/root/.m2/repository/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar:/root/.m2/repository/org/json/json/20220320/json-20220320.jar:/root/.m2/repository/com/squareup/moshi/moshi/1.13.0/moshi-1.13.0.jar:/root/.m2/repository/com/squareup/okio/okio/2.10.0/okio-2.10.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.4.20/kotlin-stdlib-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.20/kotlin-stdlib-common-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.0/kotlin-stdlib-jdk8-1.6.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.0/kotlin-stdlib-jdk7-1.6.0.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/root/.m2/repository/org/junit/vintage/junit-vintage-engine/5.8.2/junit-vintage-engine-5.8.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "json-unit-json-path/target/surefire-reports/TEST-net.javacrumbs.jsonunit.jsonpath.InternalJsonPathUtilsTest.xml",
+      "module": "json-unit-json-path",
+      "test_class": "net.javacrumbs.jsonunit.jsonpath.InternalJsonPathUtilsTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/json-unit-json-path/target/test-classes:/JsonUnit/json-unit-json-path/target/classes:/JsonUnit/json-unit-core/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "json-unit-spring/target/surefire-reports/TEST-net.javacrumbs.jsonunit.spring.testit.ClientTest.xml",
+      "module": "json-unit-spring",
+      "test_class": "net.javacrumbs.jsonunit.spring.testit.ClientTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/json-unit-spring/target/test-classes:/JsonUnit/json-unit-spring/target/classes:/JsonUnit/json-unit-assertj/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.6.10/kotlin-stdlib-1.6.10.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.6.10/kotlin-stdlib-common-1.6.10.jar:/root/.m2/repository/org/springframework/spring-test/5.3.18/spring-test-5.3.18.jar:/root/.m2/repository/org/springframework/spring-core/5.3.18/spring-core-5.3.18.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.18/spring-jcl-5.3.18.jar:/root/.m2/repository/org/springframework/spring-webmvc/5.3.18/spring-webmvc-5.3.18.jar:/root/.m2/repository/org/springframework/spring-aop/5.3.18/spring-aop-5.3.18.jar:/root/.m2/repository/org/springframework/spring-beans/5.3.18/spring-beans-5.3.18.jar:/root/.m2/repository/org/springframework/spring-context/5.3.18/spring-context-5.3.18.jar:/root/.m2/repository/org/springframework/spring-expression/5.3.18/spring-expression-5.3.18.jar:/root/.m2/repository/org/springframework/spring-web/5.3.18/spring-web-5.3.18.jar:/root/.m2/repository/org/springframework/spring-webflux/5.3.18/spring-webflux-5.3.18.jar:/root/.m2/repository/io/projectreactor/reactor-core/3.4.16/reactor-core-3.4.16.jar:/root/.m2/repository/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-reflect/1.6.10/kotlin-reflect-1.6.10.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/mockito/mockito-core/4.4.0/mockito-core-4.4.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.8/byte-buddy-1.12.8.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.8/byte-buddy-agent-1.12.8.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "json-unit-spring/target/surefire-reports/TEST-net.javacrumbs.jsonunit.spring.testit.KotlinDslTest.xml",
+      "module": "json-unit-spring",
+      "test_class": "net.javacrumbs.jsonunit.spring.testit.KotlinDslTest",
+      "counts": {
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/json-unit-spring/target/test-classes:/JsonUnit/json-unit-spring/target/classes:/JsonUnit/json-unit-assertj/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.6.10/kotlin-stdlib-1.6.10.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.6.10/kotlin-stdlib-common-1.6.10.jar:/root/.m2/repository/org/springframework/spring-test/5.3.18/spring-test-5.3.18.jar:/root/.m2/repository/org/springframework/spring-core/5.3.18/spring-core-5.3.18.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.18/spring-jcl-5.3.18.jar:/root/.m2/repository/org/springframework/spring-webmvc/5.3.18/spring-webmvc-5.3.18.jar:/root/.m2/repository/org/springframework/spring-aop/5.3.18/spring-aop-5.3.18.jar:/root/.m2/repository/org/springframework/spring-beans/5.3.18/spring-beans-5.3.18.jar:/root/.m2/repository/org/springframework/spring-context/5.3.18/spring-context-5.3.18.jar:/root/.m2/repository/org/springframework/spring-expression/5.3.18/spring-expression-5.3.18.jar:/root/.m2/repository/org/springframework/spring-web/5.3.18/spring-web-5.3.18.jar:/root/.m2/repository/org/springframework/spring-webflux/5.3.18/spring-webflux-5.3.18.jar:/root/.m2/repository/io/projectreactor/reactor-core/3.4.16/reactor-core-3.4.16.jar:/root/.m2/repository/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-reflect/1.6.10/kotlin-reflect-1.6.10.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/mockito/mockito-core/4.4.0/mockito-core-4.4.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.8/byte-buddy-1.12.8.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.8/byte-buddy-agent-1.12.8.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "json-unit-spring/target/surefire-reports/TEST-net.javacrumbs.jsonunit.spring.testit.KotlinWebTestClientTest.xml",
+      "module": "json-unit-spring",
+      "test_class": "net.javacrumbs.jsonunit.spring.testit.KotlinWebTestClientTest",
+      "counts": {
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/json-unit-spring/target/test-classes:/JsonUnit/json-unit-spring/target/classes:/JsonUnit/json-unit-assertj/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.6.10/kotlin-stdlib-1.6.10.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.6.10/kotlin-stdlib-common-1.6.10.jar:/root/.m2/repository/org/springframework/spring-test/5.3.18/spring-test-5.3.18.jar:/root/.m2/repository/org/springframework/spring-core/5.3.18/spring-core-5.3.18.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.18/spring-jcl-5.3.18.jar:/root/.m2/repository/org/springframework/spring-webmvc/5.3.18/spring-webmvc-5.3.18.jar:/root/.m2/repository/org/springframework/spring-aop/5.3.18/spring-aop-5.3.18.jar:/root/.m2/repository/org/springframework/spring-beans/5.3.18/spring-beans-5.3.18.jar:/root/.m2/repository/org/springframework/spring-context/5.3.18/spring-context-5.3.18.jar:/root/.m2/repository/org/springframework/spring-expression/5.3.18/spring-expression-5.3.18.jar:/root/.m2/repository/org/springframework/spring-web/5.3.18/spring-web-5.3.18.jar:/root/.m2/repository/org/springframework/spring-webflux/5.3.18/spring-webflux-5.3.18.jar:/root/.m2/repository/io/projectreactor/reactor-core/3.4.16/reactor-core-3.4.16.jar:/root/.m2/repository/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-reflect/1.6.10/kotlin-reflect-1.6.10.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/mockito/mockito-core/4.4.0/mockito-core-4.4.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.8/byte-buddy-1.12.8.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.8/byte-buddy-agent-1.12.8.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "json-unit-spring/target/surefire-reports/TEST-net.javacrumbs.jsonunit.spring.testit.MockMvcTest.xml",
+      "module": "json-unit-spring",
+      "test_class": "net.javacrumbs.jsonunit.spring.testit.MockMvcTest",
+      "counts": {
+        "tests": 32,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/json-unit-spring/target/test-classes:/JsonUnit/json-unit-spring/target/classes:/JsonUnit/json-unit-assertj/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.6.10/kotlin-stdlib-1.6.10.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.6.10/kotlin-stdlib-common-1.6.10.jar:/root/.m2/repository/org/springframework/spring-test/5.3.18/spring-test-5.3.18.jar:/root/.m2/repository/org/springframework/spring-core/5.3.18/spring-core-5.3.18.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.18/spring-jcl-5.3.18.jar:/root/.m2/repository/org/springframework/spring-webmvc/5.3.18/spring-webmvc-5.3.18.jar:/root/.m2/repository/org/springframework/spring-aop/5.3.18/spring-aop-5.3.18.jar:/root/.m2/repository/org/springframework/spring-beans/5.3.18/spring-beans-5.3.18.jar:/root/.m2/repository/org/springframework/spring-context/5.3.18/spring-context-5.3.18.jar:/root/.m2/repository/org/springframework/spring-expression/5.3.18/spring-expression-5.3.18.jar:/root/.m2/repository/org/springframework/spring-web/5.3.18/spring-web-5.3.18.jar:/root/.m2/repository/org/springframework/spring-webflux/5.3.18/spring-webflux-5.3.18.jar:/root/.m2/repository/io/projectreactor/reactor-core/3.4.16/reactor-core-3.4.16.jar:/root/.m2/repository/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-reflect/1.6.10/kotlin-reflect-1.6.10.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/mockito/mockito-core/4.4.0/mockito-core-4.4.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.8/byte-buddy-1.12.8.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.8/byte-buddy-agent-1.12.8.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "json-unit-spring/target/surefire-reports/TEST-net.javacrumbs.jsonunit.spring.testit.WebTestClientTest.xml",
+      "module": "json-unit-spring",
+      "test_class": "net.javacrumbs.jsonunit.spring.testit.WebTestClientTest",
+      "counts": {
+        "tests": 32,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/json-unit-spring/target/test-classes:/JsonUnit/json-unit-spring/target/classes:/JsonUnit/json-unit-assertj/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.6.10/kotlin-stdlib-1.6.10.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.6.10/kotlin-stdlib-common-1.6.10.jar:/root/.m2/repository/org/springframework/spring-test/5.3.18/spring-test-5.3.18.jar:/root/.m2/repository/org/springframework/spring-core/5.3.18/spring-core-5.3.18.jar:/root/.m2/repository/org/springframework/spring-jcl/5.3.18/spring-jcl-5.3.18.jar:/root/.m2/repository/org/springframework/spring-webmvc/5.3.18/spring-webmvc-5.3.18.jar:/root/.m2/repository/org/springframework/spring-aop/5.3.18/spring-aop-5.3.18.jar:/root/.m2/repository/org/springframework/spring-beans/5.3.18/spring-beans-5.3.18.jar:/root/.m2/repository/org/springframework/spring-context/5.3.18/spring-context-5.3.18.jar:/root/.m2/repository/org/springframework/spring-expression/5.3.18/spring-expression-5.3.18.jar:/root/.m2/repository/org/springframework/spring-web/5.3.18/spring-web-5.3.18.jar:/root/.m2/repository/org/springframework/spring-webflux/5.3.18/spring-webflux-5.3.18.jar:/root/.m2/repository/io/projectreactor/reactor-core/3.4.16/reactor-core-3.4.16.jar:/root/.m2/repository/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-reflect/1.6.10/kotlin-reflect-1.6.10.jar:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/mockito/mockito-core/4.4.0/mockito-core-4.4.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.8/byte-buddy-1.12.8.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.8/byte-buddy-agent-1.12.8.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-base/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.all.AllAssertJTest.xml",
+      "module": "tests/test-base",
+      "test_class": "net.javacrumbs.jsonunit.test.all.AllAssertJTest",
+      "counts": {
+        "tests": 226,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-base/target/test-classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.6.10/kotlin-stdlib-1.6.10.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.6.10/kotlin-stdlib-common-1.6.10.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/apache/johnzon/johnzon-mapper/1.2.15/johnzon-mapper-1.2.15.jar:/root/.m2/repository/org/apache/johnzon/johnzon-core/1.2.15/johnzon-core-1.2.15.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-json_1.1_spec/1.5/geronimo-json_1.1_spec-1.5.jar:/root/.m2/repository/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar:/root/.m2/repository/org/json/json/20220320/json-20220320.jar:/root/.m2/repository/com/squareup/moshi/moshi/1.13.0/moshi-1.13.0.jar:/root/.m2/repository/com/squareup/okio/okio/2.10.0/okio-2.10.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.0/kotlin-stdlib-jdk8-1.6.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.0/kotlin-stdlib-jdk7-1.6.0.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-base/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.all.AllJsonAssertTest.xml",
+      "module": "tests/test-base",
+      "test_class": "net.javacrumbs.jsonunit.test.all.AllJsonAssertTest",
+      "counts": {
+        "tests": 181,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-base/target/test-classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.6.10/kotlin-stdlib-1.6.10.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.6.10/kotlin-stdlib-common-1.6.10.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/apache/johnzon/johnzon-mapper/1.2.15/johnzon-mapper-1.2.15.jar:/root/.m2/repository/org/apache/johnzon/johnzon-core/1.2.15/johnzon-core-1.2.15.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-json_1.1_spec/1.5/geronimo-json_1.1_spec-1.5.jar:/root/.m2/repository/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar:/root/.m2/repository/org/json/json/20220320/json-20220320.jar:/root/.m2/repository/com/squareup/moshi/moshi/1.13.0/moshi-1.13.0.jar:/root/.m2/repository/com/squareup/okio/okio/2.10.0/okio-2.10.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.0/kotlin-stdlib-jdk8-1.6.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.0/kotlin-stdlib-jdk7-1.6.0.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-base/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.all.AllJsonFluentAssertTest.xml",
+      "module": "tests/test-base",
+      "test_class": "net.javacrumbs.jsonunit.test.all.AllJsonFluentAssertTest",
+      "counts": {
+        "tests": 136,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-base/target/test-classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.6.10/kotlin-stdlib-1.6.10.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.6.10/kotlin-stdlib-common-1.6.10.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/apache/johnzon/johnzon-mapper/1.2.15/johnzon-mapper-1.2.15.jar:/root/.m2/repository/org/apache/johnzon/johnzon-core/1.2.15/johnzon-core-1.2.15.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-json_1.1_spec/1.5/geronimo-json_1.1_spec-1.5.jar:/root/.m2/repository/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar:/root/.m2/repository/org/json/json/20220320/json-20220320.jar:/root/.m2/repository/com/squareup/moshi/moshi/1.13.0/moshi-1.13.0.jar:/root/.m2/repository/com/squareup/okio/okio/2.10.0/okio-2.10.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.0/kotlin-stdlib-jdk8-1.6.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.0/kotlin-stdlib-jdk7-1.6.0.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-base/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.all.AllJsonMatchersTest.xml",
+      "module": "tests/test-base",
+      "test_class": "net.javacrumbs.jsonunit.test.all.AllJsonMatchersTest",
+      "counts": {
+        "tests": 44,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-base/target/test-classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.6.10/kotlin-stdlib-1.6.10.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.6.10/kotlin-stdlib-common-1.6.10.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/apache/johnzon/johnzon-mapper/1.2.15/johnzon-mapper-1.2.15.jar:/root/.m2/repository/org/apache/johnzon/johnzon-core/1.2.15/johnzon-core-1.2.15.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-json_1.1_spec/1.5/geronimo-json_1.1_spec-1.5.jar:/root/.m2/repository/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar:/root/.m2/repository/org/json/json/20220320/json-20220320.jar:/root/.m2/repository/com/squareup/moshi/moshi/1.13.0/moshi-1.13.0.jar:/root/.m2/repository/com/squareup/okio/okio/2.10.0/okio-2.10.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.0/kotlin-stdlib-jdk8-1.6.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.0/kotlin-stdlib-jdk7-1.6.0.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-base/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.all.AssumptionsWithAssertJTest.xml",
+      "module": "tests/test-base",
+      "test_class": "net.javacrumbs.jsonunit.test.all.AssumptionsWithAssertJTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-base/target/test-classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.6.10/kotlin-stdlib-1.6.10.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.6.10/kotlin-stdlib-common-1.6.10.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/apache/johnzon/johnzon-mapper/1.2.15/johnzon-mapper-1.2.15.jar:/root/.m2/repository/org/apache/johnzon/johnzon-core/1.2.15/johnzon-core-1.2.15.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-json_1.1_spec/1.5/geronimo-json_1.1_spec-1.5.jar:/root/.m2/repository/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar:/root/.m2/repository/org/json/json/20220320/json-20220320.jar:/root/.m2/repository/com/squareup/moshi/moshi/1.13.0/moshi-1.13.0.jar:/root/.m2/repository/com/squareup/okio/okio/2.10.0/okio-2.10.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.0/kotlin-stdlib-jdk8-1.6.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.0/kotlin-stdlib-jdk7-1.6.0.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-gson/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.gson.GsonAssertJTest.xml",
+      "module": "tests/test-gson",
+      "test_class": "net.javacrumbs.jsonunit.test.gson.GsonAssertJTest",
+      "counts": {
+        "tests": 225,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-gson/target/test-classes:/JsonUnit/tests/test-gson/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-gson/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.gson.GsonJsonAssertTest.xml",
+      "module": "tests/test-gson",
+      "test_class": "net.javacrumbs.jsonunit.test.gson.GsonJsonAssertTest",
+      "counts": {
+        "tests": 162,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-gson/target/test-classes:/JsonUnit/tests/test-gson/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-gson/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.gson.GsonJsonFluentAssertTest.xml",
+      "module": "tests/test-gson",
+      "test_class": "net.javacrumbs.jsonunit.test.gson.GsonJsonFluentAssertTest",
+      "counts": {
+        "tests": 135,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-gson/target/test-classes:/JsonUnit/tests/test-gson/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-gson/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.gson.GsonJsonMatchersTest.xml",
+      "module": "tests/test-gson",
+      "test_class": "net.javacrumbs.jsonunit.test.gson.GsonJsonMatchersTest",
+      "counts": {
+        "tests": 39,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-gson/target/test-classes:/JsonUnit/tests/test-gson/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-jackson2/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.jackson2.Jackson2AssertJTest.xml",
+      "module": "tests/test-jackson2",
+      "test_class": "net.javacrumbs.jsonunit.test.jackson2.Jackson2AssertJTest",
+      "counts": {
+        "tests": 226,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-jackson2/target/test-classes:/JsonUnit/tests/test-jackson2/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-jackson2/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.jackson2.Jackson2FluentAssertTest.xml",
+      "module": "tests/test-jackson2",
+      "test_class": "net.javacrumbs.jsonunit.test.jackson2.Jackson2FluentAssertTest",
+      "counts": {
+        "tests": 135,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-jackson2/target/test-classes:/JsonUnit/tests/test-jackson2/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-jackson2/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.jackson2.Jackson2JsonAssertTest.xml",
+      "module": "tests/test-jackson2",
+      "test_class": "net.javacrumbs.jsonunit.test.jackson2.Jackson2JsonAssertTest",
+      "counts": {
+        "tests": 162,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-jackson2/target/test-classes:/JsonUnit/tests/test-jackson2/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-jackson2/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.jackson2.Jackson2JsonMatchersTest.xml",
+      "module": "tests/test-jackson2",
+      "test_class": "net.javacrumbs.jsonunit.test.jackson2.Jackson2JsonMatchersTest",
+      "counts": {
+        "tests": 39,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-jackson2/target/test-classes:/JsonUnit/tests/test-jackson2/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-jackson2-config/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.jackson2config.Jackson2ConfigTest.xml",
+      "module": "tests/test-jackson2-config",
+      "test_class": "net.javacrumbs.jsonunit.test.jackson2config.Jackson2ConfigTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-jackson2-config/target/test-classes:/JsonUnit/tests/test-jackson2-config/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.13.2/jackson-datatype-jsr310-2.13.2.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-johnzon/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.johnzon.JohnzonAssertJTest.xml",
+      "module": "tests/test-johnzon",
+      "test_class": "net.javacrumbs.jsonunit.test.johnzon.JohnzonAssertJTest",
+      "counts": {
+        "tests": 224,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-johnzon/target/test-classes:/JsonUnit/tests/test-johnzon/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/root/.m2/repository/org/apache/johnzon/johnzon-mapper/1.2.15/johnzon-mapper-1.2.15.jar:/root/.m2/repository/org/apache/johnzon/johnzon-core/1.2.15/johnzon-core-1.2.15.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-json_1.1_spec/1.5/geronimo-json_1.1_spec-1.5.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-johnzon/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.johnzon.JohnzonJsonAssertTest.xml",
+      "module": "tests/test-johnzon",
+      "test_class": "net.javacrumbs.jsonunit.test.johnzon.JohnzonJsonAssertTest",
+      "counts": {
+        "tests": 161,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-johnzon/target/test-classes:/JsonUnit/tests/test-johnzon/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/root/.m2/repository/org/apache/johnzon/johnzon-mapper/1.2.15/johnzon-mapper-1.2.15.jar:/root/.m2/repository/org/apache/johnzon/johnzon-core/1.2.15/johnzon-core-1.2.15.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-json_1.1_spec/1.5/geronimo-json_1.1_spec-1.5.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-johnzon/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.johnzon.JohnzonJsonFluentAssertTest.xml",
+      "module": "tests/test-johnzon",
+      "test_class": "net.javacrumbs.jsonunit.test.johnzon.JohnzonJsonFluentAssertTest",
+      "counts": {
+        "tests": 134,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-johnzon/target/test-classes:/JsonUnit/tests/test-johnzon/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/root/.m2/repository/org/apache/johnzon/johnzon-mapper/1.2.15/johnzon-mapper-1.2.15.jar:/root/.m2/repository/org/apache/johnzon/johnzon-core/1.2.15/johnzon-core-1.2.15.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-json_1.1_spec/1.5/geronimo-json_1.1_spec-1.5.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-johnzon/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.johnzon.JohnzonJsonMatchersTest.xml",
+      "module": "tests/test-johnzon",
+      "test_class": "net.javacrumbs.jsonunit.test.johnzon.JohnzonJsonMatchersTest",
+      "counts": {
+        "tests": 39,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-johnzon/target/test-classes:/JsonUnit/tests/test-johnzon/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/root/.m2/repository/org/apache/johnzon/johnzon-mapper/1.2.15/johnzon-mapper-1.2.15.jar:/root/.m2/repository/org/apache/johnzon/johnzon-core/1.2.15/johnzon-core-1.2.15.jar:/root/.m2/repository/org/apache/geronimo/specs/geronimo-json_1.1_spec/1.5/geronimo-json_1.1_spec-1.5.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-json-path/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.jsonpath.JsonPathTest.xml",
+      "module": "tests/test-json-path",
+      "test_class": "net.javacrumbs.jsonunit.test.jsonpath.JsonPathTest",
+      "counts": {
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-json-path/target/test-classes:/JsonUnit/tests/test-json-path/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-core/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-jsonorg/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.jsonorg.JsonOrgAssertJTest.xml",
+      "module": "tests/test-jsonorg",
+      "test_class": "net.javacrumbs.jsonunit.test.jsonorg.JsonOrgAssertJTest",
+      "counts": {
+        "tests": 225,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-jsonorg/target/test-classes:/JsonUnit/tests/test-jsonorg/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/root/.m2/repository/org/json/json/20220320/json-20220320.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-jsonorg/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.jsonorg.JsonOrgJsonAssertTest.xml",
+      "module": "tests/test-jsonorg",
+      "test_class": "net.javacrumbs.jsonunit.test.jsonorg.JsonOrgJsonAssertTest",
+      "counts": {
+        "tests": 163,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-jsonorg/target/test-classes:/JsonUnit/tests/test-jsonorg/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/root/.m2/repository/org/json/json/20220320/json-20220320.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-jsonorg/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.jsonorg.JsonOrgJsonFluentAssertTest.xml",
+      "module": "tests/test-jsonorg",
+      "test_class": "net.javacrumbs.jsonunit.test.jsonorg.JsonOrgJsonFluentAssertTest",
+      "counts": {
+        "tests": 134,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-jsonorg/target/test-classes:/JsonUnit/tests/test-jsonorg/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/root/.m2/repository/org/json/json/20220320/json-20220320.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-jsonorg/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.jsonorg.JsonOrgJsonMatchersTest.xml",
+      "module": "tests/test-jsonorg",
+      "test_class": "net.javacrumbs.jsonunit.test.jsonorg.JsonOrgJsonMatchersTest",
+      "counts": {
+        "tests": 39,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-jsonorg/target/test-classes:/JsonUnit/tests/test-jsonorg/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/root/.m2/repository/org/json/json/20220320/json-20220320.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-kotlin/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.kotlin.KotlinAssertJTest.xml",
+      "module": "tests/test-kotlin",
+      "test_class": "net.javacrumbs.jsonunit.test.kotlin.KotlinAssertJTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-kotlin/target/test-classes:/JsonUnit/tests/test-kotlin/target/classes:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.6.10/kotlin-stdlib-1.6.10.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.6.10/kotlin-stdlib-common-1.6.10.jar:/JsonUnit/json-unit-assertj/target/classes:/JsonUnit/json-unit-core/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-moshi/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.moshi.MoshiAssertJTest.xml",
+      "module": "tests/test-moshi",
+      "test_class": "net.javacrumbs.jsonunit.test.moshi.MoshiAssertJTest",
+      "counts": {
+        "tests": 225,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-moshi/target/test-classes:/JsonUnit/tests/test-moshi/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/com/squareup/moshi/moshi/1.13.0/moshi-1.13.0.jar:/root/.m2/repository/com/squareup/okio/okio/2.10.0/okio-2.10.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.4.20/kotlin-stdlib-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.20/kotlin-stdlib-common-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.0/kotlin-stdlib-jdk8-1.6.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.0/kotlin-stdlib-jdk7-1.6.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-moshi/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.moshi.MoshiFluentAssertTest.xml",
+      "module": "tests/test-moshi",
+      "test_class": "net.javacrumbs.jsonunit.test.moshi.MoshiFluentAssertTest",
+      "counts": {
+        "tests": 135,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-moshi/target/test-classes:/JsonUnit/tests/test-moshi/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/com/squareup/moshi/moshi/1.13.0/moshi-1.13.0.jar:/root/.m2/repository/com/squareup/okio/okio/2.10.0/okio-2.10.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.4.20/kotlin-stdlib-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.20/kotlin-stdlib-common-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.0/kotlin-stdlib-jdk8-1.6.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.0/kotlin-stdlib-jdk7-1.6.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-moshi/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.moshi.MoshiJsonAssertTest.xml",
+      "module": "tests/test-moshi",
+      "test_class": "net.javacrumbs.jsonunit.test.moshi.MoshiJsonAssertTest",
+      "counts": {
+        "tests": 160,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-moshi/target/test-classes:/JsonUnit/tests/test-moshi/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/com/squareup/moshi/moshi/1.13.0/moshi-1.13.0.jar:/root/.m2/repository/com/squareup/okio/okio/2.10.0/okio-2.10.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.4.20/kotlin-stdlib-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.20/kotlin-stdlib-common-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.0/kotlin-stdlib-jdk8-1.6.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.0/kotlin-stdlib-jdk7-1.6.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-moshi/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.moshi.MoshiJsonMatchersTest.xml",
+      "module": "tests/test-moshi",
+      "test_class": "net.javacrumbs.jsonunit.test.moshi.MoshiJsonMatchersTest",
+      "counts": {
+        "tests": 39,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-moshi/target/test-classes:/JsonUnit/tests/test-moshi/target/classes:/JsonUnit/tests/test-base/target/classes:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/assertj/assertj-core/3.22.0/assertj-core-3.22.0.jar:/JsonUnit/json-unit/target/classes:/JsonUnit/json-unit-core/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-assertj/target/classes:/root/.m2/repository/org/hamcrest/hamcrest-library/2.2/hamcrest-library-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/JsonUnit/json-unit-json-path/target/classes:/root/.m2/repository/com/jayway/jsonpath/json-path/2.4.0/json-path-2.4.0.jar:/root/.m2/repository/net/minidev/json-smart/2.3/json-smart-2.3.jar:/root/.m2/repository/net/minidev/accessors-smart/1.2/accessors-smart-1.2.jar:/root/.m2/repository/org/ow2/asm/asm/5.0.4/asm-5.0.4.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/com/squareup/moshi/moshi/1.13.0/moshi-1.13.0.jar:/root/.m2/repository/com/squareup/okio/okio/2.10.0/okio-2.10.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.4.20/kotlin-stdlib-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.20/kotlin-stdlib-common-1.4.20.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.6.0/kotlin-stdlib-jdk8-1.6.0.jar:/root/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.6.0/kotlin-stdlib-jdk7-1.6.0.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "tests/test-no-hamcrest/target/surefire-reports/TEST-net.javacrumbs.jsonunit.test.nohamcrest.NoHamcrestTest.xml",
+      "module": "tests/test-no-hamcrest",
+      "test_class": "net.javacrumbs.jsonunit.test.nohamcrest.NoHamcrestTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/JsonUnit/tests/test-no-hamcrest/target/test-classes:/JsonUnit/tests/test-no-hamcrest/target/classes:/JsonUnit/json-unit-fluent/target/classes:/JsonUnit/json-unit-core/target/classes:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.2/jackson-databind-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.2/jackson-annotations-2.13.2.jar:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.2/jackson-core-2.13.2.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar:",
+      "errors": [],
+      "failures": []
+    }
+  ],
+  "source_and_pom_sha256": {
+    "json-unit/pom.xml": "30668bf481a22c3326077014e538b2965021dc5e4b0ee04e1e31cafeaf1c4935",
+    "json-unit/src/main/java/net/javacrumbs/jsonunit/ConfigurableJsonMatcher.java": "d0786e9c9c1973ef2a344120261b90b8bf4a4027ea1b5739a924fc08ace2468b",
+    "json-unit/src/main/java/net/javacrumbs/jsonunit/JsonAssert.java": "8a292fe4203d87c670dbc10875a02aaa65a272e096254d9cc04e0e6a94e6ca19",
+    "json-unit/src/main/java/net/javacrumbs/jsonunit/JsonMatchers.java": "d2b69da1bff89b0766d8fa9fa8ca6ac867ccb34ad42ea058d9b7a1afa9856fc8",
+    "json-unit-assertj/pom.xml": "ffb2d3bcefa746ee49731cec694d06d700dbe71b158a292c978aac8f23367a28",
+    "json-unit-assertj/src/main/java/net/javacrumbs/jsonunit/assertj/ExpectedNode.java": "7cd1ec5930e60702ea5866e5b7b10d26923d7cd64101a30a619b1c410cd13797",
+    "json-unit-assertj/src/main/java/net/javacrumbs/jsonunit/assertj/JsonAssert.java": "6a4d00e7f2b1b1b4d388032ad106beedda6020e944e8567e0f49483808382bd8",
+    "json-unit-assertj/src/main/java/net/javacrumbs/jsonunit/assertj/JsonAssertion.java": "ab2848a834f7aed7e6db3107886a9951631f80be2569dd732aecd8d7905a84a8",
+    "json-unit-assertj/src/main/java/net/javacrumbs/jsonunit/assertj/JsonAssertions.java": "25c7fff74b166b485c6d43882d6dc114fec8d2b5a9c3ca8deb1dbe302839d1b1",
+    "json-unit-assertj/src/main/java/net/javacrumbs/jsonunit/assertj/JsonComparator.java": "fa6ec334f5914f4a24329e57030d85e310e693215b578ff4fd99ffc14c6b1c57",
+    "json-unit-assertj/src/main/java/net/javacrumbs/jsonunit/assertj/JsonComparisonStrategy.java": "37ee9fb9d0d5dc7e00ae98562c11cc9a00f87daec0c53bbbe621db9559734731",
+    "json-unit-assertj/src/main/java/net/javacrumbs/jsonunit/assertj/JsonListAssert.java": "1c313f06280c2a7640fe456b20cb6e460f11ffc8a8f80e43409018ddf5edff9e",
+    "json-unit-assertj/src/main/java/net/javacrumbs/jsonunit/assertj/JsonMapAssert.java": "dd006c4c0d56ce1b5c617eb521f8697b06ed8b033921c14740aee8f38eab72f1",
+    "json-unit-assertj/src/main/java/net/javacrumbs/jsonunit/assertj/internal/JsonRepresentation.java": "5dbb62746e79b4330d1aac5b10a5358b9fdf7980fddf0b11aa2749fe839b018b",
+    "json-unit-assertj/src/main/kotlin/net/javacrumbs/jsonunit/assertj/JsonAssertionsDsl.kt": "104f3ad8640fc385702f1dcd98134d5fcc6cba5169f74720d8eb960b72cdd148",
+    "json-unit-assertj/src/test/kotlin/net/javacrumbs/jsonunit/assertj/JsonAssertionsDslKtTest.kt": "15056958d8f9e10857225f73e12f4d07d2ac4056e27446039cbdfb47da955172",
+    "json-unit-core/pom.xml": "fbf3681f51d0ed254a821b5f4c3cf45c2ea77493742cfe534d2129df6a1f4e71",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/Configuration.java": "e6d1d11f4c0441aabe34be292949d39d6cf371f9e737b1f5dc0cc986e584d147",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/ConfigurationWhen.java": "b413d8dd835f4524be42a3facab98fe31b6cde721c7010d3b201131543028301",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/Matchers.java": "89c8989b8ca40f687302bc414c068c83f6cbef7de10257c535fd9c83f02e78c4",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/Option.java": "e2a4460bd71a81245d0ebf3ddbdda559f2d46406fc0c8d2fb5faf7d79afc670c",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/ParametrizedMatcher.java": "f63c54a513ba7a6fb5999b2d192a4b71d23e414f54b26022d1a63348b77e1edc",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/AbstractNode.java": "d8ca6d6c1ed9bbdc3d5aaaac4bc8e44380d1e9207945c9c5c9da282002af63d7",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/AbstractNodeFactory.java": "3d2ae1a3c85e446db269e96ea4e5ea78fef7972e16d4b61e33eb985f64ac60e1",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/ArrayComparison.java": "80d644e3252fd1dab19f64947032aea534411ad6d275941affaf6cbc245ca33a",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/ArrayUtils.java": "7b3aa16b510b89a370f775c769b3aa57b67c6943a71e3cdd89d9fe9dc163479a",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/ClassUtils.java": "854f4be458957f2e8cbb152c46278ea4961fc41249e71532c3c7f08d81c7012a",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/ComparisonMatrix.java": "458be240849ff53a14d9fff3171b640e2cd87c86ff98d01a088dc16c33a39f78",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/Context.java": "a4ba2e7e9cae31fdcf7852a5da623e3a2b561a9136ab0713903839ede2ecd4d4",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/Converter.java": "6e45bedadf3b167f2d962efb5e90fd6d40c8a3422eb4be45c951801a1e4eb933",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/Diff.java": "56c6c68a7e88fd764a7d3436bb5f4e0503e0fa4b24bf3c97208d453583574060",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/DifferenceContextImpl.java": "ef5d1c47fc18c87a1d8c407886eaf2837523fe672a35d634cbb32938ba61606c",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/DifferenceImpl.java": "5253e5bd0e7efe0b21cd432b0a7285fc3f35f09f08e71f8d62eb424c6277520a",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/Differences.java": "09b0b2dcc49d511233b25061367f31e9a7edacc439ddc6e8366db25e9b90b055",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/ExceptionFactory.java": "7f0ea7a011a2cb70e000d5575afbe0ccbcf27666d46f745f1967afea4efdf9f3",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/ExceptionUtils.java": "c397ac12ade9686dbba0f3e9adb7f6f6b7ceea56000ebcb705ff51bc63786b78",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/GenericNodeBuilder.java": "fd11c8b4787c31bef30e0acfa4d127a5d8fce4dee8990cbbb4fd0e668ebaacbe",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/GsonNodeFactory.java": "a4e590a6fa2c483d8763fd90e28f3330d4dc8372c28c017a96bb3f69c164792f",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/HamcrestHandler.java": "61e08a8a073693bee7df71e6ffed5ac20167ac639bf4fe9a285ee60104b7327b",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/Jackson2NodeFactory.java": "2fcd29bdd5cdaa28c81c8757cebce6fee275d2de1c2b92f93bc19419151ad0c5",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/JohnzonNodeFactory.java": "5c9ef83b377916031bc0374ace2285a069d958e0032813920fde314be53f0178",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/JsonDifference.java": "afd27163f87e886331bbbc76cce50d4bf23ac2d56a2ea42bc82b1b07cac2d390",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/JsonOrgNodeFactory.java": "5ecf0f00ba7e47aad0dfe309f24f4ddc76b4bedd65a65cd75723fa004ca569ad",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/JsonSource.java": "345b3e03521ee3366720e173cfdd42d3b11b6f06f3081780f48a0067474ed732",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/JsonUnitLogger.java": "6a4a1053b750ca1e8c35ed06cdbd1aabbcee6c488594d00021ac01b2dc604e85",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/JsonUtils.java": "61f0b04ab465ed78beec07d49cf59fec66b4830d3179a5120315b5aab1214031",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/MoshiNodeFactory.java": "0383e71d614834faae484d61dd73bbe4c1bdaa033f0dc135dee24437970021b4",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/Node.java": "cee69c074194a43f9ea117b9114014865ce374709cf92785aee54f2eb9a51974",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/NodeBuilder.java": "e261823def33265135bb92eb069c1d5d9bf7de959865f54ac94a099d74d1aa94",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/NodeFactory.java": "fe5de3c839dc86593dc22f64e1cb2580d5f3aef3cdc0632b36a4ac1ee7493025",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/NodeWrapper.java": "5f5738fa4de7739aeb266d39f9dcabe09171e1fc44f87741d5773e5658533011",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/Options.java": "a40a78dd5ed023925e1de2b1b9e544b9fcd91b4c9655c92b68430b442f3cd865",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/Path.java": "ee8b492a7d050455e6a3f635c54b5b15c23fb4ca2312e9f971bca88ee0b8ee89",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/PathMatcher.java": "43291ebb6c7cc3993617b7e81954935674042308076c55cc3ca3a90a95ef5d18",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/PathOption.java": "9f52905db6a592a6fa30a0709e51bb3c138d72714df2c330ae8285747d6674e1",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/PathOptionMatcher.java": "6bf32de2f36a0d62d1019de6d212485cfb7d8e834515ac2eab1d00923a56d521",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/Utils.java": "27cc425dca6eea9f02a85fa44ed4189b96dafb3c4f05005e8f1a8274f64df9c2",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/internal/matchers/InternalMatcher.java": "03e14440f7ce4984c3e1f60f1a43349115220491decd280dfffab3252908ab76",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/listener/Difference.java": "cbd6f531920c03b3436ad1b4bcee8ebd20b3edb196307f7a4a816a0621c22b20",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/listener/DifferenceContext.java": "4139de050b9646eb6ee2d39e8456fcfba6cfa15d42ca1537cc5aa953611a7431",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/listener/DifferenceListener.java": "29cbbcc705c64b77e4ec2f67bcde525cd59f98b62721bf285211e86f858a2317",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/core/util/ResourceUtils.java": "5cef49ae3fceedfb181d5274cde88ece671d400ddf31f41902d018b8e58f1537",
+    "json-unit-core/src/main/java/net/javacrumbs/jsonunit/providers/Jackson2ObjectMapperProvider.java": "e97c7a6a02b272230112608b2a693c4fbf30ddbfa92790d7d730ddf17dd1967e",
+    "json-unit-core/src/test/java/net/javacrumbs/jsonunit/core/internal/ConverterTest.java": "3b4bf33157a85d8efe2525757c170700bfcd247e9644130a0d7c97200982a621",
+    "json-unit-core/src/test/java/net/javacrumbs/jsonunit/core/internal/DifferenceTest.java": "03e4d49cc02cd64e87d4e1ac00af8335edce3a371305d75e2bbea30e6d85f849",
+    "json-unit-core/src/test/java/net/javacrumbs/jsonunit/core/internal/JsonUtilsTest.java": "b969c8eaf567491990c7172c0170dcc389058290b317db312bcb7e2bcd56ea52",
+    "json-unit-core/src/test/java/net/javacrumbs/jsonunit/core/internal/NodeFactoryTest.java": "7c45ab84ce2d452f2a09da3987d82ca26af148a09e995db3a9ec1a66b98e03b7",
+    "json-unit-core/src/test/java/net/javacrumbs/jsonunit/core/internal/PathMatcherTest.java": "c7c7455cddcb20414326fe9f06cec0e39b91dc612f1a09076c8f239c71b38447",
+    "json-unit-fluent/pom.xml": "62df94ee154c8c864cde6e87f48bd1f49c0a2218b95af84dfd5af689d9c6eed4",
+    "json-unit-fluent/src/main/java/net/javacrumbs/jsonunit/fluent/JsonFluentAssert.java": "1a687e7b4cf8e98f080347bb31d33d090e0b8b2a083dec94a5ca3d8f49d326e2",
+    "json-unit-json-path/pom.xml": "cfb7ec170a8ef2ff8c093bb0656c890d5e699d3b0aff42338b90d2bc435ed8d3",
+    "json-unit-json-path/src/main/java/net/javacrumbs/jsonunit/jsonpath/InternalJsonPathUtils.java": "b395d40c5822232f95f5202f1c45ea8a0f2d9548a1e8d93e9448887e1763292f",
+    "json-unit-json-path/src/main/java/net/javacrumbs/jsonunit/jsonpath/JsonPathAdapter.java": "0107c0f5a01e9e635cd0f0834868084c3b595d93691f32fa507b11335430e55b",
+    "json-unit-json-path/src/test/java/net/javacrumbs/jsonunit/jsonpath/InternalJsonPathUtilsTest.java": "e114aa05a8738c7b4efaa3d72ebeb0672febd9f531242a16e8ce14c500f85cf5",
+    "json-unit-spring/pom.xml": "8095fb79648a8a89bfda6904d03d72eca891b2665ce2a779c6d263f5ca7b91d2",
+    "json-unit-spring/src/main/java/net/javacrumbs/jsonunit/spring/AbstractSpringMatcher.java": "c73c1b2626119af964c31f8c43026a391ed5c1ebc8191fb76eef4c417b14eb70",
+    "json-unit-spring/src/main/java/net/javacrumbs/jsonunit/spring/AbstractSpringMatchers.java": "e8719b0bbd044cffd53160ddf41b0a7c707150874085eea998f0e027eb2083b4",
+    "json-unit-spring/src/main/java/net/javacrumbs/jsonunit/spring/JsonUnitRequestMatchers.java": "ee3e18fcfaa7a5494319aee70fbc695112007ee58966bba970a283e4b547464a",
+    "json-unit-spring/src/main/java/net/javacrumbs/jsonunit/spring/JsonUnitResultMatchers.java": "587f6e2a6a2868d4bbbc67ab4bcfbff1d2e0ed0705dbc3dc5d0bd3ea22f57aaf",
+    "json-unit-spring/src/main/java/net/javacrumbs/jsonunit/spring/Utils.java": "bd02b8011ce430a9fec735ce59454d606e2692ca7a0387efbaa9434b6b47f23a",
+    "json-unit-spring/src/main/java/net/javacrumbs/jsonunit/spring/WebTestClientJsonMatcher.java": "6041adbf6c8dfa21874271b177a6e13837cd17f641e7f11402dc05c7de901876",
+    "json-unit-spring/src/main/kotlin/net/javacrumbs/jsonunit/spring/JsonUnitMockMvcResultMatcherDsl.kt": "62ad10216ca852655edda27b0cf4683e8f1a8ec8b28a194228db8f1c1a8dc514",
+    "json-unit-spring/src/main/kotlin/net/javacrumbs/jsonunit/spring/WebTestClientJsonMatcherDsl.kt": "aff6af62d97278418d1969b8fddb15b0f2a590fd8510a059db53b226e38238e8",
+    "json-unit-spring/src/test/java/net/javacrumbs/jsonunit/spring/testit/ClientTest.java": "066a7e386ea9b7ce3d3941ca4a4d462f06a040379d7d36639c99ee4b6924dbb7",
+    "json-unit-spring/src/test/java/net/javacrumbs/jsonunit/spring/testit/MockMvcTest.java": "043dac8b64e35e39389012ddaaced1d0dc0efcab74c0370d15c165ec0491eaea",
+    "json-unit-spring/src/test/java/net/javacrumbs/jsonunit/spring/testit/WebTestClientTest.java": "8563067847401e41cf96260c9ca1dfd63c49541b0d857364e098281dc434869b",
+    "json-unit-spring/src/test/java/net/javacrumbs/jsonunit/spring/testit/demo/ExampleController.java": "f41f916d12d6d3c013a2d3f743267ba3e2bc02028e66bef09d59d497e28fec52",
+    "json-unit-spring/src/test/java/net/javacrumbs/jsonunit/spring/testit/demo/SpringConfig.java": "3bed2d067d504f771eda5ce9ffa17880c2133629831e1f5068be3d981d2621ed",
+    "json-unit-spring/src/test/kotlin/net/javacrumbs/jsonunit/spring/testit/KotlinDslTest.kt": "19ad0baf9d80054a06a3c2c922827f39e39b36265114fcc2d0afdf048dd4c770",
+    "json-unit-spring/src/test/kotlin/net/javacrumbs/jsonunit/spring/testit/KotlinWebTestClientTest.kt": "b67218fb67d86b93dafd798ef4e7756cf4259eae615364845baccb37d79604f0",
+    "pom.xml": "3a23b82fd7adaaef718927512e2bd80882f92ed57c6013d53c0900c645d40c7d",
+    "tests/pom.xml": "2a0049e32b9bb5cea7f79e47542c8120878fb4b3cfa88612b062756eb63e153d",
+    "tests/test-base/src/main/java/net/javacrumbs/jsonunit/test/base/AbstractAssertJTest.java": "9fa7091c8a4ea9ee3f82b8db847a86c33a2388ccf57163883a73489af6749113",
+    "tests/test-base/src/main/java/net/javacrumbs/jsonunit/test/base/AbstractJsonAssertTest.java": "e04b445aaa7e205fb101f62cb0a997c4d02af900b0363a672a084a08175d4b48",
+    "tests/test-base/src/main/java/net/javacrumbs/jsonunit/test/base/AbstractJsonFluentAssertTest.java": "c842f899a44d20fe50e8b5a00f082efdc22dfc13a7b5693095864b72df52f1c5",
+    "tests/test-base/src/main/java/net/javacrumbs/jsonunit/test/base/AbstractJsonMatchersTest.java": "654d404dad3ab273ac457c32cb2c2681ff4128da035c9fac565d4105ef7320f7",
+    "tests/test-base/src/main/java/net/javacrumbs/jsonunit/test/base/JsonTestUtils.java": "6e3b5c4f27c3995978cd725d0e59bb8be4527289f77c97dfb3f6cc232ef038f5",
+    "tests/test-base/src/main/java/net/javacrumbs/jsonunit/test/base/RecordingDifferenceListener.java": "0a342755c6e4559109010bd69e1e2f49869c4787385e3ba8840d79b35594bd23",
+    "tests/test-base/src/main/java/net/javacrumbs/jsonunit/test/base/RegexBuilder.java": "fbd05a5e751491f96d6c89db1ea3c2b6a4094071db6f05eb8bd90046834cfa11",
+    "tests/test-base/src/main/java/net/javacrumbs/jsonunit/test/base/beans/Jackson2Bean.java": "5328d0707df5f09ebb7c21fd43badfdacaa3962d212f6000a3f12494b9fea101",
+    "tests/test-base/src/main/java/net/javacrumbs/jsonunit/test/base/beans/Jackson2IgnorePropertyBean.java": "323b54bf23c12156aac5b86752d38d46e1830b30232fed7ffb26a9c25f6f75c7",
+    "tests/test-base/src/main/kotlin/net/javacrumbs/jsonunit/test/base/AbstractAssertJKotlinTest.kt": "24016d96a9c0f82e31c6856798f93f4fe68aa94e7857e2500558cc654a4f24ba",
+    "tests/test-base/src/main/resources/simplelogger.properties": "1ae2140395a9f1411e7d0e9c934baa69a2a163bcc224acc3f1c176bfbf1a63eb",
+    "tests/test-base/src/main/resources/test.json": "1da06016289bd76a5ada4f52fc805ae0c394612f17ec6d0f0c29b636473c8a9d",
+    "tests/test-base/src/main/resources/unicode.json": "3e96ed8ad722478bfbfcbdc1bab0adda5f0fdec1fc25d9d1c29e5c2e8d05b6db",
+    "tests/test-base/src/test/java/net/javacrumbs/jsonunit/test/all/AllAssertJTest.java": "5a4af443ac16010f168dbf24ebd9c48332babe19c5434d57571f7ac6ee76fbb4",
+    "tests/test-base/src/test/java/net/javacrumbs/jsonunit/test/all/AllJsonAssertTest.java": "1136ec8cfd68649cad22d21f3f6a2e08c5ca17218be76d2405acad8eb650c359",
+    "tests/test-base/src/test/java/net/javacrumbs/jsonunit/test/all/AllJsonFluentAssertTest.java": "b78f6e81ab00c7c3c9c4f5d673735a5796ccd306de22a12dc5697b27940ec1d6",
+    "tests/test-base/src/test/java/net/javacrumbs/jsonunit/test/all/AllJsonMatchersTest.java": "c5fc0081c34209626f450137deae15cd7ede9c5a9590a3dacae52a7eae12a521",
+    "tests/test-base/src/test/java/net/javacrumbs/jsonunit/test/all/AssumptionsWithAssertJTest.java": "190980d375643bc6bd850f18abb66206d50ccd0b079921dc3b57f38dabfb82f0",
+    "tests/test-base/src/test/kotlin/net/javacrumbs/jsonunit/test/all/AllAssertJKotlinTest.java": "ac4c30f37d9dcedf09e773b486a0df9c5929f673816ade55b3dad3ff6910acbb",
+    "tests/test-gson/src/test/java/net/javacrumbs/jsonunit/test/gson/GsonAssertJTest.java": "ffc127f802a37d2fe43be7307deeacc5cbbf6eb3cb149b16bf492d603d963b7a",
+    "tests/test-gson/src/test/java/net/javacrumbs/jsonunit/test/gson/GsonJsonAssertTest.java": "f445f7be178f1f86dd885fbbacd6672b183de0410ac196c2eaf99ae9e103b7cd",
+    "tests/test-gson/src/test/java/net/javacrumbs/jsonunit/test/gson/GsonJsonFluentAssertTest.java": "c2cf39f57b43cf94359b73119804f1a36128d72d11645072cfab9c6fa2f27645",
+    "tests/test-gson/src/test/java/net/javacrumbs/jsonunit/test/gson/GsonJsonMatchersTest.java": "55ba769a5db9581bc226030718a8bb41e4eb4cb00a597c87f410dc5c685e9192",
+    "tests/test-jackson2/src/test/java/net/javacrumbs/jsonunit/test/jackson2/Jackson2AssertJTest.java": "0007230b9e96acb2aec6f3aafa19d0d1cf25fb60cf2873f97a1b23a550c12874",
+    "tests/test-jackson2/src/test/java/net/javacrumbs/jsonunit/test/jackson2/Jackson2FluentAssertTest.java": "a50760bfde0150c11dff577ece3d2515c450e16e03cfd1af3d00f181d2103b3b",
+    "tests/test-jackson2/src/test/java/net/javacrumbs/jsonunit/test/jackson2/Jackson2JsonAssertTest.java": "af69353173494cda9866b5c32ffa460ec417afab1ee5a0c1a40298c52fb11193",
+    "tests/test-jackson2/src/test/java/net/javacrumbs/jsonunit/test/jackson2/Jackson2JsonMatchersTest.java": "05eb55f72ffa356800545a62a4ff8a8a9e7143737b2c27acfaec4ec95a3fdf6b",
+    "tests/test-jackson2-config/src/test/java/net/javacrumbs/jsonunit/test/jackson2config/Jackson2ConfigTest.java": "9ddf86f98f6a5f01cc0f499dfd0fc2b8d7b17befae5265efdcfed3fdc63df0ed",
+    "tests/test-jackson2-config/src/test/java/net/javacrumbs/jsonunit/test/jackson2config/Java8ObjectMapperProvider.java": "e97c3b72e1e67e4fc3ed6749f8cf1eaa4c8ee4acaa76d5421ef180fca0d2ffee",
+    "tests/test-jackson2-config/src/test/resources/META-INF/services/net.javacrumbs.jsonunit.providers.Jackson2ObjectMapperProvider": "9ebd8c08e82d0d53507132e06c1aeacff9a3076f14845cf6c88c890fb7f94b43",
+    "tests/test-johnzon/src/test/java/net/javacrumbs/jsonunit/test/johnzon/JohnzonAssertJTest.java": "eb474cfb483d4b6a12d194f59c02afd8a938d9905aae3e80ae5ce7342ac71e76",
+    "tests/test-johnzon/src/test/java/net/javacrumbs/jsonunit/test/johnzon/JohnzonJsonAssertTest.java": "ef38472af6ab0abf95f39f4b577337c9ae0f7acaa9c22758469c3fbce3b32284",
+    "tests/test-johnzon/src/test/java/net/javacrumbs/jsonunit/test/johnzon/JohnzonJsonFluentAssertTest.java": "1baa30ea42499ad254dd56729b654b3662cdba79c72bbda5f40adf50b09b1428",
+    "tests/test-johnzon/src/test/java/net/javacrumbs/jsonunit/test/johnzon/JohnzonJsonMatchersTest.java": "1026683f93b04f6a4aa1b115e3c092f4784b4fbcd4b5e570d14b47c68fb25c3e",
+    "tests/test-json-path/src/test/java/net/javacrumbs/jsonunit/test/jsonpath/JsonPathTest.java": "67b597bd9d51ff075879ea854c794b79530b22fdc227c6c0d66857cda6521a7f",
+    "tests/test-jsonorg/src/test/java/net/javacrumbs/jsonunit/test/jsonorg/JsonOrgAssertJTest.java": "70aa8bb99d3618e42f932b1592f7ad94319312f36e55aec02503bb1e385c5252",
+    "tests/test-jsonorg/src/test/java/net/javacrumbs/jsonunit/test/jsonorg/JsonOrgJsonAssertTest.java": "f54f1b29a1941bb7d093e5e6ade089ab86f41e885dfca3c5c75195a346c7d6b0",
+    "tests/test-jsonorg/src/test/java/net/javacrumbs/jsonunit/test/jsonorg/JsonOrgJsonFluentAssertTest.java": "65c4306e11e9f95d9ad1d7e42c8f969577300f05c0b1d7dca66244c3b6ae8671",
+    "tests/test-jsonorg/src/test/java/net/javacrumbs/jsonunit/test/jsonorg/JsonOrgJsonMatchersTest.java": "3c0ccdff1930480b52d307371bf9d5c79e4b265aa4e1b9b4781ec382d9e20012",
+    "tests/test-junit4/src/test/java/net/javacrumbs/jsonunit/test/junit4/AssumptionsWithAssertJTest.java": "774f8304caba9eac1e01d19835dbd5c534830be32600029b8ea43ea54921af3b",
+    "tests/test-junit4/src/test/java/net/javacrumbs/jsonunit/test/junit4/JUnit4Test.java": "b19786fb2098f91ac6a9223b2bc0639f8843a9e1a9626330473a8886e8ad664d",
+    "tests/test-kotlin/src/test/kotlin/net/javacrumbs/jsonunit/test/kotlin/KotlinAssertJTest.kt": "a52c9c9359593735f35869f9fbf7f736e4fd1acf671b2470d5f1d6309b839d01",
+    "tests/test-moshi/src/test/java/net/javacrumbs/jsonunit/test/moshi/MoshiAssertJTest.java": "948ea157ac60305714ffe260748b623334d871d14b6529e9d92263e101ab16c4",
+    "tests/test-moshi/src/test/java/net/javacrumbs/jsonunit/test/moshi/MoshiFluentAssertTest.java": "71b15072d2f2e8ff71b5ffbd9903099d3ab6bc2852f769aae2c3f727bcbcb80d",
+    "tests/test-moshi/src/test/java/net/javacrumbs/jsonunit/test/moshi/MoshiJsonAssertTest.java": "f10dd3b71947832a230c8454171f44f4ce7c4a8c61d422c422fed0ce7d5f4143",
+    "tests/test-moshi/src/test/java/net/javacrumbs/jsonunit/test/moshi/MoshiJsonMatchersTest.java": "bc61ed8339066d2228c135f269c9632e560f4b52f6ae427f69a988d63985f448",
+    "tests/test-no-hamcrest/src/test/java/net/javacrumbs/jsonunit/test/nohamcrest/NoHamcrestTest.java": "0e9d4725f7607a28ad6c480d56c4927529703d9e5adad2f7e2cd038bb6c38632"
+  },
+  "aggregate_counts": {
+    "tests": 3564,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 9
+  }
+}

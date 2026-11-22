@@ -1,0 +1,93 @@
+=== CASE 83 6ee4bf66c141d1f756b6ccd793a64fb499ab46c8
+  project=premium-minds/billy dep=org.hibernate.validator:hibernate-validator 6.1.7.Final -> 7.0.3.Final scope=compile type=other java=11
+  PR=https://github.com/premium-minds/billy/pull/267
+  PRE log logs/batch_triage/6ee4bf66_pre.log:
+  lines=1249
+  status: [INFO] BUILD SUCCESS
+  reactor: billy   SUCCESS [  1.190 s]; billy core   SUCCESS [  9.377 s]; billy core JPA   SUCCESS [  9.867 s]; billy GIN   SUCCESS [  0.863 s]; billy portugal (PT Pack)   SUCCESS [01:36 min]; billy spain (ES Pack)   SUCCESS [01:22 min]; billy france (FR Pack)   SUCCESS [01:15 min]; BUILD SUCCESS
+  aggregate summaries: Tests run: 20, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 1, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 98, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 80, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 80, Failures: 0, Errors: 0, Skipped: 4
+  provider/console lines: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details. | WARNING: An illegal reflective access operation has occurred
+  linkage/compile signals: cannot find symbol, package com.premiumminds.billy.portugal.services.export.saftpt.v1_02_01.schema does not exist, package com.premiumminds.billy.portugal.services.export.saftpt.v1_02_01.schema.AuditFile does not exist, package com.premiumminds.billy.portugal.services.export.saftpt.v1_02_01.schema.SourceDocuments does not exist, package com.premiumminds.billy.portugal.services.export.saftpt.v1_02_01.schema.SourceDocuments.SalesInvoices does not exist, package com.premiumminds.billy.portugal.services.export.saftpt.v1_02_01.schema.SourceDocuments.SalesInvoices.Invoice does not exist, package com.premiumminds.billy.portugal.services.export.saftpt.v1_03_01.schema does not exist, package com.premiumminds.billy.portugal.services.export.saftpt.v1_03_01.schema.AuditFile does not exist, package com.premiumminds.billy.portugal.services.export.saftpt.v1_03_01.schema.SourceDocuments does not exist, package com.premiumminds.billy.portugal.services.export.saftpt.v1_03_01.schema.SourceDocuments.SalesInvoices does not exist, package com.premiumminds.billy.portugal.services.export.saftpt.v1_03_01.schema.SourceDocuments.SalesInvoices.Invoice does not exist, package com.premiumminds.billy.portugal.services.export.saftpt.v1_04_01.schema does not exist, package com.premiumminds.billy.portugal.services.export.saftpt.v1_04_01.schema.AuditFile does not exist, package com.premiumminds.billy.portugal.services.export.saftpt.v1_04_01.schema.SourceDocuments does not exist, package com.premiumminds.billy.portugal.services.export.saftpt.v1_04_01.schema.SourceDocuments.SalesInvoices does not exist, package com.premiumminds.billy.portugal.services.export.saftpt.v1_04_01.schema.SourceDocuments.SalesInvoices.Invoice does not exist
+  exception names: com.premiumminds.billy.portugal.services.documents.exceptions.InvalidInvoiceDateExceptionx81, com.premiumminds.billy.france.services.documents.exceptions.InvalidInvoiceDateExceptionx80, com.premiumminds.billy.spain.services.documents.exceptions.InvalidInvoiceDateExceptionx75
+  BREAKING log logs/batch_triage/6ee4bf66_breaking.log:
+  lines=240
+  status: [INFO] BUILD FAILURE
+  reactor: billy   SUCCESS [  1.675 s]; billy core   FAILURE [ 10.628 s]; billy core JPA   SKIPPED; billy GIN   SKIPPED; billy portugal (PT Pack)   SKIPPED; billy spain (ES Pack)   SKIPPED; billy france (FR Pack)   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 20, Failures: 0, Errors: 19, Skipped: 0
+  failing classes: Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.666 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestBankAccountBuilder || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.278 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestBusinessBuilder || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.375 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.031 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestContactBuilder || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.028 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestTicketBuilder || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.025 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestContextBuilder || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.028 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestApplicationBuilder || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.019 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestAddressBuilder || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestTaxBuilder || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestProductBuilder
+  section: Errors: | TestAddressBuilder.doTest:42 » NoClassDefFound Could not initialize class com.... | TestApplicationBuilder.doTest:60 » NoClassDefFound Could not initialize class ... | TestBankAccountBuilder.doTest:44 » ExceptionInInitializer | TestBusinessBuilder.doTest:67 » NoClassDefFound Could not initialize class com... | TestContactBuilder.doTest:43 » NoClassDefFound Could not initialize class com.... | TestContextBuilder.doTest:47 » NoClassDefFound Could not initialize class com.... | TestCustomerBuilder.doTest:80 » NoClassDefFound Could not initialize class com... | TestGenericInvoiceBuilder.doTest:81 » NoClassDefFound Could not initialize cla... | TestGenericInvoiceEntryBuilder.doTest:70 » NoClassDefFound Could not initializ... | TestGenericInvoiceEntryOperations.setUp:77->getEntryEntityBuilder:166 » NoClassDefFound | TestGenericInvoiceOperations.manyEntriesTest:144->getBuilder:228 » NoClassDefFound | TestGenericInvoiceOperations.operationsTest:121->getBuilder:228 » NoClassDefFound | TestGenericInvoiceOperations.simpleOperationsTest:93->getBuilder:228 » NoClassDefFound
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project billy-core: There are test failures.
+  FAILBLOCK: [ERROR] doTest  Time elapsed: 0.147 s  <<< ERROR!
+      java.lang.ExceptionInInitializerError
+      at com.premiumminds.billy.core.test.services.builders.TestBankAccountBuilder.doTest(TestBankAccountBuilder.java:44)
+      Caused by: javax.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+      at com.premiumminds.billy.core.test.services.builders.TestBankAccountBuilder.doTest(TestBankAccountBuilder.java:44)
+      [INFO] Running com.premiumminds.billy.core.test.services.builders.TestBusinessBuilder
+      Caused by: javax.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+  FAILBLOCK: [ERROR] doTest  Time elapsed: 0.278 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+      at com.premiumminds.billy.core.test.services.builders.TestBusinessBuilder.doTest(TestBusinessBuilder.java:67)
+      [INFO] Running com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations
+      [ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.375 s <<< FAILURE! - in com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations
+      [ERROR] operationsTest  Time elapsed: 0.236 s  <<< ERROR!
+  distinct fail signatures (count): 1x java.lang.ExceptionInInitializerError || 18x java.lang.NoClassDefFoundError: Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+  linkage/compile signals: NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx18, java.lang.ExceptionInInitializerErrorx1, javax.validation.NoProviderFoundExceptionx1
+  EVIDENCE logs/case83_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/hibernate-validator-7.0.3.Final.jar, breaking/jakarta.validation-api-2.0.2.jar, pre/archive_summary.json, pre/artifacts.tar, pre/hibernate-validator-6.1.7.Final.jar, pre/jakarta.validation-api-2.0.2.jar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=149 sum(t,f,e,s)=[279, 0, 0, 4]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=17 sum(t,f,e,s)=[20, 0, 19, 0]
+  archived non-report files: pre=1407 breaking=1407 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -88,3 +88,3 @@
+     				<artifactId>hibernate-validator</artifactId>
+    -				<version>6.1.7.Final</version>
+    +				<version>7.0.3.Final</version>
+     			</dependency>
+  BREAKING surefire failures/errors:
+    ERROR com.premiumminds.billy.core.test.services.builders.TestAddressBuilder#doTest type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestAddressBuilder.doTest(TestAddressBuilder.java:42)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestApplicationBuilder#doTest type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestApplicationBuilder.doTest(TestApplicationBuilder.java:60)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestBankAccountBuilder#doTest type=java.lang.ExceptionInInitializerError msg=
+       Caused by: javax.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+       at com.premiumminds.billy.core.test.services.builders.TestBankAccountBuilder.doTest(TestBankAccountBuilder.java:44)
+       at com.premiumminds.billy.core.test.services.builders.TestBankAccountBuilder.doTest(TestBankAccountBuilder.java:44)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestBusinessBuilder#doTest type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestBusinessBuilder.doTest(TestBusinessBuilder.java:67)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestContactBuilder#doTest type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestContactBuilder.doTest(TestContactBuilder.java:43)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestContextBuilder#doTest type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestContextBuilder.doTest(TestContextBuilder.java:47)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestCustomerBuilder#doTest type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestCustomerBuilder.doTest(TestCustomerBuilder.java:80)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceBuilder#doTest type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceBuilder.doTest(TestGenericInvoiceBuilder.java:81)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceEntryBuilder#doTest type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceEntryBuilder.doTest(TestGenericInvoiceEntryBuilder.java:70)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceEntryOperations#testOperations type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceEntryOperations.getEntryEntityBuilder(TestGenericInvoiceEntryOperations.java:166)
+       at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceEntryOperations.setUp(TestGenericInvoiceEntryOperations.java:77)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations#operationsTest type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations.getBuilder(TestGenericInvoiceOperations.java:228)
+       at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations.operationsTest(TestGenericInvoiceOperations.java:121)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations#manyEntriesTest type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations.getBuilder(TestGenericInvoiceOperations.java:228)
+       at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations.manyEntriesTest(TestGenericInvoiceOperations.java:144)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations#testRoundingValues type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations.getBuilder(TestGenericInvoiceOperations.java:228)
+       at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations.testRoundingValues(TestGenericInvoiceOperations.java:187)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations#simpleOperationsTest type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations.getBuilder(TestGenericInvoiceOperations.java:228)
+       at com.premiumminds.billy.core.test.services.builders.TestGenericInvoiceOperations.simpleOperationsTest(TestGenericInvoiceOperations.java:93)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestProductBuilder#doTest type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestProductBuilder.doTest(TestProductBuilder.java:52)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestShippingPointBuilder#doTest type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestShippingPointBuilder.doTest(TestShippingPointBuilder.java:48)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestSupplierBuilder#doTest type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestSupplierBuilder.doTest(TestSupplierBuilder.java:70)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestTaxBuilder#doTestFlat type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestTaxBuilder.doTestFlat(TestTaxBuilder.java:56)
+    ERROR com.premiumminds.billy.core.test.services.builders.TestTicketBuilder#doTest type=java.lang.NoClassDefFoundError msg=Could not initialize class com.premiumminds.billy.core.util.BillyValidator
+       at com.premiumminds.billy.core.test.services.builders.TestTicketBuilder.doTest(TestTicketBuilder.java:42)
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"jakarta.validation-api-2.0.2.jar","entries":{"validation/spi/ValidationProvider.class":["javax/validation/spi/ValidationProvider.class"],"META-INF/services/javax.validation.spi.ValidationProvider":[],"META-INF/services/jakarta.validation.spi.ValidationProvider":[]}},{"phase":"pre","jar":"hibernate-validator-6.1.7.Final.jar","entries":{"validation/spi/ValidationProvider.class":[],"META-INF/services/javax.validation.spi.ValidationProvider":["META-INF/services/javax.validation.spi.ValidationProvider"],"META-INF/services/jakarta.validation.spi.ValidationProvider":[]}},{"phase":"breaking","jar":"jakarta.validation-api-2.0.2.jar","entries":{"validation/spi/ValidationProvider.class":["javax/validation/spi/ValidationProvider.class"],"META-INF/services/javax.validation.spi.ValidationProvider":[],"META-INF/services/jakarta.validation.spi.ValidationProvider":[]}},{"phase":"breaking","jar":"hibernate-validator-7.0.3.Final.jar","entries":{"validation/spi/ValidationProvider.class":[],"META-INF/services/javax.validation.spi.ValidationProvider":[],"META-INF/services/jakarta.validation.spi.ValidationProvider":["META-INF/services/jakarta.validation.spi.ValidationProvider"]}}]

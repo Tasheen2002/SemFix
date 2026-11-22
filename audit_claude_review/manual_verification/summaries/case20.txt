@@ -1,0 +1,31 @@
+﻿
+=== Case 20  19e20b0d69cb6dadbc54313cb6c6e5f70670ac93 ===
+Project : apache/logging-chainsaw
+Update  : com.thoughtworks.xstream:xstream  1.4.17 -> 1.4.19
+Image not present locally, pulling ghcr.io/chains-project/breaking-updates:19e20b0d69cb6dadbc54313cb6c6e5f70670ac93-breaking ...
+Running breaking in container manual-case20-breaking (this can take several minutes) ...
+Finished in 29 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case20_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 5, Failures: 0, Errors: 1, Skipped: 0
+First failing tests / errors:
+  [ERROR] testLogPanelPreferenceModelSerialization(org.apache.log4j.chainsaw.LogPanelPreferenceModelTest)  Time elapsed: 0.791 s  <<< ERROR!
+      com.thoughtworks.xstream.security.ForbiddenClassException: org.apache.log4j.chainsaw.LogPanelPreferenceModel
+      at com.thoughtworks.xstream.security.NoTypePermission.allows(NoTypePermission.java:26)
+      at com.thoughtworks.xstream.mapper.SecurityMapper.realClass(SecurityMapper.java:74)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  none
+
+--- Proposed classification ---
+Label   : BEHAVIORAL   (rule R12: Core behavioral change (same API, same input, different observable result))
+Category: DEFAULT_SETTING_OR_POLICY
+Cause   : XStream 1.4.19 (security framework default allow-list since 1.4.18) refuses to deserialize org.apache.log4j.chainsaw.LogPanelPreferenceModel -> ForbiddenClassException
+Change  : Default deserialization security policy changed: types not explicitly allowed are now rejected
+Codex   : PROVISIONAL_BEHAVIORAL   Claude blind: BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

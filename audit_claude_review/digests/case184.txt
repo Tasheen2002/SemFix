@@ -1,0 +1,71 @@
+=== CASE 184 fc7d1a841bfe8a840b362fa09bae13e5231bc148
+  project=jadler-mocking/jadler dep=org.slf4j:slf4j-api 1.7.36 -> 2.0.1 scope=compile type=major java=11
+  PR=https://github.com/jadler-mocking/jadler/pull/273
+  PRE log logs/batch_triage/fc7d1a84_pre.log:
+  lines=490
+  status: [INFO] BUILD SUCCESS
+  reactor: jadler-pom   SUCCESS [  4.663 s]; jadler-core   SUCCESS [ 54.195 s]; jadler-jetty   SUCCESS [ 15.690 s]; jadler-junit   SUCCESS [ 24.586 s]; jadler-jdk   SUCCESS [ 16.581 s]; jadler-all   SUCCESS [ 26.760 s]; BUILD SUCCESS
+  aggregate summaries: Tests run: 235, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 7, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 10, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 12, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 125, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/fc7d1a84_breaking.log:
+  lines=321
+  status: [INFO] BUILD FAILURE
+  reactor: jadler-pom   SUCCESS [  2.569 s]; jadler-core   FAILURE [ 40.370 s]; jadler-jetty   SKIPPED; jadler-junit   SKIPPED; jadler-jdk   SKIPPED; jadler-all   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 235, Failures: 0, Errors: 5, Skipped: 0
+  failing classes: Tests run: 54, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 1.973 s <<< FAILURE! - in net.jadler.JadlerMockerTest
+  section: Errors: | JadlerMockerTest.evaluateVerification_0_matching_negative:804->addAppenderToStream:1092 ClassCast class org.slf4j.helpers.NOPLoggerFactory cannot be cast to class ch.qos.logback.classic.LoggerContext (org.slf4j.helpers.NOPLoggerFactory and ch.qos.logback.classic.LoggerContext are in unnamed module of loader 'app') | JadlerMockerTest.evaluateVerification_0_predicates_5_matching_negative:857->addAppenderToStream:1092 ClassCast class org.slf4j.helpers.NOPLoggerFactory cannot be cast to class ch.qos.logback.classic.LoggerContext (org.slf4j.helpers.NOPLoggerFactory and ch.qos.logback.classic.LoggerContext are in unnamed module of loader 'app') | JadlerMockerTest.evaluateVerification_0_requests_0_matching_negative:900->addAppenderToStream:1092 ClassCast class org.slf4j.helpers.NOPLoggerFactory cannot be cast to class ch.qos.logback.classic.LoggerContext (org.slf4j.helpers.NOPLoggerFactory and ch.qos.logback.classic.LoggerContext are in unnamed module of loader 'app') | JadlerMockerTest.evaluateVerification_2_matching_negative:728->addAppenderToStream:1092 ClassCast class org.slf4j.helpers.NOPLoggerFactory cannot be cast to class ch.qos.logback.classic.LoggerContext (org.slf4j.h
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project jadler-core: 
+  FAILBLOCK: [ERROR] net.jadler.JadlerMockerTest.evaluateVerification_0_predicates_5_matching_negative  Time elapsed: 0.039 s  <<< ERROR!
+      java.lang.ClassCastException: class org.slf4j.helpers.NOPLoggerFactory cannot be cast to class ch.qos.logback.classic.LoggerContext (org.slf4j.helpers.NOPLoggerFactory and ch.qos.logback.classic.LoggerContext are in unnamed module of loader 'app')
+      at net.jadler.JadlerMockerTest.addAppenderToStream(JadlerMockerTest.java:1092)
+      at net.jadler.JadlerMockerTest.evaluateVerification_0_predicates_5_matching_negative(JadlerMockerTest.java:857)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+      at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  distinct fail signatures (count): 5x java.lang.ClassCastException: class org.slf4j.helpers.NOPLoggerFactory cannot be cast to class ch.qos.logback.classic.Lo
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+  exception names: java.lang.ClassCastExceptionx5
+  EVIDENCE logs/case184_evidence: LoggerSelectionProbe.java, all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/logback-classic-1.2.11.jar, breaking/jars/logback-core-1.2.11.jar, breaking/jars/slf4j-api-2.0.1.jar, breaking/slf4j-api-2.0.1_LoggerFactory_javap.txt, logger_probe_breaking.log, logger_probe_classes/LoggerSelectionProbe.class, logger_probe_pre.log, logger_probe_results.json, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/logback-classic-1.2.11.jar, pre/jars/logback-core-1.2.11.jar, pre/jars/slf4j-api-1.7.36.jar, pre/slf4j-api-1.7.36_LoggerFactory_javap.txt, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=34 sum(t,f,e,s)=[389, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=18 sum(t,f,e,s)=[235, 0, 5, 0]
+  archived non-report files: pre=88 breaking=88 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -92,3 +92,3 @@
+                     <artifactId>slf4j-api</artifactId>
+    -                <version>1.7.36</version>
+    +                <version>2.0.1</version>
+                 </dependency>
+  BREAKING surefire failures/errors:
+    ERROR net.jadler.JadlerMockerTest#evaluateVerification_0_predicates_5_matching_negative type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLoggerFactory cannot be cast to class ch.qos.logback.classic.LoggerContext (org.slf4j.helpers.NOPLoggerFactory and ch.qos.logback.classic.LoggerContext are in unnamed module of loader 'app')
+       at net.jadler.JadlerMockerTest.addAppenderToStream(JadlerMockerTest.java:1092)
+       at net.jadler.JadlerMockerTest.evaluateVerification_0_predicates_5_matching_negative(JadlerMockerTest.java:857)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+    ERROR net.jadler.JadlerMockerTest#evaluateVerification_2_matching_negative type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLoggerFactory cannot be cast to class ch.qos.logback.classic.LoggerContext (org.slf4j.helpers.NOPLoggerFactory and ch.qos.logback.classic.LoggerContext are in unnamed module of loader 'app')
+       at net.jadler.JadlerMockerTest.addAppenderToStream(JadlerMockerTest.java:1092)
+       at net.jadler.JadlerMockerTest.evaluateVerification_2_matching_negative(JadlerMockerTest.java:728)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+    ERROR net.jadler.JadlerMockerTest#provideStubResponseFor2 type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLoggerFactory cannot be cast to class ch.qos.logback.classic.LoggerContext (org.slf4j.helpers.NOPLoggerFactory and ch.qos.logback.classic.LoggerContext are in unnamed module of loader 'app')
+       at net.jadler.JadlerMockerTest.addAppenderToStream(JadlerMockerTest.java:1092)
+       at net.jadler.JadlerMockerTest.provideStubResponseFor2(JadlerMockerTest.java:466)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+    ERROR net.jadler.JadlerMockerTest#evaluateVerification_0_matching_negative type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLoggerFactory cannot be cast to class ch.qos.logback.classic.LoggerContext (org.slf4j.helpers.NOPLoggerFactory and ch.qos.logback.classic.LoggerContext are in unnamed module of loader 'app')
+       at net.jadler.JadlerMockerTest.addAppenderToStream(JadlerMockerTest.java:1092)
+       at net.jadler.JadlerMockerTest.evaluateVerification_0_matching_negative(JadlerMockerTest.java:804)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+    ERROR net.jadler.JadlerMockerTest#evaluateVerification_0_requests_0_matching_negative type=java.lang.ClassCastException msg=class org.slf4j.helpers.NOPLoggerFactory cannot be cast to class ch.qos.logback.classic.LoggerContext (org.slf4j.helpers.NOPLoggerFactory and ch.qos.logback.classic.LoggerContext are in unnamed module of loader 'app')
+       at net.jadler.JadlerMockerTest.addAppenderToStream(JadlerMockerTest.java:1092)
+       at net.jadler.JadlerMockerTest.evaluateVerification_0_requests_0_matching_negative(JadlerMockerTest.java:900)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+  all_poms: count=6 changed=['pom.xml']
+    pom.xml: -                <version>1.7.36</version> / +                <version>2.0.1</version>
+  JSON breaking/jar_inspection.json: {"case_id":"fc7d1a841bfe8a840b362fa09bae13e5231bc148","phase":"breaking","path_filter":"/(slf4j-api|logback-classic|logback-core)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":true,"major_version":50},"ch.qos.logback.classic.LoggerContext":{"present":true,"major_version":50}},"services":{"META-INF/services/javax.servlet.ServletContainerInitializer":"ch.qos.logback.classic.servlet.LogbackServletContainerInitializer"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":false,"major_version":null},"ch.qos.logback.classic.LoggerContext":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/slf4j/slf4j-api/2.0.1/slf4j-api-2.0.1.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":false,"major_version":null},"ch.qos.logback.classic.LoggerContext":{"present":false,"major_version":null}},"services":{},"disassemblies":[{"class":"org.slf4j.LoggerFactory","file":"slf4j-api-2.0.1_LoggerFactory_javap.txt","exit_code":0}]}]}
+  LOG logger_probe_breaking.log (8 lines): factory=org.slf4j.helpers.NOPLoggerFactory | logger=org.slf4j.helpers.NOPLogger
+  LOG logger_probe_pre.log (2 lines): factory=ch.qos.logback.classic.LoggerContext | logger=ch.qos.logback.classic.Logger
+  JSON logger_probe_results.json: {"test_classpath_source":"net.jadler.JadlerMockerTest","runs":[{"phase":"pre","exit_code":0,"stdout":"factory=ch.qos.logback.classic.LoggerContext\nlogger=ch.qos.logback.classic.Logger\n","stderr":""},{"phase":"breaking","exit_code":0,"stdout":"factory=org.slf4j.helpers.NOPLoggerFactory\nlogger=org.slf4j.helpers.NOPLogger\n","stderr":"SLF4J: No SLF4J providers were found.\nSLF4J: Defaulting to no-operation (NOP) logger implementation\nSLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.\nSLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.\nSLF4J: Ignoring binding found at [..."}]}
+  JSON pre/jar_inspection.json: {"case_id":"fc7d1a841bfe8a840b362fa09bae13e5231bc148","phase":"pre","path_filter":"/(slf4j-api|logback-classic|logback-core)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":true,"major_version":50},"ch.qos.logback.classic.LoggerContext":{"present":true,"major_version":50}},"services":{"META-INF/services/javax.servlet.ServletContainerInitializer":"ch.qos.logback.classic.servlet.LogbackServletContainerInitializer"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":false,"major_version":null},"ch.qos.logback.classic.LoggerContext":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":false,"major_version":null},"ch.qos.logback.classic.LoggerContext":{"present":false,"major_version":null}},"services":{},"disassemblies":[{"class":"org.slf4j.LoggerFactory","file":"slf4j-api-1.7.36_LoggerFactory_javap.txt","exit_code":0}]}]}
+  JARS: breaking/jars/logback-classic-1.2.11.jar, breaking/jars/logback-core-1.2.11.jar, breaking/jars/slf4j-api-2.0.1.jar, pre/jars/logback-classic-1.2.11.jar, pre/jars/logback-core-1.2.11.jar, pre/jars/slf4j-api-1.7.36.jar

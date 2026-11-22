@@ -1,0 +1,45 @@
+{
+  "phase": "pre",
+  "image_id": "sha256:74febfd19f2f25acf530d29de75b4fdaef9c13d6245b3faf11832f90d21b632b",
+  "command": [
+    "docker",
+    "run",
+    "--name",
+    "research-case124-origins-pre",
+    "--mount",
+    "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case124_evidence\\Case124ClassOriginsTest.java,target=/camunda-platform-7-camel/camunda-bpm-camel-spring/src/test/java/Case124ClassOriginsTest.java,readonly",
+    "--entrypoint",
+    "mvn",
+    "sha256:74febfd19f2f25acf530d29de75b4fdaef9c13d6245b3faf11832f90d21b632b",
+    "clean",
+    "test",
+    "-B",
+    "-pl",
+    "camunda-bpm-camel-spring",
+    "-am",
+    "-Dtest=Case124ClassOriginsTest",
+    "-Dsurefire.failIfNoSpecifiedTests=false"
+  ],
+  "state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-10T10:22:42.347054326Z",
+    "FinishedAt": "2026-11-10T10:23:11.33129911Z"
+  },
+  "exit_code": 0,
+  "counts": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "resources": [],
+  "resolved_bind_api_paths": []
+}

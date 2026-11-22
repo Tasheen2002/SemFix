@@ -1,0 +1,9 @@
+java=11.0.19
+Guice=file:/root/.m2/repository/com/google/inject/guice/7.0.0/guice-7.0.0.jar
+Parameters annotations=[@java.lang.annotation.Target(value={FIELD, PARAMETER, METHOD}), @java.lang.annotation.Retention(value=RUNTIME), @java.lang.annotation.Documented(), @javax.inject.Qualifier()]
+Exception in thread "main" java.lang.IllegalArgumentException: org.eclipse.sisu.Parameters is not a binding annotation. Please annotate it with @BindingAnnotation.
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:218)
+	at com.google.inject.Key.ensureIsBindingAnnotation(Key.java:382)
+	at com.google.inject.Key.strategyFor(Key.java:370)
+	at com.google.inject.Key.get(Key.java:229)
+	at AnnotationCompatibilityProbe.main(AnnotationCompatibilityProbe.java:10)

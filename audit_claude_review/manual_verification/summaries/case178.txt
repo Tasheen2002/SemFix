@@ -1,0 +1,30 @@
+﻿
+=== Case 178  f61b113c1493d02611bc5cdc9a80e8af0abf2035 ===
+Project : kstateome/lti-launch
+Update  : org.springframework:spring-webmvc  4.1.6.RELEASE -> 5.3.18
+Running breaking in container manual-case178-breaking (this can take several minutes) ...
+Finished in 20 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case178_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  Tests run: 1, Failures: 0, Errors: 1, Skipped: 0
+First failing tests / errors:
+  testSpringContext(edu.ksu.lti.launch.test.SpringContextITest)  Time elapsed: 0.007 sec  <<< ERROR!
+      java.lang.NoClassDefFoundError: org/springframework/web/cors/CorsConfigurationSource
+      Caused by: java.lang.ClassNotFoundException: org.springframework.web.cors.CorsConfigurationSource
+      
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+  Caused by: java.lang.ClassNotFoundException: org.springframework.web.cors.CorsConfigurationSource
+Linkage / bytecode signals:
+  NoClassDefFoundError x1
+  ClassNotFoundException x1
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : spring-webmvc 5.3.18 with older spring-web (4.1.x line) -> NoClassDefFoundError org.springframework.web.util.pattern.PathPatternParser
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

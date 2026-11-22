@@ -1,0 +1,90 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] --------------< org.simplify4u.plugins:sign-maven-plugin >--------------
+[INFO] Building Sign Maven Plugin 1.0.2-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] ----------------------------[ maven-plugin ]----------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ sign-maven-plugin ---
+[INFO] Deleting /sign-maven-plugin/target
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforcer) @ sign-maven-plugin ---
+[INFO] 
+[INFO] --- plugin:3.6.4:helpmojo (generated-help-mojo) @ sign-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo source files.
+[INFO] java-javadoc mojo extractor found 0 mojo descriptor.
+[INFO] ant mojo extractor found 0 mojo descriptor.
+[INFO] bsh mojo extractor found 0 mojo descriptor.
+[INFO] java-annotations mojo extractor found 0 mojo descriptor.
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ sign-maven-plugin ---
+[INFO] skip non existing resourceDirectory /sign-maven-plugin/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ sign-maven-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 16 source files to /sign-maven-plugin/target/classes
+[INFO] 
+[INFO] --- plugin:3.6.4:descriptor (default-descriptor) @ sign-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo source files.
+[INFO] java-javadoc mojo extractor found 0 mojo descriptor.
+[INFO] ant mojo extractor found 0 mojo descriptor.
+[INFO] bsh mojo extractor found 0 mojo descriptor.
+[INFO] java-annotations mojo extractor found 2 mojo descriptors.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ sign-maven-plugin ---
+[INFO] Copying 9 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ sign-maven-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /sign-maven-plugin/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0-M7:test (default-test) @ sign-maven-plugin ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.simplify4u.plugins.sign.KeyInfoFactoryTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.763 s - in org.simplify4u.plugins.sign.KeyInfoFactoryTest
+[INFO] Running org.simplify4u.plugins.sign.SignMojoTest
+[main] DEBUG org.simplify4u.plugins.sign.SignMojo - Artifact: groupId:artifact2:pom:1.0.0 with relativeArtifactPath: pom.xml.md5 shouldSign: false due to excludes: [**/*.md5]
+[main] DEBUG org.simplify4u.plugins.sign.SignMojo - Artifact: groupId:artifactId:pom:1.0.0 with relativeArtifactPath: pom.xml shouldSign: true due to excludes: [**/*.md5]
+[main] INFO org.simplify4u.plugins.sign.SignMojo - Attach signature: SignResult(classifier=null, extension=null, file=null)
+[main] INFO org.simplify4u.plugins.sign.SignMojo - Sign - skip execution
+[main] DEBUG org.simplify4u.plugins.sign.SignMojo - Artifact: groupId:artifactId:pom:1.0.0 with relativeArtifactPath: pom.xml shouldSign: true due to excludes: []
+[main] INFO org.simplify4u.plugins.sign.SignMojo - Attach signature: SignResult(classifier=null, extension=null, file=null)
+[main] INFO org.simplify4u.plugins.sign.SignMojo - Sign - key not found - skip execution
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.605 s - in org.simplify4u.plugins.sign.SignMojoTest
+[INFO] Running org.simplify4u.plugins.sign.openpgp.PGPSignerTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.582 s - in org.simplify4u.plugins.sign.openpgp.PGPSignerTest
+[INFO] Running org.simplify4u.plugins.sign.ArtifactSignerFactoryTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s - in org.simplify4u.plugins.sign.ArtifactSignerFactoryTest
+[INFO] Running org.simplify4u.plugins.sign.utils.FileUtilTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 s - in org.simplify4u.plugins.sign.utils.FileUtilTest
+[INFO] Running org.simplify4u.plugins.sign.utils.EnvironmentTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 s - in org.simplify4u.plugins.sign.utils.EnvironmentTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  27.105 s
+[INFO] Finished at: 2026-11-10T11:06:16Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-plugin-plugin:3.6.4
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 

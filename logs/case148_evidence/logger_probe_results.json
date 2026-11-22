@@ -1,0 +1,50 @@
+{
+  "test_classpath_source": "net.jadler.JadlerMockerTest",
+  "class_sha256": "ad72b3dc2ff64e6f612d38bc1d82f60bb097fc6d8bc93e35e7acff081556f854",
+  "runs": [
+    {
+      "phase": "pre",
+      "image_id": "sha256:95e05d9b6a18837664014436a75cc6aea58861bce144ce493f319d1a49ebe1b9",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "research-case148-logger-pre",
+        "--mount",
+        "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case148_evidence\\logger_probe_classes,target=/probe,readonly",
+        "--entrypoint",
+        "java",
+        "sha256:95e05d9b6a18837664014436a75cc6aea58861bce144ce493f319d1a49ebe1b9",
+        "-cp",
+        "/probe:/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar",
+        "LoggerSelectionProbe"
+      ],
+      "exit_code": 0,
+      "stdout": "factory=ch.qos.logback.classic.LoggerContext\nlogger=ch.qos.logback.classic.Logger\n",
+      "stderr": ""
+    },
+    {
+      "phase": "breaking",
+      "image_id": "sha256:7a8a31f47e706fa634540d7d7c73010070f61efe3ee89efe6c7c66eaf792ffd0",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--name",
+        "research-case148-logger-breaking",
+        "--mount",
+        "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case148_evidence\\logger_probe_classes,target=/probe,readonly",
+        "--entrypoint",
+        "java",
+        "sha256:7a8a31f47e706fa634540d7d7c73010070f61efe3ee89efe6c7c66eaf792ffd0",
+        "-cp",
+        "/probe:/root/.m2/repository/org/slf4j/slf4j-api/2.0.2/slf4j-api-2.0.2.jar:/root/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/root/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/4.6.1/mockito-core-4.6.1.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.10/byte-buddy-1.12.10.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.10/byte-buddy-agent-1.12.10.jar:/root/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/root/.m2/repository/org/mockito/mockito-inline/4.6.1/mockito-inline-4.6.1.jar",
+        "LoggerSelectionProbe"
+      ],
+      "exit_code": 0,
+      "stdout": "factory=org.slf4j.helpers.NOPLoggerFactory\nlogger=org.slf4j.helpers.NOPLogger\n",
+      "stderr": "SLF4J: No SLF4J providers were found.\nSLF4J: Defaulting to no-operation (NOP) logger implementation\nSLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.\nSLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.\nSLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar!/org/slf4j/impl/StaticLoggerBinder.class]\nSLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.\n"
+    }
+  ]
+}

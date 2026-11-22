@@ -1,0 +1,48 @@
+{
+  "purpose": "Isolate the changed mock-maker default; not a full repair",
+  "only_adjustment": "Add mock-maker-subclass test-resource selection; upgraded Mockito and transitive Byte Buddy are retained",
+  "command": [
+    "docker",
+    "run",
+    "--name",
+    "research-case113-subclass-control",
+    "--entrypoint",
+    "sh",
+    "sha256:5d83ba01aca538039f32b5471316aa5c40239f6fc87f05edb3d1eaba552b5696",
+    "-c",
+    "set -eu; mkdir -p gax/src/test/resources/mockito-extensions; printf '%s\\n' mock-maker-subclass > gax/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker; cat gax/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker; exec mvn clean test -B -pl gax -am -Dtest=OpencensusTracerFactoryTest#testImplicitParentSpan,OpencensusTracerTest#testLongRunningExample -Dsurefire.failIfNoSpecifiedTests=false"
+  ],
+  "image_id": "sha256:5d83ba01aca538039f32b5471316aa5c40239f6fc87f05edb3d1eaba552b5696",
+  "state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-10T09:33:54.30031349Z",
+    "FinishedAt": "2026-11-10T09:34:58.60981935Z"
+  },
+  "counts": {
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "reports": [
+    {
+      "path": "./TEST-com.google.api.gax.tracing.OpencensusTracerFactoryTest-sponge_log.xml",
+      "class": "com.google.api.gax.tracing.OpencensusTracerFactoryTest(sponge_log)",
+      "classpath": "/gax-java/gax/target/test-classes:/gax-java/gax/target/classes:/root/.m2/repository/com/google/api/api-common/2.3.1/api-common-2.3.1.jar:/root/.m2/repository/com/google/auto/value/auto-value-annotations/1.10.1/auto-value-annotations-1.10.1.jar:/root/.m2/repository/com/google/auto/value/auto-value/1.10.1/auto-value-1.10.1.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.16/error_prone_annotations-2.16.jar:/root/.m2/repository/com/google/auth/google-auth-library-credentials/1.14.0/google-auth-library-credentials-1.14.0.jar:/root/.m2/repository/com/google/api/grpc/proto-google-common-protos/2.11.0/proto-google-common-protos-2.11.0.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.21.12/protobuf-java-3.21.12.jar:/root/.m2/repository/org/threeten/threetenbp/1.6.5/threetenbp-1.6.5.jar:/root/.m2/repository/io/opencensus/opencensus-api/0.31.1/opencensus-api-0.31.1.jar:/root/.m2/repository/io/grpc/grpc-context/1.51.1/grpc-context-1.51.1.jar:/root/.m2/repository/com/google/guava/guava/31.1-jre/guava-31.1-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.12.0/checker-qual-3.12.0.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/com/google/auth/google-auth-library-oauth2-http/1.14.0/google-auth-library-oauth2-http-1.14.0.jar:/root/.m2/repository/com/google/http-client/google-http-client/1.42.3/google-http-client-1.42.3.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.15/httpcore-4.4.15.jar:/root/.m2/repository/io/opencensus/opencensus-contrib-http-util/0.31.1/opencensus-contrib-http-util-0.31.1.jar:/root/.m2/repository/com/google/http-client/google-http-client-gson/1.42.3/google-http-client-gson-1.42.3.jar:/root/.m2/repository/com/google/code/gson/gson/2.10/gson-2.10.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/graalvm/sdk/graal-sdk/22.3.0/graal-sdk-22.3.0.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/5.1.0/mockito-core-5.1.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.22/byte-buddy-1.12.22.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.22/byte-buddy-agent-1.12.22.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/com/google/truth/truth/1.1.3/truth-1.1.3.jar:/root/.m2/repository/org/ow2/asm/asm/9.1/asm-9.1.jar:"
+    },
+    {
+      "path": "./TEST-com.google.api.gax.tracing.OpencensusTracerTest-sponge_log.xml",
+      "class": "com.google.api.gax.tracing.OpencensusTracerTest(sponge_log)",
+      "classpath": "/gax-java/gax/target/test-classes:/gax-java/gax/target/classes:/root/.m2/repository/com/google/api/api-common/2.3.1/api-common-2.3.1.jar:/root/.m2/repository/com/google/auto/value/auto-value-annotations/1.10.1/auto-value-annotations-1.10.1.jar:/root/.m2/repository/com/google/auto/value/auto-value/1.10.1/auto-value-1.10.1.jar:/root/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.16/error_prone_annotations-2.16.jar:/root/.m2/repository/com/google/auth/google-auth-library-credentials/1.14.0/google-auth-library-credentials-1.14.0.jar:/root/.m2/repository/com/google/api/grpc/proto-google-common-protos/2.11.0/proto-google-common-protos-2.11.0.jar:/root/.m2/repository/com/google/protobuf/protobuf-java/3.21.12/protobuf-java-3.21.12.jar:/root/.m2/repository/org/threeten/threetenbp/1.6.5/threetenbp-1.6.5.jar:/root/.m2/repository/io/opencensus/opencensus-api/0.31.1/opencensus-api-0.31.1.jar:/root/.m2/repository/io/grpc/grpc-context/1.51.1/grpc-context-1.51.1.jar:/root/.m2/repository/com/google/guava/guava/31.1-jre/guava-31.1-jre.jar:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/root/.m2/repository/org/checkerframework/checker-qual/3.12.0/checker-qual-3.12.0.jar:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/root/.m2/repository/com/google/auth/google-auth-library-oauth2-http/1.14.0/google-auth-library-oauth2-http-1.14.0.jar:/root/.m2/repository/com/google/http-client/google-http-client/1.42.3/google-http-client-1.42.3.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.15/httpcore-4.4.15.jar:/root/.m2/repository/io/opencensus/opencensus-contrib-http-util/0.31.1/opencensus-contrib-http-util-0.31.1.jar:/root/.m2/repository/com/google/http-client/google-http-client-gson/1.42.3/google-http-client-gson-1.42.3.jar:/root/.m2/repository/com/google/code/gson/gson/2.10/gson-2.10.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/org/graalvm/sdk/graal-sdk/22.3.0/graal-sdk-22.3.0.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/root/.m2/repository/org/mockito/mockito-core/5.1.0/mockito-core-5.1.0.jar:/root/.m2/repository/net/bytebuddy/byte-buddy/1.12.22/byte-buddy-1.12.22.jar:/root/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.22/byte-buddy-agent-1.12.22.jar:/root/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/root/.m2/repository/com/google/truth/truth/1.1.3/truth-1.1.3.jar:/root/.m2/repository/org/ow2/asm/asm/9.1/asm-9.1.jar:"
+    }
+  ],
+  "exit_code": 0
+}

@@ -1,0 +1,43 @@
+=== CASE 49 448ff013455db1ebe983fa0e1c65ed09f0bc4e3a
+  project=Refactoring-Bot/Refactoring-Bot dep=org.antlr:antlr4-runtime 4.7.2 -> 4.10.1 scope=compile type=minor java=11
+  PR=https://github.com/Refactoring-Bot/Refactoring-Bot/pull/110
+  PRE log logs/batch_triage/448ff013_pre.log:
+  lines=133
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 62, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/448ff013_breaking.log:
+  lines=153
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 62, Failures: 0, Errors: 1, Skipped: 0
+  failing classes: Tests run: 5, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.978 s <<< FAILURE! - in de.refactoringbot.services.main.GrammarServiceTest
+  section: Errors: | GrammarServiceTest.testCheckComment:111 » ExceptionInInitializer | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  19.118 s | [INFO] Finished at: 2026-11-09T08:20:10Z | [INFO] ------------------------------------------------------------------------ | [WARNING] | [WARNING] Plugin validation issues were detected in 5 plugin(s) | [WARNING]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (unit-tests) on project RefactoringBot: There are test failures.
+  FAILBLOCK: [ERROR] testCheckComment(de.refactoringbot.services.main.GrammarServiceTest)  Time elapsed: 0.034 s  <<< ERROR!
+      java.lang.ExceptionInInitializerError
+      at de.refactoringbot.services.main.GrammarServiceTest.testCheckComment(GrammarServiceTest.java:111)
+      Caused by: java.lang.UnsupportedOperationException: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+      at de.refactoringbot.services.main.GrammarServiceTest.testCheckComment(GrammarServiceTest.java:111)
+      Caused by: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+      at de.refactoringbot.services.main.GrammarServiceTest.testCheckComment(GrammarServiceTest.java:111)
+      Caused by: java.lang.UnsupportedOperationException: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+      Caused by: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+  distinct fail signatures (count): 1x java.lang.ExceptionInInitializerError
+  exception names: java.io.InvalidClassExceptionx2, java.lang.ExceptionInInitializerErrorx1, java.lang.UnsupportedOperationExceptionx1
+  EVIDENCE logs/case49_evidence: atn_deserializer_javap.txt, breaking/antlr4-runtime-4.10.1.jar, breaking/archive_summary.json, breaking/artifacts.tar, pre/antlr4-runtime-4.7.2.jar, pre/archive_summary.json, pre/artifacts.tar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=12 sum(t,f,e,s)=[62, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=12 sum(t,f,e,s)=[62, 0, 1, 0]
+  archived non-report files: pre=153 breaking=153 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -106,3 +106,3 @@
+     			<artifactId>antlr4-runtime</artifactId>
+    -			<version>4.7.2</version>
+    +			<version>4.10.1</version>
+     		</dependency>
+  BREAKING surefire failures/errors:
+    ERROR de.refactoringbot.services.main.GrammarServiceTest#testCheckComment type=java.lang.ExceptionInInitializerError msg=
+       Caused by: java.lang.UnsupportedOperationException: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+       Caused by: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+       at de.refactoringbot.services.main.GrammarServiceTest.testCheckComment(GrammarServiceTest.java:111)
+       at de.refactoringbot.services.main.GrammarServiceTest.testCheckComment(GrammarServiceTest.java:111)
+       at de.refactoringbot.services.main.GrammarServiceTest.testCheckComment(GrammarServiceTest.java:111)

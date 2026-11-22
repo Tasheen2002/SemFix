@@ -1,0 +1,27 @@
+=== CASE 8 0c748afce24c983e8f330bc2435837c70b0fcde6
+  project=pac4j/dropwizard-pac4j dep=com.fasterxml.jackson.core:jackson-databind 2.10.5.1 -> 2.14.1 scope=compile type=other java=11
+  PR=https://github.com/pac4j/dropwizard-pac4j/pull/344
+  PRE log logs/0c748afc_pre.log:
+  lines=474
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/0c748afc_breaking.log:
+  lines=807
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 16, Failures: 0, Errors: 16, Skipped: 0
+  failing classes: Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.244 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndServletTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndTest || Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.pac4j.dropwizard.factory.DefaultConfigurationTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+  section: Errors: | BundleFactoryTest.emptyPac4jInConfig:47->AbstractApplicationTest.setup:31 » NoClassDefFound com/fasterxml/jackson/core/util/JacksonFeature | BundleFactoryTest.noPac4jInConfig:31->AbstractApplicationTest.setup:31 » NoClassDefFound com/fasterxml/jackson/core/util/JacksonFeature | BundleFactoryTest.sessionEnabledForced:68->AbstractApplicationTest.setup:31 » NoClassDefFound com/fasterxml/jackson/core/util/JacksonFeature | BundleFactoryTest.sessiondisabledForced:83->AbstractApplicationTest.setup:31 » NoClassDefFound com/fasterxml/jackson/core/util/JacksonFeature | EndToEndServletTest.grantsAccessToResources:54->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound com/fasterxml/jackson/core/util/JacksonFeature | EndToEndServletTest.grantsAccessToResourcesForm:36->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound com/fasterxml/jackson/core/util/JacksonFeature | EndToEndServletTest.restrictsAccessToResources:69->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound com/fasterxml/jackson/core/util/JacksonFeature | EndToEndTest.grantsAccessToResources:54->setup:31->AbstractApplicationTest.setup:31 » NoClassDefFound com/fasterxml/jackson/core/util/JacksonFe
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project dropwizard-pac4j: 
+  FAILBLOCK: [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources  Time elapsed: 0.155 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+      at com.fasterxml.jackson.databind.cfg.DatatypeFeatures.defaultFeatures(DatatypeFeatures.java:33)
+      at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:672)
+      at com.fasterxml.jackson.databind.ObjectMapper.<init>(ObjectMapper.java:576)
+      at io.dropwizard.jackson.Jackson.newObjectMapper(Jackson.java:28)
+      at io.dropwizard.setup.Bootstrap.<init>(Bootstrap.java:64)
+      Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JacksonFeature
+  distinct fail signatures (count): 16x java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JacksonFeature
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx16, java.lang.ClassNotFoundExceptionx16
+  EVIDENCE: no logs/case8_evidence directory

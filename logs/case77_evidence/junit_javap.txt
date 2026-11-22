@@ -1,0 +1,105 @@
+Compiled from "TestDescriptor.java"
+public interface org.junit.platform.engine.TestDescriptor {
+  public abstract org.junit.platform.engine.UniqueId getUniqueId();
+  public abstract java.lang.String getDisplayName();
+  public default java.lang.String getLegacyReportingName();
+  public abstract java.util.Set<org.junit.platform.engine.TestTag> getTags();
+  public abstract java.util.Optional<org.junit.platform.engine.TestSource> getSource();
+  public abstract java.util.Optional<org.junit.platform.engine.TestDescriptor> getParent();
+  public abstract void setParent(org.junit.platform.engine.TestDescriptor);
+  public abstract java.util.Set<? extends org.junit.platform.engine.TestDescriptor> getChildren();
+  public default java.util.Set<? extends org.junit.platform.engine.TestDescriptor> getDescendants();
+  public abstract void addChild(org.junit.platform.engine.TestDescriptor);
+  public abstract void removeChild(org.junit.platform.engine.TestDescriptor);
+  public abstract void removeFromHierarchy();
+  public default boolean isRoot();
+  public abstract org.junit.platform.engine.TestDescriptor$Type getType();
+  public default boolean isContainer();
+  public default boolean isTest();
+  public default boolean mayRegisterTests();
+  public static boolean containsTests(org.junit.platform.engine.TestDescriptor);
+  public default void prune();
+  public abstract java.util.Optional<? extends org.junit.platform.engine.TestDescriptor> findByUniqueId(org.junit.platform.engine.UniqueId);
+  public default void accept(org.junit.platform.engine.TestDescriptor$Visitor);
+  private static void lambda$accept$0(org.junit.platform.engine.TestDescriptor$Visitor, org.junit.platform.engine.TestDescriptor);
+}
+Compiled from "StackTracePruningEngineExecutionListener.java"
+class org.junit.platform.launcher.core.StackTracePruningEngineExecutionListener extends org.junit.platform.launcher.core.DelegatingEngineExecutionListener {
+  org.junit.platform.launcher.core.StackTracePruningEngineExecutionListener(org.junit.platform.engine.EngineExecutionListener);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #1                  // Method org/junit/platform/launcher/core/DelegatingEngineExecutionListener."<init>":(Lorg/junit/platform/engine/EngineExecutionListener;)V
+       5: return
+
+  public void executionFinished(org.junit.platform.engine.TestDescriptor, org.junit.platform.engine.TestExecutionResult);
+    Code:
+       0: aload_1
+       1: invokestatic  #7                  // Method getTestClassNames:(Lorg/junit/platform/engine/TestDescriptor;)Ljava/util/List;
+       4: astore_3
+       5: aload_2
+       6: invokevirtual #13                 // Method org/junit/platform/engine/TestExecutionResult.getThrowable:()Ljava/util/Optional;
+       9: invokevirtual #19                 // Method java/util/Optional.isPresent:()Z
+      12: ifeq          43
+      15: aload_2
+      16: invokevirtual #13                 // Method org/junit/platform/engine/TestExecutionResult.getThrowable:()Ljava/util/Optional;
+      19: invokevirtual #25                 // Method java/util/Optional.get:()Ljava/lang/Object;
+      22: checkcast     #29                 // class java/lang/Throwable
+      25: astore        4
+      27: aload         4
+      29: invokestatic  #31                 // Method org/junit/platform/commons/util/ExceptionUtils.findNestedThrowables:(Ljava/lang/Throwable;)Ljava/util/List;
+      32: aload_3
+      33: invokedynamic #37,  0             // InvokeDynamic #0:accept:(Ljava/util/List;)Ljava/util/function/Consumer;
+      38: invokeinterface #41,  2           // InterfaceMethod java/util/List.forEach:(Ljava/util/function/Consumer;)V
+      43: aload_0
+      44: aload_1
+      45: aload_2
+      46: invokespecial #47                 // Method org/junit/platform/launcher/core/DelegatingEngineExecutionListener.executionFinished:(Lorg/junit/platform/engine/TestDescriptor;Lorg/junit/platform/engine/TestExecutionResult;)V
+      49: return
+
+  private static java.util.List<java.lang.String> getTestClassNames(org.junit.platform.engine.TestDescriptor);
+    Code:
+       0: aload_0
+       1: invokeinterface #51,  1           // InterfaceMethod org/junit/platform/engine/TestDescriptor.getAncestors:()Ljava/util/Set;
+       6: invokeinterface #57,  1           // InterfaceMethod java/util/Set.stream:()Ljava/util/stream/Stream;
+      11: invokedynamic #63,  0             // InvokeDynamic #1:apply:()Ljava/util/function/Function;
+      16: invokeinterface #67,  2           // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      21: invokedynamic #73,  0             // InvokeDynamic #2:test:()Ljava/util/function/Predicate;
+      26: invokeinterface #77,  2           // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+      31: invokedynamic #81,  0             // InvokeDynamic #3:apply:()Ljava/util/function/Function;
+      36: invokeinterface #67,  2           // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      41: invokedynamic #82,  0             // InvokeDynamic #4:apply:()Ljava/util/function/Function;
+      46: invokeinterface #67,  2           // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+      51: invokedynamic #83,  0             // InvokeDynamic #5:test:()Ljava/util/function/Predicate;
+      56: invokeinterface #77,  2           // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+      61: invokestatic  #84                 // Method java/util/stream/Collectors.toList:()Ljava/util/stream/Collector;
+      64: invokeinterface #90,  2           // InterfaceMethod java/util/stream/Stream.collect:(Ljava/util/stream/Collector;)Ljava/lang/Object;
+      69: checkcast     #42                 // class java/util/List
+      72: areturn
+
+  private static java.lang.String lambda$getTestClassNames$1(org.junit.platform.engine.TestSource);
+    Code:
+       0: aload_0
+       1: instanceof    #94                 // class org/junit/platform/engine/support/descriptor/ClassSource
+       4: ifeq          15
+       7: aload_0
+       8: checkcast     #94                 // class org/junit/platform/engine/support/descriptor/ClassSource
+      11: invokevirtual #96                 // Method org/junit/platform/engine/support/descriptor/ClassSource.getClassName:()Ljava/lang/String;
+      14: areturn
+      15: aload_0
+      16: instanceof    #100                // class org/junit/platform/engine/support/descriptor/MethodSource
+      19: ifeq          30
+      22: aload_0
+      23: checkcast     #100                // class org/junit/platform/engine/support/descriptor/MethodSource
+      26: invokevirtual #102                // Method org/junit/platform/engine/support/descriptor/MethodSource.getClassName:()Ljava/lang/String;
+      29: areturn
+      30: aconst_null
+      31: areturn
+
+  private static void lambda$executionFinished$0(java.util.List, java.lang.Throwable);
+    Code:
+       0: aload_1
+       1: aload_0
+       2: invokestatic  #103                // Method org/junit/platform/commons/util/ExceptionUtils.pruneStackTrace:(Ljava/lang/Throwable;Ljava/util/List;)V
+       5: return
+}

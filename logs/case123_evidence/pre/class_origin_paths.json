@@ -1,0 +1,66 @@
+{
+  "phase": "pre",
+  "image_id": "sha256:a1c330312f08a558dd8f46a7c8bc14e35acb802e73a1002a256b6f9e1b0e37f6",
+  "command": [
+    "docker",
+    "run",
+    "--name",
+    "research-case123-origins-pre",
+    "--mount",
+    "type=bind,source=C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case123_evidence\\Case123ClassOriginsTest.java,target=/IDS-Messaging-Services/messaging/src/test/java/Case123ClassOriginsTest.java,readonly",
+    "--entrypoint",
+    "mvn",
+    "sha256:a1c330312f08a558dd8f46a7c8bc14e35acb802e73a1002a256b6f9e1b0e37f6",
+    "clean",
+    "test",
+    "-B",
+    "-pl",
+    "messaging",
+    "-am",
+    "-Dtest=Case123ClassOriginsTest",
+    "-Dsurefire.failIfNoSpecifiedTests=false"
+  ],
+  "state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-10T10:20:10.269604933Z",
+    "FinishedAt": "2026-11-10T10:21:07.508682406Z"
+  },
+  "exit_code": 0,
+  "counts": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "resources": [
+    {
+      "resource": "com/fasterxml/jackson/databind/ObjectMapper.class",
+      "origin": "jar:file:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.10.8/jackson-databind-2.9.10.8.jar!/com/fasterxml/jackson/databind/ObjectMapper.class"
+    },
+    {
+      "resource": "com/fasterxml/jackson/core/JsonFactory.class",
+      "origin": "jar:file:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.10/jackson-core-2.9.10.jar!/com/fasterxml/jackson/core/JsonFactory.class"
+    },
+    {
+      "resource": "com/fasterxml/jackson/annotation/JsonProperty.class",
+      "origin": "jar:file:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.11.2/jackson-annotations-2.11.2.jar!/com/fasterxml/jackson/annotation/JsonProperty.class"
+    },
+    {
+      "resource": "com/fasterxml/jackson/annotation/JsonKey.class",
+      "origin": "ABSENT"
+    }
+  ],
+  "resolved_jackson_paths": [
+    "/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.11.2/jackson-annotations-2.11.2.jar",
+    "/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.10/jackson-core-2.9.10.jar",
+    "/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.10.8/jackson-databind-2.9.10.8.jar"
+  ]
+}

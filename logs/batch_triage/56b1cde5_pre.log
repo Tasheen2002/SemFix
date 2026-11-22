@@ -1,0 +1,590 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< co.nordlander.a:a >--------------------------
+[INFO] Building a 1.5.3-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ a ---
+[INFO] Deleting /a/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ a ---
+[INFO] Copying 1 resource
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- compiler:3.9.0:compile (default-compile) @ a ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /a/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ a ---
+[INFO] Copying 11 resources
+[INFO] 
+[INFO] --- compiler:3.9.0:testCompile (default-testCompile) @ a ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /a/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ a ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running co.nordlander.a.AOpenWireTest
+13:07:50,011 [main] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+13:07:50,083 [main] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4b7dc788, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@6304101a, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5170bcf4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2812b107, org.springframework.test.context.transaction.TransactionalTestExecutionListener@df6620a, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@4e31276e, org.springframework.test.context.event.EventPublishingTestExecutionListener@1a72a540]
+13:07:53,799 [main] INFO  o.a.a.b.BrokerService - Using Persistence Adapter: KahaDBPersistenceAdapter[/a/target/amqdata/kahadb]
+13:07:54,662 [main] INFO  o.a.a.s.k.p.PListStoreImpl - PListStore:[/a/target/amqdata/localhost/tmp_storage] started
+13:07:54,892 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:79373619189b-34331-1794229674717-0:1) is starting
+13:07:54,945 [main] INFO  o.a.a.t.TransportServerThreadSupport - Listening for connections at: tcp://79373619189b:61916?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+13:07:54,946 [main] INFO  o.a.a.b.TransportConnector - Connector openwire started
+13:07:54,947 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:79373619189b-34331-1794229674717-0:1) started
+13:07:54,948 [main] INFO  o.a.a.b.BrokerService - For help or more information please see: http://activemq.apache.org
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Message sent
+Operation completed in 278ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+2 msgs copied from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 97ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Testing cmd: -b tcp://localhost:61916 -p "test" -t bytes TEST.QUEUE
+Message sent
+Operation completed in 185ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Testing cmd: -b tcp://localhost:61916 -p "test" TEST.QUEUE
+Message sent
+Operation completed in 245ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Message sent
+Operation completed in 35ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+-----------------
+Message Properties
+Payload:
+test
+-----------------
+Message Properties
+Payload:
+test
+Operation completed in 33ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+-----------------
+Message Properties
+Payload:
+test
+Operation completed in 19ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+-----------------
+Message Properties
+Payload:
+test
+Operation completed in 237ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+File file1.txt sent
+File file2.txt sent
+Operation completed in 1419ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Testing cmd: -b tcp://localhost:61916 -p "test-PLACEHOLDER" -W /tmp/junit18238237615361322333/junit16583382915007281548/batch.txt -S "msg.body=msg.body.replace('PLACEHOLDER',entry);" -y foo.jmstype -r foo.reply.to -E foo.corr.id TEST.QUEUE
+3 messages sent
+Message sent
+Operation completed in 10160ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+4 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 136ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Writing 1 messages to dump file /tmp/junit4518345619352621709/junit10198367674107289912/dump.json
+Failed to write all messages to dump file. Reason: org.graalvm.polyglot.PolyglotException: ReferenceError: "dummy" is not defined
+Rolling back JMS transaction
+Operation completed in 263ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+2 messages restored to TEST.QUEUE
+Operation completed in 982ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+1 msgs copied from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 167ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Message sent
+Operation completed in 82ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Writing 2 messages to dump file /tmp/junit2242898852289695617/junit3720766357902603577/dump.json
+2 messages written to /tmp/junit2242898852289695617/junit3720766357902603577/dump.json
+Operation completed in 340ms (excluding connect)
+[{"JMSCorrelationID":"MyCorrelationId","JMSMessageID":"ID:79373619189b-34331-1794229674717-64:1:1:1:1","JMSType":"myJmsType","JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229704905,"JMSPriority":4,"stringProperties":{"myStringProperty":"String Value - å"},"intProperties":{"myIntProperty":42},"longProperties":{},"floatProperties":{},"doubleProperties":{"myDoubleProperty":3.141592653589793},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"Utf-8 Text - 😁","type":"TextMessage"},{"JMSCorrelationID":null,"JMSMessageID":"ID:79373619189b-34331-1794229674717-64:1:1:1:2","JMSType":null,"JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229704931,"JMSPriority":4,"stringProperties":{},"intProperties":{},"longProperties":{},"floatProperties":{},"doubleProperties":{},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"VXRmLTggVGV4dCAtIPCfmIE=","type":"BytesMessage"}]
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Running a with -b tcp://localhost:61916 -x /tmp/junit3560703190749641598/junit3897704146647427139/dump.json -w 200 -c 20 TEST.QUEUE
+Writing 10 messages to dump file /tmp/junit3560703190749641598/junit3897704146647427139/dump.json
+10 messages written to /tmp/junit3560703190749641598/junit3897704146647427139/dump.json
+Operation completed in 713ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Testing cmd: -b tcp://localhost:61916 -p test MY/QUEUE
+Message sent
+Operation completed in 77ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+-----------------
+Message Properties
+  identity: theOne
+Payload:
+theOne
+Operation completed in 61ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+1 msgs copied from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 810ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+Writing 1 messages to dump file /tmp/junit8626274192142754529/junit5037252240509934776/dump.json
+1 messages written to /tmp/junit8626274192142754529/junit5037252240509934776/dump.json
+Operation completed in 401ms (excluding connect)
+[{"JMSCorrelationID":null,"JMSMessageID":"ID:79373619189b-34331-1794229674717-84:1:1:1:1","JMSType":null,"JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229710280,"JMSPriority":4,"stringProperties":{"changeme":"new"},"intProperties":{},"longProperties":{},"floatProperties":{},"doubleProperties":{},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"B - JMS util","type":"TextMessage"}]
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+No message received, due to the timeout expiring or the consumer is closed
+2 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 199ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+No message received, due to the timeout expiring or the consumer is closed
+1 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 449ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+No message received, due to the timeout expiring or the consumer is closed
+2 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 213ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+File: /tmp/junit15259157256521616389/junit13239114767166859769/file1.json sent
+Operation completed in 86ms (excluding connect)
+0 messages cleared from queue://TARGET.QUEUE
+0 messages cleared from queue://TEST.QUEUE
+0 messages cleared from queue://SOURCE.QUEUE
+No message received, due to the timeout expiring or the consumer is closed
+1 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 133ms (excluding connect)
+13:08:34,006 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:79373619189b-34331-1794229674717-0:1) is shutting down
+13:08:34,009 [main] INFO  o.a.a.b.TransportConnector - Connector openwire stopped
+13:08:34,058 [main] INFO  o.a.a.s.k.p.PListStoreImpl - PListStore:[/a/target/amqdata/localhost/tmp_storage] stopped
+13:08:34,059 [main] INFO  o.a.a.s.k.KahaDBStore - Stopping async queue tasks
+13:08:34,059 [main] INFO  o.a.a.s.k.KahaDBStore - Stopping async topic tasks
+13:08:34,060 [main] INFO  o.a.a.s.k.KahaDBStore - Stopped KahaDB
+13:08:34,118 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:79373619189b-34331-1794229674717-0:1) uptime 40.781 seconds
+13:08:34,119 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:79373619189b-34331-1794229674717-0:1) is shutdown
+[WARNING] Tests run: 27, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 46.636 s - in co.nordlander.a.AOpenWireTest
+[INFO] Running co.nordlander.a.AMQPTest
+13:08:34,171 [main] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+13:08:34,174 [main] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@389a5022, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@bb8ead8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5b44318, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6e807e2, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6c995c5d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@203b953c, org.springframework.test.context.event.EventPublishingTestExecutionListener@730bea0]
+13:08:35,517 [main] INFO  o.a.a.b.BrokerService - Using Persistence Adapter: KahaDBPersistenceAdapter[/a/target/amqdata/kahadb]
+13:08:35,673 [main] INFO  o.a.a.s.k.MessageDatabase - KahaDB is version 7
+13:08:35,902 [main] INFO  o.a.a.s.k.p.PListStoreImpl - PListStore:[/a/target/amqdata_amqp/localhost/tmp_storage] started
+13:08:35,918 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:79373619189b-34331-1794229674717-0:2) is starting
+13:08:36,074 [main] INFO  o.a.a.t.TransportServerThreadSupport - Listening for connections at: amqp://79373619189b:5677?maximumConnections=1000&wireFormat.maxFrameSize=104857600
+13:08:36,084 [main] INFO  o.a.a.b.TransportConnector - Connector amqp started
+13:08:36,086 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:79373619189b-34331-1794229674717-0:2) started
+13:08:36,086 [main] INFO  o.a.a.b.BrokerService - For help or more information please see: http://activemq.apache.org
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Message sent
+Operation completed in 124ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+2 msgs copied from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 138ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Testing cmd: -A -b amqp://guest:guest@localhost:5677 -p "test" -t bytes TEST.QUEUE
+Message sent
+Operation completed in 17ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Testing cmd: -A -b amqp://guest:guest@localhost:5677 -p "test" TEST.QUEUE
+Message sent
+Operation completed in 54ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Message sent
+Operation completed in 42ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+-----------------
+Message Properties
+Payload:
+test
+-----------------
+Message Properties
+Payload:
+test
+Operation completed in 36ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+-----------------
+Message Properties
+Payload:
+test
+Operation completed in 37ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+-----------------
+Message Properties
+Payload:
+test
+Operation completed in 257ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+File file1.txt sent
+File file2.txt sent
+Operation completed in 1039ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Testing cmd: -A -b amqp://guest:guest@localhost:5677 -p "test-PLACEHOLDER" -W /tmp/junit5120683149260080425/junit10907918997588395662/batch.txt -S "msg.body=msg.body.replace('PLACEHOLDER',entry);" -y foo.jmstype -r foo.reply.to -E foo.corr.id TEST.QUEUE
+3 messages sent
+Message sent
+Operation completed in 83ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+4 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 212ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Writing 1 messages to dump file /tmp/junit426179411847600525/junit6990967913141685817/dump.json
+Failed to write all messages to dump file. Reason: org.graalvm.polyglot.PolyglotException: ReferenceError: "dummy" is not defined
+Rolling back JMS transaction
+Operation completed in 72ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+2 messages restored to TEST.QUEUE
+Operation completed in 57ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+1 msgs copied from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 20ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Message sent
+Operation completed in 9ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Writing 2 messages to dump file /tmp/junit4820569738851783799/junit12579369595041272101/dump.json
+2 messages written to /tmp/junit4820569738851783799/junit12579369595041272101/dump.json
+Operation completed in 56ms (excluding connect)
+[{"JMSCorrelationID":"MyCorrelationId","JMSMessageID":"ID:ed257d84-a8e2-46f4-84ef-8eb1f3807294","JMSType":"myJmsType","JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229731124,"JMSPriority":4,"stringProperties":{"myStringProperty":"String Value - å"},"intProperties":{"myIntProperty":42},"longProperties":{},"floatProperties":{},"doubleProperties":{"myDoubleProperty":3.141592653589793},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"Utf-8 Text - 😁","type":"TextMessage"},{"JMSCorrelationID":null,"JMSMessageID":"ID:5b68d474-ad3d-4f99-8711-6279389a0958","JMSType":null,"JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229731133,"JMSPriority":4,"stringProperties":{},"intProperties":{},"longProperties":{},"floatProperties":{},"doubleProperties":{},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"VXRmLTggVGV4dCAtIPCfmIE=","type":"BytesMessage"}]
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Running a with -A -b amqp://guest:guest@localhost:5677 -x /tmp/junit16414287677193566119/junit10365857882373183118/dump.json -w 200 -c 20 TEST.QUEUE
+Writing 10 messages to dump file /tmp/junit16414287677193566119/junit10365857882373183118/dump.json
+10 messages written to /tmp/junit16414287677193566119/junit10365857882373183118/dump.json
+Operation completed in 273ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Testing cmd: -A -b amqp://guest:guest@localhost:5677 -p test MY/QUEUE
+Message sent
+Operation completed in 11ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+-----------------
+Message Properties
+  identity: theOne
+Payload:
+theOne
+Operation completed in 4ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+1 msgs copied from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 25ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+Writing 1 messages to dump file /tmp/junit10184327624620818119/junit4693590883125021686/dump.json
+1 messages written to /tmp/junit10184327624620818119/junit4693590883125021686/dump.json
+Operation completed in 67ms (excluding connect)
+[{"JMSCorrelationID":null,"JMSMessageID":"ID:a15e664e-8f49-4a3c-b9c8-254214d34d66","JMSType":null,"JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229733396,"JMSPriority":4,"stringProperties":{"changeme":"new"},"intProperties":{},"longProperties":{},"floatProperties":{},"doubleProperties":{},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"B - JMS util","type":"TextMessage"}]
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+No message received, due to the timeout expiring or the consumer is closed
+2 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 199ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+No message received, due to the timeout expiring or the consumer is closed
+1 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 168ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+No message received, due to the timeout expiring or the consumer is closed
+2 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 195ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+File: /tmp/junit8773297364781655293/junit10057912161416074107/file1.json sent
+Operation completed in 7ms (excluding connect)
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@61354254
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@7b341495
+0 messages cleared from org.apache.qpid.amqp_1_0.jms.impl.QueueImpl@d092a95e
+No message received, due to the timeout expiring or the consumer is closed
+1 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 152ms (excluding connect)
+13:08:56,722 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:79373619189b-34331-1794229674717-0:2) is shutting down
+13:08:56,723 [main] INFO  o.a.a.b.TransportConnector - Connector amqp stopped
+13:08:56,723 [main] INFO  o.a.a.s.k.p.PListStoreImpl - PListStore:[/a/target/amqdata_amqp/localhost/tmp_storage] stopped
+13:08:56,723 [main] INFO  o.a.a.s.k.KahaDBStore - Stopping async queue tasks
+13:08:56,723 [main] INFO  o.a.a.s.k.KahaDBStore - Stopping async topic tasks
+13:08:56,723 [main] INFO  o.a.a.s.k.KahaDBStore - Stopped KahaDB
+13:08:56,746 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:79373619189b-34331-1794229674717-0:2) uptime 21.246 seconds
+13:08:56,746 [main] INFO  o.a.a.b.BrokerService - Apache ActiveMQ 5.16.3 (localhost, ID:79373619189b-34331-1794229674717-0:2) is shutdown
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 22.175 s - in co.nordlander.a.AMQPTest
+[INFO] Running co.nordlander.a.DataStructureTypeAsStringTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in co.nordlander.a.DataStructureTypeAsStringTest
+[INFO] Running co.nordlander.a.ArtemisJmsTest
+Starting Artemis
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+2 msgs copied from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 41ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Testing cmd: -a -b tcp://localhost:61616 -p "test" -t bytes TEST.QUEUE
+Message sent
+Operation completed in 15ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Testing cmd: -a -b tcp://localhost:61616 -p "test" TEST.QUEUE
+Message sent
+Operation completed in 21ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Message sent
+Operation completed in 11ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+[{"JMSCorrelationID":null,"JMSMessageID":"ID:ba6f5f93-dc3e-11f1-9ecc-c6af7de4cfc1","JMSType":null,"JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229739914,"JMSPriority":4,"stringProperties":{},"intProperties":{"JMSXDeliveryCount":0},"longProperties":{},"floatProperties":{},"doubleProperties":{},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"test","type":"TextMessage"}]
+-----------------
+Message Properties
+  JMSXDeliveryCount: 1
+Payload:
+test
+-----------------
+Message Properties
+  JMSXDeliveryCount: 1
+Payload:
+test
+Operation completed in 15ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+-----------------
+Message Properties
+  JMSXDeliveryCount: 1
+Payload:
+test
+Operation completed in 11ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+-----------------
+Message Properties
+  JMSXDeliveryCount: 1
+Payload:
+test
+Operation completed in 270ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+File file1.txt sent
+File file2.txt sent
+Operation completed in 1035ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Testing cmd: -a -b tcp://localhost:61616 -p "test-PLACEHOLDER" -W /tmp/junit1671327092776253221/junit15976071493104955757/batch.txt -S "msg.body=msg.body.replace('PLACEHOLDER',entry);" -y foo.jmstype -r foo.reply.to -E foo.corr.id TEST.QUEUE
+3 messages sent
+Message sent
+Operation completed in 36ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+4 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 24ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Writing 1 messages to dump file /tmp/junit12827905007192952953/junit15016590318097240366/dump.json
+Failed to write all messages to dump file. Reason: org.graalvm.polyglot.PolyglotException: ReferenceError: "dummy" is not defined
+Rolling back JMS transaction
+Operation completed in 28ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+2 messages restored to TEST.QUEUE
+Operation completed in 10ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+1 msgs copied from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 26ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Message sent
+Operation completed in 7ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Writing 2 messages to dump file /tmp/junit201267756770899631/junit7610012379580824617/dump.json
+2 messages written to /tmp/junit201267756770899631/junit7610012379580824617/dump.json
+Operation completed in 14ms (excluding connect)
+[{"JMSCorrelationID":"MyCorrelationId","JMSMessageID":"ID:bd5986ba-dc3e-11f1-9ecc-c6af7de4cfc1","JMSType":"myJmsType","JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229744804,"JMSPriority":4,"stringProperties":{"myStringProperty":"String Value - å"},"intProperties":{"JMSXDeliveryCount":1,"myIntProperty":42},"longProperties":{},"floatProperties":{},"doubleProperties":{"myDoubleProperty":3.141592653589793},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"Utf-8 Text - 😁","type":"TextMessage"},{"JMSCorrelationID":null,"JMSMessageID":"ID:bd5a711b-dc3e-11f1-9ecc-c6af7de4cfc1","JMSType":null,"JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229744810,"JMSPriority":4,"stringProperties":{},"intProperties":{"JMSXDeliveryCount":1},"longProperties":{},"floatProperties":{},"doubleProperties":{},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"VXRmLTggVGV4dCAtIPCfmIE=","type":"BytesMessage"}]
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Running a with -a -b tcp://localhost:61616 -x /tmp/junit13085557369370037002/junit1734958716291056443/dump.json -w 200 -c 20 TEST.QUEUE
+Writing 10 messages to dump file /tmp/junit13085557369370037002/junit1734958716291056443/dump.json
+10 messages written to /tmp/junit13085557369370037002/junit1734958716291056443/dump.json
+Operation completed in 241ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Testing cmd: -a -b tcp://localhost:61616 -p test MY/QUEUE
+Message sent
+Operation completed in 17ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+-----------------
+Message Properties
+  JMSXDeliveryCount: 1
+  identity: theOne
+Payload:
+theOne
+Operation completed in 4ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+1 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+1 msgs copied from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 23ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+1 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+Writing 1 messages to dump file /tmp/junit17541101096789582793/junit6658300771682601766/dump.json
+1 messages written to /tmp/junit17541101096789582793/junit6658300771682601766/dump.json
+Operation completed in 29ms (excluding connect)
+[{"JMSCorrelationID":null,"JMSMessageID":"ID:bdba92c3-dc3e-11f1-9ecc-c6af7de4cfc1","JMSType":null,"JMSDeliveryMode":2,"JMSExpiration":0,"JMSRedelivered":false,"JMSTimestamp":1794229745440,"JMSPriority":4,"stringProperties":{"changeme":"new"},"intProperties":{"JMSXDeliveryCount":1},"longProperties":{},"floatProperties":{},"doubleProperties":{},"boolProperties":{},"shortProperties":{},"byteProperties":{},"objectProperties":{},"body":"B - JMS util","type":"TextMessage"}]
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+No message received, due to the timeout expiring or the consumer is closed
+2 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 118ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+No message received, due to the timeout expiring or the consumer is closed
+1 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 127ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+No message received, due to the timeout expiring or the consumer is closed
+2 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 117ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+File: /tmp/junit9115533547432010430/junit8703282054000195124/file1.json sent
+Operation completed in 18ms (excluding connect)
+0 messages cleared from ActiveMQQueue[TARGET.QUEUE]
+0 messages cleared from ActiveMQQueue[TEST.QUEUE]
+0 messages cleared from ActiveMQQueue[SOURCE.QUEUE]
+No message received, due to the timeout expiring or the consumer is closed
+1 msgs moved from SOURCE.QUEUE to TARGET.QUEUE
+Operation completed in 113ms (excluding connect)
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.3 s - in co.nordlander.a.ArtemisJmsTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 80, Failures: 0, Errors: 0, Skipped: 1
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:39 min
+[INFO] Finished at: 2026-11-09T13:09:07Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 2 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.9.0
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 

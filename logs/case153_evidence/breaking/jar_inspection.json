@@ -1,0 +1,70 @@
+{
+  "case_id": "c9cc7d936dda55c66b41411ba608549061914806",
+  "phase": "breaking",
+  "path_filter": "/(slf4j-api|slf4j-mock)/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/simplify4u/slf4j-mock/2.2.0/slf4j-mock-2.2.0.jar",
+      "sha256": "7e9422848c688e0f2fcfb4eb519073c03ba3b0fbd13a49828d688f60b2090ff3",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": true,
+          "major_version": 52
+        },
+        "org.simplify4u.slf4jmock.ProxyMock": {
+          "present": true,
+          "major_version": 52
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine",
+          "file": "slf4j-mock-2.2.0_LoggerAnnotationEngine_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case153_evidence\\breaking\\jars\\slf4j-mock-2.2.0.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/slf4j/slf4j-api/2.0.3/slf4j-api-2.0.3.jar",
+      "sha256": "68ddcda65300ff8097ad1a096d7cd2fb06cef25193887cec3f2690e01bdbf421",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": false,
+          "major_version": null
+        },
+        "org.simplify4u.slf4jmock.ProxyMock": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.slf4j.LoggerFactory",
+          "file": "slf4j-api-2.0.3_LoggerFactory_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case153_evidence\\breaking\\jars\\slf4j-api-2.0.3.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.slf4j.LoggerFactory"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

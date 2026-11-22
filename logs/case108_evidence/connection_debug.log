@@ -1,0 +1,455 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.jcabi:jcabi-ssh >-------------------------
+[INFO] Building jcabi-ssh 2.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact org.slf4j:slf4j-log4j12:jar:2.0.7 has been relocated to org.slf4j:slf4j-reload4j:jar:2.0.7
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jcabi-ssh ---
+[INFO] Deleting /jcabi-ssh/target
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-maven) @ jcabi-ssh ---
+[INFO] 
+[INFO] --- buildnumber:3.0.0:create (jcabi-build-number) @ jcabi-ssh ---
+[INFO] ShortRevision tag detected. The value is '7'.
+[INFO] Executing: /bin/sh -c cd '/jcabi-ssh' && 'git' 'rev-parse' '--verify' '--short=7' 'HEAD'
+[INFO] Working directory: /jcabi-ssh
+[INFO] Storing buildNumber: null at timestamp: 2026-11-10T09:11:36
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: not a git repository (or any of the parent directories): .git
+
+[INFO] ShortRevision tag detected. The value is '7'.
+[INFO] Executing: /bin/sh -c cd '/jcabi-ssh' && 'git' 'rev-parse' '--verify' '--short=7' 'HEAD'
+[INFO] Working directory: /jcabi-ssh
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- buildnumber:3.0.0:create-timestamp (jcabi-build-number) @ jcabi-ssh ---
+[INFO] Skipping because we are not in root module.
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ jcabi-ssh ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /jcabi-ssh/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ jcabi-ssh ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /jcabi-ssh/target/classes
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ jcabi-ssh ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 3 resources
+[INFO] The encoding used to copy filtered properties files have not been set. This means that the same encoding will be used to copy filtered properties files as when copying other filtered resources. This might not be what you want! Run your build with --debug to see which files might be affected. Read more at https://maven.apache.org/plugins/maven-resources-plugin/examples/filtering-properties-files.html
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ jcabi-ssh ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /jcabi-ssh/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0-M7:test (default-test) @ jcabi-ssh ---
+[INFO] Tests will run in random order. To reproduce ordering use flag -Dsurefire.runOrder.random.seed=835100151238
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.jcabi.ssh.SshByPasswordTest
+[DEBUG] main org.apache.sshd.common.util.security.SecurityUtils: register(BC) not registered - enabled=true, supported=false
+[DEBUG] main org.apache.sshd.common.util.security.SecurityUtils: register(EdDSA) not registered - enabled=true, supported=false
+[INFO] main org.apache.sshd.common.io.DefaultIoServiceFactoryFactory: No detected/configured IoServiceFactoryFactory; using Nio2ServiceFactoryFactory
+[TRACE] main org.apache.sshd.common.io.nio2.Nio2Acceptor: Creating Nio2Acceptor
+[TRACE] main org.apache.sshd.server.SshServer: addSessionListener(SshServer[7068f7ca](port=46467))[org.apache.sshd.common.session.helpers.SessionTimeoutListener@64030b91] registered
+[TRACE] main org.apache.sshd.common.util.threads.SshdThreadFactory: newThread(java.lang.ThreadGroup[name=main,maxpri=10])[sshd-SshServer[7068f7ca](port=46467)-timer-thread-1] runnable=java.util.concurrent.ThreadPoolExecutor$Worker@2032e725[State = -1, empty queue]
+[DEBUG] main org.apache.sshd.common.io.nio2.Nio2Acceptor: bind(0.0.0.0/0.0.0.0:46467) binding to address
+[DEBUG] main org.apache.sshd.common.io.nio2.Nio2Acceptor: setOption(SO_REUSEADDR)[true] from property=Property[socket-reuseaddr](Boolean]
+[DEBUG] main org.apache.sshd.common.io.nio2.Nio2Acceptor: bind(0.0.0.0/0.0.0.0:46467) bound to /0:0:0:0:0:0:0:0:46467
+[DEBUG] main com.jcabi.ssh.SshByPassword: Opening SSH session to test@172.17.0.2:46467 (auth with password)...
+[TRACE] Thread-1 org.apache.sshd.common.util.threads.SshdThreadFactory: newThread(java.lang.ThreadGroup[name=main,maxpri=10])[sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1] runnable=java.util.concurrent.ThreadPoolExecutor$Worker@8f58b74[State = -1, empty queue]
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Acceptor: setOption(SO_REUSEADDR)[true] from property=Property[socket-reuseaddr](Boolean]
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Acceptor: createNio2Session(Nio2Acceptor[[/0:0:0:0:0:0:0:0:46467]]) address=/0:0:0:0:0:0:0:0:46467
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Session: Creating IoSession on /172.17.0.2:46467 from /172.17.0.2:53592 via /0:0:0:0:0:0:0:0:46467
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: calculateNextIgnorePacketCount(ServerSessionImpl[null@/172.17.0.2:53592]) count=1040
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.session.helpers.SessionTimeoutListener: sessionCreated(ServerSessionImpl[null@/172.17.0.2:53592]) tracking
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: sendIdentification(ServerSessionImpl[null@/172.17.0.2:53592]): SSH-2.0-APACHE-SSHD-2.10.0
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Session: writeBuffer(Nio2Session[local=/172.17.0.2:46467, remote=/172.17.0.2:53592]) writing 28 bytes
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Session: handleCompletedWriteCycle(Nio2Session[local=/172.17.0.2:46467, remote=/172.17.0.2:53592]) finished writing len=28 at cycle=1 after 403153 nanos
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Session: handleReadCycleCompletion(Nio2Session[local=/172.17.0.2:46467, remote=/172.17.0.2:53592]) read 20 bytes after 195515 nanos at cycle=1
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: doReadIdentification(ServerSessionImpl[null@/172.17.0.2:53592]) line='SSH-2.0-JSCH_0.2.9'
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: readIdentification(ServerSessionImpl[null@/172.17.0.2:53592]) client version string: SSH-2.0-JSCH_0.2.9
+[INFO] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.keyprovider.SimpleGeneratorHostKeyProvider: generateKeyPair(EC) generating host key=nistp521
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.keyprovider.SimpleGeneratorHostKeyProvider: resolveKeyPair(/tmp/ssh7981383260290671688/hostkey.ser) generated EC key=ecdsa-sha2-nistp521-SHA256:1ccl32i/Mpf3K2A8cWoeFwXTdCih7znrbOg9FEsmCZA
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: getKexProposal(ServerSessionImpl[null@/172.17.0.2:53592]) options before handler: {ALGORITHMS=curve25519-sha256,curve25519-sha256@libssh.org,curve448-sha512,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256,diffie-hellman-group18-sha512,diffie-hellman-group17-sha512,diffie-hellman-group16-sha512,diffie-hellman-group15-sha512,diffie-hellman-group14-sha256,ext-info-s, SERVERKEYS=ecdsa-sha2-nistp521, C2SENC=chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc, S2CENC=chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc, C2SMAC=hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1, S2CMAC=hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1, C2SCOMP=none,zlib,zlib@openssh.com, S2CCOMP=none,zlib,zlib@openssh.com, C2SLANG=, S2CLANG=}
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: getKexProposal(ServerSessionImpl[null@/172.17.0.2:53592]) options after handler: {ALGORITHMS=curve25519-sha256,curve25519-sha256@libssh.org,curve448-sha512,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256,diffie-hellman-group18-sha512,diffie-hellman-group17-sha512,diffie-hellman-group16-sha512,diffie-hellman-group15-sha512,diffie-hellman-group14-sha256,ext-info-s, SERVERKEYS=ecdsa-sha2-nistp521, C2SENC=chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc, S2CENC=chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc, C2SMAC=hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1, S2CMAC=hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1, C2SCOMP=none,zlib,zlib@openssh.com, S2CCOMP=none,zlib,zlib@openssh.com, C2SLANG=, S2CLANG=}
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: sendKexInit(ServerSessionImpl[null@/172.17.0.2:53592]) Send SSH_MSG_KEXINIT
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: sendKexInit(ServerSessionImpl[null@/172.17.0.2:53592]) cookie=82:f1:e0:21:cf:c5:24:a9:53:9c:b0:47:ce:4d:91:f1
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: sendKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[kex algorithms] curve25519-sha256,curve25519-sha256@libssh.org,curve448-sha512,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256,diffie-hellman-group18-sha512,diffie-hellman-group17-sha512,diffie-hellman-group16-sha512,diffie-hellman-group15-sha512,diffie-hellman-group14-sha256,ext-info-s
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: sendKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[server host key algorithms] ecdsa-sha2-nistp521
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: sendKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[encryption algorithms (client to server)] chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: sendKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[encryption algorithms (server to client)] chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: sendKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[mac algorithms (client to server)] hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: sendKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[mac algorithms (server to client)] hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: sendKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[compression algorithms (client to server)] none,zlib,zlib@openssh.com
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: sendKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[compression algorithms (server to client)] none,zlib,zlib@openssh.com
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: sendKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[languages (client to server)] 
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: sendKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[languages (server to client)] 
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 sending command=20[SSH_MSG_KEXINIT] len=978
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 [chunk #1](64/978) 14 82 f1 e0 21 cf c5 24 a9 53 9c b0 47 ce 4d 91 f1 00 00 01 3d 63 75 72 76 65 32 35 35 31 39 2d 73 68 61 32 35 36 2c 63 75 72 76 65 32 35 35 31 39 2d 73 68 61 32 35 36 40 6c 69 62 73 73 68 2e    ....!..$.S..G.M.....=curve25519-sha256,curve25519-sha256@libssh.
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 [chunk #2](128/978) 6f 72 67 2c 63 75 72 76 65 34 34 38 2d 73 68 61 35 31 32 2c 65 63 64 68 2d 73 68 61 32 2d 6e 69 73 74 70 35 32 31 2c 65 63 64 68 2d 73 68 61 32 2d 6e 69 73 74 70 33 38 34 2c 65 63 64 68 2d 73    org,curve448-sha512,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-s
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 [chunk #3](192/978) 68 61 32 2d 6e 69 73 74 70 32 35 36 2c 64 69 66 66 69 65 2d 68 65 6c 6c 6d 61 6e 2d 67 72 6f 75 70 2d 65 78 63 68 61 6e 67 65 2d 73 68 61 32 35 36 2c 64 69 66 66 69 65 2d 68 65 6c 6c 6d 61 6e    ha2-nistp256,diffie-hellman-group-exchange-sha256,diffie-hellman
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 [chunk #4](256/978) 2d 67 72 6f 75 70 31 38 2d 73 68 61 35 31 32 2c 64 69 66 66 69 65 2d 68 65 6c 6c 6d 61 6e 2d 67 72 6f 75 70 31 37 2d 73 68 61 35 31 32 2c 64 69 66 66 69 65 2d 68 65 6c 6c 6d 61 6e 2d 67 72 6f    -group18-sha512,diffie-hellman-group17-sha512,diffie-hellman-gro
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 [chunk #5](320/978) 75 70 31 36 2d 73 68 61 35 31 32 2c 64 69 66 66 69 65 2d 68 65 6c 6c 6d 61 6e 2d 67 72 6f 75 70 31 35 2d 73 68 61 35 31 32 2c 64 69 66 66 69 65 2d 68 65 6c 6c 6d 61 6e 2d 67 72 6f 75 70 31 34    up16-sha512,diffie-hellman-group15-sha512,diffie-hellman-group14
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 [chunk #6](384/978) 2d 73 68 61 32 35 36 2c 65 78 74 2d 69 6e 66 6f 2d 73 00 00 00 13 65 63 64 73 61 2d 73 68 61 32 2d 6e 69 73 74 70 35 32 31 00 00 00 8d 63 68 61 63 68 61 32 30 2d 70 6f 6c 79 31 33 30 35 40 6f    -sha256,ext-info-s....ecdsa-sha2-nistp521....chacha20-poly1305@o
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 [chunk #7](448/978) 70 65 6e 73 73 68 2e 63 6f 6d 2c 61 65 73 31 32 38 2d 63 74 72 2c 61 65 73 31 39 32 2d 63 74 72 2c 61 65 73 32 35 36 2d 63 74 72 2c 61 65 73 31 32 38 2d 67 63 6d 40 6f 70 65 6e 73 73 68 2e 63    penssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.c
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 [chunk #8](512/978) 6f 6d 2c 61 65 73 32 35 36 2d 67 63 6d 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 2c 61 65 73 31 32 38 2d 63 62 63 2c 61 65 73 31 39 32 2d 63 62 63 2c 61 65 73 32 35 36 2d 63 62 63 00 00 00 8d 63 68    om,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc....ch
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 [chunk #9](576/978) 61 63 68 61 32 30 2d 70 6f 6c 79 31 33 30 35 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 2c 61 65 73 31 32 38 2d 63 74 72 2c 61 65 73 31 39 32 2d 63 74 72 2c 61 65 73 32 35 36 2d 63 74 72 2c 61 65 73    acha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 [chunk #10](640/978) 31 32 38 2d 67 63 6d 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 2c 61 65 73 32 35 36 2d 67 63 6d 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 2c 61 65 73 31 32 38 2d 63 62 63 2c 61 65 73 31 39 32 2d 63 62 63    128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 [chunk #11](704/978) 2c 61 65 73 32 35 36 2d 63 62 63 00 00 00 7b 68 6d 61 63 2d 73 68 61 32 2d 32 35 36 2d 65 74 6d 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 2c 68 6d 61 63 2d 73 68 61 32 2d 35 31 32 2d 65 74 6d 40 6f    ,aes256-cbc...{hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@o
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 [chunk #12](768/978) 70 65 6e 73 73 68 2e 63 6f 6d 2c 68 6d 61 63 2d 73 68 61 31 2d 65 74 6d 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 2c 68 6d 61 63 2d 73 68 61 32 2d 32 35 36 2c 68 6d 61 63 2d 73 68 61 32 2d 35 31 32    penssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 [chunk #13](832/978) 2c 68 6d 61 63 2d 73 68 61 31 00 00 00 7b 68 6d 61 63 2d 73 68 61 32 2d 32 35 36 2d 65 74 6d 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 2c 68 6d 61 63 2d 73 68 61 32 2d 35 31 32 2d 65 74 6d 40 6f 70    ,hmac-sha1...{hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@op
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 [chunk #14](896/978) 65 6e 73 73 68 2e 63 6f 6d 2c 68 6d 61 63 2d 73 68 61 31 2d 65 74 6d 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 2c 68 6d 61 63 2d 73 68 61 32 2d 32 35 36 2c 68 6d 61 63 2d 73 68 61 32 2d 35 31 32 2c    enssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 [chunk #15](960/978) 68 6d 61 63 2d 73 68 61 31 00 00 00 1a 6e 6f 6e 65 2c 7a 6c 69 62 2c 7a 6c 69 62 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 00 00 00 1a 6e 6f 6e 65 2c 7a 6c 69 62 2c 7a 6c 69 62 40 6f 70 65 6e 73 73    hmac-sha1....none,zlib,zlib@openssh.com....none,zlib,zlib@openss
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 [chunk #16](978/978) 68 2e 63 6f 6d 00 00 00 00 00 00 00 00 00 00 00 00 00                                                                                                                                              h.com.............
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: encode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #0 command=20[SSH_MSG_KEXINIT] len=988, pad=9, mac=null
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Session: writeBuffer(Nio2Session[local=/172.17.0.2:46467, remote=/172.17.0.2:53592]) writing 992 bytes
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Session: handleCompletedWriteCycle(Nio2Session[local=/172.17.0.2:46467, remote=/172.17.0.2:53592]) finished writing len=992 at cycle=2 after 196091 nanos
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: sendKexInit(ServerSessionImpl[null@/172.17.0.2:53592]) proposal={ALGORITHMS=curve25519-sha256,curve25519-sha256@libssh.org,curve448-sha512,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256,diffie-hellman-group18-sha512,diffie-hellman-group17-sha512,diffie-hellman-group16-sha512,diffie-hellman-group15-sha512,diffie-hellman-group14-sha256,ext-info-s, SERVERKEYS=ecdsa-sha2-nistp521, C2SENC=chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc, S2CENC=chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc, C2SMAC=hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1, S2CMAC=hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1, C2SCOMP=none,zlib,zlib@openssh.com, S2CCOMP=none,zlib,zlib@openssh.com, C2SLANG=, S2CLANG=} seed: 14:82:f1:e0:21:cf:c5:24:a9:53:9c:b0:47:ce:4d:91:f1:00:00:01:3d:63:75:72:76:65:32:35:35:31:39:2d:73:68:61:32:35:36:2c:63:75:72:76:65:32:35:35:31:39:2d:73:68:61:32:35:36:40:6c:69:62:73:73:68:2e:6f:72:67:2c:63:75:72:76:65:34:34:38:2d:73:68:61:35:31:32:2c:65:63:64:68:2d:73:68:61:32:2d:6e:69:73:74:70:35:32:31:2c:65:63:64:68:2d:73:68:61:32:2d:6e:69:73:74:70:33:38:34:2c:65:63:64:68:2d:73:68:61:32:2d:6e:69:73:74:70:32:35:36:2c:64:69:66:66:69:65:2d:68:65:6c:6c:6d:61:6e:2d:67:72:6f:75:70:2d:65:78:63:68:61:6e:67:65:2d:73:68:61:32:35:36:2c:64:69:66:66:69:65:2d:68:65:6c:6c:6d:61:6e:2d:67:72:6f:75:70:31:38:2d:73:68:61:35:31:32:2c:64:69:66:66:69:65:2d:68:65:6c:6c:6d:61:6e:2d:67:72:6f:75:70:31:37:2d:73:68:61:35:31:32:2c:64:69:66:66:69:65:2d:68:65:6c:6c:6d:61:6e:2d:67:72:6f:75:70:31:36:2d:73:68:61:35:31:32:2c:64:69:66:66:69:65:2d:68:65:6c:6c:6d:61:6e:2d:67:72:6f:75:70:31:35:2d:73:68:61:35:31:32:2c:64:69:66:66:69:65:2d:68:65:6c:6c:6d:61:6e:2d:67:72:6f:75:70:31:34:2d:73:68:61:32:35:36:2c:65:78:74:2d:69:6e:66:6f:2d:73:00:00:00:13:65:63:64:73:61:2d:73:68:61:32:2d:6e:69:73:74:70:35:32:31:00:00:00:8d:63:68:61:63:68:61:32:30:2d:70:6f:6c:79:31:33:30:35:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:61:65:73:31:32:38:2d:63:74:72:2c:61:65:73:31:39:32:2d:63:74:72:2c:61:65:73:32:35:36:2d:63:74:72:2c:61:65:73:31:32:38:2d:67:63:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:61:65:73:32:35:36:2d:67:63:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:61:65:73:31:32:38:2d:63:62:63:2c:61:65:73:31:39:32:2d:63:62:63:2c:61:65:73:32:35:36:2d:63:62:63:00:00:00:8d:63:68:61:63:68:61:32:30:2d:70:6f:6c:79:31:33:30:35:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:61:65:73:31:32:38:2d:63:74:72:2c:61:65:73:31:39:32:2d:63:74:72:2c:61:65:73:32:35:36:2d:63:74:72:2c:61:65:73:31:32:38:2d:67:63:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:61:65:73:32:35:36:2d:67:63:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:61:65:73:31:32:38:2d:63:62:63:2c:61:65:73:31:39:32:2d:63:62:63:2c:61:65:73:32:35:36:2d:63:62:63:00:00:00:7b:68:6d:61:63:2d:73:68:61:32:2d:32:35:36:2d:65:74:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:68:6d:61:63:2d:73:68:61:32:2d:35:31:32:2d:65:74:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:68:6d:61:63:2d:73:68:61:31:2d:65:74:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:68:6d:61:63:2d:73:68:61:32:2d:32:35:36:2c:68:6d:61:63:2d:73:68:61:32:2d:35:31:32:2c:68:6d:61:63:2d:73:68:61:31:00:00:00:7b:68:6d:61:63:2d:73:68:61:32:2d:32:35:36:2d:65:74:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:68:6d:61:63:2d:73:68:61:32:2d:35:31:32:2d:65:74:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:68:6d:61:63:2d:73:68:61:31:2d:65:74:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:68:6d:61:63:2d:73:68:61:32:2d:32:35:36:2c:68:6d:61:63:2d:73:68:61:32:2d:35:31:32:2c:68:6d:61:63:2d:73:68:61:31:00:00:00:1a:6e:6f:6e:65:2c:7a:6c:69:62:2c:7a:6c:69:62:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:00:00:00:1a:6e:6f:6e:65:2c:7a:6c:69:62:2c:7a:6c:69:62:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:00:00:00:00:00:00:00:00:00:00:00:00:00
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Session: handleReadCycleCompletion(Nio2Session[local=/172.17.0.2:46467, remote=/172.17.0.2:53592]) read 816 bytes after 109471 nanos at cycle=2
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: decode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #1 [chunk #1](64/798) 14 fd 42 c5 67 9a b2 c5 10 eb 9a 51 68 49 00 b5 cf 00 00 00 f1 63 75 72 76 65 32 35 35 31 39 2d 73 68 61 32 35 36 2c 63 75 72 76 65 32 35 35 31 39 2d 73 68 61 32 35 36 40 6c 69 62 73 73 68 2e    ..B.g......QhI.......curve25519-sha256,curve25519-sha256@libssh.
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: decode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #1 [chunk #2](128/798) 6f 72 67 2c 65 63 64 68 2d 73 68 61 32 2d 6e 69 73 74 70 32 35 36 2c 65 63 64 68 2d 73 68 61 32 2d 6e 69 73 74 70 33 38 34 2c 65 63 64 68 2d 73 68 61 32 2d 6e 69 73 74 70 35 32 31 2c 64 69 66    org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,dif
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: decode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #1 [chunk #3](192/798) 66 69 65 2d 68 65 6c 6c 6d 61 6e 2d 67 72 6f 75 70 2d 65 78 63 68 61 6e 67 65 2d 73 68 61 32 35 36 2c 64 69 66 66 69 65 2d 68 65 6c 6c 6d 61 6e 2d 67 72 6f 75 70 31 36 2d 73 68 61 35 31 32 2c    fie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: decode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #1 [chunk #4](256/798) 64 69 66 66 69 65 2d 68 65 6c 6c 6d 61 6e 2d 67 72 6f 75 70 31 38 2d 73 68 61 35 31 32 2c 64 69 66 66 69 65 2d 68 65 6c 6c 6d 61 6e 2d 67 72 6f 75 70 31 34 2d 73 68 61 32 35 36 2c 65 78 74 2d    diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,ext-
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: decode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #1 [chunk #5](320/798) 69 6e 66 6f 2d 63 00 00 00 55 65 63 64 73 61 2d 73 68 61 32 2d 6e 69 73 74 70 32 35 36 2c 65 63 64 73 61 2d 73 68 61 32 2d 6e 69 73 74 70 33 38 34 2c 65 63 64 73 61 2d 73 68 61 32 2d 6e 69 73    info-c...Uecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nis
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: decode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #1 [chunk #6](384/798) 74 70 35 32 31 2c 72 73 61 2d 73 68 61 32 2d 35 31 32 2c 72 73 61 2d 73 68 61 32 2d 32 35 36 00 00 00 4e 61 65 73 31 32 38 2d 63 74 72 2c 61 65 73 31 39 32 2d 63 74 72 2c 61 65 73 32 35 36 2d    tp521,rsa-sha2-512,rsa-sha2-256...Naes128-ctr,aes192-ctr,aes256-
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: decode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #1 [chunk #7](448/798) 63 74 72 2c 61 65 73 31 32 38 2d 67 63 6d 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 2c 61 65 73 32 35 36 2d 67 63 6d 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 00 00 00 4e 61 65 73 31 32 38 2d 63 74 72 2c    ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com...Naes128-ctr,
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: decode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #1 [chunk #8](512/798) 61 65 73 31 39 32 2d 63 74 72 2c 61 65 73 32 35 36 2d 63 74 72 2c 61 65 73 31 32 38 2d 67 63 6d 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 2c 61 65 73 32 35 36 2d 67 63 6d 40 6f 70 65 6e 73 73 68 2e    aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: decode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #1 [chunk #9](576/798) 63 6f 6d 00 00 00 7b 68 6d 61 63 2d 73 68 61 32 2d 32 35 36 2d 65 74 6d 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 2c 68 6d 61 63 2d 73 68 61 32 2d 35 31 32 2d 65 74 6d 40 6f 70 65 6e 73 73 68 2e 63    com...{hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.c
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: decode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #1 [chunk #10](640/798) 6f 6d 2c 68 6d 61 63 2d 73 68 61 31 2d 65 74 6d 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 2c 68 6d 61 63 2d 73 68 61 32 2d 32 35 36 2c 68 6d 61 63 2d 73 68 61 32 2d 35 31 32 2c 68 6d 61 63 2d 73 68    om,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sh
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: decode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #1 [chunk #11](704/798) 61 31 00 00 00 7b 68 6d 61 63 2d 73 68 61 32 2d 32 35 36 2d 65 74 6d 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 2c 68 6d 61 63 2d 73 68 61 32 2d 35 31 32 2d 65 74 6d 40 6f 70 65 6e 73 73 68 2e 63 6f    a1...{hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.co
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: decode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #1 [chunk #12](768/798) 6d 2c 68 6d 61 63 2d 73 68 61 31 2d 65 74 6d 40 6f 70 65 6e 73 73 68 2e 63 6f 6d 2c 68 6d 61 63 2d 73 68 61 32 2d 32 35 36 2c 68 6d 61 63 2d 73 68 61 32 2d 35 31 32 2c 68 6d 61 63 2d 73 68 61    m,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: decode(ServerSessionImpl[null@/172.17.0.2:53592]) packet #1 [chunk #13](798/798) 31 00 00 00 04 6e 6f 6e 65 00 00 00 04 6e 6f 6e 65 00 00 00 00 00 00 00 00 00 00 00 00 00                                                                                                          1....none....none.............
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: doHandleMessage(ServerSessionImpl[null@/172.17.0.2:53592]) process #0 SSH_MSG_KEXINIT
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: handleKexInit(ServerSessionImpl[null@/172.17.0.2:53592]) SSH_MSG_KEXINIT
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: receiveKexInit(ServerSessionImpl[null@/172.17.0.2:53592]) cookie=fd:42:c5:67:9a:b2:c5:10:eb:9a:51:68:49:00:b5:cf
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: receiveKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[kex algorithms] curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,ext-info-c
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: receiveKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[server host key algorithms] ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,rsa-sha2-512,rsa-sha2-256
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: receiveKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[encryption algorithms (client to server)] aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: receiveKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[encryption algorithms (server to client)] aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: receiveKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[mac algorithms (client to server)] hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: receiveKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[mac algorithms (server to client)] hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: receiveKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[compression algorithms (client to server)] none
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: receiveKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[compression algorithms (server to client)] none
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: receiveKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[languages (client to server)] 
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: receiveKexInit(ServerSessionImpl[null@/172.17.0.2:53592])[languages (server to client)] 
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: receiveKexInit(ServerSessionImpl[null@/172.17.0.2:53592]) options before handler: {ALGORITHMS=curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,ext-info-c, SERVERKEYS=ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,rsa-sha2-512,rsa-sha2-256, C2SENC=aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com, S2CENC=aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com, C2SMAC=hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1, S2CMAC=hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1, C2SCOMP=none, S2CCOMP=none, C2SLANG=, S2CLANG=}
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.kex.extension.DefaultServerKexExtensionHandler: handleKexInitProposal(ServerSessionImpl[null@/172.17.0.2:53592]): got ext-info-c from client
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: receiveKexInit(ServerSessionImpl[null@/172.17.0.2:53592]) options after handler: {ALGORITHMS=curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,ext-info-c, SERVERKEYS=ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,rsa-sha2-512,rsa-sha2-256, C2SENC=aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com, S2CENC=aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com, C2SMAC=hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1, S2CMAC=hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1, C2SCOMP=none, S2CCOMP=none, C2SLANG=, S2CLANG=}
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: receiveKexInit(ServerSessionImpl[null@/172.17.0.2:53592]) first kex packet follows: false
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: receiveKexInit(ServerSessionImpl[null@/172.17.0.2:53592]) proposal={ALGORITHMS=curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,ext-info-c, SERVERKEYS=ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,rsa-sha2-512,rsa-sha2-256, C2SENC=aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com, S2CENC=aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com, C2SMAC=hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1, S2CMAC=hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1, C2SCOMP=none, S2CCOMP=none, C2SLANG=, S2CLANG=} seed: 14:fd:42:c5:67:9a:b2:c5:10:eb:9a:51:68:49:00:b5:cf:00:00:00:f1:63:75:72:76:65:32:35:35:31:39:2d:73:68:61:32:35:36:2c:63:75:72:76:65:32:35:35:31:39:2d:73:68:61:32:35:36:40:6c:69:62:73:73:68:2e:6f:72:67:2c:65:63:64:68:2d:73:68:61:32:2d:6e:69:73:74:70:32:35:36:2c:65:63:64:68:2d:73:68:61:32:2d:6e:69:73:74:70:33:38:34:2c:65:63:64:68:2d:73:68:61:32:2d:6e:69:73:74:70:35:32:31:2c:64:69:66:66:69:65:2d:68:65:6c:6c:6d:61:6e:2d:67:72:6f:75:70:2d:65:78:63:68:61:6e:67:65:2d:73:68:61:32:35:36:2c:64:69:66:66:69:65:2d:68:65:6c:6c:6d:61:6e:2d:67:72:6f:75:70:31:36:2d:73:68:61:35:31:32:2c:64:69:66:66:69:65:2d:68:65:6c:6c:6d:61:6e:2d:67:72:6f:75:70:31:38:2d:73:68:61:35:31:32:2c:64:69:66:66:69:65:2d:68:65:6c:6c:6d:61:6e:2d:67:72:6f:75:70:31:34:2d:73:68:61:32:35:36:2c:65:78:74:2d:69:6e:66:6f:2d:63:00:00:00:55:65:63:64:73:61:2d:73:68:61:32:2d:6e:69:73:74:70:32:35:36:2c:65:63:64:73:61:2d:73:68:61:32:2d:6e:69:73:74:70:33:38:34:2c:65:63:64:73:61:2d:73:68:61:32:2d:6e:69:73:74:70:35:32:31:2c:72:73:61:2d:73:68:61:32:2d:35:31:32:2c:72:73:61:2d:73:68:61:32:2d:32:35:36:00:00:00:4e:61:65:73:31:32:38:2d:63:74:72:2c:61:65:73:31:39:32:2d:63:74:72:2c:61:65:73:32:35:36:2d:63:74:72:2c:61:65:73:31:32:38:2d:67:63:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:61:65:73:32:35:36:2d:67:63:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:00:00:00:4e:61:65:73:31:32:38:2d:63:74:72:2c:61:65:73:31:39:32:2d:63:74:72:2c:61:65:73:32:35:36:2d:63:74:72:2c:61:65:73:31:32:38:2d:67:63:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:61:65:73:32:35:36:2d:67:63:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:00:00:00:7b:68:6d:61:63:2d:73:68:61:32:2d:32:35:36:2d:65:74:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:68:6d:61:63:2d:73:68:61:32:2d:35:31:32:2d:65:74:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:68:6d:61:63:2d:73:68:61:31:2d:65:74:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:68:6d:61:63:2d:73:68:61:32:2d:32:35:36:2c:68:6d:61:63:2d:73:68:61:32:2d:35:31:32:2c:68:6d:61:63:2d:73:68:61:31:00:00:00:7b:68:6d:61:63:2d:73:68:61:32:2d:32:35:36:2d:65:74:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:68:6d:61:63:2d:73:68:61:32:2d:35:31:32:2d:65:74:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:68:6d:61:63:2d:73:68:61:31:2d:65:74:6d:40:6f:70:65:6e:73:73:68:2e:63:6f:6d:2c:68:6d:61:63:2d:73:68:61:32:2d:32:35:36:2c:68:6d:61:63:2d:73:68:61:32:2d:35:31:32:2c:68:6d:61:63:2d:73:68:61:31:00:00:00:04:6e:6f:6e:65:00:00:00:04:6e:6f:6e:65:00:00:00:00:00:00:00:00:00:00:00:00:00
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Session: handleReadCycleFailure(Nio2Session[local=/172.17.0.2:46467, remote=/172.17.0.2:53592]) RuntimeSshException after 18093241 nanos at read cycle=2: null
+org.apache.sshd.common.RuntimeSshException
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:535)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1639)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:482)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:64)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:407)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:380)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:375)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at java.base/sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:127)
+	at java.base/sun.nio.ch.Invoker.invokeDirect(Invoker.java:158)
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.implRead(UnixAsynchronousSocketChannelImpl.java:562)
+	at java.base/sun.nio.ch.AsynchronousSocketChannelImpl.read(AsynchronousSocketChannelImpl.java:277)
+	at java.base/sun.nio.ch.AsynchronousSocketChannelImpl.read(AsynchronousSocketChannelImpl.java:298)
+	at org.apache.sshd.common.io.nio2.Nio2Session.doReadCycle(Nio2Session.java:492)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:409)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:380)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:375)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at java.base/sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:127)
+	at java.base/sun.nio.ch.Invoker.invokeDirect(Invoker.java:158)
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.implRead(UnixAsynchronousSocketChannelImpl.java:562)
+	at java.base/sun.nio.ch.AsynchronousSocketChannelImpl.read(AsynchronousSocketChannelImpl.java:277)
+	at java.base/sun.nio.ch.AsynchronousSocketChannelImpl.read(AsynchronousSocketChannelImpl.java:298)
+	at org.apache.sshd.common.io.nio2.Nio2Session.doReadCycle(Nio2Session.java:492)
+	at org.apache.sshd.common.io.nio2.Nio2Session.doReadCycle(Nio2Session.java:370)
+	at org.apache.sshd.common.io.nio2.Nio2Session.startReading(Nio2Session.java:363)
+	at org.apache.sshd.common.io.nio2.Nio2Session.startReading(Nio2Session.java:359)
+	at org.apache.sshd.common.io.nio2.Nio2Session.startReading(Nio2Session.java:355)
+	at org.apache.sshd.common.io.nio2.Nio2Session.startReading(Nio2Session.java:351)
+	at org.apache.sshd.common.io.nio2.Nio2Session.startReading(Nio2Session.java:347)
+	at org.apache.sshd.common.io.nio2.Nio2Acceptor$AcceptCompletionHandler.onCompleted(Nio2Acceptor.java:305)
+	at org.apache.sshd.common.io.nio2.Nio2Acceptor$AcceptCompletionHandler.onCompleted(Nio2Acceptor.java:260)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at java.base/sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:127)
+	at java.base/sun.nio.ch.Invoker$2.run(Invoker.java:219)
+	at java.base/sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.NoSuchMethodError: 'boolean org.apache.sshd.common.future.DefaultKeyExchangeFuture.await(java.time.Duration)'
+	at org.apache.sshd.common.session.helpers.AbstractSession.doKexNegotiation(AbstractSession.java:865)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleKexInit(AbstractSession.java:827)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:567)
+	at org.apache.sshd.common.session.helpers.AbstractSession.lambda$handleMessage$0(AbstractSession.java:522)
+	at org.apache.sshd.common.util.threads.ThreadUtils.runAsInternal(ThreadUtils.java:68)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:521)
+	... 44 more
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Session: exceptionCaught(Nio2Session[local=/172.17.0.2:46467, remote=/172.17.0.2:53592]) caught RuntimeSshException[null] - calling handler
+[WARN] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: exceptionCaught(ServerSessionImpl[null@/172.17.0.2:53592])[state=Opened] RuntimeSshException: null
+org.apache.sshd.common.RuntimeSshException
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:535)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1639)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:482)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:64)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:407)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:380)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:375)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at java.base/sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:127)
+	at java.base/sun.nio.ch.Invoker.invokeDirect(Invoker.java:158)
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.implRead(UnixAsynchronousSocketChannelImpl.java:562)
+	at java.base/sun.nio.ch.AsynchronousSocketChannelImpl.read(AsynchronousSocketChannelImpl.java:277)
+	at java.base/sun.nio.ch.AsynchronousSocketChannelImpl.read(AsynchronousSocketChannelImpl.java:298)
+	at org.apache.sshd.common.io.nio2.Nio2Session.doReadCycle(Nio2Session.java:492)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:409)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:380)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:375)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at java.base/sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:127)
+	at java.base/sun.nio.ch.Invoker.invokeDirect(Invoker.java:158)
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.implRead(UnixAsynchronousSocketChannelImpl.java:562)
+	at java.base/sun.nio.ch.AsynchronousSocketChannelImpl.read(AsynchronousSocketChannelImpl.java:277)
+	at java.base/sun.nio.ch.AsynchronousSocketChannelImpl.read(AsynchronousSocketChannelImpl.java:298)
+	at org.apache.sshd.common.io.nio2.Nio2Session.doReadCycle(Nio2Session.java:492)
+	at org.apache.sshd.common.io.nio2.Nio2Session.doReadCycle(Nio2Session.java:370)
+	at org.apache.sshd.common.io.nio2.Nio2Session.startReading(Nio2Session.java:363)
+	at org.apache.sshd.common.io.nio2.Nio2Session.startReading(Nio2Session.java:359)
+	at org.apache.sshd.common.io.nio2.Nio2Session.startReading(Nio2Session.java:355)
+	at org.apache.sshd.common.io.nio2.Nio2Session.startReading(Nio2Session.java:351)
+	at org.apache.sshd.common.io.nio2.Nio2Session.startReading(Nio2Session.java:347)
+	at org.apache.sshd.common.io.nio2.Nio2Acceptor$AcceptCompletionHandler.onCompleted(Nio2Acceptor.java:305)
+	at org.apache.sshd.common.io.nio2.Nio2Acceptor$AcceptCompletionHandler.onCompleted(Nio2Acceptor.java:260)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at java.base/sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:127)
+	at java.base/sun.nio.ch.Invoker$2.run(Invoker.java:219)
+	at java.base/sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.NoSuchMethodError: 'boolean org.apache.sshd.common.future.DefaultKeyExchangeFuture.await(java.time.Duration)'
+	at org.apache.sshd.common.session.helpers.AbstractSession.doKexNegotiation(AbstractSession.java:865)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleKexInit(AbstractSession.java:827)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:567)
+	at org.apache.sshd.common.session.helpers.AbstractSession.lambda$handleMessage$0(AbstractSession.java:522)
+	at org.apache.sshd.common.util.threads.ThreadUtils.runAsInternal(ThreadUtils.java:68)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:521)
+	... 44 more
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.session.helpers.SessionTimeoutListener: sessionException(ServerSessionImpl[null@/172.17.0.2:53592]) RuntimeSshException: null
+org.apache.sshd.common.RuntimeSshException
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:535)
+	at org.apache.sshd.common.session.helpers.AbstractSession.decode(AbstractSession.java:1639)
+	at org.apache.sshd.common.session.helpers.AbstractSession.messageReceived(AbstractSession.java:482)
+	at org.apache.sshd.common.session.helpers.AbstractSessionIoHandler.messageReceived(AbstractSessionIoHandler.java:64)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:407)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:380)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:375)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at java.base/sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:127)
+	at java.base/sun.nio.ch.Invoker.invokeDirect(Invoker.java:158)
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.implRead(UnixAsynchronousSocketChannelImpl.java:562)
+	at java.base/sun.nio.ch.AsynchronousSocketChannelImpl.read(AsynchronousSocketChannelImpl.java:277)
+	at java.base/sun.nio.ch.AsynchronousSocketChannelImpl.read(AsynchronousSocketChannelImpl.java:298)
+	at org.apache.sshd.common.io.nio2.Nio2Session.doReadCycle(Nio2Session.java:492)
+	at org.apache.sshd.common.io.nio2.Nio2Session.handleReadCycleCompletion(Nio2Session.java:409)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:380)
+	at org.apache.sshd.common.io.nio2.Nio2Session$1.onCompleted(Nio2Session.java:375)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at java.base/sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:127)
+	at java.base/sun.nio.ch.Invoker.invokeDirect(Invoker.java:158)
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.implRead(UnixAsynchronousSocketChannelImpl.java:562)
+	at java.base/sun.nio.ch.AsynchronousSocketChannelImpl.read(AsynchronousSocketChannelImpl.java:277)
+	at java.base/sun.nio.ch.AsynchronousSocketChannelImpl.read(AsynchronousSocketChannelImpl.java:298)
+	at org.apache.sshd.common.io.nio2.Nio2Session.doReadCycle(Nio2Session.java:492)
+	at org.apache.sshd.common.io.nio2.Nio2Session.doReadCycle(Nio2Session.java:370)
+	at org.apache.sshd.common.io.nio2.Nio2Session.startReading(Nio2Session.java:363)
+	at org.apache.sshd.common.io.nio2.Nio2Session.startReading(Nio2Session.java:359)
+	at org.apache.sshd.common.io.nio2.Nio2Session.startReading(Nio2Session.java:355)
+	at org.apache.sshd.common.io.nio2.Nio2Session.startReading(Nio2Session.java:351)
+	at org.apache.sshd.common.io.nio2.Nio2Session.startReading(Nio2Session.java:347)
+	at org.apache.sshd.common.io.nio2.Nio2Acceptor$AcceptCompletionHandler.onCompleted(Nio2Acceptor.java:305)
+	at org.apache.sshd.common.io.nio2.Nio2Acceptor$AcceptCompletionHandler.onCompleted(Nio2Acceptor.java:260)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.lambda$completed$0(Nio2CompletionHandler.java:38)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at org.apache.sshd.common.io.nio2.Nio2CompletionHandler.completed(Nio2CompletionHandler.java:37)
+	at java.base/sun.nio.ch.Invoker.invokeUnchecked(Invoker.java:127)
+	at java.base/sun.nio.ch.Invoker$2.run(Invoker.java:219)
+	at java.base/sun.nio.ch.AsynchronousChannelGroupImpl$1.run(AsynchronousChannelGroupImpl.java:112)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: java.lang.NoSuchMethodError: 'boolean org.apache.sshd.common.future.DefaultKeyExchangeFuture.await(java.time.Duration)'
+	at org.apache.sshd.common.session.helpers.AbstractSession.doKexNegotiation(AbstractSession.java:865)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleKexInit(AbstractSession.java:827)
+	at org.apache.sshd.common.session.helpers.AbstractSession.doHandleMessage(AbstractSession.java:567)
+	at org.apache.sshd.common.session.helpers.AbstractSession.lambda$handleMessage$0(AbstractSession.java:522)
+	at org.apache.sshd.common.util.threads.ThreadUtils.runAsInternal(ThreadUtils.java:68)
+	at org.apache.sshd.common.session.helpers.AbstractSession.handleMessage(AbstractSession.java:521)
+	... 44 more
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.session.helpers.SessionTimeoutListener: sessionClosed(ServerSessionImpl[null@/172.17.0.2:53592]) un-tracked
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: close(ServerSessionImpl[null@/172.17.0.2:53592]) Closing immediately
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.session.helpers.SessionTimeoutListener: sessionClosed(ServerSessionImpl[null@/172.17.0.2:53592]) not tracked
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.util.closeable.SequentialCloseable: doClose(org.apache.sshd.common.util.closeable.SequentialCloseable$1@47bfa402) closing ParallelCloseable[DefaultCloseFuture[id=ServerSessionImpl[null@/172.17.0.2:53592]][value=null]] immediately=true
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.util.closeable.ParallelCloseable: doClose(true) completed pending: 0
+[TRACE] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.util.closeable.SequentialCloseable: doClose(org.apache.sshd.common.util.closeable.SequentialCloseable$1@47bfa402) closing Nio2Session[local=/172.17.0.2:46467, remote=/172.17.0.2:53592] immediately=true
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Session: close(Nio2Session[local=/172.17.0.2:46467, remote=/172.17.0.2:53592]) Closing immediately
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Session: doCloseImmediately(Nio2Session[local=/172.17.0.2:46467, remote=/172.17.0.2:53592]) closing socket=sun.nio.ch.UnixAsynchronousSocketChannelImpl[connected local=/172.17.0.2:46467 remote=/172.17.0.2:53592]
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Session: doCloseImmediately(Nio2Session[local=/172.17.0.2:46467, remote=/172.17.0.2:53592]) socket=sun.nio.ch.UnixAsynchronousSocketChannelImpl[closed] closed
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Acceptor: unmapSession(id=101): Nio2Session[local=/172.17.0.2:46467, remote=/172.17.0.2:53592]
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: close(ServerSessionImpl[null@/172.17.0.2:53592])[Immediately] state already Immediate
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Session: close(Nio2Session[local=/172.17.0.2:46467, remote=/172.17.0.2:53592])[Immediately] closed
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.util.closeable.SequentialCloseable: doClose(org.apache.sshd.common.util.closeable.SequentialCloseable$1@47bfa402) signal close complete immediately=true
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.server.session.ServerSessionImpl: close(ServerSessionImpl[null@/172.17.0.2:53592])[Immediately] closed
+[DEBUG] sshd-SshServer[7068f7ca](port=46467)-nio2-thread-1 org.apache.sshd.common.io.nio2.Nio2Session: close(Nio2Session[local=/172.17.0.2:46467, remote=/172.17.0.2:53592])[Immediately] state already Closed
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.925 s <<< FAILURE! - in com.jcabi.ssh.SshByPasswordTest
+[ERROR] com.jcabi.ssh.SshByPasswordTest.executesCommand  Time elapsed: 1.863 s  <<< ERROR!
+java.io.IOException: com.jcraft.jsch.JSchException: Session.connect: java.net.SocketException: Connection reset
+	at com.jcabi.ssh.SshByPassword.session(SshByPassword.java:104)
+	at com.jcabi.ssh.AbstractSshShell.exec(AbstractSshShell.java:93)
+	at com.jcabi.ssh.SshByPassword.exec(SshByPassword.java:49)
+	at com.jcabi.ssh.Shell$Verbose.exec(Shell.java:291)
+	at com.jcabi.ssh.SshByPasswordTest.executesCommand(SshByPasswordTest.java:70)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:55)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:223)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:175)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:139)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+Caused by: com.jcraft.jsch.JSchException: Session.connect: java.net.SocketException: Connection reset
+	at com.jcraft.jsch.Session.connect(Session.java:548)
+	at com.jcabi.ssh.SshByPassword.session(SshByPassword.java:101)
+	... 75 more
+Caused by: java.net.SocketException: Connection reset
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:186)
+	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:140)
+	at com.jcraft.jsch.IO.getByte(IO.java:93)
+	at com.jcraft.jsch.Session.read(Session.java:1123)
+	at com.jcraft.jsch.Session.connect(Session.java:323)
+	... 76 more
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   SshByPasswordTest.executesCommand:70 » IO com.jcraft.jsch.JSchException: Session.connect: java.net.SocketException: Connection reset
+[INFO] 
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  18.924 s
+[INFO] Finished at: 2026-11-10T09:11:49Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.2.0
+[WARNING]  * org.codehaus.mojo:buildnumber-maven-plugin:3.0.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project jcabi-ssh: 
+[ERROR] 
+[ERROR] Please refer to /jcabi-ssh/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

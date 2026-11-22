@@ -1,0 +1,34 @@
+candidate_number,case_id,project,organisation,dependency_group,dependency_artifact,previous_version,new_version,dependency_scope,version_update_type,java_version,bump_failure_category,pull_request_url,pre_exit_code,pre_timeout,pre_duration_seconds,pre_build_success,pre_build_failure,pre_compilation_error,pre_tests,pre_failures,pre_errors,pre_skipped,pre_all_test_summaries,pre_log,breaking_exit_code,breaking_timeout,breaking_duration_seconds,breaking_build_success,breaking_build_failure,breaking_compilation_error,breaking_tests,breaking_failures,breaking_errors,breaking_skipped,breaking_all_test_summaries,assertion_signal,binary_linkage_signal,linkage_types,runtime_exception_signal,runtime_exception_types,exception_names,important_log_lines,breaking_log,auto_triage,human_review_status,reviewer_1_label,reviewer_2_label,final_label,notes
+176,f1dfdcd3774cc7ad8900e232607d1519085e48d7,dropwizard-pac4j,pac4j,org.glassfish.jersey.core,jersey-server,2.32,2.38,compile,minor,11,TEST_FAILURE,https://github.com/pac4j/dropwizard-pac4j/pull/350,0,False,208.59,True,False,False,16,0,0,0,"[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 31.237 s - in org.pac4j.dropwizard.e2e.EndToEndServletTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.85 s - in org.pac4j.dropwizard.e2e.EndToEndTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.677 s - in org.pac4j.dropwizard.factory.DefaultConfigurationTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.601 s - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0",C:\Users\TASHEEN\Desktop\Research Implementation\logs\batch_triage\f1dfdcd3_pre.log,0,False,151.75,False,True,False,16,0,10,0,"[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 28.104 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndServletTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 6.795 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.793 s - in org.pac4j.dropwizard.factory.DefaultConfigurationTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 6.238 s <<< FAILURE! - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+[ERROR] Tests run: 16, Failures: 0, Errors: 10, Skipped: 0",False,True,"NoClassDefFoundError, ClassNotFoundException",False,,"java.lang.NoClassDefFoundError, java.lang.ClassNotFoundException, MojoFailureException","[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 28.104 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndServletTest
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources  Time elapsed: 18.954 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/glassfish/jersey/internal/DynamicFeatureConfigurator
+Caused by: java.lang.ClassNotFoundException: org.glassfish.jersey.internal.DynamicFeatureConfigurator
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResourcesForm  Time elapsed: 4.348 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/glassfish/jersey/internal/DynamicFeatureConfigurator
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.restrictsAccessToResources  Time elapsed: 3.183 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/glassfish/jersey/internal/DynamicFeatureConfigurator
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 6.795 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndTest
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.grantsAccessToResources  Time elapsed: 2.962 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/glassfish/jersey/internal/DynamicFeatureConfigurator
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.grantsAccessToResourcesForm  Time elapsed: 2.368 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/glassfish/jersey/internal/DynamicFeatureConfigurator
+[ERROR] org.pac4j.dropwizard.e2e.EndToEndTest.restrictsAccessToResources  Time elapsed: 1.411 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/glassfish/jersey/internal/DynamicFeatureConfigurator
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 6.238 s <<< FAILURE! - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+[ERROR] org.pac4j.dropwizard.bundle.BundleFactoryTest.emptyPac4jInConfig  Time elapsed: 1.369 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/glassfish/jersey/internal/DynamicFeatureConfigurator
+[ERROR] org.pac4j.dropwizard.bundle.BundleFactoryTest.sessiondisabledForced  Time elapsed: 2.072 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/glassfish/jersey/internal/DynamicFeatureConfigurator
+[ERROR] org.pac4j.dropwizard.bundle.BundleFactoryTest.noPac4jInConfig  Time elapsed: 1.121 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/glassfish/jersey/internal/DynamicFeatureConfigurator
+[ERROR] org.pac4j.dropwizard.bundle.BundleFactoryTest.sessionEnabledForced  Time elapsed: 1.662 s  <<< ERROR!
+java.lang.NoClassDefFoundError: org/glassfish/jersey/internal/DynamicFeatureConfigurator
+[INFO] BUILD FAILURE",C:\Users\TASHEEN\Desktop\Research Implementation\logs\batch_triage\f1dfdcd3_breaking.log,AUTO_NON_BEHAVIORAL_CANDIDATE,PENDING_MANUAL_REVIEW,,,,

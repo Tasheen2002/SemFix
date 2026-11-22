@@ -1,0 +1,26 @@
+{
+  "state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-10T05:50:27.157921491Z",
+    "FinishedAt": "2026-11-10T05:50:59.979293422Z"
+  },
+  "command": [
+    "-c",
+    "set -eu; mkdir -p core/src/test/resources/mockito-extensions; printf \"%s\\n\" mock-maker-subclass > core/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker; cat core/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker; exec mvn -B -pl core -am -Dtest=CompositeGeneratorTest#shrinkingChoosesAComponentCapableOfShrinkingTheValue -Dsurefire.failIfNoSpecifiedTests=false test"
+  ],
+  "image": "sha256:25c1e1a4a8b9460801f86d424e1f8b3dbbc947c471769688280ec9b2e027b968",
+  "counts": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "case_id": "dd75e8070babe8916e4907885fce513d9cb26b80",
+  "phase": "breaking",
+  "path_filter": "/dropwizard-sentry/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/dhatim/dropwizard-sentry/2.0.25-2/dropwizard-sentry-2.0.25-2.jar",
+      "sha256": "4c6ca1a97cb33ff932806666ad248dc5fb599d44b06f90215a0a1b5980e86e64",
+      "classes": {
+        "org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory": {
+          "present": true,
+          "major_version": 52
+        }
+      },
+      "services": {
+        "META-INF/services/io.dropwizard.logging.AppenderFactory": "org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory\n"
+      },
+      "disassemblies": [
+        {
+          "class": "org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory",
+          "file": "dropwizard-sentry-2.0.25-2_SentryAppenderFactory_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case166_evidence\\breaking\\jars\\dropwizard-sentry-2.0.25-2.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.dhatim.dropwizard.sentry.logging.SentryAppenderFactory"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

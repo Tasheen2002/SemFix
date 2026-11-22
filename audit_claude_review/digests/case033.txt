@@ -1,0 +1,63 @@
+=== CASE 33 2cc9522c8f62871d12243b174b98bd7d5b121362
+  project=tokuhirom/avans dep=com.fasterxml.jackson.core:jackson-core 2.4.2 -> 2.13.3 scope=compile type=minor java=11
+  PR=https://github.com/tokuhirom/avans/pull/86
+  PRE log logs/batch_triage/2cc9522c_pre.log:
+  lines=1396
+  status: [INFO] BUILD SUCCESS
+  reactor: avans :: parent   SUCCESS [  0.190 s]; avans   SUCCESS [ 20.619 s]; avans-jmh   SUCCESS [  1.017 s]; avans-freemarker   SUCCESS [  2.693 s]; avans-tinyvalidator   SUCCESS [  2.466 s]; avans-session   SUCCESS [  2.428 s]; avans-session-spymemcached   SUCCESS [  3.169 s]; avans-setup   SUCCESS [  0.091 s]; BUILD SUCCESS
+  aggregate summaries: Tests run: 57, Failures: 0, Errors: 0, Skipped: 2 || Tests run: 1, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 3, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 4, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+  exception names: java.io.IOExceptionx1
+  BREAKING log logs/batch_triage/2cc9522c_breaking.log:
+  lines=1416
+  status: [INFO] BUILD FAILURE
+  reactor: avans :: parent   SUCCESS [  0.187 s]; avans   SUCCESS [  9.203 s]; avans-jmh   SUCCESS [  0.827 s]; avans-freemarker   SUCCESS [  2.206 s]; avans-tinyvalidator   SUCCESS [  2.298 s]; avans-session   SUCCESS [  2.372 s]; avans-session-spymemcached   FAILURE [  2.866 s]; avans-setup   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 57, Failures: 0, Errors: 0, Skipped: 2 || Tests run: 1, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 3, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 4, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 4, Failures: 1, Errors: 2, Skipped: 0
+  failing classes: Tests run: 4, Failures: 1, Errors: 2, Skipped: 0, Time elapsed: 1.37 sec <<< FAILURE!
+  section: Failed tests: | testIntegration(me.geso.avans.session.spymemcached.SpyMemcachedSessionStoreTest) | Tests in error: | test(me.geso.avans.session.spymemcached.SpyMemcachedSessionStoreTest) | testRemove(me.geso.avans.session.spymemcached.SpyMemcachedSessionStoreTest) | [INFO] ------------------------------------------------------------------------ | [INFO] Reactor Summary for avans :: parent 2.5.1-SNAPSHOT: | [INFO] | [INFO] avans :: parent .................................... SUCCESS [  0.187 s] | [INFO] avans .............................................. SUCCESS [  9.203 s]
+  section: Tests in error: | test(me.geso.avans.session.spymemcached.SpyMemcachedSessionStoreTest) | testRemove(me.geso.avans.session.spymemcached.SpyMemcachedSessionStoreTest) | [INFO] ------------------------------------------------------------------------ | [INFO] Reactor Summary for avans :: parent 2.5.1-SNAPSHOT: | [INFO] | [INFO] avans :: parent .................................... SUCCESS [  0.187 s] | [INFO] avans .............................................. SUCCESS [  9.203 s] | [INFO] avans-jmh .......................................... SUCCESS [  0.827 s] | [INFO] avans-freemarker ................................... SUCCESS [  2.206 s] | [INFO] avans-tinyvalidator ................................ SUCCESS [  2.298 s]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.5:test (default-test) on project avans-session-spymemcached: There are test failures.
+  linkage/compile signals: NoSuchMethodError
+  exception names: java.lang.NoSuchMethodErrorx3, java.io.IOExceptionx1, java.lang.reflect.InvocationTargetExceptionx1
+  EVIDENCE logs/case33_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/avans-module-pom.xml, breaking/avans-surefire-reports/TEST-me.geso.avans.AvansWebApplicationTest.xml, breaking/avans-surefire-reports/TEST-me.geso.avans.ControllerBaseTest.xml, breaking/avans-surefire-reports/TEST-me.geso.avans.annotation.BeanParamTest.xml, breaking/avans-surefire-reports/TEST-me.geso.avans.annotationbased.AnnotationBasedDispatcherTest.xml, breaking/avans-surefire-reports/TEST-me.geso.avans.jackson.JacksonJsonParamReaderTest.xml, breaking/avans-surefire-reports/TEST-me.geso.avans.jackson.JacksonJsonViewTest.xml, breaking/avans-surefire-reports/TEST-me.geso.avans.trigger.BeforeDispatchTriggerTest.xml, breaking/avans-surefire-reports/TEST-me.geso.avans.trigger.HTMLFilterTest.xml, breaking/avans-surefire-reports/TEST-me.geso.avans.trigger.ParamProcessorTest.xml, breaking/avans-surefire-reports/TEST-me.geso.avans.trigger.ResponseConverterTest.xml, breaking/avans-surefire-reports/TEST-me.geso.avans.trigger.ResponseFilterTest.xml, breaking/avans-surefire-reports/me.geso.avans.AvansWebApplicationTest.txt, breaking/avans-surefire-reports/me.geso.avans.ControllerBaseTest.txt, breaking/avans-surefire-reports/me.geso.avans.annotation.BeanParamTest.txt, breaking/avans-surefire-reports/me.geso.avans.annotationbased.AnnotationBasedDispatcherTest.txt, breaking/avans-surefire-reports/me.geso.avans.jackson.JacksonJsonParamReaderTest.txt, breaking/avans-surefire-reports/me.geso.avans.jackson.JacksonJsonViewTest.tx
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=7 sum(t,f,e,s)=[12, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=7 sum(t,f,e,s)=[12, 1, 2, 0]
+  archived non-report files: pre=200 breaking=200 changed=0 added=0 removed=0
+  BREAKING surefire failures/errors:
+    ERROR me.geso.avans.session.spymemcached.SpyMemcachedSessionStoreTest#test type=java.lang.NoSuchMethodError msg='com.fasterxml.jackson.core.json.JsonWriteContext com.fasterxml.jackson.dataformat.cbor.CBORGenerator.getOutputContext()'
+       at com.fasterxml.jackson.dataformat.cbor.CBORGenerator.close(CBORGenerator.java:783)
+       at com.fasterxml.jackson.databind.ObjectMapper._configAndWriteValue(ObjectMapper.java:2820)
+       at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsBytes(ObjectMapper.java:2299)
+       at me.geso.avans.session.spymemcached.SpyMemcachedSessionStore.save(SpyMemcachedSessionStore.java:84)
+    FAILURE me.geso.avans.session.spymemcached.SpyMemcachedSessionStoreTest#testIntegration type=java.lang.AssertionError msg= Expected: is <200>      but: was <500>
+       at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+       at org.junit.Assert.assertThat(Assert.java:964)
+       at org.junit.Assert.assertThat(Assert.java:930)
+       at me.geso.avans.session.spymemcached.SpyMemcachedSessionStoreTest.testIntegration(SpyMemcachedSessionStoreTest.java:196)
+    ERROR me.geso.avans.session.spymemcached.SpyMemcachedSessionStoreTest#testRemove type=java.lang.NoSuchMethodError msg='com.fasterxml.jackson.core.json.JsonWriteContext com.fasterxml.jackson.dataformat.cbor.CBORGenerator.getOutputContext()'
+       at com.fasterxml.jackson.dataformat.cbor.CBORGenerator.close(CBORGenerator.java:783)
+       at com.fasterxml.jackson.databind.ObjectMapper._configAndWriteValue(ObjectMapper.java:2820)
+       at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsBytes(ObjectMapper.java:2299)
+       at me.geso.avans.session.spymemcached.SpyMemcachedSessionStore.save(SpyMemcachedSessionStore.java:84)
+  LOG breaking/avans-surefire-reports/me.geso.avans.AvansWebApplicationTest.txt (4 lines): Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.499 sec
+  LOG breaking/avans-surefire-reports/me.geso.avans.ControllerBaseTest.txt (4 lines): Tests run: 25, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 1.494 sec
+  LOG breaking/avans-surefire-reports/me.geso.avans.annotation.BeanParamTest.txt (4 lines): Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.121 sec
+  LOG breaking/avans-surefire-reports/me.geso.avans.annotationbased.AnnotationBasedDispatcherTest.txt (4 lines): Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.526 sec
+  LOG breaking/avans-surefire-reports/me.geso.avans.jackson.JacksonJsonParamReaderTest.txt (4 lines): Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+  LOG breaking/avans-surefire-reports/me.geso.avans.jackson.JacksonJsonViewTest.txt (4 lines): Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 sec
+  LOG breaking/avans-surefire-reports/me.geso.avans.trigger.BeforeDispatchTriggerTest.txt (4 lines): Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 sec
+  LOG breaking/avans-surefire-reports/me.geso.avans.trigger.HTMLFilterTest.txt (4 lines): Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec
+  LOG breaking/avans-surefire-reports/me.geso.avans.trigger.ParamProcessorTest.txt (4 lines): Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 sec
+  LOG breaking/avans-surefire-reports/me.geso.avans.trigger.ResponseConverterTest.txt (4 lines): Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec
+  LOG breaking/avans-surefire-reports/me.geso.avans.trigger.ResponseFilterTest.txt (4 lines): Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
+  LOG pre/avans-surefire-reports/me.geso.avans.AvansWebApplicationTest.txt (4 lines): Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.44 sec
+  LOG pre/avans-surefire-reports/me.geso.avans.ControllerBaseTest.txt (4 lines): Tests run: 25, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 2.089 sec
+  LOG pre/avans-surefire-reports/me.geso.avans.annotation.BeanParamTest.txt (4 lines): Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.149 sec
+  LOG pre/avans-surefire-reports/me.geso.avans.annotationbased.AnnotationBasedDispatcherTest.txt (4 lines): Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.85 sec
+  LOG pre/avans-surefire-reports/me.geso.avans.jackson.JacksonJsonParamReaderTest.txt (4 lines): Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+  LOG pre/avans-surefire-reports/me.geso.avans.jackson.JacksonJsonViewTest.txt (4 lines): Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 sec
+  LOG pre/avans-surefire-reports/me.geso.avans.trigger.BeforeDispatchTriggerTest.txt (4 lines): Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 sec
+  LOG pre/avans-surefire-reports/me.geso.avans.trigger.HTMLFilterTest.txt (4 lines): Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec
+  LOG pre/avans-surefire-reports/me.geso.avans.trigger.ParamProcessorTest.txt (4 lines): Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.155 sec
+  LOG pre/avans-surefire-reports/me.geso.avans.trigger.ResponseConverterTest.txt (4 lines): Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 sec
+  LOG pre/avans-surefire-reports/me.geso.avans.trigger.ResponseFilterTest.txt (4 lines): Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 sec

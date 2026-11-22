@@ -1,0 +1,952 @@
+{
+  "case_id": "46698497759b188a97830330dfebaf718beb5573",
+  "phase": "breaking",
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-09T08:34:33.953712497Z",
+    "FinishedAt": "2026-11-09T08:35:10.876453161Z"
+  },
+  "working_directory": "/plexus-archiver",
+  "command": [
+    "sh",
+    "-c",
+    "mvn clean test -B | tee %s.log"
+  ],
+  "image_id": "sha256:7044e1be9415e9ec11e1ffc11134dda38f1699ac18ce9771a1310a3225d059d5",
+  "image_digests": [
+    "ghcr.io/chains-project/breaking-updates@sha256:7044e1be9415e9ec11e1ffc11134dda38f1699ac18ce9771a1310a3225d059d5"
+  ],
+  "platform": "linux/amd64",
+  "cleaned_modules": [
+    "."
+  ],
+  "freshness_rule": "Only report directories under a target explicitly deleted in this run are included",
+  "report_count": 37,
+  "reports": [
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.AbstractArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.AbstractArchiverTest",
+      "counts": {
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.AbstractUnArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.AbstractUnArchiverTest",
+      "counts": {
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.DotDirectiveArchiveFinalizerTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.DotDirectiveArchiveFinalizerTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.DuplicateFilesTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.DuplicateFilesTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.EmptyDirectoryTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.EmptyDirectoryTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.SymlinkTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.SymlinkTest",
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 3,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [
+        {
+          "test_name": "testSymlinkDirArchiver",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.SymlinkTest.testSymlinkDirArchiver(SymlinkTest.java:107)\n"
+        },
+        {
+          "test_name": "testSymlinkTar",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.SymlinkTest.testSymlinkTar(SymlinkTest.java:64)\n"
+        },
+        {
+          "test_name": "testSymlinkZip",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.SymlinkTest.testSymlinkZip(SymlinkTest.java:83)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.bzip2.BZip2ArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.bzip2.BZip2ArchiverTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 1,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [
+        {
+          "test_name": "testCreateArchive",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.bzip2.BZip2ArchiverTest.testCreateArchive(BZip2ArchiverTest.java:53)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.gzip.GZipArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.gzip.GZipArchiverTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 1,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [
+        {
+          "test_name": "testCreateArchive",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.gzip.GZipArchiverTest.testCreateArchive(GZipArchiverTest.java:53)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.jar.DirectoryArchiverUnpackJarTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.jar.DirectoryArchiverUnpackJarTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.jar.IndexTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.jar.IndexTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.jar.JarArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.jar.JarArchiverTest",
+      "counts": {
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.jar.JarToolModularJarArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.jar.JarToolModularJarArchiverTest",
+      "counts": {
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.jar.JdkManifestFactoryTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.jar.JdkManifestFactoryTest",
+      "counts": {
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.jar.ManifestTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.jar.ManifestTest",
+      "counts": {
+        "tests": 20,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.manager.ArchiverManagerTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.manager.ArchiverManagerTest",
+      "counts": {
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.rar.RarArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.rar.RarArchiverTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.sar.SarArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.sar.SarArchiverTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.snappy.SnappyArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.snappy.SnappyArchiverTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 1,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [
+        {
+          "test_name": "testCreateArchive",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.snappy.SnappyArchiverTest.testCreateArchive(SnappyArchiverTest.java:53)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.tar.TarArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.tar.TarArchiverTest",
+      "counts": {
+        "tests": 11,
+        "failures": 0,
+        "errors": 5,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [
+        {
+          "test_name": "testGzipFIleHandleLeak",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.tar.TarArchiverTest.testGzipFIleHandleLeak(TarArchiverTest.java:515)\n"
+        },
+        {
+          "test_name": "testGzipCompressedResourceCollection",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.tar.TarArchiverTest.testCreateResourceCollection(TarArchiverTest.java:557)\n\tat org.codehaus.plexus.archiver.tar.TarArchiverTest.testGzipCompressedResourceCollection(TarArchiverTest.java:508)\n"
+        },
+        {
+          "test_name": "testBzip2CompressedResourceCollection",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.tar.TarArchiverTest.testCreateResourceCollection(TarArchiverTest.java:557)\n\tat org.codehaus.plexus.archiver.tar.TarArchiverTest.testBzip2CompressedResourceCollection(TarArchiverTest.java:540)\n"
+        },
+        {
+          "test_name": "testTarFileNotClosingInputStream",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.tar.TarArchiverTest.testTarFileNotClosingInputStream(TarArchiverTest.java:548)\n"
+        },
+        {
+          "test_name": "testUncompressedResourceCollection",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.tar.TarArchiverTest.testCreateResourceCollection(TarArchiverTest.java:557)\n\tat org.codehaus.plexus.archiver.tar.TarArchiverTest.testUncompressedResourceCollection(TarArchiverTest.java:502)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.tar.TarBZip2UnArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.tar.TarBZip2UnArchiverTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.tar.TarFileAttributesTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.tar.TarFileAttributesTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.tar.TarFileTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.tar.TarFileTest",
+      "counts": {
+        "tests": 3,
+        "failures": 0,
+        "errors": 3,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [
+        {
+          "test_name": "testTarFile",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.tar.TarFileTest.testTarFile(TarFileTest.java:100)\n\tat org.codehaus.plexus.archiver.tar.TarFileTest.testTarFile(TarFileTest.java:39)\n"
+        },
+        {
+          "test_name": "testBZip2TarFile",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.tar.TarFileTest.testTarFile(TarFileTest.java:100)\n\tat org.codehaus.plexus.archiver.tar.TarFileTest.testBZip2TarFile(TarFileTest.java:77)\n"
+        },
+        {
+          "test_name": "testGZipTarFile",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.tar.TarFileTest.testTarFile(TarFileTest.java:100)\n\tat org.codehaus.plexus.archiver.tar.TarFileTest.testGZipTarFile(TarFileTest.java:58)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.tar.TarGZipUnArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.tar.TarGZipUnArchiverTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.tar.TarRoundTripTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.tar.TarRoundTripTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.tar.TarSnappyUnArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.tar.TarSnappyUnArchiverTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.tar.TarUnArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.tar.TarUnArchiverTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.tar.TarXzUnArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.tar.TarXzUnArchiverTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.util.ArchiveEntryUtilsTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.util.ArchiveEntryUtilsTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.util.DefaultFileSetTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.util.DefaultFileSetTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.util.FilePermissionUtilsTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.util.FilePermissionUtilsTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.war.WarArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.war.WarArchiverTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.xz.XzArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.xz.XzArchiverTest",
+      "counts": {
+        "tests": 4,
+        "failures": 0,
+        "errors": 1,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [
+        {
+          "test_name": "testCreateArchive",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.xz.XzArchiverTest.testCreateArchive(XzArchiverTest.java:49)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.zip.ConcurrentJarCreatorTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.zip.ConcurrentJarCreatorTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 1
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.zip.PlexusArchiverZipFileResourceCollectionTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.zip.PlexusArchiverZipFileResourceCollectionTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.zip.PlexusIoZipFileResourceCollectionTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.zip.PlexusIoZipFileResourceCollectionTest",
+      "counts": {
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.zip.ZipArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.zip.ZipArchiverTest",
+      "counts": {
+        "tests": 21,
+        "failures": 0,
+        "errors": 7,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [
+        {
+          "test_name": "testSymlinkFileSet",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: bzz/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: bzz/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.zip.ZipArchiverTest.testSymlinkFileSet(ZipArchiverTest.java:604)\n"
+        },
+        {
+          "test_name": "testCreateResourceCollection",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.zip.ZipArchiverTest.testCreateResourceCollection(ZipArchiverTest.java:770)\n"
+        },
+        {
+          "test_name": "testCreateArchive",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.zip.ZipArchiverTest.createArchive(ZipArchiverTest.java:521)\n\tat org.codehaus.plexus.archiver.zip.ZipArchiverTest.testCreateArchive(ZipArchiverTest.java:364)\n"
+        },
+        {
+          "test_name": "testSymlinkZip",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: plexus/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: plexus/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.zip.ZipArchiverTest.testSymlinkZip(ZipArchiverTest.java:580)\n"
+        },
+        {
+          "test_name": "testCreateArchiveWithStreamTransformer",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: plexus/symlinks/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: plexus/symlinks/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.zip.ZipArchiverTest.testCreateArchiveWithStreamTransformer(ZipArchiverTest.java:485)\n"
+        },
+        {
+          "test_name": "testOveriddenPermissions",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.zip.ZipArchiverTest.testOveriddenPermissions(ZipArchiverTest.java:130)\n"
+        },
+        {
+          "test_name": "testForced",
+          "type": "org.codehaus.plexus.archiver.ArchiverException",
+          "message": "Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside",
+          "stacktrace": "org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside\n\tat org.codehaus.plexus.archiver.zip.ZipArchiverTest.createArchive(ZipArchiverTest.java:521)\n\tat org.codehaus.plexus.archiver.zip.ZipArchiverTest.testForced(ZipArchiverTest.java:671)\n"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.codehaus.plexus.archiver.zip.ZipUnArchiverTest.xml",
+      "module": ".",
+      "test_class": "org.codehaus.plexus.archiver.zip.ZipUnArchiverTest",
+      "counts": {
+        "tests": 10,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/plexus-archiver/target/test-classes:/plexus-archiver/target/classes:/root/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.1/plexus-container-default-2.1.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.6.0/plexus-classworlds-2.6.0.jar:/root/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.4.1/plexus-utils-3.4.1.jar:/root/.m2/repository/org/codehaus/plexus/plexus-io/3.3.0/plexus-io-3.3.0.jar:/root/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/root/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/root/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/root/.m2/repository/org/tukaani/xz/1.9/xz-1.9.jar:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/root/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/root/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:",
+      "errors": [],
+      "failures": []
+    }
+  ],
+  "source_and_pom_sha256": {
+    "pom.xml": "9ba51204c4104c30a3e67c5cdddd275f9a78413177a4010a68fa283c05a95a97",
+    "src/main/java/org/codehaus/plexus/archiver/AbstractArchiveFinalizer.java": "73cb08d0624ff1afeafe6e02620b9a0bcd538d5c5d2d4fa5a5401796a2267954",
+    "src/main/java/org/codehaus/plexus/archiver/AbstractArchiver.java": "9555a39154e258556f1819ec8e4114505fc8a2e8eca74c58ce620ea117bb3972",
+    "src/main/java/org/codehaus/plexus/archiver/AbstractUnArchiver.java": "c3a466603489d3e02d7dd5737ec14132a9edf013602af408c39100833b4d7b84",
+    "src/main/java/org/codehaus/plexus/archiver/ArchiveEntry.java": "9f8d2e8694f851fd5234455e3b582d5c23254fff2ef5a729a3b29508cf8aedaf",
+    "src/main/java/org/codehaus/plexus/archiver/ArchiveFile.java": "108e4fbceb047f8e069222276410d54e157ab28fa9044ee6bee2a72f515257c0",
+    "src/main/java/org/codehaus/plexus/archiver/ArchiveFileFilter.java": "c97cef5eaa4203bde973512cb3cd70cf25636f43f967a1eab7ca5f5705b9c448",
+    "src/main/java/org/codehaus/plexus/archiver/ArchiveFilterException.java": "625790b552a057a5942b2e3ed49c500b9e596e34cb998ee9c113a16a97335054",
+    "src/main/java/org/codehaus/plexus/archiver/ArchiveFinalizer.java": "229f212d86b78457ac481b7ea980539ed796fe27ad8b5293fba82a641795a47b",
+    "src/main/java/org/codehaus/plexus/archiver/ArchivedFileSet.java": "dcae52530ee892ef53b58df88625fa107a3fd291054e33a76ecc873ee3436d66",
+    "src/main/java/org/codehaus/plexus/archiver/Archiver.java": "853453e3d51603ba55c08e88e71abce0ab215c0625257782d8e1a204309856e9",
+    "src/main/java/org/codehaus/plexus/archiver/ArchiverException.java": "7b356b1a7a13ca960541acf2cd59440310998dd860e07bb89dd3763b3908f7b9",
+    "src/main/java/org/codehaus/plexus/archiver/BaseFileSet.java": "2335b9b6552ffa9c38b6e3f9a7240fbf93c1f2d118bdaf8dc5192994ad833f2d",
+    "src/main/java/org/codehaus/plexus/archiver/DotDirectiveArchiveFinalizer.java": "22f2ec52f96d2e90e64c07db278d5d537206e1902ce79a8deb02f091d190d71f",
+    "src/main/java/org/codehaus/plexus/archiver/FileSet.java": "c721d901a74c104612249c7dfb4ce8f85202675a7674a9074a5b55bf5eaaf12c",
+    "src/main/java/org/codehaus/plexus/archiver/FinalizerEnabled.java": "47f7c0af8aefd40f8c35f01b78520642a2c902cf1026b440ffa04f64ab7474f2",
+    "src/main/java/org/codehaus/plexus/archiver/ResourceIterator.java": "842fd452b8c1a62261b87f54a6d845580c69a7ae9c87b3ef4237af750fe1e395",
+    "src/main/java/org/codehaus/plexus/archiver/UnArchiver.java": "659c4ff22fdd7f8a8848406e8fedefb2709ccefc5b0cf35cacecd85ad86bdb8b",
+    "src/main/java/org/codehaus/plexus/archiver/UnixStat.java": "d6cca1143462d378b3b7242ef17f460b401c37eee92d55b1219a4c0938303df0",
+    "src/main/java/org/codehaus/plexus/archiver/bzip2/BZip2Archiver.java": "15aff1b318da7f663818d54a6100ef57398cc9167cc299575ecf2d8cb93bd96e",
+    "src/main/java/org/codehaus/plexus/archiver/bzip2/BZip2Compressor.java": "e0a69619c8961b45221c194ceaaa7cb731bbd24e783a74c458e8157a19aba6f1",
+    "src/main/java/org/codehaus/plexus/archiver/bzip2/BZip2UnArchiver.java": "775357a5b9b303782c9d4dd483e5f387c807700dd954ffc22c724dce1bf779af",
+    "src/main/java/org/codehaus/plexus/archiver/bzip2/PlexusIoBzip2ResourceCollection.java": "be4d153f2330901cfb17a1a1aeaaa88ab48c8b0abfae36019fd15b29873520b7",
+    "src/main/java/org/codehaus/plexus/archiver/diags/DelgatingArchiver.java": "eb3b864321d48d72b437ea477227eec6d345847ffc36b44dc6b7645b39806f3d",
+    "src/main/java/org/codehaus/plexus/archiver/diags/DryRunArchiver.java": "7cd150a611912eead37dba18b81fd74f9103e3bc81486a99682d93c120eabb4d",
+    "src/main/java/org/codehaus/plexus/archiver/diags/NoOpArchiver.java": "f8e9e803498b7fc874b9c3b3a71e314239a796ea43170e46f96006aad1444b0e",
+    "src/main/java/org/codehaus/plexus/archiver/diags/TrackingArchiver.java": "4527927a5727ae6dd4b63a057fde0426baf498fc69bb680a4d695f9872c8c056",
+    "src/main/java/org/codehaus/plexus/archiver/dir/DirectoryArchiver.java": "fe166590c65be86b618c0d14240ebc97a25c3e5f0297b5dc612afae90336e73d",
+    "src/main/java/org/codehaus/plexus/archiver/ear/EarArchiver.java": "921ecd932a95e09dd67881bf334e01ba818968461f91c7dc74e81fff0e52c821",
+    "src/main/java/org/codehaus/plexus/archiver/exceptions/EmptyArchiveException.java": "e9b81413fc4d97164beb84f926a411be8ad9c0f2a03585b639793804ea98bda1",
+    "src/main/java/org/codehaus/plexus/archiver/filters/JarSecurityFileFilter.java": "28d9c11faa73e3956b8ed43a3497f565a425ee2aeba973cd0d39c7133e7f5463",
+    "src/main/java/org/codehaus/plexus/archiver/filters/JarSecurityFileSelector.java": "af7d71da8bda409b141de0aaf9a8f3f22c1b3d6984883549d320c693cc28296c",
+    "src/main/java/org/codehaus/plexus/archiver/gzip/GZipArchiver.java": "3aac390cec1339e47f9fa7d6b5e289f6622138ca8939d61903fb44f0a9e25ace",
+    "src/main/java/org/codehaus/plexus/archiver/gzip/GZipCompressor.java": "82781819c2de541dddd7b2e53acf2a42f0836ea14c2549e2816b8714a9e0b425",
+    "src/main/java/org/codehaus/plexus/archiver/gzip/GZipUnArchiver.java": "ec91e72bdcbd883e79ab0b623c29b7dfa53a919bbaa2ef1f4d2911546ccf49c9",
+    "src/main/java/org/codehaus/plexus/archiver/gzip/PlexusIoGzipResourceCollection.java": "bb51ee2155401ce9884209b82def14f6b073cbfc9f1d848231c30528cc2f1923",
+    "src/main/java/org/codehaus/plexus/archiver/jar/JarArchiver.java": "397aece90bb0b35a7bcb251f140bfed6681ab6a33a3e2208174c461c3cb2e50b",
+    "src/main/java/org/codehaus/plexus/archiver/jar/JarToolModularJarArchiver.java": "c9638cdf2f2478770efdd531ce28dda2ac972e2429ac72cb22b6d6008650d090",
+    "src/main/java/org/codehaus/plexus/archiver/jar/JdkManifestFactory.java": "28c039896a25bfb82b3d13494f5786fd1d0af2e5b80baf3415fca30681467e05",
+    "src/main/java/org/codehaus/plexus/archiver/jar/Manifest.java": "498e5fcdbac72a65996a46078c6b8194a75eb1a3401aa3f11d107482c8822cd1",
+    "src/main/java/org/codehaus/plexus/archiver/jar/ManifestConstants.java": "e9df97901f93a29f8c3f5a1a588d57ce253df5dbfb762cd7f05ed07d7eb4c2a3",
+    "src/main/java/org/codehaus/plexus/archiver/jar/ManifestException.java": "65188e9660fa4b55720cac18bd04a0764db96334a9b54fbcadf4545a4c255b00",
+    "src/main/java/org/codehaus/plexus/archiver/jar/ModularJarArchiver.java": "0400c08e843f8df119dacf18489c6995b93ea52959ecbccd670cdc0cb43145c8",
+    "src/main/java/org/codehaus/plexus/archiver/manager/ArchiverManager.java": "f28a71c1408ce0055ba984e0ee66f5222b4adb661e944e45f88a9e7108f5b448",
+    "src/main/java/org/codehaus/plexus/archiver/manager/DefaultArchiverManager.java": "018cad2d10bfac6900ab98dceb7d308f7e912ae2aab7e802ed10a544cde340a3",
+    "src/main/java/org/codehaus/plexus/archiver/manager/NoSuchArchiverException.java": "e8fc3f885aa4a21e68ef95f0e61c04842d2a664aabd2a7b6ff854feba0382830",
+    "src/main/java/org/codehaus/plexus/archiver/resources/PlexusIoVirtualFileResource.java": "753fff7abd563fd0101939004b82c8a568b6337aa611e582018b86d2aae24b2d",
+    "src/main/java/org/codehaus/plexus/archiver/resources/PlexusIoVirtualSymlinkResource.java": "e6815ecea7999be82d3d10eba8a6435e4dd249001d7f7958d4b2ddb05fb184e7",
+    "src/main/java/org/codehaus/plexus/archiver/snappy/PlexusIoSnappyResourceCollection.java": "1fd6b685aa9d9535636ee758642f97a63a248c1ba119b08c5bcca331564c2735",
+    "src/main/java/org/codehaus/plexus/archiver/snappy/SnappyArchiver.java": "e849d642d03c7c0e0ea9d0049247b963a7881a3aed6bb77d50a67696f49d17a5",
+    "src/main/java/org/codehaus/plexus/archiver/snappy/SnappyCompressor.java": "73c83b189e3c17c119a85f1cd893fb7338a06a10edb3477498e082c26785e54d",
+    "src/main/java/org/codehaus/plexus/archiver/snappy/SnappyUnArchiver.java": "3ce4bac96b77194ec1b38d8ab4d7283e552f8c306b17faa78b07a69529bbba7f",
+    "src/main/java/org/codehaus/plexus/archiver/tar/BZip2TarFile.java": "dae1b0a541b62e9f8987aabf8498b6af685f61d475dfd0ec79f4dfbeb4c149c1",
+    "src/main/java/org/codehaus/plexus/archiver/tar/GZipTarFile.java": "f7893ecd12cde72ba289e9913f70cef66646123c6acf41b3d478edd945fcd31c",
+    "src/main/java/org/codehaus/plexus/archiver/tar/PlexusIoTarBZip2FileResourceCollection.java": "3f53c75bd6e3a098809fe9d990170e0c76155e9b5bee959145b7be825b33237f",
+    "src/main/java/org/codehaus/plexus/archiver/tar/PlexusIoTarFileResourceCollection.java": "01b802cce955753573509f3e28cb4c498a57c2848648781484be38d9977ca1c2",
+    "src/main/java/org/codehaus/plexus/archiver/tar/PlexusIoTarGZipFileResourceCollection.java": "44ea7267d7c5944a3df1619ea27f9d3ce5cb7e6c57e63b78bf60a35ed33970c8",
+    "src/main/java/org/codehaus/plexus/archiver/tar/PlexusIoTarSnappyFileResourceCollection.java": "f33dbb6b8e78f5d01947f7cb17d1815b63eefda93f4204704cabb04f1dec6fec",
+    "src/main/java/org/codehaus/plexus/archiver/tar/PlexusIoTarXZFileResourceCollection.java": "fc12051c86033acff7a4aa870f3dc6e16452788e50acc4b3df31bc988f73cc12",
+    "src/main/java/org/codehaus/plexus/archiver/tar/SnappyTarFile.java": "de15ab68e799444ae2da84ac129daf4324445ee18161bbdbbf4b7caf1f118933",
+    "src/main/java/org/codehaus/plexus/archiver/tar/TarArchiver.java": "514ac71a7519239103504a155a0b9ba811ea7f454500ceed258cdf9ed371d7aa",
+    "src/main/java/org/codehaus/plexus/archiver/tar/TarBZip2UnArchiver.java": "656aa7949fe6eca083bfa85421c1fe81a1265b524d25e01419d9f9f4031526ee",
+    "src/main/java/org/codehaus/plexus/archiver/tar/TarFile.java": "9cb6eaa2593b8b9e6525dc022658b2513a417c2df6dbf61275b74f11b148a5e3",
+    "src/main/java/org/codehaus/plexus/archiver/tar/TarGZipUnArchiver.java": "fc768fd8e1a9a02ef38a94824e30bf60fd4ac6602df264922528650a9c2f6688",
+    "src/main/java/org/codehaus/plexus/archiver/tar/TarLongFileMode.java": "fc86e3bf4ecfdcf138ee8425936d4f3b0d1de424aaa4ef3ca60bd90099f58280",
+    "src/main/java/org/codehaus/plexus/archiver/tar/TarResource.java": "4f0a2f884462f3969b6c0c33d72c2549cb4e616c09e12162455e4ff4c5955f90",
+    "src/main/java/org/codehaus/plexus/archiver/tar/TarSnappyUnArchiver.java": "d7b9a4150aa3a38d70600a6828e920b9505ca19158c15411abb3773be8c68209",
+    "src/main/java/org/codehaus/plexus/archiver/tar/TarSymlinkResource.java": "7e3812ca939466d03292c38e5b91c4471697dad8d408029e1873a41809dd5d87",
+    "src/main/java/org/codehaus/plexus/archiver/tar/TarUnArchiver.java": "011096773eceda323d36e7ac04f6376ec87d2d03ee6375f86971a24fb6b43b13",
+    "src/main/java/org/codehaus/plexus/archiver/tar/TarXZUnArchiver.java": "16ca4aed9d2e95ff2829c890f6d360fceb8b4b800c638df1d0a2ac3f127dd3a6",
+    "src/main/java/org/codehaus/plexus/archiver/tar/XZTarFile.java": "bd92a745d2a9612ef5745aaa7e7a89a6e0e0b544ee3154adac5ff749cf3931ca",
+    "src/main/java/org/codehaus/plexus/archiver/util/AbstractFileSet.java": "bb76476f685d49544caefcdb29ba4567cb0bfdd4f5a72f1d2a8dc81ca5d2fa4e",
+    "src/main/java/org/codehaus/plexus/archiver/util/ArchiveEntryUtils.java": "a67de9680e345ab0db8d63e37b7793555c01f0f1c000792dd45767896e0ec60c",
+    "src/main/java/org/codehaus/plexus/archiver/util/Compressor.java": "21bb73fa1f628daa0944adf9e40ade2fc36c3c40021193ea15eb05993b281b4e",
+    "src/main/java/org/codehaus/plexus/archiver/util/DefaultArchivedFileSet.java": "b0dde689ccce5dc39a72fe02a2321c0869acab11ba9f0b33110f11c73aa262b5",
+    "src/main/java/org/codehaus/plexus/archiver/util/DefaultFileSet.java": "23b48a99b65d4a15f63e884c896d2beb33b291d876ae22d71f70005a8bf83e38",
+    "src/main/java/org/codehaus/plexus/archiver/util/FilePermission.java": "b92264c0428b0519ca9a1f89b271b2fb99a6dfb14024f8257d02e15ecd05a939",
+    "src/main/java/org/codehaus/plexus/archiver/util/FilePermissionUtils.java": "0d63b4ed9061243a6cb305eab04c8f103835c07f5a66e7b5654d94e8fed5d85a",
+    "src/main/java/org/codehaus/plexus/archiver/util/FilterSupport.java": "fc35ef67182b8f844dedaf3e7a572c4f6a2a31ff0ded57c20e9e8475c744965e",
+    "src/main/java/org/codehaus/plexus/archiver/util/ResourceUtils.java": "ffd16eb56011d4b0834e6ebdb8e7708b7231a321ced4f19b3ba97fe6d8cd798d",
+    "src/main/java/org/codehaus/plexus/archiver/util/Streams.java": "d6d6ea4438fe7df43e94f631cf5feea4a1d53f4bb879561b016e0f9bb1b8f467",
+    "src/main/java/org/codehaus/plexus/archiver/war/WarArchiver.java": "ec2c44ebe6bc78be9a91236ab85d7e98479a7a1c2db1601999438577748e2b93",
+    "src/main/java/org/codehaus/plexus/archiver/xz/PlexusIoXZResourceCollection.java": "8cbf850baba264de0b589c191306216e193db8de691fe6b47637dd573ad78e07",
+    "src/main/java/org/codehaus/plexus/archiver/xz/XZArchiver.java": "fb7556a7f422f18b6a4cd615f6d3ec6bb0e077f01f9df15a609a19e2e6b587bc",
+    "src/main/java/org/codehaus/plexus/archiver/xz/XZCompressor.java": "30e532973c0ccece273e9075f500b9dcb24d327c6783e38d9d32953e6727314d",
+    "src/main/java/org/codehaus/plexus/archiver/xz/XZUnArchiver.java": "015eb0ef7284da4489d498547a8c1a8d7a1428e704fe7bf101a6cd139de8a22c",
+    "src/main/java/org/codehaus/plexus/archiver/zip/AbstractZipArchiver.java": "8db874cd98f2c639a65cbe34794624a13e2670caccf6514d53cd24a8ffeaa7a0",
+    "src/main/java/org/codehaus/plexus/archiver/zip/AbstractZipUnArchiver.java": "89698294d4faa3e466ce8ba2058d46b99996fdbd3f8152e41485ef0ce0c6853e",
+    "src/main/java/org/codehaus/plexus/archiver/zip/AddedDirs.java": "9d2b16c62d12e71daac286ec1b2df62fc2c54d3b2c4cc027c3f9f9c61ec7a612",
+    "src/main/java/org/codehaus/plexus/archiver/zip/AnonymousResource.java": "6c97549f3da99d3ed6b54b39856fa36f17cd2521e5525dd0173c95af66b54420",
+    "src/main/java/org/codehaus/plexus/archiver/zip/ByteArrayOutputStream.java": "ed126ecba3d275b0ac6cedb85ba84465ca8bdbcb417c2338def227eeef8f4c69",
+    "src/main/java/org/codehaus/plexus/archiver/zip/ConcurrentJarCreator.java": "5790637db62de8204fe823c36a0bb88b29cc3954e887c6c53610cfe007089b75",
+    "src/main/java/org/codehaus/plexus/archiver/zip/DeferredScatterOutputStream.java": "d057ca061c746383d0deaf5bf229a5ae86d1b8aae47e25ee3141821a4c10a6f0",
+    "src/main/java/org/codehaus/plexus/archiver/zip/OffloadingOutputStream.java": "c495ab80ed7840242e527a7410df8fac382b4e647d3058a81a9cf89ab344b00b",
+    "src/main/java/org/codehaus/plexus/archiver/zip/PlexusArchiverZipFileResourceCollection.java": "a2c9d3d661f51fa3beed2026f399264b3a6cff32eed2914760d313a16541e2a4",
+    "src/main/java/org/codehaus/plexus/archiver/zip/PlexusIoZipFileResourceCollection.java": "5e7b7c3d9937675cf0a3de5926119e152338ace74656b4dfb91a3c9681712609",
+    "src/main/java/org/codehaus/plexus/archiver/zip/ZipArchiver.java": "8ed6bad166cdd5473993aa91ee07752508dbda4b4a973d925a48810aec1bbb99",
+    "src/main/java/org/codehaus/plexus/archiver/zip/ZipResource.java": "61ac7f01f7fa9a8695b73e8cc130b9e962cbe5b934268867851350ed07aa1508",
+    "src/main/java/org/codehaus/plexus/archiver/zip/ZipSymlinkResource.java": "2de40651a6161e7e82884026763fcee4d6892c0bacc010ef8fca8bd7cbd6a250",
+    "src/main/java/org/codehaus/plexus/archiver/zip/ZipUnArchiver.java": "fcfffdd3ef65f10c38fdd05eb1eecad14c5284b1e1053b87cbc375ed368a3bc5",
+    "src/main/java/org/codehaus/plexus/components/io/resources/PlexusIoZipFileResourceCollection.java": "2e2df7cd51d0cd9573dafcb8f9d53de1c9775737884b891c4f0c2004780ecb49",
+    "src/main/resources/META-INF/plexus/components.xml": "04778f56397bc5c0b55104e084497ccd305e31adaa6b9302d39620417286cf97",
+    "src/site/apt/index.apt": "d4752ff068ab44156940d862631b914d9a82b894cde3dfea4893fc8a5e0267f7",
+    "src/site/site.xml": "8801d6b47a794e531188936f5970953440afcb74a77d6325754b5029659a2233",
+    "src/test/dotfiles/.plxarc": "5098123731a582346930252f28e135936e6f641bbfed98a62fc13d44990acb1b",
+    "src/test/dotfiles/licenses/LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "src/test/dotfiles/licenses/NOTICE.txt": "c53634c960163f00ba0b0147cc3dee5caf0e6a47bc9909a2fe94b7adcf5d983e",
+    "src/test/jars/namelessrootfolder.jar": "7fd7674eb8501a27256b91d2a53307f6e61e258fb4c77e15b403e2e70ad122fa",
+    "src/test/jars/test.jar": "c022e7d5fb0a681c1e99e307f122f8b8eba279f50fb18511d3ec9a5466a2cf7f",
+    "src/test/jars/test.rar": "c022e7d5fb0a681c1e99e307f122f8b8eba279f50fb18511d3ec9a5466a2cf7f",
+    "src/test/jars/test.tar.gz": "80e15fb3b5185aa670c0718540c54d08a2ef6790f3fe42e1ce3fb214f5366b3d",
+    "src/test/jars/test.zip": "31c66140bc0a686d893f4e4f825efe37ac4da21a9809ab7df3613eab94a255f5",
+    "src/test/java/org/codehaus/plexus/archiver/AbstractArchiverTest.java": "3e8b8c18dd918d74555186be40a929f918851bc3c7dc7d2a8cece95c3ff97ef0",
+    "src/test/java/org/codehaus/plexus/archiver/AbstractUnArchiverTest.java": "4d54fe5d976804acf7be4d9112794dffb71892ee0855826b4d8c316e5a5c0826",
+    "src/test/java/org/codehaus/plexus/archiver/BasePlexusArchiverTest.java": "716b80aa70cf6cee4338f5fe98c2e55c69904e44a4724aefbdc049cbd8ee9006",
+    "src/test/java/org/codehaus/plexus/archiver/CapturingLog.java": "7fd016e92d585bf67cdaf84e502e2ff9e83bb8e4b2edcc37760ae3bdaaa6a858",
+    "src/test/java/org/codehaus/plexus/archiver/DotDirectiveArchiveFinalizerTest.java": "f908d17150697bcc4d1066b9fc77a08794d8403f964434436e8db76c3bdbfdb7",
+    "src/test/java/org/codehaus/plexus/archiver/DuplicateFilesTest.java": "2b263e2b04ce3b3be2caecc79f567edb7d2dff63b4392e1818a9623f579e617c",
+    "src/test/java/org/codehaus/plexus/archiver/EmptyDirectoryTest.java": "6ffe3fc93ac95893fc6daf7890e35793821c69de6e1969608f95f7e5f3c82eee",
+    "src/test/java/org/codehaus/plexus/archiver/SymlinkTest.java": "779c7fe7b2d1f61ed17fa0163f21612be6c22b8837118368d00928433f7d6a5d",
+    "src/test/java/org/codehaus/plexus/archiver/bzip2/BZip2ArchiverTest.java": "7340801375fa6ac37a3fd6b04d8ce29d9cc52059d4b7d2436114ae406c803777",
+    "src/test/java/org/codehaus/plexus/archiver/gzip/GZipArchiverTest.java": "f2ec2f28d6feaee8a7fcf5da269cce1fff1bd4a9ee6dc165ff5ed28d9d1c3f28",
+    "src/test/java/org/codehaus/plexus/archiver/jar/BaseJarArchiverTest.java": "5e0926dcaad5731c35cadf5f85d5d295614776c91ea43d1eaa0138a72f067ec4",
+    "src/test/java/org/codehaus/plexus/archiver/jar/DirectoryArchiverUnpackJarTest.java": "5c1b7237fb90ef8621302df715759fa394427919e8f1954df953983c6614b705",
+    "src/test/java/org/codehaus/plexus/archiver/jar/IndexTest.java": "a6480638ba681ef433541cf6b6b9a4881b2ef46eb4d86712409c2c3920981d7b",
+    "src/test/java/org/codehaus/plexus/archiver/jar/JarArchiverTest.java": "595242cd3ed6bad697b1802c5337cd9cd97cfa66060629a113eb5c759b2820fd",
+    "src/test/java/org/codehaus/plexus/archiver/jar/JarToolModularJarArchiverTest.java": "5338db09724a2a111af404521019bd3087c92bad6ae91787bdad129646c7c4ef",
+    "src/test/java/org/codehaus/plexus/archiver/jar/JdkManifestFactoryTest.java": "8212c386905fb53bfcfaee39dc96548cbc6d874905ed1ac0f1e33091bc4fef7a",
+    "src/test/java/org/codehaus/plexus/archiver/jar/ManifestTest.java": "b05ae56f7ee8f0fc3a5798d0e08d622143593764afa1878e8f3436119d546743",
+    "src/test/java/org/codehaus/plexus/archiver/manager/ArchiverManagerTest.java": "af08aff785dc233c85f576253db70d156b38ce3f980d93344760d4cc30a40f3d",
+    "src/test/java/org/codehaus/plexus/archiver/rar/RarArchiverTest.java": "f809729bdc94f9d2e245104d42c141a938e169fc121d650fa86ab664d6f876ba",
+    "src/test/java/org/codehaus/plexus/archiver/sar/SarArchiverTest.java": "048ae1d2bdcf9f650f17b528cbbc9f691380f43073856a881ff1ece947cfcfd5",
+    "src/test/java/org/codehaus/plexus/archiver/snappy/SnappyArchiverTest.java": "da5a6673a3a71de736e247eb64a6f20b7a144ce1fd8610d411429dca653850a8",
+    "src/test/java/org/codehaus/plexus/archiver/tar/TarArchiverTest.java": "34d2cebf9f614669345030f3d00a2ab059b253280b224c1c9866ced1079bca1f",
+    "src/test/java/org/codehaus/plexus/archiver/tar/TarBZip2UnArchiverTest.java": "3bf1d6b14944d160dd554469b9423637ec1becc1cb0f37b76406f736977f2f18",
+    "src/test/java/org/codehaus/plexus/archiver/tar/TarFileAttributesTest.java": "f081742db066f745e9754aedfb993be0f8dff21eb7ffdb324a6276bf9f905d1b",
+    "src/test/java/org/codehaus/plexus/archiver/tar/TarFileTest.java": "daf22aedbd72ce996d99fd451aa9956dc2dd3872793fe66ac2c586a64a7aeddf",
+    "src/test/java/org/codehaus/plexus/archiver/tar/TarGZipUnArchiverTest.java": "de9ab8c0a32a9e7f84dcafbbc047f31ab2cb37e087ae56afe4ff283cb9fe6704",
+    "src/test/java/org/codehaus/plexus/archiver/tar/TarRoundTripTest.java": "a4600df8d8592156d58831e0b7e782b4d88af18ca75e5f108b9112448ff5ee2f",
+    "src/test/java/org/codehaus/plexus/archiver/tar/TarSnappyUnArchiverTest.java": "e0eed725b7f4ee64648bc0bd48430f0a90dd6ef25c3c9498c0936b660ad024ff",
+    "src/test/java/org/codehaus/plexus/archiver/tar/TarUnArchiverTest.java": "b276573da12fe67cbd17332e90eebc0b27cdc3970ac3a900cd6429c14209c7b0",
+    "src/test/java/org/codehaus/plexus/archiver/tar/TarXzUnArchiverTest.java": "2376849f9529bacc03d2a8e672a9d9d29bec8f5085a816107ecbfa1606d66db8",
+    "src/test/java/org/codehaus/plexus/archiver/util/ArchiveEntryUtilsTest.java": "ab07c58ace6201c6d07d70892bae5f2aa73da7537fb9d3e27bc14b35f387ee15",
+    "src/test/java/org/codehaus/plexus/archiver/util/DefaultFileSetTest.java": "083f35d699e07202199aed02a511695143c7d9f881e752626d89eb26fa80743b",
+    "src/test/java/org/codehaus/plexus/archiver/util/FilePermissionUtilsTest.java": "3688db7b47f634e67d0bb43b2e5bd8b681df06bf8769d7a31828e79f9021caba",
+    "src/test/java/org/codehaus/plexus/archiver/war/WarArchiverTest.java": "cb336e87478d848101123c4e0a2138f5f72c13230b3144df494d9e008a9da67e",
+    "src/test/java/org/codehaus/plexus/archiver/xz/XzArchiverTest.java": "7a0e38fd80194968b982e9ffd749d6731b1fe32f7fca300aa087a3ac663aa58d",
+    "src/test/java/org/codehaus/plexus/archiver/zip/ArchiveFileComparator.java": "f3b058096e091bf3b71319fd4e408cf73635cf51fae46f7283a789ce791b95fc",
+    "src/test/java/org/codehaus/plexus/archiver/zip/ConcurrentJarCreatorTest.java": "996c888af18fb2f576244a91a95ae61232955ef6b1cbbfdd05a563cb2fdb91e1",
+    "src/test/java/org/codehaus/plexus/archiver/zip/PlexusArchiverZipFileResourceCollectionTest.java": "789f4139103b34ba453e42f15e126332102aec98b022b44e63e66f5f8a48194f",
+    "src/test/java/org/codehaus/plexus/archiver/zip/PlexusIoZipFileResourceCollectionTest.java": "2b3d65eb714e005540d6e3ecfaedb2b36dced09564651be5657e61e5c5500bc2",
+    "src/test/java/org/codehaus/plexus/archiver/zip/ZipArchiverTest.java": "083ef66deebd2fcb03601876047d7ec268ecf2717bc81df8a55b779cae9df88b",
+    "src/test/java/org/codehaus/plexus/archiver/zip/ZipUnArchiverTest.java": "5bcb7e499de1082f22bfd9aab3da01750e19f98a46b5a8b5ba5f338c47a5283c",
+    "src/test/resources/archiveWithIllegalHtmlFileName.zip": "e8f0e46eed9d3ac04ecf8bc4d7a64f9abeaebaf5b01295be18471f1c06938d9c",
+    "src/test/resources/bogusManifest.zip": "07f631c36e025e937fa02b8821cc1d72cd95a0a338e59b3a18ca0c4e023e5e23",
+    "src/test/resources/folders/File.txt": "9597ec0dadfe08ebbe679627909f6518444fb78a5c5d0f87e8355b7c3c8177fd",
+    "src/test/resources/folders/WEB-INF/web.xml": "9d1094255738784fb713fc0311d043b5a5004f0cd18db5562f6061baeed9008e",
+    "src/test/resources/folders/a/FileInA.txt": "5b8d8e5a774614e13f623bef1756377b873ba959e17ae1a6abf32a0d39307948",
+    "src/test/resources/folders/b/FileInB.txt": "3b83ccf01d61fbd33284b8bf6ca6ada4006999ae345415382481e10db8c6d9f7",
+    "src/test/resources/group-writable/bar.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/test/resources/group-writable/foo.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/test/resources/jar-security/dummy.txt": "3a1f52924f5fb2fe971c0b03cb5c3620d978aefe899a11886dd4e1cd6271f10e",
+    "src/test/resources/java-classes/com/example/app/Main.class": "74f9f307ae8250048085bdd771f2c0b8ecee7f82775d2db6a3390b05465a79b1",
+    "src/test/resources/java-classes/com/example/resources/test.properties": "8aa4cc11cee6484f7917b467d3995f48e5e6400396e4243d2f123ad195613645",
+    "src/test/resources/java-module-descriptor/module-info.class": "47b140d0653e8866680956c4fac9198da63fd9f892869bd995af9128a4d2e1b7",
+    "src/test/resources/java-src/REAMDE.md": "0219b43e6a0e1f8cb0516e3ad09dd65428bfbdcb2287aac2a9baec700450f7d2",
+    "src/test/resources/java-src/com/example/app/Main.java": "5edeeef85aaf727f4d0269fa2d3bba0f5f8e39bfacf921e845d06c75e47bfc50",
+    "src/test/resources/java-src/module-info.java": "b50864ed7e88dcb399c39bdbb3e43c9ddb1128376cdca31df24e10475159f2c6",
+    "src/test/resources/manifests/manifest1.mf": "172b7aa6ab69ed805e5a9b5bbdbc6e770091086734509d44117852fc10592f6b",
+    "src/test/resources/manifests/manifest2.mf": "e77ba030320746f177bf70d3ed27411d425fecf05512fb14d25948987e42baf8",
+    "src/test/resources/manifests/manifest3.mf": "3753558ee7e9324c041d833baad4241cbbcd18950ede62361b852a2cc1a57e61",
+    "src/test/resources/manifests/manifest4.mf": "9c04646975faeeb146fc38b10d9bdbd1194f22e9dc24904503a243cfe0f6f11b",
+    "src/test/resources/manifests/manifest5.mf": "de6d46ea9f20a71995984e788650c85a1518d357d8d7db67c31ba54731b59c8d",
+    "src/test/resources/manifests/manifest6.mf": "8d1372c2ccfbc143febe46fc3b9ecc5cee44b519d1d1baddab2fc6bdc1262c72",
+    "src/test/resources/manifests/manifestMerge1.mf": "7b069eabee49daf8ac67e0406e09ee718d19d9bab2ec01cdbadd53b4834f74d8",
+    "src/test/resources/manifests/manifestMerge2.mf": "ef039a8bbaa2e1267bbd6bd7b8ab415e27bfa8dc20587df6fcb3dbff13c5d219",
+    "src/test/resources/manifests/manifestWithClassPath.mf": "ae4813c35c8693073fc3f473781f5f2f7ad77266ef17dd6f3281744045da1c9e",
+    "src/test/resources/manifests/manifestWithDualClassPath.mf": "1027e077176ca98e98a91475daeb05c96d924ce52c0712b74d141ddff60c524b",
+    "src/test/resources/miscUtf8/aFileWithA#.html": "6f92264cd403443aa1e2fd1e90a03c3722deb44171e48dd31e29448edec228e7",
+    "src/test/resources/miscUtf8/aPi\u00f1ata.txt": "778318dd0caebb166c7c1866e9a9d8dcb29bd5964ce7ef7f74ff2c0a7aecf9c0",
+    "src/test/resources/miscUtf8/an\u00fcmlaut.txt": "cd13b2e35da7ddc78071e6d3ab7abaf8ed75be60b331ce77d841b90b087c01a7",
+    "src/test/resources/miscUtf8/\u20acuro.txt": "bf3b156cded1bfbba161bfe75863697910d397b2bf330146424a76f81d494463",
+    "src/test/resources/mjar179/Messages.properties": "69629bd046cb2ce8e2fb97d288e84e0ecd4f0516e08e72b54e13602459fae3f7",
+    "src/test/resources/mjar179/Messages_en.properties": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/test/resources/mjar179/Messages_fr.properties": "d1ff38efb5def5b99b5064529e9560cb7b4610abb45fffc4f79397cef509c42d",
+    "src/test/resources/symlinks/dirOnTheOutside/FileInDirOnTheOutside.txt": "bab0595e7f3d954fc19aa4dc0209abca766d2f557e6a50b0667ebd27468ddf13",
+    "src/test/resources/symlinks/onTheOutside.txt": "bc0aa4f4aae0dc630e1c236a7d3dcec13f87b7615103a615152136c9aa806156",
+    "src/test/resources/symlinks/regen.sh": "29adead62712684c256158395af71e5105eac5d04577f698604fe032a1ee2b9f",
+    "src/test/resources/symlinks/src/aRegularDir/aRegularFile.txt": "7de6382ca375115b7d830e5b8678a51849eee2e2ea2ff2d12d364c54c83eda3e",
+    "src/test/resources/symlinks/src/fileR.txt": "54b356b11c9aa2e09914de500d13a4f56eba1a43f91de3065fac19d2ad597e85",
+    "src/test/resources/symlinks/src/fileW.txt": "6613d03c8aa0550ee0b1360b8d516a84dfb97b26f8c1677f8e71deefc1c1ac04",
+    "src/test/resources/symlinks/src/fileX.txt": "042aea10a0f14f2d391373599be69d53a75dde9951fc3d3cd10b6100aa7a9f24",
+    "src/test/resources/symlinks/src/targetDir/targetFile.txt": "79af69f5b97378f86458e9fbf08a55a9b6ae85a176e229cadebddaad67dfe164",
+    "src/test/resources/symlinks/symlinks.tar": "f95a0545de37c8d62f56332a4121c84daa567ced21f1ccbae8d4e3a6e0b499ba",
+    "src/test/resources/symlinks/symlinks.zip": "eb082c8b2223d1bfbf8687552eee1f096fc99d907f4bc1f9927d03487ed86632",
+    "src/test/resources/test.zip": "8e808a0e26f79db62bed5af709dc6014ce46a376f6eb9e025523a021e284d5a7",
+    "src/test/resources/unicodePathExtra/GenerateZips.java": "3807a8c2f83bba1291e061ea03b70ac4f2203f829c489d1525dd35d7784f493a",
+    "src/test/resources/unicodePathExtra/README.md": "2e4a96f1b895144a6df759c46627413d1c9a2b208ab7a35504f76c7843347c1a",
+    "src/test/resources/unicodePathExtra/efsclear.zip": "d964989d86c4ee78fc91ddc49c274759867828a0ee2a3f1a40fc39f46020189e",
+    "src/test/resources/unicodePathExtra/efsset.zip": "62c8e476e12049fe080b3d9d6e6c0e8f42e6b8f5e7ab1179dc90c2381da783c4",
+    "src/test/resources/unpack_issue.jar": "a71acf0e7db37d44464e344ae36874fc3a225d482d2631cb07bfb6efacdd6238",
+    "src/test/resources/utf8/D12345679012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890\u00e6\u00f8a\u030a.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/test/resources/utf8/D12345679012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890\u00e6\u00f8\u00e5.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/test/resources/world-writable/foo.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/test/resources/zeroFileMode/foobar.zip": "78399e8befdebed4236dbf17387c5ab0cdc44ddddb66843dd54e218c7c828ade",
+    "src/test/resources/zeroFileMode/mixed-file-mode.zip": "ac3773c2a480ff1df6ba455246e6532628dda7ba22698760534efcee43707ad9",
+    "src/test/resources/zip-timestamp/file-with-even-time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/test/resources/zip-timestamp/file-with-odd-time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/test/resources/zip-timestamp/foo/file-with-even-time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/test/resources/zip-timestamp/foo/file-with-odd-time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/test/resources/zip-timestamp/foo/macOsZipFile.jar": "336a8af53c8ee76ad6f9b1bff8c3a9bdf8fde88749fd9ba9b3746c5be1fdbd81",
+    "src/test/resources/zip-timestamp/foo/plexus-archiver-2.4.4-SNAPSHOT.jar": "f7b84f48c679b3d27d34f60d597b10b31be9950fc3de1459d961ff27b815b5f5",
+    "src/test/resources/zip-timestamp/macOsZipFile.zip": "336a8af53c8ee76ad6f9b1bff8c3a9bdf8fde88749fd9ba9b3746c5be1fdbd81",
+    "src/test/zips/zip-slip.zip": "d40ad46a9b249e3eab803090ec2a51d46405a0afcbfe2a0f1ada7ac3a810f7f9"
+  },
+  "aggregate_counts": {
+    "tests": 177,
+    "failures": 0,
+    "errors": 22,
+    "skipped": 2
+  }
+}

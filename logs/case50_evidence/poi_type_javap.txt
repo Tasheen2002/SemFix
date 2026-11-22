@@ -1,0 +1,943 @@
+PRE
+Compiled from "HSSFWorkbook.java"
+public final class org.apache.poi.hssf.usermodel.HSSFWorkbook extends org.apache.poi.POIDocument implements org.apache.poi.ss.usermodel.Workbook {
+  private static final int MAX_RECORD_LENGTH;
+    descriptor: I
+  private static final java.util.regex.Pattern COMMA_PATTERN;
+    descriptor: Ljava/util/regex/Pattern;
+  private static final int MAX_STYLES;
+    descriptor: I
+  private static final int DEBUG;
+    descriptor: I
+  public static final int INITIAL_CAPACITY;
+    descriptor: I
+  private org.apache.poi.hssf.model.InternalWorkbook workbook;
+    descriptor: Lorg/apache/poi/hssf/model/InternalWorkbook;
+  protected java.util.List<org.apache.poi.hssf.usermodel.HSSFSheet> _sheets;
+    descriptor: Ljava/util/List;
+  private java.util.ArrayList<org.apache.poi.hssf.usermodel.HSSFName> names;
+    descriptor: Ljava/util/ArrayList;
+  private java.util.Map<java.lang.Integer, org.apache.poi.hssf.usermodel.HSSFFont> fonts;
+    descriptor: Ljava/util/Map;
+  private boolean preserveNodes;
+    descriptor: Z
+  private org.apache.poi.hssf.usermodel.HSSFDataFormat formatter;
+    descriptor: Lorg/apache/poi/hssf/usermodel/HSSFDataFormat;
+  private org.apache.poi.ss.usermodel.Row$MissingCellPolicy missingCellPolicy;
+    descriptor: Lorg/apache/poi/ss/usermodel/Row$MissingCellPolicy;
+  private static final org.apache.poi.util.POILogger log;
+    descriptor: Lorg/apache/poi/util/POILogger;
+  private org.apache.poi.ss.formula.udf.UDFFinder _udfFinder;
+    descriptor: Lorg/apache/poi/ss/formula/udf/UDFFinder;
+  public static org.apache.poi.hssf.usermodel.HSSFWorkbook create(org.apache.poi.hssf.model.InternalWorkbook);
+    descriptor: (Lorg/apache/poi/hssf/model/InternalWorkbook;)Lorg/apache/poi/hssf/usermodel/HSSFWorkbook;
+
+  public org.apache.poi.hssf.usermodel.HSSFWorkbook();
+    descriptor: ()V
+
+  private org.apache.poi.hssf.usermodel.HSSFWorkbook(org.apache.poi.hssf.model.InternalWorkbook);
+    descriptor: (Lorg/apache/poi/hssf/model/InternalWorkbook;)V
+
+  public org.apache.poi.hssf.usermodel.HSSFWorkbook(org.apache.poi.poifs.filesystem.POIFSFileSystem) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/poifs/filesystem/POIFSFileSystem;)V
+
+  public org.apache.poi.hssf.usermodel.HSSFWorkbook(org.apache.poi.poifs.filesystem.POIFSFileSystem, boolean) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/poifs/filesystem/POIFSFileSystem;Z)V
+
+  public static java.lang.String getWorkbookDirEntryName(org.apache.poi.poifs.filesystem.DirectoryNode);
+    descriptor: (Lorg/apache/poi/poifs/filesystem/DirectoryNode;)Ljava/lang/String;
+
+  public org.apache.poi.hssf.usermodel.HSSFWorkbook(org.apache.poi.poifs.filesystem.DirectoryNode, org.apache.poi.poifs.filesystem.POIFSFileSystem, boolean) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/poifs/filesystem/DirectoryNode;Lorg/apache/poi/poifs/filesystem/POIFSFileSystem;Z)V
+
+  public org.apache.poi.hssf.usermodel.HSSFWorkbook(org.apache.poi.poifs.filesystem.DirectoryNode, boolean) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/poifs/filesystem/DirectoryNode;Z)V
+
+  public org.apache.poi.hssf.usermodel.HSSFWorkbook(java.io.InputStream) throws java.io.IOException;
+    descriptor: (Ljava/io/InputStream;)V
+
+  public org.apache.poi.hssf.usermodel.HSSFWorkbook(java.io.InputStream, boolean) throws java.io.IOException;
+    descriptor: (Ljava/io/InputStream;Z)V
+
+  private void setPropertiesFromWorkbook(org.apache.poi.hssf.model.InternalWorkbook);
+    descriptor: (Lorg/apache/poi/hssf/model/InternalWorkbook;)V
+
+  private void convertLabelRecords(java.util.List<org.apache.poi.hssf.record.Record>, int);
+    descriptor: (Ljava/util/List;I)V
+
+  public org.apache.poi.ss.usermodel.Row$MissingCellPolicy getMissingCellPolicy();
+    descriptor: ()Lorg/apache/poi/ss/usermodel/Row$MissingCellPolicy;
+
+  public void setMissingCellPolicy(org.apache.poi.ss.usermodel.Row$MissingCellPolicy);
+    descriptor: (Lorg/apache/poi/ss/usermodel/Row$MissingCellPolicy;)V
+
+  public void setSheetOrder(java.lang.String, int);
+    descriptor: (Ljava/lang/String;I)V
+
+  private void updateNamedRangesAfterSheetReorder(int, int);
+    descriptor: (II)V
+
+  private void updateActiveSheetAfterSheetReorder(int, int);
+    descriptor: (II)V
+
+  private void validateSheetIndex(int);
+    descriptor: (I)V
+
+  public void setSelectedTab(int);
+    descriptor: (I)V
+
+  public void setSelectedTabs(int[]);
+    descriptor: ([I)V
+
+  public void setSelectedTabs(java.util.Collection<java.lang.Integer>);
+    descriptor: (Ljava/util/Collection;)V
+
+  public java.util.Collection<java.lang.Integer> getSelectedTabs();
+    descriptor: ()Ljava/util/Collection;
+
+  public void setActiveSheet(int);
+    descriptor: (I)V
+
+  public int getActiveSheetIndex();
+    descriptor: ()I
+
+  public void setFirstVisibleTab(int);
+    descriptor: (I)V
+
+  public int getFirstVisibleTab();
+    descriptor: ()I
+
+  public void setSheetName(int, java.lang.String);
+    descriptor: (ILjava/lang/String;)V
+
+  public java.lang.String getSheetName(int);
+    descriptor: (I)Ljava/lang/String;
+
+  public boolean isHidden();
+    descriptor: ()Z
+
+  public void setHidden(boolean);
+    descriptor: (Z)V
+
+  public boolean isSheetHidden(int);
+    descriptor: (I)Z
+
+  public boolean isSheetVeryHidden(int);
+    descriptor: (I)Z
+
+  public org.apache.poi.ss.usermodel.SheetVisibility getSheetVisibility(int);
+    descriptor: (I)Lorg/apache/poi/ss/usermodel/SheetVisibility;
+
+  public void setSheetHidden(int, boolean);
+    descriptor: (IZ)V
+
+  public void setSheetVisibility(int, org.apache.poi.ss.usermodel.SheetVisibility);
+    descriptor: (ILorg/apache/poi/ss/usermodel/SheetVisibility;)V
+
+  public int getSheetIndex(java.lang.String);
+    descriptor: (Ljava/lang/String;)I
+
+  public int getSheetIndex(org.apache.poi.ss.usermodel.Sheet);
+    descriptor: (Lorg/apache/poi/ss/usermodel/Sheet;)I
+
+  public org.apache.poi.hssf.usermodel.HSSFSheet createSheet();
+    descriptor: ()Lorg/apache/poi/hssf/usermodel/HSSFSheet;
+
+  public org.apache.poi.hssf.usermodel.HSSFSheet cloneSheet(int);
+    descriptor: (I)Lorg/apache/poi/hssf/usermodel/HSSFSheet;
+
+  private java.lang.String getUniqueSheetName(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/String;
+
+  public org.apache.poi.hssf.usermodel.HSSFSheet createSheet(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lorg/apache/poi/hssf/usermodel/HSSFSheet;
+
+  public java.util.Iterator<org.apache.poi.ss.usermodel.Sheet> sheetIterator();
+    descriptor: ()Ljava/util/Iterator;
+
+  public java.util.Iterator<org.apache.poi.ss.usermodel.Sheet> iterator();
+    descriptor: ()Ljava/util/Iterator;
+
+  public int getNumberOfSheets();
+    descriptor: ()I
+
+  private org.apache.poi.hssf.usermodel.HSSFSheet[] getSheets();
+    descriptor: ()[Lorg/apache/poi/hssf/usermodel/HSSFSheet;
+
+  public org.apache.poi.hssf.usermodel.HSSFSheet getSheetAt(int);
+    descriptor: (I)Lorg/apache/poi/hssf/usermodel/HSSFSheet;
+
+  public org.apache.poi.hssf.usermodel.HSSFSheet getSheet(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lorg/apache/poi/hssf/usermodel/HSSFSheet;
+
+  public void removeSheetAt(int);
+    descriptor: (I)V
+
+  public void setBackupFlag(boolean);
+    descriptor: (Z)V
+
+  public boolean getBackupFlag();
+    descriptor: ()Z
+
+  int findExistingBuiltinNameRecordIdx(int, byte);
+    descriptor: (IB)I
+
+  org.apache.poi.hssf.usermodel.HSSFName createBuiltInName(byte, int);
+    descriptor: (BI)Lorg/apache/poi/hssf/usermodel/HSSFName;
+
+  org.apache.poi.hssf.usermodel.HSSFName getBuiltInName(byte, int);
+    descriptor: (BI)Lorg/apache/poi/hssf/usermodel/HSSFName;
+
+  public org.apache.poi.hssf.usermodel.HSSFFont createFont();
+    descriptor: ()Lorg/apache/poi/hssf/usermodel/HSSFFont;
+
+  public org.apache.poi.hssf.usermodel.HSSFFont findFont(boolean, short, short, java.lang.String, boolean, boolean, short, byte);
+    descriptor: (ZSSLjava/lang/String;ZZSB)Lorg/apache/poi/hssf/usermodel/HSSFFont;
+
+  public short getNumberOfFonts();
+    descriptor: ()S
+
+  public int getNumberOfFontsAsInt();
+    descriptor: ()I
+
+  public org.apache.poi.hssf.usermodel.HSSFFont getFontAt(short);
+    descriptor: (S)Lorg/apache/poi/hssf/usermodel/HSSFFont;
+
+  public org.apache.poi.hssf.usermodel.HSSFFont getFontAt(int);
+    descriptor: (I)Lorg/apache/poi/hssf/usermodel/HSSFFont;
+
+  void resetFontCache();
+    descriptor: ()V
+
+  public org.apache.poi.hssf.usermodel.HSSFCellStyle createCellStyle();
+    descriptor: ()Lorg/apache/poi/hssf/usermodel/HSSFCellStyle;
+
+  public int getNumCellStyles();
+    descriptor: ()I
+
+  public org.apache.poi.hssf.usermodel.HSSFCellStyle getCellStyleAt(int);
+    descriptor: (I)Lorg/apache/poi/hssf/usermodel/HSSFCellStyle;
+
+  public void close() throws java.io.IOException;
+    descriptor: ()V
+
+  public void write() throws java.io.IOException;
+    descriptor: ()V
+
+  public void write(java.io.File) throws java.io.IOException;
+    descriptor: (Ljava/io/File;)V
+
+  public void write(java.io.OutputStream) throws java.io.IOException;
+    descriptor: (Ljava/io/OutputStream;)V
+
+  private void write(org.apache.poi.poifs.filesystem.POIFSFileSystem) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/poifs/filesystem/POIFSFileSystem;)V
+
+  public byte[] getBytes();
+    descriptor: ()[B
+
+  void encryptBytes(byte[]);
+    descriptor: ([B)V
+
+  org.apache.poi.hssf.model.InternalWorkbook getWorkbook();
+    descriptor: ()Lorg/apache/poi/hssf/model/InternalWorkbook;
+
+  public int getNumberOfNames();
+    descriptor: ()I
+
+  public org.apache.poi.hssf.usermodel.HSSFName getName(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lorg/apache/poi/hssf/usermodel/HSSFName;
+
+  public java.util.List<org.apache.poi.hssf.usermodel.HSSFName> getNames(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/util/List;
+
+  public org.apache.poi.hssf.usermodel.HSSFName getNameAt(int);
+    descriptor: (I)Lorg/apache/poi/hssf/usermodel/HSSFName;
+
+  public java.util.List<org.apache.poi.hssf.usermodel.HSSFName> getAllNames();
+    descriptor: ()Ljava/util/List;
+
+  public org.apache.poi.hssf.record.NameRecord getNameRecord(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/NameRecord;
+
+  public java.lang.String getNameName(int);
+    descriptor: (I)Ljava/lang/String;
+
+  public void setPrintArea(int, java.lang.String);
+    descriptor: (ILjava/lang/String;)V
+
+  public void setPrintArea(int, int, int, int, int);
+    descriptor: (IIIII)V
+
+  public java.lang.String getPrintArea(int);
+    descriptor: (I)Ljava/lang/String;
+
+  public void removePrintArea(int);
+    descriptor: (I)V
+
+  public org.apache.poi.hssf.usermodel.HSSFName createName();
+    descriptor: ()Lorg/apache/poi/hssf/usermodel/HSSFName;
+
+  public int getNameIndex(java.lang.String);
+    descriptor: (Ljava/lang/String;)I
+
+  int getNameIndex(org.apache.poi.hssf.usermodel.HSSFName);
+    descriptor: (Lorg/apache/poi/hssf/usermodel/HSSFName;)I
+
+  public void removeName(int);
+    descriptor: (I)V
+
+  public org.apache.poi.hssf.usermodel.HSSFDataFormat createDataFormat();
+    descriptor: ()Lorg/apache/poi/hssf/usermodel/HSSFDataFormat;
+
+  public void removeName(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void removeName(org.apache.poi.ss.usermodel.Name);
+    descriptor: (Lorg/apache/poi/ss/usermodel/Name;)V
+
+  public org.apache.poi.hssf.usermodel.HSSFPalette getCustomPalette();
+    descriptor: ()Lorg/apache/poi/hssf/usermodel/HSSFPalette;
+
+  public void insertChartRecord();
+    descriptor: ()V
+
+  public void dumpDrawingGroupRecords(boolean);
+    descriptor: (Z)V
+
+  void initDrawings();
+    descriptor: ()V
+
+  public int addPicture(byte[], int);
+    descriptor: ([BI)I
+
+  public java.util.List<org.apache.poi.hssf.usermodel.HSSFPictureData> getAllPictures();
+    descriptor: ()Ljava/util/List;
+
+  private void searchForPictures(java.util.List<org.apache.poi.ddf.EscherRecord>, java.util.List<org.apache.poi.hssf.usermodel.HSSFPictureData>);
+    descriptor: (Ljava/util/List;Ljava/util/List;)V
+
+  static java.util.Map<java.lang.String, org.apache.poi.hpsf.ClassID> getOleMap();
+    descriptor: ()Ljava/util/Map;
+
+  public int addOlePackage(org.apache.poi.poifs.filesystem.POIFSFileSystem, java.lang.String, java.lang.String, java.lang.String) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/poifs/filesystem/POIFSFileSystem;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+  public int addOlePackage(byte[], java.lang.String, java.lang.String, java.lang.String) throws java.io.IOException;
+    descriptor: ([BLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+  public int linkExternalWorkbook(java.lang.String, org.apache.poi.ss.usermodel.Workbook);
+    descriptor: (Ljava/lang/String;Lorg/apache/poi/ss/usermodel/Workbook;)I
+
+  public boolean isWriteProtected();
+    descriptor: ()Z
+
+  public void writeProtectWorkbook(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)V
+
+  public void unwriteProtectWorkbook();
+    descriptor: ()V
+
+  public java.util.List<org.apache.poi.hssf.usermodel.HSSFObjectData> getAllEmbeddedObjects();
+    descriptor: ()Ljava/util/List;
+
+  private void getAllEmbeddedObjects(org.apache.poi.hssf.usermodel.HSSFSheet, java.util.List<org.apache.poi.hssf.usermodel.HSSFObjectData>);
+    descriptor: (Lorg/apache/poi/hssf/usermodel/HSSFSheet;Ljava/util/List;)V
+
+  private void getAllEmbeddedObjects(org.apache.poi.hssf.usermodel.HSSFShapeContainer, java.util.List<org.apache.poi.hssf.usermodel.HSSFObjectData>);
+    descriptor: (Lorg/apache/poi/hssf/usermodel/HSSFShapeContainer;Ljava/util/List;)V
+
+  public org.apache.poi.hssf.usermodel.HSSFCreationHelper getCreationHelper();
+    descriptor: ()Lorg/apache/poi/hssf/usermodel/HSSFCreationHelper;
+
+  org.apache.poi.ss.formula.udf.UDFFinder getUDFFinder();
+    descriptor: ()Lorg/apache/poi/ss/formula/udf/UDFFinder;
+
+  public void addToolPack(org.apache.poi.ss.formula.udf.UDFFinder);
+    descriptor: (Lorg/apache/poi/ss/formula/udf/UDFFinder;)V
+
+  public void setForceFormulaRecalculation(boolean);
+    descriptor: (Z)V
+
+  public boolean getForceFormulaRecalculation();
+    descriptor: ()Z
+
+  public boolean changeExternalReference(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)Z
+
+  public org.apache.poi.hssf.model.InternalWorkbook getInternalWorkbook();
+    descriptor: ()Lorg/apache/poi/hssf/model/InternalWorkbook;
+
+  public org.apache.poi.ss.SpreadsheetVersion getSpreadsheetVersion();
+    descriptor: ()Lorg/apache/poi/ss/SpreadsheetVersion;
+
+  public org.apache.poi.poifs.crypt.EncryptionInfo getEncryptionInfo();
+    descriptor: ()Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+
+  private void updateEncryptionInfo();
+    descriptor: ()V
+
+  public org.apache.poi.ss.usermodel.CreationHelper getCreationHelper();
+    descriptor: ()Lorg/apache/poi/ss/usermodel/CreationHelper;
+
+  public org.apache.poi.ss.usermodel.DataFormat createDataFormat();
+    descriptor: ()Lorg/apache/poi/ss/usermodel/DataFormat;
+
+  public org.apache.poi.ss.usermodel.Name createName();
+    descriptor: ()Lorg/apache/poi/ss/usermodel/Name;
+
+  public org.apache.poi.ss.usermodel.Name getNameAt(int);
+    descriptor: (I)Lorg/apache/poi/ss/usermodel/Name;
+
+  public org.apache.poi.ss.usermodel.Name getName(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lorg/apache/poi/ss/usermodel/Name;
+
+  public org.apache.poi.ss.usermodel.CellStyle getCellStyleAt(int);
+    descriptor: (I)Lorg/apache/poi/ss/usermodel/CellStyle;
+
+  public org.apache.poi.ss.usermodel.CellStyle createCellStyle();
+    descriptor: ()Lorg/apache/poi/ss/usermodel/CellStyle;
+
+  public org.apache.poi.ss.usermodel.Font getFontAt(int);
+    descriptor: (I)Lorg/apache/poi/ss/usermodel/Font;
+
+  public org.apache.poi.ss.usermodel.Font getFontAt(short);
+    descriptor: (S)Lorg/apache/poi/ss/usermodel/Font;
+
+  public org.apache.poi.ss.usermodel.Font findFont(boolean, short, short, java.lang.String, boolean, boolean, short, byte);
+    descriptor: (ZSSLjava/lang/String;ZZSB)Lorg/apache/poi/ss/usermodel/Font;
+
+  public org.apache.poi.ss.usermodel.Font createFont();
+    descriptor: ()Lorg/apache/poi/ss/usermodel/Font;
+
+  public org.apache.poi.ss.usermodel.Sheet getSheet(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lorg/apache/poi/ss/usermodel/Sheet;
+
+  public org.apache.poi.ss.usermodel.Sheet getSheetAt(int);
+    descriptor: (I)Lorg/apache/poi/ss/usermodel/Sheet;
+
+  public org.apache.poi.ss.usermodel.Sheet cloneSheet(int);
+    descriptor: (I)Lorg/apache/poi/ss/usermodel/Sheet;
+
+  public org.apache.poi.ss.usermodel.Sheet createSheet(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lorg/apache/poi/ss/usermodel/Sheet;
+
+  public org.apache.poi.ss.usermodel.Sheet createSheet();
+    descriptor: ()Lorg/apache/poi/ss/usermodel/Sheet;
+
+  static {};
+    descriptor: ()V
+}
+Compiled from "POITextExtractor.java"
+public abstract class org.apache.poi.extractor.POITextExtractor implements java.io.Closeable {
+  private java.io.Closeable fsToClose;
+    descriptor: Ljava/io/Closeable;
+  public org.apache.poi.extractor.POITextExtractor();
+    descriptor: ()V
+
+  public abstract java.lang.String getText();
+    descriptor: ()Ljava/lang/String;
+
+  public abstract org.apache.poi.extractor.POITextExtractor getMetadataTextExtractor();
+    descriptor: ()Lorg/apache/poi/extractor/POITextExtractor;
+
+  public void setFilesystem(java.io.Closeable);
+    descriptor: (Ljava/io/Closeable;)V
+
+  public void close() throws java.io.IOException;
+    descriptor: ()V
+
+  public abstract java.lang.Object getDocument();
+    descriptor: ()Ljava/lang/Object;
+}
+BREAKING
+Compiled from "HSSFWorkbook.java"
+public final class org.apache.poi.hssf.usermodel.HSSFWorkbook extends org.apache.poi.POIDocument implements org.apache.poi.ss.usermodel.Workbook {
+  private static final int DEFAULT_MAX_RECORD_LENGTH;
+    descriptor: I
+  private static int MAX_RECORD_LENGTH;
+    descriptor: I
+  private static final int DEFAULT_MAX_IMAGE_LENGTH;
+    descriptor: I
+  private static int MAX_IMAGE_LENGTH;
+    descriptor: I
+  private static final java.util.regex.Pattern COMMA_PATTERN;
+    descriptor: Ljava/util/regex/Pattern;
+  private static final int MAX_STYLES;
+    descriptor: I
+  public static final int INITIAL_CAPACITY;
+    descriptor: I
+  private org.apache.poi.hssf.model.InternalWorkbook workbook;
+    descriptor: Lorg/apache/poi/hssf/model/InternalWorkbook;
+  protected java.util.List<org.apache.poi.hssf.usermodel.HSSFSheet> _sheets;
+    descriptor: Ljava/util/List;
+  private final java.util.ArrayList<org.apache.poi.hssf.usermodel.HSSFName> names;
+    descriptor: Ljava/util/ArrayList;
+  private java.util.Map<java.lang.Integer, org.apache.poi.hssf.usermodel.HSSFFont> fonts;
+    descriptor: Ljava/util/Map;
+  private boolean preserveNodes;
+    descriptor: Z
+  private org.apache.poi.hssf.usermodel.HSSFDataFormat formatter;
+    descriptor: Lorg/apache/poi/hssf/usermodel/HSSFDataFormat;
+  private org.apache.poi.ss.usermodel.Row$MissingCellPolicy missingCellPolicy;
+    descriptor: Lorg/apache/poi/ss/usermodel/Row$MissingCellPolicy;
+  private static final org.apache.logging.log4j.Logger LOGGER;
+    descriptor: Lorg/apache/logging/log4j/Logger;
+  private final org.apache.poi.ss.formula.udf.UDFFinder _udfFinder;
+    descriptor: Lorg/apache/poi/ss/formula/udf/UDFFinder;
+  public static org.apache.poi.hssf.usermodel.HSSFWorkbook create(org.apache.poi.hssf.model.InternalWorkbook);
+    descriptor: (Lorg/apache/poi/hssf/model/InternalWorkbook;)Lorg/apache/poi/hssf/usermodel/HSSFWorkbook;
+
+  public static void setMaxRecordLength(int);
+    descriptor: (I)V
+
+  public static int getMaxRecordLength();
+    descriptor: ()I
+
+  public static void setMaxImageLength(int);
+    descriptor: (I)V
+
+  public static int getMaxImageLength();
+    descriptor: ()I
+
+  public org.apache.poi.hssf.usermodel.HSSFWorkbook();
+    descriptor: ()V
+
+  private org.apache.poi.hssf.usermodel.HSSFWorkbook(org.apache.poi.hssf.model.InternalWorkbook);
+    descriptor: (Lorg/apache/poi/hssf/model/InternalWorkbook;)V
+
+  public org.apache.poi.hssf.usermodel.HSSFWorkbook(org.apache.poi.poifs.filesystem.POIFSFileSystem) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/poifs/filesystem/POIFSFileSystem;)V
+
+  public org.apache.poi.hssf.usermodel.HSSFWorkbook(org.apache.poi.poifs.filesystem.POIFSFileSystem, boolean) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/poifs/filesystem/POIFSFileSystem;Z)V
+
+  public static java.lang.String getWorkbookDirEntryName(org.apache.poi.poifs.filesystem.DirectoryNode);
+    descriptor: (Lorg/apache/poi/poifs/filesystem/DirectoryNode;)Ljava/lang/String;
+
+  public org.apache.poi.hssf.usermodel.HSSFWorkbook(org.apache.poi.poifs.filesystem.DirectoryNode, org.apache.poi.poifs.filesystem.POIFSFileSystem, boolean) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/poifs/filesystem/DirectoryNode;Lorg/apache/poi/poifs/filesystem/POIFSFileSystem;Z)V
+
+  public org.apache.poi.hssf.usermodel.HSSFWorkbook(org.apache.poi.poifs.filesystem.DirectoryNode, boolean) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/poifs/filesystem/DirectoryNode;Z)V
+
+  public org.apache.poi.hssf.usermodel.HSSFWorkbook(java.io.InputStream) throws java.io.IOException;
+    descriptor: (Ljava/io/InputStream;)V
+
+  public org.apache.poi.hssf.usermodel.HSSFWorkbook(java.io.InputStream, boolean) throws java.io.IOException;
+    descriptor: (Ljava/io/InputStream;Z)V
+
+  private void setPropertiesFromWorkbook(org.apache.poi.hssf.model.InternalWorkbook);
+    descriptor: (Lorg/apache/poi/hssf/model/InternalWorkbook;)V
+
+  private void convertLabelRecords(java.util.List<org.apache.poi.hssf.record.Record>, int);
+    descriptor: (Ljava/util/List;I)V
+
+  public org.apache.poi.ss.usermodel.Row$MissingCellPolicy getMissingCellPolicy();
+    descriptor: ()Lorg/apache/poi/ss/usermodel/Row$MissingCellPolicy;
+
+  public void setMissingCellPolicy(org.apache.poi.ss.usermodel.Row$MissingCellPolicy);
+    descriptor: (Lorg/apache/poi/ss/usermodel/Row$MissingCellPolicy;)V
+
+  public void setSheetOrder(java.lang.String, int);
+    descriptor: (Ljava/lang/String;I)V
+
+  private void updateNamedRangesAfterSheetReorder(int, int);
+    descriptor: (II)V
+
+  private void updateActiveSheetAfterSheetReorder(int, int);
+    descriptor: (II)V
+
+  private void validateSheetIndex(int);
+    descriptor: (I)V
+
+  public void setSelectedTab(int);
+    descriptor: (I)V
+
+  public void setSelectedTabs(int[]);
+    descriptor: ([I)V
+
+  public void setSelectedTabs(java.util.Collection<java.lang.Integer>);
+    descriptor: (Ljava/util/Collection;)V
+
+  public java.util.Collection<java.lang.Integer> getSelectedTabs();
+    descriptor: ()Ljava/util/Collection;
+
+  public void setActiveSheet(int);
+    descriptor: (I)V
+
+  public int getActiveSheetIndex();
+    descriptor: ()I
+
+  public void setFirstVisibleTab(int);
+    descriptor: (I)V
+
+  public int getFirstVisibleTab();
+    descriptor: ()I
+
+  public void setSheetName(int, java.lang.String);
+    descriptor: (ILjava/lang/String;)V
+
+  public java.lang.String getSheetName(int);
+    descriptor: (I)Ljava/lang/String;
+
+  public boolean isHidden();
+    descriptor: ()Z
+
+  public void setHidden(boolean);
+    descriptor: (Z)V
+
+  public boolean isSheetHidden(int);
+    descriptor: (I)Z
+
+  public boolean isSheetVeryHidden(int);
+    descriptor: (I)Z
+
+  public org.apache.poi.ss.usermodel.SheetVisibility getSheetVisibility(int);
+    descriptor: (I)Lorg/apache/poi/ss/usermodel/SheetVisibility;
+
+  public void setSheetHidden(int, boolean);
+    descriptor: (IZ)V
+
+  public void setSheetVisibility(int, org.apache.poi.ss.usermodel.SheetVisibility);
+    descriptor: (ILorg/apache/poi/ss/usermodel/SheetVisibility;)V
+
+  public int getSheetIndex(java.lang.String);
+    descriptor: (Ljava/lang/String;)I
+
+  public int getSheetIndex(org.apache.poi.ss.usermodel.Sheet);
+    descriptor: (Lorg/apache/poi/ss/usermodel/Sheet;)I
+
+  public org.apache.poi.hssf.usermodel.HSSFSheet createSheet();
+    descriptor: ()Lorg/apache/poi/hssf/usermodel/HSSFSheet;
+
+  public org.apache.poi.hssf.usermodel.HSSFSheet cloneSheet(int);
+    descriptor: (I)Lorg/apache/poi/hssf/usermodel/HSSFSheet;
+
+  private java.lang.String getUniqueSheetName(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/String;
+
+  public org.apache.poi.hssf.usermodel.HSSFSheet createSheet(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lorg/apache/poi/hssf/usermodel/HSSFSheet;
+
+  public java.util.Iterator<org.apache.poi.ss.usermodel.Sheet> sheetIterator();
+    descriptor: ()Ljava/util/Iterator;
+
+  public java.util.Spliterator<org.apache.poi.ss.usermodel.Sheet> spliterator();
+    descriptor: ()Ljava/util/Spliterator;
+
+  public int getNumberOfSheets();
+    descriptor: ()I
+
+  private org.apache.poi.hssf.usermodel.HSSFSheet[] getSheets();
+    descriptor: ()[Lorg/apache/poi/hssf/usermodel/HSSFSheet;
+
+  public org.apache.poi.hssf.usermodel.HSSFSheet getSheetAt(int);
+    descriptor: (I)Lorg/apache/poi/hssf/usermodel/HSSFSheet;
+
+  public org.apache.poi.hssf.usermodel.HSSFSheet getSheet(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lorg/apache/poi/hssf/usermodel/HSSFSheet;
+
+  public void removeSheetAt(int);
+    descriptor: (I)V
+
+  public void setBackupFlag(boolean);
+    descriptor: (Z)V
+
+  public boolean getBackupFlag();
+    descriptor: ()Z
+
+  int findExistingBuiltinNameRecordIdx(int, byte);
+    descriptor: (IB)I
+
+  org.apache.poi.hssf.usermodel.HSSFName createBuiltInName(byte, int);
+    descriptor: (BI)Lorg/apache/poi/hssf/usermodel/HSSFName;
+
+  org.apache.poi.hssf.usermodel.HSSFName getBuiltInName(byte, int);
+    descriptor: (BI)Lorg/apache/poi/hssf/usermodel/HSSFName;
+
+  public org.apache.poi.hssf.usermodel.HSSFFont createFont();
+    descriptor: ()Lorg/apache/poi/hssf/usermodel/HSSFFont;
+
+  public org.apache.poi.hssf.usermodel.HSSFFont findFont(boolean, short, short, java.lang.String, boolean, boolean, short, byte);
+    descriptor: (ZSSLjava/lang/String;ZZSB)Lorg/apache/poi/hssf/usermodel/HSSFFont;
+
+  public int getNumberOfFonts();
+    descriptor: ()I
+
+  public int getNumberOfFontsAsInt();
+    descriptor: ()I
+
+  public org.apache.poi.hssf.usermodel.HSSFFont getFontAt(int);
+    descriptor: (I)Lorg/apache/poi/hssf/usermodel/HSSFFont;
+
+  void resetFontCache();
+    descriptor: ()V
+
+  public org.apache.poi.hssf.usermodel.HSSFCellStyle createCellStyle();
+    descriptor: ()Lorg/apache/poi/hssf/usermodel/HSSFCellStyle;
+
+  public int getNumCellStyles();
+    descriptor: ()I
+
+  public org.apache.poi.hssf.usermodel.HSSFCellStyle getCellStyleAt(int);
+    descriptor: (I)Lorg/apache/poi/hssf/usermodel/HSSFCellStyle;
+
+  public void close() throws java.io.IOException;
+    descriptor: ()V
+
+  public void write() throws java.io.IOException;
+    descriptor: ()V
+
+  public void write(java.io.File) throws java.io.IOException;
+    descriptor: (Ljava/io/File;)V
+
+  public void write(java.io.OutputStream) throws java.io.IOException;
+    descriptor: (Ljava/io/OutputStream;)V
+
+  private void write(org.apache.poi.poifs.filesystem.POIFSFileSystem) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/poifs/filesystem/POIFSFileSystem;)V
+
+  public byte[] getBytes();
+    descriptor: ()[B
+
+  void encryptBytes(byte[]);
+    descriptor: ([B)V
+
+  public org.apache.poi.hssf.model.InternalWorkbook getWorkbook();
+    descriptor: ()Lorg/apache/poi/hssf/model/InternalWorkbook;
+
+  public int getNumberOfNames();
+    descriptor: ()I
+
+  public org.apache.poi.hssf.usermodel.HSSFName getName(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lorg/apache/poi/hssf/usermodel/HSSFName;
+
+  public java.util.List<org.apache.poi.hssf.usermodel.HSSFName> getNames(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/util/List;
+
+  org.apache.poi.hssf.usermodel.HSSFName getNameAt(int);
+    descriptor: (I)Lorg/apache/poi/hssf/usermodel/HSSFName;
+
+  public java.util.List<org.apache.poi.hssf.usermodel.HSSFName> getAllNames();
+    descriptor: ()Ljava/util/List;
+
+  public org.apache.poi.hssf.record.NameRecord getNameRecord(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/NameRecord;
+
+  public java.lang.String getNameName(int);
+    descriptor: (I)Ljava/lang/String;
+
+  public void setPrintArea(int, java.lang.String);
+    descriptor: (ILjava/lang/String;)V
+
+  public void setPrintArea(int, int, int, int, int);
+    descriptor: (IIIII)V
+
+  public java.lang.String getPrintArea(int);
+    descriptor: (I)Ljava/lang/String;
+
+  public void removePrintArea(int);
+    descriptor: (I)V
+
+  public org.apache.poi.hssf.usermodel.HSSFName createName();
+    descriptor: ()Lorg/apache/poi/hssf/usermodel/HSSFName;
+
+  public org.apache.poi.ss.usermodel.CellReferenceType getCellReferenceType();
+    descriptor: ()Lorg/apache/poi/ss/usermodel/CellReferenceType;
+
+  public void setCellReferenceType(org.apache.poi.ss.usermodel.CellReferenceType);
+    descriptor: (Lorg/apache/poi/ss/usermodel/CellReferenceType;)V
+
+  int getNameIndex(java.lang.String);
+    descriptor: (Ljava/lang/String;)I
+
+  int getNameIndex(org.apache.poi.hssf.usermodel.HSSFName);
+    descriptor: (Lorg/apache/poi/hssf/usermodel/HSSFName;)I
+
+  void removeName(int);
+    descriptor: (I)V
+
+  public org.apache.poi.hssf.usermodel.HSSFDataFormat createDataFormat();
+    descriptor: ()Lorg/apache/poi/hssf/usermodel/HSSFDataFormat;
+
+  public void removeName(org.apache.poi.ss.usermodel.Name);
+    descriptor: (Lorg/apache/poi/ss/usermodel/Name;)V
+
+  public org.apache.poi.hssf.usermodel.HSSFPalette getCustomPalette();
+    descriptor: ()Lorg/apache/poi/hssf/usermodel/HSSFPalette;
+
+  public void insertChartRecord();
+    descriptor: ()V
+
+  public void dumpDrawingGroupRecords(boolean);
+    descriptor: (Z)V
+
+  void initDrawings();
+    descriptor: ()V
+
+  public int addPicture(byte[], int);
+    descriptor: ([BI)I
+
+  public java.util.List<org.apache.poi.hssf.usermodel.HSSFPictureData> getAllPictures();
+    descriptor: ()Ljava/util/List;
+
+  private void searchForPictures(java.util.List<org.apache.poi.ddf.EscherRecord>, java.util.List<org.apache.poi.hssf.usermodel.HSSFPictureData>);
+    descriptor: (Ljava/util/List;Ljava/util/List;)V
+
+  static java.util.Map<java.lang.String, org.apache.poi.hpsf.ClassID> getOleMap();
+    descriptor: ()Ljava/util/Map;
+
+  public int addOlePackage(org.apache.poi.poifs.filesystem.POIFSFileSystem, java.lang.String, java.lang.String, java.lang.String) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/poifs/filesystem/POIFSFileSystem;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+  public int addOlePackage(byte[], java.lang.String, java.lang.String, java.lang.String) throws java.io.IOException;
+    descriptor: ([BLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+  public int linkExternalWorkbook(java.lang.String, org.apache.poi.ss.usermodel.Workbook);
+    descriptor: (Ljava/lang/String;Lorg/apache/poi/ss/usermodel/Workbook;)I
+
+  public boolean isWriteProtected();
+    descriptor: ()Z
+
+  public void writeProtectWorkbook(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)V
+
+  public void unwriteProtectWorkbook();
+    descriptor: ()V
+
+  public java.util.List<org.apache.poi.hssf.usermodel.HSSFObjectData> getAllEmbeddedObjects();
+    descriptor: ()Ljava/util/List;
+
+  private void getAllEmbeddedObjects(org.apache.poi.hssf.usermodel.HSSFSheet, java.util.List<org.apache.poi.hssf.usermodel.HSSFObjectData>);
+    descriptor: (Lorg/apache/poi/hssf/usermodel/HSSFSheet;Ljava/util/List;)V
+
+  private void getAllEmbeddedObjects(org.apache.poi.hssf.usermodel.HSSFShapeContainer, java.util.List<org.apache.poi.hssf.usermodel.HSSFObjectData>);
+    descriptor: (Lorg/apache/poi/hssf/usermodel/HSSFShapeContainer;Ljava/util/List;)V
+
+  public org.apache.poi.hssf.usermodel.HSSFCreationHelper getCreationHelper();
+    descriptor: ()Lorg/apache/poi/hssf/usermodel/HSSFCreationHelper;
+
+  org.apache.poi.ss.formula.udf.UDFFinder getUDFFinder();
+    descriptor: ()Lorg/apache/poi/ss/formula/udf/UDFFinder;
+
+  public void addToolPack(org.apache.poi.ss.formula.udf.UDFFinder);
+    descriptor: (Lorg/apache/poi/ss/formula/udf/UDFFinder;)V
+
+  public void setForceFormulaRecalculation(boolean);
+    descriptor: (Z)V
+
+  public boolean getForceFormulaRecalculation();
+    descriptor: ()Z
+
+  public boolean changeExternalReference(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)Z
+
+  public org.apache.poi.hssf.model.InternalWorkbook getInternalWorkbook();
+    descriptor: ()Lorg/apache/poi/hssf/model/InternalWorkbook;
+
+  public org.apache.poi.ss.SpreadsheetVersion getSpreadsheetVersion();
+    descriptor: ()Lorg/apache/poi/ss/SpreadsheetVersion;
+
+  public org.apache.poi.poifs.crypt.EncryptionInfo getEncryptionInfo();
+    descriptor: ()Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+
+  private void updateEncryptionInfo();
+    descriptor: ()V
+
+  public org.apache.poi.hssf.usermodel.HSSFEvaluationWorkbook createEvaluationWorkbook();
+    descriptor: ()Lorg/apache/poi/hssf/usermodel/HSSFEvaluationWorkbook;
+
+  public void setEncryptionMode(org.apache.poi.poifs.crypt.EncryptionMode);
+    descriptor: (Lorg/apache/poi/poifs/crypt/EncryptionMode;)V
+
+  public org.apache.poi.poifs.crypt.EncryptionMode getEncryptionMode();
+    descriptor: ()Lorg/apache/poi/poifs/crypt/EncryptionMode;
+
+  public org.apache.poi.ss.formula.EvaluationWorkbook createEvaluationWorkbook();
+    descriptor: ()Lorg/apache/poi/ss/formula/EvaluationWorkbook;
+
+  public org.apache.poi.ss.usermodel.CreationHelper getCreationHelper();
+    descriptor: ()Lorg/apache/poi/ss/usermodel/CreationHelper;
+
+  public org.apache.poi.ss.usermodel.DataFormat createDataFormat();
+    descriptor: ()Lorg/apache/poi/ss/usermodel/DataFormat;
+
+  public org.apache.poi.ss.usermodel.Name createName();
+    descriptor: ()Lorg/apache/poi/ss/usermodel/Name;
+
+  public org.apache.poi.ss.usermodel.Name getName(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lorg/apache/poi/ss/usermodel/Name;
+
+  public org.apache.poi.ss.usermodel.CellStyle getCellStyleAt(int);
+    descriptor: (I)Lorg/apache/poi/ss/usermodel/CellStyle;
+
+  public org.apache.poi.ss.usermodel.CellStyle createCellStyle();
+    descriptor: ()Lorg/apache/poi/ss/usermodel/CellStyle;
+
+  public org.apache.poi.ss.usermodel.Font getFontAt(int);
+    descriptor: (I)Lorg/apache/poi/ss/usermodel/Font;
+
+  public org.apache.poi.ss.usermodel.Font findFont(boolean, short, short, java.lang.String, boolean, boolean, short, byte);
+    descriptor: (ZSSLjava/lang/String;ZZSB)Lorg/apache/poi/ss/usermodel/Font;
+
+  public org.apache.poi.ss.usermodel.Font createFont();
+    descriptor: ()Lorg/apache/poi/ss/usermodel/Font;
+
+  public org.apache.poi.ss.usermodel.Sheet getSheet(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lorg/apache/poi/ss/usermodel/Sheet;
+
+  public org.apache.poi.ss.usermodel.Sheet getSheetAt(int);
+    descriptor: (I)Lorg/apache/poi/ss/usermodel/Sheet;
+
+  public org.apache.poi.ss.usermodel.Sheet cloneSheet(int);
+    descriptor: (I)Lorg/apache/poi/ss/usermodel/Sheet;
+
+  public org.apache.poi.ss.usermodel.Sheet createSheet(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lorg/apache/poi/ss/usermodel/Sheet;
+
+  public org.apache.poi.ss.usermodel.Sheet createSheet();
+    descriptor: ()Lorg/apache/poi/ss/usermodel/Sheet;
+
+  static {};
+    descriptor: ()V
+}
+Compiled from "POITextExtractor.java"
+public interface org.apache.poi.extractor.POITextExtractor extends java.io.Closeable {
+  public abstract java.lang.String getText();
+    descriptor: ()Ljava/lang/String;
+
+  public abstract org.apache.poi.extractor.POITextExtractor getMetadataTextExtractor();
+    descriptor: ()Lorg/apache/poi/extractor/POITextExtractor;
+
+  public abstract void setCloseFilesystem(boolean);
+    descriptor: (Z)V
+
+  public abstract boolean isCloseFilesystem();
+    descriptor: ()Z
+
+  public abstract java.io.Closeable getFilesystem();
+    descriptor: ()Ljava/io/Closeable;
+
+  public default void close() throws java.io.IOException;
+    descriptor: ()V
+
+  public abstract java.lang.Object getDocument();
+    descriptor: ()Ljava/lang/Object;
+}
+OOXML
+Compiled from "POIXMLTextExtractor.java"
+public abstract class org.apache.poi.ooxml.extractor.POIXMLTextExtractor extends org.apache.poi.extractor.POITextExtractor {
+  private final org.apache.poi.ooxml.POIXMLDocument _document;
+  public org.apache.poi.ooxml.extractor.POIXMLTextExtractor(org.apache.poi.ooxml.POIXMLDocument);
+  public org.apache.poi.ooxml.POIXMLProperties$CoreProperties getCoreProperties();
+  public org.apache.poi.ooxml.POIXMLProperties$ExtendedProperties getExtendedProperties();
+  public org.apache.poi.ooxml.POIXMLProperties$CustomProperties getCustomProperties();
+  public final org.apache.poi.ooxml.POIXMLDocument getDocument();
+  public org.apache.poi.openxml4j.opc.OPCPackage getPackage();
+  public org.apache.poi.ooxml.extractor.POIXMLPropertiesTextExtractor getMetadataTextExtractor();
+  public void close() throws java.io.IOException;
+  protected void checkMaxTextSize(java.lang.CharSequence, java.lang.String);
+  public java.lang.Object getDocument();
+  public org.apache.poi.extractor.POITextExtractor getMetadataTextExtractor();
+}

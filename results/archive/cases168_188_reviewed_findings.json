@@ -1,0 +1,114 @@
+{
+  "168": [
+    "B",
+    "NO",
+    "net.minidev.json.parser.ParseException",
+    "UPDATED_LIBRARY",
+    "JSON Smart 2.4.9 rejects the existing scheduler fixtures under its parser nesting restriction. IssuesTest.testIssue100 and testIssue101 fail during parsing after the same fixtures passed in PRE. Counts reconcile duplicate TestNG report formats."
+  ],
+  "169": [
+    "N",
+    "YES",
+    "java.lang.NoClassDefFoundError",
+    "UPDATED_LIBRARY",
+    "Logback Classic 1.4.3 references SanityChecker during configuration. The retained Logback Core 1.4.1 lacks that class. The second error follows the failed initialization of FilterTest."
+  ],
+  "170": [
+    "N",
+    "YES",
+    "java.lang.NoClassDefFoundError",
+    "UPDATED_LIBRARY",
+    "Jackson Databind 2.13.2 references JsonKey, which is absent from the retained Jackson Annotations JAR. The messaging module reports five missing-class errors and one assertion failure wrapping the same exception. Later modules did not run."
+  ],
+  "171": [
+    "B",
+    "NO",
+    "java.lang.IllegalStateException",
+    "LIBRARY",
+    "SLF4J 2.0.0 ignores the present legacy Logback 1.2.3 binding and selects NOP logging. Dropwizard cannot obtain the expected logger context during test server startup, leading to ten setup errors. The original runtime pair and logger probe show the provider selection change."
+  ],
+  "172": [
+    "N",
+    "YES",
+    "java.lang.AssertionError",
+    "LIBRARY",
+    "Logback Classic 1.4.5 no longer includes StaticLoggerBinder, which retained SLF4J 1.7.36 directly calls. Its missing-class fallback suppresses warnings and prompts, leading to two assertions against empty output."
+  ],
+  "173": [
+    "N",
+    "YES",
+    "java.lang.NoClassDefFoundError",
+    "UPDATED_LIBRARY",
+    "Jetty Server 10.0.10 references AbstractLifeCycle.StopException, which the retained Jetty Util JAR lacks. One test reports the missing type and nine report the resulting failure to initialize MutableServletContextHandler."
+  ],
+  "174": [
+    "N",
+    "YES",
+    "java.lang.NoClassDefFoundError",
+    "UPDATED_LIBRARY",
+    "Log4j Core 2.18.0 requires ServiceLoaderUtil, which is absent from retained Log4j API 2.16.0. The initial runtime class failure breaks LoggerContext initialization and produces cascading errors."
+  ],
+  "180": [
+    "N",
+    "NO",
+    "javax.validation.NoProviderFoundException",
+    "LIBRARY",
+    "Hibernate Validator 7.0.2.Final advertises a Jakarta Bean Validation provider. BillyValidator uses the retained javax Validation API and cannot discover a provider for that namespace. The initializer fails and later tests report the failed initialization. The reactor stops in billy-core."
+  ],
+  "181": [
+    "B",
+    "NO",
+    "java.lang.AssertionError",
+    "UPDATED_LIBRARY",
+    "jsoup 1.15.3 trims whitespace in Element.html() for the existing Microdata1 fixture. SPARQL Anything stores that string as an innerHTML RDF literal, so the output graph no longer matches the expected graph. The isolated probe used identical compiled code and fixture bytes in both images. Text extraction produced identical output, and the HTML serialization check reproduced the changed whitespace."
+  ],
+  "182": [
+    "N",
+    "YES",
+    "java.lang.NoClassDefFoundError",
+    "UPDATED_LIBRARY",
+    "Updated Jackson Databind references JsonKey, which the retained Jackson Annotations JAR lacks. Direct serialization errors and HTTP failures from the embedded test server occur in the same run."
+  ],
+  "183": [
+    "N",
+    "YES",
+    "java.lang.IllegalAccessError",
+    "LIBRARY",
+    "The gRPC update changes proto-google-common-protos from 2.14.0 to 2.22.1. Its MetricDescriptor calls LazyStringArrayList.emptyList(), which is inaccessible in retained protobuf-java 3.14.0. Quarkus integration test startup fails with IllegalAccessError."
+  ],
+  "184": [
+    "B",
+    "NO",
+    "java.lang.ClassCastException",
+    "CLIENT",
+    "SLF4J 2.0.1 ignores the existing Logback 1.2.11 binder and returns NOPLoggerFactory. JadlerMockerTest casts the returned factory to LoggerContext. Its five casts now fail, and subsequent modules do not run. The same compiled logger probe reproduces the factory change."
+  ],
+  "185": [
+    "B",
+    "NO",
+    "java.lang.ClassCastException",
+    "CLIENT",
+    "SLF4J 2.0.0 ignores the retained Logback 1.2.11 binder and selects NOP logging. Eight client logger casts fail and four Dropwizard resource-test classes cannot initialize the logger context. Those class-level reports account for the lower BREAKING test count."
+  ],
+  "186": [
+    "B",
+    "NO",
+    "java.lang.ClassCastException",
+    "CLIENT",
+    "SLF4J 2.0.2 ignores the retained Logback binding and selects NOP logging. Eight logger casts fail and four Dropwizard resource-test classes cannot initialize their logger context. The class-level errors account for the lower reported BREAKING test count."
+  ],
+  "187": [
+    "N",
+    "YES",
+    "java.lang.NoClassDefFoundError",
+    "UPDATED_LIBRARY",
+    "Jackson Databind requires JsonMerge, which is missing from retained Jackson Annotations. The first ObjectMapper initialization fails, and later tests report the failed initialization as a downstream exception. Counts exclude duplicate TestNG exports."
+  ],
+  "188": [
+    "B",
+    "NO",
+    "java.lang.ExceptionInInitializerError",
+    "UPDATED_LIBRARY",
+    "ANTLR 4.10 rejects version 3 of the serialized ATN embedded in the unchanged generated lexer. The same compiled lexer and probe initialize successfully with runtime 4.7.2. Both expose deserialize(char[]), and the updated method reaches format validation and expects version 4."
+  ]
+}

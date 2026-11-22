@@ -1,0 +1,28 @@
+﻿
+=== Case 64  52ba94ad488d562bce56eee92fb46c63fba6541b ===
+Project : jenkinsci/github-checks-plugin
+Update  : org.jenkins-ci.plugins:github-api  1.117 -> 1.303-400.v35c2d8258028
+Running breaking in container manual-case64-breaking (this can take several minutes) ...
+Finished in 124 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case64_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 49, Failures: 1, Errors: 0, Skipped: 0
+First failing tests / errors:
+  [ERROR] ArchitectureTest.NO_JENKINS_INSTANCE_CALL  Time elapsed: 5.257 s  <<< FAILURE!
+      java.lang.AssertionError:
+      Architecture Violation [Priority: MEDIUM] - Rule 'no classes that do not have simple name 'JenkinsFacade' should call method Jenkins.getInstance() or should call method Jenkins.getInstanceOrNull() or should call method Jenkins.getActiveInstance() or should call method Jenkins.get()' was violated (2 times):
+      Method <io.jenkins.plugins.okhttp.api.JenkinsOkHttpClient.newClientBuilder(okhttp3.OkHttpClient)> calls method <jenkins.model.Jenkins.get()> in (JenkinsOkHttpClient.java:28)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  none
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R10: Tooling or test-infrastructure failure)
+Cause   : ArchUnit rule ArchitectureTest.NO_JENKINS_INSTANCE_CALL now scans io.jenkins.plugins.okhttp.api.JenkinsOkHttpClient from the new transitive okhttp-api 4.9.2 jar, which calls Jenkins.get(); static architecture violation caused by classpath contents, not runtime behaviour
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

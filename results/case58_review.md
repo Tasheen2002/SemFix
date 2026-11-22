@@ -1,0 +1,17 @@
+# Case 58 review
+
+The dependency-track-maven-plugin JAXB implementation upgrade from 2.3.3 to 4.0.0 is assessed **non-behavioural**, pending independent human review. The project retains the javax JAXB API while the new implementation registers a jakarta JAXB provider; the required compatible implementation is unavailable.
+
+Both original BUMP Docker images were executed. PRE passed 163 tests with zero failures, errors or skips. BREAKING also ran 163 tests, with three assertion failures, zero errors and zero skips, ending with Maven BUILD FAILURE. Each image produced 32 fresh Surefire XML reports; their aggregate counts agree with Maven.
+
+The failures are FindingsReportIntegrationTest.thatXmlFileCanBeGenerated, thatXmlFileCanBeTransformed, and FindingsMojoIntegrationTest.thatBuildFailsWhenFindingsNumberBreachesDefinedThresholds. The first two fail with "Exception not expected" after XML report creation fails. The threshold test fails with "Exception expected": report generation at FindingsMojo.java:100 precedes the policy-breach exception at line 103, and the report exception goes through the existing handleFailure path. With failOnError false, that handler returns without raising the expected policy failure. These are downstream assertions rather than independently established semantic API changes.
+
+The logged exception chain is DependencyTrackException -> javax.xml.bind.JAXBException (Implementation of JAXB-API has not been found) -> ClassNotFoundException for com.sun.xml.internal.bind.v2.ContextFactory. Source calls JAXBContext.newInstance in FindingsReportMarshallerService.java:12 using javax.xml.bind. The resolved classpath retains javax jaxb-api 2.3.1 and jaxb-core 2.3.0.1.
+
+Actual JAR inspection confirms PRE jaxb-impl 2.3.3 supplies javax.xml.bind service descriptors and com.sun.xml.bind.v2.ContextFactory. BREAKING jaxb-impl 4.0.0 supplies only the jakarta.xml.bind.JAXBContextFactory descriptor and relocated org.glassfish.jaxb.runtime classes. The legacy provider is absent from that upgraded JAR. The internal ContextFactory named by the fallback exception is absent in both original implementation JARs: it was not a PRE class that the upgrade removed. The failure is loss of a compatible provider for the retained API, followed by an unsuccessful fallback lookup. This supports a non-behavioural missing-runtime-implementation/namespace incompatibility assessment.
+
+All 105 archived source/POM files match except the root POM's single jaxb-impl version change. The affected classpath also loses transitive jakarta.xml.bind-api 2.3.3 (which belonged to the javax API generation) and jakarta.activation 1.2.2. This is the observed Maven resolution; no isolated substitution experiment was run. PRE already emits an SLF4J binding warning and succeeds, so that warning does not explain this update's failures.
+
+Automated triage reports AUTO_NON_BEHAVIORAL_CANDIDATE, while the evidence-backed agent assessment is stored separately as PENDING_HUMAN_REVIEW with empty reviewer and final labels. No repair was attempted. The original image pipes Maven through tee, so Docker exit zero masks the BREAKING Maven failure; explicit build output and fresh reports establish the result.
+
+Raw logs use prefix 4d4a773e under logs/batch_triage/. Sources, fresh reports, image/container provenance, resolved JAXB API/core/implementation JARs and service/class inspection are retained in logs/case58_evidence/.

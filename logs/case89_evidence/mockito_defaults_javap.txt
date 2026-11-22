@@ -1,0 +1,399 @@
+pre/mockito-core-4.11.0.jar
+Compiled from "DefaultMockitoPlugins.java"
+public class org.mockito.internal.configuration.plugins.DefaultMockitoPlugins implements org.mockito.plugins.MockitoPlugins {
+  private static final java.util.Map<java.lang.String, java.lang.String> DEFAULT_PLUGINS;
+
+  static final java.lang.String INLINE_ALIAS;
+
+  static final java.lang.String PROXY_ALIAS;
+
+  static final java.lang.String SUBCLASS_ALIAS;
+
+  public static final java.util.Set<java.lang.String> MOCK_MAKER_ALIASES;
+
+  static final java.lang.String MODULE_ALIAS;
+
+  public org.mockito.internal.configuration.plugins.DefaultMockitoPlugins();
+    Code:
+       0: aload_0
+       1: invokespecial #2                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public <T> T getDefaultPlugin(java.lang.Class<T>);
+    Code:
+       0: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+       3: aload_1
+       4: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+       7: invokeinterface #5,  2            // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      12: checkcast     #6                  // class java/lang/String
+      15: astore_2
+      16: aload_0
+      17: aload_1
+      18: aload_2
+      19: invokespecial #7                  // Method create:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;
+      22: areturn
+
+  public static java.lang.String getDefaultPluginClass(java.lang.String);
+    Code:
+       0: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+       3: aload_0
+       4: invokeinterface #5,  2            // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       9: checkcast     #6                  // class java/lang/String
+      12: areturn
+
+  private <T> T create(java.lang.Class<T>, java.lang.String);
+    Code:
+       0: aload_2
+       1: ifnonnull     39
+       4: new           #8                  // class java/lang/IllegalStateException
+       7: dup
+       8: new           #9                  // class java/lang/StringBuilder
+      11: dup
+      12: invokespecial #10                 // Method java/lang/StringBuilder."<init>":()V
+      15: ldc           #11                 // String No default implementation for requested Mockito plugin type:
+      17: invokevirtual #12                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      20: aload_1
+      21: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      24: invokevirtual #12                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      27: ldc           #13                 // String \nIs this a valid Mockito plugin type? If yes, please report this problem to Mockito team.\nOtherwise, please check if you are passing valid plugin type.\nExamples of valid plugin types: MockMaker, StackTraceCleanerProvider.
+      29: invokevirtual #12                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      32: invokevirtual #14                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      35: invokespecial #15                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+      38: athrow
+      39: aload_1
+      40: aload_2
+      41: invokestatic  #16                 // Method java/lang/Class.forName:(Ljava/lang/String;)Ljava/lang/Class;
+      44: iconst_0
+      45: anewarray     #17                 // class java/lang/Class
+      48: invokevirtual #18                 // Method java/lang/Class.getDeclaredConstructor:([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+      51: iconst_0
+      52: anewarray     #19                 // class java/lang/Object
+      55: invokevirtual #20                 // Method java/lang/reflect/Constructor.newInstance:([Ljava/lang/Object;)Ljava/lang/Object;
+      58: invokevirtual #21                 // Method java/lang/Class.cast:(Ljava/lang/Object;)Ljava/lang/Object;
+      61: areturn
+      62: astore_3
+      63: new           #8                  // class java/lang/IllegalStateException
+      66: dup
+      67: new           #9                  // class java/lang/StringBuilder
+      70: dup
+      71: invokespecial #10                 // Method java/lang/StringBuilder."<init>":()V
+      74: ldc           #23                 // String Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load
+      76: invokevirtual #12                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      79: aload_1
+      80: invokevirtual #24                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      83: invokevirtual #14                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      86: aload_3
+      87: invokespecial #25                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+      90: athrow
+    Exception table:
+       from    to  target type
+          39    61    62   Class java/lang/Exception
+
+  public org.mockito.plugins.MockMaker getInlineMockMaker();
+    Code:
+       0: aload_0
+       1: ldc           #26                 // class org/mockito/plugins/MockMaker
+       3: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+       6: ldc           #28                 // String mock-maker-inline
+       8: invokeinterface #5,  2            // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      13: checkcast     #6                  // class java/lang/String
+      16: invokespecial #7                  // Method create:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;
+      19: checkcast     #26                 // class org/mockito/plugins/MockMaker
+      22: areturn
+
+  static {};
+    Code:
+       0: new           #29                 // class java/util/HashMap
+       3: dup
+       4: invokespecial #30                 // Method java/util/HashMap."<init>":()V
+       7: putstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+      10: new           #31                 // class java/util/HashSet
+      13: dup
+      14: invokespecial #32                 // Method java/util/HashSet."<init>":()V
+      17: putstatic     #33                 // Field MOCK_MAKER_ALIASES:Ljava/util/Set;
+      20: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+      23: ldc           #34                 // class org/mockito/plugins/PluginSwitch
+      25: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      28: ldc           #35                 // class org/mockito/internal/configuration/plugins/DefaultPluginSwitch
+      30: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      33: invokeinterface #36,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      38: pop
+      39: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+      42: ldc           #26                 // class org/mockito/plugins/MockMaker
+      44: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      47: ldc           #37                 // String org.mockito.internal.creation.bytebuddy.ByteBuddyMockMaker
+      49: invokeinterface #36,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      54: pop
+      55: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+      58: ldc           #38                 // class org/mockito/plugins/StackTraceCleanerProvider
+      60: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      63: ldc           #39                 // String org.mockito.internal.exceptions.stacktrace.DefaultStackTraceCleanerProvider
+      65: invokeinterface #36,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      70: pop
+      71: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+      74: ldc           #40                 // class org/mockito/plugins/InstantiatorProvider2
+      76: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      79: ldc           #41                 // String org.mockito.internal.creation.instance.DefaultInstantiatorProvider
+      81: invokeinterface #36,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      86: pop
+      87: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+      90: ldc           #42                 // class org/mockito/plugins/AnnotationEngine
+      92: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      95: ldc           #43                 // String org.mockito.internal.configuration.InjectingAnnotationEngine
+      97: invokeinterface #36,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     102: pop
+     103: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+     106: ldc           #28                 // String mock-maker-inline
+     108: ldc           #44                 // String org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker
+     110: invokeinterface #36,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     115: pop
+     116: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+     119: ldc           #45                 // String mock-maker-proxy
+     121: ldc           #46                 // String org.mockito.internal.creation.proxy.ProxyMockMaker
+     123: invokeinterface #36,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     128: pop
+     129: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+     132: ldc           #47                 // String mock-maker-subclass
+     134: ldc           #37                 // String org.mockito.internal.creation.bytebuddy.ByteBuddyMockMaker
+     136: invokeinterface #36,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     141: pop
+     142: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+     145: ldc           #48                 // class org/mockito/plugins/MockitoLogger
+     147: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+     150: ldc           #49                 // String org.mockito.internal.util.ConsoleMockitoLogger
+     152: invokeinterface #36,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     157: pop
+     158: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+     161: ldc           #50                 // class org/mockito/plugins/MemberAccessor
+     163: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+     166: ldc           #51                 // String org.mockito.internal.util.reflection.ReflectionMemberAccessor
+     168: invokeinterface #36,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     173: pop
+     174: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+     177: ldc           #52                 // String member-accessor-module
+     179: ldc           #53                 // String org.mockito.internal.util.reflection.ModuleMemberAccessor
+     181: invokeinterface #36,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     186: pop
+     187: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+     190: ldc           #54                 // class org/mockito/plugins/DoNotMockEnforcer
+     192: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+     195: ldc           #55                 // String org.mockito.internal.configuration.DefaultDoNotMockEnforcer
+     197: invokeinterface #36,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     202: pop
+     203: getstatic     #33                 // Field MOCK_MAKER_ALIASES:Ljava/util/Set;
+     206: ldc           #28                 // String mock-maker-inline
+     208: invokeinterface #56,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     213: pop
+     214: getstatic     #33                 // Field MOCK_MAKER_ALIASES:Ljava/util/Set;
+     217: ldc           #45                 // String mock-maker-proxy
+     219: invokeinterface #56,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     224: pop
+     225: getstatic     #33                 // Field MOCK_MAKER_ALIASES:Ljava/util/Set;
+     228: ldc           #47                 // String mock-maker-subclass
+     230: invokeinterface #56,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     235: pop
+     236: return
+}
+breaking/mockito-core-5.3.1.jar
+Compiled from "DefaultMockitoPlugins.java"
+public class org.mockito.internal.configuration.plugins.DefaultMockitoPlugins implements org.mockito.plugins.MockitoPlugins {
+  private static final java.util.Map<java.lang.String, java.lang.String> DEFAULT_PLUGINS;
+
+  static final java.lang.String INLINE_ALIAS;
+
+  static final java.lang.String PROXY_ALIAS;
+
+  static final java.lang.String SUBCLASS_ALIAS;
+
+  public static final java.util.Set<java.lang.String> MOCK_MAKER_ALIASES;
+
+  static final java.lang.String MODULE_ALIAS;
+
+  static final java.lang.String REFLECTION_ALIAS;
+
+  public static final java.util.Set<java.lang.String> MEMBER_ACCESSOR_ALIASES;
+
+  public org.mockito.internal.configuration.plugins.DefaultMockitoPlugins();
+    Code:
+       0: aload_0
+       1: invokespecial #2                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public <T> T getDefaultPlugin(java.lang.Class<T>);
+    Code:
+       0: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+       3: aload_1
+       4: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+       7: invokeinterface #5,  2            // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      12: checkcast     #6                  // class java/lang/String
+      15: astore_2
+      16: aload_0
+      17: aload_1
+      18: aload_2
+      19: invokevirtual #7                  // Method create:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;
+      22: areturn
+
+  public static java.lang.String getDefaultPluginClass(java.lang.String);
+    Code:
+       0: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+       3: aload_0
+       4: invokeinterface #5,  2            // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       9: checkcast     #6                  // class java/lang/String
+      12: areturn
+
+  private <T> T create(java.lang.Class<T>, java.lang.String);
+    Code:
+       0: aload_2
+       1: ifnonnull     21
+       4: new           #8                  // class java/lang/IllegalStateException
+       7: dup
+       8: aload_1
+       9: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      12: invokedynamic #9,  0              // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      17: invokespecial #10                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+      20: athrow
+      21: aload_1
+      22: aload_2
+      23: invokestatic  #11                 // Method java/lang/Class.forName:(Ljava/lang/String;)Ljava/lang/Class;
+      26: iconst_0
+      27: anewarray     #12                 // class java/lang/Class
+      30: invokevirtual #13                 // Method java/lang/Class.getDeclaredConstructor:([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+      33: iconst_0
+      34: anewarray     #14                 // class java/lang/Object
+      37: invokevirtual #15                 // Method java/lang/reflect/Constructor.newInstance:([Ljava/lang/Object;)Ljava/lang/Object;
+      40: invokevirtual #16                 // Method java/lang/Class.cast:(Ljava/lang/Object;)Ljava/lang/Object;
+      43: areturn
+      44: astore_3
+      45: new           #8                  // class java/lang/IllegalStateException
+      48: dup
+      49: aload_1
+      50: invokedynamic #18,  0             // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/Class;)Ljava/lang/String;
+      55: aload_3
+      56: invokespecial #19                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+      59: athrow
+    Exception table:
+       from    to  target type
+          21    43    44   Class java/lang/Exception
+
+  public org.mockito.plugins.MockMaker getInlineMockMaker();
+    Code:
+       0: aload_0
+       1: ldc           #20                 // class org/mockito/plugins/MockMaker
+       3: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+       6: ldc           #22                 // String mock-maker-inline
+       8: invokeinterface #5,  2            // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      13: checkcast     #6                  // class java/lang/String
+      16: invokevirtual #7                  // Method create:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;
+      19: checkcast     #20                 // class org/mockito/plugins/MockMaker
+      22: areturn
+
+  static {};
+    Code:
+       0: new           #23                 // class java/util/HashMap
+       3: dup
+       4: invokespecial #24                 // Method java/util/HashMap."<init>":()V
+       7: putstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+      10: new           #25                 // class java/util/HashSet
+      13: dup
+      14: invokespecial #26                 // Method java/util/HashSet."<init>":()V
+      17: putstatic     #27                 // Field MOCK_MAKER_ALIASES:Ljava/util/Set;
+      20: new           #25                 // class java/util/HashSet
+      23: dup
+      24: invokespecial #26                 // Method java/util/HashSet."<init>":()V
+      27: putstatic     #28                 // Field MEMBER_ACCESSOR_ALIASES:Ljava/util/Set;
+      30: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+      33: ldc           #29                 // class org/mockito/plugins/PluginSwitch
+      35: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      38: ldc           #30                 // class org/mockito/internal/configuration/plugins/DefaultPluginSwitch
+      40: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      43: invokeinterface #31,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      48: pop
+      49: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+      52: ldc           #20                 // class org/mockito/plugins/MockMaker
+      54: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      57: ldc           #32                 // String org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker
+      59: invokeinterface #31,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      64: pop
+      65: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+      68: ldc           #33                 // class org/mockito/plugins/StackTraceCleanerProvider
+      70: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      73: ldc           #34                 // String org.mockito.internal.exceptions.stacktrace.DefaultStackTraceCleanerProvider
+      75: invokeinterface #31,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      80: pop
+      81: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+      84: ldc           #35                 // class org/mockito/plugins/InstantiatorProvider2
+      86: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+      89: ldc           #36                 // String org.mockito.internal.creation.instance.DefaultInstantiatorProvider
+      91: invokeinterface #31,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      96: pop
+      97: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+     100: ldc           #37                 // class org/mockito/plugins/AnnotationEngine
+     102: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+     105: ldc           #38                 // String org.mockito.internal.configuration.InjectingAnnotationEngine
+     107: invokeinterface #31,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     112: pop
+     113: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+     116: ldc           #22                 // String mock-maker-inline
+     118: ldc           #32                 // String org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker
+     120: invokeinterface #31,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     125: pop
+     126: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+     129: ldc           #39                 // String mock-maker-proxy
+     131: ldc           #40                 // String org.mockito.internal.creation.proxy.ProxyMockMaker
+     133: invokeinterface #31,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     138: pop
+     139: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+     142: ldc           #41                 // String mock-maker-subclass
+     144: ldc           #42                 // String org.mockito.internal.creation.bytebuddy.ByteBuddyMockMaker
+     146: invokeinterface #31,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     151: pop
+     152: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+     155: ldc           #43                 // class org/mockito/plugins/MockitoLogger
+     157: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+     160: ldc           #44                 // String org.mockito.internal.util.ConsoleMockitoLogger
+     162: invokeinterface #31,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     167: pop
+     168: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+     171: ldc           #45                 // class org/mockito/plugins/MemberAccessor
+     173: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+     176: ldc           #46                 // String org.mockito.internal.util.reflection.ModuleMemberAccessor
+     178: invokeinterface #31,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     183: pop
+     184: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+     187: ldc           #47                 // String member-accessor-module
+     189: ldc           #46                 // String org.mockito.internal.util.reflection.ModuleMemberAccessor
+     191: invokeinterface #31,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     196: pop
+     197: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+     200: ldc           #48                 // String member-accessor-reflection
+     202: ldc           #49                 // String org.mockito.internal.util.reflection.ReflectionMemberAccessor
+     204: invokeinterface #31,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     209: pop
+     210: getstatic     #3                  // Field DEFAULT_PLUGINS:Ljava/util/Map;
+     213: ldc           #50                 // class org/mockito/plugins/DoNotMockEnforcer
+     215: invokevirtual #4                  // Method java/lang/Class.getName:()Ljava/lang/String;
+     218: ldc           #51                 // String org.mockito.internal.configuration.DefaultDoNotMockEnforcer
+     220: invokeinterface #31,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     225: pop
+     226: getstatic     #27                 // Field MOCK_MAKER_ALIASES:Ljava/util/Set;
+     229: ldc           #22                 // String mock-maker-inline
+     231: invokeinterface #52,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     236: pop
+     237: getstatic     #27                 // Field MOCK_MAKER_ALIASES:Ljava/util/Set;
+     240: ldc           #39                 // String mock-maker-proxy
+     242: invokeinterface #52,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     247: pop
+     248: getstatic     #27                 // Field MOCK_MAKER_ALIASES:Ljava/util/Set;
+     251: ldc           #41                 // String mock-maker-subclass
+     253: invokeinterface #52,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     258: pop
+     259: getstatic     #28                 // Field MEMBER_ACCESSOR_ALIASES:Ljava/util/Set;
+     262: ldc           #47                 // String member-accessor-module
+     264: invokeinterface #52,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     269: pop
+     270: getstatic     #28                 // Field MEMBER_ACCESSOR_ALIASES:Ljava/util/Set;
+     273: ldc           #48                 // String member-accessor-reflection
+     275: invokeinterface #52,  2           // InterfaceMethod java/util/Set.add:(Ljava/lang/Object;)Z
+     280: pop
+     281: return
+}

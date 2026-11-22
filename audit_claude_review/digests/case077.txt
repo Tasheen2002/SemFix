@@ -1,0 +1,35 @@
+=== CASE 77 60c05d7f413430e47f624cc3c7b13c97466c6bb3
+  project=artipie/http dep=org.junit.jupiter:junit-jupiter-engine 5.8.1 -> 5.10.0 scope=compile type=minor java=11
+  PR=https://github.com/artipie/http/pull/552
+  PRE log logs/batch_triage/60c05d7f_pre.log:
+  lines=1094
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 453, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 453, Failures: 0, Errors: 0, Skipped: 0
+  exception names: com.artipie.asto.ValueNotFoundExceptionx30, java.lang.IllegalStateExceptionx6
+  BREAKING log logs/batch_triage/60c05d7f_breaking.log:
+  lines=110
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+  first [ERROR] lines:
+    [ERROR] 'java.util.Set org.junit.platform.engine.TestDescriptor.getAncestors()'
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project http: There are test failures.
+    [ERROR] There was an error in the forked process
+    [ERROR] org.apache.maven.surefire.booter.SurefireBooterForkException: There was an error in the forked process
+    [ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.fork(ForkStarter.java:733)
+    [ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.run(ForkStarter.java:305)
+    [ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.run(ForkStarter.java:265)
+    [ERROR] 	at org.apache.maven.plugin.surefire.AbstractSurefireMojo.executeProvider(AbstractSurefireMojo.java:1314)
+    [ERROR] 	at org.apache.maven.plugin.surefire.AbstractSurefireMojo.executeAfterPreconditionsChecked(AbstractSurefireMojo.java:1159)
+    [ERROR] 	at org.apache.maven.plugin.surefire.AbstractSurefireMojo.execute(AbstractSurefireMojo.java:932)
+  exception names: org.apache.maven.surefire.booter.SurefireBooterForkExceptionx1
+  EVIDENCE logs/case77_evidence: breaking/archive_summary.json, breaking/artifacts.tar, breaking/junit-platform-engine-1.8.2.jar, breaking/junit-platform-launcher-1.10.0.jar, fork_debug.log, junit_javap.txt, pre/archive_summary.json, pre/artifacts.tar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=83 sum(t,f,e,s)=[453, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=0 sum(t,f,e,s)=[0, 0, 0, 0]
+  archived non-report files: pre=278 breaking=278 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -237,3 +237,3 @@
+                 <artifactId>junit-jupiter-engine</artifactId>
+    -            <version>5.8.1</version>
+    +            <version>5.10.0</version>
+               </dependency>
+  LOG fork_debug.log (2110 lines): [DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core | [INFO] Error stacktraces are turned on. | [DEBUG] === REACTOR BUILD PLAN ================================================ | [DEBUG] ======================================================================= | [DEBUG] === PROJECT BUILD PLAN ================================================ | [DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?> | <fail default-value="true">${enforcer.fail}</fail> | <failFast default-value="false">${enforcer.failFast}</failFast> | <ignoreCache default-value="false">${enforcer.ignoreCache}</ignoreCache> | <mojoExecution default-value="${mojoExecution}"/>

@@ -1,0 +1,40 @@
+[
+  {
+    "phase": "pre",
+    "jar": "jetty-server-9.4.35.v20201120.jar",
+    "entries": {
+      "AllowedResourceAliasCheckListener.class": [],
+      "LifeCycle$Listener.class": []
+    }
+  },
+  {
+    "phase": "pre",
+    "jar": "jetty-util-9.4.35.v20201120.jar",
+    "entries": {
+      "AllowedResourceAliasCheckListener.class": [],
+      "LifeCycle$Listener.class": [
+        "org/eclipse/jetty/util/component/LifeCycle$Listener.class"
+      ]
+    }
+  },
+  {
+    "phase": "breaking",
+    "jar": "jetty-server-9.4.50.v20221201.jar",
+    "entries": {
+      "AllowedResourceAliasCheckListener.class": [
+        "org/eclipse/jetty/server/AllowedResourceAliasChecker$AllowedResourceAliasCheckListener.class"
+      ],
+      "LifeCycle$Listener.class": []
+    }
+  },
+  {
+    "phase": "breaking",
+    "jar": "jetty-util-9.4.35.v20201120.jar",
+    "entries": {
+      "AllowedResourceAliasCheckListener.class": [],
+      "LifeCycle$Listener.class": [
+        "org/eclipse/jetty/util/component/LifeCycle$Listener.class"
+      ]
+    }
+  }
+]

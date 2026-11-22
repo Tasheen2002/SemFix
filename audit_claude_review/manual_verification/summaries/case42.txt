@@ -1,0 +1,46 @@
+﻿
+=== Case 42  3b26e04706e255544d99886b643936cfff6e2aeb ===
+Project : camunda-community-hub/camunda-platform-7-camel
+Update  : jakarta.xml.bind:jakarta.xml.bind-api  2.3.2 -> 4.0.0
+Running breaking in container manual-case42-breaking (this can take several minutes) ...
+Finished in 48 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case42_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0
+  [ERROR] Tests run: 17, Failures: 0, Errors: 16, Skipped: 0
+  reactor: camunda BPM - Apache Camel Integration ............. SUCCESS [  0.268 s]
+  reactor: camunda BPM - Apache Camel Integration (Common) .... SUCCESS [ 17.827 s]
+  reactor: camunda BPM - Apache Camel Integration (Common Test Resources) SUCCESS [  0.600 s]
+  reactor: camunda BPM - Apache Camel Integration (Spring) .... FAILURE [ 19.102 s]
+First failing tests / errors:
+  [ERROR] doTest(org.camunda.bpm.camel.spring.StartProcessFromRouteTest)  Time elapsed: 0.02 s  <<< ERROR!
+      java.lang.IllegalStateException: Failed to load ApplicationContext
+      at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
+      at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
+  [ERROR] doTestReturnVariables(org.camunda.bpm.camel.spring.StartProcessFromRouteTest)  Time elapsed: 0.004 s  <<< ERROR!
+      java.lang.IllegalStateException: Failed to load ApplicationContext
+      at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
+      at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
+  [ERROR] doTestReturnVariable(org.camunda.bpm.camel.spring.StartProcessFromRouteTest)  Time elapsed: 0.003 s  <<< ERROR!
+      java.lang.IllegalStateException: Failed to load ApplicationContext
+      at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:132)
+      at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:123)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+  Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: Unexpected exception parsing XML document from class path resource [start-process-from-route-config.xml]; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.camel.spring.xml.handler.CamelNamespaceHandler]: Unresolvable class definition; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+  Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.camel.spring.xml.handler.CamelNamespaceHandler]: Unresolvable class definition; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+  Caused by: java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
+  Caused by: java.lang.ClassNotFoundException: javax.xml.bind.JAXBException
+Linkage / bytecode signals:
+  NoClassDefFoundError x48
+  ClassNotFoundException x16
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R3: javax/jakarta namespace migration)
+Cause   : jakarta.xml.bind-api 4.0.0 provides jakarta.xml.bind only; javax.xml.bind classes formerly supplied by 2.3.2 disappear -> NoClassDefFoundError javax/xml/bind/JAXBException in CamelNamespaceHandler -> ApplicationContext load failures
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

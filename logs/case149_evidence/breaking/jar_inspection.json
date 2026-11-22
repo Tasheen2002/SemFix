@@ -1,0 +1,76 @@
+{
+  "case_id": "c46623986f77fdd0a206e3be2fae7e283b157be3",
+  "phase": "breaking",
+  "path_filter": "/jetty-(server|util)/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/eclipse/jetty/jetty-server/9.4.49.v20220914/jetty-server-9.4.49.v20220914.jar",
+      "sha256": "06ae86baded124f81935a0701ed6af7b9e7ce33ee8ef58a87b779bb0a6b23dc4",
+      "classes": {
+        "org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener": {
+          "present": true,
+          "major_version": 52
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener",
+          "file": "jetty-server-9.4.49.v20220914_AllowedResourceAliasChecker$AllowedResourceAliasCheckListener_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case149_evidence\\breaking\\jars\\jetty-server-9.4.49.v20220914.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/eclipse/jetty/jetty-util/9.4.35.v20201120/jetty-util-9.4.35.v20201120.jar",
+      "sha256": "7db4077559abc8939b414a352d6a8a5c1942aab898a5b0678a63422640ae5dbd",
+      "classes": {
+        "org.eclipse.jetty.server.AllowedResourceAliasChecker$AllowedResourceAliasCheckListener": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.eclipse.jetty.util.component.LifeCycle$Listener",
+          "file": "jetty-util-9.4.35.v20201120_LifeCycle$Listener_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case149_evidence\\breaking\\jars\\jetty-util-9.4.35.v20201120.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.eclipse.jetty.util.component.LifeCycle$Listener"
+          ],
+          "exit_code": 0
+        },
+        {
+          "class": "org.eclipse.jetty.util.component.AbstractLifeCycle",
+          "file": "jetty-util-9.4.35.v20201120_AbstractLifeCycle_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case149_evidence\\breaking\\jars\\jetty-util-9.4.35.v20201120.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.eclipse.jetty.util.component.AbstractLifeCycle"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

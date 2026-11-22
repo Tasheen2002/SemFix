@@ -1,0 +1,49 @@
+{
+  "case_id": "f61b113c1493d02611bc5cdc9a80e8af0abf2035",
+  "phase": "breaking",
+  "path_filter": "/spring-(web|webmvc)/",
+  "path_source": "Explicit versions in archived POM and JARs copied from original container",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/springframework/spring-web/4.1.6.RELEASE/spring-web-4.1.6.RELEASE.jar",
+      "sha256": "bc31459f47b7a5992d7c74133657fe68de115bc00ac517e0e5c4f89130b2afa9",
+      "classes": {
+        "org.springframework.web.util.pattern.PathPatternParser": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/javax.servlet.ServletContainerInitializer": "org.springframework.web.SpringServletContainerInitializer"
+      },
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/springframework/spring-webmvc/5.3.18/spring-webmvc-5.3.18.jar",
+      "sha256": "22bc86890b53dab50522bd646cd57180616a651da45ae588d5e0e1f72aa2bc7d",
+      "classes": {
+        "org.springframework.web.util.pattern.PathPatternParser": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.springframework.web.servlet.handler.AbstractHandlerMapping",
+          "file": "spring-webmvc-5.3.18_AbstractHandlerMapping_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case178_evidence\\breaking\\jars\\spring-webmvc-5.3.18.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.springframework.web.servlet.handler.AbstractHandlerMapping"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

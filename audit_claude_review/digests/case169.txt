@@ -1,0 +1,60 @@
+=== CASE 169 dec73a7c634142d631306f8cf201e228fe3ebcc6
+  project=matteobaccan/html2pop3 dep=ch.qos.logback:logback-classic 1.4.1 -> 1.4.3 scope=compile type=patch java=11
+  PR=https://github.com/matteobaccan/html2pop3/pull/312
+  PRE log logs/batch_triage/dec73a7c_pre.log:
+  lines=143
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/dec73a7c_breaking.log:
+  lines=313
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 5, Failures: 0, Errors: 2, Skipped: 0
+  failing classes: Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 2.241 s <<< FAILURE! - in it.baccan.html2pop3.utils.FilterTest
+  section: Errors: | FilterTest.<clinit>:19 » NoClassDefFound ch/qos/logback/core/joran/sanity/SanityChecker | FilterTest.testIsAllow » NoClassDefFound Could not initialize class it.baccan.html2pop3.utils.FilterTest | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  01:43 min | [INFO] Finished at: 2026-11-20T05:39:06Z | [INFO] ------------------------------------------------------------------------ | [WARNING] | [WARNING] Plugin validation issues were detected in 3 plugin(s)
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project HTML2POP3: 
+  FAILBLOCK: [ERROR] it.baccan.html2pop3.utils.FilterTest.testAdd  Time elapsed: 0.489 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: ch/qos/logback/core/joran/sanity/SanityChecker
+      at ch.qos.logback.classic.util.DefaultJoranConfigurator.configureByResource(DefaultJoranConfigurator.java:51)
+      at ch.qos.logback.classic.util.DefaultJoranConfigurator.configure(DefaultJoranConfigurator.java:34)
+      at ch.qos.logback.classic.util.ContextInitializer.autoConfig(ContextInitializer.java:98)
+      at ch.qos.logback.classic.util.ContextInitializer.autoConfig(ContextInitializer.java:77)
+      at ch.qos.logback.classic.spi.LogbackServiceProvider.initializeLoggerContext(LogbackServiceProvider.java:50)
+      Caused by: java.lang.ClassNotFoundException: ch.qos.logback.core.joran.sanity.SanityChecker
+  FAILBLOCK: [ERROR] it.baccan.html2pop3.utils.FilterTest.testIsAllow  Time elapsed: 0.008 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class it.baccan.html2pop3.utils.FilterTest
+      at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+      at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+      at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+      at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+      at org.junit.platform.commons.util.ReflectionUtils.newInstance(ReflectionUtils.java:552)
+  distinct fail signatures (count): 1x java.lang.NoClassDefFoundError: ch/qos/logback/core/joran/sanity/SanityChecker || 1x java.lang.NoClassDefFoundError: Could not initialize class it.baccan.html2pop3.utils.FilterTest
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx2, java.lang.ClassNotFoundExceptionx1
+  EVIDENCE logs/case169_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/logback-classic-1.4.3.jar, breaking/jars/logback-core-1.4.1.jar, breaking/logback-classic-1.4.3_JoranConfigurator_javap.txt, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/logback-classic-1.4.1.jar, pre/jars/logback-core-1.4.1.jar, pre/logback-classic-1.4.1_JoranConfigurator_javap.txt, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=2 sum(t,f,e,s)=[5, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=2 sum(t,f,e,s)=[5, 0, 2, 0]
+  archived non-report files: pre=66 breaking=66 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -47,3 +47,3 @@
+                 <artifactId>logback-classic</artifactId>
+    -            <version>1.4.1</version>
+    +            <version>1.4.3</version>
+                 <type>jar</type>
+  BREAKING surefire failures/errors:
+    ERROR it.baccan.html2pop3.utils.FilterTest#testAdd type=java.lang.NoClassDefFoundError msg=ch/qos/logback/core/joran/sanity/SanityChecker
+       Caused by: java.lang.ClassNotFoundException: ch.qos.logback.core.joran.sanity.SanityChecker
+       at ch.qos.logback.classic.util.DefaultJoranConfigurator.configureByResource(DefaultJoranConfigurator.java:51)
+       at ch.qos.logback.classic.util.DefaultJoranConfigurator.configure(DefaultJoranConfigurator.java:34)
+       at ch.qos.logback.classic.util.ContextInitializer.autoConfig(ContextInitializer.java:98)
+       at ch.qos.logback.classic.util.ContextInitializer.autoConfig(ContextInitializer.java:77)
+    ERROR it.baccan.html2pop3.utils.FilterTest#testIsAllow type=java.lang.NoClassDefFoundError msg=Could not initialize class it.baccan.html2pop3.utils.FilterTest
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+       at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+       at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+       at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -            <version>1.4.1</version> / +            <version>1.4.3</version>
+  JSON breaking/jar_inspection.json: {"case_id":"dec73a7c634142d631306f8cf201e228fe3ebcc6","phase":"breaking","path_filter":"/logback-(classic|core)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-classic/1.4.3/logback-classic-1.4.3.jar","classes":{"ch.qos.logback.core.joran.sanity.SanityChecker":{"present":false,"major_version":null}},"services":{"META-INF/services/ch.qos.logback.classic.spi.Configurator":"ch.qos.logback.classic.util.DefaultJoranConfigurator","META-INF/services/jakarta.servlet.ServletContainerInitializer":"ch.qos.logback.classic.servlet.LogbackServletContainerInitializer","META-INF/services/org.slf4j.spi.SLF4JServiceProvider":"ch.qos.logback.classic.spi.LogbackServiceProvider"},"disassemblies":[{"class":"ch.qos.logback.classic.joran.JoranConfigurator","file":"logback-classic-1.4.3_JoranConfigurator_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-core/1.4.1/logback-core-1.4.1.jar","classes":{"ch.qos.logback.core.joran.sanity.SanityChecker":{"present":false,"major_version":null}},"services":{},"disassemblies":[]}]}
+  JSON pre/jar_inspection.json: {"case_id":"dec73a7c634142d631306f8cf201e228fe3ebcc6","phase":"pre","path_filter":"/logback-(classic|core)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-classic/1.4.1/logback-classic-1.4.1.jar","classes":{"ch.qos.logback.core.joran.sanity.SanityChecker":{"present":false,"major_version":null}},"services":{"META-INF/services/ch.qos.logback.classic.spi.Configurator":"ch.qos.logback.classic.util.DefaultJoranConfigurator","META-INF/services/jakarta.servlet.ServletContainerInitializer":"ch.qos.logback.classic.servlet.LogbackServletContainerInitializer","META-INF/services/org.slf4j.spi.SLF4JServiceProvider":"ch.qos.logback.classic.spi.LogbackServiceProvider"},"disassemblies":[{"class":"ch.qos.logback.classic.joran.JoranConfigurator","file":"logback-classic-1.4.1_JoranConfigurator_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-core/1.4.1/logback-core-1.4.1.jar","classes":{"ch.qos.logback.core.joran.sanity.SanityChecker":{"present":false,"major_version":null}},"services":{},"disassemblies":[]}]}
+  JARS: breaking/jars/logback-classic-1.4.3.jar, breaking/jars/logback-core-1.4.1.jar, pre/jars/logback-classic-1.4.1.jar, pre/jars/logback-core-1.4.1.jar

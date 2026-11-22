@@ -1,0 +1,1481 @@
+pre/poi-4.1.2.jar
+Compiled from "POITextExtractor.java"
+public abstract class org.apache.poi.extractor.POITextExtractor implements java.io.Closeable {
+  private java.io.Closeable fsToClose;
+    descriptor: Ljava/io/Closeable;
+  public org.apache.poi.extractor.POITextExtractor();
+    descriptor: ()V
+
+  public abstract java.lang.String getText();
+    descriptor: ()Ljava/lang/String;
+
+  public abstract org.apache.poi.extractor.POITextExtractor getMetadataTextExtractor();
+    descriptor: ()Lorg/apache/poi/extractor/POITextExtractor;
+
+  public void setFilesystem(java.io.Closeable);
+    descriptor: (Ljava/io/Closeable;)V
+
+  public void close() throws java.io.IOException;
+    descriptor: ()V
+
+  public abstract java.lang.Object getDocument();
+    descriptor: ()Ljava/lang/Object;
+}
+Compiled from "InternalWorkbook.java"
+public final class org.apache.poi.hssf.model.InternalWorkbook {
+  private static final int MAX_SENSITIVE_SHEET_NAME_LEN;
+    descriptor: I
+  public static final java.lang.String[] WORKBOOK_DIR_ENTRY_NAMES;
+    descriptor: [Ljava/lang/String;
+  public static final java.lang.String OLD_WORKBOOK_DIR_ENTRY_NAME;
+    descriptor: Ljava/lang/String;
+  private static final org.apache.poi.util.POILogger LOG;
+    descriptor: Lorg/apache/poi/util/POILogger;
+  private static final short CODEPAGE;
+    descriptor: S
+  private final org.apache.poi.hssf.model.WorkbookRecordList records;
+    descriptor: Lorg/apache/poi/hssf/model/WorkbookRecordList;
+  protected org.apache.poi.hssf.record.SSTRecord sst;
+    descriptor: Lorg/apache/poi/hssf/record/SSTRecord;
+  private org.apache.poi.hssf.model.LinkTable linkTable;
+    descriptor: Lorg/apache/poi/hssf/model/LinkTable;
+  private final java.util.List<org.apache.poi.hssf.record.BoundSheetRecord> boundsheets;
+    descriptor: Ljava/util/List;
+  private final java.util.List<org.apache.poi.hssf.record.FormatRecord> formats;
+    descriptor: Ljava/util/List;
+  private final java.util.List<org.apache.poi.hssf.record.HyperlinkRecord> hyperlinks;
+    descriptor: Ljava/util/List;
+  private int numxfs;
+    descriptor: I
+  private int numfonts;
+    descriptor: I
+  private int maxformatid;
+    descriptor: I
+  private boolean uses1904datewindowing;
+    descriptor: Z
+  private org.apache.poi.hssf.model.DrawingManager2 drawingManager;
+    descriptor: Lorg/apache/poi/hssf/model/DrawingManager2;
+  private java.util.List<org.apache.poi.ddf.EscherBSERecord> escherBSERecords;
+    descriptor: Ljava/util/List;
+  private org.apache.poi.hssf.record.WindowOneRecord windowOne;
+    descriptor: Lorg/apache/poi/hssf/record/WindowOneRecord;
+  private org.apache.poi.hssf.record.FileSharingRecord fileShare;
+    descriptor: Lorg/apache/poi/hssf/record/FileSharingRecord;
+  private org.apache.poi.hssf.record.WriteAccessRecord writeAccess;
+    descriptor: Lorg/apache/poi/hssf/record/WriteAccessRecord;
+  private org.apache.poi.hssf.record.WriteProtectRecord writeProtect;
+    descriptor: Lorg/apache/poi/hssf/record/WriteProtectRecord;
+  private final java.util.Map<java.lang.String, org.apache.poi.hssf.record.NameCommentRecord> commentRecords;
+    descriptor: Ljava/util/Map;
+  private org.apache.poi.hssf.model.InternalWorkbook();
+    descriptor: ()V
+
+  public static org.apache.poi.hssf.model.InternalWorkbook createWorkbook(java.util.List<org.apache.poi.hssf.record.Record>);
+    descriptor: (Ljava/util/List;)Lorg/apache/poi/hssf/model/InternalWorkbook;
+
+  public static org.apache.poi.hssf.model.InternalWorkbook createWorkbook();
+    descriptor: ()Lorg/apache/poi/hssf/model/InternalWorkbook;
+
+  public org.apache.poi.hssf.record.NameRecord getSpecificBuiltinRecord(byte, int);
+    descriptor: (BI)Lorg/apache/poi/hssf/record/NameRecord;
+
+  public void removeBuiltinRecord(byte, int);
+    descriptor: (BI)V
+
+  public int getNumRecords();
+    descriptor: ()I
+
+  public org.apache.poi.hssf.record.FontRecord getFontRecordAt(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/FontRecord;
+
+  public int getFontIndex(org.apache.poi.hssf.record.FontRecord);
+    descriptor: (Lorg/apache/poi/hssf/record/FontRecord;)I
+
+  public org.apache.poi.hssf.record.FontRecord createNewFont();
+    descriptor: ()Lorg/apache/poi/hssf/record/FontRecord;
+
+  public void removeFontRecord(org.apache.poi.hssf.record.FontRecord);
+    descriptor: (Lorg/apache/poi/hssf/record/FontRecord;)V
+
+  public int getNumberOfFontRecords();
+    descriptor: ()I
+
+  public void setSheetBof(int, int);
+    descriptor: (II)V
+
+  private org.apache.poi.hssf.record.BoundSheetRecord getBoundSheetRec(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/BoundSheetRecord;
+
+  public org.apache.poi.hssf.record.BackupRecord getBackupRecord();
+    descriptor: ()Lorg/apache/poi/hssf/record/BackupRecord;
+
+  public void setSheetName(int, java.lang.String);
+    descriptor: (ILjava/lang/String;)V
+
+  public boolean doesContainsSheetName(java.lang.String, int);
+    descriptor: (Ljava/lang/String;I)Z
+
+  public void setSheetOrder(java.lang.String, int);
+    descriptor: (Ljava/lang/String;I)V
+
+  public java.lang.String getSheetName(int);
+    descriptor: (I)Ljava/lang/String;
+
+  public boolean isSheetHidden(int);
+    descriptor: (I)Z
+
+  public boolean isSheetVeryHidden(int);
+    descriptor: (I)Z
+
+  public org.apache.poi.ss.usermodel.SheetVisibility getSheetVisibility(int);
+    descriptor: (I)Lorg/apache/poi/ss/usermodel/SheetVisibility;
+
+  public void setSheetHidden(int, boolean);
+    descriptor: (IZ)V
+
+  public void setSheetHidden(int, org.apache.poi.ss.usermodel.SheetVisibility);
+    descriptor: (ILorg/apache/poi/ss/usermodel/SheetVisibility;)V
+
+  public int getSheetIndex(java.lang.String);
+    descriptor: (Ljava/lang/String;)I
+
+  private void checkSheets(int);
+    descriptor: (I)V
+
+  public void removeSheet(int);
+    descriptor: (I)V
+
+  private void fixTabIdRecord();
+    descriptor: ()V
+
+  public int getNumSheets();
+    descriptor: ()I
+
+  public int getNumExFormats();
+    descriptor: ()I
+
+  public org.apache.poi.hssf.record.ExtendedFormatRecord getExFormatAt(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/ExtendedFormatRecord;
+
+  public void removeExFormatRecord(org.apache.poi.hssf.record.ExtendedFormatRecord);
+    descriptor: (Lorg/apache/poi/hssf/record/ExtendedFormatRecord;)V
+
+  public void removeExFormatRecord(int);
+    descriptor: (I)V
+
+  public org.apache.poi.hssf.record.ExtendedFormatRecord createCellXF();
+    descriptor: ()Lorg/apache/poi/hssf/record/ExtendedFormatRecord;
+
+  public org.apache.poi.hssf.record.StyleRecord getStyleRecord(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/StyleRecord;
+
+  public void updateStyleRecord(int, int);
+    descriptor: (II)V
+
+  public org.apache.poi.hssf.record.StyleRecord createStyleRecord(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/StyleRecord;
+
+  public int addSSTString(org.apache.poi.hssf.record.common.UnicodeString);
+    descriptor: (Lorg/apache/poi/hssf/record/common/UnicodeString;)I
+
+  public org.apache.poi.hssf.record.common.UnicodeString getSSTString(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/common/UnicodeString;
+
+  public void insertSST();
+    descriptor: ()V
+
+  public int serialize(int, byte[]);
+    descriptor: (I[B)I
+
+  public void preSerialize();
+    descriptor: ()V
+
+  public int getSize();
+    descriptor: ()I
+
+  private static org.apache.poi.hssf.record.BOFRecord createBOF();
+    descriptor: ()Lorg/apache/poi/hssf/record/BOFRecord;
+
+  private static org.apache.poi.hssf.record.MMSRecord createMMS();
+    descriptor: ()Lorg/apache/poi/hssf/record/MMSRecord;
+
+  private static org.apache.poi.hssf.record.WriteAccessRecord createWriteAccess();
+    descriptor: ()Lorg/apache/poi/hssf/record/WriteAccessRecord;
+
+  private static org.apache.poi.hssf.record.CodepageRecord createCodepage();
+    descriptor: ()Lorg/apache/poi/hssf/record/CodepageRecord;
+
+  private static org.apache.poi.hssf.record.DSFRecord createDSF();
+    descriptor: ()Lorg/apache/poi/hssf/record/DSFRecord;
+
+  private static org.apache.poi.hssf.record.TabIdRecord createTabId();
+    descriptor: ()Lorg/apache/poi/hssf/record/TabIdRecord;
+
+  private static org.apache.poi.hssf.record.FnGroupCountRecord createFnGroupCount();
+    descriptor: ()Lorg/apache/poi/hssf/record/FnGroupCountRecord;
+
+  private static org.apache.poi.hssf.record.WindowProtectRecord createWindowProtect();
+    descriptor: ()Lorg/apache/poi/hssf/record/WindowProtectRecord;
+
+  private static org.apache.poi.hssf.record.ProtectRecord createProtect();
+    descriptor: ()Lorg/apache/poi/hssf/record/ProtectRecord;
+
+  private static org.apache.poi.hssf.record.PasswordRecord createPassword();
+    descriptor: ()Lorg/apache/poi/hssf/record/PasswordRecord;
+
+  private static org.apache.poi.hssf.record.ProtectionRev4Record createProtectionRev4();
+    descriptor: ()Lorg/apache/poi/hssf/record/ProtectionRev4Record;
+
+  private static org.apache.poi.hssf.record.PasswordRev4Record createPasswordRev4();
+    descriptor: ()Lorg/apache/poi/hssf/record/PasswordRev4Record;
+
+  private static org.apache.poi.hssf.record.WindowOneRecord createWindowOne();
+    descriptor: ()Lorg/apache/poi/hssf/record/WindowOneRecord;
+
+  private static org.apache.poi.hssf.record.BackupRecord createBackup();
+    descriptor: ()Lorg/apache/poi/hssf/record/BackupRecord;
+
+  private static org.apache.poi.hssf.record.HideObjRecord createHideObj();
+    descriptor: ()Lorg/apache/poi/hssf/record/HideObjRecord;
+
+  private static org.apache.poi.hssf.record.DateWindow1904Record createDateWindow1904();
+    descriptor: ()Lorg/apache/poi/hssf/record/DateWindow1904Record;
+
+  private static org.apache.poi.hssf.record.PrecisionRecord createPrecision();
+    descriptor: ()Lorg/apache/poi/hssf/record/PrecisionRecord;
+
+  private static org.apache.poi.hssf.record.RefreshAllRecord createRefreshAll();
+    descriptor: ()Lorg/apache/poi/hssf/record/RefreshAllRecord;
+
+  private static org.apache.poi.hssf.record.BookBoolRecord createBookBool();
+    descriptor: ()Lorg/apache/poi/hssf/record/BookBoolRecord;
+
+  private static org.apache.poi.hssf.record.FontRecord createFont();
+    descriptor: ()Lorg/apache/poi/hssf/record/FontRecord;
+
+  private static org.apache.poi.hssf.record.FormatRecord createFormat(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/FormatRecord;
+
+  private static org.apache.poi.hssf.record.ExtendedFormatRecord createExtendedFormat(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/ExtendedFormatRecord;
+
+  private static org.apache.poi.hssf.record.ExtendedFormatRecord createExtendedFormat(int, int, int, int);
+    descriptor: (IIII)Lorg/apache/poi/hssf/record/ExtendedFormatRecord;
+
+  private static org.apache.poi.hssf.record.ExtendedFormatRecord createExtendedFormat();
+    descriptor: ()Lorg/apache/poi/hssf/record/ExtendedFormatRecord;
+
+  private static org.apache.poi.hssf.record.StyleRecord createStyle(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/StyleRecord;
+
+  private static org.apache.poi.hssf.record.PaletteRecord createPalette();
+    descriptor: ()Lorg/apache/poi/hssf/record/PaletteRecord;
+
+  private static org.apache.poi.hssf.record.UseSelFSRecord createUseSelFS();
+    descriptor: ()Lorg/apache/poi/hssf/record/UseSelFSRecord;
+
+  private static org.apache.poi.hssf.record.BoundSheetRecord createBoundSheet(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/BoundSheetRecord;
+
+  private static org.apache.poi.hssf.record.CountryRecord createCountry();
+    descriptor: ()Lorg/apache/poi/hssf/record/CountryRecord;
+
+  private static org.apache.poi.hssf.record.ExtSSTRecord createExtendedSST();
+    descriptor: ()Lorg/apache/poi/hssf/record/ExtSSTRecord;
+
+  private org.apache.poi.hssf.model.LinkTable getOrCreateLinkTable();
+    descriptor: ()Lorg/apache/poi/hssf/model/LinkTable;
+
+  public int linkExternalWorkbook(java.lang.String, org.apache.poi.ss.usermodel.Workbook);
+    descriptor: (Ljava/lang/String;Lorg/apache/poi/ss/usermodel/Workbook;)I
+
+  public java.lang.String findSheetFirstNameFromExternSheet(int);
+    descriptor: (I)Ljava/lang/String;
+
+  public java.lang.String findSheetLastNameFromExternSheet(int);
+    descriptor: (I)Ljava/lang/String;
+
+  private java.lang.String findSheetNameFromIndex(int);
+    descriptor: (I)Ljava/lang/String;
+
+  public org.apache.poi.ss.formula.EvaluationWorkbook$ExternalSheet getExternalSheet(int);
+    descriptor: (I)Lorg/apache/poi/ss/formula/EvaluationWorkbook$ExternalSheet;
+
+  public org.apache.poi.ss.formula.EvaluationWorkbook$ExternalName getExternalName(int, int);
+    descriptor: (II)Lorg/apache/poi/ss/formula/EvaluationWorkbook$ExternalName;
+
+  public int getFirstSheetIndexFromExternSheetIndex(int);
+    descriptor: (I)I
+
+  public int getLastSheetIndexFromExternSheetIndex(int);
+    descriptor: (I)I
+
+  public short checkExternSheet(int);
+    descriptor: (I)S
+
+  public short checkExternSheet(int, int);
+    descriptor: (II)S
+
+  public int getExternalSheetIndex(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)I
+
+  public int getExternalSheetIndex(java.lang.String, java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+  public int getNumNames();
+    descriptor: ()I
+
+  public org.apache.poi.hssf.record.NameRecord getNameRecord(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/NameRecord;
+
+  public org.apache.poi.hssf.record.NameCommentRecord getNameCommentRecord(org.apache.poi.hssf.record.NameRecord);
+    descriptor: (Lorg/apache/poi/hssf/record/NameRecord;)Lorg/apache/poi/hssf/record/NameCommentRecord;
+
+  public org.apache.poi.hssf.record.NameRecord createName();
+    descriptor: ()Lorg/apache/poi/hssf/record/NameRecord;
+
+  public org.apache.poi.hssf.record.NameRecord addName(org.apache.poi.hssf.record.NameRecord);
+    descriptor: (Lorg/apache/poi/hssf/record/NameRecord;)Lorg/apache/poi/hssf/record/NameRecord;
+
+  public org.apache.poi.hssf.record.NameRecord createBuiltInName(byte, int);
+    descriptor: (BI)Lorg/apache/poi/hssf/record/NameRecord;
+
+  public void removeName(int);
+    descriptor: (I)V
+
+  public void updateNameCommentRecordCache(org.apache.poi.hssf.record.NameCommentRecord);
+    descriptor: (Lorg/apache/poi/hssf/record/NameCommentRecord;)V
+
+  public short getFormat(java.lang.String, boolean);
+    descriptor: (Ljava/lang/String;Z)S
+
+  public java.util.List<org.apache.poi.hssf.record.FormatRecord> getFormats();
+    descriptor: ()Ljava/util/List;
+
+  public int createFormat(java.lang.String);
+    descriptor: (Ljava/lang/String;)I
+
+  public org.apache.poi.hssf.record.Record findFirstRecordBySid(short);
+    descriptor: (S)Lorg/apache/poi/hssf/record/Record;
+
+  public int findFirstRecordLocBySid(short);
+    descriptor: (S)I
+
+  public org.apache.poi.hssf.record.Record findNextRecordBySid(short, int);
+    descriptor: (SI)Lorg/apache/poi/hssf/record/Record;
+
+  public java.util.List<org.apache.poi.hssf.record.HyperlinkRecord> getHyperlinks();
+    descriptor: ()Ljava/util/List;
+
+  public java.util.List<org.apache.poi.hssf.record.Record> getRecords();
+    descriptor: ()Ljava/util/List;
+
+  public boolean isUsing1904DateWindowing();
+    descriptor: ()Z
+
+  public org.apache.poi.hssf.record.PaletteRecord getCustomPalette();
+    descriptor: ()Lorg/apache/poi/hssf/record/PaletteRecord;
+
+  public org.apache.poi.hssf.model.DrawingManager2 findDrawingGroup();
+    descriptor: ()Lorg/apache/poi/hssf/model/DrawingManager2;
+
+  private static org.apache.poi.hssf.model.DrawingManager2 findDrawingManager(org.apache.poi.hssf.record.DrawingGroupRecord, java.util.List<org.apache.poi.ddf.EscherBSERecord>);
+    descriptor: (Lorg/apache/poi/hssf/record/DrawingGroupRecord;Ljava/util/List;)Lorg/apache/poi/hssf/model/DrawingManager2;
+
+  public void createDrawingGroup();
+    descriptor: ()V
+
+  public org.apache.poi.hssf.record.WindowOneRecord getWindowOne();
+    descriptor: ()Lorg/apache/poi/hssf/record/WindowOneRecord;
+
+  public org.apache.poi.ddf.EscherBSERecord getBSERecord(int);
+    descriptor: (I)Lorg/apache/poi/ddf/EscherBSERecord;
+
+  public int addBSERecord(org.apache.poi.ddf.EscherBSERecord);
+    descriptor: (Lorg/apache/poi/ddf/EscherBSERecord;)I
+
+  public org.apache.poi.hssf.model.DrawingManager2 getDrawingManager();
+    descriptor: ()Lorg/apache/poi/hssf/model/DrawingManager2;
+
+  public org.apache.poi.hssf.record.WriteProtectRecord getWriteProtect();
+    descriptor: ()Lorg/apache/poi/hssf/record/WriteProtectRecord;
+
+  public org.apache.poi.hssf.record.WriteAccessRecord getWriteAccess();
+    descriptor: ()Lorg/apache/poi/hssf/record/WriteAccessRecord;
+
+  public org.apache.poi.hssf.record.FileSharingRecord getFileSharing();
+    descriptor: ()Lorg/apache/poi/hssf/record/FileSharingRecord;
+
+  public boolean isWriteProtected();
+    descriptor: ()Z
+
+  public void writeProtectWorkbook(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)V
+
+  public void unwriteProtectWorkbook();
+    descriptor: ()V
+
+  public java.lang.String resolveNameXText(int, int);
+    descriptor: (II)Ljava/lang/String;
+
+  public org.apache.poi.ss.formula.ptg.NameXPtg getNameXPtg(java.lang.String, int, org.apache.poi.ss.formula.udf.UDFFinder);
+    descriptor: (Ljava/lang/String;ILorg/apache/poi/ss/formula/udf/UDFFinder;)Lorg/apache/poi/ss/formula/ptg/NameXPtg;
+
+  public org.apache.poi.ss.formula.ptg.NameXPtg getNameXPtg(java.lang.String, org.apache.poi.ss.formula.udf.UDFFinder);
+    descriptor: (Ljava/lang/String;Lorg/apache/poi/ss/formula/udf/UDFFinder;)Lorg/apache/poi/ss/formula/ptg/NameXPtg;
+
+  public void cloneDrawings(org.apache.poi.hssf.model.InternalSheet);
+    descriptor: (Lorg/apache/poi/hssf/model/InternalSheet;)V
+
+  public org.apache.poi.hssf.record.NameRecord cloneFilter(int, int);
+    descriptor: (II)Lorg/apache/poi/hssf/record/NameRecord;
+
+  public void updateNamesAfterCellShift(org.apache.poi.ss.formula.FormulaShifter);
+    descriptor: (Lorg/apache/poi/ss/formula/FormulaShifter;)V
+
+  public org.apache.poi.hssf.record.RecalcIdRecord getRecalcId();
+    descriptor: ()Lorg/apache/poi/hssf/record/RecalcIdRecord;
+
+  public boolean changeExternalReference(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)Z
+
+  public org.apache.poi.hssf.model.WorkbookRecordList getWorkbookRecordList();
+    descriptor: ()Lorg/apache/poi/hssf/model/WorkbookRecordList;
+
+  static {};
+    descriptor: ()V
+}
+breaking/poi-5.2.2.jar
+Compiled from "POITextExtractor.java"
+public interface org.apache.poi.extractor.POITextExtractor extends java.io.Closeable {
+  public abstract java.lang.String getText();
+    descriptor: ()Ljava/lang/String;
+
+  public abstract org.apache.poi.extractor.POITextExtractor getMetadataTextExtractor();
+    descriptor: ()Lorg/apache/poi/extractor/POITextExtractor;
+
+  public abstract void setCloseFilesystem(boolean);
+    descriptor: (Z)V
+
+  public abstract boolean isCloseFilesystem();
+    descriptor: ()Z
+
+  public abstract java.io.Closeable getFilesystem();
+    descriptor: ()Ljava/io/Closeable;
+
+  public default void close() throws java.io.IOException;
+    descriptor: ()V
+
+  public abstract java.lang.Object getDocument();
+    descriptor: ()Ljava/lang/Object;
+}
+Compiled from "InternalWorkbook.java"
+public final class org.apache.poi.hssf.model.InternalWorkbook {
+  private static final int MAX_SENSITIVE_SHEET_NAME_LEN;
+    descriptor: I
+  public static final java.util.List<java.lang.String> WORKBOOK_DIR_ENTRY_NAMES;
+    descriptor: Ljava/util/List;
+  public static final java.lang.String OLD_WORKBOOK_DIR_ENTRY_NAME;
+    descriptor: Ljava/lang/String;
+  private static final org.apache.logging.log4j.Logger LOG;
+    descriptor: Lorg/apache/logging/log4j/Logger;
+  private static final short CODEPAGE;
+    descriptor: S
+  private final org.apache.poi.hssf.model.WorkbookRecordList records;
+    descriptor: Lorg/apache/poi/hssf/model/WorkbookRecordList;
+  protected org.apache.poi.hssf.record.SSTRecord sst;
+    descriptor: Lorg/apache/poi/hssf/record/SSTRecord;
+  private org.apache.poi.hssf.model.LinkTable linkTable;
+    descriptor: Lorg/apache/poi/hssf/model/LinkTable;
+  private final java.util.List<org.apache.poi.hssf.record.BoundSheetRecord> boundsheets;
+    descriptor: Ljava/util/List;
+  private final java.util.List<org.apache.poi.hssf.record.FormatRecord> formats;
+    descriptor: Ljava/util/List;
+  private final java.util.List<org.apache.poi.hssf.record.HyperlinkRecord> hyperlinks;
+    descriptor: Ljava/util/List;
+  private int numxfs;
+    descriptor: I
+  private int numfonts;
+    descriptor: I
+  private int maxformatid;
+    descriptor: I
+  private boolean uses1904datewindowing;
+    descriptor: Z
+  private org.apache.poi.hssf.model.DrawingManager2 drawingManager;
+    descriptor: Lorg/apache/poi/hssf/model/DrawingManager2;
+  private final java.util.List<org.apache.poi.ddf.EscherBSERecord> escherBSERecords;
+    descriptor: Ljava/util/List;
+  private org.apache.poi.hssf.record.WindowOneRecord windowOne;
+    descriptor: Lorg/apache/poi/hssf/record/WindowOneRecord;
+  private org.apache.poi.hssf.record.FileSharingRecord fileShare;
+    descriptor: Lorg/apache/poi/hssf/record/FileSharingRecord;
+  private org.apache.poi.hssf.record.WriteAccessRecord writeAccess;
+    descriptor: Lorg/apache/poi/hssf/record/WriteAccessRecord;
+  private org.apache.poi.hssf.record.WriteProtectRecord writeProtect;
+    descriptor: Lorg/apache/poi/hssf/record/WriteProtectRecord;
+  private final java.util.Map<java.lang.String, org.apache.poi.hssf.record.NameCommentRecord> commentRecords;
+    descriptor: Ljava/util/Map;
+  private org.apache.poi.hssf.model.InternalWorkbook();
+    descriptor: ()V
+
+  public static org.apache.poi.hssf.model.InternalWorkbook createWorkbook(java.util.List<org.apache.poi.hssf.record.Record>);
+    descriptor: (Ljava/util/List;)Lorg/apache/poi/hssf/model/InternalWorkbook;
+
+  public static org.apache.poi.hssf.model.InternalWorkbook createWorkbook();
+    descriptor: ()Lorg/apache/poi/hssf/model/InternalWorkbook;
+
+  public org.apache.poi.hssf.record.NameRecord getSpecificBuiltinRecord(byte, int);
+    descriptor: (BI)Lorg/apache/poi/hssf/record/NameRecord;
+
+  public void removeBuiltinRecord(byte, int);
+    descriptor: (BI)V
+
+  public int getNumRecords();
+    descriptor: ()I
+
+  public org.apache.poi.hssf.record.FontRecord getFontRecordAt(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/FontRecord;
+
+  public int getFontIndex(org.apache.poi.hssf.record.FontRecord);
+    descriptor: (Lorg/apache/poi/hssf/record/FontRecord;)I
+
+  public org.apache.poi.hssf.record.FontRecord createNewFont();
+    descriptor: ()Lorg/apache/poi/hssf/record/FontRecord;
+
+  public void removeFontRecord(org.apache.poi.hssf.record.FontRecord);
+    descriptor: (Lorg/apache/poi/hssf/record/FontRecord;)V
+
+  public int getNumberOfFontRecords();
+    descriptor: ()I
+
+  public void setSheetBof(int, int);
+    descriptor: (II)V
+
+  private org.apache.poi.hssf.record.BoundSheetRecord getBoundSheetRec(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/BoundSheetRecord;
+
+  public org.apache.poi.hssf.record.BackupRecord getBackupRecord();
+    descriptor: ()Lorg/apache/poi/hssf/record/BackupRecord;
+
+  public void setSheetName(int, java.lang.String);
+    descriptor: (ILjava/lang/String;)V
+
+  public boolean doesContainsSheetName(java.lang.String, int);
+    descriptor: (Ljava/lang/String;I)Z
+
+  public void setSheetOrder(java.lang.String, int);
+    descriptor: (Ljava/lang/String;I)V
+
+  public java.lang.String getSheetName(int);
+    descriptor: (I)Ljava/lang/String;
+
+  public boolean isSheetHidden(int);
+    descriptor: (I)Z
+
+  public boolean isSheetVeryHidden(int);
+    descriptor: (I)Z
+
+  public org.apache.poi.ss.usermodel.SheetVisibility getSheetVisibility(int);
+    descriptor: (I)Lorg/apache/poi/ss/usermodel/SheetVisibility;
+
+  public void setSheetHidden(int, boolean);
+    descriptor: (IZ)V
+
+  public void setSheetHidden(int, org.apache.poi.ss.usermodel.SheetVisibility);
+    descriptor: (ILorg/apache/poi/ss/usermodel/SheetVisibility;)V
+
+  public int getSheetIndex(java.lang.String);
+    descriptor: (Ljava/lang/String;)I
+
+  private void checkSheets(int);
+    descriptor: (I)V
+
+  public void removeSheet(int);
+    descriptor: (I)V
+
+  private void fixTabIdRecord();
+    descriptor: ()V
+
+  public int getNumSheets();
+    descriptor: ()I
+
+  public int getNumExFormats();
+    descriptor: ()I
+
+  public org.apache.poi.hssf.record.ExtendedFormatRecord getExFormatAt(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/ExtendedFormatRecord;
+
+  public void removeExFormatRecord(org.apache.poi.hssf.record.ExtendedFormatRecord);
+    descriptor: (Lorg/apache/poi/hssf/record/ExtendedFormatRecord;)V
+
+  public void removeExFormatRecord(int);
+    descriptor: (I)V
+
+  public org.apache.poi.hssf.record.ExtendedFormatRecord createCellXF();
+    descriptor: ()Lorg/apache/poi/hssf/record/ExtendedFormatRecord;
+
+  public org.apache.poi.hssf.record.StyleRecord getStyleRecord(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/StyleRecord;
+
+  public void updateStyleRecord(int, int);
+    descriptor: (II)V
+
+  public org.apache.poi.hssf.record.StyleRecord createStyleRecord(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/StyleRecord;
+
+  public int addSSTString(org.apache.poi.hssf.record.common.UnicodeString);
+    descriptor: (Lorg/apache/poi/hssf/record/common/UnicodeString;)I
+
+  public org.apache.poi.hssf.record.common.UnicodeString getSSTString(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/common/UnicodeString;
+
+  public void insertSST();
+    descriptor: ()V
+
+  public int serialize(int, byte[]);
+    descriptor: (I[B)I
+
+  public void preSerialize();
+    descriptor: ()V
+
+  public int getSize();
+    descriptor: ()I
+
+  private static org.apache.poi.hssf.record.BOFRecord createBOF();
+    descriptor: ()Lorg/apache/poi/hssf/record/BOFRecord;
+
+  private static org.apache.poi.hssf.record.MMSRecord createMMS();
+    descriptor: ()Lorg/apache/poi/hssf/record/MMSRecord;
+
+  private static org.apache.poi.hssf.record.WriteAccessRecord createWriteAccess();
+    descriptor: ()Lorg/apache/poi/hssf/record/WriteAccessRecord;
+
+  private static org.apache.poi.hssf.record.CodepageRecord createCodepage();
+    descriptor: ()Lorg/apache/poi/hssf/record/CodepageRecord;
+
+  private static org.apache.poi.hssf.record.DSFRecord createDSF();
+    descriptor: ()Lorg/apache/poi/hssf/record/DSFRecord;
+
+  private static org.apache.poi.hssf.record.TabIdRecord createTabId();
+    descriptor: ()Lorg/apache/poi/hssf/record/TabIdRecord;
+
+  private static org.apache.poi.hssf.record.FnGroupCountRecord createFnGroupCount();
+    descriptor: ()Lorg/apache/poi/hssf/record/FnGroupCountRecord;
+
+  private static org.apache.poi.hssf.record.WindowProtectRecord createWindowProtect();
+    descriptor: ()Lorg/apache/poi/hssf/record/WindowProtectRecord;
+
+  private static org.apache.poi.hssf.record.ProtectRecord createProtect();
+    descriptor: ()Lorg/apache/poi/hssf/record/ProtectRecord;
+
+  private static org.apache.poi.hssf.record.PasswordRecord createPassword();
+    descriptor: ()Lorg/apache/poi/hssf/record/PasswordRecord;
+
+  private static org.apache.poi.hssf.record.ProtectionRev4Record createProtectionRev4();
+    descriptor: ()Lorg/apache/poi/hssf/record/ProtectionRev4Record;
+
+  private static org.apache.poi.hssf.record.PasswordRev4Record createPasswordRev4();
+    descriptor: ()Lorg/apache/poi/hssf/record/PasswordRev4Record;
+
+  private static org.apache.poi.hssf.record.WindowOneRecord createWindowOne();
+    descriptor: ()Lorg/apache/poi/hssf/record/WindowOneRecord;
+
+  private static org.apache.poi.hssf.record.BackupRecord createBackup();
+    descriptor: ()Lorg/apache/poi/hssf/record/BackupRecord;
+
+  private static org.apache.poi.hssf.record.HideObjRecord createHideObj();
+    descriptor: ()Lorg/apache/poi/hssf/record/HideObjRecord;
+
+  private static org.apache.poi.hssf.record.DateWindow1904Record createDateWindow1904();
+    descriptor: ()Lorg/apache/poi/hssf/record/DateWindow1904Record;
+
+  private static org.apache.poi.hssf.record.PrecisionRecord createPrecision();
+    descriptor: ()Lorg/apache/poi/hssf/record/PrecisionRecord;
+
+  private static org.apache.poi.hssf.record.RefreshAllRecord createRefreshAll();
+    descriptor: ()Lorg/apache/poi/hssf/record/RefreshAllRecord;
+
+  private static org.apache.poi.hssf.record.BookBoolRecord createBookBool();
+    descriptor: ()Lorg/apache/poi/hssf/record/BookBoolRecord;
+
+  private static org.apache.poi.hssf.record.FontRecord createFont();
+    descriptor: ()Lorg/apache/poi/hssf/record/FontRecord;
+
+  private static org.apache.poi.hssf.record.FormatRecord createFormat(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/FormatRecord;
+
+  private static org.apache.poi.hssf.record.ExtendedFormatRecord createExtendedFormat(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/ExtendedFormatRecord;
+
+  private static org.apache.poi.hssf.record.ExtendedFormatRecord createExtendedFormat(int, int, int, int);
+    descriptor: (IIII)Lorg/apache/poi/hssf/record/ExtendedFormatRecord;
+
+  private static org.apache.poi.hssf.record.ExtendedFormatRecord createExtendedFormat();
+    descriptor: ()Lorg/apache/poi/hssf/record/ExtendedFormatRecord;
+
+  private static org.apache.poi.hssf.record.StyleRecord createStyle(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/StyleRecord;
+
+  private static org.apache.poi.hssf.record.PaletteRecord createPalette();
+    descriptor: ()Lorg/apache/poi/hssf/record/PaletteRecord;
+
+  private static org.apache.poi.hssf.record.UseSelFSRecord createUseSelFS();
+    descriptor: ()Lorg/apache/poi/hssf/record/UseSelFSRecord;
+
+  private static org.apache.poi.hssf.record.BoundSheetRecord createBoundSheet(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/BoundSheetRecord;
+
+  private static org.apache.poi.hssf.record.CountryRecord createCountry();
+    descriptor: ()Lorg/apache/poi/hssf/record/CountryRecord;
+
+  private static org.apache.poi.hssf.record.ExtSSTRecord createExtendedSST();
+    descriptor: ()Lorg/apache/poi/hssf/record/ExtSSTRecord;
+
+  private org.apache.poi.hssf.model.LinkTable getOrCreateLinkTable();
+    descriptor: ()Lorg/apache/poi/hssf/model/LinkTable;
+
+  public int linkExternalWorkbook(java.lang.String, org.apache.poi.ss.usermodel.Workbook);
+    descriptor: (Ljava/lang/String;Lorg/apache/poi/ss/usermodel/Workbook;)I
+
+  public java.lang.String findSheetFirstNameFromExternSheet(int);
+    descriptor: (I)Ljava/lang/String;
+
+  public java.lang.String findSheetLastNameFromExternSheet(int);
+    descriptor: (I)Ljava/lang/String;
+
+  private java.lang.String findSheetNameFromIndex(int);
+    descriptor: (I)Ljava/lang/String;
+
+  public org.apache.poi.ss.formula.EvaluationWorkbook$ExternalSheet getExternalSheet(int);
+    descriptor: (I)Lorg/apache/poi/ss/formula/EvaluationWorkbook$ExternalSheet;
+
+  public org.apache.poi.ss.formula.EvaluationWorkbook$ExternalName getExternalName(int, int);
+    descriptor: (II)Lorg/apache/poi/ss/formula/EvaluationWorkbook$ExternalName;
+
+  public int getFirstSheetIndexFromExternSheetIndex(int);
+    descriptor: (I)I
+
+  public int getLastSheetIndexFromExternSheetIndex(int);
+    descriptor: (I)I
+
+  public short checkExternSheet(int);
+    descriptor: (I)S
+
+  public short checkExternSheet(int, int);
+    descriptor: (II)S
+
+  public int getExternalSheetIndex(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)I
+
+  public int getExternalSheetIndex(java.lang.String, java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+  public int getNumNames();
+    descriptor: ()I
+
+  public org.apache.poi.hssf.record.NameRecord getNameRecord(int);
+    descriptor: (I)Lorg/apache/poi/hssf/record/NameRecord;
+
+  public org.apache.poi.hssf.record.NameCommentRecord getNameCommentRecord(org.apache.poi.hssf.record.NameRecord);
+    descriptor: (Lorg/apache/poi/hssf/record/NameRecord;)Lorg/apache/poi/hssf/record/NameCommentRecord;
+
+  public org.apache.poi.hssf.record.NameRecord createName();
+    descriptor: ()Lorg/apache/poi/hssf/record/NameRecord;
+
+  public org.apache.poi.hssf.record.NameRecord addName(org.apache.poi.hssf.record.NameRecord);
+    descriptor: (Lorg/apache/poi/hssf/record/NameRecord;)Lorg/apache/poi/hssf/record/NameRecord;
+
+  public org.apache.poi.hssf.record.NameRecord createBuiltInName(byte, int);
+    descriptor: (BI)Lorg/apache/poi/hssf/record/NameRecord;
+
+  public void removeName(int);
+    descriptor: (I)V
+
+  public void updateNameCommentRecordCache(org.apache.poi.hssf.record.NameCommentRecord);
+    descriptor: (Lorg/apache/poi/hssf/record/NameCommentRecord;)V
+
+  public short getFormat(java.lang.String, boolean);
+    descriptor: (Ljava/lang/String;Z)S
+
+  public java.util.List<org.apache.poi.hssf.record.FormatRecord> getFormats();
+    descriptor: ()Ljava/util/List;
+
+  public int createFormat(java.lang.String);
+    descriptor: (Ljava/lang/String;)I
+
+  public org.apache.poi.hssf.record.Record findFirstRecordBySid(short);
+    descriptor: (S)Lorg/apache/poi/hssf/record/Record;
+
+  public int findFirstRecordLocBySid(short);
+    descriptor: (S)I
+
+  public org.apache.poi.hssf.record.Record findNextRecordBySid(short, int);
+    descriptor: (SI)Lorg/apache/poi/hssf/record/Record;
+
+  public java.util.List<org.apache.poi.hssf.record.HyperlinkRecord> getHyperlinks();
+    descriptor: ()Ljava/util/List;
+
+  public java.util.List<org.apache.poi.hssf.record.Record> getRecords();
+    descriptor: ()Ljava/util/List;
+
+  public boolean isUsing1904DateWindowing();
+    descriptor: ()Z
+
+  public org.apache.poi.hssf.record.PaletteRecord getCustomPalette();
+    descriptor: ()Lorg/apache/poi/hssf/record/PaletteRecord;
+
+  public org.apache.poi.hssf.model.DrawingManager2 findDrawingGroup();
+    descriptor: ()Lorg/apache/poi/hssf/model/DrawingManager2;
+
+  private static org.apache.poi.hssf.model.DrawingManager2 findDrawingManager(org.apache.poi.hssf.record.DrawingGroupRecord, java.util.List<org.apache.poi.ddf.EscherBSERecord>);
+    descriptor: (Lorg/apache/poi/hssf/record/DrawingGroupRecord;Ljava/util/List;)Lorg/apache/poi/hssf/model/DrawingManager2;
+
+  public void createDrawingGroup();
+    descriptor: ()V
+
+  public org.apache.poi.hssf.record.WindowOneRecord getWindowOne();
+    descriptor: ()Lorg/apache/poi/hssf/record/WindowOneRecord;
+
+  public org.apache.poi.ddf.EscherBSERecord getBSERecord(int);
+    descriptor: (I)Lorg/apache/poi/ddf/EscherBSERecord;
+
+  public int addBSERecord(org.apache.poi.ddf.EscherBSERecord);
+    descriptor: (Lorg/apache/poi/ddf/EscherBSERecord;)I
+
+  public org.apache.poi.hssf.model.DrawingManager2 getDrawingManager();
+    descriptor: ()Lorg/apache/poi/hssf/model/DrawingManager2;
+
+  public org.apache.poi.hssf.record.WriteProtectRecord getWriteProtect();
+    descriptor: ()Lorg/apache/poi/hssf/record/WriteProtectRecord;
+
+  public org.apache.poi.hssf.record.WriteAccessRecord getWriteAccess();
+    descriptor: ()Lorg/apache/poi/hssf/record/WriteAccessRecord;
+
+  public org.apache.poi.hssf.record.FileSharingRecord getFileSharing();
+    descriptor: ()Lorg/apache/poi/hssf/record/FileSharingRecord;
+
+  public boolean isWriteProtected();
+    descriptor: ()Z
+
+  public void writeProtectWorkbook(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)V
+
+  public void unwriteProtectWorkbook();
+    descriptor: ()V
+
+  public java.lang.String resolveNameXText(int, int);
+    descriptor: (II)Ljava/lang/String;
+
+  public org.apache.poi.ss.formula.ptg.NameXPtg getNameXPtg(java.lang.String, int, org.apache.poi.ss.formula.udf.UDFFinder);
+    descriptor: (Ljava/lang/String;ILorg/apache/poi/ss/formula/udf/UDFFinder;)Lorg/apache/poi/ss/formula/ptg/NameXPtg;
+
+  public org.apache.poi.ss.formula.ptg.NameXPtg getNameXPtg(java.lang.String, org.apache.poi.ss.formula.udf.UDFFinder);
+    descriptor: (Ljava/lang/String;Lorg/apache/poi/ss/formula/udf/UDFFinder;)Lorg/apache/poi/ss/formula/ptg/NameXPtg;
+
+  public void cloneDrawings(org.apache.poi.hssf.model.InternalSheet);
+    descriptor: (Lorg/apache/poi/hssf/model/InternalSheet;)V
+
+  public org.apache.poi.hssf.record.NameRecord cloneFilter(int, int);
+    descriptor: (II)Lorg/apache/poi/hssf/record/NameRecord;
+
+  public void updateNamesAfterCellShift(org.apache.poi.ss.formula.FormulaShifter);
+    descriptor: (Lorg/apache/poi/ss/formula/FormulaShifter;)V
+
+  public org.apache.poi.hssf.record.RecalcIdRecord getRecalcId();
+    descriptor: ()Lorg/apache/poi/hssf/record/RecalcIdRecord;
+
+  public boolean changeExternalReference(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)Z
+
+  public org.apache.poi.hssf.model.WorkbookRecordList getWorkbookRecordList();
+    descriptor: ()Lorg/apache/poi/hssf/model/WorkbookRecordList;
+
+  static {};
+    descriptor: ()V
+}
+Compiled from "POIXMLTextExtractor.java"
+public abstract class org.apache.poi.ooxml.extractor.POIXMLTextExtractor extends org.apache.poi.extractor.POITextExtractor {
+  private final org.apache.poi.ooxml.POIXMLDocument _document;
+  public org.apache.poi.ooxml.extractor.POIXMLTextExtractor(org.apache.poi.ooxml.POIXMLDocument);
+  public org.apache.poi.ooxml.POIXMLProperties$CoreProperties getCoreProperties();
+  public org.apache.poi.ooxml.POIXMLProperties$ExtendedProperties getExtendedProperties();
+  public org.apache.poi.ooxml.POIXMLProperties$CustomProperties getCustomProperties();
+  public final org.apache.poi.ooxml.POIXMLDocument getDocument();
+  public org.apache.poi.openxml4j.opc.OPCPackage getPackage();
+  public org.apache.poi.ooxml.extractor.POIXMLPropertiesTextExtractor getMetadataTextExtractor();
+  public void close() throws java.io.IOException;
+  protected void checkMaxTextSize(java.lang.CharSequence, java.lang.String);
+  public java.lang.Object getDocument();
+  public org.apache.poi.extractor.POITextExtractor getMetadataTextExtractor();
+}
+Compiled from "HWPFDocumentCore.java"
+public abstract class org.apache.poi.hwpf.HWPFDocumentCore extends org.apache.poi.POIDocument {
+  protected static final java.lang.String STREAM_OBJECT_POOL;
+
+  protected static final java.lang.String STREAM_WORD_DOCUMENT;
+
+  protected static final java.lang.String STREAM_TABLE_0;
+
+  protected static final java.lang.String STREAM_TABLE_1;
+
+  private static final int MAX_RECORD_LENGTH;
+
+  protected static final int FIB_BASE_LEN;
+
+  protected static final int RC4_REKEYING_INTERVAL;
+
+  protected org.apache.poi.hwpf.usermodel.ObjectPoolImpl _objectPool;
+
+  protected org.apache.poi.hwpf.model.FileInformationBlock _fib;
+
+  protected org.apache.poi.hwpf.model.StyleSheet _ss;
+
+  protected org.apache.poi.hwpf.model.CHPBinTable _cbt;
+
+  protected org.apache.poi.hwpf.model.PAPBinTable _pbt;
+
+  protected org.apache.poi.hwpf.model.SectionTable _st;
+
+  protected org.apache.poi.hwpf.model.FontTable _ft;
+
+  protected org.apache.poi.hwpf.model.ListTables _lt;
+
+  protected byte[] _mainStream;
+
+  private org.apache.poi.poifs.crypt.EncryptionInfo _encryptionInfo;
+
+  protected org.apache.poi.hwpf.HWPFDocumentCore();
+    Code:
+       0: aload_0
+       1: aconst_null
+       2: checkcast     #1                  // class org/apache/poi/poifs/filesystem/DirectoryNode
+       5: invokespecial #2                  // Method org/apache/poi/POIDocument."<init>":(Lorg/apache/poi/poifs/filesystem/DirectoryNode;)V
+       8: return
+
+  public static org.apache.poi.poifs.filesystem.POIFSFileSystem verifyAndBuildPOIFS(java.io.InputStream) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: invokestatic  #3                  // Method org/apache/poi/poifs/filesystem/FileMagic.prepareToCheckMagic:(Ljava/io/InputStream;)Ljava/io/InputStream;
+       4: astore_1
+       5: aload_1
+       6: invokestatic  #4                  // Method org/apache/poi/poifs/filesystem/FileMagic.valueOf:(Ljava/io/InputStream;)Lorg/apache/poi/poifs/filesystem/FileMagic;
+       9: astore_2
+      10: aload_2
+      11: getstatic     #5                  // Field org/apache/poi/poifs/filesystem/FileMagic.OLE2:Lorg/apache/poi/poifs/filesystem/FileMagic;
+      14: if_acmpeq     49
+      17: new           #6                  // class java/lang/IllegalArgumentException
+      20: dup
+      21: new           #7                  // class java/lang/StringBuilder
+      24: dup
+      25: invokespecial #8                  // Method java/lang/StringBuilder."<init>":()V
+      28: ldc           #9                  // String The document is really a
+      30: invokevirtual #10                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      33: aload_2
+      34: invokevirtual #11                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      37: ldc           #12                 // String  file
+      39: invokevirtual #10                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      42: invokevirtual #13                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      45: invokespecial #14                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      48: athrow
+      49: new           #15                 // class org/apache/poi/poifs/filesystem/POIFSFileSystem
+      52: dup
+      53: aload_1
+      54: invokespecial #16                 // Method org/apache/poi/poifs/filesystem/POIFSFileSystem."<init>":(Ljava/io/InputStream;)V
+      57: areturn
+
+  public org.apache.poi.hwpf.HWPFDocumentCore(java.io.InputStream) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #17                 // Method verifyAndBuildPOIFS:(Ljava/io/InputStream;)Lorg/apache/poi/poifs/filesystem/POIFSFileSystem;
+       5: invokespecial #18                 // Method "<init>":(Lorg/apache/poi/poifs/filesystem/POIFSFileSystem;)V
+       8: return
+
+  public org.apache.poi.hwpf.HWPFDocumentCore(org.apache.poi.poifs.filesystem.POIFSFileSystem) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #19                 // Method org/apache/poi/poifs/filesystem/POIFSFileSystem.getRoot:()Lorg/apache/poi/poifs/filesystem/DirectoryNode;
+       5: invokespecial #20                 // Method "<init>":(Lorg/apache/poi/poifs/filesystem/DirectoryNode;)V
+       8: return
+
+  public org.apache.poi.hwpf.HWPFDocumentCore(org.apache.poi.poifs.filesystem.DirectoryNode) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #2                  // Method org/apache/poi/POIDocument."<init>":(Lorg/apache/poi/poifs/filesystem/DirectoryNode;)V
+       5: aload_0
+       6: aload_0
+       7: ldc           #22                 // String WordDocument
+       9: bipush        68
+      11: ldc           #24                 // int 2147483647
+      13: invokevirtual #25                 // Method getDocumentEntryBytes:(Ljava/lang/String;II)[B
+      16: putfield      #26                 // Field _mainStream:[B
+      19: aload_0
+      20: new           #27                 // class org/apache/poi/hwpf/model/FileInformationBlock
+      23: dup
+      24: aload_0
+      25: getfield      #26                 // Field _mainStream:[B
+      28: invokespecial #28                 // Method org/apache/poi/hwpf/model/FileInformationBlock."<init>":([B)V
+      31: putfield      #29                 // Field _fib:Lorg/apache/poi/hwpf/model/FileInformationBlock;
+      34: aconst_null
+      35: astore_2
+      36: aload_1
+      37: ldc           #30                 // String ObjectPool
+      39: invokevirtual #31                 // Method org/apache/poi/poifs/filesystem/DirectoryNode.hasEntry:(Ljava/lang/String;)Z
+      42: ifeq          55
+      45: aload_1
+      46: ldc           #30                 // String ObjectPool
+      48: invokevirtual #32                 // Method org/apache/poi/poifs/filesystem/DirectoryNode.getEntry:(Ljava/lang/String;)Lorg/apache/poi/poifs/filesystem/Entry;
+      51: checkcast     #33                 // class org/apache/poi/poifs/filesystem/DirectoryEntry
+      54: astore_2
+      55: aload_0
+      56: new           #34                 // class org/apache/poi/hwpf/usermodel/ObjectPoolImpl
+      59: dup
+      60: aload_2
+      61: invokespecial #35                 // Method org/apache/poi/hwpf/usermodel/ObjectPoolImpl."<init>":(Lorg/apache/poi/poifs/filesystem/DirectoryEntry;)V
+      64: putfield      #36                 // Field _objectPool:Lorg/apache/poi/hwpf/usermodel/ObjectPoolImpl;
+      67: return
+
+  public abstract org.apache.poi.hwpf.usermodel.Range getRange();
+
+  public abstract org.apache.poi.hwpf.usermodel.Range getOverallRange();
+
+  public java.lang.String getDocumentText();
+    Code:
+       0: aload_0
+       1: invokevirtual #37                 // Method getText:()Ljava/lang/StringBuilder;
+       4: invokevirtual #13                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+       7: areturn
+
+  public abstract java.lang.StringBuilder getText();
+
+  public org.apache.poi.hwpf.model.CHPBinTable getCharacterTable();
+    Code:
+       0: aload_0
+       1: getfield      #38                 // Field _cbt:Lorg/apache/poi/hwpf/model/CHPBinTable;
+       4: areturn
+
+  public org.apache.poi.hwpf.model.PAPBinTable getParagraphTable();
+    Code:
+       0: aload_0
+       1: getfield      #39                 // Field _pbt:Lorg/apache/poi/hwpf/model/PAPBinTable;
+       4: areturn
+
+  public org.apache.poi.hwpf.model.SectionTable getSectionTable();
+    Code:
+       0: aload_0
+       1: getfield      #40                 // Field _st:Lorg/apache/poi/hwpf/model/SectionTable;
+       4: areturn
+
+  public org.apache.poi.hwpf.model.StyleSheet getStyleSheet();
+    Code:
+       0: aload_0
+       1: getfield      #41                 // Field _ss:Lorg/apache/poi/hwpf/model/StyleSheet;
+       4: areturn
+
+  public org.apache.poi.hwpf.model.ListTables getListTables();
+    Code:
+       0: aload_0
+       1: getfield      #42                 // Field _lt:Lorg/apache/poi/hwpf/model/ListTables;
+       4: areturn
+
+  public org.apache.poi.hwpf.model.FontTable getFontTable();
+    Code:
+       0: aload_0
+       1: getfield      #43                 // Field _ft:Lorg/apache/poi/hwpf/model/FontTable;
+       4: areturn
+
+  public org.apache.poi.hwpf.model.FileInformationBlock getFileInformationBlock();
+    Code:
+       0: aload_0
+       1: getfield      #29                 // Field _fib:Lorg/apache/poi/hwpf/model/FileInformationBlock;
+       4: areturn
+
+  public org.apache.poi.hwpf.usermodel.ObjectsPool getObjectsPool();
+    Code:
+       0: aload_0
+       1: getfield      #36                 // Field _objectPool:Lorg/apache/poi/hwpf/usermodel/ObjectPoolImpl;
+       4: areturn
+
+  public abstract org.apache.poi.hwpf.model.TextPieceTable getTextTable();
+
+  public byte[] getMainStream();
+    Code:
+       0: aload_0
+       1: getfield      #26                 // Field _mainStream:[B
+       4: areturn
+
+  public org.apache.poi.poifs.crypt.EncryptionInfo getEncryptionInfo() throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: getfield      #44                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+       4: ifnull        12
+       7: aload_0
+       8: getfield      #44                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+      11: areturn
+      12: aload_0
+      13: getfield      #29                 // Field _fib:Lorg/apache/poi/hwpf/model/FileInformationBlock;
+      16: ifnull        40
+      19: aload_0
+      20: getfield      #29                 // Field _fib:Lorg/apache/poi/hwpf/model/FileInformationBlock;
+      23: invokevirtual #45                 // Method org/apache/poi/hwpf/model/FileInformationBlock.getFibBase:()Lorg/apache/poi/hwpf/model/FibBase;
+      26: ifnull        40
+      29: aload_0
+      30: getfield      #29                 // Field _fib:Lorg/apache/poi/hwpf/model/FileInformationBlock;
+      33: invokevirtual #45                 // Method org/apache/poi/hwpf/model/FileInformationBlock.getFibBase:()Lorg/apache/poi/hwpf/model/FibBase;
+      36: astore_1
+      37: goto          74
+      40: aload_0
+      41: getfield      #26                 // Field _mainStream:[B
+      44: ifnull        54
+      47: aload_0
+      48: getfield      #26                 // Field _mainStream:[B
+      51: goto          63
+      54: aload_0
+      55: ldc           #22                 // String WordDocument
+      57: iconst_m1
+      58: bipush        68
+      60: invokevirtual #25                 // Method getDocumentEntryBytes:(Ljava/lang/String;II)[B
+      63: astore_2
+      64: new           #46                 // class org/apache/poi/hwpf/model/FibBase
+      67: dup
+      68: aload_2
+      69: iconst_0
+      70: invokespecial #47                 // Method org/apache/poi/hwpf/model/FibBase."<init>":([BI)V
+      73: astore_1
+      74: aload_1
+      75: invokevirtual #48                 // Method org/apache/poi/hwpf/model/FibBase.isFEncrypted:()Z
+      78: ifne          83
+      81: aconst_null
+      82: areturn
+      83: aload_1
+      84: invokevirtual #49                 // Method org/apache/poi/hwpf/model/FibBase.isFWhichTblStm:()Z
+      87: ifeq          95
+      90: ldc           #50                 // String 1Table
+      92: goto          97
+      95: ldc           #51                 // String 0Table
+      97: astore_2
+      98: aload_0
+      99: aload_2
+     100: iconst_m1
+     101: aload_1
+     102: invokevirtual #52                 // Method org/apache/poi/hwpf/model/FibBase.getLKey:()I
+     105: invokevirtual #25                 // Method getDocumentEntryBytes:(Ljava/lang/String;II)[B
+     108: astore_3
+     109: new           #53                 // class org/apache/poi/util/LittleEndianByteArrayInputStream
+     112: dup
+     113: aload_3
+     114: invokespecial #54                 // Method org/apache/poi/util/LittleEndianByteArrayInputStream."<init>":([B)V
+     117: astore        4
+     119: aload_1
+     120: invokevirtual #55                 // Method org/apache/poi/hwpf/model/FibBase.isFObfuscated:()Z
+     123: ifeq          132
+     126: getstatic     #56                 // Field org/apache/poi/poifs/crypt/EncryptionMode.xor:Lorg/apache/poi/poifs/crypt/EncryptionMode;
+     129: goto          133
+     132: aconst_null
+     133: astore        5
+     135: new           #57                 // class org/apache/poi/poifs/crypt/EncryptionInfo
+     138: dup
+     139: aload         4
+     141: aload         5
+     143: invokespecial #58                 // Method org/apache/poi/poifs/crypt/EncryptionInfo."<init>":(Lorg/apache/poi/util/LittleEndianInput;Lorg/apache/poi/poifs/crypt/EncryptionMode;)V
+     146: astore        6
+     148: aload         6
+     150: invokevirtual #59                 // Method org/apache/poi/poifs/crypt/EncryptionInfo.getDecryptor:()Lorg/apache/poi/poifs/crypt/Decryptor;
+     153: astore        7
+     155: aload         7
+     157: sipush        512
+     160: invokevirtual #60                 // Method org/apache/poi/poifs/crypt/Decryptor.setChunkSize:(I)V
+     163: invokestatic  #61                 // Method org/apache/poi/hssf/record/crypto/Biff8EncryptionKey.getCurrentUserPassword:()Ljava/lang/String;
+     166: astore        8
+     168: aload         8
+     170: ifnonnull     177
+     173: ldc           #63                 // String VelvetSweatshop
+     175: astore        8
+     177: aload         7
+     179: aload         8
+     181: invokevirtual #64                 // Method org/apache/poi/poifs/crypt/Decryptor.verifyPassword:(Ljava/lang/String;)Z
+     184: ifne          197
+     187: new           #65                 // class org/apache/poi/EncryptedDocumentException
+     190: dup
+     191: ldc           #66                 // String document is encrypted, password is invalid - use Biff8EncryptionKey.setCurrentUserPasswort() to set password before opening
+     193: invokespecial #67                 // Method org/apache/poi/EncryptedDocumentException."<init>":(Ljava/lang/String;)V
+     196: athrow
+     197: goto          217
+     200: astore        8
+     202: new           #69                 // class java/io/IOException
+     205: dup
+     206: aload         8
+     208: invokevirtual #70                 // Method java/security/GeneralSecurityException.getMessage:()Ljava/lang/String;
+     211: aload         8
+     213: invokespecial #71                 // Method java/io/IOException."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+     216: athrow
+     217: aload_0
+     218: aload         6
+     220: putfield      #44                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+     223: aload         6
+     225: areturn
+    Exception table:
+       from    to  target type
+         163   197   200   Class java/security/GeneralSecurityException
+
+  protected void updateEncryptionInfo();
+    Code:
+       0: aload_0
+       1: invokevirtual #72                 // Method readProperties:()V
+       4: invokestatic  #61                 // Method org/apache/poi/hssf/record/crypto/Biff8EncryptionKey.getCurrentUserPassword:()Ljava/lang/String;
+       7: astore_1
+       8: aload_0
+       9: getfield      #29                 // Field _fib:Lorg/apache/poi/hwpf/model/FileInformationBlock;
+      12: invokevirtual #45                 // Method org/apache/poi/hwpf/model/FileInformationBlock.getFibBase:()Lorg/apache/poi/hwpf/model/FibBase;
+      15: astore_2
+      16: aload_1
+      17: ifnonnull     43
+      20: aload_2
+      21: iconst_0
+      22: invokevirtual #73                 // Method org/apache/poi/hwpf/model/FibBase.setLKey:(I)V
+      25: aload_2
+      26: iconst_0
+      27: invokevirtual #74                 // Method org/apache/poi/hwpf/model/FibBase.setFEncrypted:(Z)V
+      30: aload_2
+      31: iconst_0
+      32: invokevirtual #75                 // Method org/apache/poi/hwpf/model/FibBase.setFObfuscated:(Z)V
+      35: aload_0
+      36: aconst_null
+      37: putfield      #44                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+      40: goto          131
+      43: aload_0
+      44: getfield      #44                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+      47: ifnonnull     74
+      50: aload_0
+      51: new           #57                 // class org/apache/poi/poifs/crypt/EncryptionInfo
+      54: dup
+      55: getstatic     #76                 // Field org/apache/poi/poifs/crypt/EncryptionMode.cryptoAPI:Lorg/apache/poi/poifs/crypt/EncryptionMode;
+      58: invokespecial #77                 // Method org/apache/poi/poifs/crypt/EncryptionInfo."<init>":(Lorg/apache/poi/poifs/crypt/EncryptionMode;)V
+      61: putfield      #44                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+      64: aload_2
+      65: iconst_1
+      66: invokevirtual #74                 // Method org/apache/poi/hwpf/model/FibBase.setFEncrypted:(Z)V
+      69: aload_2
+      70: iconst_0
+      71: invokevirtual #75                 // Method org/apache/poi/hwpf/model/FibBase.setFObfuscated:(Z)V
+      74: aload_0
+      75: getfield      #44                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+      78: invokevirtual #78                 // Method org/apache/poi/poifs/crypt/EncryptionInfo.getEncryptor:()Lorg/apache/poi/poifs/crypt/Encryptor;
+      81: astore_3
+      82: aload_0
+      83: getfield      #44                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+      86: invokevirtual #79                 // Method org/apache/poi/poifs/crypt/EncryptionInfo.getVerifier:()Lorg/apache/poi/poifs/crypt/EncryptionVerifier;
+      89: invokevirtual #80                 // Method org/apache/poi/poifs/crypt/EncryptionVerifier.getSalt:()[B
+      92: astore        4
+      94: aload         4
+      96: ifnonnull     107
+      99: aload_3
+     100: aload_1
+     101: invokevirtual #81                 // Method org/apache/poi/poifs/crypt/Encryptor.confirmPassword:(Ljava/lang/String;)V
+     104: goto          131
+     107: aload_0
+     108: getfield      #44                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+     111: invokevirtual #59                 // Method org/apache/poi/poifs/crypt/EncryptionInfo.getDecryptor:()Lorg/apache/poi/poifs/crypt/Decryptor;
+     114: invokevirtual #82                 // Method org/apache/poi/poifs/crypt/Decryptor.getVerifier:()[B
+     117: astore        5
+     119: aload_3
+     120: aload_1
+     121: aconst_null
+     122: aconst_null
+     123: aload         5
+     125: aload         4
+     127: aconst_null
+     128: invokevirtual #83                 // Method org/apache/poi/poifs/crypt/Encryptor.confirmPassword:(Ljava/lang/String;[B[B[B[B[B)V
+     131: return
+
+  protected byte[] getDocumentEntryBytes(java.lang.String, int, int) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: invokevirtual #84                 // Method getDirectory:()Lorg/apache/poi/poifs/filesystem/DirectoryNode;
+       4: astore        4
+       6: aload         4
+       8: aload_1
+       9: invokevirtual #32                 // Method org/apache/poi/poifs/filesystem/DirectoryNode.getEntry:(Ljava/lang/String;)Lorg/apache/poi/poifs/filesystem/Entry;
+      12: checkcast     #85                 // class org/apache/poi/poifs/filesystem/DocumentEntry
+      15: astore        5
+      17: aload         5
+      19: invokeinterface #86,  1           // InterfaceMethod org/apache/poi/poifs/filesystem/DocumentEntry.getSize:()I
+      24: istore        6
+      26: iload_2
+      27: iconst_m1
+      28: if_icmple     42
+      31: aload_0
+      32: invokevirtual #87                 // Method getEncryptionInfo:()Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+      35: ifnull        42
+      38: iconst_1
+      39: goto          43
+      42: iconst_0
+      43: istore        7
+      45: aload         4
+      47: aload         5
+      49: invokevirtual #88                 // Method org/apache/poi/poifs/filesystem/DirectoryNode.createDocumentInputStream:(Lorg/apache/poi/poifs/filesystem/Entry;)Lorg/apache/poi/poifs/filesystem/DocumentInputStream;
+      52: astore        8
+      54: aconst_null
+      55: astore        9
+      57: iload         7
+      59: ifeq          74
+      62: aload_0
+      63: aload         8
+      65: iload         6
+      67: iload_2
+      68: invokespecial #89                 // Method getDecryptedStream:(Lorg/apache/poi/poifs/filesystem/DocumentInputStream;II)Ljava/io/InputStream;
+      71: goto          76
+      74: aload         8
+      76: astore        10
+      78: aconst_null
+      79: astore        11
+      81: aload         10
+      83: iload         6
+      85: iload_3
+      86: invokestatic  #90                 // Method java/lang/Math.min:(II)I
+      89: invokestatic  #91                 // Method org/apache/poi/util/IOUtils.toByteArray:(Ljava/io/InputStream;I)[B
+      92: astore        12
+      94: aload         10
+      96: ifnull        129
+      99: aload         11
+     101: ifnull        124
+     104: aload         10
+     106: invokevirtual #92                 // Method java/io/InputStream.close:()V
+     109: goto          129
+     112: astore        13
+     114: aload         11
+     116: aload         13
+     118: invokevirtual #94                 // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     121: goto          129
+     124: aload         10
+     126: invokevirtual #92                 // Method java/io/InputStream.close:()V
+     129: aload         8
+     131: ifnull        164
+     134: aload         9
+     136: ifnull        159
+     139: aload         8
+     141: invokevirtual #95                 // Method org/apache/poi/poifs/filesystem/DocumentInputStream.close:()V
+     144: goto          164
+     147: astore        13
+     149: aload         9
+     151: aload         13
+     153: invokevirtual #94                 // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     156: goto          164
+     159: aload         8
+     161: invokevirtual #95                 // Method org/apache/poi/poifs/filesystem/DocumentInputStream.close:()V
+     164: aload         12
+     166: areturn
+     167: astore        12
+     169: aload         12
+     171: astore        11
+     173: aload         12
+     175: athrow
+     176: astore        14
+     178: aload         10
+     180: ifnull        213
+     183: aload         11
+     185: ifnull        208
+     188: aload         10
+     190: invokevirtual #92                 // Method java/io/InputStream.close:()V
+     193: goto          213
+     196: astore        15
+     198: aload         11
+     200: aload         15
+     202: invokevirtual #94                 // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     205: goto          213
+     208: aload         10
+     210: invokevirtual #92                 // Method java/io/InputStream.close:()V
+     213: aload         14
+     215: athrow
+     216: astore        10
+     218: aload         10
+     220: astore        9
+     222: aload         10
+     224: athrow
+     225: astore        16
+     227: aload         8
+     229: ifnull        262
+     232: aload         9
+     234: ifnull        257
+     237: aload         8
+     239: invokevirtual #95                 // Method org/apache/poi/poifs/filesystem/DocumentInputStream.close:()V
+     242: goto          262
+     245: astore        17
+     247: aload         9
+     249: aload         17
+     251: invokevirtual #94                 // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     254: goto          262
+     257: aload         8
+     259: invokevirtual #95                 // Method org/apache/poi/poifs/filesystem/DocumentInputStream.close:()V
+     262: aload         16
+     264: athrow
+     265: astore        8
+     267: new           #69                 // class java/io/IOException
+     270: dup
+     271: new           #7                  // class java/lang/StringBuilder
+     274: dup
+     275: invokespecial #8                  // Method java/lang/StringBuilder."<init>":()V
+     278: ldc           #96                 // String Unable to decrypt data for entry:
+     280: invokevirtual #10                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     283: aload_1
+     284: invokevirtual #10                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     287: invokevirtual #13                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     290: aload         8
+     292: invokespecial #71                 // Method java/io/IOException."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+     295: athrow
+    Exception table:
+       from    to  target type
+         104   109   112   Class java/lang/Throwable
+         139   144   147   Class java/lang/Throwable
+          81    94   167   Class java/lang/Throwable
+          81    94   176   any
+         188   193   196   Class java/lang/Throwable
+         167   178   176   any
+          57   129   216   Class java/lang/Throwable
+         167   216   216   Class java/lang/Throwable
+          57   129   225   any
+         237   242   245   Class java/lang/Throwable
+         167   227   225   any
+          45   164   265   Class java/security/GeneralSecurityException
+         167   265   265   Class java/security/GeneralSecurityException
+
+  private java.io.InputStream getDecryptedStream(org.apache.poi.poifs.filesystem.DocumentInputStream, int, int) throws java.io.IOException, java.security.GeneralSecurityException;
+    Code:
+       0: aload_0
+       1: invokevirtual #87                 // Method getEncryptionInfo:()Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+       4: invokevirtual #59                 // Method org/apache/poi/poifs/crypt/EncryptionInfo.getDecryptor:()Lorg/apache/poi/poifs/crypt/Decryptor;
+       7: astore        4
+       9: aload         4
+      11: aload_1
+      12: iload_2
+      13: iconst_0
+      14: invokevirtual #97                 // Method org/apache/poi/poifs/crypt/Decryptor.getDataStream:(Ljava/io/InputStream;II)Ljava/io/InputStream;
+      17: checkcast     #98                 // class org/apache/poi/poifs/crypt/ChunkedCipherInputStream
+      20: astore        5
+      22: iconst_0
+      23: newarray       byte
+      25: astore        6
+      27: iload_3
+      28: ifle          49
+      31: iload_3
+      32: i2l
+      33: ldc           #99                 // int 1000000
+      35: invokestatic  #100                // Method org/apache/poi/util/IOUtils.safelyAllocate:(JI)[B
+      38: astore        6
+      40: aload         5
+      42: aload         6
+      44: iconst_0
+      45: iload_3
+      46: invokevirtual #101                // Method org/apache/poi/poifs/crypt/ChunkedCipherInputStream.readPlain:([BII)V
+      49: new           #102                // class java/io/SequenceInputStream
+      52: dup
+      53: new           #103                // class java/io/ByteArrayInputStream
+      56: dup
+      57: aload         6
+      59: invokespecial #104                // Method java/io/ByteArrayInputStream."<init>":([B)V
+      62: aload         5
+      64: invokespecial #105                // Method java/io/SequenceInputStream."<init>":(Ljava/io/InputStream;Ljava/io/InputStream;)V
+      67: areturn
+}

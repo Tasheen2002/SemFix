@@ -1,0 +1,183 @@
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml
++++ b/pom.xml
+@@ -90,7 +90,7 @@
+     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+     <maven.compiler.source>11</maven.compiler.source>
+     <maven.compiler.target>11</maven.compiler.target>
+-    <dropwizard.version>2.0.17</dropwizard.version>
++    <dropwizard.version>3.0.4</dropwizard.version>
+     <pac4j.version>4.5.6</pac4j.version>
+     <jax-rs-pac4j.version>4.0.0</jax-rs-pac4j.version>
+     <jee-pac4j.version>5.0.0</jee-pac4j.version>
+@@ -112,11 +112,6 @@
+         <version>1.5.1</version>
+       </dependency>
+       <!-- Required for dependency convergence -->
+-      <dependency>
+-        <groupId>com.fasterxml.jackson.core</groupId>
+-        <artifactId>jackson-databind</artifactId>
+-        <version>2.10.5.1</version>
+-      </dependency>
+       <!-- Required for dependency convergence -->
+       <dependency>
+         <groupId>com.google.errorprone</groupId>
+@@ -232,6 +227,18 @@
+   </dependencyManagement>
+ 
+   <dependencies>
++    <dependency>
++      <groupId>junit</groupId>
++      <artifactId>junit</artifactId>
++      <version>4.13.2</version>
++      <scope>test</scope>
++    </dependency>
++    <dependency>
++      <groupId>org.junit.vintage</groupId>
++      <artifactId>junit-vintage-engine</artifactId>
++      <version>5.9.3</version>
++      <scope>test</scope>
++    </dependency>
+     <dependency>
+       <groupId>io.dropwizard</groupId>
+       <artifactId>dropwizard-core</artifactId>
+diff --git a/src/main/java/org/pac4j/dropwizard/DefaultFeatureSupport.java b/src/main/java/org/pac4j/dropwizard/DefaultFeatureSupport.java
+--- a/src/main/java/org/pac4j/dropwizard/DefaultFeatureSupport.java
++++ b/src/main/java/org/pac4j/dropwizard/DefaultFeatureSupport.java
+@@ -21,7 +21,7 @@
+ 
+ import com.fasterxml.jackson.databind.ObjectMapper;
+ 
+-import io.dropwizard.setup.Bootstrap;
++import io.dropwizard.core.setup.Bootstrap;
+ import org.pac4j.core.redirect.RedirectionActionBuilder;
+ 
+ /**
+diff --git a/src/main/java/org/pac4j/dropwizard/J2EHelper.java b/src/main/java/org/pac4j/dropwizard/J2EHelper.java
+--- a/src/main/java/org/pac4j/dropwizard/J2EHelper.java
++++ b/src/main/java/org/pac4j/dropwizard/J2EHelper.java
+@@ -10,7 +10,7 @@
+ import org.pac4j.dropwizard.Pac4jFactory.ServletLogoutFilterConfiguration;
+ import org.pac4j.dropwizard.Pac4jFactory.ServletSecurityFilterConfiguration;
+ 
+-import io.dropwizard.setup.Environment;
++import io.dropwizard.core.setup.Environment;
+ import org.pac4j.jee.filter.AbstractConfigFilter;
+ import org.pac4j.jee.filter.CallbackFilter;
+ import org.pac4j.jee.filter.LogoutFilter;
+diff --git a/src/main/java/org/pac4j/dropwizard/Pac4jBundle.java b/src/main/java/org/pac4j/dropwizard/Pac4jBundle.java
+--- a/src/main/java/org/pac4j/dropwizard/Pac4jBundle.java
++++ b/src/main/java/org/pac4j/dropwizard/Pac4jBundle.java
+@@ -16,12 +16,12 @@
+ import org.pac4j.jax.rs.jersey.features.Pac4JValueFactoryProvider;
+ import org.pac4j.jax.rs.servlet.features.ServletJaxRsContextFactoryProvider;
+ 
+-import io.dropwizard.Application;
+-import io.dropwizard.Configuration;
+-import io.dropwizard.ConfiguredBundle;
++import io.dropwizard.core.Application;
++import io.dropwizard.core.Configuration;
++import io.dropwizard.core.ConfiguredBundle;
+ import io.dropwizard.jetty.MutableServletContextHandler;
+-import io.dropwizard.setup.Bootstrap;
+-import io.dropwizard.setup.Environment;
++import io.dropwizard.core.setup.Bootstrap;
++import io.dropwizard.core.setup.Environment;
+ 
+ /**
+  * A {@link ConfiguredBundle} which sets up {@link Pac4JSecurityFeature},
+diff --git a/src/main/java/org/pac4j/dropwizard/Pac4jConfiguration.java b/src/main/java/org/pac4j/dropwizard/Pac4jConfiguration.java
+--- a/src/main/java/org/pac4j/dropwizard/Pac4jConfiguration.java
++++ b/src/main/java/org/pac4j/dropwizard/Pac4jConfiguration.java
+@@ -2,12 +2,11 @@
+ 
+ import org.pac4j.core.config.Config;
+ 
+-import io.dropwizard.Bundle;
+-import io.dropwizard.Configuration;
++import io.dropwizard.core.Configuration;
+ 
+ /**
+  * 
+- * {@link Bundle}s can extend this to get a {@link Pac4jFactory}.
++ * Bundles can extend this to get a {@link Pac4jFactory}.
+  * 
+  * @author Evan Meagher
+  * @since 1.0.0
+diff --git a/src/main/java/org/pac4j/dropwizard/Pac4jFeatureSupport.java b/src/main/java/org/pac4j/dropwizard/Pac4jFeatureSupport.java
+--- a/src/main/java/org/pac4j/dropwizard/Pac4jFeatureSupport.java
++++ b/src/main/java/org/pac4j/dropwizard/Pac4jFeatureSupport.java
+@@ -1,6 +1,6 @@
+ package org.pac4j.dropwizard;
+ 
+-import io.dropwizard.setup.Bootstrap;
++import io.dropwizard.core.setup.Bootstrap;
+ 
+ /**
+  * An interface to add optional Jackson's behaviour customizations to
+diff --git a/src/test/java/org/pac4j/dropwizard/AbstractApplicationTest.java b/src/test/java/org/pac4j/dropwizard/AbstractApplicationTest.java
+--- a/src/test/java/org/pac4j/dropwizard/AbstractApplicationTest.java
++++ b/src/test/java/org/pac4j/dropwizard/AbstractApplicationTest.java
+@@ -9,10 +9,10 @@
+ import com.google.common.base.Charsets;
+ import com.google.common.io.BaseEncoding;
+ 
+-import io.dropwizard.Application;
+-import io.dropwizard.Configuration;
+-import io.dropwizard.setup.Bootstrap;
+-import io.dropwizard.setup.Environment;
++import io.dropwizard.core.Application;
++import io.dropwizard.core.Configuration;
++import io.dropwizard.core.setup.Bootstrap;
++import io.dropwizard.core.setup.Environment;
+ import io.dropwizard.testing.ConfigOverride;
+ import io.dropwizard.testing.DropwizardTestSupport;
+ import io.dropwizard.testing.ResourceHelpers;
+diff --git a/src/test/java/org/pac4j/dropwizard/AbstractConfigurationTest.java b/src/test/java/org/pac4j/dropwizard/AbstractConfigurationTest.java
+--- a/src/test/java/org/pac4j/dropwizard/AbstractConfigurationTest.java
++++ b/src/test/java/org/pac4j/dropwizard/AbstractConfigurationTest.java
+@@ -13,7 +13,7 @@
+ import io.dropwizard.configuration.YamlConfigurationFactory;
+ import io.dropwizard.jackson.Jackson;
+ import io.dropwizard.jersey.validation.Validators;
+-import io.dropwizard.setup.Bootstrap;
++import io.dropwizard.core.setup.Bootstrap;
+ 
+ public abstract class AbstractConfigurationTest {
+ 
+diff --git a/src/test/java/org/pac4j/dropwizard/bundle/BundleFactoryTest.java b/src/test/java/org/pac4j/dropwizard/bundle/BundleFactoryTest.java
+--- a/src/test/java/org/pac4j/dropwizard/bundle/BundleFactoryTest.java
++++ b/src/test/java/org/pac4j/dropwizard/bundle/BundleFactoryTest.java
+@@ -13,7 +13,7 @@
+ 
+ import com.fasterxml.jackson.databind.ObjectMapper;
+ 
+-import io.dropwizard.setup.Environment;
++import io.dropwizard.core.setup.Environment;
+ import io.dropwizard.testing.ConfigOverride;
+ 
+ public class BundleFactoryTest extends AbstractApplicationTest {
+diff --git a/src/test/java/org/pac4j/dropwizard/e2e/EndToEndServletTest.java b/src/test/java/org/pac4j/dropwizard/e2e/EndToEndServletTest.java
+--- a/src/test/java/org/pac4j/dropwizard/e2e/EndToEndServletTest.java
++++ b/src/test/java/org/pac4j/dropwizard/e2e/EndToEndServletTest.java
+@@ -13,7 +13,7 @@
+ import org.pac4j.http.client.direct.DirectBasicAuthClient;
+ import org.pac4j.http.client.direct.DirectFormClient;
+ 
+-import io.dropwizard.setup.Environment;
++import io.dropwizard.core.setup.Environment;
+ import io.dropwizard.testing.ConfigOverride;
+ 
+ public class EndToEndServletTest extends AbstractApplicationTest {
+diff --git a/src/test/java/org/pac4j/dropwizard/e2e/EndToEndTest.java b/src/test/java/org/pac4j/dropwizard/e2e/EndToEndTest.java
+--- a/src/test/java/org/pac4j/dropwizard/e2e/EndToEndTest.java
++++ b/src/test/java/org/pac4j/dropwizard/e2e/EndToEndTest.java
+@@ -13,7 +13,7 @@
+ import org.pac4j.http.client.direct.DirectBasicAuthClient;
+ import org.pac4j.http.client.direct.DirectFormClient;
+ 
+-import io.dropwizard.setup.Environment;
++import io.dropwizard.core.setup.Environment;
+ import io.dropwizard.testing.ConfigOverride;
+ 
+ public class EndToEndTest extends AbstractApplicationTest {

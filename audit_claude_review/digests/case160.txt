@@ -1,0 +1,108 @@
+=== CASE 160 d8e0311e6203d6b15c187e8536ea910b1bbc362f
+  project=equinor/neqsim dep=org.apache.derby:derby 10.15.2.0 -> 10.16.1.1 scope=compile type=other java=11
+  PR=https://github.com/equinor/neqsim/pull/496
+  PRE log logs/batch_triage/d8e0311e_pre.log:
+  lines=494
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 180, Failures: 0, Errors: 0, Skipped: 9
+  exception names: calcneqsim.util.exception.IsNaNExceptionx16, neqsim.util.exception.InvalidInputExceptionx1
+  BREAKING log logs/batch_triage/d8e0311e_breaking.log:
+  lines=600
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 134, Failures: 0, Errors: 82, Skipped: 4
+  failing classes: Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.974 s <<< FAILURE! - in neqsim.thermo.component.ComponentTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.089 s <<< FAILURE! - in neqsim.thermo.component.ComponentHydrateGFTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in neqsim.thermo.util.example.VapourPressureTTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in neqsim.thermo.util.example.SrkOilCharacterizationTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in neqsim.thermo.util.example.FlashWaterTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in neqsim.thermo.util.example.KlabFlashBugTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in neqsim.thermo.util.example.SrkEoSTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in neqsim.thermo.util.example.FlashOilTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in neqsim.thermo.util.example.FlashGasTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.25 s <<< FAILURE! - in neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest
+  section: Errors: | SaturationPressureTest.testCalcSaturationPressure:18 » NoClassDefFound Could n... | SaturationTemperatureTest.testCalcSaturationTemperature:28 » NoClassDefFound C... | PipeFlowSystemTest.setUp:17 » NoClassDefFound Could not initialize class org.a... | PipeFlowSystemTest.setUp:17 » NoClassDefFound Could not initialize class org.a... | PipeFlowSystemTest.setUp:17 » NoClassDefFound Could not initialize class org.a... | PipeFlowSystemTest.setUp:17 » NoClassDefFound Could not initialize class org.a... | PipeFlowSystemTest.setUp:17 » NoClassDefFound Could not initialize class org.a... | FrictionTheoryViscosityMethodTest.setUp:14 » NoClassDefFound Could not initial... | CostaldTest.setUp:15 » NoClassDefFound Could not initialize class org.apache.d... | WellAllocatorTest.testGetMeasuredValueString:30 » NoClassDefFound Could not in... | pHProbeTest.testGetMeasuredValue:18 » NoClassDefFound Could not initialize cla... | pHProbeTest.testGetMeasuredValueWithAlkanility:44 » NoClassDefFound Could not ... | CompressorCalculationTest.setUp:18 » NoClassDefFound Could not initialize clas...
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project neqsim: There are test failures.
+  FAILBLOCK: [ERROR] neqsim.thermo.component.ComponentTest  Time elapsed: 2.974 s  <<< ERROR!
+      java.lang.UnsupportedClassVersionError: org/apache/derby/iapi/jdbc/JDBCBoot has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+      at neqsim.thermo.component.ComponentTest.setUpBeforeClass(ComponentTest.java:18)
+      [INFO] Running neqsim.thermo.component.ComponentHydrateGFTest
+      [ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.089 s <<< FAILURE! - in neqsim.thermo.component.ComponentHydrateGFTest
+      [ERROR] neqsim.thermo.component.ComponentHydrateGFTest  Time elapsed: 0.089 s  <<< ERROR!
+  FAILBLOCK: [ERROR] neqsim.thermo.component.ComponentHydrateGFTest  Time elapsed: 0.089 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+      at neqsim.thermo.component.ComponentHydrateGFTest.setUpBeforeClass(ComponentHydrateGFTest.java:27)
+      [INFO] Running neqsim.thermo.util.example.VapourPressureTTest
+      [ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in neqsim.thermo.util.example.VapourPressureTTest
+      [ERROR] neqsim.thermo.util.example.VapourPressureTTest  Time elapsed: 0.005 s  <<< ERROR!
+  distinct fail signatures (count): 1x java.lang.UnsupportedClassVersionError: org/apache/derby/iapi/jdbc/JDBCBoot has been compiled by a more recent version o || 81x java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+  linkage/compile signals: NoClassDefFoundError, UnsupportedClassVersionError
+  exception names: java.lang.NoClassDefFoundErrorx81, java.lang.UnsupportedClassVersionErrorx1
+  EVIDENCE logs/case160_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/derby-10.16.1.1.jar, breaking/jars/derbyshared-10.16.1.1.jar, breaking/jars/derbytools-10.15.2.0.jar, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/derby-10.15.2.0.jar, pre/jars/derbyshared-10.15.2.0.jar, pre/jars/derbytools-10.15.2.0.jar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=54 sum(t,f,e,s)=[180, 0, 0, 9]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=54 sum(t,f,e,s)=[134, 0, 82, 4]
+  archived non-report files: pre=1372 breaking=1372 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -60,3 +60,3 @@
+     			<artifactId>derby</artifactId>
+    -			<version>10.15.2.0</version>
+    +			<version>10.16.1.1</version>
+     		</dependency>
+  BREAKING surefire failures/errors:
+    ERROR neqsim.PVTsimulation.simulation.SaturationPressureTest#testCalcSaturationPressure type=java.lang.NoClassDefFoundError msg=
+       at neqsim.PVTsimulation.simulation.SaturationPressureTest.testCalcSaturationPressure(SaturationPressureTest.java:18)
+    ERROR neqsim.PVTsimulation.simulation.SaturationTemperatureTest#testCalcSaturationTemperature type=java.lang.NoClassDefFoundError msg=
+       at neqsim.PVTsimulation.simulation.SaturationTemperatureTest.testCalcSaturationTemperature(SaturationTemperatureTest.java:28)
+    ERROR neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest#testSolveTransient type=java.lang.NoClassDefFoundError msg=
+       at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.setUp(PipeFlowSystemTest.java:17)
+    ERROR neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest#testCreateSystem type=java.lang.NoClassDefFoundError msg=
+       at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.setUp(PipeFlowSystemTest.java:17)
+    ERROR neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest#testSolveSteadyState type=java.lang.NoClassDefFoundError msg=
+       at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.setUp(PipeFlowSystemTest.java:17)
+    ERROR neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest#testInit type=java.lang.NoClassDefFoundError msg=
+       at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.setUp(PipeFlowSystemTest.java:17)
+    ERROR neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest#testSolveSteadyStateConstantFrictionFactor type=java.lang.NoClassDefFoundError msg=
+       at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.setUp(PipeFlowSystemTest.java:17)
+    ERROR neqsim.physicalProperties.physicalPropertyMethods.commonPhasePhysicalProperties.viscosity.FrictionTheoryViscosityMethodTest# type=java.lang.NoClassDefFoundError msg=
+       at neqsim.physicalProperties.physicalPropertyMethods.commonPhasePhysicalProperties.viscosity.FrictionTheoryViscosityMethodTest.setUp(FrictionTheoryViscosityMethodTest.java:14)
+    ERROR neqsim.physicalProperties.physicalPropertyMethods.liquidPhysicalProperties.density.CostaldTest# type=java.lang.NoClassDefFoundError msg=
+       at neqsim.physicalProperties.physicalPropertyMethods.liquidPhysicalProperties.density.CostaldTest.setUp(CostaldTest.java:15)
+    ERROR neqsim.processSimulation.measurementDevice.WellAllocatorTest#testGetMeasuredValueString type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.measurementDevice.WellAllocatorTest.testGetMeasuredValueString(WellAllocatorTest.java:30)
+    ERROR neqsim.processSimulation.measurementDevice.pHProbeTest#testGetMeasuredValueWithAlkanility type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.measurementDevice.pHProbeTest.testGetMeasuredValueWithAlkanility(pHProbeTest.java:44)
+    ERROR neqsim.processSimulation.measurementDevice.pHProbeTest#testGetMeasuredValue type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.measurementDevice.pHProbeTest.testGetMeasuredValue(pHProbeTest.java:18)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest#testCompressorChartEquals type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest.setUp(CompressorCalculationTest.java:18)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest#testRun type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest.setUp(CompressorCalculationTest.java:18)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorChartTest#test_Run type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorChartTest.setUp(CompressorChartTest.java:22)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest#testFailRunCalculation type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest.setUp(CompressorPropertyProfileTest.java:30)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest#testRunCalculation type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest.setUp(CompressorPropertyProfileTest.java:30)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorTest#testCompressorWithGERG2008 type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorTest.setUp(CompressorTest.java:44)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorTest#testMultiPhaseCompression type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorTest.setUp(CompressorTest.java:44)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorTest#testCompressorWithSrk type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorTest.setUp(CompressorTest.java:44)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorTest#testCompressorRigorousMethod type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorTest.setUp(CompressorTest.java:44)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorTest#testCompressorSchultzMethod type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorTest.setUp(CompressorTest.java:44)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorTest#testSerialize type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorTest.setUp(CompressorTest.java:44)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorTest#testIsentropicCalcMethod type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorTest.setUp(CompressorTest.java:44)
+    ERROR neqsim.processSimulation.processEquipment.mixer.MixerTest# type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.mixer.MixerTest.setUpBeforeClass(MixerTest.java:25)
+    ERROR neqsim.processSimulation.processEquipment.powerGeneration.GasTurbineTest# type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.powerGeneration.GasTurbineTest.setUp(GasTurbineTest.java:17)
+    ERROR neqsim.processSimulation.processEquipment.pump.PumpTest#testRun type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.pump.PumpTest.testRun(PumpTest.java:18)
+    ERROR neqsim.processSimulation.processEquipment.separator.SeparatorTest#testOnePhase type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.separator.SeparatorTest.setUpBeforeClass(SeparatorTest.java:27)
+    ERROR neqsim.processSimulation.processEquipment.separator.SeparatorTest#testFlow type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.separator.SeparatorTest.setUpBeforeClass(SeparatorTest.java:27)
+    ERROR neqsim.processSimulation.processEquipment.splitter.ComponentSplitterTest#testRun type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.splitter.ComponentSplitterTest.setUpBeforeClass(ComponentSplitterTest.java:21)
+    ... truncated (165 lines)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -			<version>10.15.2.0</version> / +			<version>10.16.1.1</version>
+  JSON breaking/jar_inspection.json: {"case_id":"d8e0311e6203d6b15c187e8536ea910b1bbc362f","phase":"breaking","path_filter":"/(derby|derbyshared|derbytools)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/org/apache/derby/derby/10.16.1.1/derby-10.16.1.1.jar","classes":{"org.apache.derby.iapi.jdbc.JDBCBoot":{"present":true,"major_version":61},"org.apache.derby.jdbc.EmbeddedDriver":{"present":false,"major_version":null}},"services":{"META-INF/services/java.sql.Driver":"org.apache.derby.iapi.jdbc.AutoloadedDriver\n"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/apache/derby/derbyshared/10.16.1.1/derbyshared-10.16.1.1.jar","classes":{"org.apache.derby.iapi.jdbc.JDBCBoot":{"present":false,"major_version":null},"org.apache.derby.jdbc.EmbeddedDriver":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/apache/derby/derbytools/10.15.2.0/derbytools-10.15.2.0.jar","classes":{"org.apache.derby.iapi.jdbc.JDBCBoot":{"present":false,"major_version":null},"org.apache.derby.jdbc.EmbeddedDriver":{"present":true,"major_version":53}},"services":{},"disassemblies":[]}]}
+  JSON pre/jar_inspection.json: {"case_id":"d8e0311e6203d6b15c187e8536ea910b1bbc362f","phase":"pre","path_filter":"/(derby|derbyshared|derbytools)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar","classes":{"org.apache.derby.iapi.jdbc.JDBCBoot":{"present":true,"major_version":53},"org.apache.derby.jdbc.EmbeddedDriver":{"present":false,"major_version":null}},"services":{"META-INF/services/java.sql.Driver":"org.apache.derby.iapi.jdbc.AutoloadedDriver\n"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/apache/derby/derbyshared/10.15.2.0/derbyshared-10.15.2.0.jar","classes":{"org.apache.derby.iapi.jdbc.JDBCBoot":{"present":false,"major_version":null},"org.apache.derby.jdbc.EmbeddedDriver":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/apache/derby/derbytools/10.15.2.0/derbytools-10.15.2.0.jar","classes":{"org.apache.derby.iapi.jdbc.JDBCBoot":{"present":false,"major_version":null},"org.apache.derby.jdbc.EmbeddedDriver":{"present":true,"major_version":53}},"services":{},"disassemblies":[]}]}
+  JARS: breaking/jars/derby-10.16.1.1.jar, breaking/jars/derbyshared-10.16.1.1.jar, breaking/jars/derbytools-10.15.2.0.jar, pre/jars/derby-10.15.2.0.jar, pre/jars/derbyshared-10.15.2.0.jar, pre/jars/derbytools-10.15.2.0.jar

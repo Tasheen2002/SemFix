@@ -1,0 +1,162 @@
+pre/flogger-0.6.jar
+Compiled from "StaticMethodCaller.java"
+public final class com.google.common.flogger.util.StaticMethodCaller {
+  public static <T> T getInstanceFromSystemProperty(java.lang.String, java.lang.String, java.lang.Class<T>);
+  public static <T> T callGetterFromSystemProperty(java.lang.String, java.lang.String, java.lang.Class<T>);
+  public static <T> T callGetterFromSystemProperty(java.lang.String, java.lang.Class<T>);
+  private static java.lang.String readProperty(java.lang.String, java.lang.String);
+  private static <T> T callStaticMethod(java.lang.String, java.lang.String, java.lang.Class<T>);
+  private static void error(java.lang.String, java.lang.Object...);
+  private com.google.common.flogger.util.StaticMethodCaller();
+}
+breaking/flogger-0.7.1.jar
+Compiled from "StaticMethodCaller.java"
+public final class com.google.common.flogger.util.StaticMethodCaller {
+  public static <T> T getInstanceFromSystemProperty(java.lang.String, java.lang.Class<T>);
+  public static <T> T getInstanceFromSystemProperty(java.lang.String, java.lang.String, java.lang.Class<T>);
+  private static java.lang.String readProperty(java.lang.String, java.lang.String);
+  private static void error(java.lang.String, java.lang.Object...);
+  private com.google.common.flogger.util.StaticMethodCaller();
+}
+Compiled from "DefaultPlatform.java"
+public class com.google.common.flogger.backend.system.DefaultPlatform extends com.google.common.flogger.backend.Platform {
+  private static final java.lang.String BACKEND_FACTORY;
+
+  private static final java.lang.String LOGGING_CONTEXT;
+
+  private static final java.lang.String CLOCK;
+
+  private final com.google.common.flogger.backend.system.BackendFactory backendFactory;
+
+  private final com.google.common.flogger.context.ContextDataProvider context;
+
+  private final com.google.common.flogger.backend.system.Clock clock;
+
+  private final com.google.common.flogger.backend.Platform$LogCallerFinder callerFinder;
+
+  public com.google.common.flogger.backend.system.DefaultPlatform();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method com/google/common/flogger/backend/Platform."<init>":()V
+       4: ldc           #3                  // String flogger.backend_factory
+       6: ldc           #4                  // class com/google/common/flogger/backend/system/BackendFactory
+       8: invokestatic  #5                  // Method com/google/common/flogger/util/StaticMethodCaller.callGetterFromSystemProperty:(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+      11: checkcast     #4                  // class com/google/common/flogger/backend/system/BackendFactory
+      14: astore_1
+      15: aload_0
+      16: aload_1
+      17: ifnull        24
+      20: aload_1
+      21: goto          27
+      24: invokestatic  #6                  // Method com/google/common/flogger/backend/system/SimpleBackendFactory.getInstance:()Lcom/google/common/flogger/backend/system/BackendFactory;
+      27: putfield      #7                  // Field backendFactory:Lcom/google/common/flogger/backend/system/BackendFactory;
+      30: ldc           #8                  // String flogger.logging_context
+      32: ldc           #9                  // class com/google/common/flogger/context/ContextDataProvider
+      34: invokestatic  #5                  // Method com/google/common/flogger/util/StaticMethodCaller.callGetterFromSystemProperty:(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+      37: checkcast     #9                  // class com/google/common/flogger/context/ContextDataProvider
+      40: astore_2
+      41: aload_0
+      42: aload_2
+      43: ifnull        50
+      46: aload_2
+      47: goto          53
+      50: invokestatic  #10                 // Method com/google/common/flogger/backend/NoOpContextDataProvider.getInstance:()Lcom/google/common/flogger/context/ContextDataProvider;
+      53: putfield      #11                 // Field context:Lcom/google/common/flogger/context/ContextDataProvider;
+      56: ldc           #12                 // String flogger.clock
+      58: ldc           #13                 // class com/google/common/flogger/backend/system/Clock
+      60: invokestatic  #5                  // Method com/google/common/flogger/util/StaticMethodCaller.callGetterFromSystemProperty:(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
+      63: checkcast     #13                 // class com/google/common/flogger/backend/system/Clock
+      66: astore_3
+      67: aload_0
+      68: aload_3
+      69: ifnull        76
+      72: aload_3
+      73: goto          79
+      76: invokestatic  #14                 // Method com/google/common/flogger/backend/system/SystemClock.getInstance:()Lcom/google/common/flogger/backend/system/SystemClock;
+      79: putfield      #15                 // Field clock:Lcom/google/common/flogger/backend/system/Clock;
+      82: aload_0
+      83: invokestatic  #16                 // Method com/google/common/flogger/backend/system/StackBasedCallerFinder.getInstance:()Lcom/google/common/flogger/backend/Platform$LogCallerFinder;
+      86: putfield      #17                 // Field callerFinder:Lcom/google/common/flogger/backend/Platform$LogCallerFinder;
+      89: return
+
+  com.google.common.flogger.backend.system.DefaultPlatform(com.google.common.flogger.backend.system.BackendFactory, com.google.common.flogger.context.ContextDataProvider, com.google.common.flogger.backend.system.Clock, com.google.common.flogger.backend.Platform$LogCallerFinder);
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method com/google/common/flogger/backend/Platform."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #7                  // Field backendFactory:Lcom/google/common/flogger/backend/system/BackendFactory;
+       9: aload_0
+      10: aload_2
+      11: putfield      #11                 // Field context:Lcom/google/common/flogger/context/ContextDataProvider;
+      14: aload_0
+      15: aload_3
+      16: putfield      #15                 // Field clock:Lcom/google/common/flogger/backend/system/Clock;
+      19: aload_0
+      20: aload         4
+      22: putfield      #17                 // Field callerFinder:Lcom/google/common/flogger/backend/Platform$LogCallerFinder;
+      25: return
+
+  protected com.google.common.flogger.backend.Platform$LogCallerFinder getCallerFinderImpl();
+    Code:
+       0: aload_0
+       1: getfield      #17                 // Field callerFinder:Lcom/google/common/flogger/backend/Platform$LogCallerFinder;
+       4: areturn
+
+  protected com.google.common.flogger.backend.LoggerBackend getBackendImpl(java.lang.String);
+    Code:
+       0: aload_0
+       1: getfield      #7                  // Field backendFactory:Lcom/google/common/flogger/backend/system/BackendFactory;
+       4: aload_1
+       5: invokevirtual #18                 // Method com/google/common/flogger/backend/system/BackendFactory.create:(Ljava/lang/String;)Lcom/google/common/flogger/backend/LoggerBackend;
+       8: areturn
+
+  protected com.google.common.flogger.context.ContextDataProvider getContextDataProviderImpl();
+    Code:
+       0: aload_0
+       1: getfield      #11                 // Field context:Lcom/google/common/flogger/context/ContextDataProvider;
+       4: areturn
+
+  protected long getCurrentTimeNanosImpl();
+    Code:
+       0: aload_0
+       1: getfield      #15                 // Field clock:Lcom/google/common/flogger/backend/system/Clock;
+       4: invokevirtual #19                 // Method com/google/common/flogger/backend/system/Clock.getCurrentTimeNanos:()J
+       7: lreturn
+
+  protected java.lang.String getConfigInfoImpl();
+    Code:
+       0: new           #20                 // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #21                 // Method java/lang/StringBuilder."<init>":()V
+       7: ldc           #22                 // String Platform:
+       9: invokevirtual #23                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      12: aload_0
+      13: invokevirtual #24                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+      16: invokevirtual #25                 // Method java/lang/Class.getName:()Ljava/lang/String;
+      19: invokevirtual #23                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      22: ldc           #26                 // String \nBackendFactory:
+      24: invokevirtual #23                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      27: aload_0
+      28: getfield      #7                  // Field backendFactory:Lcom/google/common/flogger/backend/system/BackendFactory;
+      31: invokevirtual #27                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      34: ldc           #28                 // String \nClock:
+      36: invokevirtual #23                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      39: aload_0
+      40: getfield      #15                 // Field clock:Lcom/google/common/flogger/backend/system/Clock;
+      43: invokevirtual #27                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      46: ldc           #29                 // String \nLoggingContext:
+      48: invokevirtual #23                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      51: aload_0
+      52: getfield      #11                 // Field context:Lcom/google/common/flogger/context/ContextDataProvider;
+      55: invokevirtual #27                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      58: ldc           #30                 // String \nLogCallerFinder:
+      60: invokevirtual #23                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      63: aload_0
+      64: getfield      #17                 // Field callerFinder:Lcom/google/common/flogger/backend/Platform$LogCallerFinder;
+      67: invokevirtual #27                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      70: ldc           #31                 // String \n
+      72: invokevirtual #23                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      75: invokevirtual #32                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      78: areturn
+}

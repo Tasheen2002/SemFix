@@ -1,0 +1,107 @@
+=== CASE 171 e0f2562e849012538cd30e2730c82991983f4eba
+  project=pac4j/dropwizard-pac4j dep=org.slf4j:slf4j-api 1.7.30 -> 2.0.0 scope=compile type=major java=11
+  PR=https://github.com/pac4j/dropwizard-pac4j/pull/313
+  PRE log logs/batch_triage/e0f2562e_pre.log:
+  lines=463
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/e0f2562e_breaking.log:
+  lines=619
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 16, Failures: 0, Errors: 10, Skipped: 0
+  failing classes: Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 31.509 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndServletTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 29.882 s <<< FAILURE! - in org.pac4j.dropwizard.e2e.EndToEndTest || Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 40.248 s <<< FAILURE! - in org.pac4j.dropwizard.bundle.BundleFactoryTest
+  section: Errors: | BundleFactoryTest.emptyPac4jInConfig:47->AbstractApplicationTest.setup:31 » Runtime java.lang.reflect.InvocationTargetException | BundleFactoryTest.noPac4jInConfig:31->AbstractApplicationTest.setup:31 » Runtime java.lang.reflect.InvocationTargetException | BundleFactoryTest.sessionEnabledForced:68->AbstractApplicationTest.setup:31 » Runtime java.lang.reflect.InvocationTargetException | BundleFactoryTest.sessiondisabledForced:83->AbstractApplicationTest.setup:31 » Runtime java.lang.reflect.InvocationTargetException | EndToEndServletTest.grantsAccessToResources:54->setup:31->AbstractApplicationTest.setup:31 » Runtime java.lang.reflect.InvocationTargetException | EndToEndServletTest.grantsAccessToResourcesForm:36->setup:31->AbstractApplicationTest.setup:31 » Runtime java.lang.reflect.InvocationTargetException | EndToEndServletTest.restrictsAccessToResources:69->setup:31->AbstractApplicationTest.setup:31 » Runtime java.lang.reflect.InvocationTargetException | EndToEndTest.grantsAccessToResources:54->setup:31->AbstractApplicationTest.setup:31 » Runtime java.lang.reflect.InvocationTargetException | EndToEndTest.grantsAccessToResourcesForm:36->setup:31->AbstractApplicationTest.s
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project dropwizard-pac4j: 
+  FAILBLOCK: [ERROR] org.pac4j.dropwizard.e2e.EndToEndServletTest.grantsAccessToResources  Time elapsed: 10.21 s  <<< ERROR!
+      java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+      at io.dropwizard.testing.DropwizardTestSupport.newApplication(DropwizardTestSupport.java:354)
+      at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:286)
+      at io.dropwizard.testing.DropwizardTestSupport.before(DropwizardTestSupport.java:223)
+      at org.pac4j.dropwizard.AbstractApplicationTest.setup(AbstractApplicationTest.java:31)
+      at org.pac4j.dropwizard.e2e.EndToEndServletTest.setup(EndToEndServletTest.java:31)
+      Caused by: java.lang.reflect.InvocationTargetException
+      Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+  distinct fail signatures (count): 10x java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions prior to 1.8. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See http://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+  exception names: java.lang.reflect.InvocationTargetExceptionx30, java.lang.RuntimeExceptionx10, java.lang.IllegalStateExceptionx10
+  EVIDENCE logs/case171_evidence: LoggerSelectionProbe.java, all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/logback-classic-1.2.3.jar, breaking/jars/logback-core-1.2.3.jar, breaking/jars/slf4j-api-2.0.0.jar, breaking/slf4j-api-2.0.0_LoggerFactory_javap.txt, logger_probe_breaking.log, logger_probe_classes/LoggerSelectionProbe.class, logger_probe_pre.log, logger_probe_results.json, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/logback-classic-1.2.3.jar, pre/jars/logback-core-1.2.3.jar, pre/jars/slf4j-api-1.7.30.jar, pre/slf4j-api-1.7.30_LoggerFactory_javap.txt, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[16, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=4 sum(t,f,e,s)=[16, 0, 10, 0]
+  archived non-report files: pre=27 breaking=27 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -218,3 +218,3 @@
+             <artifactId>slf4j-api</artifactId>
+    -        <version>1.7.30</version>
+    +        <version>2.0.0</version>
+           </dependency>
+  BREAKING surefire failures/errors:
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#emptyPac4jInConfig type=java.lang.RuntimeException msg=java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+       at io.dropwizard.testing.DropwizardTestSupport.newApplication(DropwizardTestSupport.java:354)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:286)
+       at io.dropwizard.testing.DropwizardTestSupport.before(DropwizardTestSupport.java:223)
+       at org.pac4j.dropwizard.AbstractApplicationTest.setup(AbstractApplicationTest.java:31)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#sessiondisabledForced type=java.lang.RuntimeException msg=java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+       at io.dropwizard.testing.DropwizardTestSupport.newApplication(DropwizardTestSupport.java:354)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:286)
+       at io.dropwizard.testing.DropwizardTestSupport.before(DropwizardTestSupport.java:223)
+       at org.pac4j.dropwizard.AbstractApplicationTest.setup(AbstractApplicationTest.java:31)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#noPac4jInConfig type=java.lang.RuntimeException msg=java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+       at io.dropwizard.testing.DropwizardTestSupport.newApplication(DropwizardTestSupport.java:354)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:286)
+       at io.dropwizard.testing.DropwizardTestSupport.before(DropwizardTestSupport.java:223)
+       at org.pac4j.dropwizard.AbstractApplicationTest.setup(AbstractApplicationTest.java:31)
+    ERROR org.pac4j.dropwizard.bundle.BundleFactoryTest#sessionEnabledForced type=java.lang.RuntimeException msg=java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+       at io.dropwizard.testing.DropwizardTestSupport.newApplication(DropwizardTestSupport.java:354)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:286)
+       at io.dropwizard.testing.DropwizardTestSupport.before(DropwizardTestSupport.java:223)
+       at org.pac4j.dropwizard.AbstractApplicationTest.setup(AbstractApplicationTest.java:31)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#grantsAccessToResources type=java.lang.RuntimeException msg=java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+       at io.dropwizard.testing.DropwizardTestSupport.newApplication(DropwizardTestSupport.java:354)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:286)
+       at io.dropwizard.testing.DropwizardTestSupport.before(DropwizardTestSupport.java:223)
+       at org.pac4j.dropwizard.AbstractApplicationTest.setup(AbstractApplicationTest.java:31)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#grantsAccessToResourcesForm type=java.lang.RuntimeException msg=java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+       at io.dropwizard.testing.DropwizardTestSupport.newApplication(DropwizardTestSupport.java:354)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:286)
+       at io.dropwizard.testing.DropwizardTestSupport.before(DropwizardTestSupport.java:223)
+       at org.pac4j.dropwizard.AbstractApplicationTest.setup(AbstractApplicationTest.java:31)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndServletTest#restrictsAccessToResources type=java.lang.RuntimeException msg=java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+       at io.dropwizard.testing.DropwizardTestSupport.newApplication(DropwizardTestSupport.java:354)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:286)
+       at io.dropwizard.testing.DropwizardTestSupport.before(DropwizardTestSupport.java:223)
+       at org.pac4j.dropwizard.AbstractApplicationTest.setup(AbstractApplicationTest.java:31)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndTest#grantsAccessToResources type=java.lang.RuntimeException msg=java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+       at io.dropwizard.testing.DropwizardTestSupport.newApplication(DropwizardTestSupport.java:354)
+       at io.dropwizard.testing.DropwizardTestSupport.startIfRequired(DropwizardTestSupport.java:286)
+       at io.dropwizard.testing.DropwizardTestSupport.before(DropwizardTestSupport.java:223)
+       at org.pac4j.dropwizard.AbstractApplicationTest.setup(AbstractApplicationTest.java:31)
+    ERROR org.pac4j.dropwizard.e2e.EndToEndTest#grantsAccessToResourcesForm type=java.lang.RuntimeException msg=java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.reflect.InvocationTargetException
+       Caused by: java.lang.IllegalStateException: Unable to acquire the logger context
+       at io.dropwizard.testing.DropwizardTestSupport.newApplication(DropwizardTestSupport.java:354)
+    ... truncated (70 lines)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -        <version>1.7.30</version> / +        <version>2.0.0</version>
+  JSON breaking/jar_inspection.json: {"case_id":"e0f2562e849012538cd30e2730c82991983f4eba","phase":"breaking","path_filter":"/(slf4j-api|logback-classic|logback-core)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":true,"major_version":50},"ch.qos.logback.classic.LoggerContext":{"present":true,"major_version":50}},"services":{"META-INF/services/javax.servlet.ServletContainerInitializer":"ch.qos.logback.classic.servlet.LogbackServletContainerInitializer"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":false,"major_version":null},"ch.qos.logback.classic.LoggerContext":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/slf4j/slf4j-api/2.0.0/slf4j-api-2.0.0.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":false,"major_version":null},"ch.qos.logback.classic.LoggerContext":{"present":false,"major_version":null}},"services":{},"disassemblies":[{"class":"org.slf4j.LoggerFactory","file":"slf4j-api-2.0.0_LoggerFactory_javap.txt","exit_code":0}]}]}
+  LOG logger_probe_breaking.log (8 lines): factory=org.slf4j.helpers.NOPLoggerFactory | logger=org.slf4j.helpers.NOPLogger
+  LOG logger_probe_pre.log (2 lines): factory=ch.qos.logback.classic.LoggerContext | logger=ch.qos.logback.classic.Logger
+  JSON logger_probe_results.json: {"test_classpath_source":"org.pac4j.dropwizard.bundle.BundleFactoryTest","runs":[{"phase":"pre","exit_code":0,"stdout":"factory=ch.qos.logback.classic.LoggerContext\nlogger=ch.qos.logback.classic.Logger\n","stderr":""},{"phase":"breaking","exit_code":0,"stdout":"factory=org.slf4j.helpers.NOPLoggerFactory\nlogger=org.slf4j.helpers.NOPLogger\n","stderr":"SLF4J: No SLF4J providers were found.\nSLF4J: Defaulting to no-operation (NOP) logger implementation\nSLF4J: See http://www.slf4j.org/codes.html#noProviders for further details.\nSLF4J: Class path contains SLF4J bindings targeting slf4j-api versions prior to 1.8.\nSLF4J: Ignoring binding found at [jar:f..."}]}
+  JSON pre/jar_inspection.json: {"case_id":"e0f2562e849012538cd30e2730c82991983f4eba","phase":"pre","path_filter":"/(slf4j-api|logback-classic|logback-core)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":true,"major_version":50},"ch.qos.logback.classic.LoggerContext":{"present":true,"major_version":50}},"services":{"META-INF/services/javax.servlet.ServletContainerInitializer":"ch.qos.logback.classic.servlet.LogbackServletContainerInitializer"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":false,"major_version":null},"ch.qos.logback.classic.LoggerContext":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar","classes":{"org.slf4j.impl.StaticLoggerBinder":{"present":false,"major_version":null},"ch.qos.logback.classic.LoggerContext":{"present":false,"major_version":null}},"services":{},"disassemblies":[{"class":"org.slf4j.LoggerFactory","file":"slf4j-api-1.7.30_LoggerFactory_javap.txt","exit_code":0}]}]}
+  JARS: breaking/jars/logback-classic-1.2.3.jar, breaking/jars/logback-core-1.2.3.jar, breaking/jars/slf4j-api-2.0.0.jar, pre/jars/logback-classic-1.2.3.jar, pre/jars/logback-core-1.2.3.jar, pre/jars/slf4j-api-1.7.30.jar

@@ -1,0 +1,51 @@
+{
+  "case_id": "dec73a7c634142d631306f8cf201e228fe3ebcc6",
+  "phase": "breaking",
+  "path_filter": "/logback-(classic|core)/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/ch/qos/logback/logback-classic/1.4.3/logback-classic-1.4.3.jar",
+      "sha256": "728fece40b45b51022a462e02bf3b53fe5e00e133cd4b283ed382012654d1849",
+      "classes": {
+        "ch.qos.logback.core.joran.sanity.SanityChecker": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/ch.qos.logback.classic.spi.Configurator": "ch.qos.logback.classic.util.DefaultJoranConfigurator",
+        "META-INF/services/jakarta.servlet.ServletContainerInitializer": "ch.qos.logback.classic.servlet.LogbackServletContainerInitializer",
+        "META-INF/services/org.slf4j.spi.SLF4JServiceProvider": "ch.qos.logback.classic.spi.LogbackServiceProvider"
+      },
+      "disassemblies": [
+        {
+          "class": "ch.qos.logback.classic.joran.JoranConfigurator",
+          "file": "logback-classic-1.4.3_JoranConfigurator_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case169_evidence\\breaking\\jars\\logback-classic-1.4.3.jar",
+            "-p",
+            "-s",
+            "-c",
+            "ch.qos.logback.classic.joran.JoranConfigurator"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/ch/qos/logback/logback-core/1.4.1/logback-core-1.4.1.jar",
+      "sha256": "b59c3d274b15e48b217a018d4c86affd6eb436e632b41ca670135c054d8f2014",
+      "classes": {
+        "ch.qos.logback.core.joran.sanity.SanityChecker": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    }
+  ]
+}

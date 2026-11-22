@@ -1,0 +1,34 @@
+pre
+[To redirect Truffle log output to a file use one of the following options:
+* '--log.file=<path>' if the option is passed using a guest language launcher.
+* '-Dpolyglot.log.file=<path>' if the option is passed using the host Java launcher.
+* Configure logging using the polyglot embedding API.]
+[engine] WARNING: The polyglot context is using an implementation that does not support runtime compilation.
+The guest application code will therefore be executed in interpreted mode only.
+Execution only in interpreted mode will strongly impact the guest application performance.
+For more information on using GraalVM see https://www.graalvm.org/java/quickstart/.
+To disable this warning the '--engine.WarnInterpreterOnly=false' option or use the '-Dpolyglot.engine.WarnInterpreterOnly=false' system property.
+2
+exit=0
+breaking
+Exception in thread "main" java.lang.IllegalArgumentException: Could not find option with name js.charset.
+	at com.oracle.truffle.polyglot.PolyglotEngineException.illegalArgument(PolyglotEngineException.java:125)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:274)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.failNotFound(OptionValuesImpl.java:254)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.findDescriptor(OptionValuesImpl.java:231)
+	at com.oracle.truffle.polyglot.OptionValuesImpl.put(OptionValuesImpl.java:134)
+	at com.oracle.truffle.polyglot.PolyglotContextConfig.<init>(PolyglotContextConfig.java:169)
+	at com.oracle.truffle.polyglot.PolyglotEngineImpl.createContext(PolyglotEngineImpl.java:1708)
+	at com.oracle.truffle.polyglot.PolyglotEngineDispatch.createContext(PolyglotEngineDispatch.java:160)
+	at org.graalvm.polyglot.Context$Builder.build(Context.java:1832)
+	at com.oracle.truffle.js.scriptengine.GraalJSScriptEngine.createDefaultContext(GraalJSScriptEngine.java:342)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.initContext(GraalJSBindings.java:91)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.requireContext(GraalJSBindings.java:86)
+	at com.oracle.truffle.js.scriptengine.GraalJSBindings.entrySet(GraalJSBindings.java:172)
+	at java.base/java.util.AbstractMap.containsKey(AbstractMap.java:144)
+	at java.scripting/javax.script.SimpleScriptContext.getAttribute(SimpleScriptContext.java:158)
+	at com.oracle.truffle.js.scriptengine.GraalJSScriptEngine.createSource(GraalJSScriptEngine.java:439)
+	at com.oracle.truffle.js.scriptengine.GraalJSScriptEngine.eval(GraalJSScriptEngine.java:435)
+	at java.scripting/javax.script.AbstractScriptEngine.eval(AbstractScriptEngine.java:264)
+	at ScriptEngineProbe.main(ScriptEngineProbe.java:7)
+exit=1

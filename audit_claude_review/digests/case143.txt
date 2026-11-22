@@ -1,0 +1,115 @@
+=== CASE 143 bd46a7fe95a386f4def45dcc8c6c18ba2d9a5920
+  project=jcabi/jcabi-http dep=com.fasterxml.jackson.core:jackson-databind 2.14.1 -> 2.15.2 scope=provided type=minor java=11
+  PR=https://github.com/jcabi/jcabi-http/pull/408
+  PRE log logs/batch_triage/bd46a7fe_pre.log:
+  lines=1056
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 148, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: SLF4J: Class path contains multiple SLF4J providers. | SLF4J: Found provider [org.slf4j.log4j12.Log4j12ServiceProvider@4879dfad] | SLF4J: Found provider [org.slf4j.reload4j.Reload4jServiceProvider@4758820d] | SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation. | SLF4J: Actual provider is of type [org.slf4j.log4j12.Log4j12ServiceProvider@4879dfad]
+  exception names: java.util.NoSuchElementExceptionx1
+  BREAKING log logs/batch_triage/bd46a7fe_breaking.log:
+  lines=1909
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 148, Failures: 5, Errors: 4, Skipped: 0
+  failing classes: Tests run: 9, Failures: 5, Errors: 4, Skipped: 0, Time elapsed: 0.145 s <<< FAILURE! - in com.jcabi.http.response.JacksonResponseTest
+  section: Failures: | JacksonResponseTest.cannotReadJsonAsArrayIfNotOne:152 Unexpected exception type thrown, expected: <java.io.IOException> but was: <java.lang.NoClassDefFoundError> | JacksonResponseTest.cannotReadJsonAsObjectIfNotOne:228 Unexpected exception type thrown, expected: <java.io.IOException> but was: <java.lang.NoClassDefFoundError> | JacksonResponseTest.invalidJsonArrayErrorHandlingIsLeftToJackson:126 Unexpected exception type thrown, expected: <java.io.IOException> but was: <java.lang.NoClassDefFoundError> | JacksonResponseTest.invalidJsonErrorHandlingIsLeftToJackson:97 Unexpected exception type thrown, expected: <java.io.IOException> but was: <java.lang.NoClassDefFoundError> | JacksonResponseTest.invalidJsonObjectErrorIsLeftToJackson:200 Unexpected exception type thrown, expected: <java.io.IOException> but was: <java.lang.NoClassDefFoundError> | Errors: | JacksonResponseTest.canParseUnquotedControlCharacters:79 » NoClassDefFound com/fasterxml/jackson/core/exc/StreamConstraintsException | JacksonResponseTest.canReadAsArrayIfOne:179 » NoClassDefFound com/fasterxml/jackson/core/exc/StreamConstraintsException | JacksonResponseTest.canReadAsObjectIfOne:255 » NoClassDefFound com/f
+  section: Errors: | JacksonResponseTest.canParseUnquotedControlCharacters:79 » NoClassDefFound com/fasterxml/jackson/core/exc/StreamConstraintsException | JacksonResponseTest.canReadAsArrayIfOne:179 » NoClassDefFound com/fasterxml/jackson/core/exc/StreamConstraintsException | JacksonResponseTest.canReadAsObjectIfOne:255 » NoClassDefFound com/fasterxml/jackson/core/exc/StreamConstraintsException | JacksonResponseTest.canReadJsonDocument:59 » NoClassDefFound com/fasterxml/jackson/core/exc/StreamConstraintsException | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  29.398 s | [INFO] Finished at: 2026-11-10T12:28:33Z | [INFO] ------------------------------------------------------------------------
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project jcabi-http: There are test failures.
+  FAILBLOCK: [ERROR] com.jcabi.http.response.JacksonResponseTest.canParseUnquotedControlCharacters  Time elapsed: 0.123 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/exc/StreamConstraintsException
+      at com.fasterxml.jackson.databind.node.JsonNodeFactory.objectNode(JsonNodeFactory.java:353)
+      at com.fasterxml.jackson.databind.deser.std.JsonNodeDeserializer.deserialize(JsonNodeDeserializer.java:100)
+      at com.fasterxml.jackson.databind.deser.std.JsonNodeDeserializer.deserialize(JsonNodeDeserializer.java:25)
+      at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+      at com.fasterxml.jackson.databind.ObjectMapper._readTreeAndClose(ObjectMapper.java:4867)
+      Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.exc.StreamConstraintsException
+  FAILBLOCK: [ERROR] com.jcabi.http.response.JacksonResponseTest.invalidJsonObjectErrorIsLeftToJackson  Time elapsed: 0.003 s  <<< FAILURE!
+      org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.io.IOException> but was: <java.lang.NoClassDefFoundError>
+      at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+      at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+      at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+      at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3083)
+      at com.jcabi.http.response.JacksonResponseTest.invalidJsonObjectErrorIsLeftToJackson(JacksonResponseTest.java:200)
+      Caused by: java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/exc/StreamConstraintsException
+      Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.exc.StreamConstraintsException
+  distinct fail signatures (count): 4x java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/exc/StreamConstraintsException || 5x org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.io.IOException> but was: <java.la
+  provider/console lines: SLF4J: Class path contains multiple SLF4J providers. | SLF4J: Found provider [org.slf4j.log4j12.Log4j12ServiceProvider@6986bbaf] | SLF4J: Found provider [org.slf4j.reload4j.Reload4jServiceProvider@4879dfad] | SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation. | SLF4J: Actual provider is of type [org.slf4j.log4j12.Log4j12ServiceProvider@6986bbaf]
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx19, java.io.IOExceptionx10, java.lang.ClassNotFoundExceptionx9, com.fasterxml.jackson.core.exc.StreamConstraintsExceptionx9, org.opentest4j.AssertionFailedErrorx5, java.util.NoSuchElementExceptionx1
+  EVIDENCE logs/case143_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jackson-databind-2.15.2_BaseJsonNode_javap.txt, breaking/jackson-databind-2.15.2_ObjectNode_javap.txt, breaking/jar_inspection.json, breaking/jars/jackson-annotations-2.14.1.jar, breaking/jars/jackson-core-2.14.1.jar, breaking/jars/jackson-databind-2.15.2.jar, missing_class_references.json, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jackson-databind-2.14.1_ObjectNode_javap.txt, pre/jar_inspection.json, pre/jars/jackson-annotations-2.14.1.jar, pre/jars/jackson-core-2.14.1.jar, pre/jars/jackson-databind-2.14.1.jar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=28 sum(t,f,e,s)=[148, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=28 sum(t,f,e,s)=[148, 5, 4, 0]
+  archived non-report files: pre=109 breaking=109 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -264,3 +264,3 @@
+           <artifactId>jackson-databind</artifactId>
+    -      <version>2.14.1</version>
+    +      <version>2.15.2</version>
+           <scope>provided</scope>
+  BREAKING surefire failures/errors:
+    ERROR com.jcabi.http.response.JacksonResponseTest#canParseUnquotedControlCharacters type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/exc/StreamConstraintsException
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.exc.StreamConstraintsException
+       at com.fasterxml.jackson.databind.node.JsonNodeFactory.objectNode(JsonNodeFactory.java:353)
+       at com.fasterxml.jackson.databind.deser.std.JsonNodeDeserializer.deserialize(JsonNodeDeserializer.java:100)
+       at com.fasterxml.jackson.databind.deser.std.JsonNodeDeserializer.deserialize(JsonNodeDeserializer.java:25)
+       at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+    FAILURE com.jcabi.http.response.JacksonResponseTest#invalidJsonObjectErrorIsLeftToJackson type=org.opentest4j.AssertionFailedError msg=Unexpected exception type thrown, expected: <java.io.IOException> but was: <java.lang.NoClassDefFoundError>
+       Caused by: java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/exc/StreamConstraintsException
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.exc.StreamConstraintsException
+       at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+       at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3083)
+    FAILURE com.jcabi.http.response.JacksonResponseTest#invalidJsonErrorHandlingIsLeftToJackson type=org.opentest4j.AssertionFailedError msg=Unexpected exception type thrown, expected: <java.io.IOException> but was: <java.lang.NoClassDefFoundError>
+       Caused by: java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/exc/StreamConstraintsException
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.exc.StreamConstraintsException
+       at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+       at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3083)
+    FAILURE com.jcabi.http.response.JacksonResponseTest#invalidJsonArrayErrorHandlingIsLeftToJackson type=org.opentest4j.AssertionFailedError msg=Unexpected exception type thrown, expected: <java.io.IOException> but was: <java.lang.NoClassDefFoundError>
+       Caused by: java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/exc/StreamConstraintsException
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.exc.StreamConstraintsException
+       at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+       at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3083)
+    ERROR com.jcabi.http.response.JacksonResponseTest#canReadJsonDocument type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/exc/StreamConstraintsException
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.exc.StreamConstraintsException
+       at com.fasterxml.jackson.databind.node.JsonNodeFactory.objectNode(JsonNodeFactory.java:353)
+       at com.fasterxml.jackson.databind.deser.std.JsonNodeDeserializer.deserialize(JsonNodeDeserializer.java:100)
+       at com.fasterxml.jackson.databind.deser.std.JsonNodeDeserializer.deserialize(JsonNodeDeserializer.java:25)
+       at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+    ERROR com.jcabi.http.response.JacksonResponseTest#canReadAsArrayIfOne type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/exc/StreamConstraintsException
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.exc.StreamConstraintsException
+       at com.fasterxml.jackson.databind.node.JsonNodeFactory.arrayNode(JsonNodeFactory.java:339)
+       at com.fasterxml.jackson.databind.deser.std.JsonNodeDeserializer.deserialize(JsonNodeDeserializer.java:104)
+       at com.fasterxml.jackson.databind.deser.std.JsonNodeDeserializer.deserialize(JsonNodeDeserializer.java:25)
+       at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+    ERROR com.jcabi.http.response.JacksonResponseTest#canReadAsObjectIfOne type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/core/exc/StreamConstraintsException
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.exc.StreamConstraintsException
+       at com.fasterxml.jackson.databind.node.JsonNodeFactory.objectNode(JsonNodeFactory.java:353)
+       at com.fasterxml.jackson.databind.deser.std.JsonNodeDeserializer.deserialize(JsonNodeDeserializer.java:100)
+       at com.fasterxml.jackson.databind.deser.std.JsonNodeDeserializer.deserialize(JsonNodeDeserializer.java:25)
+       at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+    FAILURE com.jcabi.http.response.JacksonResponseTest#cannotReadJsonAsObjectIfNotOne type=org.opentest4j.AssertionFailedError msg=Unexpected exception type thrown, expected: <java.io.IOException> but was: <java.lang.NoClassDefFoundError>
+       Caused by: java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/exc/StreamConstraintsException
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.exc.StreamConstraintsException
+       at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+       at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3083)
+    FAILURE com.jcabi.http.response.JacksonResponseTest#cannotReadJsonAsArrayIfNotOne type=org.opentest4j.AssertionFailedError msg=Unexpected exception type thrown, expected: <java.io.IOException> but was: <java.lang.NoClassDefFoundError>
+       Caused by: java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/exc/StreamConstraintsException
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.exc.StreamConstraintsException
+       at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+       at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+       at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3083)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -      <version>2.14.1</version> / +      <version>2.15.2</version>
+  JSON breaking/jar_inspection.json: {"case_id":"bd46a7fe95a386f4def45dcc8c6c18ba2d9a5920","phase":"breaking","path_filter":"/jackson-(core|databind|annotations)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.14.1/jackson-annotations-2.14.1.jar","classes":{"com.fasterxml.jackson.core.exc.StreamConstraintsException":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.14.1/jackson-core-2.14.1.jar","classes":{"com.fasterxml.jackson.core.exc.StreamConstraintsException":{"present":false,"major_version":null}},"services":{"META-INF/services/com.fasterxml.jackson.core.JsonFactory":"com.fasterxml.jackson.core.JsonFactory\n"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.2/jackson-databind-2.15.2.jar","classes":{"com.fasterxml.jackson.core.exc.StreamConstraintsException":{"present":false,"major_version":null}},"services":{"META-INF/services/com.fasterxml.jackson.core.ObjectCodec":"com.fasterxml.jackson.databind.ObjectMapper\n"},"disassemblies":[{"class":"com.fasterxml.jackson.databind.node.ObjectNode","file":"jackson-databind-2.15.2_ObjectNode_javap.txt","exit_code":0}]}]}
+  JSON missing_class_references.json: {"pre":{"jar_sha256":"423a0c806de4b3fa5eb4a28698305e3a3777c731e1bcfa1b2f3a3760c7b6e773","referring_classes":[]},"breaking":{"jar_sha256":"0eb2fdad6e40ab8832a78c9b22f58196dd970594e8d3d5a26ead87847c4f3a96","referring_classes":["com/fasterxml/jackson/databind/node/BaseJsonNode.class"]}}
+  JSON pre/jar_inspection.json: {"case_id":"bd46a7fe95a386f4def45dcc8c6c18ba2d9a5920","phase":"pre","path_filter":"/jackson-(core|databind|annotations)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.14.1/jackson-annotations-2.14.1.jar","classes":{"com.fasterxml.jackson.core.exc.StreamConstraintsException":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.14.1/jackson-core-2.14.1.jar","classes":{"com.fasterxml.jackson.core.exc.StreamConstraintsException":{"present":false,"major_version":null}},"services":{"META-INF/services/com.fasterxml.jackson.core.JsonFactory":"com.fasterxml.jackson.core.JsonFactory\n"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.14.1/jackson-databind-2.14.1.jar","classes":{"com.fasterxml.jackson.core.exc.StreamConstraintsException":{"present":false,"major_version":null}},"services":{"META-INF/services/com.fasterxml.jackson.core.ObjectCodec":"com.fasterxml.jackson.databind.ObjectMapper\n"},"disassemblies":[{"class":"com.fasterxml.jackson.databind.node.ObjectNode","file":"jackson-databind-2.14.1_ObjectNode_javap.txt","exit_code":0}]}]}
+  JARS: breaking/jars/jackson-annotations-2.14.1.jar, breaking/jars/jackson-core-2.14.1.jar, breaking/jars/jackson-databind-2.15.2.jar, pre/jars/jackson-annotations-2.14.1.jar, pre/jars/jackson-core-2.14.1.jar, pre/jars/jackson-databind-2.14.1.jar

@@ -1,0 +1,147 @@
+[
+ {
+  "cases": [
+   13
+  ],
+  "file": "src/main/java/net/masterthought/cucumber/ReportBuilder.java",
+  "kind": "replace",
+  "old": "LOG.log(Level.FINE, \"\", e);\n        } catch (IOException e) {",
+  "new": "LOG.log(Level.FINE, \"\", e);\n        } catch (IOException | IllegalArgumentException e) {",
+  "source": "7e14a5adf7 (developer, #1140)"
+ },
+ {
+  "cases": [
+   20
+  ],
+  "file": "src/test/java/org/apache/log4j/chainsaw/LogPanelPreferenceModelTest.java",
+  "kind": "replace",
+  "old": "XStream stream = new XStream(new DomDriver());\n",
+  "new": "XStream stream = new XStream(new DomDriver());\n        stream.allowTypes(new Class[]{\n            LogPanelPreferenceModel.class\n        });\n\n",
+  "source": "7ec771e2fb (developer)"
+ },
+ {
+  "cases": [
+   158
+  ],
+  "file": "src/test/java/com/github/sardine/impl/SardineExceptionTest.java",
+  "kind": "replace",
+  "old": "assertEquals(\"m (400 response phrase)\", e.getMessage());",
+  "new": "assertEquals(\"status code: 400, reason phrase: m (400 response phrase)\", e.getMessage());",
+  "source": "8b5d445d8a (developer, via #371)"
+ },
+ {
+  "cases": [
+   181
+  ],
+  "file": "sparql-anything-html/src/test/resources/Microdata1.nq",
+  "kind": "regex_all",
+  "source": "Derived from 7c9e7328cf (developer): only its jsoup whitespace change (\"> \\n\" -> \">\\n\" in innerHTML literals). The developer file itself hard-coded a local graph path (/Users/ed4565/...) and was corrected later in 6fa0326f (#467).",
+  "old": "> +\\\\n",
+  "new": ">\\\\n",
+  "min_matches": 12,
+  "first_attempt": "file_from_commit 7c9e7328cf -> FIX_NOT_EFFECTIVE (environment-specific graph names)"
+ },
+ {
+  "cases": [
+   28,
+   35,
+   39,
+   162,
+   166
+  ],
+  "file": "src/main/resources/config/config.yaml",
+  "kind": "replace",
+  "old": "stacktraceAppPackages: [\"uk.gov.pay\"]",
+  "new": "inAppIncludes: [\"uk.gov.pay\"]",
+  "source": "f061ad1945 (developer, PR #732)"
+ },
+ {
+  "cases": [
+   2,
+   18,
+   132
+  ],
+  "file": "pom.xml",
+  "kind": "replace",
+  "old": "<artifactId>logback-classic</artifactId>\n                <version>1.2.11</version>",
+  "new": "<artifactId>logback-classic</artifactId>\n                <version>1.3.16</version>",
+  "source": "4b531b12a9 (developer, #569: logback-classic 1.3.16)",
+  "tree": "ch.qos.logback,org.slf4j"
+ },
+ {
+  "cases": [
+   100,
+   148,
+   184
+  ],
+  "file": "pom.xml",
+  "kind": "regex",
+  "old": "(<artifactId>logback-classic</artifactId>\\s*<version>)1\\.2\\.11(</version>)",
+  "new": "\\g<1>1.3.4\\g<2>",
+  "source": "bd28b6f635 (developer, via #276: logback-classic 1.3.4)",
+  "tree": "ch.qos.logback,org.slf4j"
+ },
+ {
+  "cases": [
+   53
+  ],
+  "file": "pom.xml",
+  "kind": "regex",
+  "old": "(<artifactId>plexus-io</artifactId>\\s*<version>)3\\.3\\.0(</version>)",
+  "new": "\\g<1>3.3.1\\g<2>",
+  "source": "ee2f99da1d (developer: version skip to 3.3.1)",
+  "tree": "org.codehaus.plexus:plexus-io"
+ },
+ {
+  "cases": [
+   163,
+   168
+  ],
+  "file": "json/pom.xml",
+  "kind": "regex",
+  "old": "(<artifactId>json-smart</artifactId>\\s*<version>)2\\.4\\.9(</version>)",
+  "new": "\\g<1>2.4.10\\g<2>",
+  "source": "0b496933a3 (developer: version skip to 2.4.10)",
+  "tree": "net.minidev:json-smart",
+  "mvn": "mvn clean test -B -pl json -am"
+ },
+ {
+  "cases": [
+   14,
+   114
+  ],
+  "file": "src/core/persistence/pom.xml",
+  "kind": "regex",
+  "old": "(<artifactId>h2</artifactId>\\s*<version>)[0-9.]+(</version>)",
+  "new": "\\g<1>2.2.220\\g<2>",
+  "source": "2894ac21e5 (developer sweep: h2 2.2.220 only, other sweep changes not applied)",
+  "tree": "com.h2database:h2"
+ },
+ {
+  "cases": [
+   12,
+   15,
+   27,
+   150,
+   159,
+   185,
+   186
+  ],
+  "file": "pom.xml",
+  "kind": "replace",
+  "derived": true,
+  "old": "<dependency>\n            <groupId>ch.qos.logback</groupId>\n            <artifactId>logback-classic</artifactId>\n            <version>1.2.11</version>\n        </dependency>",
+  "new": "<dependency>\n            <groupId>ch.qos.logback</groupId>\n            <artifactId>logback-classic</artifactId>\n            <version>1.3.5</version>\n        </dependency>\n        <dependency>\n            <groupId>ch.qos.logback</groupId>\n            <artifactId>logback-core</artifactId>\n            <version>1.3.5</version>\n        </dependency>",
+  "source": "DERIVED minimal companion fix (NOT the developer's): logback-classic/core 1.3.5 under the existing Dropwizard 2. Developer fix was the Dropwizard 2->3 migration 70fffbc56f (#2049).",
+  "tree": "ch.qos.logback,org.slf4j"
+ },
+ {
+  "cases": [
+   171
+  ],
+  "kind": "raw_patch",
+  "patch_file": "fix_mining/validation/case171_developer_replay.source.patch",
+  "source": "DEVELOPER fix replayed: f10bef101d (#397, Dropwizard 2 -> 4, pac4j 5.7.1, jee-pac4j 7.1.0) cherry-picked onto the breaking commit. All 14 Java/README changes applied cleanly (the Java files are identical between the breaking commit and the fix's parent); 3 pom.xml conflict blocks resolved with the developer's side. Two adjustments: slf4j-api kept at the case's 2.0.0 (developer had 2.0.3), and jax-rs-pac4j 6.0.0-SNAPSHOT replaced by the released 6.0.0 (snapshots are not reproducible).",
+  "tree": "ch.qos.logback,org.slf4j,io.dropwizard:dropwizard-core,org.pac4j"
+ }
+]

@@ -1,0 +1,121 @@
+=== CASE 152 c923de11176e4fee34fa01bdb1cb1c90861fd0cf
+  project=equinor/neqsim dep=org.apache.logging.log4j:log4j-api 2.17.2 -> 2.18.0 scope=compile type=minor java=11
+  PR=https://github.com/equinor/neqsim/pull/483
+  PRE log logs/batch_triage/c923de11_pre.log:
+  lines=494
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 180, Failures: 0, Errors: 0, Skipped: 9
+  exception names: calcneqsim.util.exception.IsNaNExceptionx16, neqsim.util.exception.InvalidInputExceptionx1
+  BREAKING log logs/batch_triage/c923de11_breaking.log:
+  lines=927
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 134, Failures: 0, Errors: 131, Skipped: 1
+  failing classes: Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.835 s <<< FAILURE! - in neqsim.thermo.component.ComponentTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in neqsim.thermo.component.ComponentHydrateGFTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.thermo.util.example.VapourPressureTTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.thermo.util.example.SrkOilCharacterizationTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.thermo.util.example.FlashWaterTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.thermo.util.example.KlabFlashBugTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.thermo.util.example.SrkEoSTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.thermo.util.example.FlashOilTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in neqsim.thermo.util.example.FlashGasTest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.123 s <<< FAILURE! - in neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest
+  section: Errors: | SaturationPressureTest.testCalcSaturationPressure:17 NoClassDefFound Could not... | SaturationTemperatureTest.<init>:13->NeqSimTest.<init>:11 » NoClassDefFound Co... | PipeFlowSystemTest.<init>:10->NeqSimTest.<init>:11 » NoClassDefFound Could not... | PipeFlowSystemTest.<init>:10->NeqSimTest.<init>:11 » NoClassDefFound Could not... | PipeFlowSystemTest.<init>:10->NeqSimTest.<init>:11 » NoClassDefFound Could not... | PipeFlowSystemTest.<init>:10->NeqSimTest.<init>:11 » NoClassDefFound Could not... | PipeFlowSystemTest.<init>:10->NeqSimTest.<init>:11 » NoClassDefFound Could not... | FrictionTheoryViscosityMethodTest.setUp:13 NoClassDefFound Could not initializ... | CostaldTest.setUp:14 NoClassDefFound Could not initialize class neqsim.thermo.... | WellAllocatorTest.<init>:15->NeqSimTest.<init>:11 » NoClassDefFound Could not ... | pHProbeTest.testGetMeasuredValue:17 NoClassDefFound Could not initialize class... | pHProbeTest.testGetMeasuredValueWithAlkanility:43 NoClassDefFound Could not in... | SimpleAbsorberTest.<init>:8->NeqSimTest.<init>:11 » NoClassDefFound Could not ...
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project neqsim: There are test failures.
+  FAILBLOCK: [ERROR] neqsim.thermo.component.ComponentTest  Time elapsed: 0.835 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.impl.ThreadContextDataInjector
+      at neqsim.thermo.component.ComponentTest.setUpBeforeClass(ComponentTest.java:17)
+      [INFO] Running neqsim.thermo.component.ComponentHydrateGFTest
+      [ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in neqsim.thermo.component.ComponentHydrateGFTest
+      [ERROR] neqsim.thermo.component.ComponentHydrateGFTest  Time elapsed: 0.012 s  <<< ERROR!
+  FAILBLOCK: [ERROR] neqsim.thermo.component.ComponentHydrateGFTest  Time elapsed: 0.012 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos
+      at neqsim.thermo.component.ComponentHydrateGFTest.setUpBeforeClass(ComponentHydrateGFTest.java:26)
+      [INFO] Running neqsim.thermo.util.example.VapourPressureTTest
+      [ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.thermo.util.example.VapourPressureTTest
+      [ERROR] neqsim.thermo.util.example.VapourPressureTTest  Time elapsed: 0.002 s  <<< ERROR!
+  FAILBLOCK: [ERROR] neqsim.thermo.util.example.VapourPressureTTest  Time elapsed: 0.002 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkCPAstatoil
+      at neqsim.thermo.util.example.VapourPressureTTest.setUp(VapourPressureTTest.java:29)
+      [INFO] Running neqsim.thermo.util.example.SrkOilCharacterizationTest
+      [ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.thermo.util.example.SrkOilCharacterizationTest
+      [ERROR] neqsim.thermo.util.example.SrkOilCharacterizationTest  Time elapsed: 0.002 s  <<< ERROR!
+  FAILBLOCK: [ERROR] neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest.testRead  Time elapsed: 0.076 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+      at neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest.testRead(EclipseFluidReadWriteTest.java:41)
+      [ERROR] neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest.testSetComposition  Time elapsed: 0.002 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.util.readwrite.EclipseFluidReadWrite
+      at neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest.testSetComposition(EclipseFluidReadWriteTest.java:65)
+  distinct fail signatures (count): 1x java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.impl.ThreadContextDataInjector || 7x java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkEos || 1x java.lang.NoClassDefFoundError: Could not initialize class neqsim.thermo.system.SystemSrkCPAstatoil || 1x java.lang.NoClassDefFoundError: Could not initialize class org.apache.logging.log4j.core.LoggerContext
+  provider/console lines: ERROR StatusLogger Unable to create Lookup for ctx
+  linkage/compile signals: NoClassDefFoundError, NoSuchMethodError
+  exception names: java.lang.NoClassDefFoundErrorx131, java.lang.NoSuchMethodErrorx1
+  EVIDENCE logs/case152_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/log4j-api-2.18.0.jar, breaking/jars/log4j-core-2.17.2.jar, breaking/log4j-api-2.18.0_LoaderUtil_javap.txt, breaking/log4j-core-2.17.2_ThreadContextDataInjector_javap.txt, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/log4j-api-2.17.2.jar, pre/jars/log4j-core-2.17.2.jar, pre/log4j-api-2.17.2_LoaderUtil_javap.txt, pre/log4j-core-2.17.2_ThreadContextDataInjector_javap.txt, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=54 sum(t,f,e,s)=[180, 0, 0, 9]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=54 sum(t,f,e,s)=[134, 0, 131, 1]
+  archived non-report files: pre=1372 breaking=1372 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -28,3 +28,3 @@
+     			<artifactId>log4j-api</artifactId>
+    -			<version>2.17.2</version>
+    +			<version>2.18.0</version>
+     		</dependency>
+  BREAKING surefire failures/errors:
+    ERROR neqsim.PVTsimulation.simulation.SaturationPressureTest#testCalcSaturationPressure type=java.lang.NoClassDefFoundError msg=
+       at neqsim.PVTsimulation.simulation.SaturationPressureTest.testCalcSaturationPressure(SaturationPressureTest.java:17)
+    ERROR neqsim.PVTsimulation.simulation.SaturationTemperatureTest#testCalcSaturationTemperature type=java.lang.NoClassDefFoundError msg=
+       at neqsim.PVTsimulation.simulation.SaturationTemperatureTest.<init>(SaturationTemperatureTest.java:13)
+    ERROR neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest#testSolveTransient type=java.lang.NoClassDefFoundError msg=
+       at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.<init>(PipeFlowSystemTest.java:10)
+    ERROR neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest#testCreateSystem type=java.lang.NoClassDefFoundError msg=
+       at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.<init>(PipeFlowSystemTest.java:10)
+    ERROR neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest#testSolveSteadyState type=java.lang.NoClassDefFoundError msg=
+       at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.<init>(PipeFlowSystemTest.java:10)
+    ERROR neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest#testInit type=java.lang.NoClassDefFoundError msg=
+       at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.<init>(PipeFlowSystemTest.java:10)
+    ERROR neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest#testSolveSteadyStateConstantFrictionFactor type=java.lang.NoClassDefFoundError msg=
+       at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.<init>(PipeFlowSystemTest.java:10)
+    ERROR neqsim.physicalProperties.physicalPropertyMethods.commonPhasePhysicalProperties.viscosity.FrictionTheoryViscosityMethodTest# type=java.lang.NoClassDefFoundError msg=
+       at neqsim.physicalProperties.physicalPropertyMethods.commonPhasePhysicalProperties.viscosity.FrictionTheoryViscosityMethodTest.setUp(FrictionTheoryViscosityMethodTest.java:13)
+    ERROR neqsim.physicalProperties.physicalPropertyMethods.liquidPhysicalProperties.density.CostaldTest# type=java.lang.NoClassDefFoundError msg=
+       at neqsim.physicalProperties.physicalPropertyMethods.liquidPhysicalProperties.density.CostaldTest.setUp(CostaldTest.java:14)
+    ERROR neqsim.processSimulation.measurementDevice.WellAllocatorTest#testGetMeasuredValueString type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.measurementDevice.WellAllocatorTest.<init>(WellAllocatorTest.java:15)
+    ERROR neqsim.processSimulation.measurementDevice.pHProbeTest#testGetMeasuredValueWithAlkanility type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.measurementDevice.pHProbeTest.testGetMeasuredValueWithAlkanility(pHProbeTest.java:43)
+    ERROR neqsim.processSimulation.measurementDevice.pHProbeTest#testGetMeasuredValue type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.measurementDevice.pHProbeTest.testGetMeasuredValue(pHProbeTest.java:17)
+    ERROR neqsim.processSimulation.processEquipment.absorber.SimpleAbsorberTest#testRun type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.absorber.SimpleAbsorberTest.<init>(SimpleAbsorberTest.java:8)
+    ERROR neqsim.processSimulation.processEquipment.adsorber.SimpleAdsorberTest#testRun type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.adsorber.SimpleAdsorberTest.<init>(SimpleAdsorberTest.java:8)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest#testCompressorChartEquals type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest.<init>(CompressorCalculationTest.java:10)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest#testRun type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest.<init>(CompressorCalculationTest.java:10)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorChartTest#test_Run type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorChartTest.setUp(CompressorChartTest.java:16)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest#testFailRunCalculation type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest.<init>(CompressorPropertyProfileTest.java:10)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest#testRunCalculation type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest.<init>(CompressorPropertyProfileTest.java:10)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorTest#testCompressorWithGERG2008 type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.compressor.CompressorTest.<clinit>(CompressorTest.java:20)
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorTest#testMultiPhaseCompression type=java.lang.NoClassDefFoundError msg=
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorTest#testCompressorWithSrk type=java.lang.NoClassDefFoundError msg=
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorTest#testCompressorRigorousMethod type=java.lang.NoClassDefFoundError msg=
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorTest#testCompressorSchultzMethod type=java.lang.NoClassDefFoundError msg=
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorTest#testSerialize type=java.lang.NoClassDefFoundError msg=
+    ERROR neqsim.processSimulation.processEquipment.compressor.CompressorTest#testIsentropicCalcMethod type=java.lang.NoClassDefFoundError msg=
+    ERROR neqsim.processSimulation.processEquipment.mixer.MixerTest# type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.mixer.MixerTest.setUpBeforeClass(MixerTest.java:26)
+    ERROR neqsim.processSimulation.processEquipment.powerGeneration.GasTurbineTest# type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.powerGeneration.GasTurbineTest.setUp(GasTurbineTest.java:16)
+    ERROR neqsim.processSimulation.processEquipment.pump.PumpTest#testRun type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.pump.PumpTest.<init>(PumpTest.java:13)
+    ERROR neqsim.processSimulation.processEquipment.separator.SeparatorTest#testOnePhase type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.separator.SeparatorTest.<init>(SeparatorTest.java:14)
+    ERROR neqsim.processSimulation.processEquipment.separator.SeparatorTest#testFlow type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.separator.SeparatorTest.<init>(SeparatorTest.java:14)
+    ERROR neqsim.processSimulation.processEquipment.splitter.ComponentSplitterTest#testRun type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.splitter.ComponentSplitterTest.setUpBeforeClass(ComponentSplitterTest.java:20)
+    ERROR neqsim.processSimulation.processEquipment.stream.StreamTest#testLCV type=java.lang.NoClassDefFoundError msg=
+       at neqsim.processSimulation.processEquipment.stream.StreamTest.<init>(StreamTest.java:14)
+    ... truncated (256 lines)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -			<version>2.17.2</version> / +			<version>2.18.0</version>
+  JSON breaking/jar_inspection.json: {"case_id":"c923de11176e4fee34fa01bdb1cb1c90861fd0cf","phase":"breaking","path_filter":"/log4j-(api|core)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.18.0/log4j-api-2.18.0.jar","classes":{"org.apache.logging.log4j.util.LoaderUtil":{"present":true,"major_version":52}},"services":{"META-INF/services/org.apache.logging.log4j.util.PropertySource":"# Licensed to the Apache Software Foundation (ASF) under one or more\n# contributor license agreements. See the NOTICE file distributed with\n# this work for additional information regarding copyright ownership.\n# The ASF licenses this file to You under the Apache license, Version 2.0\n# (the \"License\"..."},"disassemblies":[{"class":"org.apache.logging.log4j.util.LoaderUtil","file":"log4j-api-2.18.0_LoaderUtil_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.2/log4j-core-2.17.2.jar","classes":{"org.apache.logging.log4j.util.LoaderUtil":{"present":false,"major_version":null}},"services":{"META-INF/services/javax.annotation.processing.Processor":"#\n# Licensed to the Apache Software Foundation (ASF) under one or more\n# contributor license agreements. See the NOTICE file distributed with\n# this work for additional information regarding copyright ownership.\n# The ASF licenses thi...
+  JSON pre/jar_inspection.json: {"case_id":"c923de11176e4fee34fa01bdb1cb1c90861fd0cf","phase":"pre","path_filter":"/log4j-(api|core)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.2/log4j-api-2.17.2.jar","classes":{"org.apache.logging.log4j.util.LoaderUtil":{"present":true,"major_version":52}},"services":{"META-INF/services/org.apache.logging.log4j.util.PropertySource":"# Licensed to the Apache Software Foundation (ASF) under one or more\n# contributor license agreements. See the NOTICE file distributed with\n# this work for additional information regarding copyright ownership.\n# The ASF licenses this file to You under the Apache license, Version 2.0\n# (the \"License\"..."},"disassemblies":[{"class":"org.apache.logging.log4j.util.LoaderUtil","file":"log4j-api-2.17.2_LoaderUtil_javap.txt","exit_code":0}]},{"resolved_path":"/root/.m2/repository/org/apache/logging/log4j/log4j-core/2.17.2/log4j-core-2.17.2.jar","classes":{"org.apache.logging.log4j.util.LoaderUtil":{"present":false,"major_version":null}},"services":{"META-INF/services/javax.annotation.processing.Processor":"#\n# Licensed to the Apache Software Foundation (ASF) under one or more\n# contributor license agreements. See the NOTICE file distributed with\n# this work for additional information regarding copyright ownership.\n# The ASF licenses this fil...
+  JARS: breaking/jars/log4j-api-2.18.0.jar, breaking/jars/log4j-core-2.17.2.jar, pre/jars/log4j-api-2.17.2.jar, pre/jars/log4j-core-2.17.2.jar

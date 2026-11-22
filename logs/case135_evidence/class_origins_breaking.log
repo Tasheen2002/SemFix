@@ -1,0 +1,130 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] messaging-services                                                 [pom]
+[INFO] core                                                               [jar]
+[INFO] messaging                                                          [jar]
+[INFO] 
+[INFO] -----------< de.fraunhofer.ids.messaging:messaging-services >-----------
+[INFO] Building messaging-services 6.1.1                                  [1/3]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] Downloading from eis-ids-public: https://maven.iais.fraunhofer.de/artifactory/eis-ids-public/de/fraunhofer/iais/eis/infomodel/util/4.2.7-SNAPSHOT/maven-metadata.xml
+[WARNING] Could not transfer metadata de.fraunhofer.iais.eis.infomodel:util:4.2.7-SNAPSHOT/maven-metadata.xml from/to eis-ids-public (https://maven.iais.fraunhofer.de/artifactory/eis-ids-public): maven.iais.fraunhofer.de: Name does not resolve
+[WARNING] Could not transfer metadata de.fraunhofer.iais.eis.infomodel:util:4.2.7-SNAPSHOT/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): Blocked mirror for repositories: [eis-public-repo (http://maven.iais.fraunhofer.de/artifactory/eis-ids-public, default, releases+snapshots)]
+[WARNING] de.fraunhofer.iais.eis.infomodel:util:4.2.7-SNAPSHOT/maven-metadata.xml failed to transfer from https://maven.iais.fraunhofer.de/artifactory/eis-ids-public during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of eis-ids-public has elapsed or updates are forced. Original error: Could not transfer metadata de.fraunhofer.iais.eis.infomodel:util:4.2.7-SNAPSHOT/maven-metadata.xml from/to eis-ids-public (https://maven.iais.fraunhofer.de/artifactory/eis-ids-public): maven.iais.fraunhofer.de: Name does not resolve
+[WARNING] de.fraunhofer.iais.eis.infomodel:util:4.2.7-SNAPSHOT/maven-metadata.xml failed to transfer from http://0.0.0.0/ during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of maven-default-http-blocker has elapsed or updates are forced. Original error: Could not transfer metadata de.fraunhofer.iais.eis.infomodel:util:4.2.7-SNAPSHOT/maven-metadata.xml from/to maven-default-http-blocker (http://0.0.0.0/): Blocked mirror for repositories: [eis-public-repo (http://maven.iais.fraunhofer.de/artifactory/eis-ids-public, default, releases+snapshots)]
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ messaging-services ---
+[INFO] 
+[INFO] --- flatten:1.2.7:clean (flatten.clean) @ messaging-services ---
+[INFO] Deleting /IDS-Messaging-Services/.flattened-pom.xml
+[INFO] 
+[INFO] --- flatten:1.2.7:flatten (flatten) @ messaging-services ---
+[INFO] Generating flattened POM of project de.fraunhofer.ids.messaging:messaging-services:pom:6.1.1...
+[INFO] 
+[INFO] ------------------< de.fraunhofer.ids.messaging:core >------------------
+[INFO] Building core 6.1.1                                                [2/3]
+[INFO]   from core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ core ---
+[INFO] Deleting /IDS-Messaging-Services/core/target
+[INFO] 
+[INFO] --- flatten:1.2.7:clean (flatten.clean) @ core ---
+[INFO] Deleting /IDS-Messaging-Services/core/.flattened-pom.xml
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ core ---
+[INFO] skip non existing resourceDirectory /IDS-Messaging-Services/core/src/main/resources
+[INFO] 
+[INFO] --- flatten:1.2.7:flatten (flatten) @ core ---
+[INFO] Generating flattened POM of project de.fraunhofer.ids.messaging:core:jar:6.1.1...
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 29 source files to /IDS-Messaging-Services/core/target/classes
+[INFO] /IDS-Messaging-Services/core/src/main/java/de/fraunhofer/ids/messaging/core/config/ConfigProducer.java: /IDS-Messaging-Services/core/src/main/java/de/fraunhofer/ids/messaging/core/config/ConfigProducer.java uses or overrides a deprecated API.
+[INFO] /IDS-Messaging-Services/core/src/main/java/de/fraunhofer/ids/messaging/core/config/ConfigProducer.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ core ---
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /IDS-Messaging-Services/core/target/test-classes
+[INFO] /IDS-Messaging-Services/core/src/test/java/de/fraunhofer/ids/messaging/core/config/PreConfigInterceptor.java: /IDS-Messaging-Services/core/src/test/java/de/fraunhofer/ids/messaging/core/config/PreConfigInterceptor.java uses or overrides a deprecated API.
+[INFO] /IDS-Messaging-Services/core/src/test/java/de/fraunhofer/ids/messaging/core/config/PreConfigInterceptor.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:2.19.1:test (default-test) @ core ---
+[INFO] 
+[INFO] ---------------< de.fraunhofer.ids.messaging:messaging >----------------
+[INFO] Building messaging 6.1.1                                           [3/3]
+[INFO]   from messaging/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ messaging ---
+[INFO] Deleting /IDS-Messaging-Services/messaging/target
+[INFO] 
+[INFO] --- flatten:1.2.7:clean (flatten.clean) @ messaging ---
+[INFO] Deleting /IDS-Messaging-Services/messaging/.flattened-pom.xml
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ messaging ---
+[INFO] skip non existing resourceDirectory /IDS-Messaging-Services/messaging/src/main/resources
+[INFO] 
+[INFO] --- flatten:1.2.7:flatten (flatten) @ messaging ---
+[INFO] Generating flattened POM of project de.fraunhofer.ids.messaging:messaging:jar:6.1.1...
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ messaging ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 103 source files to /IDS-Messaging-Services/messaging/target/classes
+[INFO] /IDS-Messaging-Services/messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/parser/MultipartParser.java: /IDS-Messaging-Services/messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/parser/MultipartParser.java uses or overrides a deprecated API.
+[INFO] /IDS-Messaging-Services/messaging/src/main/java/de/fraunhofer/ids/messaging/protocol/multipart/parser/MultipartParser.java: Recompile with -Xlint:deprecation for details.
+[INFO] /IDS-Messaging-Services/messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/IdsRequestBuilder.java: /IDS-Messaging-Services/messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/IdsRequestBuilder.java uses unchecked or unsafe operations.
+[INFO] /IDS-Messaging-Services/messaging/src/main/java/de/fraunhofer/ids/messaging/requests/builder/IdsRequestBuilder.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ messaging ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ messaging ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 16 source files to /IDS-Messaging-Services/messaging/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.19.1:test (default-test) @ messaging ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running Case135ClassOriginsTest
+CASE135_RESOURCE com/fasterxml/jackson/databind/ObjectMapper.class=jar:file:/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.3/jackson-databind-2.13.3.jar!/com/fasterxml/jackson/databind/ObjectMapper.class
+CASE135_RESOURCE com/fasterxml/jackson/core/JsonFactory.class=jar:file:/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.3/jackson-core-2.13.3.jar!/com/fasterxml/jackson/core/JsonFactory.class
+CASE135_RESOURCE com/fasterxml/jackson/annotation/JsonProperty.class=jar:file:/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.11.2/jackson-annotations-2.11.2.jar!/com/fasterxml/jackson/annotation/JsonProperty.class
+CASE135_RESOURCE com/fasterxml/jackson/annotation/JsonKey.class=ABSENT
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 sec - in Case135ClassOriginsTest
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for messaging-services 6.1.1:
+[INFO] 
+[INFO] messaging-services ................................. SUCCESS [  2.942 s]
+[INFO] core ............................................... SUCCESS [  7.198 s]
+[INFO] messaging .......................................... SUCCESS [  8.377 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  18.758 s
+[INFO] Finished at: 2026-11-10T11:10:37Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.19.1
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.codehaus.mojo:flatten-maven-plugin:1.2.7
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 

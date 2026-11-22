@@ -1,0 +1,37 @@
+{
+  "case_id": "9c0f1348f89dffae4ad0d4f7e1906fc8c8ba8dca",
+  "phase": "breaking",
+  "path_filter": "/com/h2database/h2/",
+  "path_source": "Fresh XML surefire.test.class.path properties",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/com/h2database/h2/2.1.210/h2-2.1.210.jar",
+      "sha256": "edc57299926297fd9315e04de75f8538c4cb5fe97fd3da2a1e5cee6a4c98b5cd",
+      "classes": {
+        "org.h2.Driver": {
+          "present": true,
+          "major_version": 52
+        }
+      },
+      "services": {
+        "META-INF/services/java.sql.Driver": "org.h2.Driver"
+      },
+      "disassemblies": [
+        {
+          "class": "org.h2.Driver",
+          "file": "h2-2.1.210_Driver_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case114_evidence\\breaking\\jars\\h2-2.1.210.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.h2.Driver"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

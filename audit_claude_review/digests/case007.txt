@@ -1,0 +1,27 @@
+=== CASE 7 0c088ff435224b168f93d2a20b829af940bb67dd
+  project=fmtn/a dep=org.graalvm.js:js-scriptengine 22.3.2 -> 23.0.1 scope=compile type=major java=11
+  PR=https://github.com/fmtn/a/pull/219
+  PRE log logs/0c088ff4_pre.log:
+  lines=1568
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 80, Failures: 0, Errors: 0, Skipped: 1
+  exception names: org.graalvm.polyglot.PolyglotExceptionx3
+  BREAKING log logs/0c088ff4_breaking.log:
+  lines=4914
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 80, Failures: 0, Errors: 79, Skipped: 1
+  failing classes: Tests run: 27, Failures: 0, Errors: 26, Skipped: 1, Time elapsed: 1.89 s <<< FAILURE! - in co.nordlander.a.AOpenWireTest || Tests run: 26, Failures: 0, Errors: 26, Skipped: 0, Time elapsed: 0.695 s <<< FAILURE! - in co.nordlander.a.AMQPTest || Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in co.nordlander.a.DataStructureTypeAsStringTest || Tests run: 25, Failures: 0, Errors: 25, Skipped: 0, Time elapsed: 1.546 s <<< FAILURE! - in co.nordlander.a.ArtemisJmsTest
+  section: Errors: | AMQPTest>BaseTest.setupJMS:103 ┬╗ UnsupportedClassVersion com/oracle/truffle/js/scriptengine/GraalJSEngineFactory has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0 | AMQPTest>BaseTest.setupJMS:103 ┬╗ UnsupportedClassVersion com/oracle/truffle/js/scriptengine/GraalJSEngineFactory has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0 | AMQPTest>BaseTest.setupJMS:103 ┬╗ UnsupportedClassVersion com/oracle/truffle/js/scriptengine/GraalJSEngineFactory has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0 | AMQPTest>BaseTest.setupJMS:103 ┬╗ UnsupportedClassVersion com/oracle/truffle/js/scriptengine/GraalJSEngineFactory has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0 | AMQPTest>BaseTest.setupJMS:103 ┬╗ UnsupportedC
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project a: 
+  FAILBLOCK: [ERROR] co.nordlander.a.AOpenWireTest.jndiConnectTest  Time elapsed: 0.156 s  <<< ERROR!
+      java.lang.UnsupportedClassVersionError: com/oracle/truffle/js/scriptengine/GraalJSEngineFactory has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to
+      at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+      at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+      at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:174)
+      at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:800)
+      at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:698)
+  distinct fail signatures (count): 79x java.lang.UnsupportedClassVersionError: com/oracle/truffle/js/scriptengine/GraalJSEngineFactory has been compiled by a m
+  linkage/compile signals: UnsupportedClassVersionError, class file version
+  exception names: java.lang.UnsupportedClassVersionErrorx79
+  EVIDENCE: no logs/case7_evidence directory

@@ -1,0 +1,92 @@
+{
+  "case_id": "9b63e53888ebdd9c84f4eec3cb661299dea41344",
+  "phase": "breaking",
+  "path_filter": "/(mockito-core|opencensus-api)/",
+  "path_source": "Fresh test report classpaths or retained runner events; Cases 111/115 PRE uses explicit POM versions because successful runner events are deleted",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/io/opencensus/opencensus-api/0.31.1/opencensus-api-0.31.1.jar",
+      "sha256": "f1474d47f4b6b001558ad27b952e35eda5cc7146788877fc52938c6eba24b382",
+      "classes": {
+        "org.mockito.internal.configuration.plugins.DefaultMockitoPlugins": {
+          "present": false,
+          "major_version": null
+        },
+        "io.opencensus.trace.Tracer": {
+          "present": true,
+          "major_version": 51
+        },
+        "io.opencensus.trace.Span": {
+          "present": true,
+          "major_version": 51
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "io.opencensus.trace.Tracer",
+          "file": "opencensus-api-0.31.1_Tracer_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case113_evidence\\breaking\\jars\\opencensus-api-0.31.1.jar",
+            "-p",
+            "-s",
+            "-c",
+            "io.opencensus.trace.Tracer"
+          ],
+          "exit_code": 0
+        },
+        {
+          "class": "io.opencensus.trace.Span",
+          "file": "opencensus-api-0.31.1_Span_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case113_evidence\\breaking\\jars\\opencensus-api-0.31.1.jar",
+            "-p",
+            "-s",
+            "-c",
+            "io.opencensus.trace.Span"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/mockito/mockito-core/5.1.0/mockito-core-5.1.0.jar",
+      "sha256": "7c7b7676d09b67d5674db63ecd31c325aeba6cd79ee7eec9fa28c5c4113d26cf",
+      "classes": {
+        "org.mockito.internal.configuration.plugins.DefaultMockitoPlugins": {
+          "present": true,
+          "major_version": 55
+        },
+        "io.opencensus.trace.Tracer": {
+          "present": false,
+          "major_version": null
+        },
+        "io.opencensus.trace.Span": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.mockito.internal.configuration.plugins.DefaultMockitoPlugins",
+          "file": "mockito-core-5.1.0_DefaultMockitoPlugins_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case113_evidence\\breaking\\jars\\mockito-core-5.1.0.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.mockito.internal.configuration.plugins.DefaultMockitoPlugins"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

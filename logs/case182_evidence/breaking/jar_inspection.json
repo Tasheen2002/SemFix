@@ -1,0 +1,63 @@
+{
+  "case_id": "fafb59e8f1b9ddba4bbabe64818f361e7def7d04",
+  "phase": "breaking",
+  "path_filter": "/jackson-(databind|annotations|core)/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.9/jackson-annotations-2.9.9.jar",
+      "sha256": "1100a5884ddc4439a77165e1b9668c6063c07447cd2f6c9f69e3688ee76080c1",
+      "classes": {
+        "com.fasterxml.jackson.annotation.JsonKey": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.4/jackson-core-2.13.4.jar",
+      "sha256": "4c2e043200edd9ee7ba6fc378bd5c17784a5bf2388e152d208068b51fd0839cf",
+      "classes": {
+        "com.fasterxml.jackson.annotation.JsonKey": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/com.fasterxml.jackson.core.JsonFactory": "com.fasterxml.jackson.core.JsonFactory\n"
+      },
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.4.1/jackson-databind-2.13.4.1.jar",
+      "sha256": "18743ec8bf2a80b8ed2c2b269748d2417ea45e644e2ec8b18a2e32df0a0508ad",
+      "classes": {
+        "com.fasterxml.jackson.annotation.JsonKey": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/com.fasterxml.jackson.core.ObjectCodec": "com.fasterxml.jackson.databind.ObjectMapper\n"
+      },
+      "disassemblies": [
+        {
+          "class": "com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector",
+          "file": "jackson-databind-2.13.4.1_JacksonAnnotationIntrospector_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case182_evidence\\breaking\\jars\\jackson-databind-2.13.4.1.jar",
+            "-p",
+            "-s",
+            "-c",
+            "com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

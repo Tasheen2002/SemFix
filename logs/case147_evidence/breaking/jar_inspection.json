@@ -1,0 +1,57 @@
+{
+  "case_id": "c3d0aba8fabeb8026b73bdc1b891f64271cd06e7",
+  "phase": "breaking",
+  "path_filter": "/(slf4j-api|slf4j-mock)/",
+  "path_source": "Fresh original test report classpaths",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/simplify4u/slf4j-mock/2.3.0/slf4j-mock-2.3.0.jar",
+      "sha256": "49a002dddbdff4e36e27e530378681d73b9843842024ee4781858b17a24890f9",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": true,
+          "major_version": 52
+        },
+        "org.simplify4u.slf4jmock.ProxyMock": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/org.simplify4u.slf4jmock.internal.SimpleLoggerFactory": "#\n# Copyright 2022 Slawomir Jaranowski\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\n\norg.slf4j.impl.SimpleLoggerFactoryImp\n"
+      },
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7.jar",
+      "sha256": "5d6298b93a1905c32cda6478808ac14c2d4a47e91535e53c41f7feeb85d946f4",
+      "classes": {
+        "org.slf4j.impl.StaticLoggerBinder": {
+          "present": false,
+          "major_version": null
+        },
+        "org.simplify4u.slf4jmock.ProxyMock": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.slf4j.LoggerFactory",
+          "file": "slf4j-api-2.0.7_LoggerFactory_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case147_evidence\\breaking\\jars\\slf4j-api-2.0.7.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.slf4j.LoggerFactory"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

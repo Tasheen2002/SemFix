@@ -1,0 +1,155 @@
+{
+  "candidate_number": 15,
+  "case_id": "14e2c8d47384137d1fff33d9a1441af3d1ef29a3",
+  "project": "pay-adminusers",
+  "dependency": "org.slf4j:slf4j-api",
+  "old_version": "1.7.36",
+  "new_version": "2.0.5",
+  "auto_triage": "AUTO_RUNTIME_REVIEW_REQUIRED",
+  "assessment_author": "CODEX_AGENT",
+  "assessment_status": "AGENT_ANALYZED_PENDING_HUMAN_REVIEW",
+  "agent_assessment": "PROVISIONAL_BEHAVIORAL",
+  "reviewer_1_label": null,
+  "reviewer_2_label": null,
+  "final_label": null,
+  "repair_status": "NOT_ATTEMPTED",
+  "main_exception": "java.lang.ClassCastException",
+  "behavior_change_type": "OTHER_BEHAVIORAL_CHANGE",
+  "primary_binary_linkage_failure_identified": false,
+  "review_file": "results/case15_review.md",
+  "phases": {
+    "pre": {
+      "surefire_report_count": 79,
+      "counts": {
+        "tests": 747,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "container_state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-11-08T12:36:30.314699938Z",
+        "FinishedAt": "2026-11-08T12:53:01.972408874Z"
+      },
+      "java_version": "11.0.27",
+      "maven_log": "logs/batch_triage/14e2c8d4_pre.log",
+      "errors": []
+    },
+    "breaking": {
+      "surefire_report_count": 79,
+      "counts": {
+        "tests": 715,
+        "failures": 0,
+        "errors": 12,
+        "skipped": 0
+      },
+      "container_state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 1,
+        "Error": "",
+        "StartedAt": "2026-11-08T12:53:25.316617346Z",
+        "FinishedAt": "2026-11-08T13:06:47.691459843Z"
+      },
+      "java_version": "11.0.27",
+      "maven_log": "logs/batch_triage/14e2c8d4_breaking.log",
+      "errors": [
+        {
+          "test_class": "uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest",
+          "test_name": "shouldNotCallNotificationServiceWhenNoAdminUsersExist",
+          "type": "java.lang.ClassCastException",
+          "message": "class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')"
+        },
+        {
+          "test_class": "uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest",
+          "test_name": "shouldHandleDisputeCreatedEvent",
+          "type": "java.lang.ClassCastException",
+          "message": "class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')"
+        },
+        {
+          "test_class": "uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest",
+          "test_name": "shouldHandleDisputeWonEvent",
+          "type": "java.lang.ClassCastException",
+          "message": "class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')"
+        },
+        {
+          "test_class": "uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest",
+          "test_name": "shouldNotCallNotificationServiceWhenTransactionDoesNotExist",
+          "type": "java.lang.ClassCastException",
+          "message": "class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')"
+        },
+        {
+          "test_class": "uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest",
+          "test_name": "shouldHandleDisputeLostEvent",
+          "type": "java.lang.ClassCastException",
+          "message": "class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')"
+        },
+        {
+          "test_class": "uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest",
+          "test_name": "shouldNotCallNotificationServiceWhenServiceDoesNotExist",
+          "type": "java.lang.ClassCastException",
+          "message": "class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')"
+        },
+        {
+          "test_class": "uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest",
+          "test_name": "shouldMarkMessageAsProcessed",
+          "type": "java.lang.ClassCastException",
+          "message": "class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')"
+        },
+        {
+          "test_class": "uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest",
+          "test_name": "shouldHandleDisputeEvidenceSubmittedEvent",
+          "type": "java.lang.ClassCastException",
+          "message": "class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')"
+        },
+        {
+          "test_class": "uk.gov.pay.adminusers.unit.service.ServiceResourceCreateTest",
+          "test_name": "",
+          "type": "java.lang.Exception",
+          "message": "java.lang.ExceptionInInitializerError"
+        },
+        {
+          "test_class": "uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest",
+          "test_name": "",
+          "type": "java.lang.Exception",
+          "message": "java.lang.ExceptionInInitializerError"
+        },
+        {
+          "test_class": "uk.gov.pay.adminusers.unit.service.ServiceResourceSearchTest",
+          "test_name": "",
+          "type": "java.lang.Exception",
+          "message": "java.lang.ExceptionInInitializerError"
+        },
+        {
+          "test_class": "uk.gov.pay.adminusers.unit.service.ServiceResourceUpdateTest",
+          "test_name": "",
+          "type": "java.lang.Exception",
+          "message": "java.lang.ExceptionInInitializerError"
+        }
+      ]
+    }
+  },
+  "classpath_path_differences": {
+    "pre": [
+      "/root/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar"
+    ],
+    "breaking": [
+      "/root/.m2/repository/org/slf4j/slf4j-api/2.0.5/slf4j-api-2.0.5.jar"
+    ]
+  },
+  "source_trees_identical": true,
+  "test_count_caveat": "Four resource-test classes exercise 36 PRE tests but produce four class-level BREAKING error entries. The net reduction of 32 is not skipped/passing tests."
+}

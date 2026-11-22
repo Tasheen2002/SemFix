@@ -1,0 +1,39 @@
+﻿
+=== Case 30  25926ea2f0e0adaec0238bc7623d0a78e70c96bd ===
+Project : retest/recheck
+Update  : org.eclipse.persistence:org.eclipse.persistence.moxy  3.0.2 -> 4.0.1
+Running breaking in container manual-case30-breaking (this can take several minutes) ...
+Finished in 97 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case30_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [ERROR] Tests run: 737, Failures: 0, Errors: 15, Skipped: 4
+First failing tests / errors:
+  [ERROR] de.retest.util.XsdRegressionTest.checkXsd(Class)[1]  Time elapsed: 1.028 s  <<< ERROR!
+      java.lang.ExceptionInInitializerError
+      at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+      at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+  [ERROR] de.retest.util.XsdRegressionTest.checkXsd(Class)[4]  Time elapsed: 0.05 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.eclipse.persistence.asm.ASMFactory
+      at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+      at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+  [ERROR] de.retest.util.XsdRegressionTest.checkXsd(Class)[22]  Time elapsed: 0.021 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: Could not initialize class org.eclipse.persistence.asm.ASMFactory
+      at org.eclipse.persistence.asm.internal.Util.getFieldValue(Util.java:31)
+      at org.eclipse.persistence.asm.ClassWriter.valueInt(ClassWriter.java:62)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+  Caused by: Exception [EclipseLink-7359] (Eclipse Persistence Services - 4.0.1.v202302241130): org.eclipse.persistence.exceptions.ValidationException
+  Caused by: org.mozilla.javascript.EcmaError: ReferenceError: "asdasd" is not defined. (<Unknown source>#1)
+Linkage / bytecode signals:
+  NoClassDefFoundError x14
+  ClassNotFoundException x1
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R13: Packaging change removes a runtime provider)
+Cause   : EclipseLink MOXy 4.0.1 requires a pluggable ASM service; none on the classpath -> ValidationException EclipseLink-7359 'No any ASM service available' in ASMFactory initializer, then 14x 'Could not initialize class ASMFactory'
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

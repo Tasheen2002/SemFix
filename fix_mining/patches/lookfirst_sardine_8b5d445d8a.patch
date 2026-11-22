@@ -1,0 +1,26 @@
+diff --git a/pom.xml b/pom.xml
+index 4776f25..43db4bf 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -180,7 +180,7 @@
+         <dependency>
+             <groupId>org.apache.httpcomponents</groupId>
+             <artifactId>httpclient</artifactId>
+-            <version>4.5.1</version>
++            <version>4.5.14</version>
+         </dependency>
+         <!-- Sardine has a runtime dependency to JAXB. As this not part of JDK 11 anymore,
+              we need a dependency on JAXB-->
+diff --git a/src/test/java/com/github/sardine/impl/SardineExceptionTest.java b/src/test/java/com/github/sardine/impl/SardineExceptionTest.java
+index ba5fb57..5c06b36 100644
+--- a/src/test/java/com/github/sardine/impl/SardineExceptionTest.java
++++ b/src/test/java/com/github/sardine/impl/SardineExceptionTest.java
+@@ -11,7 +11,7 @@ public class SardineExceptionTest
+ 	public void testMessage()
+ 	{
+ 		final SardineException e = new SardineException("m", 400, "response phrase");
+-		assertEquals("m (400 response phrase)", e.getMessage());
++		assertEquals("status code: 400, reason phrase: m (400 response phrase)", e.getMessage());
+ 		assertEquals("response phrase", e.getResponsePhrase());
+ 		assertEquals(400, e.getStatusCode());
+ 	}

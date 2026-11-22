@@ -1,0 +1,75 @@
+{
+  "case_id": "a950450686c4c136567f3ba7333da8ffaaa84326",
+  "phase": "breaking",
+  "path_filter": "/com/fasterxml/jackson/core/(jackson-core|jackson-databind|jackson-annotations)/",
+  "path_source": "Fresh test report effective classpaths, preferring surefire.test.class.path when present",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.11.0/jackson-annotations-2.11.0.jar",
+      "sha256": "b3b1fca6cb6469d4ea06635d964aaea91f86cc22fe42a9757c8a315148589e8e",
+      "classes": {
+        "com.fasterxml.jackson.core.util.JacksonFeature": {
+          "present": false,
+          "major_version": null
+        },
+        "com.fasterxml.jackson.databind.cfg.ConfigFeature": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.8/jackson-core-2.9.8.jar",
+      "sha256": "d934dab0bd48994eeea2c1b493cb547158a338a80b58c4fbc8e85fb0905e105f",
+      "classes": {
+        "com.fasterxml.jackson.core.util.JacksonFeature": {
+          "present": false,
+          "major_version": null
+        },
+        "com.fasterxml.jackson.databind.cfg.ConfigFeature": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {
+        "META-INF/services/com.fasterxml.jackson.core.JsonFactory": "com.fasterxml.jackson.core.JsonFactory\n"
+      },
+      "disassemblies": []
+    },
+    {
+      "resolved_path": "/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6.1/jackson-databind-2.12.6.1.jar",
+      "sha256": "eb60e494ba8c23e653da4db8e29af0342927fc7e1c60501bf99e93145738c696",
+      "classes": {
+        "com.fasterxml.jackson.core.util.JacksonFeature": {
+          "present": false,
+          "major_version": null
+        },
+        "com.fasterxml.jackson.databind.cfg.ConfigFeature": {
+          "present": true,
+          "major_version": 51
+        }
+      },
+      "services": {
+        "META-INF/services/com.fasterxml.jackson.core.ObjectCodec": "com.fasterxml.jackson.databind.ObjectMapper\n"
+      },
+      "disassemblies": [
+        {
+          "class": "com.fasterxml.jackson.databind.cfg.ConfigFeature",
+          "file": "jackson-databind-2.12.6.1_ConfigFeature_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case122_evidence\\breaking\\jars\\jackson-databind-2.12.6.1.jar",
+            "-p",
+            "-s",
+            "-c",
+            "com.fasterxml.jackson.databind.cfg.ConfigFeature"
+          ],
+          "exit_code": 0
+        }
+      ]
+    }
+  ]
+}

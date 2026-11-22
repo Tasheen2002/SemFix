@@ -1,0 +1,182 @@
+{
+  "candidate_number": 16,
+  "case_id": "1750bac074c30b06ae5cdff7a25db401a4f45de2",
+  "project": "dropwizard-pac4j",
+  "dependency": "com.fasterxml.jackson.core:jackson-databind",
+  "old_version": "2.10.5.1",
+  "new_version": "2.13.4",
+  "auto_triage": "AUTO_NON_BEHAVIORAL_CANDIDATE",
+  "assessment_author": "CODEX_AGENT",
+  "assessment_status": "AGENT_ANALYZED_PENDING_HUMAN_REVIEW",
+  "agent_assessment": "NON_BEHAVIORAL",
+  "binary_linkage_incompatibility": true,
+  "reviewer_1_label": null,
+  "reviewer_2_label": null,
+  "final_label": null,
+  "repair_status": "NOT_ATTEMPTED_NON_BEHAVIORAL_CASE",
+  "main_exception": "java.lang.NoClassDefFoundError",
+  "missing_class": "com.fasterxml.jackson.core.util.JacksonFeature",
+  "source_file_count_per_phase": 26,
+  "source_trees_identical": true,
+  "review_file": "results/case16_review.md",
+  "phases": {
+    "pre": {
+      "surefire_report_count": 4,
+      "counts": {
+        "tests": 16,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "maven_version": "3.9.2",
+      "container_state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-11-08T13:17:01.984716172Z",
+        "FinishedAt": "2026-11-08T13:17:20.205471801Z"
+      },
+      "maven_build_status": "SUCCESS",
+      "errors": []
+    },
+    "breaking": {
+      "surefire_report_count": 4,
+      "counts": {
+        "tests": 16,
+        "failures": 0,
+        "errors": 16,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "maven_version": "3.9.2",
+      "container_state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-11-08T13:17:32.719329243Z",
+        "FinishedAt": "2026-11-08T13:17:52.824446638Z"
+      },
+      "maven_build_status": "FAILURE",
+      "errors": [
+        {
+          "test_class": "org.pac4j.dropwizard.bundle.BundleFactoryTest",
+          "test_name": "emptyPac4jInConfig",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature"
+        },
+        {
+          "test_class": "org.pac4j.dropwizard.bundle.BundleFactoryTest",
+          "test_name": "sessiondisabledForced",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature"
+        },
+        {
+          "test_class": "org.pac4j.dropwizard.bundle.BundleFactoryTest",
+          "test_name": "noPac4jInConfig",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature"
+        },
+        {
+          "test_class": "org.pac4j.dropwizard.bundle.BundleFactoryTest",
+          "test_name": "sessionEnabledForced",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature"
+        },
+        {
+          "test_class": "org.pac4j.dropwizard.e2e.EndToEndServletTest",
+          "test_name": "grantsAccessToResources",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature"
+        },
+        {
+          "test_class": "org.pac4j.dropwizard.e2e.EndToEndServletTest",
+          "test_name": "grantsAccessToResourcesForm",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature"
+        },
+        {
+          "test_class": "org.pac4j.dropwizard.e2e.EndToEndServletTest",
+          "test_name": "restrictsAccessToResources",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature"
+        },
+        {
+          "test_class": "org.pac4j.dropwizard.e2e.EndToEndTest",
+          "test_name": "grantsAccessToResources",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature"
+        },
+        {
+          "test_class": "org.pac4j.dropwizard.e2e.EndToEndTest",
+          "test_name": "grantsAccessToResourcesForm",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature"
+        },
+        {
+          "test_class": "org.pac4j.dropwizard.e2e.EndToEndTest",
+          "test_name": "restrictsAccessToResources",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature"
+        },
+        {
+          "test_class": "org.pac4j.dropwizard.factory.DefaultConfigurationTest",
+          "test_name": "matchers",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature"
+        },
+        {
+          "test_class": "org.pac4j.dropwizard.factory.DefaultConfigurationTest",
+          "test_name": "allOptionsClients",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature"
+        },
+        {
+          "test_class": "org.pac4j.dropwizard.factory.DefaultConfigurationTest",
+          "test_name": "clientsAndProperties",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature"
+        },
+        {
+          "test_class": "org.pac4j.dropwizard.factory.DefaultConfigurationTest",
+          "test_name": "clients",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature"
+        },
+        {
+          "test_class": "org.pac4j.dropwizard.factory.DefaultConfigurationTest",
+          "test_name": "clientsProperties",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature"
+        },
+        {
+          "test_class": "org.pac4j.dropwizard.factory.DefaultConfigurationTest",
+          "test_name": "defaultsUnset",
+          "type": "java.lang.NoClassDefFoundError",
+          "message": "com/fasterxml/jackson/core/util/JacksonFeature"
+        }
+      ]
+    }
+  },
+  "container_exit_code_caveat": "Both image commands pipe Maven through tee without pipefail; container exit code 0 masks Maven failure in BREAKING. Build outcome comes from Maven logs and Surefire XML.",
+  "classpath_path_differences": {
+    "pre": [
+      "/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.10.5.1/jackson-databind-2.10.5.1.jar"
+    ],
+    "breaking": [
+      "/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.4/jackson-databind-2.13.4.jar"
+    ]
+  }
+}

@@ -1,0 +1,696 @@
+POI
+Compiled from "IOUtils.java"
+public final class org.apache.poi.util.IOUtils {
+  private static final org.apache.poi.util.POILogger logger;
+    descriptor: Lorg/apache/poi/util/POILogger;
+  private static final int SKIP_BUFFER_SIZE;
+    descriptor: I
+  private static byte[] SKIP_BYTE_BUFFER;
+    descriptor: [B
+  private static int BYTE_ARRAY_MAX_OVERRIDE;
+    descriptor: I
+  private org.apache.poi.util.IOUtils();
+    descriptor: ()V
+
+  public static void setByteArrayMaxOverride(int);
+    descriptor: (I)V
+
+  public static byte[] peekFirst8Bytes(java.io.InputStream) throws java.io.IOException, org.apache.poi.EmptyFileException;
+    descriptor: (Ljava/io/InputStream;)[B
+
+  private static void checkByteSizeLimit(int);
+    descriptor: (I)V
+
+  public static byte[] peekFirstNBytes(java.io.InputStream, int) throws java.io.IOException, org.apache.poi.EmptyFileException;
+    descriptor: (Ljava/io/InputStream;I)[B
+
+  public static byte[] toByteArray(java.io.InputStream) throws java.io.IOException;
+    descriptor: (Ljava/io/InputStream;)[B
+
+  public static byte[] toByteArray(java.io.InputStream, int) throws java.io.IOException;
+    descriptor: (Ljava/io/InputStream;I)[B
+
+  public static byte[] toByteArray(java.io.InputStream, long, int) throws java.io.IOException;
+    descriptor: (Ljava/io/InputStream;JI)[B
+
+  private static void checkLength(long, int);
+    descriptor: (JI)V
+
+  public static byte[] toByteArray(java.nio.ByteBuffer, int);
+    descriptor: (Ljava/nio/ByteBuffer;I)[B
+
+  public static int readFully(java.io.InputStream, byte[]) throws java.io.IOException;
+    descriptor: (Ljava/io/InputStream;[B)I
+
+  public static int readFully(java.io.InputStream, byte[], int, int) throws java.io.IOException;
+    descriptor: (Ljava/io/InputStream;[BII)I
+
+  public static int readFully(java.nio.channels.ReadableByteChannel, java.nio.ByteBuffer) throws java.io.IOException;
+    descriptor: (Ljava/nio/channels/ReadableByteChannel;Ljava/nio/ByteBuffer;)I
+
+  public static void write(org.apache.poi.POIDocument, java.io.OutputStream) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/POIDocument;Ljava/io/OutputStream;)V
+
+  public static void write(org.apache.poi.ss.usermodel.Workbook, java.io.OutputStream) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/ss/usermodel/Workbook;Ljava/io/OutputStream;)V
+
+  public static void writeAndClose(org.apache.poi.POIDocument, java.io.OutputStream) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/POIDocument;Ljava/io/OutputStream;)V
+
+  public static void writeAndClose(org.apache.poi.POIDocument, java.io.File) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/POIDocument;Ljava/io/File;)V
+
+  public static void writeAndClose(org.apache.poi.POIDocument) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/POIDocument;)V
+
+  public static void writeAndClose(org.apache.poi.ss.usermodel.Workbook, java.io.OutputStream) throws java.io.IOException;
+    descriptor: (Lorg/apache/poi/ss/usermodel/Workbook;Ljava/io/OutputStream;)V
+
+  public static long copy(java.io.InputStream, java.io.OutputStream) throws java.io.IOException;
+    descriptor: (Ljava/io/InputStream;Ljava/io/OutputStream;)J
+
+  public static long copy(java.io.InputStream, java.io.OutputStream, long) throws java.io.IOException;
+    descriptor: (Ljava/io/InputStream;Ljava/io/OutputStream;J)J
+
+  public static long copy(java.io.InputStream, java.io.File) throws java.io.IOException;
+    descriptor: (Ljava/io/InputStream;Ljava/io/File;)J
+
+  public static long calculateChecksum(byte[]);
+    descriptor: ([B)J
+
+  public static long calculateChecksum(java.io.InputStream) throws java.io.IOException;
+    descriptor: (Ljava/io/InputStream;)J
+
+  public static void closeQuietly(java.io.Closeable);
+    descriptor: (Ljava/io/Closeable;)V
+
+  public static long skipFully(java.io.InputStream, long) throws java.io.IOException;
+    descriptor: (Ljava/io/InputStream;J)J
+
+  public static byte[] safelyAllocate(long, int);
+    descriptor: (JI)[B
+
+  public static void safelyAllocateCheck(long, int);
+    descriptor: (JI)V
+
+  public static int readByte(java.io.InputStream) throws java.io.IOException;
+    descriptor: (Ljava/io/InputStream;)I
+
+  private static void throwRFE(long, int);
+    descriptor: (JI)V
+
+  static {};
+    descriptor: ()V
+}
+SCRATCHPAD
+Compiled from "HWPFDocumentCore.java"
+public abstract class org.apache.poi.hwpf.HWPFDocumentCore extends org.apache.poi.POIDocument {
+  protected static final java.lang.String STREAM_OBJECT_POOL;
+
+  protected static final java.lang.String STREAM_WORD_DOCUMENT;
+
+  protected static final java.lang.String STREAM_TABLE_0;
+
+  protected static final java.lang.String STREAM_TABLE_1;
+
+  private static final int DEFAULT_MAX_RECORD_LENGTH;
+
+  private static int MAX_RECORD_LENGTH;
+
+  protected static final int FIB_BASE_LEN;
+
+  protected static final int RC4_REKEYING_INTERVAL;
+
+  protected org.apache.poi.hwpf.usermodel.ObjectPoolImpl _objectPool;
+
+  protected org.apache.poi.hwpf.model.FileInformationBlock _fib;
+
+  protected org.apache.poi.hwpf.model.StyleSheet _ss;
+
+  protected org.apache.poi.hwpf.model.CHPBinTable _cbt;
+
+  protected org.apache.poi.hwpf.model.PAPBinTable _pbt;
+
+  protected org.apache.poi.hwpf.model.SectionTable _st;
+
+  protected org.apache.poi.hwpf.model.FontTable _ft;
+
+  protected org.apache.poi.hwpf.model.ListTables _lt;
+
+  protected byte[] _mainStream;
+
+  private org.apache.poi.poifs.crypt.EncryptionInfo _encryptionInfo;
+
+  public static void setMaxRecordLength(int);
+    Code:
+       0: iload_0
+       1: putstatic     #1                  // Field MAX_RECORD_LENGTH:I
+       4: return
+
+  public static int getMaxRecordLength();
+    Code:
+       0: getstatic     #1                  // Field MAX_RECORD_LENGTH:I
+       3: ireturn
+
+  protected org.apache.poi.hwpf.HWPFDocumentCore();
+    Code:
+       0: aload_0
+       1: aconst_null
+       2: checkcast     #2                  // class org/apache/poi/poifs/filesystem/DirectoryNode
+       5: invokespecial #3                  // Method org/apache/poi/POIDocument."<init>":(Lorg/apache/poi/poifs/filesystem/DirectoryNode;)V
+       8: return
+
+  public static org.apache.poi.poifs.filesystem.POIFSFileSystem verifyAndBuildPOIFS(java.io.InputStream) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: invokestatic  #4                  // Method org/apache/poi/poifs/filesystem/FileMagic.prepareToCheckMagic:(Ljava/io/InputStream;)Ljava/io/InputStream;
+       4: astore_1
+       5: aload_1
+       6: invokestatic  #5                  // Method org/apache/poi/poifs/filesystem/FileMagic.valueOf:(Ljava/io/InputStream;)Lorg/apache/poi/poifs/filesystem/FileMagic;
+       9: astore_2
+      10: aload_2
+      11: getstatic     #6                  // Field org/apache/poi/poifs/filesystem/FileMagic.OLE2:Lorg/apache/poi/poifs/filesystem/FileMagic;
+      14: if_acmpeq     49
+      17: new           #7                  // class java/lang/IllegalArgumentException
+      20: dup
+      21: new           #8                  // class java/lang/StringBuilder
+      24: dup
+      25: invokespecial #9                  // Method java/lang/StringBuilder."<init>":()V
+      28: ldc           #10                 // String The document is really a
+      30: invokevirtual #11                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      33: aload_2
+      34: invokevirtual #12                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      37: ldc           #13                 // String  file
+      39: invokevirtual #11                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      42: invokevirtual #14                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      45: invokespecial #15                 // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      48: athrow
+      49: new           #16                 // class org/apache/poi/poifs/filesystem/POIFSFileSystem
+      52: dup
+      53: aload_1
+      54: invokespecial #17                 // Method org/apache/poi/poifs/filesystem/POIFSFileSystem."<init>":(Ljava/io/InputStream;)V
+      57: areturn
+
+  public org.apache.poi.hwpf.HWPFDocumentCore(java.io.InputStream) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #18                 // Method verifyAndBuildPOIFS:(Ljava/io/InputStream;)Lorg/apache/poi/poifs/filesystem/POIFSFileSystem;
+       5: invokespecial #19                 // Method "<init>":(Lorg/apache/poi/poifs/filesystem/POIFSFileSystem;)V
+       8: return
+
+  public org.apache.poi.hwpf.HWPFDocumentCore(org.apache.poi.poifs.filesystem.POIFSFileSystem) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokevirtual #20                 // Method org/apache/poi/poifs/filesystem/POIFSFileSystem.getRoot:()Lorg/apache/poi/poifs/filesystem/DirectoryNode;
+       5: invokespecial #21                 // Method "<init>":(Lorg/apache/poi/poifs/filesystem/DirectoryNode;)V
+       8: return
+
+  public org.apache.poi.hwpf.HWPFDocumentCore(org.apache.poi.poifs.filesystem.DirectoryNode) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #3                  // Method org/apache/poi/POIDocument."<init>":(Lorg/apache/poi/poifs/filesystem/DirectoryNode;)V
+       5: aload_0
+       6: aload_0
+       7: ldc           #23                 // String WordDocument
+       9: bipush        68
+      11: ldc           #25                 // int 2147483647
+      13: invokevirtual #26                 // Method getDocumentEntryBytes:(Ljava/lang/String;II)[B
+      16: putfield      #27                 // Field _mainStream:[B
+      19: aload_0
+      20: new           #28                 // class org/apache/poi/hwpf/model/FileInformationBlock
+      23: dup
+      24: aload_0
+      25: getfield      #27                 // Field _mainStream:[B
+      28: invokespecial #29                 // Method org/apache/poi/hwpf/model/FileInformationBlock."<init>":([B)V
+      31: putfield      #30                 // Field _fib:Lorg/apache/poi/hwpf/model/FileInformationBlock;
+      34: aconst_null
+      35: astore_2
+      36: aload_1
+      37: ldc           #31                 // String ObjectPool
+      39: invokevirtual #32                 // Method org/apache/poi/poifs/filesystem/DirectoryNode.hasEntry:(Ljava/lang/String;)Z
+      42: ifeq          55
+      45: aload_1
+      46: ldc           #31                 // String ObjectPool
+      48: invokevirtual #33                 // Method org/apache/poi/poifs/filesystem/DirectoryNode.getEntry:(Ljava/lang/String;)Lorg/apache/poi/poifs/filesystem/Entry;
+      51: checkcast     #34                 // class org/apache/poi/poifs/filesystem/DirectoryEntry
+      54: astore_2
+      55: aload_0
+      56: new           #35                 // class org/apache/poi/hwpf/usermodel/ObjectPoolImpl
+      59: dup
+      60: aload_2
+      61: invokespecial #36                 // Method org/apache/poi/hwpf/usermodel/ObjectPoolImpl."<init>":(Lorg/apache/poi/poifs/filesystem/DirectoryEntry;)V
+      64: putfield      #37                 // Field _objectPool:Lorg/apache/poi/hwpf/usermodel/ObjectPoolImpl;
+      67: return
+
+  public abstract org.apache.poi.hwpf.usermodel.Range getRange();
+
+  public abstract org.apache.poi.hwpf.usermodel.Range getOverallRange();
+
+  public java.lang.String getDocumentText();
+    Code:
+       0: aload_0
+       1: invokevirtual #38                 // Method getText:()Ljava/lang/StringBuilder;
+       4: invokevirtual #14                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+       7: areturn
+
+  public abstract java.lang.StringBuilder getText();
+
+  public org.apache.poi.hwpf.model.CHPBinTable getCharacterTable();
+    Code:
+       0: aload_0
+       1: getfield      #39                 // Field _cbt:Lorg/apache/poi/hwpf/model/CHPBinTable;
+       4: areturn
+
+  public org.apache.poi.hwpf.model.PAPBinTable getParagraphTable();
+    Code:
+       0: aload_0
+       1: getfield      #40                 // Field _pbt:Lorg/apache/poi/hwpf/model/PAPBinTable;
+       4: areturn
+
+  public org.apache.poi.hwpf.model.SectionTable getSectionTable();
+    Code:
+       0: aload_0
+       1: getfield      #41                 // Field _st:Lorg/apache/poi/hwpf/model/SectionTable;
+       4: areturn
+
+  public org.apache.poi.hwpf.model.StyleSheet getStyleSheet();
+    Code:
+       0: aload_0
+       1: getfield      #42                 // Field _ss:Lorg/apache/poi/hwpf/model/StyleSheet;
+       4: areturn
+
+  public org.apache.poi.hwpf.model.ListTables getListTables();
+    Code:
+       0: aload_0
+       1: getfield      #43                 // Field _lt:Lorg/apache/poi/hwpf/model/ListTables;
+       4: areturn
+
+  public org.apache.poi.hwpf.model.FontTable getFontTable();
+    Code:
+       0: aload_0
+       1: getfield      #44                 // Field _ft:Lorg/apache/poi/hwpf/model/FontTable;
+       4: areturn
+
+  public org.apache.poi.hwpf.model.FileInformationBlock getFileInformationBlock();
+    Code:
+       0: aload_0
+       1: getfield      #30                 // Field _fib:Lorg/apache/poi/hwpf/model/FileInformationBlock;
+       4: areturn
+
+  public org.apache.poi.hwpf.usermodel.ObjectsPool getObjectsPool();
+    Code:
+       0: aload_0
+       1: getfield      #37                 // Field _objectPool:Lorg/apache/poi/hwpf/usermodel/ObjectPoolImpl;
+       4: areturn
+
+  public abstract org.apache.poi.hwpf.model.TextPieceTable getTextTable();
+
+  public byte[] getMainStream();
+    Code:
+       0: aload_0
+       1: getfield      #27                 // Field _mainStream:[B
+       4: areturn
+
+  public org.apache.poi.poifs.crypt.EncryptionInfo getEncryptionInfo() throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: getfield      #45                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+       4: ifnull        12
+       7: aload_0
+       8: getfield      #45                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+      11: areturn
+      12: aload_0
+      13: getfield      #30                 // Field _fib:Lorg/apache/poi/hwpf/model/FileInformationBlock;
+      16: ifnull        40
+      19: aload_0
+      20: getfield      #30                 // Field _fib:Lorg/apache/poi/hwpf/model/FileInformationBlock;
+      23: invokevirtual #46                 // Method org/apache/poi/hwpf/model/FileInformationBlock.getFibBase:()Lorg/apache/poi/hwpf/model/FibBase;
+      26: ifnull        40
+      29: aload_0
+      30: getfield      #30                 // Field _fib:Lorg/apache/poi/hwpf/model/FileInformationBlock;
+      33: invokevirtual #46                 // Method org/apache/poi/hwpf/model/FileInformationBlock.getFibBase:()Lorg/apache/poi/hwpf/model/FibBase;
+      36: astore_1
+      37: goto          74
+      40: aload_0
+      41: getfield      #27                 // Field _mainStream:[B
+      44: ifnull        54
+      47: aload_0
+      48: getfield      #27                 // Field _mainStream:[B
+      51: goto          63
+      54: aload_0
+      55: ldc           #23                 // String WordDocument
+      57: iconst_m1
+      58: bipush        68
+      60: invokevirtual #26                 // Method getDocumentEntryBytes:(Ljava/lang/String;II)[B
+      63: astore_2
+      64: new           #47                 // class org/apache/poi/hwpf/model/FibBase
+      67: dup
+      68: aload_2
+      69: iconst_0
+      70: invokespecial #48                 // Method org/apache/poi/hwpf/model/FibBase."<init>":([BI)V
+      73: astore_1
+      74: aload_1
+      75: invokevirtual #49                 // Method org/apache/poi/hwpf/model/FibBase.isFEncrypted:()Z
+      78: ifne          83
+      81: aconst_null
+      82: areturn
+      83: aload_1
+      84: invokevirtual #50                 // Method org/apache/poi/hwpf/model/FibBase.isFWhichTblStm:()Z
+      87: ifeq          95
+      90: ldc           #51                 // String 1Table
+      92: goto          97
+      95: ldc           #52                 // String 0Table
+      97: astore_2
+      98: aload_0
+      99: aload_2
+     100: iconst_m1
+     101: aload_1
+     102: invokevirtual #53                 // Method org/apache/poi/hwpf/model/FibBase.getLKey:()I
+     105: invokevirtual #26                 // Method getDocumentEntryBytes:(Ljava/lang/String;II)[B
+     108: astore_3
+     109: new           #54                 // class org/apache/poi/util/LittleEndianByteArrayInputStream
+     112: dup
+     113: aload_3
+     114: invokespecial #55                 // Method org/apache/poi/util/LittleEndianByteArrayInputStream."<init>":([B)V
+     117: astore        4
+     119: aload_1
+     120: invokevirtual #56                 // Method org/apache/poi/hwpf/model/FibBase.isFObfuscated:()Z
+     123: ifeq          132
+     126: getstatic     #57                 // Field org/apache/poi/poifs/crypt/EncryptionMode.xor:Lorg/apache/poi/poifs/crypt/EncryptionMode;
+     129: goto          133
+     132: aconst_null
+     133: astore        5
+     135: new           #58                 // class org/apache/poi/poifs/crypt/EncryptionInfo
+     138: dup
+     139: aload         4
+     141: aload         5
+     143: invokespecial #59                 // Method org/apache/poi/poifs/crypt/EncryptionInfo."<init>":(Lorg/apache/poi/util/LittleEndianInput;Lorg/apache/poi/poifs/crypt/EncryptionMode;)V
+     146: astore        6
+     148: aload         6
+     150: invokevirtual #60                 // Method org/apache/poi/poifs/crypt/EncryptionInfo.getDecryptor:()Lorg/apache/poi/poifs/crypt/Decryptor;
+     153: astore        7
+     155: aload         7
+     157: sipush        512
+     160: invokevirtual #61                 // Method org/apache/poi/poifs/crypt/Decryptor.setChunkSize:(I)V
+     163: invokestatic  #62                 // Method org/apache/poi/hssf/record/crypto/Biff8EncryptionKey.getCurrentUserPassword:()Ljava/lang/String;
+     166: astore        8
+     168: aload         8
+     170: ifnonnull     177
+     173: ldc           #64                 // String VelvetSweatshop
+     175: astore        8
+     177: aload         7
+     179: aload         8
+     181: invokevirtual #65                 // Method org/apache/poi/poifs/crypt/Decryptor.verifyPassword:(Ljava/lang/String;)Z
+     184: ifne          197
+     187: new           #66                 // class org/apache/poi/EncryptedDocumentException
+     190: dup
+     191: ldc           #67                 // String document is encrypted, password is invalid - use Biff8EncryptionKey.setCurrentUserPasswort() to set password before opening
+     193: invokespecial #68                 // Method org/apache/poi/EncryptedDocumentException."<init>":(Ljava/lang/String;)V
+     196: athrow
+     197: goto          217
+     200: astore        8
+     202: new           #70                 // class java/io/IOException
+     205: dup
+     206: aload         8
+     208: invokevirtual #71                 // Method java/security/GeneralSecurityException.getMessage:()Ljava/lang/String;
+     211: aload         8
+     213: invokespecial #72                 // Method java/io/IOException."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+     216: athrow
+     217: aload_0
+     218: aload         6
+     220: putfield      #45                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+     223: aload         6
+     225: areturn
+    Exception table:
+       from    to  target type
+         163   197   200   Class java/security/GeneralSecurityException
+
+  protected void updateEncryptionInfo();
+    Code:
+       0: aload_0
+       1: invokevirtual #73                 // Method readProperties:()V
+       4: invokestatic  #62                 // Method org/apache/poi/hssf/record/crypto/Biff8EncryptionKey.getCurrentUserPassword:()Ljava/lang/String;
+       7: astore_1
+       8: aload_0
+       9: getfield      #30                 // Field _fib:Lorg/apache/poi/hwpf/model/FileInformationBlock;
+      12: invokevirtual #46                 // Method org/apache/poi/hwpf/model/FileInformationBlock.getFibBase:()Lorg/apache/poi/hwpf/model/FibBase;
+      15: astore_2
+      16: aload_1
+      17: ifnonnull     43
+      20: aload_2
+      21: iconst_0
+      22: invokevirtual #74                 // Method org/apache/poi/hwpf/model/FibBase.setLKey:(I)V
+      25: aload_2
+      26: iconst_0
+      27: invokevirtual #75                 // Method org/apache/poi/hwpf/model/FibBase.setFEncrypted:(Z)V
+      30: aload_2
+      31: iconst_0
+      32: invokevirtual #76                 // Method org/apache/poi/hwpf/model/FibBase.setFObfuscated:(Z)V
+      35: aload_0
+      36: aconst_null
+      37: putfield      #45                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+      40: goto          131
+      43: aload_0
+      44: getfield      #45                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+      47: ifnonnull     74
+      50: aload_0
+      51: new           #58                 // class org/apache/poi/poifs/crypt/EncryptionInfo
+      54: dup
+      55: getstatic     #77                 // Field org/apache/poi/poifs/crypt/EncryptionMode.cryptoAPI:Lorg/apache/poi/poifs/crypt/EncryptionMode;
+      58: invokespecial #78                 // Method org/apache/poi/poifs/crypt/EncryptionInfo."<init>":(Lorg/apache/poi/poifs/crypt/EncryptionMode;)V
+      61: putfield      #45                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+      64: aload_2
+      65: iconst_1
+      66: invokevirtual #75                 // Method org/apache/poi/hwpf/model/FibBase.setFEncrypted:(Z)V
+      69: aload_2
+      70: iconst_0
+      71: invokevirtual #76                 // Method org/apache/poi/hwpf/model/FibBase.setFObfuscated:(Z)V
+      74: aload_0
+      75: getfield      #45                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+      78: invokevirtual #79                 // Method org/apache/poi/poifs/crypt/EncryptionInfo.getEncryptor:()Lorg/apache/poi/poifs/crypt/Encryptor;
+      81: astore_3
+      82: aload_0
+      83: getfield      #45                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+      86: invokevirtual #80                 // Method org/apache/poi/poifs/crypt/EncryptionInfo.getVerifier:()Lorg/apache/poi/poifs/crypt/EncryptionVerifier;
+      89: invokevirtual #81                 // Method org/apache/poi/poifs/crypt/EncryptionVerifier.getSalt:()[B
+      92: astore        4
+      94: aload         4
+      96: ifnonnull     107
+      99: aload_3
+     100: aload_1
+     101: invokevirtual #82                 // Method org/apache/poi/poifs/crypt/Encryptor.confirmPassword:(Ljava/lang/String;)V
+     104: goto          131
+     107: aload_0
+     108: getfield      #45                 // Field _encryptionInfo:Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+     111: invokevirtual #60                 // Method org/apache/poi/poifs/crypt/EncryptionInfo.getDecryptor:()Lorg/apache/poi/poifs/crypt/Decryptor;
+     114: invokevirtual #83                 // Method org/apache/poi/poifs/crypt/Decryptor.getVerifier:()[B
+     117: astore        5
+     119: aload_3
+     120: aload_1
+     121: aconst_null
+     122: aconst_null
+     123: aload         5
+     125: aload         4
+     127: aconst_null
+     128: invokevirtual #84                 // Method org/apache/poi/poifs/crypt/Encryptor.confirmPassword:(Ljava/lang/String;[B[B[B[B[B)V
+     131: return
+
+  protected byte[] getDocumentEntryBytes(java.lang.String, int, int) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: invokevirtual #85                 // Method getDirectory:()Lorg/apache/poi/poifs/filesystem/DirectoryNode;
+       4: astore        4
+       6: aload         4
+       8: aload_1
+       9: invokevirtual #33                 // Method org/apache/poi/poifs/filesystem/DirectoryNode.getEntry:(Ljava/lang/String;)Lorg/apache/poi/poifs/filesystem/Entry;
+      12: checkcast     #86                 // class org/apache/poi/poifs/filesystem/DocumentEntry
+      15: astore        5
+      17: aload         5
+      19: invokeinterface #87,  1           // InterfaceMethod org/apache/poi/poifs/filesystem/DocumentEntry.getSize:()I
+      24: istore        6
+      26: iload_2
+      27: iconst_m1
+      28: if_icmple     42
+      31: aload_0
+      32: invokevirtual #88                 // Method getEncryptionInfo:()Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+      35: ifnull        42
+      38: iconst_1
+      39: goto          43
+      42: iconst_0
+      43: istore        7
+      45: aload         4
+      47: aload         5
+      49: invokevirtual #89                 // Method org/apache/poi/poifs/filesystem/DirectoryNode.createDocumentInputStream:(Lorg/apache/poi/poifs/filesystem/Entry;)Lorg/apache/poi/poifs/filesystem/DocumentInputStream;
+      52: astore        8
+      54: aconst_null
+      55: astore        9
+      57: iload         7
+      59: ifeq          74
+      62: aload_0
+      63: aload         8
+      65: iload         6
+      67: iload_2
+      68: invokespecial #90                 // Method getDecryptedStream:(Lorg/apache/poi/poifs/filesystem/DocumentInputStream;II)Ljava/io/InputStream;
+      71: goto          76
+      74: aload         8
+      76: astore        10
+      78: aconst_null
+      79: astore        11
+      81: aload         10
+      83: iload         6
+      85: iload_3
+      86: invokestatic  #91                 // Method java/lang/Math.min:(II)I
+      89: getstatic     #1                  // Field MAX_RECORD_LENGTH:I
+      92: invokestatic  #92                 // Method org/apache/poi/util/IOUtils.toByteArray:(Ljava/io/InputStream;II)[B
+      95: astore        12
+      97: aload         10
+      99: ifnull        132
+     102: aload         11
+     104: ifnull        127
+     107: aload         10
+     109: invokevirtual #93                 // Method java/io/InputStream.close:()V
+     112: goto          132
+     115: astore        13
+     117: aload         11
+     119: aload         13
+     121: invokevirtual #95                 // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     124: goto          132
+     127: aload         10
+     129: invokevirtual #93                 // Method java/io/InputStream.close:()V
+     132: aload         8
+     134: ifnull        167
+     137: aload         9
+     139: ifnull        162
+     142: aload         8
+     144: invokevirtual #96                 // Method org/apache/poi/poifs/filesystem/DocumentInputStream.close:()V
+     147: goto          167
+     150: astore        13
+     152: aload         9
+     154: aload         13
+     156: invokevirtual #95                 // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     159: goto          167
+     162: aload         8
+     164: invokevirtual #96                 // Method org/apache/poi/poifs/filesystem/DocumentInputStream.close:()V
+     167: aload         12
+     169: areturn
+     170: astore        12
+     172: aload         12
+     174: astore        11
+     176: aload         12
+     178: athrow
+     179: astore        14
+     181: aload         10
+     183: ifnull        216
+     186: aload         11
+     188: ifnull        211
+     191: aload         10
+     193: invokevirtual #93                 // Method java/io/InputStream.close:()V
+     196: goto          216
+     199: astore        15
+     201: aload         11
+     203: aload         15
+     205: invokevirtual #95                 // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     208: goto          216
+     211: aload         10
+     213: invokevirtual #93                 // Method java/io/InputStream.close:()V
+     216: aload         14
+     218: athrow
+     219: astore        10
+     221: aload         10
+     223: astore        9
+     225: aload         10
+     227: athrow
+     228: astore        16
+     230: aload         8
+     232: ifnull        265
+     235: aload         9
+     237: ifnull        260
+     240: aload         8
+     242: invokevirtual #96                 // Method org/apache/poi/poifs/filesystem/DocumentInputStream.close:()V
+     245: goto          265
+     248: astore        17
+     250: aload         9
+     252: aload         17
+     254: invokevirtual #95                 // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     257: goto          265
+     260: aload         8
+     262: invokevirtual #96                 // Method org/apache/poi/poifs/filesystem/DocumentInputStream.close:()V
+     265: aload         16
+     267: athrow
+     268: astore        8
+     270: new           #70                 // class java/io/IOException
+     273: dup
+     274: new           #8                  // class java/lang/StringBuilder
+     277: dup
+     278: invokespecial #9                  // Method java/lang/StringBuilder."<init>":()V
+     281: ldc           #97                 // String Unable to decrypt data for entry:
+     283: invokevirtual #11                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     286: aload_1
+     287: invokevirtual #11                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     290: invokevirtual #14                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     293: aload         8
+     295: invokespecial #72                 // Method java/io/IOException."<init>":(Ljava/lang/String;Ljava/lang/Throwable;)V
+     298: athrow
+    Exception table:
+       from    to  target type
+         107   112   115   Class java/lang/Throwable
+         142   147   150   Class java/lang/Throwable
+          81    97   170   Class java/lang/Throwable
+          81    97   179   any
+         191   196   199   Class java/lang/Throwable
+         170   181   179   any
+          57   132   219   Class java/lang/Throwable
+         170   219   219   Class java/lang/Throwable
+          57   132   228   any
+         240   245   248   Class java/lang/Throwable
+         170   230   228   any
+          45   167   268   Class java/security/GeneralSecurityException
+         170   268   268   Class java/security/GeneralSecurityException
+
+  private java.io.InputStream getDecryptedStream(org.apache.poi.poifs.filesystem.DocumentInputStream, int, int) throws java.io.IOException, java.security.GeneralSecurityException;
+    Code:
+       0: aload_0
+       1: invokevirtual #88                 // Method getEncryptionInfo:()Lorg/apache/poi/poifs/crypt/EncryptionInfo;
+       4: invokevirtual #60                 // Method org/apache/poi/poifs/crypt/EncryptionInfo.getDecryptor:()Lorg/apache/poi/poifs/crypt/Decryptor;
+       7: astore        4
+       9: aload         4
+      11: aload_1
+      12: iload_2
+      13: iconst_0
+      14: invokevirtual #98                 // Method org/apache/poi/poifs/crypt/Decryptor.getDataStream:(Ljava/io/InputStream;II)Ljava/io/InputStream;
+      17: checkcast     #99                 // class org/apache/poi/poifs/crypt/ChunkedCipherInputStream
+      20: astore        5
+      22: iconst_0
+      23: newarray       byte
+      25: astore        6
+      27: iload_3
+      28: ifle          50
+      31: iload_3
+      32: i2l
+      33: getstatic     #1                  // Field MAX_RECORD_LENGTH:I
+      36: invokestatic  #100                // Method org/apache/poi/util/IOUtils.safelyAllocate:(JI)[B
+      39: astore        6
+      41: aload         5
+      43: aload         6
+      45: iconst_0
+      46: iload_3
+      47: invokevirtual #101                // Method org/apache/poi/poifs/crypt/ChunkedCipherInputStream.readPlain:([BII)V
+      50: new           #102                // class java/io/SequenceInputStream
+      53: dup
+      54: new           #103                // class java/io/ByteArrayInputStream
+      57: dup
+      58: aload         6
+      60: invokespecial #104                // Method java/io/ByteArrayInputStream."<init>":([B)V
+      63: aload         5
+      65: invokespecial #105                // Method java/io/SequenceInputStream."<init>":(Ljava/io/InputStream;Ljava/io/InputStream;)V
+      68: areturn
+
+  static {};
+    Code:
+       0: ldc           #106                // int 500000000
+       2: putstatic     #1                  // Field MAX_RECORD_LENGTH:I
+       5: return
+}

@@ -1,0 +1,121 @@
+=== CASE 182 fafb59e8f1b9ddba4bbabe64818f361e7def7d04
+  project=tamtam-chat/tamtam-bot-api dep=com.fasterxml.jackson.core:jackson-databind 2.9.10.3 -> 2.13.4.1 scope=compile type=other java=11
+  PR=https://github.com/tamtam-chat/tamtam-bot-api/pull/24
+  PRE log logs/batch_triage/fafb59e8_pre.log:
+  lines=386
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 108, Failures: 0, Errors: 0, Skipped: 1
+  exception names: java.io.IOExceptionx2, java.nio.channels.ClosedChannelExceptionx1, org.junit.internal.runners.statements.ExpectExceptionx1
+  BREAKING log logs/batch_triage/fafb59e8_breaking.log:
+  lines=1960
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 108, Failures: 0, Errors: 46, Skipped: 1
+  failing classes: Tests run: 10, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 2.188 s <<< FAILURE! - in chat.tamtam.botapi.client.impl.JacksonSerializerTest || Tests run: 7, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 5.894 s <<< FAILURE! - in chat.tamtam.botapi.TamTamUploadAPITest || Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.068 s <<< FAILURE! - in chat.tamtam.botapi.model.UpdateTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in chat.tamtam.botapi.queries.UnpinMessageQueryTest || Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in chat.tamtam.botapi.queries.EditMessageQueryTest || Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.034 s <<< FAILURE! - in chat.tamtam.botapi.queries.SendActionQueryTest || Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.043 s <<< FAILURE! - in chat.tamtam.botapi.queries.UnsubscribeQueryTest || Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.042 s <<< FAILURE! - in chat.tamtam.botapi.queries.LeaveChatQueryTest || Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.044 s <<< FAILURE! - in chat.tamtam.botapi.queries.SendMessageQueryTest || Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.086 s <<< FAILURE! - in chat.tamtam.botapi.queries.GetUpdatesQueryTest
+  section: Errors: | TamTamUploadAPITest.uploadAV:141 » API Unexpected server error: 400 | TamTamUploadAPITest.uploadAV1:148 » API Unexpected server error: 400 | TamTamUploadAPITest.uploadFile:111 » API Unexpected server error: 400 | TamTamUploadAPITest.uploadFile1:118 » API Unexpected server error: 400 | TamTamUploadAPITest.uploadImage:126 » API Unexpected server error: 500 | TamTamUploadAPITest.uploadImage1:133 » API Unexpected server error: 500 | JacksonSerializerTest.shouldThrowSerializationException »  Unexpected exceptio... | JacksonSerializerTest.shouldThrowSerializationException2 »  Unexpected excepti... | JacksonSerializerTest.testDeserializeStream:83 » NoClassDefFound com/fasterxml... | JacksonSerializerTest.testSerialize:75 » NoClassDefFound com/fasterxml/jackson... | JacksonSerializerTest.testSerializeToString:67 » NoClassDefFound com/fasterxml... | UpdateTest.<init>:48->UnitTestBase.randomChat:53 » API Unexpected server error... | UpdateTest.<init>:48->UnitTestBase.randomChat:53 » API Unexpected server error...
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M3:test (default-test) on project tamtam-bot-api: There are test failures.
+  FAILBLOCK: [ERROR] testSerializeToString(chat.tamtam.botapi.client.impl.JacksonSerializerTest)  Time elapsed: 0.194 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+      at chat.tamtam.botapi.client.impl.JacksonSerializerTest.testSerializeToString(JacksonSerializerTest.java:67)
+      Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.annotation.JsonKey
+      at chat.tamtam.botapi.client.impl.JacksonSerializerTest.testSerializeToString(JacksonSerializerTest.java:67)
+      [ERROR] shouldThrowSerializationException(chat.tamtam.botapi.client.impl.JacksonSerializerTest)  Time elapsed: 0.042 s  <<< ERROR!
+      Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.annotation.JsonKey
+  FAILBLOCK: [ERROR] shouldThrowSerializationException(chat.tamtam.botapi.client.impl.JacksonSerializerTest)  Time elapsed: 0.042 s  <<< ERROR!
+      java.lang.Exception: Unexpected exception, expected<chat.tamtam.botapi.exceptions.SerializationException> but was<java.lang.NoClassDefFoundError>
+      at chat.tamtam.botapi.client.impl.JacksonSerializerTest.shouldThrowSerializationException(JacksonSerializerTest.java:27)
+      [ERROR] testSerialize(chat.tamtam.botapi.client.impl.JacksonSerializerTest)  Time elapsed: 0.003 s  <<< ERROR!
+      java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey
+      at chat.tamtam.botapi.client.impl.JacksonSerializerTest.testSerialize(JacksonSerializerTest.java:75)
+  FAILBLOCK: [ERROR] uploadImage1(chat.tamtam.botapi.TamTamUploadAPITest)  Time elapsed: 0.205 s  <<< ERROR!
+      chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500
+      at chat.tamtam.botapi.TamTamUploadAPITest.uploadImage1(TamTamUploadAPITest.java:133)
+      [ERROR] uploadFile(chat.tamtam.botapi.TamTamUploadAPITest)  Time elapsed: 0.077 s  <<< ERROR!
+      chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 400
+      at chat.tamtam.botapi.TamTamUploadAPITest.uploadFile(TamTamUploadAPITest.java:111)
+  FAILBLOCK: [ERROR] uploadFile(chat.tamtam.botapi.TamTamUploadAPITest)  Time elapsed: 0.077 s  <<< ERROR!
+      chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 400
+      at chat.tamtam.botapi.TamTamUploadAPITest.uploadFile(TamTamUploadAPITest.java:111)
+      [ERROR] uploadFile1(chat.tamtam.botapi.TamTamUploadAPITest)  Time elapsed: 0.072 s  <<< ERROR!
+      chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 400
+      at chat.tamtam.botapi.TamTamUploadAPITest.uploadFile1(TamTamUploadAPITest.java:118)
+  distinct fail signatures (count): 3x java.lang.NoClassDefFoundError: com/fasterxml/jackson/annotation/JsonKey || 2x java.lang.Exception: Unexpected exception, expected<chat.tamtam.botapi.exceptions.SerializationException> but was<java.l || 1x chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 500 || 1x chat.tamtam.botapi.exceptions.APIException: Unexpected server error: 400
+  linkage/compile signals: ClassNotFoundException, NoClassDefFoundError
+  exception names: java.lang.NoClassDefFoundErrorx48, chat.tamtam.botapi.exceptions.APIExceptionx32, chat.tamtam.botapi.exceptions.SerializationExceptionx2, java.io.IOExceptionx1, org.junit.internal.runners.statements.ExpectExceptionx1, java.lang.ClassNotFoundExceptionx1, chat.tamtam.botapi.exceptions.SendMessageForbiddenExceptionx1, chat.tamtam.botapi.exceptions.ChatAccessForbiddenExceptionx1, chat.tamtam.botapi.exceptions.TooManyRequestsExceptionx1, chat.tamtam.botapi.exceptions.AttachmentNotReadyExceptionx1
+  EVIDENCE logs/case182_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jackson-databind-2.13.4.1_JacksonAnnotationIntrospector_javap.txt, breaking/jar_inspection.json, breaking/jars/jackson-annotations-2.9.9.jar, breaking/jars/jackson-core-2.13.4.jar, breaking/jars/jackson-databind-2.13.4.1.jar, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jackson-databind-2.9.10.3_JacksonAnnotationIntrospector_javap.txt, pre/jar_inspection.json, pre/jars/jackson-annotations-2.9.9.jar, pre/jars/jackson-core-2.9.10.jar, pre/jars/jackson-databind-2.9.10.3.jar, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=43 sum(t,f,e,s)=[108, 0, 0, 1]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=43 sum(t,f,e,s)=[108, 0, 46, 1]
+  archived non-report files: pre=290 breaking=290 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -63,3 +63,3 @@
+                 <artifactId>jackson-databind</artifactId>
+    -            <version>2.9.10.3</version>
+    +            <version>2.13.4.1</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    ERROR chat.tamtam.botapi.TamTamUploadAPITest#uploadImage1 type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 500
+       at chat.tamtam.botapi.TamTamUploadAPITest.uploadImage1(TamTamUploadAPITest.java:133)
+    ERROR chat.tamtam.botapi.TamTamUploadAPITest#uploadFile type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 400
+       at chat.tamtam.botapi.TamTamUploadAPITest.uploadFile(TamTamUploadAPITest.java:111)
+    ERROR chat.tamtam.botapi.TamTamUploadAPITest#uploadFile1 type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 400
+       at chat.tamtam.botapi.TamTamUploadAPITest.uploadFile1(TamTamUploadAPITest.java:118)
+    ERROR chat.tamtam.botapi.TamTamUploadAPITest#uploadImage type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 500
+       at chat.tamtam.botapi.TamTamUploadAPITest.uploadImage(TamTamUploadAPITest.java:126)
+    ERROR chat.tamtam.botapi.TamTamUploadAPITest#uploadAV1 type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 400
+       at chat.tamtam.botapi.TamTamUploadAPITest.uploadAV1(TamTamUploadAPITest.java:148)
+    ERROR chat.tamtam.botapi.TamTamUploadAPITest#uploadAV type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 400
+       at chat.tamtam.botapi.TamTamUploadAPITest.uploadAV(TamTamUploadAPITest.java:141)
+    ERROR chat.tamtam.botapi.client.impl.JacksonSerializerTest#testSerializeToString type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/annotation/JsonKey
+       Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.annotation.JsonKey
+       at chat.tamtam.botapi.client.impl.JacksonSerializerTest.testSerializeToString(JacksonSerializerTest.java:67)
+       at chat.tamtam.botapi.client.impl.JacksonSerializerTest.testSerializeToString(JacksonSerializerTest.java:67)
+    ERROR chat.tamtam.botapi.client.impl.JacksonSerializerTest#shouldThrowSerializationException type=java.lang.Exception msg=Unexpected exception, expected<chat.tamtam.botapi.exceptions.SerializationException> but was<java.lang.NoClassDefFoundError>
+       at chat.tamtam.botapi.client.impl.JacksonSerializerTest.shouldThrowSerializationException(JacksonSerializerTest.java:27)
+    ERROR chat.tamtam.botapi.client.impl.JacksonSerializerTest#testSerialize type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/annotation/JsonKey
+       at chat.tamtam.botapi.client.impl.JacksonSerializerTest.testSerialize(JacksonSerializerTest.java:75)
+    ERROR chat.tamtam.botapi.client.impl.JacksonSerializerTest#testDeserializeStream type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/annotation/JsonKey
+       at chat.tamtam.botapi.client.impl.JacksonSerializerTest.testDeserializeStream(JacksonSerializerTest.java:83)
+    ERROR chat.tamtam.botapi.client.impl.JacksonSerializerTest#shouldThrowSerializationException2 type=java.lang.Exception msg=Unexpected exception, expected<chat.tamtam.botapi.exceptions.SerializationException> but was<java.lang.NoClassDefFoundError>
+       at chat.tamtam.botapi.client.impl.JacksonSerializerTest.shouldThrowSerializationException2(JacksonSerializerTest.java:32)
+    ERROR chat.tamtam.botapi.model.UpdateTest#shouldMapEveryUpdate type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 500
+       at chat.tamtam.botapi.model.UpdateTest.<init>(UpdateTest.java:48)
+    ERROR chat.tamtam.botapi.model.UpdateTest#shouldMapDefault type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 500
+       at chat.tamtam.botapi.model.UpdateTest.<init>(UpdateTest.java:48)
+    ERROR chat.tamtam.botapi.model.UpdateTest#shouldVisitDefault type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 500
+       at chat.tamtam.botapi.model.UpdateTest.<init>(UpdateTest.java:48)
+    ERROR chat.tamtam.botapi.queries.AddMembersQueryTest#addMembersTest type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/annotation/JsonKey
+       at chat.tamtam.botapi.queries.AddMembersQueryTest.addMembersTest(AddMembersQueryTest.java:40)
+    ERROR chat.tamtam.botapi.queries.AnswerOnCallbackQueryTest#answerOnCallbackTest type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/annotation/JsonKey
+       at chat.tamtam.botapi.queries.AnswerOnCallbackQueryTest.answerOnCallbackTest(AnswerOnCallbackQueryTest.java:41)
+    ERROR chat.tamtam.botapi.queries.DeleteMessageQueryTest#shouldExecuteQuery type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 500
+       at chat.tamtam.botapi.queries.DeleteMessageQueryTest.shouldExecuteQuery(DeleteMessageQueryTest.java:45)
+    ERROR chat.tamtam.botapi.queries.EditChatQueryTest#editChatTest type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 500
+       at chat.tamtam.botapi.queries.EditChatQueryTest.editChatTest(EditChatQueryTest.java:42)
+    ERROR chat.tamtam.botapi.queries.EditMessageQueryTest#editMessageTest type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/annotation/JsonKey
+       at chat.tamtam.botapi.queries.EditMessageQueryTest.editMessageTest(EditMessageQueryTest.java:45)
+    ERROR chat.tamtam.botapi.queries.EditMyInfoQueryTest#editMyInfoTest type=java.lang.NoClassDefFoundError msg=com/fasterxml/jackson/annotation/JsonKey
+       at chat.tamtam.botapi.queries.EditMyInfoQueryTest.editMyInfoTest(EditMyInfoQueryTest.java:64)
+    ERROR chat.tamtam.botapi.queries.GetAdminsQueryTest#getAdminsTest type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 500
+       at chat.tamtam.botapi.queries.GetAdminsQueryTest.getAdminsTest(GetAdminsQueryTest.java:39)
+    ERROR chat.tamtam.botapi.queries.GetChatByLinkQueryTest#getChatByLinkTest type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 500
+       at chat.tamtam.botapi.queries.GetChatByLinkQueryTest.getChatByLinkTest(GetChatByLinkQueryTest.java:38)
+    ERROR chat.tamtam.botapi.queries.GetChatQueryTest#getChatTest type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 500
+       at chat.tamtam.botapi.queries.GetChatQueryTest.getChatTest(GetChatQueryTest.java:36)
+    ERROR chat.tamtam.botapi.queries.GetChatsQueryTest#getChatsTest type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 500
+       at chat.tamtam.botapi.queries.GetChatsQueryTest.getChatsTest(GetChatsQueryTest.java:36)
+    ERROR chat.tamtam.botapi.queries.GetMembersQueryTest#getMembersTest type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 500
+       at chat.tamtam.botapi.queries.GetMembersQueryTest.getMembersTest(GetMembersQueryTest.java:45)
+    ERROR chat.tamtam.botapi.queries.GetMembershipQueryTest#getMembershipTest type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 500
+       at chat.tamtam.botapi.queries.GetMembershipQueryTest.getMembershipTest(GetMembershipQueryTest.java:38)
+    ERROR chat.tamtam.botapi.queries.GetMessageByIdQueryTest#getMessageByIdTest type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 500
+       at chat.tamtam.botapi.queries.GetMessageByIdQueryTest.getMessageByIdTest(GetMessageByIdQueryTest.java:39)
+    ERROR chat.tamtam.botapi.queries.GetMessagesQueryTest#getMessagesTest type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 500
+       at chat.tamtam.botapi.queries.GetMessagesQueryTest.getMessagesTest(GetMessagesQueryTest.java:82)
+    ERROR chat.tamtam.botapi.queries.GetMyInfoQueryTest#getMyInfoTest type=chat.tamtam.botapi.exceptions.APIException msg=Unexpected server error: 500
+       at chat.tamtam.botapi.queries.GetMyInfoQueryTest.getMyInfoTest(GetMyInfoQueryTest.java:37)
+    ... truncated (94 lines)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -            <version>2.9.10.3</version> / +            <version>2.13.4.1</version>
+  JSON breaking/jar_inspection.json: {"case_id":"fafb59e8f1b9ddba4bbabe64818f361e7def7d04","phase":"breaking","path_filter":"/jackson-(databind|annotations|core)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.9/jackson-annotations-2.9.9.jar","classes":{"com.fasterxml.jackson.annotation.JsonKey":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.4/jackson-core-2.13.4.jar","classes":{"com.fasterxml.jackson.annotation.JsonKey":{"present":false,"major_version":null}},"services":{"META-INF/services/com.fasterxml.jackson.core.JsonFactory":"com.fasterxml.jackson.core.JsonFactory\n"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.4.1/jackson-databind-2.13.4.1.jar","classes":{"com.fasterxml.jackson.annotation.JsonKey":{"present":false,"major_version":null}},"services":{"META-INF/services/com.fasterxml.jackson.core.ObjectCodec":"com.fasterxml.jackson.databind.ObjectMapper\n"},"disassemblies":[{"class":"com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector","file":"jackson-databind-2.13.4.1_JacksonAnnotationIntrospector_javap.txt","exit_code":0}]}]}
+  JSON pre/jar_inspection.json: {"case_id":"fafb59e8f1b9ddba4bbabe64818f361e7def7d04","phase":"pre","path_filter":"/jackson-(databind|annotations|core)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.9/jackson-annotations-2.9.9.jar","classes":{"com.fasterxml.jackson.annotation.JsonKey":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.10/jackson-core-2.9.10.jar","classes":{"com.fasterxml.jackson.annotation.JsonKey":{"present":false,"major_version":null}},"services":{"META-INF/services/com.fasterxml.jackson.core.JsonFactory":"com.fasterxml.jackson.core.JsonFactory\n"},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.10.3/jackson-databind-2.9.10.3.jar","classes":{"com.fasterxml.jackson.annotation.JsonKey":{"present":false,"major_version":null}},"services":{"META-INF/services/com.fasterxml.jackson.core.ObjectCodec":"com.fasterxml.jackson.databind.ObjectMapper\n"},"disassemblies":[{"class":"com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector","file":"jackson-databind-2.9.10.3_JacksonAnnotationIntrospector_javap.txt","exit_code":0}]}]}
+  JARS: breaking/jars/jackson-annotations-2.9.9.jar, breaking/jars/jackson-core-2.13.4.jar, breaking/jars/jackson-databind-2.13.4.1.jar, pre/jars/jackson-annotations-2.9.9.jar, pre/jars/jackson-core-2.9.10.jar, pre/jars/jackson-databind-2.9.10.3.jar

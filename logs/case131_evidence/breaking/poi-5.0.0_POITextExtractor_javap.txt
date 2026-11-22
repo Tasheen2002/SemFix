@@ -1,0 +1,35 @@
+Compiled from "POITextExtractor.java"
+public interface org.apache.poi.extractor.POITextExtractor extends java.io.Closeable {
+  public abstract java.lang.String getText();
+    descriptor: ()Ljava/lang/String;
+
+  public abstract org.apache.poi.extractor.POITextExtractor getMetadataTextExtractor();
+    descriptor: ()Lorg/apache/poi/extractor/POITextExtractor;
+
+  public abstract void setCloseFilesystem(boolean);
+    descriptor: (Z)V
+
+  public abstract boolean isCloseFilesystem();
+    descriptor: ()Z
+
+  public abstract java.io.Closeable getFilesystem();
+    descriptor: ()Ljava/io/Closeable;
+
+  public default void close() throws java.io.IOException;
+    descriptor: ()V
+    Code:
+       0: aload_0
+       1: invokeinterface #1,  1            // InterfaceMethod getFilesystem:()Ljava/io/Closeable;
+       6: astore_1
+       7: aload_0
+       8: invokeinterface #2,  1            // InterfaceMethod isCloseFilesystem:()Z
+      13: ifeq          26
+      16: aload_1
+      17: ifnull        26
+      20: aload_1
+      21: invokeinterface #3,  1            // InterfaceMethod java/io/Closeable.close:()V
+      26: return
+
+  public abstract java.lang.Object getDocument();
+    descriptor: ()Ljava/lang/Object;
+}

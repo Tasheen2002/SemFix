@@ -1,0 +1,55 @@
+{
+  "case_id": "aac5842369f198d9442cacc2949a09fe00a55367",
+  "phase": "breaking",
+  "path_filter": "/org/eclipse/jetty/(jetty-server|jetty-util)/",
+  "path_source": "Fresh test report effective classpaths, preferring surefire.test.class.path when present",
+  "artifacts": [
+    {
+      "resolved_path": "/root/.m2/repository/org/eclipse/jetty/jetty-server/10.0.14/jetty-server-10.0.14.jar",
+      "sha256": "e7e25f6b5db08876befcb44b344f0fcda0000cffbd05e15805bcd9f29d525eda",
+      "classes": {
+        "org.eclipse.jetty.util.component.AbstractLifeCycle$StopException": {
+          "present": false,
+          "major_version": null
+        },
+        "org.eclipse.jetty.server.handler.ContextHandler": {
+          "present": true,
+          "major_version": 55
+        }
+      },
+      "services": {},
+      "disassemblies": [
+        {
+          "class": "org.eclipse.jetty.server.handler.ContextHandler",
+          "file": "jetty-server-10.0.14_ContextHandler_javap.txt",
+          "command": [
+            "C:/Program Files/Java/jdk-21.0.11/bin/javap.exe",
+            "-classpath",
+            "C:\\Users\\TASHEEN\\Desktop\\Research Implementation\\logs\\case125_evidence\\breaking\\jars\\jetty-server-10.0.14.jar",
+            "-p",
+            "-s",
+            "-c",
+            "org.eclipse.jetty.server.handler.ContextHandler"
+          ],
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "resolved_path": "/root/.m2/repository/org/eclipse/jetty/jetty-util/9.4.35.v20201120/jetty-util-9.4.35.v20201120.jar",
+      "sha256": "7db4077559abc8939b414a352d6a8a5c1942aab898a5b0678a63422640ae5dbd",
+      "classes": {
+        "org.eclipse.jetty.util.component.AbstractLifeCycle$StopException": {
+          "present": false,
+          "major_version": null
+        },
+        "org.eclipse.jetty.server.handler.ContextHandler": {
+          "present": false,
+          "major_version": null
+        }
+      },
+      "services": {},
+      "disassemblies": []
+    }
+  ]
+}

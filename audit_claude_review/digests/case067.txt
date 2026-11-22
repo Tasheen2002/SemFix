@@ -1,0 +1,56 @@
+=== CASE 67 5476e69fca14862d862805790b73574e1de58dd2
+  project=btrplace/scheduler dep=org.antlr:antlr4-runtime 4.9.3 -> 4.10 scope=compile type=minor java=11
+  PR=https://github.com/btrplace/scheduler/pull/379
+  PRE log logs/batch_triage/5476e69f_pre.log:
+  lines=971
+  status: [INFO] BUILD SUCCESS
+  reactor: scheduler   SUCCESS [  1.152 s]; scheduler-api   SUCCESS [ 17.127 s]; scheduler-json   SUCCESS [  4.674 s]; scheduler-choco   SUCCESS [01:02 min]; scheduler-examples   SUCCESS [  0.444 s]; btrpsl   SUCCESS [  9.373 s]; safeplace   SUCCESS [ 10.240 s]; bench   SUCCESS [  5.016 s]; scheduler-split   SUCCESS [  4.876 s]; BUILD SUCCESS
+  aggregate summaries: Tests run: 260, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 93, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 241, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 271, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 38, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 2, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 38, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+  exception names: org.btrplace.btrpsl.ScriptBuilderExceptionx5
+  BREAKING log logs/batch_triage/5476e69f_breaking.log:
+  lines=759
+  status: [INFO] BUILD FAILURE
+  reactor: scheduler   SUCCESS [  0.908 s]; scheduler-api   SUCCESS [ 15.404 s]; scheduler-json   SUCCESS [  7.521 s]; scheduler-choco   SUCCESS [01:53 min]; scheduler-examples   SUCCESS [  0.855 s]; btrpsl   SUCCESS [ 21.960 s]; safeplace   FAILURE [ 18.311 s]; bench   SKIPPED; scheduler-split   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 260, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 93, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 241, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 271, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 38, Failures: 1, Errors: 0, Skipped: 0
+  failing classes: Tests run: 38, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 6.124 s <<< FAILURE! - in TestSuite
+  section: Failures: | SpecScannerTest.test:23 » ExceptionInInitializer | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] Reactor Summary for scheduler 1.12.3-SNAPSHOT: | [INFO] | [INFO] scheduler .......................................... SUCCESS [  0.908 s] | [INFO] scheduler-api ...................................... SUCCESS [ 15.404 s] | [INFO] scheduler-json ..................................... SUCCESS [  7.521 s] | [INFO] scheduler-choco .................................... SUCCESS [01:53 min] | [INFO] scheduler-examples ................................. SUCCESS [  0.855 s] | [INFO] btrpsl ............................................. SUCCESS [ 21.960 s]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project safeplace: There are test failures.
+  FAILBLOCK: [ERROR] org.btrplace.safeplace.spec.SpecScannerTest.test  Time elapsed: 3.859 s  <<< FAILURE!
+      java.lang.ExceptionInInitializerError
+      at org.btrplace.safeplace.spec.SpecScannerTest.test(SpecScannerTest.java:23)
+      Caused by: java.lang.UnsupportedOperationException: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+      at org.btrplace.safeplace.spec.SpecScannerTest.test(SpecScannerTest.java:23)
+      Caused by: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+      at org.btrplace.safeplace.spec.SpecScannerTest.test(SpecScannerTest.java:23)
+      Caused by: java.lang.UnsupportedOperationException: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+      Caused by: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+  distinct fail signatures (count): 1x java.lang.ExceptionInInitializerError
+  provider/console lines: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+  exception names: org.btrplace.btrpsl.ScriptBuilderExceptionx5, java.io.InvalidClassExceptionx2, java.lang.ExceptionInInitializerErrorx1, java.lang.UnsupportedOperationExceptionx1
+  EVIDENCE logs/case67_evidence: atn_deserializer_javap.txt, breaking/CstrSpecLexer.java, breaking/antlr4-runtime-4.10.jar, breaking/archive_summary.json, breaking/artifacts.tar, pre/CstrSpecLexer.java, pre/antlr4-runtime-4.9.3.jar, pre/archive_summary.json, pre/artifacts.tar, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=239 sum(t,f,e,s)=[1887, 0, 0, 1]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=215 sum(t,f,e,s)=[1807, 1, 1, 1]
+  archived non-report files: pre=997 breaking=997 changed=1 added=0 removed=0
+  DIFF safeplace/pom.xml (7 lines):
+    @@ -35,3 +35,3 @@
+                 <artifactId>antlr4-runtime</artifactId>
+    -            <version>4.9.3</version>
+    +            <version>4.10</version>
+                 <scope>compile</scope>
+  BREAKING surefire failures/errors:
+    FAILURE org.btrplace.safeplace.spec.SpecScannerTest#test type=java.lang.ExceptionInInitializerError msg=
+       Caused by: java.lang.UnsupportedOperationException: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+       Caused by: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+       at org.btrplace.safeplace.spec.SpecScannerTest.test(SpecScannerTest.java:23)
+       at org.btrplace.safeplace.spec.SpecScannerTest.test(SpecScannerTest.java:23)
+       at org.btrplace.safeplace.spec.SpecScannerTest.test(SpecScannerTest.java:23)
+    ERROR org.btrplace.safeplace.spec.SpecScannerTest#test type=java.lang.ExceptionInInitializerError msg=
+       Caused by: java.lang.UnsupportedOperationException: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+       Caused by: java.io.InvalidClassException: org.antlr.v4.runtime.atn.ATN; Could not deserialize ATN with version 3 (expected 4).
+       at org.btrplace.safeplace.spec.SpecScanner.getTokens(SpecScanner.java:173)
+       at org.btrplace.safeplace.spec.SpecScanner.parseCore2(SpecScanner.java:137)
+       at org.btrplace.safeplace.spec.SpecScanner.scan(SpecScanner.java:93)
+       at org.btrplace.safeplace.spec.SpecScannerTest.test(SpecScannerTest.java:23)
+  JSON resolved_jar_inspection.json: [{"phase":"pre","jar":"antlr4-runtime-4.9.3.jar","entries":{"ATNDeserializer.class":["org/antlr/v4/runtime/atn/ATNDeserializer.class"]}},{"phase":"breaking","jar":"antlr4-runtime-4.10.jar","entries":{"ATNDeserializer.class":["org/antlr/v4/runtime/atn/ATNDeserializer.class"]}}]

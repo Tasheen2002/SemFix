@@ -1,0 +1,48 @@
+﻿
+=== Case 91  851e6b1628f8ecb86db912dc5431a496ddf02148 ===
+Project : spotify/semantic-metrics
+Update  : com.squareup.okhttp3:okhttp  3.3.1 -> 3.14.9
+Image not present locally, pulling ghcr.io/chains-project/breaking-updates:851e6b1628f8ecb86db912dc5431a496ddf02148-breaking ...
+Running breaking in container manual-case91-breaking (this can take several minutes) ...
+Finished in 42 s -> C:\Users\TASHEEN\Desktop\Research Implementation\audit_claude_review\manual_verification\logs\case91_breaking.log
+
+--- breaking summary ---
+[INFO] BUILD FAILURE
+MAVEN_EXIT=1
+  [INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 57, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0
+  [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+  [ERROR] Tests run: 23, Failures: 0, Errors: 2, Skipped: 0
+  reactor: Semantic Metrics: Parent POM ....................... SUCCESS [  4.221 s]
+  reactor: Semantic Metrics: API Package ...................... SUCCESS [  7.233 s]
+  reactor: Semantic Metrics: Core ............................. SUCCESS [  7.836 s]
+  reactor: Semantic Metrics: FFWD Reporter .................... SUCCESS [  2.596 s]
+  reactor: Semantic Metrics: Examples ......................... SUCCESS [  0.340 s]
+  reactor: Semantic Metrics: Guava Extensions ................. SUCCESS [  1.138 s]
+  reactor: semantic-metrics-jmh-benchmarks .................... SUCCESS [  1.358 s]
+  reactor: Semantic Metrics: Remote ........................... FAILURE [  5.255 s]
+  reactor: Semantic Metrics: Bill Of Materials ................ SKIPPED
+First failing tests / errors:
+  [ERROR] com.spotify.metrics.remote.OkRemoteTest.shardTest  Time elapsed: 0.095 s  <<< ERROR!
+      java.lang.VerifyError: Cannot inherit from final class
+      at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+      at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+  [ERROR] com.spotify.metrics.remote.OkRemoteTest.httpTest  Time elapsed: 0.006 s  <<< ERROR!
+      java.lang.VerifyError: Cannot inherit from final class
+      at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+      at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+First 'Caused by' lines (the initiating cause is usually the deepest one):
+Linkage / bytecode signals:
+  VerifyError x2
+SLF4J console:
+  SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+
+--- Proposed classification ---
+Label   : NON_BEHAVIORAL   (rule R1: Linkage or bytecode incompatibility)
+Cause   : okhttp 3.14.9 with mockwebserver 3.3.1 (resolved_jar_inspection): mockwebserver subclasses an okhttp internal class that is final in 3.14.9 -> VerifyError 'Cannot inherit from final class' (class_load_probe.log)
+Codex   : NON_BEHAVIORAL   Claude blind: NON_BEHAVIORAL
+
+Check: (1) the first error above matches 'Cause' and is not a follow-on;
+       (2) BUILD/MAVEN_EXIT and test counts match the original run;
+       (3) the label follows from the rule. Record your label in ..\verification_plan\human_sample.csv.

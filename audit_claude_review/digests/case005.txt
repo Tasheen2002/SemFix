@@ -1,0 +1,26 @@
+=== CASE 5 072528ee5e678feabeaa1e2962725134564bdd3c
+  project=s4u/sign-maven-plugin dep=org.slf4j:slf4j-api 1.7.36 -> 2.0.2 scope=compile type=major java=11
+  PR=https://github.com/s4u/sign-maven-plugin/pull/135
+  PRE log logs/072528ee_pre.log:
+  lines=105
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 38, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/072528ee_breaking.log:
+  lines=1306
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 38, Failures: 0, Errors: 12, Skipped: 0
+  failing classes: Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.636 s <<< FAILURE! - in org.simplify4u.plugins.sign.SignMojoTest || Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.067 s <<< FAILURE! - in org.simplify4u.plugins.sign.utils.EnvironmentTest
+  section: Errors: | SignMojoTest.emptyKeyInfoShouldBreakExecution » ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app') | SignMojoTest.emptyKeyInfoShouldSkipExecution » ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app') | SignMojoTest.excludeArtifact » ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app') | SignMojoTest.skipExecution » ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app') | SignMojoTest.standardFlow » ClassCast class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmoc
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M6:test (default-test) on project sign-maven-plugin: 
+  FAILBLOCK: [ERROR] org.simplify4u.plugins.sign.SignMojoTest.excludeArtifact  Time elapsed: 0.592 s  <<< ERROR!
+      java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.ProxyMock are in unnamed module of loader 'app')
+      at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.findLoggersMocks(LoggerAnnotationEngine.java:166)
+      at org.simplify4u.slf4jmock.mockito.LoggerAnnotationEngine.process(LoggerAnnotationEngine.java:59)
+      at org.mockito.MockitoAnnotations.openMocks(MockitoAnnotations.java:81)
+      at org.mockito.internal.framework.DefaultMockitoSession.<init>(DefaultMockitoSession.java:43)
+      at org.mockito.internal.session.DefaultMockitoSessionBuilder.startMocking(DefaultMockitoSessionBuilder.java:83)
+  distinct fail signatures (count): 12x java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.ProxyMo
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details. | SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier. | SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/org/simplify4u/slf4j-mock/2.2.0/slf4j-mock-2.2.0.jar!/org/slf4j/impl/StaticLoggerBinder.class] | SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+  exception names: java.lang.ClassCastExceptionx12, java.lang.NullPointerExceptionx12
+  EVIDENCE: no logs/case5_evidence directory

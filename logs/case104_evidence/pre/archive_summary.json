@@ -1,0 +1,111 @@
+{
+  "case_id": "8fe55d8be21f549ba55bcccc2d21e81386bfc8b2",
+  "phase": "pre",
+  "container_state": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-11-10T07:28:59.267877715Z",
+    "FinishedAt": "2026-11-10T07:29:19.97625063Z"
+  },
+  "working_directory": "/open-pdf-sign",
+  "command": [
+    "sh",
+    "-c",
+    "mvn clean test -B | tee %s.log"
+  ],
+  "image_id": "sha256:a5d3abc6ac47c910eeea2047357a636db1f53dcc3969c7e6b9341d979acc6027",
+  "image_digests": [
+    "ghcr.io/chains-project/breaking-updates@sha256:a5d3abc6ac47c910eeea2047357a636db1f53dcc3969c7e6b9341d979acc6027"
+  ],
+  "platform": "linux/amd64",
+  "cleaned_modules": [
+    "."
+  ],
+  "freshness_rule": "Only report directories under a target explicitly deleted in this run are included",
+  "report_count": 3,
+  "reports": [
+    {
+      "path": "target/surefire-reports/TEST-org.openpdfsign.ConfigurationTest.xml",
+      "module": ".",
+      "test_class": "org.openpdfsign.ConfigurationTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/open-pdf-sign/target/test-classes:/open-pdf-sign/target/classes:/root/.m2/repository/org/apache/pdfbox/pdfbox/2.0.26/pdfbox-2.0.26.jar:/root/.m2/repository/org/apache/pdfbox/fontbox/2.0.26/fontbox-2.0.26.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-pades/5.9/dss-pades-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-cades/5.9/dss-cades-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-document/5.9/dss-document-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/validation-policy/5.9/validation-policy-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-policy-jaxb/5.9/dss-policy-jaxb-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-jaxb-parsers/5.9/dss-jaxb-parsers-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-jaxb-common/5.9/dss-jaxb-common-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-alert/5.9/dss-alert-5.9.jar:/root/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.2/jakarta.xml.bind-api-2.3.2.jar:/root/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.1/jakarta.activation-api-1.2.1.jar:/root/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jaxb-runtime-2.3.2.jar:/root/.m2/repository/org/glassfish/jaxb/txw2/2.3.2/txw2-2.3.2.jar:/root/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.8/istack-commons-runtime-3.0.8.jar:/root/.m2/repository/org/jvnet/staxex/stax-ex/1.8.1/stax-ex-1.8.1.jar:/root/.m2/repository/com/sun/xml/fastinfoset/FastInfoset/1.2.16/FastInfoset-1.2.16.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-diagnostic-jaxb/5.9/dss-diagnostic-jaxb-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-simple-report-jaxb/5.9/dss-simple-report-jaxb-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-simple-certificate-report-jaxb/5.9/dss-simple-certificate-report-jaxb-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-detailed-report-jaxb/5.9/dss-detailed-report-jaxb-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/specs-validation-report/5.9/specs-validation-report-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/specs-xmldsig/5.9/specs-xmldsig-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/specs-xades/5.9/specs-xades-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/specs-trusted-list/5.9/specs-trusted-list-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-i18n/5.9/dss-i18n-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-pades-pdfbox/5.9/dss-pades-pdfbox-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-token/5.9/dss-token-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-model/5.9/dss-model-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-enumerations/5.9/dss-enumerations-5.9.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.31/slf4j-api-1.7.31.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-utils-apache-commons/5.9/dss-utils-apache-commons-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-utils/5.9/dss-utils-5.9.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/commons-io/commons-io/2.10.0/commons-io-2.10.0.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-service/5.9/dss-service-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-spi/5.9/dss-spi-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-crl-parser/5.9/dss-crl-parser-5.9.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.69/bcpkix-jdk15on-1.69.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk15on/1.69/bcutil-jdk15on-1.69.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar:/root/.m2/repository/com/github/vandeseer/easytable/0.8.5/easytable-0.8.5.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter/5.8.2/junit-jupiter-5.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.8.2/junit-jupiter-params-5.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.jar:/root/.m2/repository/org/apache/commons/commons-configuration2/2.8.0/commons-configuration2-2.8.0.jar:/root/.m2/repository/org/apache/commons/commons-text/1.9/commons-text-1.9.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.21/slf4j-simple-1.7.21.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.openpdfsign.KeyStoreLoaderTest.xml",
+      "module": ".",
+      "test_class": "org.openpdfsign.KeyStoreLoaderTest",
+      "counts": {
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/open-pdf-sign/target/test-classes:/open-pdf-sign/target/classes:/root/.m2/repository/org/apache/pdfbox/pdfbox/2.0.26/pdfbox-2.0.26.jar:/root/.m2/repository/org/apache/pdfbox/fontbox/2.0.26/fontbox-2.0.26.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-pades/5.9/dss-pades-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-cades/5.9/dss-cades-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-document/5.9/dss-document-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/validation-policy/5.9/validation-policy-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-policy-jaxb/5.9/dss-policy-jaxb-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-jaxb-parsers/5.9/dss-jaxb-parsers-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-jaxb-common/5.9/dss-jaxb-common-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-alert/5.9/dss-alert-5.9.jar:/root/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.2/jakarta.xml.bind-api-2.3.2.jar:/root/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.1/jakarta.activation-api-1.2.1.jar:/root/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jaxb-runtime-2.3.2.jar:/root/.m2/repository/org/glassfish/jaxb/txw2/2.3.2/txw2-2.3.2.jar:/root/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.8/istack-commons-runtime-3.0.8.jar:/root/.m2/repository/org/jvnet/staxex/stax-ex/1.8.1/stax-ex-1.8.1.jar:/root/.m2/repository/com/sun/xml/fastinfoset/FastInfoset/1.2.16/FastInfoset-1.2.16.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-diagnostic-jaxb/5.9/dss-diagnostic-jaxb-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-simple-report-jaxb/5.9/dss-simple-report-jaxb-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-simple-certificate-report-jaxb/5.9/dss-simple-certificate-report-jaxb-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-detailed-report-jaxb/5.9/dss-detailed-report-jaxb-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/specs-validation-report/5.9/specs-validation-report-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/specs-xmldsig/5.9/specs-xmldsig-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/specs-xades/5.9/specs-xades-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/specs-trusted-list/5.9/specs-trusted-list-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-i18n/5.9/dss-i18n-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-pades-pdfbox/5.9/dss-pades-pdfbox-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-token/5.9/dss-token-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-model/5.9/dss-model-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-enumerations/5.9/dss-enumerations-5.9.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.31/slf4j-api-1.7.31.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-utils-apache-commons/5.9/dss-utils-apache-commons-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-utils/5.9/dss-utils-5.9.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/commons-io/commons-io/2.10.0/commons-io-2.10.0.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-service/5.9/dss-service-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-spi/5.9/dss-spi-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-crl-parser/5.9/dss-crl-parser-5.9.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.69/bcpkix-jdk15on-1.69.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk15on/1.69/bcutil-jdk15on-1.69.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar:/root/.m2/repository/com/github/vandeseer/easytable/0.8.5/easytable-0.8.5.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter/5.8.2/junit-jupiter-5.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.8.2/junit-jupiter-params-5.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.jar:/root/.m2/repository/org/apache/commons/commons-configuration2/2.8.0/commons-configuration2-2.8.0.jar:/root/.m2/repository/org/apache/commons/commons-text/1.9/commons-text-1.9.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.21/slf4j-simple-1.7.21.jar:",
+      "errors": [],
+      "failures": []
+    },
+    {
+      "path": "target/surefire-reports/TEST-org.openpdfsign.SignerTest.xml",
+      "module": ".",
+      "test_class": "org.openpdfsign.SignerTest",
+      "counts": {
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "java_version": "11.0.19",
+      "classpath": "/open-pdf-sign/target/test-classes:/open-pdf-sign/target/classes:/root/.m2/repository/org/apache/pdfbox/pdfbox/2.0.26/pdfbox-2.0.26.jar:/root/.m2/repository/org/apache/pdfbox/fontbox/2.0.26/fontbox-2.0.26.jar:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-pades/5.9/dss-pades-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-cades/5.9/dss-cades-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-document/5.9/dss-document-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/validation-policy/5.9/validation-policy-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-policy-jaxb/5.9/dss-policy-jaxb-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-jaxb-parsers/5.9/dss-jaxb-parsers-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-jaxb-common/5.9/dss-jaxb-common-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-alert/5.9/dss-alert-5.9.jar:/root/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.2/jakarta.xml.bind-api-2.3.2.jar:/root/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.1/jakarta.activation-api-1.2.1.jar:/root/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jaxb-runtime-2.3.2.jar:/root/.m2/repository/org/glassfish/jaxb/txw2/2.3.2/txw2-2.3.2.jar:/root/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.8/istack-commons-runtime-3.0.8.jar:/root/.m2/repository/org/jvnet/staxex/stax-ex/1.8.1/stax-ex-1.8.1.jar:/root/.m2/repository/com/sun/xml/fastinfoset/FastInfoset/1.2.16/FastInfoset-1.2.16.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-diagnostic-jaxb/5.9/dss-diagnostic-jaxb-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-simple-report-jaxb/5.9/dss-simple-report-jaxb-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-simple-certificate-report-jaxb/5.9/dss-simple-certificate-report-jaxb-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-detailed-report-jaxb/5.9/dss-detailed-report-jaxb-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/specs-validation-report/5.9/specs-validation-report-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/specs-xmldsig/5.9/specs-xmldsig-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/specs-xades/5.9/specs-xades-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/specs-trusted-list/5.9/specs-trusted-list-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-i18n/5.9/dss-i18n-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-pades-pdfbox/5.9/dss-pades-pdfbox-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-token/5.9/dss-token-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-model/5.9/dss-model-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-enumerations/5.9/dss-enumerations-5.9.jar:/root/.m2/repository/org/slf4j/slf4j-api/1.7.31/slf4j-api-1.7.31.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-utils-apache-commons/5.9/dss-utils-apache-commons-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-utils/5.9/dss-utils-5.9.jar:/root/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/root/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar:/root/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/root/.m2/repository/commons-io/commons-io/2.10.0/commons-io-2.10.0.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-service/5.9/dss-service-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-spi/5.9/dss-spi-5.9.jar:/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-crl-parser/5.9/dss-crl-parser-5.9.jar:/root/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.69/bcpkix-jdk15on-1.69.jar:/root/.m2/repository/org/bouncycastle/bcutil-jdk15on/1.69/bcutil-jdk15on-1.69.jar:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar:/root/.m2/repository/com/beust/jcommander/1.82/jcommander-1.82.jar:/root/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar:/root/.m2/repository/com/github/vandeseer/easytable/0.8.5/easytable-0.8.5.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter/5.8.2/junit-jupiter-5.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2.jar:/root/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/root/.m2/repository/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2.jar:/root/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.8.2/junit-jupiter-params-5.8.2.jar:/root/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar:/root/.m2/repository/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2.jar:/root/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.jar:/root/.m2/repository/org/apache/commons/commons-configuration2/2.8.0/commons-configuration2-2.8.0.jar:/root/.m2/repository/org/apache/commons/commons-text/1.9/commons-text-1.9.jar:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/root/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/root/.m2/repository/org/slf4j/slf4j-simple/1.7.21/slf4j-simple-1.7.21.jar:",
+      "errors": [],
+      "failures": []
+    }
+  ],
+  "source_and_pom_sha256": {
+    "pom.xml": "e6498e6975b2c43fd5ad4f83c187e55a32ebc01ee07b286197c1965bdb42d95c",
+    "src/main/java/org/openpdfsign/CLIApplication.java": "d22d1e2472191b4bd262fd6718fed1bfec620021cb79f9bba4a7b4928ee53355",
+    "src/main/java/org/openpdfsign/CommandLineArguments.java": "f00193af936fa4fd513c82c7e08a949c5aa1fca8e6e1ef0833a0b6e3974ac1d5",
+    "src/main/java/org/openpdfsign/Configuration.java": "5ee66f9c234b92bc3badf39e0901ad1227361b80340e87d8d71c3c745ee088bb",
+    "src/main/java/org/openpdfsign/KeyStoreLoader.java": "fa68ec5941966ab707a9a39e0a9c6fda48dddf4150d6f17de67aede469861640",
+    "src/main/java/org/openpdfsign/SignatureParameters.java": "be74f448ebe8b6c3f9fcf18f106b9f3e445a6b8f4be92b18a88c22fc8660c591",
+    "src/main/java/org/openpdfsign/Signer.java": "facdb99dc743ec8ab59566188b86d3ad56dc334eac1db8c04755ecdc56055cbf",
+    "src/main/java/org/openpdfsign/TableSignatureFieldParameters.java": "2330c6ef41045d3f8e0c3d92f442329cdd31c968e318d27730ea28a559480814",
+    "src/main/java/org/openpdfsign/dss/NativePdfBoxVisibleSignatureTableDrawer.java": "36528c0d1d88b9d172e2399af78257688ed270e23f655e84bcb406e3a4879db9",
+    "src/main/java/org/openpdfsign/dss/PdfBoxNativeTableObjectFactory.java": "6e8b107acea8c72e83f3eb3811573a870b58ca12aab5342b6de80b2c73e00546",
+    "src/main/resources/application.properties": "99f7f04e2204e3e83b34f1044865cfbe3e0eacf1209b9fe6fe6ea914e072c2b3",
+    "src/main/resources/signature.png": "8c1c08a6e3dfeec20d3da933fff9f2d65ad3e4b76d1fe3ba4b8e3b0783d51af1",
+    "src/main/resources/simplelogger.properties": "74fe90f35af0f6fdeaed46c2c06415c26c325a17708842ec17ee525585c56e60",
+    "src/main/resources/strings_de_AT.properties": "4bfbe4ab54f379cc770564c6b31b4fb6a892a67424886ef97becb2e698866c60",
+    "src/main/resources/strings_en.properties": "53fed6fb48de5012ffbed6ce769154a81771ee3a52f009c2e1d81bbc37171158",
+    "src/test/java/org/openpdfsign/ConfigurationTest.java": "add3b1b2b751dab54cce43352556ceb382473da59be235a0fc0ed5d51d696f98",
+    "src/test/java/org/openpdfsign/KeyStoreLoaderTest.java": "118f07003fc7e0c108eeaa7cc76da16eb2c08dff5461e3dfff2528c9eaa095da",
+    "src/test/java/org/openpdfsign/SignerTest.java": "32717b58bf6ae16d8b945271e6bf83168c83fbd23d8a4fc00c488bff39dab336",
+    "src/test/resources/cert.crt": "43d3eea3f07df3a82d65f4ec0fa6023328362001cd85aaab696cb4c4d7af9bbb",
+    "src/test/resources/cert.pem": "dca5fdc7b29392567e202b58633b8d8473cee40597d7be5a502f7c34b51692e8",
+    "src/test/resources/demo.pdf": "32729935f302977a09bbca7fbde42a89a4a36d3a7d8d36197412bbb152ab3a86",
+    "src/test/resources/key.pem": "b5362040b0e0acc77b2a907f95f31ff3f54957da08db0ebd781c5b9ef83bf7f0",
+    "src/test/resources/key_nopass.pem": "bc576cd5bc505b140d7981643c69879303c5bf47905975db8096fd7de092069f"
+  },
+  "aggregate_counts": {
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

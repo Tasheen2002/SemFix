@@ -1,0 +1,21 @@
+diff --git a/src/main/java/org/geoserver/shell/ScriptCommands.java b/src/main/java/org/geoserver/shell/ScriptCommands.java
+--- a/src/main/java/org/geoserver/shell/ScriptCommands.java
++++ b/src/main/java/org/geoserver/shell/ScriptCommands.java
+@@ -295,7 +295,7 @@
+         StringBuilder builder = new StringBuilder();
+         for (int i = 0; i < jsonArray.length(); i++) {
+             JSONObject jsonObject = jsonArray.getJSONObject(i);
+-            builder.append(jsonObject.getString("id")).append(" ")
++            builder.append(jsonObject.get("id")).append(" ")
+                     .append(jsonObject.get("engine"))
+                     .append(OsUtils.LINE_SEPARATOR);
+         }
+@@ -311,7 +311,7 @@
+         String result = HTTPUtils.get(url, geoserver.getUser(), geoserver.getPassword());
+         JSONObject jsonObject = new JSONObject(result);
+         StringBuilder builder = new StringBuilder();
+-        builder.append(jsonObject.getString("id")).append(" ")
++        builder.append(jsonObject.get("id")).append(" ")
+                 .append(jsonObject.get("engine"))
+                 .append(OsUtils.LINE_SEPARATOR);
+         return builder.toString();

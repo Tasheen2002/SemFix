@@ -1,0 +1,96 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for edu.ksu.ome.lti:lti-launch:jar:1.5.0-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.logging.log4j:log4j-core:jar -> duplicate declaration of version (?) @ line 316, column 17
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ---------------------< edu.ksu.ome.lti:lti-launch >---------------------
+[INFO] Building LTI Launch 1.5.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ lti-launch ---
+[INFO] Deleting /lti-launch/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven) @ lti-launch ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ lti-launch ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ lti-launch ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 18 source files to /lti-launch/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ lti-launch ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ lti-launch ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 5 source files to /lti-launch/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.19.1:test (default-test) @ lti-launch ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running edu.ksu.lti.launch.test.SpringContextITest
+Nov 20, 2026 5:03:05 AM org.springframework.test.context.web.WebTestContextBootstrapper getDefaultTestExecutionListenerClassNames
+INFO: Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+Nov 20, 2026 5:03:06 AM org.springframework.test.context.web.WebTestContextBootstrapper instantiateListeners
+INFO: Could not instantiate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/TransactionDefinition]
+Nov 20, 2026 5:03:06 AM org.springframework.test.context.web.WebTestContextBootstrapper instantiateListeners
+INFO: Could not instantiate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+Nov 20, 2026 5:03:06 AM org.springframework.test.context.web.WebTestContextBootstrapper getTestExecutionListeners
+INFO: Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7b98f307, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@4802796d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@34123d65]
+Nov 20, 2026 5:03:07 AM org.springframework.web.context.support.GenericWebApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.web.context.support.GenericWebApplicationContext@24269709: startup date [Fri Nov 20 05:03:07 GMT 2026]; root of context hierarchy
+Nov 20, 2026 5:03:09 AM org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader isOverriddenByExistingDefinition
+INFO: Skipping bean definition for [BeanMethod:name=ltiLaunch,declaringClass=edu.ksu.lti.launch.spring.config.TestServiceConfig]: a definition for bean 'ltiLaunch' already exists. This top-level bean definition is considered as an override.
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.springframework.cglib.core.ReflectUtils$2 (file:/root/.m2/repository/org/springframework/spring-core/4.1.6.RELEASE/spring-core-4.1.6.RELEASE.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of org.springframework.cglib.core.ReflectUtils$2
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Nov 20, 2026 5:03:18 AM org.springframework.security.web.DefaultSecurityFilterChain <init>
+INFO: Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/launch']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2bc9a775, org.springframework.security.web.context.SecurityContextPersistenceFilter@3d43fe, org.springframework.security.web.header.HeaderWriterFilter@5e8604bf, org.springframework.security.web.authentication.logout.LogoutFilter@385ef531, org.springframework.security.oauth.provider.filter.ProtectedResourceProcessingFilter@27b000f7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@676ff3b0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@35ff8fc9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@42f9c19a, org.springframework.security.web.session.SessionManagementFilter@7e9da981, org.springframework.security.web.access.ExceptionTranslationFilter@6fd1660, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@22bb5646]
+Nov 20, 2026 5:03:19 AM org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping registerHandlerMethod
+INFO: Mapped "{[/launch],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String edu.ksu.lti.launch.controller.LtiLaunchController.ltiLaunch(edu.ksu.lti.launch.model.LtiLaunchData,javax.servlet.http.HttpSession) throws java.lang.Exception
+Nov 20, 2026 5:03:19 AM org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping registerHandlerMethod
+INFO: Mapped "{[/beginOauth],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String edu.ksu.lti.launch.controller.OauthController.startOauth(javax.servlet.http.HttpServletRequest) throws edu.ksu.lti.launch.exception.NoLtiSessionException,edu.ksu.lti.launch.exception.CookieUnavailableException
+Nov 20, 2026 5:03:19 AM org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping registerHandlerMethod
+INFO: Mapped "{[/oauthResponse],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String edu.ksu.lti.launch.controller.OauthController.oauthResponse(javax.servlet.http.HttpServletRequest,java.lang.String,java.lang.String,java.lang.String) throws edu.ksu.lti.launch.exception.NoLtiSessionException
+Nov 20, 2026 5:03:20 AM org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter initControllerAdviceCache
+INFO: Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@24269709: startup date [Fri Nov 20 05:03:07 GMT 2026]; root of context hierarchy
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.214 sec - in edu.ksu.lti.launch.test.SpringContextITest
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:07 min
+[INFO] Finished at: 2026-11-20T05:03:21Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.19.1
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 

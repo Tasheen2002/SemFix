@@ -1,0 +1,40 @@
+=== CASE 104 8fe55d8be21f549ba55bcccc2d21e81386bfc8b2
+  project=open-pdf-sign/open-pdf-sign dep=eu.europa.ec.joinup.sd-dss:dss-pades-pdfbox 5.9 -> 5.10.2 scope=compile type=minor java=11
+  PR=https://github.com/open-pdf-sign/open-pdf-sign/pull/9
+  PRE log logs/batch_triage/8fe55d8b_pre.log:
+  lines=850
+  status: [INFO] BUILD SUCCESS
+  aggregate summaries: Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+  BREAKING log logs/batch_triage/8fe55d8b_breaking.log:
+  lines=78
+  status: [INFO] BUILD FAILURE
+  aggregate summaries: Tests run: 5, Failures: 0, Errors: 1, Skipped: 0
+  failing classes: Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.468 s <<< FAILURE! - in org.openpdfsign.SignerTest
+  section: Errors: | SignerTest.testSignPdf:43 » NoSuchMethod 'void eu.europa.esig.dss.pdf.pdfbox.P... | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] BUILD FAILURE | [INFO] ------------------------------------------------------------------------ | [INFO] Total time:  11.889 s | [INFO] Finished at: 2026-11-10T07:29:38Z | [INFO] ------------------------------------------------------------------------ | [WARNING] | [WARNING] Plugin validation issues were detected in 3 plugin(s) | [WARNING]
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project openpdfsign: There are test failures.
+  FAILBLOCK: [ERROR] testSignPdf  Time elapsed: 0.467 s  <<< ERROR!
+      java.lang.NoSuchMethodError: 'void eu.europa.esig.dss.pdf.pdfbox.PdfBoxSignatureService.checkDocumentPermissions(eu.europa.esig.dss.pdf.PdfDocumentReader)'
+      at org.openpdfsign.SignerTest.testSignPdf(SignerTest.java:43)
+      [INFO]
+      [INFO] Results:
+      [INFO]
+  distinct fail signatures (count): 1x java.lang.NoSuchMethodError: 'void eu.europa.esig.dss.pdf.pdfbox.PdfBoxSignatureService.checkDocumentPermissions(eu.euro
+  linkage/compile signals: NoSuchMethodError
+  exception names: java.lang.NoSuchMethodErrorx1
+  EVIDENCE logs/case104_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/dss-pades-5.9.jar, breaking/dss-pades-pdfbox-5.10.2.jar, breaking_dss-pades-5.9_AbstractPDFSignatureService_javap.txt, breaking_dss-pades-pdfbox-5.10.2_PdfBoxSignatureService_javap.txt, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/dss-pades-5.9.jar, pre/dss-pades-pdfbox-5.9.jar, pre_dss-pades-5.9_AbstractPDFSignatureService_javap.txt, pre_dss-pades-pdfbox-5.9_PdfBoxSignatureService_javap.txt, resolved_jar_inspection.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=3 sum(t,f,e,s)=[5, 0, 0, 0]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=3 sum(t,f,e,s)=[5, 0, 1, 0]
+  archived non-report files: pre=23 breaking=23 changed=1 added=0 removed=0
+  DIFF pom.xml (7 lines):
+    @@ -95,3 +95,3 @@
+                 <artifactId>dss-pades-pdfbox</artifactId>
+    -            <version>5.9</version>
+    +            <version>5.10.2</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    ERROR org.openpdfsign.SignerTest#testSignPdf type=java.lang.NoSuchMethodError msg='void eu.europa.esig.dss.pdf.pdfbox.PdfBoxSignatureService.checkDocumentPermissions(eu.europa.esig.dss.pdf.PdfDocumentReader)'
+       at org.openpdfsign.SignerTest.testSignPdf(SignerTest.java:43)
+  all_poms: count=1 changed=['pom.xml']
+    pom.xml: -            <version>5.9</version> / +            <version>5.10.2</version>
+  JSON resolved_jar_inspection.json: [{"phase":"pre","resolved_path":"/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-pades-pdfbox/5.9/dss-pades-pdfbox-5.9.jar","disassemblies":[{"class":"eu.europa.esig.dss.pdf.pdfbox.PdfBoxSignatureService","file":"pre_dss-pades-pdfbox-5.9_PdfBoxSignatureService_javap.txt","exit_code":0}]},{"phase":"pre","resolved_path":"/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-pades/5.9/dss-pades-5.9.jar","disassemblies":[{"class":"eu.europa.esig.dss.pdf.AbstractPDFSignatureService","file":"pre_dss-pades-5.9_AbstractPDFSignatureService_javap.txt","exit_code":0}]},{"phase":"breaking","resolved_path":"/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-pades-pdfbox/5.10.2/dss-pades-pdfbox-5.10.2.jar","disassemblies":[{"class":"eu.europa.esig.dss.pdf.pdfbox.PdfBoxSignatureService","file":"breaking_dss-pades-pdfbox-5.10.2_PdfBoxSignatureService_javap.txt","exit_code":0}]},{"phase":"breaking","resolved_path":"/root/.m2/repository/eu/europa/ec/joinup/sd-dss/dss-pades/5.9/dss-pades-5.9.jar","disassemblies":[{"class":"eu.europa.esig.dss.pdf.AbstractPDFSignatureService","file":"breaking_dss-pades-5.9_AbstractPDFSignatureService_javap.txt","exit_code":0}]}]

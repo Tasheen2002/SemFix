@@ -1,0 +1,77 @@
+=== CASE 163 db4b37b7cf6b0fe74565f15a03518ba68d4ce1ff
+  project=btrplace/scheduler dep=net.minidev:json-smart 2.4.8 -> 2.4.9 scope=compile type=patch java=11
+  PR=https://github.com/btrplace/scheduler/pull/441
+  PRE log logs/batch_triage/db4b37b7_pre.log:
+  lines=976
+  status: [INFO] BUILD SUCCESS
+  reactor: scheduler   SUCCESS [  0.756 s]; scheduler-api   SUCCESS [ 22.260 s]; scheduler-json   SUCCESS [  6.014 s]; scheduler-choco   SUCCESS [  02:21 h]; scheduler-examples   SUCCESS [  0.217 s]; btrpsl   SUCCESS [  4.210 s]; safeplace   SUCCESS [  4.808 s]; bench   SUCCESS [  2.434 s]; scheduler-split   SUCCESS [  2.667 s]; BUILD SUCCESS
+  aggregate summaries: Tests run: 260, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 93, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 264, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 271, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 38, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 2, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 38, Failures: 0, Errors: 0, Skipped: 0
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+  exception names: org.btrplace.btrpsl.ScriptBuilderExceptionx5
+  BREAKING log logs/batch_triage/db4b37b7_breaking.log:
+  lines=515
+  status: [INFO] BUILD FAILURE
+  reactor: scheduler   SUCCESS [  0.415 s]; scheduler-api   SUCCESS [  7.631 s]; scheduler-json   SUCCESS [  2.657 s]; scheduler-choco   FAILURE [02:25 min]; scheduler-examples   SKIPPED; btrpsl   SKIPPED; safeplace   SKIPPED; bench   SKIPPED; scheduler-split   SKIPPED; BUILD FAILURE
+  aggregate summaries: Tests run: 260, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 93, Failures: 0, Errors: 0, Skipped: 0 || Tests run: 264, Failures: 2, Errors: 0, Skipped: 0
+  failing classes: Tests run: 264, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 142.631 s <<< FAILURE! - in TestSuite
+  section: Failures: | IssuesTest.testIssue100:535->computable:515 » IllegalArgument org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434. | IssuesTest.testIssue101:540->computable:515 » IllegalArgument org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876. | [INFO] | [INFO] | [INFO] ------------------------------------------------------------------------ | [INFO] Reactor Summary for scheduler 1.12.9-SNAPSHOT: | [INFO] | [INFO] scheduler .......................................... SUCCESS [  0.415 s] | [INFO] scheduler-api ...................................... SUCCESS [  7.631 s] | [INFO] scheduler-json ..................................... SUCCESS [  2.657 s] | [INFO] scheduler-choco .................................... FAILURE [02:25 min] | [INFO] scheduler-examples ................................. SKIPPED
+  first [ERROR] lines:
+    [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project scheduler-choco: There are test failures.
+  FAILBLOCK: [ERROR] org.btrplace.scheduler.choco.IssuesTest.testIssue100  Time elapsed: 0.017 s  <<< FAILURE!
+      java.lang.IllegalArgumentException: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.
+      at org.btrplace.json.JSON.readInstance(JSON.java:78)
+      at org.btrplace.json.JSON.readInstance(JSON.java:60)
+      at org.btrplace.scheduler.choco.IssuesTest.computable(IssuesTest.java:515)
+      at org.btrplace.scheduler.choco.IssuesTest.testIssue100(IssuesTest.java:535)
+      at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+      Caused by: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.
+      Caused by: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.
+  distinct fail signatures (count): 2x java.lang.IllegalArgumentException: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Ma
+  provider/console lines: SLF4J: No SLF4J providers were found. | SLF4J: Defaulting to no-operation (NOP) logger implementation | SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+  exception names: net.minidev.json.parser.ParseExceptionx8, org.btrplace.json.JSONConverterExceptionx6, java.lang.IllegalArgumentExceptionx2
+  EVIDENCE logs/case163_evidence: all_poms_comparison.json, breaking/all_poms.tar, breaking/all_poms_sha256.json, breaking/archive_summary.json, breaking/artifacts.tar, breaking/jar_inspection.json, breaking/jars/accessors-smart-2.4.9.jar, breaking/jars/json-smart-2.4.9.jar, breaking/reconciled_counts.json, pre/all_poms.tar, pre/all_poms_sha256.json, pre/archive_summary.json, pre/artifacts.tar, pre/jar_inspection.json, pre/jars/accessors-smart-2.4.8.jar, pre/jars/json-smart-2.4.8.jar, pre/reconciled_counts.json, sha256_manifest.json
+  pre archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=241 sum(t,f,e,s)=[1933, 0, 0, 1]
+  breaking archive: exit=0 cmd=sh -c mvn clean test -B | tee %s.log reports=171 sum(t,f,e,s)=[1235, 2, 2, 1]
+  archived non-report files: pre=1000 breaking=1000 changed=1 added=0 removed=0
+  DIFF json/pom.xml (7 lines):
+    @@ -30,3 +30,3 @@
+                 <artifactId>json-smart</artifactId>
+    -            <version>2.4.8</version>
+    +            <version>2.4.9</version>
+             </dependency>
+  BREAKING surefire failures/errors:
+    FAILURE org.btrplace.scheduler.choco.IssuesTest#testIssue100 type=java.lang.IllegalArgumentException msg=org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.
+       Caused by: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.
+       Caused by: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.
+       at org.btrplace.json.JSON.readInstance(JSON.java:78)
+       at org.btrplace.json.JSON.readInstance(JSON.java:60)
+       at org.btrplace.scheduler.choco.IssuesTest.computable(IssuesTest.java:515)
+       at org.btrplace.scheduler.choco.IssuesTest.testIssue100(IssuesTest.java:535)
+    FAILURE org.btrplace.scheduler.choco.IssuesTest#testIssue101 type=java.lang.IllegalArgumentException msg=org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876.
+       Caused by: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876.
+       Caused by: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876.
+       at org.btrplace.json.JSON.readInstance(JSON.java:78)
+       at org.btrplace.json.JSON.readInstance(JSON.java:60)
+       at org.btrplace.scheduler.choco.IssuesTest.computable(IssuesTest.java:515)
+       at org.btrplace.scheduler.choco.IssuesTest.testIssue101(IssuesTest.java:540)
+    ERROR org.btrplace.scheduler.choco.IssuesTest#testIssue100 type=java.lang.IllegalArgumentException msg=org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.
+       Caused by: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.
+       Caused by: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.
+       at org.btrplace.json.JSON.readInstance(JSON.java:78)
+       at org.btrplace.json.JSON.readInstance(JSON.java:60)
+       at org.btrplace.scheduler.choco.IssuesTest.computable(IssuesTest.java:515)
+       at org.btrplace.scheduler.choco.IssuesTest.testIssue100(IssuesTest.java:535)
+    ERROR org.btrplace.scheduler.choco.IssuesTest#testIssue101 type=java.lang.IllegalArgumentException msg=org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876.
+       Caused by: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876.
+       Caused by: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876.
+       at org.btrplace.json.JSON.readInstance(JSON.java:78)
+       at org.btrplace.json.JSON.readInstance(JSON.java:60)
+       at org.btrplace.scheduler.choco.IssuesTest.computable(IssuesTest.java:515)
+       at org.btrplace.scheduler.choco.IssuesTest.testIssue101(IssuesTest.java:540)
+  all_poms: count=9 changed=['json/pom.xml']
+    json/pom.xml: -            <version>2.4.8</version> / +            <version>2.4.9</version>
+  JSON breaking/jar_inspection.json: {"case_id":"db4b37b7cf6b0fe74565f15a03518ba68d4ce1ff","phase":"breaking","path_filter":"/(json-smart|accessors-smart)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/net/minidev/accessors-smart/2.4.9/accessors-smart-2.4.9.jar","classes":{"net.minidev.json.parser.JSONParser":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/net/minidev/json-smart/2.4.9/json-smart-2.4.9.jar","classes":{"net.minidev.json.parser.JSONParser":{"present":true,"major_version":52}},"services":{},"disassemblies":[]}]}
+  JSON breaking/reconciled_counts.json: {"phase":"breaking","case_id":"db4b37b7cf6b0fe74565f15a03518ba68d4ce1ff","raw_xml_counts":{"tests":1235,"failures":2,"errors":2,"skipped":1},"aggregate_counts":{"tests":617,"failures":2,"errors":0,"skipped":0},"duplicate_format_counts":{"tests":618,"failures":0,"errors":2,"skipped":1},"included_reports":["api/target/surefire-reports/TEST-TestSuite.xml","choco/target/surefire-reports/TEST-TestSuite.xml","json/target/surefire-reports/TEST-TestSuite.xml"],"excluded_reports":["api/target/surefire-reports/junitreports/TEST-org.btrplace.model.DefaultAttributesTest.xml","api/target/surefire-reports/junitreports/TEST-org.btrplace.model.DefaultElementBuilderTest.xml","api/target/surefire-reports/junitreports/TEST-org.btrplace.model.DefaultMappingTest.xml","api/target/surefire-reports/junitreports/TEST-org.btrplace.model.DefaultModelTest.xml","api/target/surefire-reports/junitreports/TEST-org.btrplace.model.InstanceTest.xml","api/target/surefire-reports/junitreports/TEST-org.btrplace.model.SynchronizedElementBuilderTest.xml","api/target/surefire-reports/junitreports/TEST-org.btrplace.model.constraint.AllowAllConstraintCheckerTest.xml","api/target/surefire-reports/junitreports/TEST-org.btrplace.model.constraint.AmongTest.xml","api/target/surefire-reports/junitreports/TEST-org.btrplace.model.constraint.BanTest.xml","api/target/surefire-reports/junitreports/TEST-org.btrplace.model.constrain...
+  JSON pre/jar_inspection.json: {"case_id":"db4b37b7cf6b0fe74565f15a03518ba68d4ce1ff","phase":"pre","path_filter":"/(json-smart|accessors-smart)/","path_source":"Fresh original test report classpaths","artifacts":[{"resolved_path":"/root/.m2/repository/net/minidev/accessors-smart/2.4.8/accessors-smart-2.4.8.jar","classes":{"net.minidev.json.parser.JSONParser":{"present":false,"major_version":null}},"services":{},"disassemblies":[]},{"resolved_path":"/root/.m2/repository/net/minidev/json-smart/2.4.8/json-smart-2.4.8.jar","classes":{"net.minidev.json.parser.JSONParser":{"present":true,"major_version":52}},"services":{},"disassemblies":[]}]}
+  JSON pre/reconciled_counts.json: {"phase":"pre","case_id":"db4b37b7cf6b0fe74565f15a03518ba68d4ce1ff","raw_xml_counts":{"tests":1933,"failures":0,"errors":0,"skipped":1},"aggregate_counts":{"tests":966,"failures":0,"errors":0,"skipped":0},"duplicate_format_counts":{"tests":967,"failures":0,"errors":0,"skipped":1},"included_reports":["api/target/surefire-reports/TEST-TestSuite.xml","bench/target/surefire-reports/TEST-org.btrplace.bench.BenchTest.xml","btrpsl/target/surefire-reports/TEST-TestSuite.xml","choco/target/surefire-reports/TEST-TestSuite.xml","json/target/surefire-reports/TEST-TestSuite.xml","safeplace/target/surefire-reports/TEST-TestSuite.xml","split/target/surefire-reports/TEST-TestSuite.xml"],"excluded_reports":["api/target/surefire-reports/junitreports/TEST-org.btrplace.model.DefaultAttributesTest.xml","api/target/surefire-reports/junitreports/TEST-org.btrplace.model.DefaultElementBuilderTest.xml","api/target/surefire-reports/junitreports/TEST-org.btrplace.model.DefaultMappingTest.xml","api/target/surefire-reports/junitreports/TEST-org.btrplace.model.DefaultModelTest.xml","api/target/surefire-reports/junitreports/TEST-org.btrplace.model.InstanceTest.xml","api/target/surefire-reports/junitreports/TEST-org.btrplace.model.SynchronizedElementBuilderTest.xml","api/target/surefire-reports/junitreports/TEST-org.btrplace.model.constraint.AllowAllConstraintCheckerTest.xml","api/target/surefire-reports/junit...
+  JARS: breaking/jars/accessors-smart-2.4.9.jar, breaking/jars/json-smart-2.4.9.jar, pre/jars/accessors-smart-2.4.8.jar, pre/jars/json-smart-2.4.8.jar
