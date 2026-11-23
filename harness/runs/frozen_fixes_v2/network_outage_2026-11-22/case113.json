@@ -1,0 +1,143 @@
+{
+ "case": 113,
+ "case_id": "9b63e53888ebdd9c84f4eec3cb661299dea41344",
+ "label": "frozen_fixes_v2",
+ "harness_version": "v2",
+ "patch": "fix_mining\\fixes_v1.0\\researcher_written_fixes\\case113.patch",
+ "date": "2026-11-22",
+ "verdict": "NOT_REPAIRED",
+ "flaky": false,
+ "attempts": [
+  {
+   "attempt": 1,
+   "log": "harness\\runs\\frozen_fixes_v2\\case113.log",
+   "seconds": 100,
+   "verdict": "NOT_REPAIRED",
+   "failed": [
+    "BUILD",
+    "NO_REGRESSION"
+   ],
+   "regressions": [
+    "com.google.api.gax.grpc.GrpcClientCallsTest: did not run",
+    "com.google.api.gax.grpc.GrpcCallContextTest: did not run",
+    "com.google.api.gax.grpc.GrpcDirectStreamingCallableTest: did not run",
+    "com.google.api.gax.grpc.GrpcResponseMetadataTest: did not run",
+    "com.google.api.gax.grpc.testing.MockServiceHelperTest: did not run",
+    "com.google.api.gax.grpc.GrpcStatusCodeTest: did not run",
+    "com.google.api.gax.grpc.SettingsTest: did not run",
+    "com.google.api.gax.grpc.GrpcTransportDescriptorTest: did not run",
+    "com.google.api.gax.grpc.GrpcApiExceptionFactoryTest: did not run",
+    "com.google.api.gax.grpc.GrpcLongRunningClientTest: did not run",
+    "com.google.api.gax.grpc.InstantiatingGrpcChannelProviderTest: did not run",
+    "com.google.api.gax.grpc.GrpcMetadataHandlerInterceptorTest: did not run",
+    "com.google.api.gax.grpc.ProtoOperationTransformersTest: did not run",
+    "com.google.api.gax.grpc.CallOptionsUtilTest: did not run",
+    "com.google.api.gax.grpc.GrpcHeaderInterceptorTest: did not run",
+    "com.google.api.gax.grpc.GrpcLongRunningTest: did not run",
+    "com.google.api.gax.grpc.GrpcCallableFactoryTest: did not run",
+    "com.google.api.gax.grpc.ChannelPoolTest: did not run",
+    "com.google.api.gax.grpc.GaxGrpcPropertiesTest: did not run",
+    "com.google.api.gax.grpc.GrpcDirectServerStreamingCallableTest: did not run"
+   ]
+  }
+ ],
+ "checks": {
+  "APPLIES": true,
+  "BUILD": false,
+  "TARGET_FIXED": true,
+  "NO_REGRESSION": false,
+  "UPDATE_KEPT": "UNKNOWN"
+ },
+ "failed_checks": [
+  "BUILD",
+  "NO_REGRESSION"
+ ],
+ "evaluation_mode": "tests only (failing tests pass, nothing else breaks)",
+ "reference_group": "RESEARCHER_WRITTEN_ONLY",
+ "command": "mvn clean test -B",
+ "tree_command": "mvn -B -DskipTests test-compile dependency:tree -Dincludes=org.mockito:mockito-core",
+ "seconds": 100,
+ "build": {
+  "status": "FAILURE",
+  "maven_exit": "1",
+  "tests": 529,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "pre_baseline": {
+  "tests": 787,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "target_classes": {
+  "com.google.api.gax.tracing.OpencensusTracerFactoryTest": "passed",
+  "com.google.api.gax.tracing.OpencensusTracerTest": "passed"
+ },
+ "regressions": [
+  "com.google.api.gax.grpc.GrpcClientCallsTest: did not run",
+  "com.google.api.gax.grpc.GrpcCallContextTest: did not run",
+  "com.google.api.gax.grpc.GrpcDirectStreamingCallableTest: did not run",
+  "com.google.api.gax.grpc.GrpcResponseMetadataTest: did not run",
+  "com.google.api.gax.grpc.testing.MockServiceHelperTest: did not run",
+  "com.google.api.gax.grpc.GrpcStatusCodeTest: did not run",
+  "com.google.api.gax.grpc.SettingsTest: did not run",
+  "com.google.api.gax.grpc.GrpcTransportDescriptorTest: did not run",
+  "com.google.api.gax.grpc.GrpcApiExceptionFactoryTest: did not run",
+  "com.google.api.gax.grpc.GrpcLongRunningClientTest: did not run",
+  "com.google.api.gax.grpc.InstantiatingGrpcChannelProviderTest: did not run",
+  "com.google.api.gax.grpc.GrpcMetadataHandlerInterceptorTest: did not run",
+  "com.google.api.gax.grpc.ProtoOperationTransformersTest: did not run",
+  "com.google.api.gax.grpc.CallOptionsUtilTest: did not run",
+  "com.google.api.gax.grpc.GrpcHeaderInterceptorTest: did not run",
+  "com.google.api.gax.grpc.GrpcLongRunningTest: did not run",
+  "com.google.api.gax.grpc.GrpcCallableFactoryTest: did not run",
+  "com.google.api.gax.grpc.ChannelPoolTest: did not run",
+  "com.google.api.gax.grpc.GaxGrpcPropertiesTest: did not run",
+  "com.google.api.gax.grpc.GrpcDirectServerStreamingCallableTest: did not run",
+  "com.google.api.gax.grpc.TimeoutTest: did not run",
+  "com.google.longrunning.OperationsClientTest: did not run",
+  "com.google.api.gax.httpjson.HttpJsonCallContextTest: did not run",
+  "com.google.api.gax.httpjson.HttpJsonClientInterceptorTest: did not run",
+  "com.google.api.gax.httpjson.InstantiatingHttpJsonChannelProviderTest: did not run",
+  "com.google.api.gax.httpjson.HttpHeadersUtilsTest: did not run",
+  "com.google.api.gax.httpjson.HttpJsonDirectServerStreamingCallableTest: did not run",
+  "com.google.api.gax.httpjson.HttpJsonOperationSnapshotCallableTest: did not run",
+  "com.google.api.gax.httpjson.ProtoMessageRequestFormatterTest: did not run",
+  "com.google.api.gax.httpjson.HttpRequestRunnableTest: did not run",
+  "com.google.api.gax.httpjson.HttpJsonStatusCodeTest: did not run",
+  "com.google.api.gax.httpjson.HttpJsonLongRunningClientTest: did not run",
+  "com.google.api.gax.httpjson.RetryingTest: did not run",
+  "com.google.api.gax.httpjson.HttpJsonOperationSnapshotTest: did not run",
+  "com.google.api.gax.httpjson.ProtoRestSerializerTest: did not run",
+  "com.google.api.gax.httpjson.ProtoMessageResponseParserTest: did not run",
+  "com.google.api.gax.httpjson.HttpJsonCallableFactoryTest: did not run",
+  "com.google.api.gax.httpjson.ProtoOperationTransformersTest: did not run",
+  "com.google.api.gax.httpjson.GaxHttpJsonPropertiesTest: did not run",
+  "com.google.api.gax.httpjson.longrunning.OperationsClientTest: did not run",
+  "com.google.api.gax.httpjson.HttpJsonDirectCallableTest: did not run",
+  "com.google.api.gax.httpjson.ProtoMessageJsonStreamIteratorTest: did not run"
+ ],
+ "regression_count": 42,
+ "dependency": "org.mockito:mockito-core",
+ "new_version": "5.1.0",
+ "resolved_versions": [],
+ "info": {
+  "files_changed": [
+   "gax/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker"
+  ],
+  "test_files_changed": [
+   "gax/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker"
+  ],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": []
+ },
+ "notes": [
+  "dependency:tree failed twice (plain and pinned 3.6.1); UPDATE_KEPT unknown"
+ ],
+ "log": "harness\\runs\\frozen_fixes_v2\\case113.log",
+ "image": "ghcr.io/chains-project/breaking-updates:9b63e53888ebdd9c84f4eec3cb661299dea41344-breaking",
+ "source": "repair harness v2 (Claude); AI evaluation"
+}

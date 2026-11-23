@@ -1,0 +1,74 @@
+{
+ "case": 113,
+ "case_id": "9b63e53888ebdd9c84f4eec3cb661299dea41344",
+ "label": "frozen_fixes_v2",
+ "harness_version": "v2.1",
+ "patch": "fix_mining\\fixes_v1.0\\researcher_written_fixes\\case113.patch",
+ "date": "2026-11-23",
+ "verdict": "REPAIRED",
+ "inconclusive_reason": "",
+ "flaky": false,
+ "attempts": [
+  {
+   "attempt": 1,
+   "log": "harness\\runs\\frozen_fixes_v2\\case113.log",
+   "seconds": 242,
+   "verdict": "REPAIRED",
+   "failed": [],
+   "regressions": []
+  }
+ ],
+ "checks": {
+  "APPLIES": true,
+  "BUILD": true,
+  "TARGET_FIXED": true,
+  "NO_REGRESSION": true,
+  "UPDATE_KEPT": true
+ },
+ "failed_checks": [],
+ "evaluation_mode": "tests only (failing tests pass, nothing else breaks)",
+ "reference_group": "RESEARCHER_WRITTEN_ONLY",
+ "command": "mvn clean test -B",
+ "tree_command": "mvn -B -DskipTests test-compile dependency:tree -Dincludes=org.mockito:mockito-core",
+ "seconds": 242,
+ "build": {
+  "status": "SUCCESS",
+  "maven_exit": "0",
+  "tests": 787,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "pre_baseline": {
+  "tests": 787,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "target_classes": {
+  "com.google.api.gax.tracing.OpencensusTracerFactoryTest": "passed",
+  "com.google.api.gax.tracing.OpencensusTracerTest": "passed"
+ },
+ "regressions": [],
+ "regression_count": 0,
+ "dependency": "org.mockito:mockito-core",
+ "new_version": "5.1.0",
+ "resolved_versions": [
+  "5.1.0"
+ ],
+ "info": {
+  "files_changed": [
+   "gax/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker"
+  ],
+  "test_files_changed": [
+   "gax/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker"
+  ],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": []
+ },
+ "notes": [],
+ "log": "harness\\runs\\frozen_fixes_v2\\case113.log",
+ "image": "ghcr.io/chains-project/breaking-updates:9b63e53888ebdd9c84f4eec3cb661299dea41344-breaking",
+ "source": "repair harness v2.1 (Claude); AI evaluation"
+}

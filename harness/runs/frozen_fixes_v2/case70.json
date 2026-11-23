@@ -1,0 +1,70 @@
+{
+ "case": 70,
+ "case_id": "57062474434f91f25595516ae8b759a53073a40f",
+ "label": "frozen_fixes_v2",
+ "harness_version": "v2",
+ "patch": "fix_mining\\fixes_v1.0\\researcher_written_fixes\\case70.patch",
+ "date": "2026-11-22",
+ "verdict": "REPAIRED",
+ "flaky": false,
+ "attempts": [
+  {
+   "attempt": 1,
+   "log": "harness\\runs\\frozen_fixes_v2\\case70.log",
+   "seconds": 107,
+   "verdict": "REPAIRED",
+   "failed": [],
+   "regressions": []
+  }
+ ],
+ "checks": {
+  "APPLIES": true,
+  "BUILD": true,
+  "TARGET_FIXED": true,
+  "NO_REGRESSION": true,
+  "UPDATE_KEPT": true
+ },
+ "failed_checks": [],
+ "evaluation_mode": "tests only (failing tests pass, nothing else breaks)",
+ "reference_group": "RESEARCHER_WRITTEN_ONLY",
+ "command": "mvn clean test -B",
+ "tree_command": "mvn -B -DskipTests test-compile dependency:tree -Dincludes=org.json:json",
+ "seconds": 107,
+ "build": {
+  "status": "SUCCESS",
+  "maven_exit": "0",
+  "tests": 205,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "pre_baseline": {
+  "tests": 205,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "target_classes": {
+  "org.geoserver.shell.ScriptCommandsTest": "passed"
+ },
+ "regressions": [],
+ "regression_count": 0,
+ "dependency": "org.json:json",
+ "new_version": "20230227",
+ "resolved_versions": [
+  "20230227"
+ ],
+ "info": {
+  "files_changed": [
+   "src/main/java/org/geoserver/shell/ScriptCommands.java"
+  ],
+  "test_files_changed": [],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": []
+ },
+ "notes": [],
+ "log": "harness\\runs\\frozen_fixes_v2\\case70.log",
+ "image": "ghcr.io/chains-project/breaking-updates:57062474434f91f25595516ae8b759a53073a40f-breaking",
+ "source": "repair harness v2 (Claude); AI evaluation"
+}

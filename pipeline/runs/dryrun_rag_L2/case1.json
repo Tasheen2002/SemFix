@@ -1,0 +1,137 @@
+{
+ "case": 1,
+ "label": "dryrun_rag_L2",
+ "condition": "rag",
+ "level": "L2",
+ "k": 3,
+ "include_researcher_written": true,
+ "provider": "manual",
+ "model": null,
+ "effort": "high",
+ "date": "2026-11-23",
+ "retrieved": [
+  {
+   "case": 132,
+   "mechanism": "SLF4J2_IGNORES_LEGACY_BINDING",
+   "fix_author": "developer",
+   "score": 59.297
+  },
+  {
+   "case": 150,
+   "mechanism": "SLF4J2_IGNORES_LEGACY_BINDING",
+   "fix_author": "derived from developer fix (Claude)",
+   "score": 55.564
+  },
+  {
+   "case": 5,
+   "mechanism": "SLF4J2_IGNORES_LEGACY_BINDING",
+   "fix_author": "researcher-written (Claude); NOT a reference answer",
+   "score": 51.161
+  }
+ ],
+ "context_files": [
+  {
+   "path": "pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 13860
+  },
+  {
+   "path": "src/test/java/de/retest/recheck/ui/diff/AttributeDifferenceTest.java",
+   "kind": "failing test",
+   "chars": 3060
+  },
+  {
+   "path": "src/test/java/de/retest/recheck/ignore/JSFilterImplTest.java",
+   "kind": "failing test",
+   "chars": 7479
+  },
+  {
+   "path": "src/test/java/de/retest/recheck/review/workers/MigrateIgnoreFileTest.java",
+   "kind": "failing test",
+   "chars": 3067
+  },
+  {
+   "path": "src/test/java/de/retest/recheck/review/workers/LoadAndSaveFilterWorkerTest.java",
+   "kind": "failing test",
+   "chars": 3229
+  },
+  {
+   "path": "src/test/java/DefaultRecheckIgnoreTest.java",
+   "kind": "failing test",
+   "chars": 804
+  },
+  {
+   "path": "src/test/java/DefaultRecheckIgnoreJsTest.java",
+   "kind": "failing test",
+   "chars": 795
+  },
+  {
+   "path": "src/test/resources/persistence/simple_folder_persisted/retest.xml",
+   "kind": "resource file named in the failing test",
+   "chars": 314
+  },
+  {
+   "path": "src/test/resources/retest/recheck/de.retest.recheck.RecheckImplIT legacy spaces/with legacy spaces.check.recheck/retest.xml",
+   "kind": "resource file named in the failing test",
+   "chars": 3085
+  },
+  {
+   "path": "src/test/resources/retest/recheck/de.retest.recheck.RecheckImplIT spaces/with spaces.check.recheck/retest.xml",
+   "kind": "resource file named in the failing test",
+   "chars": 3085
+  },
+  {
+   "path": "src/test/resources/retest/recheck/de.retest.recheck.RecheckImplIT/filter-deleted.check.recheck/retest.xml",
+   "kind": "resource file named in the failing test",
+   "chars": 3085
+  },
+  {
+   "path": "src/test/resources/retest/recheck/de.retest.recheck.RecheckImplIT/filter.check.recheck/retest.xml",
+   "kind": "resource file named in the failing test",
+   "chars": 3085
+  },
+  {
+   "path": "src/test/resources/retest/recheck/de.retest.recheck.RecheckImplIT/no-filter.check.recheck/retest.xml",
+   "kind": "resource file named in the failing test",
+   "chars": 3085
+  }
+ ],
+ "breakage": {
+  "dependency": "org.slf4j:slf4j-api",
+  "group_id": "org.slf4j",
+  "artifact_id": "slf4j-api",
+  "old_version": "1.7.36",
+  "new_version": "2.0.3",
+  "failing_test_classes": [
+   "de.retest.recheck.ui.diff.AttributeDifferenceTest",
+   "de.retest.recheck.ignore.JSFilterImplTest",
+   "de.retest.recheck.review.workers.MigrateIgnoreFileTest",
+   "de.retest.recheck.review.workers.LoadAndSaveFilterWorkerTest",
+   "DefaultRecheckIgnoreTest",
+   "DefaultRecheckIgnoreJsTest"
+  ],
+  "exception_types": [
+   "java.lang.ClassCastException"
+  ],
+  "error_lines": [
+   "java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')"
+  ],
+  "project_frames": [],
+  "slf4j_console": [
+   "SLF4J: No SLF4J providers were found.",
+   "SLF4J: Defaulting to no-operation (NOP) logger implementation",
+   "SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.",
+   "SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.",
+   "SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar!/org/slf4j/impl/StaticLoggerBinder.class]",
+   "SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation."
+  ]
+ },
+ "attempts": [
+  {
+   "attempt": 1,
+   "prompt_chars": 56639
+  }
+ ],
+ "final_verdict": "DRY_RUN",
+ "attempts_used": 1
+}

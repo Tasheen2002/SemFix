@@ -1,0 +1,59 @@
+{
+ "case": 100,
+ "case_id": "8e1f764e628fbcd6813c9dc0329854ac46375c83",
+ "label": "frozen_fixes",
+ "patch": "fix_mining\\fixes_v1.0\\reference_fixes\\case100.patch",
+ "date": "2026-11-22",
+ "verdict": "REPAIRED",
+ "checks": {
+  "APPLIES": true,
+  "BUILD": true,
+  "TARGET_FIXED": true,
+  "NO_REGRESSION": true,
+  "UPDATE_KEPT": true
+ },
+ "failed_checks": [],
+ "evaluation_mode": "compare to reference fix + tests",
+ "reference_group": "DEVELOPER_FIX",
+ "command": "mvn clean test -B",
+ "seconds": 91,
+ "build": {
+  "status": "SUCCESS",
+  "maven_exit": "0",
+  "tests": 389,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "pre_baseline": {
+  "tests": 389,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "target_classes": {
+  "net.jadler.JadlerMockerTest": "passed"
+ },
+ "regressions": [],
+ "regression_count": 0,
+ "dependency": "org.slf4j:slf4j-api",
+ "new_version": "2.0.0",
+ "resolved_versions": [
+  "2.0.0"
+ ],
+ "info": {
+  "files_changed": [
+   "pom.xml"
+  ],
+  "test_files_changed": [],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": [],
+  "reference_fix_file_overlap": 1.0,
+  "identical_to_reference_fix": true
+ },
+ "notes": [],
+ "log": "harness\\runs\\frozen_fixes\\case100.log",
+ "image": "ghcr.io/chains-project/breaking-updates:8e1f764e628fbcd6813c9dc0329854ac46375c83-breaking",
+ "source": "repair harness v1 (Claude); AI evaluation"
+}

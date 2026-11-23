@@ -1,0 +1,83 @@
+{
+ "case": 113,
+ "label": "dryrun_rag_L2",
+ "condition": "rag",
+ "level": "L2",
+ "k": 3,
+ "include_researcher_written": true,
+ "provider": "manual",
+ "model": null,
+ "effort": "high",
+ "date": "2026-11-23",
+ "retrieved": [
+  {
+   "case": 89,
+   "mechanism": "MOCKITO5_INLINE_DEFAULT",
+   "fix_author": "researcher-written (Claude); NOT a reference answer",
+   "score": 28.61
+  },
+  {
+   "case": 158,
+   "mechanism": "SINGLETON",
+   "fix_author": "developer",
+   "score": 6.545
+  },
+  {
+   "case": 132,
+   "mechanism": "SLF4J2_IGNORES_LEGACY_BINDING",
+   "fix_author": "developer",
+   "score": 6.531
+  }
+ ],
+ "context_files": [
+  {
+   "path": "pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 9008
+  },
+  {
+   "path": "gax/src/test/java/com/google/api/gax/tracing/OpencensusTracerFactoryTest.java",
+   "kind": "failing test",
+   "chars": 5839
+  },
+  {
+   "path": "gax/src/test/java/com/google/api/gax/tracing/OpencensusTracerTest.java",
+   "kind": "failing test",
+   "chars": 14446
+  }
+ ],
+ "breakage": {
+  "dependency": "org.mockito:mockito-core",
+  "group_id": "org.mockito",
+  "artifact_id": "mockito-core",
+  "old_version": "4.11.0",
+  "new_version": "5.1.0",
+  "failing_test_classes": [
+   "com.google.api.gax.tracing.OpencensusTracerFactoryTest",
+   "com.google.api.gax.tracing.OpencensusTracerTest"
+  ],
+  "exception_types": [],
+  "error_lines": [],
+  "project_frames": [
+   {
+    "cls": "com.google.api.gax.tracing.OpencensusTracerFactoryTest",
+    "file": "OpencensusTracerFactoryTest.java",
+    "line": 106
+   },
+   {
+    "cls": "com.google.api.gax.tracing.OpencensusTracerTest",
+    "file": "OpencensusTracerTest.java",
+    "line": 158
+   }
+  ],
+  "slf4j_console": []
+ },
+ "attempts": [
+  {
+   "attempt": 1,
+   "prompt_chars": 35153
+  }
+ ],
+ "final_verdict": "DRY_RUN",
+ "attempts_used": 1
+}

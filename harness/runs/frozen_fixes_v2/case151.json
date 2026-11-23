@@ -1,0 +1,76 @@
+{
+ "case": 151,
+ "case_id": "c8a572a7d8e67eef75d9ab1a80d6acb952be6d7e",
+ "label": "frozen_fixes_v2",
+ "harness_version": "v2.2",
+ "patch": "fix_mining\\fixes_v1.0\\researcher_written_fixes\\case151.patch",
+ "date": "2026-11-23",
+ "verdict": "REPAIRED",
+ "inconclusive_reason": "",
+ "flaky": false,
+ "attempts": [
+  {
+   "attempt": 1,
+   "log": "harness\\runs\\frozen_fixes_v2\\case151.log",
+   "seconds": 88,
+   "verdict": "REPAIRED",
+   "failed": [],
+   "regressions": []
+  }
+ ],
+ "checks": {
+  "APPLIES": true,
+  "BUILD": true,
+  "TARGET_FIXED": true,
+  "NO_REGRESSION": true,
+  "UPDATE_KEPT": true
+ },
+ "failed_checks": [],
+ "evaluation_mode": "tests only (failing tests pass, nothing else breaks)",
+ "reference_group": "RESEARCHER_WRITTEN_ONLY",
+ "command": "mvn clean test -B",
+ "tree_command": "mvn -B -DskipTests test-compile dependency:tree -Dincludes=org.slf4j:slf4j-api",
+ "seconds": 88,
+ "build": {
+  "status": "SUCCESS",
+  "maven_exit": "0",
+  "tests": 737,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 4
+ },
+ "pre_baseline": {
+  "tests": 737,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 4
+ },
+ "target_classes": {
+  "DefaultRecheckIgnoreJsTest": "passed",
+  "DefaultRecheckIgnoreTest": "passed",
+  "de.retest.recheck.ignore.JSFilterImplTest": "passed",
+  "de.retest.recheck.review.workers.LoadAndSaveFilterWorkerTest": "passed",
+  "de.retest.recheck.review.workers.MigrateIgnoreFileTest": "passed",
+  "de.retest.recheck.ui.diff.AttributeDifferenceTest": "passed"
+ },
+ "regressions": [],
+ "regression_count": 0,
+ "dependency": "org.slf4j:slf4j-api",
+ "new_version": "2.0.1",
+ "resolved_versions": [
+  "2.0.1"
+ ],
+ "info": {
+  "files_changed": [
+   "pom.xml"
+  ],
+  "test_files_changed": [],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": []
+ },
+ "notes": [],
+ "log": "harness\\runs\\frozen_fixes_v2\\case151.log",
+ "image": "ghcr.io/chains-project/breaking-updates:c8a572a7d8e67eef75d9ab1a80d6acb952be6d7e-breaking",
+ "source": "repair harness v2.2 (Claude); AI evaluation"
+}

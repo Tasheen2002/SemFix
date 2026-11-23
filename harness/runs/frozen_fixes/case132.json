@@ -1,0 +1,61 @@
+{
+ "case": 132,
+ "case_id": "b5eb721e10cb05e68c0283d8a76c46cc257a0331",
+ "label": "frozen_fixes",
+ "patch": "fix_mining\\fixes_v1.0\\reference_fixes\\case132.patch",
+ "date": "2026-11-22",
+ "verdict": "REPAIRED",
+ "checks": {
+  "APPLIES": true,
+  "BUILD": true,
+  "TARGET_FIXED": true,
+  "NO_REGRESSION": true,
+  "UPDATE_KEPT": true
+ },
+ "failed_checks": [],
+ "evaluation_mode": "compare to reference fix + tests",
+ "reference_group": "DEVELOPER_FIX",
+ "command": "mvn clean test -B",
+ "seconds": 203,
+ "build": {
+  "status": "SUCCESS",
+  "maven_exit": "0",
+  "tests": 291,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 13
+ },
+ "pre_baseline": {
+  "tests": 291,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 13
+ },
+ "target_classes": {
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest": "passed",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest": "passed",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest": "passed"
+ },
+ "regressions": [],
+ "regression_count": 0,
+ "dependency": "org.slf4j:slf4j-api",
+ "new_version": "2.0.5",
+ "resolved_versions": [
+  "2.0.5"
+ ],
+ "info": {
+  "files_changed": [
+   "pom.xml"
+  ],
+  "test_files_changed": [],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": [],
+  "reference_fix_file_overlap": 1.0,
+  "identical_to_reference_fix": true
+ },
+ "notes": [],
+ "log": "harness\\runs\\frozen_fixes\\case132.log",
+ "image": "ghcr.io/chains-project/breaking-updates:b5eb721e10cb05e68c0283d8a76c46cc257a0331-breaking",
+ "source": "repair harness v1 (Claude); AI evaluation"
+}

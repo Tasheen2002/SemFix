@@ -1,0 +1,106 @@
+{
+ "case": 2,
+ "case_id": "04c07b066b60a2e9d4f797b98dcd439a3a42f0b9",
+ "label": "selftest_v2_case2_noop",
+ "harness_version": "v2",
+ "patch": "harness\\selftest\\patches\\case2_noop.patch",
+ "date": "2026-11-22",
+ "verdict": "NOT_REPAIRED",
+ "flaky": false,
+ "attempts": [
+  {
+   "attempt": 1,
+   "log": "harness\\runs\\selftest_v2_case2_noop\\case2.log",
+   "seconds": 78,
+   "verdict": "NOT_REPAIRED",
+   "failed": [
+    "BUILD",
+    "TARGET_FIXED",
+    "NO_REGRESSION"
+   ],
+   "regressions": [
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest: 0F/1E",
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest: 0F/1E",
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest: 0F/1E"
+   ]
+  },
+  {
+   "attempt": 2,
+   "log": "harness\\runs\\selftest_v2_case2_noop\\case2_attempt2.log",
+   "seconds": 78,
+   "verdict": "NOT_REPAIRED",
+   "failed": [
+    "BUILD",
+    "TARGET_FIXED",
+    "NO_REGRESSION"
+   ],
+   "regressions": [
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest: 0F/1E",
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest: 0F/1E",
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest: 0F/1E"
+   ]
+  }
+ ],
+ "checks": {
+  "APPLIES": true,
+  "BUILD": false,
+  "TARGET_FIXED": false,
+  "NO_REGRESSION": false,
+  "UPDATE_KEPT": true
+ },
+ "failed_checks": [
+  "BUILD",
+  "TARGET_FIXED",
+  "NO_REGRESSION"
+ ],
+ "evaluation_mode": "compare to reference fix + tests",
+ "reference_group": "DEVELOPER_FIX",
+ "command": "mvn clean test -B",
+ "tree_command": "mvn -B -DskipTests test-compile dependency:tree -Dincludes=org.slf4j:slf4j-api",
+ "seconds": 156,
+ "build": {
+  "status": "FAILURE",
+  "maven_exit": "1",
+  "tests": 94,
+  "failures": 0,
+  "errors": 3,
+  "skipped": 10
+ },
+ "pre_baseline": {
+  "tests": 291,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 13
+ },
+ "target_classes": {
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest": "failed 0F/1E",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest": "failed 0F/1E",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest": "failed 0F/1E"
+ },
+ "regressions": [
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest: 0F/1E",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest: 0F/1E",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest: 0F/1E"
+ ],
+ "regression_count": 3,
+ "dependency": "org.slf4j:slf4j-api",
+ "new_version": "2.0.4",
+ "resolved_versions": [
+  "2.0.4"
+ ],
+ "info": {
+  "files_changed": [
+   "pom.xml"
+  ],
+  "test_files_changed": [],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": [],
+  "reference_fix_file_overlap": 1.0,
+  "identical_to_reference_fix": false
+ },
+ "notes": [],
+ "log": "harness\\runs\\selftest_v2_case2_noop\\case2_attempt2.log",
+ "image": "ghcr.io/chains-project/breaking-updates:04c07b066b60a2e9d4f797b98dcd439a3a42f0b9-breaking",
+ "source": "repair harness v2 (Claude); AI evaluation"
+}

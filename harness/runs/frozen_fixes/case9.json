@@ -1,0 +1,59 @@
+{
+ "case": 9,
+ "case_id": "0ee8b9376b967938e8efd89a0959214a30d1b3fb",
+ "label": "frozen_fixes",
+ "patch": "fix_mining\\fixes_v1.0\\researcher_written_fixes\\case9.patch",
+ "date": "2026-11-22",
+ "verdict": "REPAIRED",
+ "checks": {
+  "APPLIES": true,
+  "BUILD": true,
+  "TARGET_FIXED": true,
+  "NO_REGRESSION": true,
+  "UPDATE_KEPT": true
+ },
+ "failed_checks": [],
+ "evaluation_mode": "tests only (failing tests pass, nothing else breaks)",
+ "reference_group": "RESEARCHER_WRITTEN_ONLY",
+ "command": "mvn clean test -B",
+ "seconds": 257,
+ "build": {
+  "status": "SUCCESS",
+  "maven_exit": "0",
+  "tests": 1114,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 20
+ },
+ "pre_baseline": {
+  "tests": 1114,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 19
+ },
+ "target_classes": {
+  "com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest": "passed"
+ },
+ "regressions": [],
+ "regression_count": 0,
+ "dependency": "org.mockito:mockito-core",
+ "new_version": "5.1.1",
+ "resolved_versions": [
+  "5.1.1"
+ ],
+ "info": {
+  "files_changed": [
+   "core/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker"
+  ],
+  "test_files_changed": [
+   "core/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker"
+  ],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": []
+ },
+ "notes": [],
+ "log": "harness\\runs\\frozen_fixes\\case9.log",
+ "image": "ghcr.io/chains-project/breaking-updates:0ee8b9376b967938e8efd89a0959214a30d1b3fb-breaking",
+ "source": "repair harness v1 (Claude); AI evaluation"
+}

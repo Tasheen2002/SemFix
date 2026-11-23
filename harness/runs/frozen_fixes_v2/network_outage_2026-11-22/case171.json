@@ -1,0 +1,114 @@
+{
+ "case": 171,
+ "case_id": "e0f2562e849012538cd30e2730c82991983f4eba",
+ "label": "frozen_fixes_v2",
+ "harness_version": "v2",
+ "patch": "fix_mining\\fixes_v1.0\\reference_fixes\\case171.patch",
+ "date": "2026-11-22",
+ "verdict": "NOT_REPAIRED",
+ "flaky": false,
+ "attempts": [
+  {
+   "attempt": 1,
+   "log": "harness\\runs\\frozen_fixes_v2\\case171.log",
+   "seconds": 224,
+   "verdict": "NOT_REPAIRED",
+   "failed": [
+    "BUILD",
+    "TARGET_FIXED",
+    "NO_REGRESSION"
+   ],
+   "regressions": [
+    "org.pac4j.dropwizard.e2e.EndToEndServletTest: did not run",
+    "org.pac4j.dropwizard.e2e.EndToEndTest: did not run",
+    "org.pac4j.dropwizard.factory.DefaultConfigurationTest: did not run",
+    "org.pac4j.dropwizard.bundle.BundleFactoryTest: did not run"
+   ]
+  }
+ ],
+ "checks": {
+  "APPLIES": true,
+  "BUILD": false,
+  "TARGET_FIXED": false,
+  "NO_REGRESSION": false,
+  "UPDATE_KEPT": "UNKNOWN"
+ },
+ "failed_checks": [
+  "BUILD",
+  "TARGET_FIXED",
+  "NO_REGRESSION"
+ ],
+ "evaluation_mode": "compare to reference fix + tests",
+ "reference_group": "DEVELOPER_FIX",
+ "command": "mvn clean test -B",
+ "tree_command": "mvn -B -DskipTests test-compile dependency:tree -Dincludes=org.slf4j:slf4j-api",
+ "seconds": 224,
+ "build": {
+  "status": "FAILURE",
+  "maven_exit": "1",
+  "tests": 0,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "pre_baseline": {
+  "tests": 16,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "target_classes": {
+  "org.pac4j.dropwizard.bundle.BundleFactoryTest": "did not run",
+  "org.pac4j.dropwizard.e2e.EndToEndServletTest": "did not run",
+  "org.pac4j.dropwizard.e2e.EndToEndTest": "did not run"
+ },
+ "regressions": [
+  "org.pac4j.dropwizard.e2e.EndToEndServletTest: did not run",
+  "org.pac4j.dropwizard.e2e.EndToEndTest: did not run",
+  "org.pac4j.dropwizard.factory.DefaultConfigurationTest: did not run",
+  "org.pac4j.dropwizard.bundle.BundleFactoryTest: did not run"
+ ],
+ "regression_count": 4,
+ "dependency": "org.slf4j:slf4j-api",
+ "new_version": "2.0.0",
+ "resolved_versions": [],
+ "info": {
+  "files_changed": [
+   "README.md",
+   "pom.xml",
+   "src/main/java/org/pac4j/dropwizard/DefaultFeatureSupport.java",
+   "src/main/java/org/pac4j/dropwizard/J2EHelper.java",
+   "src/main/java/org/pac4j/dropwizard/Pac4jBundle.java",
+   "src/main/java/org/pac4j/dropwizard/Pac4jConfiguration.java",
+   "src/main/java/org/pac4j/dropwizard/Pac4jFactory.java",
+   "src/main/java/org/pac4j/dropwizard/Pac4jFeatureSupport.java",
+   "src/test/java/org/pac4j/dropwizard/AbstractApplicationTest.java",
+   "src/test/java/org/pac4j/dropwizard/AbstractConfigurationTest.java",
+   "src/test/java/org/pac4j/dropwizard/bundle/BundleFactoryTest.java",
+   "src/test/java/org/pac4j/dropwizard/e2e/DogsResource.java",
+   "src/test/java/org/pac4j/dropwizard/e2e/EndToEndServletTest.java",
+   "src/test/java/org/pac4j/dropwizard/e2e/EndToEndTest.java",
+   "src/test/java/org/pac4j/dropwizard/factory/DefaultConfigurationTest.java"
+  ],
+  "test_files_changed": [
+   "src/test/java/org/pac4j/dropwizard/AbstractApplicationTest.java",
+   "src/test/java/org/pac4j/dropwizard/AbstractConfigurationTest.java",
+   "src/test/java/org/pac4j/dropwizard/bundle/BundleFactoryTest.java",
+   "src/test/java/org/pac4j/dropwizard/e2e/DogsResource.java",
+   "src/test/java/org/pac4j/dropwizard/e2e/EndToEndServletTest.java",
+   "src/test/java/org/pac4j/dropwizard/e2e/EndToEndTest.java",
+   "src/test/java/org/pac4j/dropwizard/factory/DefaultConfigurationTest.java"
+  ],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": [],
+  "reference_fix_file_overlap": 1.0,
+  "identical_to_reference_fix": true
+ },
+ "notes": [
+  "dependency:tree failed twice (plain and pinned 3.6.1); UPDATE_KEPT unknown"
+ ],
+ "log": "harness\\runs\\frozen_fixes_v2\\case171.log",
+ "image": "ghcr.io/chains-project/breaking-updates:e0f2562e849012538cd30e2730c82991983f4eba-breaking",
+ "source": "repair harness v2 (Claude); AI evaluation"
+}

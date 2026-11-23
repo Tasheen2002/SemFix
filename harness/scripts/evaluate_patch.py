@@ -17,7 +17,12 @@ Robustness (v2, 2026-11-22):
     the whole evaluation is repeated once in a fresh container. A deterministic failure fails twice. A pass on
     attempt 2 is REPAIRED with flaky=true, and attempt 1's failures are kept in the result.
 
-Verdicts: REPAIRED | NOT_REPAIRED | INCONCLUSIVE (infrastructure: dependency tree unavailable).
+  * Network (v2.1, 2026-11-23): a failure accompanied by a network error (image pull failed, `Unknown host`,
+    `Could not transfer artifact`, unreachable network, timeouts) is INCONCLUSIVE, not NOT_REPAIRED. A version that
+    does not exist (`Could not find artifact`) is NOT a network error: it stays the patch's fault. (v2 counted a
+    22:05-22:12 outage on 2026-11-22 as 23 failed repairs.)
+
+Verdicts: REPAIRED | NOT_REPAIRED | INCONCLUSIVE (infrastructure: network outage, or dependency tree unavailable).
 Reported but not part of the verdict: test files touched, @Test lines removed, test files deleted, fewer tests than
 PRE in a class, and (reference cases) changed-file overlap with the frozen reference fix.
 
@@ -35,7 +40,7 @@ a = ap.parse_args()
 ROOT = a.root
 P = lambda *x: os.path.join(ROOT, *x)
 N = a.case
-HARNESS_VERSION = "v2"
+HARNESS_VERSION = "v2.2"
 
 cases = {c["case"]: c for c in json.load(open(P("fix_mining", "cases.json"), encoding="utf-8"))}
 c = cases[N]
@@ -93,8 +98,14 @@ def run_once(attempt):
     return log, round((datetime.datetime.now() - start).total_seconds())
 
 
+NETWORK = re.compile(r"Unknown host|UnknownHostException|Network is unreachable|Temporary failure in name resolution|No route to host|"
+                     r"Connection timed out|Connect to \S+ failed|failed to resolve reference|Could not transfer artifact|"
+                     r"Error response from daemon: .*(?:timeout|dial tcp|i/o timeout)")
+
+
 def evaluate(log):
     lines = read(log)
+    network = []   # filled below, once the build/tree sections are known
     idx = lambda tag: next((i for i, l in enumerate(lines) if tag in l), None)
     b0, t0 = idx("=== BUILD ==="), idx("=== DEPENDENCY TREE ===")
     build = lines[b0:t0] if b0 is not None else []
@@ -152,6 +163,13 @@ def evaluate(log):
     if skipped_mods:
         notes.append(f"PRE modules outside the restricted build ({cmd}) not checked: {len(skipped_mods)}")
 
+    # Network errors: only Maven's/Docker's own lines (tests may print network errors on purpose, e.g. a fake
+    # host in sparql-anything), from the apply+build steps, plus the tree step only if the tree finally failed
+    # (a tree retry that recovers from a download blip does not count).
+    tree_final_ok = any(re.search(r"TREE(_RETRY)?_EXIT=0", l) for l in tree)
+    scope = (lines[:t0] if t0 is not None else lines) + ([] if tree_final_ok else tree)
+    network = sorted({m.group(0)[:80] for l in scope if re.match(r"\[(ERROR|WARNING)\]|docker: |Unable to find image", l)
+                      for m in [NETWORK.search(l)] if m})
     resolved = sorted({m.group(1) for l in tree for m in [re.search(re.escape(dep) + r":[\w-]+:([\w.\-]+)(?::[\w]+)?", l)] if m})
     tree_ok = any(re.search(r"TREE(_RETRY)?_EXIT=0", l) for l in tree)
     if resolved:
@@ -162,10 +180,17 @@ def evaluate(log):
     else:
         checks["UPDATE_KEPT"] = None       # infrastructure: no tree at all
         notes.append("dependency:tree failed twice (plain and pinned 3.6.1); UPDATE_KEPT unknown")
-    test_only_failure = (checks["APPLIES"] and checks["UPDATE_KEPT"] is not False and missing == 0 and
+    # Eligible for the flaky re-run: tests really failed (not a compile error), the patch applied and kept the update.
+    # v2.2: classes that "did not run" no longer block the re-run, because a random test failure stops the Maven
+    # reactor and later modules never run (junit-quickcheck's random property tests, 2026-11-23). A deleted test causes
+    # no failure, so it never triggers a re-run, and its missing class still fails NO_REGRESSION.
+    compile_error = any("COMPILATION ERROR" in l or re.search(r"\[ERROR\] /\S+\.java:\[\d+", l) for l in build)
+    test_only_failure = (checks["APPLIES"] and checks["UPDATE_KEPT"] is not False and not compile_error and
                          (not checks["BUILD"] or not checks["TARGET_FIXED"] or not checks["NO_REGRESSION"]) and
-                         all(s == "passed" or s.startswith("failed") for s in target_detail.values()) and total[0] > 0)
-    return dict(checks=checks, notes=notes, status=status, mex=mex, total=total, target_detail=target_detail,
+                         total[0] > 0 and (total[1] + total[2]) > 0)
+    if network:
+        notes.append("network errors in this run: " + "; ".join(network[:3]))
+    return dict(network=network, checks=checks, notes=notes, status=status, mex=mex, total=total, target_detail=target_detail,
                 regress=regress, fewer=fewer, resolved=resolved, test_only_failure=test_only_failure)
 
 
@@ -173,6 +198,8 @@ def verdict_of(ev):
     vals = list(ev["checks"].values())
     if all(v is True for v in vals):
         return "REPAIRED"
+    if ev.get("network"):
+        return "INCONCLUSIVE"      # the run could not reach the network: says nothing about the patch
     if any(v is False for v in vals):
         return "NOT_REPAIRED"
     return "INCONCLUSIVE"
@@ -210,7 +237,8 @@ if ref["reference_group"] in ("DEVELOPER_FIX", "DERIVED_MINIMAL_FIX"):
 checks = {k: ("UNKNOWN" if v is None else v) for k, v in ev["checks"].items()}
 res = dict(case=N, case_id=c["id"], label=a.label, harness_version=HARNESS_VERSION,
            patch=os.path.relpath(os.path.abspath(a.patch), ROOT), date=datetime.date.today().isoformat(),
-           verdict=verdict, flaky=flaky, attempts=attempts, checks=checks, failed_checks=[k for k, v in ev["checks"].items() if v is False],
+           verdict=verdict, inconclusive_reason=("network" if ev.get("network") else "dependency tree unavailable") if verdict == "INCONCLUSIVE" else "",
+           flaky=flaky, attempts=attempts, checks=checks, failed_checks=[k for k, v in ev["checks"].items() if v is False],
            evaluation_mode=ref["evaluation_mode"], reference_group=ref["reference_group"], command=cmd, tree_command=TREE, seconds=secs,
            build=dict(status=ev["status"], maven_exit=ev["mex"], tests=ev["total"][0], failures=ev["total"][1], errors=ev["total"][2], skipped=ev["total"][3]),
            pre_baseline=base["total"], target_classes=ev["target_detail"], regressions=ev["regress"][:50], regression_count=len(ev["regress"]),

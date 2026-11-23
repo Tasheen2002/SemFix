@@ -1,0 +1,75 @@
+{
+ "case": 168,
+ "case_id": "de20387b7a373cf20daa590247a1b65876ebca38",
+ "label": "frozen_fixes_v2",
+ "harness_version": "v2",
+ "patch": "fix_mining\\fixes_v1.0\\reference_fixes\\case168.patch",
+ "date": "2026-11-22",
+ "verdict": "REPAIRED",
+ "flaky": false,
+ "attempts": [
+  {
+   "attempt": 1,
+   "log": "harness\\runs\\frozen_fixes_v2\\case168.log",
+   "seconds": 102,
+   "verdict": "REPAIRED",
+   "failed": [],
+   "regressions": []
+  }
+ ],
+ "checks": {
+  "APPLIES": true,
+  "BUILD": true,
+  "TARGET_FIXED": true,
+  "NO_REGRESSION": true,
+  "UPDATE_KEPT": true
+ },
+ "failed_checks": [],
+ "evaluation_mode": "compare to reference fix + tests",
+ "reference_group": "DEVELOPER_FIX",
+ "command": "mvn clean test -B -pl json -am",
+ "tree_command": "mvn -B -DskipTests -pl json -am test-compile dependency:tree -Dincludes=net.minidev:json-smart",
+ "seconds": 102,
+ "build": {
+  "status": "SUCCESS",
+  "maven_exit": "0",
+  "tests": 353,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "pre_baseline": {
+  "tests": 966,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "target_classes": {},
+ "regressions": [],
+ "regression_count": 0,
+ "dependency": "net.minidev:json-smart",
+ "new_version": "2.4.9",
+ "resolved_versions": [
+  "2.4.10"
+ ],
+ "info": {
+  "files_changed": [
+   "json/pom.xml"
+  ],
+  "test_files_changed": [],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": [
+   "TestSuite: 93 < PRE 260 tests"
+  ],
+  "reference_fix_file_overlap": 1.0,
+  "identical_to_reference_fix": true
+ },
+ "notes": [
+  "no failing-class names recorded for this case; TARGET_FIXED uses the whole run (tests ran, 0 failures/errors)",
+  "PRE modules outside the restricted build (mvn clean test -B -pl json -am) not checked: 5"
+ ],
+ "log": "harness\\runs\\frozen_fixes_v2\\case168.log",
+ "image": "ghcr.io/chains-project/breaking-updates:de20387b7a373cf20daa590247a1b65876ebca38-breaking",
+ "source": "repair harness v2 (Claude); AI evaluation"
+}

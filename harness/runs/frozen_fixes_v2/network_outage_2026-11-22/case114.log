@@ -1,0 +1,436 @@
+=== GIT APPLY CHECK ===
+Checking patch src/core/persistence/pom.xml...
+Checking patch src/core/persistence/pom.xml...
+Applied patch src/core/persistence/pom.xml cleanly.
+APPLY_OK
+=== BUILD ===
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Master GeoStore POM                                                [pom]
+[INFO] GeoStore - 0 Server Root                                           [pom]
+[INFO] GeoStore - Core                                                    [pom]
+[INFO] GeoStore - Core - Model                                            [jar]
+[INFO] GeoStore - Core - Security                                         [jar]
+[INFO] GeoStore - Core - Persistence                                      [jar]
+[INFO] GeoStore - Core - Services API                                     [jar]
+[INFO] GeoStore - Core - Services implementation                          [jar]
+[INFO] GeoStore - Modules                                                 [pom]
+[INFO] GeoStore - Modules - REST root                                     [pom]
+[INFO] GeoStore - Modules - REST API                                      [jar]
+[INFO] GeoStore - Modules - REST services                                 [jar]
+[INFO] GeoStore - Modules - REST client                                   [jar]
+[INFO] GeoStore - Modules - REST EXTJS services                           [jar]
+[INFO] GeoStore - Modules - REST services test                            [war]
+[INFO] GeoStore - Modules - REST auditing                                 [jar]
+[INFO] GeoStore - Web                                                     [pom]
+[INFO] GeoStore - Webapp                                                  [war]
+[INFO] 
+[INFO] ----------------------< it.geosolutions:geostore >----------------------
+[INFO] Building Master GeoStore POM 1.8-SNAPSHOT                         [1/18]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ geostore ---
+[INFO] 
+[INFO] ---------------< it.geosolutions.geostore:geostore-root >---------------
+[INFO] Building GeoStore - 0 Server Root 1.8-SNAPSHOT                    [2/18]
+[INFO]   from src/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ geostore-root ---
+[INFO] 
+[INFO] ---------------< it.geosolutions.geostore:geostore-core >---------------
+[INFO] Building GeoStore - Core 1.8-SNAPSHOT                             [3/18]
+[INFO]   from src/core/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ geostore-core ---
+[INFO] 
+[INFO] --------------< it.geosolutions.geostore:geostore-model >---------------
+[INFO] Building GeoStore - Core - Model 1.8-SNAPSHOT                     [4/18]
+[INFO]   from src/core/model/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ geostore-model ---
+[INFO] Deleting /geostore/src/core/model/target
+[INFO] 
+[INFO] --- resources:3.0.1:resources (default-resources) @ geostore-model ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /geostore/src/core/model/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.5.1:compile (default-compile) @ geostore-model ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to /geostore/src/core/model/target/classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[INFO] 
+[INFO] --- resources:3.0.1:testResources (default-testResources) @ geostore-model ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /geostore/src/core/model/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.5.1:testCompile (default-testCompile) @ geostore-model ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /geostore/src/core/model/target/test-classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[INFO] 
+[INFO] --- surefire:2.4.2:test (default-test) @ geostore-model ---
+[INFO] Surefire report directory: /geostore/src/core/model/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running it.geosolutions.geostore.core.model.SecurityRuleTest
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.sun.xml.bind.v2.runtime.reflect.opt.Injector$1 (file:/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.1.2/jaxb-impl-2.1.2.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int)
+WARNING: Please consider reporting this to the maintainers of com.sun.xml.bind.v2.runtime.reflect.opt.Injector$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.698 sec
+Running it.geosolutions.geostore.core.model.UserGroupTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec
+Running it.geosolutions.geostore.core.model.AttributeTest
+Attribute[id is null, name=testatt, numberValue=42.0, type=NUMBER]
+Attribute[id is null, name=testatt, numberValue=42.0, type=NUMBER]
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Attribute type="NUMBER">
+    <name>testatt</name>
+    <value>42.0</value>
+</Attribute>
+
+Attribute[id is null, name=testatt, textValue=test, type=STRING]
+Attribute[id is null, name=testatt, textValue=test, type=STRING]
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Attribute type="STRING">
+    <name>testatt</name>
+    <value>test</value>
+</Attribute>
+
+Attribute[id is null, name=testatt, dateValue=Sun Nov 22 16:38:12 GMT 2026, type=DATE]
+Attribute[id is null, name=testatt, dateValue=Sun Nov 22 16:38:12 GMT 2026, type=DATE]
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Attribute type="DATE">
+    <name>testatt</name>
+    <value>2026-11-22T16:38:12.825+0000</value>
+</Attribute>
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 sec
+Running it.geosolutions.geostore.core.model.UserTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 sec
+Running it.geosolutions.geostore.core.model.CategoryTest
+Category[id=1, name=testatt]
+Category[id=1, name=testatt]
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Category>
+    <id>1</id>
+    <name>testatt</name>
+</Category>
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running it.geosolutions.geostore.core.model.GroupReservedNamesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+
+Results :
+
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] -------------< it.geosolutions.geostore:geostore-security >-------------
+[INFO] Building GeoStore - Core - Security 1.8-SNAPSHOT                  [5/18]
+[INFO]   from src/core/security/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ geostore-security ---
+[INFO] Deleting /geostore/src/core/security/target
+[INFO] 
+[INFO] --- resources:3.0.1:resources (default-resources) @ geostore-security ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.5.1:compile (default-compile) @ geostore-security ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 26 source files to /geostore/src/core/security/target/classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[INFO] 
+[INFO] --- resources:3.0.1:testResources (default-testResources) @ geostore-security ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- compiler:3.5.1:testCompile (default-testCompile) @ geostore-security ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /geostore/src/core/security/target/test-classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[INFO] 
+[INFO] --- surefire:2.4.2:test (default-test) @ geostore-security ---
+[INFO] Surefire report directory: /geostore/src/core/security/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running it.geosolutions.geostore.core.security.password.PwEncoderTest
+ENC --> QeTkqYaHH+B5donF9BMaTrOf4zip7Yx6N6mIAPz4UrbVDdMX3NSjpVFXws9WpH0g
+ENC --> 8W4x1SJBUlcRZv95WsCorV+EfVWf+CAz5Zwo0mvLYiThRBTqSBQYiSHXOwQROz3S
+ENC --> NpXW5vr9KSa3S5w7pQU/OEGN/32z8aj+Rm0j54Y2D6a/DGUp295jiMn4kUxHqn65
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.443 sec
+Running it.geosolutions.geostore.core.security.ldap.CustomAttributesLdapUserDetailsMapperTest
+log4j:WARN No appenders could be found for logger (org.springframework.security.ldap.userdetails.LdapUserDetailsMapper).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 sec
+Running it.geosolutions.geostore.core.security.ExpressionUserMapperTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.155 sec
+Running it.geosolutions.geostore.core.security.password.EncodingTest
+/geostore/src/core/security/geostore.jceks@SLTests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.102 sec
+Running it.geosolutions.geostore.core.security.SimpleGrantedAuthoritiesMapperTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running it.geosolutions.geostore.core.security.password.MasterPasswordProviderTest
+geostore
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
+
+Results :
+
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] -----------< it.geosolutions.geostore:geostore-persistence >------------
+[INFO] Building GeoStore - Core - Persistence 1.8-SNAPSHOT               [6/18]
+[INFO]   from src/core/persistence/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Downloading from osgeo: https://repo.osgeo.org/repository/release/com/googlecode/genericdao/dao-hibernate/1.3.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from geosolutions: https://maven.geo-solutions.it/com/googlecode/genericdao/dao-hibernate/1.3.0-SNAPSHOT/maven-metadata.xml
+[WARNING] Could not transfer metadata com.googlecode.genericdao:dao-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml from/to geosolutions (https://maven.geo-solutions.it): maven.geo-solutions.it: Name does not resolve
+[WARNING] Could not transfer metadata com.googlecode.genericdao:dao-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml from/to osgeo (https://repo.osgeo.org/repository/release/): repo.osgeo.org: Name does not resolve
+[WARNING] com.googlecode.genericdao:dao-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml failed to transfer from https://maven.geo-solutions.it during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of geosolutions has elapsed or updates are forced. Original error: Could not transfer metadata com.googlecode.genericdao:dao-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml from/to geosolutions (https://maven.geo-solutions.it): maven.geo-solutions.it: Name does not resolve
+[WARNING] com.googlecode.genericdao:dao-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml failed to transfer from https://repo.osgeo.org/repository/release/ during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of osgeo has elapsed or updates are forced. Original error: Could not transfer metadata com.googlecode.genericdao:dao-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml from/to osgeo (https://repo.osgeo.org/repository/release/): repo.osgeo.org: Name does not resolve
+[INFO] Downloading from geosolutions: https://maven.geo-solutions.it/com/googlecode/genericdao/genericdao-parent/1.3.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from osgeo: https://repo.osgeo.org/repository/release/com/googlecode/genericdao/genericdao-parent/1.3.0-SNAPSHOT/maven-metadata.xml
+[WARNING] Could not transfer metadata com.googlecode.genericdao:genericdao-parent:1.3.0-SNAPSHOT/maven-metadata.xml from/to geosolutions (https://maven.geo-solutions.it): maven.geo-solutions.it
+[WARNING] Could not transfer metadata com.googlecode.genericdao:genericdao-parent:1.3.0-SNAPSHOT/maven-metadata.xml from/to osgeo (https://repo.osgeo.org/repository/release/): repo.osgeo.org
+[INFO] Downloading from geosolutions: https://maven.geo-solutions.it/com/googlecode/genericdao/dao/1.3.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from osgeo: https://repo.osgeo.org/repository/release/com/googlecode/genericdao/dao/1.3.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-nexus-snapshots: https://oss.sonatype.org/content/repositories/snapshots/com/googlecode/genericdao/dao/1.3.0-SNAPSHOT/maven-metadata.xml
+[WARNING] Could not transfer metadata com.googlecode.genericdao:dao:1.3.0-SNAPSHOT/maven-metadata.xml from/to geosolutions (https://maven.geo-solutions.it): maven.geo-solutions.it
+[WARNING] Could not transfer metadata com.googlecode.genericdao:dao:1.3.0-SNAPSHOT/maven-metadata.xml from/to osgeo (https://repo.osgeo.org/repository/release/): repo.osgeo.org
+[WARNING] Could not transfer metadata com.googlecode.genericdao:dao:1.3.0-SNAPSHOT/maven-metadata.xml from/to sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots): oss.sonatype.org: Name does not resolve
+[WARNING] com.googlecode.genericdao:dao:1.3.0-SNAPSHOT/maven-metadata.xml failed to transfer from https://maven.geo-solutions.it during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of geosolutions has elapsed or updates are forced. Original error: Could not transfer metadata com.googlecode.genericdao:dao:1.3.0-SNAPSHOT/maven-metadata.xml from/to geosolutions (https://maven.geo-solutions.it): maven.geo-solutions.it
+[WARNING] com.googlecode.genericdao:dao:1.3.0-SNAPSHOT/maven-metadata.xml failed to transfer from https://repo.osgeo.org/repository/release/ during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of osgeo has elapsed or updates are forced. Original error: Could not transfer metadata com.googlecode.genericdao:dao:1.3.0-SNAPSHOT/maven-metadata.xml from/to osgeo (https://repo.osgeo.org/repository/release/): repo.osgeo.org
+[WARNING] com.googlecode.genericdao:dao:1.3.0-SNAPSHOT/maven-metadata.xml failed to transfer from https://oss.sonatype.org/content/repositories/snapshots during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced. Original error: Could not transfer metadata com.googlecode.genericdao:dao:1.3.0-SNAPSHOT/maven-metadata.xml from/to sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots): oss.sonatype.org: Name does not resolve
+[INFO] Downloading from geosolutions: https://maven.geo-solutions.it/com/googlecode/genericdao/search/1.3.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from osgeo: https://repo.osgeo.org/repository/release/com/googlecode/genericdao/search/1.3.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-nexus-snapshots: https://oss.sonatype.org/content/repositories/snapshots/com/googlecode/genericdao/search/1.3.0-SNAPSHOT/maven-metadata.xml
+[WARNING] Could not transfer metadata com.googlecode.genericdao:search:1.3.0-SNAPSHOT/maven-metadata.xml from/to geosolutions (https://maven.geo-solutions.it): maven.geo-solutions.it
+[WARNING] Could not transfer metadata com.googlecode.genericdao:search:1.3.0-SNAPSHOT/maven-metadata.xml from/to osgeo (https://repo.osgeo.org/repository/release/): repo.osgeo.org
+[WARNING] Could not transfer metadata com.googlecode.genericdao:search:1.3.0-SNAPSHOT/maven-metadata.xml from/to sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots): oss.sonatype.org
+[WARNING] com.googlecode.genericdao:search:1.3.0-SNAPSHOT/maven-metadata.xml failed to transfer from https://maven.geo-solutions.it during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of geosolutions has elapsed or updates are forced. Original error: Could not transfer metadata com.googlecode.genericdao:search:1.3.0-SNAPSHOT/maven-metadata.xml from/to geosolutions (https://maven.geo-solutions.it): maven.geo-solutions.it
+[WARNING] com.googlecode.genericdao:search:1.3.0-SNAPSHOT/maven-metadata.xml failed to transfer from https://repo.osgeo.org/repository/release/ during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of osgeo has elapsed or updates are forced. Original error: Could not transfer metadata com.googlecode.genericdao:search:1.3.0-SNAPSHOT/maven-metadata.xml from/to osgeo (https://repo.osgeo.org/repository/release/): repo.osgeo.org
+[WARNING] com.googlecode.genericdao:search:1.3.0-SNAPSHOT/maven-metadata.xml failed to transfer from https://oss.sonatype.org/content/repositories/snapshots during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced. Original error: Could not transfer metadata com.googlecode.genericdao:search:1.3.0-SNAPSHOT/maven-metadata.xml from/to sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots): oss.sonatype.org
+[INFO] Downloading from osgeo: https://repo.osgeo.org/repository/release/com/googlecode/genericdao/search-hibernate/1.3.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from geosolutions: https://maven.geo-solutions.it/com/googlecode/genericdao/search-hibernate/1.3.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-nexus-snapshots: https://oss.sonatype.org/content/repositories/snapshots/com/googlecode/genericdao/search-hibernate/1.3.0-SNAPSHOT/maven-metadata.xml
+[WARNING] Could not transfer metadata com.googlecode.genericdao:search-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml from/to geosolutions (https://maven.geo-solutions.it): maven.geo-solutions.it
+[WARNING] Could not transfer metadata com.googlecode.genericdao:search-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml from/to osgeo (https://repo.osgeo.org/repository/release/): repo.osgeo.org
+[WARNING] Could not transfer metadata com.googlecode.genericdao:search-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml from/to sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots): oss.sonatype.org
+[WARNING] com.googlecode.genericdao:search-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml failed to transfer from https://maven.geo-solutions.it during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of geosolutions has elapsed or updates are forced. Original error: Could not transfer metadata com.googlecode.genericdao:search-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml from/to geosolutions (https://maven.geo-solutions.it): maven.geo-solutions.it
+[WARNING] com.googlecode.genericdao:search-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml failed to transfer from https://repo.osgeo.org/repository/release/ during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of osgeo has elapsed or updates are forced. Original error: Could not transfer metadata com.googlecode.genericdao:search-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml from/to osgeo (https://repo.osgeo.org/repository/release/): repo.osgeo.org
+[WARNING] com.googlecode.genericdao:search-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml failed to transfer from https://oss.sonatype.org/content/repositories/snapshots during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced. Original error: Could not transfer metadata com.googlecode.genericdao:search-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml from/to sonatype-nexus-snapshots (https://oss.sonatype.org/content/repositories/snapshots): oss.sonatype.org
+[INFO] Downloading from geosolutions: https://maven.geo-solutions.it/com/googlecode/genericdao/search-jpa-hibernate/1.3.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from osgeo: https://repo.osgeo.org/repository/release/com/googlecode/genericdao/search-jpa-hibernate/1.3.0-SNAPSHOT/maven-metadata.xml
+[WARNING] Could not transfer metadata com.googlecode.genericdao:search-jpa-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml from/to geosolutions (https://maven.geo-solutions.it): maven.geo-solutions.it
+[WARNING] Could not transfer metadata com.googlecode.genericdao:search-jpa-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml from/to osgeo (https://repo.osgeo.org/repository/release/): repo.osgeo.org
+[WARNING] com.googlecode.genericdao:search-jpa-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml failed to transfer from https://maven.geo-solutions.it during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of geosolutions has elapsed or updates are forced. Original error: Could not transfer metadata com.googlecode.genericdao:search-jpa-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml from/to geosolutions (https://maven.geo-solutions.it): maven.geo-solutions.it
+[WARNING] com.googlecode.genericdao:search-jpa-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml failed to transfer from https://repo.osgeo.org/repository/release/ during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of osgeo has elapsed or updates are forced. Original error: Could not transfer metadata com.googlecode.genericdao:search-jpa-hibernate:1.3.0-SNAPSHOT/maven-metadata.xml from/to osgeo (https://repo.osgeo.org/repository/release/): repo.osgeo.org
+[INFO] Downloading from geosolutions: https://maven.geo-solutions.it/com/h2database/h2/2.2.220/h2-2.2.220.pom
+[INFO] Downloading from osgeo: https://repo.osgeo.org/repository/release/com/h2database/h2/2.2.220/h2-2.2.220.pom
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/h2database/h2/2.2.220/h2-2.2.220.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Master GeoStore POM 1.8-SNAPSHOT:
+[INFO] 
+[INFO] Master GeoStore POM ................................ SUCCESS [  0.409 s]
+[INFO] GeoStore - 0 Server Root ........................... SUCCESS [  0.116 s]
+[INFO] GeoStore - Core .................................... SUCCESS [  0.007 s]
+[INFO] GeoStore - Core - Model ............................ SUCCESS [  9.227 s]
+[INFO] GeoStore - Core - Security ......................... SUCCESS [  8.960 s]
+[INFO] GeoStore - Core - Persistence ...................... FAILURE [  0.776 s]
+[INFO] GeoStore - Core - Services API ..................... SKIPPED
+[INFO] GeoStore - Core - Services implementation .......... SKIPPED
+[INFO] GeoStore - Modules ................................. SKIPPED
+[INFO] GeoStore - Modules - REST root ..................... SKIPPED
+[INFO] GeoStore - Modules - REST API ...................... SKIPPED
+[INFO] GeoStore - Modules - REST services ................. SKIPPED
+[INFO] GeoStore - Modules - REST client ................... SKIPPED
+[INFO] GeoStore - Modules - REST EXTJS services ........... SKIPPED
+[INFO] GeoStore - Modules - REST services test ............ SKIPPED
+[INFO] GeoStore - Modules - REST auditing ................. SKIPPED
+[INFO] GeoStore - Web ..................................... SKIPPED
+[INFO] GeoStore - Webapp .................................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  20.634 s
+[INFO] Finished at: 2026-11-22T16:38:22Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.0.1
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.4.2
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.5.1
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal on project geostore-persistence: Could not resolve dependencies for project it.geosolutions.geostore:geostore-persistence:jar:1.8-SNAPSHOT: Failed to collect dependencies at com.h2database:h2:jar:2.2.220: Failed to read artifact descriptor for com.h2database:h2:jar:2.2.220: The following artifacts could not be resolved: com.h2database:h2:pom:2.2.220 (absent): Could not transfer artifact com.h2database:h2:pom:2.2.220 from/to geosolutions (https://maven.geo-solutions.it): maven.geo-solutions.it: Unknown host maven.geo-solutions.it -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :geostore-persistence
+MAVEN_EXIT=1
+=== DEPENDENCY TREE ===
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Master GeoStore POM                                                [pom]
+[INFO] GeoStore - 0 Server Root                                           [pom]
+[INFO] GeoStore - Core                                                    [pom]
+[INFO] GeoStore - Core - Model                                            [jar]
+[INFO] GeoStore - Core - Security                                         [jar]
+[INFO] GeoStore - Core - Persistence                                      [jar]
+[INFO] GeoStore - Core - Services API                                     [jar]
+[INFO] GeoStore - Core - Services implementation                          [jar]
+[INFO] GeoStore - Modules                                                 [pom]
+[INFO] GeoStore - Modules - REST root                                     [pom]
+[INFO] GeoStore - Modules - REST API                                      [jar]
+[INFO] GeoStore - Modules - REST services                                 [jar]
+[INFO] GeoStore - Modules - REST client                                   [jar]
+[INFO] GeoStore - Modules - REST EXTJS services                           [jar]
+[INFO] GeoStore - Modules - REST services test                            [war]
+[INFO] GeoStore - Modules - REST auditing                                 [jar]
+[INFO] GeoStore - Web                                                     [pom]
+[INFO] GeoStore - Webapp                                                  [war]
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-compiler-plugin/2.0.2/maven-compiler-plugin-2.0.2.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-compiler-plugin:2.0.2: Plugin org.apache.maven.plugins:maven-compiler-plugin:2.0.2 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-compiler-plugin:jar:2.0.2
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-release-plugin/2.5.2/maven-release-plugin-2.5.2.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-release-plugin:2.5.2: Plugin org.apache.maven.plugins:maven-release-plugin:2.5.2 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-release-plugin:jar:2.5.2
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/eluder/coveralls/coveralls-maven-plugin/4.1.0/coveralls-maven-plugin-4.1.0.pom
+[WARNING] Failed to retrieve plugin descriptor for org.eluder.coveralls:coveralls-maven-plugin:4.1.0: Plugin org.eluder.coveralls:coveralls-maven-plugin:4.1.0 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.eluder.coveralls:coveralls-maven-plugin:jar:4.1.0
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/cobertura-maven-plugin/2.7/cobertura-maven-plugin-2.7.pom
+[WARNING] Failed to retrieve plugin descriptor for org.codehaus.mojo:cobertura-maven-plugin:2.7: Plugin org.codehaus.mojo:cobertura-maven-plugin:2.7 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.codehaus.mojo:cobertura-maven-plugin:jar:2.7
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/3.1.0/maven-install-plugin-3.1.0.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-install-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-install-plugin:3.1.0 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-install-plugin:jar:3.1.0
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/3.1.0/maven-deploy-plugin-3.1.0.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-deploy-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-deploy-plugin:3.1.0 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-deploy-plugin:jar:3.1.0
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-site-plugin/3.12.1/maven-site-plugin-3.12.1.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-site-plugin:3.12.1: Plugin org.apache.maven.plugins:maven-site-plugin:3.12.1 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-site-plugin:jar:3.12.1
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-antrun-plugin:1.3: Plugin org.apache.maven.plugins:maven-antrun-plugin:1.3 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-antrun-plugin:jar:1.3
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-assembly-plugin/2.2-beta-5/maven-assembly-plugin-2.2-beta-5.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-assembly-plugin:2.2-beta-5: Plugin org.apache.maven.plugins:maven-assembly-plugin:2.2-beta-5 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-assembly-plugin:jar:2.2-beta-5
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-dependency-plugin:2.8: Plugin org.apache.maven.plugins:maven-dependency-plugin:2.8 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-dependency-plugin:jar:2.8
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-release-plugin/2.5.3/maven-release-plugin-2.5.3.pom
+[WARNING] Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-release-plugin:2.5.3: Plugin org.apache.maven.plugins:maven-release-plugin:2.5.3 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-release-plugin:jar:2.5.3
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml
+[WARNING] Could not transfer metadata org.apache.maven.plugins/maven-metadata.xml from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+[WARNING] Could not transfer metadata org.codehaus.mojo/maven-metadata.xml from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+[WARNING] org.apache.maven.plugins/maven-metadata.xml failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer metadata org.apache.maven.plugins/maven-metadata.xml from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+[WARNING] org.codehaus.mojo/maven-metadata.xml failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer metadata org.codehaus.mojo/maven-metadata.xml from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Master GeoStore POM 1.8-SNAPSHOT:
+[INFO] 
+[INFO] Master GeoStore POM ................................ SKIPPED
+[INFO] GeoStore - 0 Server Root ........................... SKIPPED
+[INFO] GeoStore - Core .................................... SKIPPED
+[INFO] GeoStore - Core - Model ............................ SKIPPED
+[INFO] GeoStore - Core - Security ......................... SKIPPED
+[INFO] GeoStore - Core - Persistence ...................... SKIPPED
+[INFO] GeoStore - Core - Services API ..................... SKIPPED
+[INFO] GeoStore - Core - Services implementation .......... SKIPPED
+[INFO] GeoStore - Modules ................................. SKIPPED
+[INFO] GeoStore - Modules - REST root ..................... SKIPPED
+[INFO] GeoStore - Modules - REST API ...................... SKIPPED
+[INFO] GeoStore - Modules - REST services ................. SKIPPED
+[INFO] GeoStore - Modules - REST client ................... SKIPPED
+[INFO] GeoStore - Modules - REST EXTJS services ........... SKIPPED
+[INFO] GeoStore - Modules - REST services test ............ SKIPPED
+[INFO] GeoStore - Modules - REST auditing ................. SKIPPED
+[INFO] GeoStore - Web ..................................... SKIPPED
+[INFO] GeoStore - Webapp .................................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.488 s
+[INFO] Finished at: 2026-11-22T16:38:27Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] No plugin found for prefix 'dependency' in the current project and in the plugin groups [org.apache.maven.plugins, org.codehaus.mojo] available from the repositories [local (/root/.m2/repository), central (https://repo.maven.apache.org/maven2)] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/NoPluginFoundForPrefixException
+TREE_EXIT=1
+=== DEPENDENCY TREE RETRY ===
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Master GeoStore POM                                                [pom]
+[INFO] GeoStore - 0 Server Root                                           [pom]
+[INFO] GeoStore - Core                                                    [pom]
+[INFO] GeoStore - Core - Model                                            [jar]
+[INFO] GeoStore - Core - Security                                         [jar]
+[INFO] GeoStore - Core - Persistence                                      [jar]
+[INFO] GeoStore - Core - Services API                                     [jar]
+[INFO] GeoStore - Core - Services implementation                          [jar]
+[INFO] GeoStore - Modules                                                 [pom]
+[INFO] GeoStore - Modules - REST root                                     [pom]
+[INFO] GeoStore - Modules - REST API                                      [jar]
+[INFO] GeoStore - Modules - REST services                                 [jar]
+[INFO] GeoStore - Modules - REST client                                   [jar]
+[INFO] GeoStore - Modules - REST EXTJS services                           [jar]
+[INFO] GeoStore - Modules - REST services test                            [war]
+[INFO] GeoStore - Modules - REST auditing                                 [jar]
+[INFO] GeoStore - Web                                                     [pom]
+[INFO] GeoStore - Webapp                                                  [war]
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/3.6.1/maven-dependency-plugin-3.6.1.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Master GeoStore POM 1.8-SNAPSHOT:
+[INFO] 
+[INFO] Master GeoStore POM ................................ SKIPPED
+[INFO] GeoStore - 0 Server Root ........................... SKIPPED
+[INFO] GeoStore - Core .................................... SKIPPED
+[INFO] GeoStore - Core - Model ............................ SKIPPED
+[INFO] GeoStore - Core - Security ......................... SKIPPED
+[INFO] GeoStore - Core - Persistence ...................... SKIPPED
+[INFO] GeoStore - Core - Services API ..................... SKIPPED
+[INFO] GeoStore - Core - Services implementation .......... SKIPPED
+[INFO] GeoStore - Modules ................................. SKIPPED
+[INFO] GeoStore - Modules - REST root ..................... SKIPPED
+[INFO] GeoStore - Modules - REST API ...................... SKIPPED
+[INFO] GeoStore - Modules - REST services ................. SKIPPED
+[INFO] GeoStore - Modules - REST client ................... SKIPPED
+[INFO] GeoStore - Modules - REST EXTJS services ........... SKIPPED
+[INFO] GeoStore - Modules - REST services test ............ SKIPPED
+[INFO] GeoStore - Modules - REST auditing ................. SKIPPED
+[INFO] GeoStore - Web ..................................... SKIPPED
+[INFO] GeoStore - Webapp .................................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.173 s
+[INFO] Finished at: 2026-11-22T16:38:31Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Plugin org.apache.maven.plugins:maven-dependency-plugin:3.6.1 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-dependency-plugin:jar:3.6.1: The following artifacts could not be resolved: org.apache.maven.plugins:maven-dependency-plugin:pom:3.6.1 (absent): Could not transfer artifact org.apache.maven.plugins:maven-dependency-plugin:pom:3.6.1 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org: Name does not resolve: Unknown host repo.maven.apache.org: Name does not resolve -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginResolutionException
+TREE_RETRY_EXIT=1

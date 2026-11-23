@@ -1,0 +1,16 @@
+Pipeline test: deliberately broken patch.
+
+```diff
+diff --git a/src/main/java/net/masterthought/cucumber/ReportBuilder.java b/src/main/java/net/masterthought/cucumber/ReportBuilder.java
+--- a/src/main/java/net/masterthought/cucumber/ReportBuilder.java
++++ b/src/main/java/net/masterthought/cucumber/ReportBuilder.java
+@@ -175,7 +175,7 @@
+ THIS-LINE-DOES-NOT-EXIST         } catch (FileNotFoundException e) {
+             LOG.log(Level.WARNING, "File not found: {0}", srcFile.getAbsolutePath());
++            LOG.log(Level.FINE, "", e);
+-        } catch (IOException e) {
++        } catch (IOException | IllegalArgumentException e) {
++            throw new ValidationException(e);
+         }
+     }
+```

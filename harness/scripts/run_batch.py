@@ -5,7 +5,7 @@
 Writes harness/runs/<label>/summary.json and summary.csv after each case.
 Usage: python -I run_batch.py <research root> --source fixes|<dir> [--label L] [--cases 1,2,3]
 """
-import argparse, csv, json, os, subprocess, sys
+import argparse, csv, json, os, re, subprocess, sys
 from collections import Counter
 
 ap = argparse.ArgumentParser()
@@ -27,7 +27,17 @@ for n in todo:
                     "--patch", patch, "--label", label])
     sys.stdout.flush()
 
-rows = [json.load(open(os.path.join(out, f), encoding="utf-8")) for f in sorted(os.listdir(out)) if f.endswith(".json") and f.startswith("case")]
+# Re-run INCONCLUSIVE cases (network/infrastructure) once, after the main pass.
+for n in todo:
+    jf = os.path.join(out, f"case{n}.json")
+    if os.path.exists(jf) and json.load(open(jf, encoding="utf-8"))["verdict"] == "INCONCLUSIVE":
+        prev = json.load(open(jf, encoding="utf-8"))
+        os.replace(jf, os.path.join(out, f"case{n}_inconclusive_attempt.json"))
+        print(f"case {n}: re-running INCONCLUSIVE ({prev.get('inconclusive_reason', '')})", flush=True)
+        patch = P("fix_mining", "fixes_v1.0", index[n]["patch"]) if a.source == "fixes" else os.path.join(a.source, f"case{n}.patch")
+        subprocess.run([sys.executable, "-I", P("harness", "scripts", "evaluate_patch.py"), a.root, "--case", str(n), "--patch", patch, "--label", label])
+
+rows = [json.load(open(os.path.join(out, f), encoding="utf-8")) for f in sorted(os.listdir(out)) if re.fullmatch(r"case\d+\.json", f)]
 summ = dict(label=label, cases=len(rows), harness_versions=Counter(r.get("harness_version", "v1") for r in rows),
             verdicts=Counter(r["verdict"] for r in rows), flaky_cases=sorted(r["case"] for r in rows if r.get("flaky")),
             failed_checks=Counter(k for r in rows for k in r["failed_checks"]),

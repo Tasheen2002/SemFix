@@ -1,0 +1,83 @@
+{
+ "case": 155,
+ "label": "dryrun_rag_L2",
+ "condition": "rag",
+ "level": "L2",
+ "k": 3,
+ "include_researcher_written": true,
+ "provider": "manual",
+ "model": null,
+ "effort": "high",
+ "date": "2026-11-23",
+ "retrieved": [
+  {
+   "case": 90,
+   "mechanism": "SLF4J2_IGNORES_LEGACY_BINDING",
+   "fix_author": "researcher-written (Claude); NOT a reference answer",
+   "score": 54.853
+  },
+  {
+   "case": 132,
+   "mechanism": "SLF4J2_IGNORES_LEGACY_BINDING",
+   "fix_author": "developer",
+   "score": 54.273
+  },
+  {
+   "case": 15,
+   "mechanism": "SLF4J2_IGNORES_LEGACY_BINDING",
+   "fix_author": "derived from developer fix (Claude)",
+   "score": 45.234
+  }
+ ],
+ "context_files": [
+  {
+   "path": "pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 18602
+  },
+  {
+   "path": "src/test/java/org/simplify4u/plugins/sign/SignMojoTest.java",
+   "kind": "failing test",
+   "chars": 5955
+  },
+  {
+   "path": "src/test/java/org/simplify4u/plugins/sign/utils/EnvironmentTest.java",
+   "kind": "failing test",
+   "chars": 3156
+  }
+ ],
+ "breakage": {
+  "dependency": "org.slf4j:slf4j-api",
+  "group_id": "org.slf4j",
+  "artifact_id": "slf4j-api",
+  "old_version": "1.7.36",
+  "new_version": "2.0.5",
+  "failing_test_classes": [
+   "org.simplify4u.plugins.sign.SignMojoTest",
+   "org.simplify4u.plugins.sign.utils.EnvironmentTest"
+  ],
+  "exception_types": [
+   "java.lang.ClassCastException"
+  ],
+  "error_lines": [
+   "java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class org.simplify4u.slf4jmock.internal.ProxyMock (org.slf4j.helpers.NOPLogger and org.simplify4u.slf4jmock.internal.ProxyMock are in unnamed module of loader 'app')"
+  ],
+  "project_frames": [],
+  "slf4j_console": [
+   "SLF4J: No SLF4J providers were found.",
+   "SLF4J: Defaulting to no-operation (NOP) logger implementation",
+   "SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.",
+   "SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.",
+   "SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/org/simplify4u/slf4j-mock/2.3.0/slf4j-mock-2.3.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]",
+   "SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation."
+  ]
+ },
+ "attempts": [
+  {
+   "attempt": 1,
+   "prompt_chars": 34482
+  }
+ ],
+ "final_verdict": "DRY_RUN",
+ "attempts_used": 1
+}

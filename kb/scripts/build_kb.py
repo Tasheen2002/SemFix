@@ -75,7 +75,13 @@ for n in sorted(index):
     u = bm["updatedDependency"]
     g, a = ix["dependency"].split(":")
     author = ix["fix_author"]
-    explanation = dv["notes"] if ix["reference_group"] != "RESEARCHER_WRITTEN_ONLY" else ix["recipe_source"]
+    # The explanation must describe the patch actually stored: developer fixes use the developers' commit notes;
+    # derived and researcher-written fixes use their own recipe description, without internal bookkeeping labels.
+    if ix["reference_group"] == "DEVELOPER_FIX":
+        explanation = dv["notes"]
+    else:
+        explanation = re.sub(r"^(RESEARCHER-WRITTEN \(Claude\), not a developer fix: shows the case is fixable; NOT a reference answer\. |"
+                             r"DERIVED minimal companion fix \(NOT the developer's\): )", "", ix["recipe_source"]).strip()
     e = dict(
         kb_id=f"BUMP-BEH-{n:03d}", case_number=n, case_id=ix["case_id"], project=ix["project"],
         breakage=dict(dependency=ix["dependency"], group_id=g, artifact_id=a, old_version=ix["old_version"], new_version=ix["new_version"],

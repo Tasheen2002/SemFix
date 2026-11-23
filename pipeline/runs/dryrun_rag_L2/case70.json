@@ -1,0 +1,112 @@
+{
+ "case": 70,
+ "label": "dryrun_rag_L2",
+ "condition": "rag",
+ "level": "L2",
+ "k": 3,
+ "include_researcher_written": true,
+ "provider": "manual",
+ "model": null,
+ "effort": "high",
+ "date": "2026-11-23",
+ "retrieved": [
+  {
+   "case": 13,
+   "mechanism": "SINGLETON",
+   "fix_author": "developer",
+   "score": 10.076
+  },
+  {
+   "case": 28,
+   "mechanism": "DROPWIZARD_SENTRY_CONFIG",
+   "fix_author": "developer",
+   "score": 9.441
+  },
+  {
+   "case": 163,
+   "mechanism": "JSON_SMART_DEPTH_LIMIT",
+   "fix_author": "developer",
+   "score": 8.125
+  }
+ ],
+ "context_files": [
+  {
+   "path": "pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 7763
+  },
+  {
+   "path": "src/test/java/org/geoserver/shell/ScriptCommandsTest.java",
+   "kind": "failing test",
+   "chars": 5666
+  },
+  {
+   "path": "src/test/resources/scripts.json",
+   "kind": "resource file named in the failing test",
+   "chars": 124
+  },
+  {
+   "path": "src/test/resources/session.json",
+   "kind": "resource file named in the failing test",
+   "chars": 35
+  },
+  {
+   "path": "src/test/resources/sessions.json",
+   "kind": "resource file named in the failing test",
+   "chars": 94
+  },
+  {
+   "path": "src/main/java/org/geoserver/shell/ScriptCommands.java",
+   "kind": "class in the failing stack trace",
+   "chars": 17423
+  }
+ ],
+ "breakage": {
+  "dependency": "org.json:json",
+  "group_id": "org.json",
+  "artifact_id": "json",
+  "old_version": "20090211",
+  "new_version": "20230227",
+  "failing_test_classes": [
+   "org.geoserver.shell.ScriptCommandsTest"
+  ],
+  "exception_types": [
+   "org.json.JSONException"
+  ],
+  "error_lines": [
+   "org.json.JSONException: JSONObject[\"id\"] is not a string (class java.lang.Integer : 0).",
+   "org.json.JSONException: JSONObject[\"id\"] is not a string (class java.lang.Integer : 1)."
+  ],
+  "project_frames": [
+   {
+    "cls": "org.geoserver.shell.ScriptCommands",
+    "file": "ScriptCommands.java",
+    "line": 298
+   },
+   {
+    "cls": "org.geoserver.shell.ScriptCommandsTest",
+    "file": "ScriptCommandsTest.java",
+    "line": 422
+   },
+   {
+    "cls": "org.geoserver.shell.ScriptCommands",
+    "file": "ScriptCommands.java",
+    "line": 314
+   },
+   {
+    "cls": "org.geoserver.shell.ScriptCommandsTest",
+    "file": "ScriptCommandsTest.java",
+    "line": 437
+   }
+  ],
+  "slf4j_console": []
+ },
+ "attempts": [
+  {
+   "attempt": 1,
+   "prompt_chars": 38116
+  }
+ ],
+ "final_verdict": "DRY_RUN",
+ "attempts_used": 1
+}

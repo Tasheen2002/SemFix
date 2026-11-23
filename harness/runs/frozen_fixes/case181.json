@@ -1,0 +1,64 @@
+{
+ "case": 181,
+ "case_id": "fa6503da9fd5431abca41561a34d54e07fbbf7d0",
+ "label": "frozen_fixes",
+ "patch": "fix_mining\\fixes_v1.0\\reference_fixes\\case181.patch",
+ "date": "2026-11-22",
+ "verdict": "NOT_REPAIRED",
+ "checks": {
+  "APPLIES": true,
+  "BUILD": true,
+  "TARGET_FIXED": true,
+  "NO_REGRESSION": true,
+  "UPDATE_KEPT": false
+ },
+ "failed_checks": [
+  "UPDATE_KEPT"
+ ],
+ "evaluation_mode": "compare to reference fix + tests",
+ "reference_group": "DEVELOPER_FIX",
+ "command": "mvn clean test -B",
+ "seconds": 137,
+ "build": {
+  "status": "SUCCESS",
+  "maven_exit": "0",
+  "tests": 240,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 14
+ },
+ "pre_baseline": {
+  "tests": 240,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 14
+ },
+ "target_classes": {
+  "com.github.sparqlanything.html.HTMLMicrodataRemoteTest": "passed",
+  "com.github.sparqlanything.html.HTMLMicrodataTest": "passed"
+ },
+ "regressions": [],
+ "regression_count": 0,
+ "dependency": "org.jsoup:jsoup",
+ "new_version": "1.15.3",
+ "resolved_versions": [],
+ "info": {
+  "files_changed": [
+   "sparql-anything-html/src/test/resources/Microdata1.nq"
+  ],
+  "test_files_changed": [
+   "sparql-anything-html/src/test/resources/Microdata1.nq"
+  ],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": [],
+  "reference_fix_file_overlap": 1.0,
+  "identical_to_reference_fix": true
+ },
+ "notes": [
+  "org.jsoup:jsoup not found in dependency:tree (removed or tree failed)"
+ ],
+ "log": "harness\\runs\\frozen_fixes\\case181.log",
+ "image": "ghcr.io/chains-project/breaking-updates:fa6503da9fd5431abca41561a34d54e07fbbf7d0-breaking",
+ "source": "repair harness v1 (Claude); AI evaluation"
+}

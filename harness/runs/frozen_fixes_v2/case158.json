@@ -1,0 +1,74 @@
+{
+ "case": 158,
+ "case_id": "d4aade950ffc07b63a0140e43ecf930a2c8aec43",
+ "label": "frozen_fixes_v2",
+ "harness_version": "v2",
+ "patch": "fix_mining\\fixes_v1.0\\reference_fixes\\case158.patch",
+ "date": "2026-11-22",
+ "verdict": "REPAIRED",
+ "flaky": false,
+ "attempts": [
+  {
+   "attempt": 1,
+   "log": "harness\\runs\\frozen_fixes_v2\\case158.log",
+   "seconds": 48,
+   "verdict": "REPAIRED",
+   "failed": [],
+   "regressions": []
+  }
+ ],
+ "checks": {
+  "APPLIES": true,
+  "BUILD": true,
+  "TARGET_FIXED": true,
+  "NO_REGRESSION": true,
+  "UPDATE_KEPT": true
+ },
+ "failed_checks": [],
+ "evaluation_mode": "compare to reference fix + tests",
+ "reference_group": "DEVELOPER_FIX",
+ "command": "mvn clean test -B",
+ "tree_command": "mvn -B -DskipTests test-compile dependency:tree -Dincludes=org.apache.httpcomponents:httpclient",
+ "seconds": 48,
+ "build": {
+  "status": "SUCCESS",
+  "maven_exit": "0",
+  "tests": 26,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "pre_baseline": {
+  "tests": 26,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "target_classes": {
+  "com.github.sardine.impl.SardineExceptionTest": "passed"
+ },
+ "regressions": [],
+ "regression_count": 0,
+ "dependency": "org.apache.httpcomponents:httpclient",
+ "new_version": "4.5.13",
+ "resolved_versions": [
+  "4.5.13"
+ ],
+ "info": {
+  "files_changed": [
+   "src/test/java/com/github/sardine/impl/SardineExceptionTest.java"
+  ],
+  "test_files_changed": [
+   "src/test/java/com/github/sardine/impl/SardineExceptionTest.java"
+  ],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": [],
+  "reference_fix_file_overlap": 1.0,
+  "identical_to_reference_fix": true
+ },
+ "notes": [],
+ "log": "harness\\runs\\frozen_fixes_v2\\case158.log",
+ "image": "ghcr.io/chains-project/breaking-updates:d4aade950ffc07b63a0140e43ecf930a2c8aec43-breaking",
+ "source": "repair harness v2 (Claude); AI evaluation"
+}

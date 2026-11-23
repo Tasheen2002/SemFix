@@ -1,0 +1,116 @@
+{
+ "case": 132,
+ "case_id": "b5eb721e10cb05e68c0283d8a76c46cc257a0331",
+ "label": "frozen_fixes_v2",
+ "harness_version": "v2",
+ "patch": "fix_mining\\fixes_v1.0\\reference_fixes\\case132.patch",
+ "date": "2026-11-22",
+ "verdict": "NOT_REPAIRED",
+ "flaky": false,
+ "attempts": [
+  {
+   "attempt": 1,
+   "log": "harness\\runs\\frozen_fixes_v2\\case132.log",
+   "seconds": 18,
+   "verdict": "NOT_REPAIRED",
+   "failed": [
+    "BUILD",
+    "TARGET_FIXED",
+    "NO_REGRESSION"
+   ],
+   "regressions": [
+    "com.feedzai.commons.sql.abstraction.util.StringUtilsTest: did not run",
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest: did not run",
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCreateTest: did not run",
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.UnderflowTest: did not run",
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.ForeignKeyTest: did not run",
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.TimeoutsTest: did not run",
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.JSonTest: did not run",
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest: did not run",
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.QueryTimeoutsTest: did not run",
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest: did not run",
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.SelectForUpdateTest: did not run",
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineIsolationTest: did not run",
+    "com.feedzai.commons.sql.abstraction.engine.impl.abs.LongOverflowTest: did not run",
+    "com.feedzai.commons.sql.abstraction.engine.impl.h2.H2EngineSchemaTest: did not run",
+    "com.feedzai.commons.sql.abstraction.engine.pool.DatabaseEnginePoolTest: did not run",
+    "com.feedzai.commons.sql.abstraction.dml.DmlTest: did not run"
+   ]
+  }
+ ],
+ "checks": {
+  "APPLIES": true,
+  "BUILD": false,
+  "TARGET_FIXED": false,
+  "NO_REGRESSION": false,
+  "UPDATE_KEPT": "UNKNOWN"
+ },
+ "failed_checks": [
+  "BUILD",
+  "TARGET_FIXED",
+  "NO_REGRESSION"
+ ],
+ "evaluation_mode": "compare to reference fix + tests",
+ "reference_group": "DEVELOPER_FIX",
+ "command": "mvn clean test -B",
+ "tree_command": "mvn -B -DskipTests test-compile dependency:tree -Dincludes=org.slf4j:slf4j-api",
+ "seconds": 18,
+ "build": {
+  "status": "FAILURE",
+  "maven_exit": "1",
+  "tests": 0,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "pre_baseline": {
+  "tests": 291,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 13
+ },
+ "target_classes": {
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest": "did not run",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest": "did not run",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest": "did not run"
+ },
+ "regressions": [
+  "com.feedzai.commons.sql.abstraction.util.StringUtilsTest: did not run",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.BatchUpdateTest: did not run",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCreateTest: did not run",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.UnderflowTest: did not run",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.ForeignKeyTest: did not run",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.TimeoutsTest: did not run",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.JSonTest: did not run",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineGeneralTest: did not run",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.QueryTimeoutsTest: did not run",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineCloseTest: did not run",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.SelectForUpdateTest: did not run",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.EngineIsolationTest: did not run",
+  "com.feedzai.commons.sql.abstraction.engine.impl.abs.LongOverflowTest: did not run",
+  "com.feedzai.commons.sql.abstraction.engine.impl.h2.H2EngineSchemaTest: did not run",
+  "com.feedzai.commons.sql.abstraction.engine.pool.DatabaseEnginePoolTest: did not run",
+  "com.feedzai.commons.sql.abstraction.dml.DmlTest: did not run"
+ ],
+ "regression_count": 16,
+ "dependency": "org.slf4j:slf4j-api",
+ "new_version": "2.0.5",
+ "resolved_versions": [],
+ "info": {
+  "files_changed": [
+   "pom.xml"
+  ],
+  "test_files_changed": [],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": [],
+  "reference_fix_file_overlap": 1.0,
+  "identical_to_reference_fix": true
+ },
+ "notes": [
+  "dependency:tree failed twice (plain and pinned 3.6.1); UPDATE_KEPT unknown"
+ ],
+ "log": "harness\\runs\\frozen_fixes_v2\\case132.log",
+ "image": "ghcr.io/chains-project/breaking-updates:b5eb721e10cb05e68c0283d8a76c46cc257a0331-breaking",
+ "source": "repair harness v2 (Claude); AI evaluation"
+}

@@ -1,0 +1,272 @@
+{
+ "case": 53,
+ "label": "dryrun_rag_L2",
+ "condition": "rag",
+ "level": "L2",
+ "k": 3,
+ "include_researcher_written": true,
+ "provider": "manual",
+ "model": null,
+ "effort": "high",
+ "date": "2026-11-23",
+ "retrieved": [
+  {
+   "case": 13,
+   "mechanism": "SINGLETON",
+   "fix_author": "developer",
+   "score": 35.373
+  },
+  {
+   "case": 28,
+   "mechanism": "DROPWIZARD_SENTRY_CONFIG",
+   "fix_author": "developer",
+   "score": 11.434
+  },
+  {
+   "case": 181,
+   "mechanism": "SINGLETON",
+   "fix_author": "developer",
+   "score": 8.274
+  }
+ ],
+ "context_files": [
+  {
+   "path": "pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 5043
+  },
+  {
+   "path": "src/test/java/org/codehaus/plexus/archiver/snappy/SnappyArchiverTest.java",
+   "kind": "failing test",
+   "chars": 5549
+  },
+  {
+   "path": "src/test/java/org/codehaus/plexus/archiver/bzip2/BZip2ArchiverTest.java",
+   "kind": "failing test",
+   "chars": 5476
+  },
+  {
+   "path": "src/test/java/org/codehaus/plexus/archiver/xz/XzArchiverTest.java",
+   "kind": "failing test",
+   "chars": 5311
+  },
+  {
+   "path": "src/test/java/org/codehaus/plexus/archiver/tar/TarFileTest.java",
+   "kind": "failing test",
+   "chars": 3989
+  },
+  {
+   "path": "src/test/java/org/codehaus/plexus/archiver/tar/TarArchiverTest.java",
+   "kind": "failing test",
+   "chars": 5547
+  },
+  {
+   "path": "src/test/java/org/codehaus/plexus/archiver/zip/ZipArchiverTest.java",
+   "kind": "failing test",
+   "chars": 22688
+  },
+  {
+   "path": "src/test/java/org/codehaus/plexus/archiver/gzip/GZipArchiverTest.java",
+   "kind": "failing test",
+   "chars": 5336
+  },
+  {
+   "path": "src/test/java/org/codehaus/plexus/archiver/SymlinkTest.java",
+   "kind": "failing test",
+   "chars": 1101
+  },
+  {
+   "path": "src/main/resources/META-INF/plexus/components.xml",
+   "kind": "resource file named in the failing test",
+   "chars": 40
+  },
+  {
+   "path": "src/test/resources/folders/b/FileInB.txt",
+   "kind": "resource file named in the failing test",
+   "chars": 40
+  },
+  {
+   "path": "src/test/resources/jar-security/dummy.txt",
+   "kind": "resource file named in the failing test",
+   "chars": 40
+  },
+  {
+   "path": "src/test/resources/zip-timestamp/file-with-even-time.txt",
+   "kind": "resource file named in the failing test",
+   "chars": 40
+  },
+  {
+   "path": "src/test/resources/zip-timestamp/file-with-odd-time.txt",
+   "kind": "resource file named in the failing test",
+   "chars": 40
+  },
+  {
+   "path": "src/test/resources/zip-timestamp/foo/file-with-even-time.txt",
+   "kind": "resource file named in the failing test",
+   "chars": 40
+  }
+ ],
+ "breakage": {
+  "dependency": "org.codehaus.plexus:plexus-io",
+  "group_id": "org.codehaus.plexus",
+  "artifact_id": "plexus-io",
+  "old_version": "3.2.0",
+  "new_version": "3.3.0",
+  "failing_test_classes": [
+   "org.codehaus.plexus.archiver.snappy.SnappyArchiverTest",
+   "org.codehaus.plexus.archiver.bzip2.BZip2ArchiverTest",
+   "org.codehaus.plexus.archiver.xz.XzArchiverTest",
+   "org.codehaus.plexus.archiver.tar.TarFileTest",
+   "org.codehaus.plexus.archiver.tar.TarArchiverTest",
+   "org.codehaus.plexus.archiver.zip.ZipArchiverTest",
+   "org.codehaus.plexus.archiver.gzip.GZipArchiverTest",
+   "org.codehaus.plexus.archiver.SymlinkTest"
+  ],
+  "exception_types": [
+   "org.codehaus.plexus.archiver.ArchiverException"
+  ],
+  "error_lines": [
+   "org.codehaus.plexus.archiver.ArchiverException: Not a directory: test/resources/symlinks/src/symLinkToDirOnTheOutside",
+   "org.codehaus.plexus.archiver.ArchiverException: Not a directory: bzz/symLinkToDirOnTheOutside",
+   "org.codehaus.plexus.archiver.ArchiverException: Not a directory: plexus/src/symLinkToDirOnTheOutside",
+   "org.codehaus.plexus.archiver.ArchiverException: Not a directory: plexus/symlinks/src/symLinkToDirOnTheOutside",
+   "org.codehaus.plexus.archiver.ArchiverException: Not a directory: symLinkToDirOnTheOutside"
+  ],
+  "project_frames": [
+   {
+    "cls": "org.codehaus.plexus.archiver.snappy.SnappyArchiverTest",
+    "file": "SnappyArchiverTest.java",
+    "line": 53
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.bzip2.BZip2ArchiverTest",
+    "file": "BZip2ArchiverTest.java",
+    "line": 53
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.xz.XzArchiverTest",
+    "file": "XzArchiverTest.java",
+    "line": 49
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.tar.TarFileTest",
+    "file": "TarFileTest.java",
+    "line": 100
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.tar.TarFileTest",
+    "file": "TarFileTest.java",
+    "line": 39
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.tar.TarFileTest",
+    "file": "TarFileTest.java",
+    "line": 77
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.tar.TarFileTest",
+    "file": "TarFileTest.java",
+    "line": 58
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.tar.TarArchiverTest",
+    "file": "TarArchiverTest.java",
+    "line": 515
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.tar.TarArchiverTest",
+    "file": "TarArchiverTest.java",
+    "line": 557
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.tar.TarArchiverTest",
+    "file": "TarArchiverTest.java",
+    "line": 508
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.tar.TarArchiverTest",
+    "file": "TarArchiverTest.java",
+    "line": 540
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.tar.TarArchiverTest",
+    "file": "TarArchiverTest.java",
+    "line": 548
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.tar.TarArchiverTest",
+    "file": "TarArchiverTest.java",
+    "line": 502
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.zip.ZipArchiverTest",
+    "file": "ZipArchiverTest.java",
+    "line": 604
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.zip.ZipArchiverTest",
+    "file": "ZipArchiverTest.java",
+    "line": 770
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.zip.ZipArchiverTest",
+    "file": "ZipArchiverTest.java",
+    "line": 521
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.zip.ZipArchiverTest",
+    "file": "ZipArchiverTest.java",
+    "line": 364
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.zip.ZipArchiverTest",
+    "file": "ZipArchiverTest.java",
+    "line": 580
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.zip.ZipArchiverTest",
+    "file": "ZipArchiverTest.java",
+    "line": 485
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.zip.ZipArchiverTest",
+    "file": "ZipArchiverTest.java",
+    "line": 130
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.zip.ZipArchiverTest",
+    "file": "ZipArchiverTest.java",
+    "line": 671
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.gzip.GZipArchiverTest",
+    "file": "GZipArchiverTest.java",
+    "line": 53
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.SymlinkTest",
+    "file": "SymlinkTest.java",
+    "line": 107
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.SymlinkTest",
+    "file": "SymlinkTest.java",
+    "line": 64
+   },
+   {
+    "cls": "org.codehaus.plexus.archiver.SymlinkTest",
+    "file": "SymlinkTest.java",
+    "line": 83
+   }
+  ],
+  "slf4j_console": []
+ },
+ "attempts": [
+  {
+   "attempt": 1,
+   "prompt_chars": 73639
+  }
+ ],
+ "final_verdict": "DRY_RUN",
+ "attempts_used": 1
+}

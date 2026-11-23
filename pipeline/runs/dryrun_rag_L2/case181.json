@@ -1,0 +1,127 @@
+{
+ "case": 181,
+ "label": "dryrun_rag_L2",
+ "condition": "rag",
+ "level": "L2",
+ "k": 3,
+ "include_researcher_written": true,
+ "provider": "manual",
+ "model": null,
+ "effort": "high",
+ "date": "2026-11-23",
+ "retrieved": [
+  {
+   "case": 59,
+   "mechanism": "SLF4J2_IGNORES_LEGACY_BINDING",
+   "fix_author": "researcher-written (Claude); NOT a reference answer",
+   "score": 15.911
+  },
+  {
+   "case": 89,
+   "mechanism": "MOCKITO5_INLINE_DEFAULT",
+   "fix_author": "researcher-written (Claude); NOT a reference answer",
+   "score": 13.393
+  },
+  {
+   "case": 27,
+   "mechanism": "SLF4J2_IGNORES_LEGACY_BINDING",
+   "fix_author": "derived from developer fix (Claude)",
+   "score": 5.76
+  }
+ ],
+ "context_files": [
+  {
+   "path": "pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 12267
+  },
+  {
+   "path": "sparql-anything-html/pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 2490
+  },
+  {
+   "path": "sparql-anything-html/src/test/java/com/github/sparqlanything/html/HTMLMicrodataTest.java",
+   "kind": "failing test",
+   "chars": 1231
+  },
+  {
+   "path": "sparql-anything-html/src/test/java/com/github/sparqlanything/html/HTMLMicrodataRemoteTest.java",
+   "kind": "failing test",
+   "chars": 2446
+  },
+  {
+   "path": "sparql-anything-html/src/test/resources/Microdata1.html",
+   "kind": "resource file named in the failing test",
+   "chars": 877
+  },
+  {
+   "path": "sparql-anything-html/src/test/resources/Microdata1.nq",
+   "kind": "resource file named in the failing test",
+   "chars": 7127
+  },
+  {
+   "path": "sparql-anything-markdown/src/test/resources/Document.ttl",
+   "kind": "resource file named in the failing test",
+   "chars": 554
+  },
+  {
+   "path": "sparql-anything-testutils/src/main/java/com/github/sparqlanything/testutils/TestUtils.java",
+   "kind": "class in the failing stack trace",
+   "chars": 5624
+  },
+  {
+   "path": "sparql-anything-testutils/src/main/java/com/github/sparqlanything/testutils/AbstractTriplifierTester.java",
+   "kind": "class in the failing stack trace",
+   "chars": 7134
+  }
+ ],
+ "breakage": {
+  "dependency": "org.jsoup:jsoup",
+  "group_id": "org.jsoup",
+  "artifact_id": "jsoup",
+  "old_version": "1.14.2",
+  "new_version": "1.15.3",
+  "failing_test_classes": [
+   "com.github.sparqlanything.html.HTMLMicrodataTest",
+   "com.github.sparqlanything.html.HTMLMicrodataRemoteTest"
+  ],
+  "exception_types": [
+   "java.lang.AssertionError"
+  ],
+  "error_lines": [
+   "java.lang.AssertionError"
+  ],
+  "project_frames": [
+   {
+    "cls": "com.github.sparqlanything.testutils.TestUtils",
+    "file": "TestUtils.java",
+    "line": 144
+   },
+   {
+    "cls": "com.github.sparqlanything.testutils.AbstractTriplifierTester",
+    "file": "AbstractTriplifierTester.java",
+    "line": 199
+   },
+   {
+    "cls": "com.github.sparqlanything.html.HTMLMicrodataTest",
+    "file": "HTMLMicrodataTest.java",
+    "line": 33
+   },
+   {
+    "cls": "com.github.sparqlanything.html.HTMLMicrodataRemoteTest",
+    "file": "HTMLMicrodataRemoteTest.java",
+    "line": 36
+   }
+  ],
+  "slf4j_console": []
+ },
+ "attempts": [
+  {
+   "attempt": 1,
+   "prompt_chars": 47341
+  }
+ ],
+ "final_verdict": "DRY_RUN",
+ "attempts_used": 1
+}

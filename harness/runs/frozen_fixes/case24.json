@@ -1,0 +1,58 @@
+{
+ "case": 24,
+ "case_id": "1cf2cb24c3532551856d5edd85148f978e11a63c",
+ "label": "frozen_fixes",
+ "patch": "fix_mining\\fixes_v1.0\\researcher_written_fixes\\case24.patch",
+ "date": "2026-11-22",
+ "verdict": "REPAIRED",
+ "checks": {
+  "APPLIES": true,
+  "BUILD": true,
+  "TARGET_FIXED": true,
+  "NO_REGRESSION": true,
+  "UPDATE_KEPT": true
+ },
+ "failed_checks": [],
+ "evaluation_mode": "tests only (failing tests pass, nothing else breaks)",
+ "reference_group": "RESEARCHER_WRITTEN_ONLY",
+ "command": "mvn clean test -B",
+ "seconds": 56,
+ "build": {
+  "status": "SUCCESS",
+  "maven_exit": "0",
+  "tests": 38,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "pre_baseline": {
+  "tests": 38,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "target_classes": {
+  "org.simplify4u.plugins.sign.SignMojoTest": "passed",
+  "org.simplify4u.plugins.sign.utils.EnvironmentTest": "passed"
+ },
+ "regressions": [],
+ "regression_count": 0,
+ "dependency": "org.slf4j:slf4j-api",
+ "new_version": "2.0.4",
+ "resolved_versions": [
+  "2.0.4"
+ ],
+ "info": {
+  "files_changed": [
+   "pom.xml"
+  ],
+  "test_files_changed": [],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": []
+ },
+ "notes": [],
+ "log": "harness\\runs\\frozen_fixes\\case24.log",
+ "image": "ghcr.io/chains-project/breaking-updates:1cf2cb24c3532551856d5edd85148f978e11a63c-breaking",
+ "source": "repair harness v1 (Claude); AI evaluation"
+}

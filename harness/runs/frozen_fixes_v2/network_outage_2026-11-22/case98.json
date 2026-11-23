@@ -1,0 +1,150 @@
+{
+ "case": 98,
+ "case_id": "8b057977647445aade80627a06bd65867f64b948",
+ "label": "frozen_fixes_v2",
+ "harness_version": "v2",
+ "patch": "fix_mining\\fixes_v1.0\\researcher_written_fixes\\case98.patch",
+ "date": "2026-11-22",
+ "verdict": "NOT_REPAIRED",
+ "flaky": false,
+ "attempts": [
+  {
+   "attempt": 1,
+   "log": "harness\\runs\\frozen_fixes_v2\\case98.log",
+   "seconds": 34,
+   "verdict": "NOT_REPAIRED",
+   "failed": [
+    "BUILD",
+    "NO_REGRESSION"
+   ],
+   "regressions": [
+    "com.pholser.junit.quickcheck.DistinctListPropertyParameterTypesTest: did not run",
+    "com.pholser.junit.quickcheck.DistinctSetPropertyParameterTypesTest: did not run",
+    "com.pholser.junit.quickcheck.DatePropertyParameterTypesTest: did not run",
+    "com.pholser.junit.quickcheck.generator.VoidGeneratorTest: did not run",
+    "com.pholser.junit.quickcheck.generator.java.nio.charset.CharsetPropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.generator.java.util.RFC4122Version4PropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.generator.java.util.ListOfWrapperLongPropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.generator.java.util.PropertiesPropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.generator.java.util.SetOfWrapperBooleanPropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.generator.java.util.OptionalIntPropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.generator.java.util.SetOfSuperFloatPropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.generator.java.util.HashtableGeneratorTest: did not run",
+    "com.pholser.junit.quickcheck.generator.java.util.LocalePropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.generator.java.util.DatePropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.generator.java.util.ListOfExtendsShortPropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.generator.java.util.function.DoubleBinaryOperatorPropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.generator.java.util.function.ToDoubleFunctionPropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.generator.java.util.function.ToIntFunctionPropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.generator.java.util.function.LongBinaryOperatorPropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.generator.java.util.function.UnaryOperatorPropertyParameterTest: did not run"
+   ]
+  }
+ ],
+ "checks": {
+  "APPLIES": true,
+  "BUILD": false,
+  "TARGET_FIXED": true,
+  "NO_REGRESSION": false,
+  "UPDATE_KEPT": "UNKNOWN"
+ },
+ "failed_checks": [
+  "BUILD",
+  "NO_REGRESSION"
+ ],
+ "evaluation_mode": "tests only (failing tests pass, nothing else breaks)",
+ "reference_group": "RESEARCHER_WRITTEN_ONLY",
+ "command": "mvn clean test -B",
+ "tree_command": "mvn -B -DskipTests test-compile dependency:tree -Dincludes=org.mockito:mockito-core",
+ "seconds": 34,
+ "build": {
+  "status": "FAILURE",
+  "maven_exit": "1",
+  "tests": 510,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 18
+ },
+ "pre_baseline": {
+  "tests": 1114,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 20
+ },
+ "target_classes": {
+  "com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest": "passed"
+ },
+ "regressions": [
+  "com.pholser.junit.quickcheck.DistinctListPropertyParameterTypesTest: did not run",
+  "com.pholser.junit.quickcheck.DistinctSetPropertyParameterTypesTest: did not run",
+  "com.pholser.junit.quickcheck.DatePropertyParameterTypesTest: did not run",
+  "com.pholser.junit.quickcheck.generator.VoidGeneratorTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.nio.charset.CharsetPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.RFC4122Version4PropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.ListOfWrapperLongPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.PropertiesPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.SetOfWrapperBooleanPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.OptionalIntPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.SetOfSuperFloatPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.HashtableGeneratorTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.LocalePropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.DatePropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.ListOfExtendsShortPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.DoubleBinaryOperatorPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.ToDoubleFunctionPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.ToIntFunctionPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.LongBinaryOperatorPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.UnaryOperatorPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.ObjLongConsumerPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.IntConsumerPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.DoubleSupplierPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.ObjDoubleConsumerPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.IntFunctionPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.DoubleFunctionPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.LongFunctionPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.LongToDoubleFunctionPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.BiConsumerPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.ToDoubleBiFunctionPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.ToLongBiFunctionPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.LongConsumerPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.IntUnaryOperatorPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.IntPredicatePropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.DoublePredicatePropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.DoubleUnaryOperatorPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.LongSupplierPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.ToIntBiFunctionPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.ObjIntConsumerPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.LongUnaryOperatorPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.IntToLongFunctionPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.DoubleConsumerPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.IntSupplierPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.LongToIntFunctionPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.BiFunctionPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.PredicatePropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.ToLongFunctionPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.LongPredicatePropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.DoubleToLongFunctionPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.java.util.function.SupplierPropertyParameterTest: did not run"
+ ],
+ "regression_count": 174,
+ "dependency": "org.mockito:mockito-core",
+ "new_version": "5.2.0",
+ "resolved_versions": [],
+ "info": {
+  "files_changed": [
+   "core/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker"
+  ],
+  "test_files_changed": [
+   "core/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker"
+  ],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": []
+ },
+ "notes": [
+  "dependency:tree failed twice (plain and pinned 3.6.1); UPDATE_KEPT unknown"
+ ],
+ "log": "harness\\runs\\frozen_fixes_v2\\case98.log",
+ "image": "ghcr.io/chains-project/breaking-updates:8b057977647445aade80627a06bd65867f64b948-breaking",
+ "source": "repair harness v2 (Claude); AI evaluation"
+}

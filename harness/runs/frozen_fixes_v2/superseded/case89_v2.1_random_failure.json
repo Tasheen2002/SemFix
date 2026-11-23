@@ -1,0 +1,121 @@
+{
+ "case": 89,
+ "case_id": "7c90c61e90e9936d8a7e355de8900214c759cb61",
+ "label": "frozen_fixes_v2",
+ "harness_version": "v2.1",
+ "patch": "fix_mining\\fixes_v1.0\\researcher_written_fixes\\case89.patch",
+ "date": "2026-11-23",
+ "verdict": "NOT_REPAIRED",
+ "inconclusive_reason": "",
+ "flaky": false,
+ "attempts": [
+  {
+   "attempt": 1,
+   "log": "harness\\runs\\frozen_fixes_v2\\case89.log",
+   "seconds": 342,
+   "verdict": "NOT_REPAIRED",
+   "failed": [
+    "BUILD",
+    "NO_REGRESSION"
+   ],
+   "regressions": [
+    "com.pholser.junit.quickcheck.BigNumberPropertyParameterTypesTest: 1F/0E",
+    "com.pholser.junit.quickcheck.guava.generator.FunctionPropertyParameterTypesTest: did not run",
+    "com.pholser.junit.quickcheck.guava.generator.PredicatePropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.guava.generator.OptionalPropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.guava.generator.SupplierPropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.guava.generator.FunctionOfStringToIntPropertyParameterTest: did not run",
+    "com.pholser.junit.quickcheck.examples.crypto.SymmetricKeyCryptoPropertiesTest: did not run",
+    "com.pholser.junit.quickcheck.examples.tree.TreePropertyTest: did not run",
+    "com.pholser.junit.quickcheck.examples.nullable.NullableParameterTest: did not run",
+    "com.pholser.junit.quickcheck.examples.func.EitherTest: did not run",
+    "com.pholser.junit.quickcheck.examples.geom.PolygonPropertiesTest: did not run",
+    "com.pholser.junit.quickcheck.examples.geom.SegmentPropertiesTest: did not run",
+    "com.pholser.junit.quickcheck.examples.convention.ConventionGenTest: did not run",
+    "com.pholser.junit.quickcheck.examples.text.StringPropertiesTest: did not run",
+    "com.pholser.junit.quickcheck.examples.text.SSNTest: did not run",
+    "com.pholser.junit.quickcheck.examples.money.DollarsAndCentsPropertiesTest: did not run",
+    "com.pholser.junit.quickcheck.examples.dummy.AGeneratorTest: did not run",
+    "com.pholser.junit.quickcheck.examples.number.PrimeFactorsPropertiesTest: did not run",
+    "com.pholser.junit.quickcheck.examples.number.NumbersPropertiesTest: did not run",
+    "com.pholser.junit.quickcheck.examples.counter.CounterPropertiesTest: did not run"
+   ]
+  }
+ ],
+ "checks": {
+  "APPLIES": true,
+  "BUILD": false,
+  "TARGET_FIXED": true,
+  "NO_REGRESSION": false,
+  "UPDATE_KEPT": true
+ },
+ "failed_checks": [
+  "BUILD",
+  "NO_REGRESSION"
+ ],
+ "evaluation_mode": "tests only (failing tests pass, nothing else breaks)",
+ "reference_group": "RESEARCHER_WRITTEN_ONLY",
+ "command": "mvn clean test -B",
+ "tree_command": "mvn -B -DskipTests test-compile dependency:tree -Dincludes=org.mockito:mockito-core",
+ "seconds": 342,
+ "build": {
+  "status": "FAILURE",
+  "maven_exit": "1",
+  "tests": 1071,
+  "failures": 1,
+  "errors": 0,
+  "skipped": 20
+ },
+ "pre_baseline": {
+  "tests": 1114,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 20
+ },
+ "target_classes": {
+  "com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest": "passed"
+ },
+ "regressions": [
+  "com.pholser.junit.quickcheck.BigNumberPropertyParameterTypesTest: 1F/0E",
+  "com.pholser.junit.quickcheck.guava.generator.FunctionPropertyParameterTypesTest: did not run",
+  "com.pholser.junit.quickcheck.guava.generator.PredicatePropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.guava.generator.OptionalPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.guava.generator.SupplierPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.guava.generator.FunctionOfStringToIntPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.examples.crypto.SymmetricKeyCryptoPropertiesTest: did not run",
+  "com.pholser.junit.quickcheck.examples.tree.TreePropertyTest: did not run",
+  "com.pholser.junit.quickcheck.examples.nullable.NullableParameterTest: did not run",
+  "com.pholser.junit.quickcheck.examples.func.EitherTest: did not run",
+  "com.pholser.junit.quickcheck.examples.geom.PolygonPropertiesTest: did not run",
+  "com.pholser.junit.quickcheck.examples.geom.SegmentPropertiesTest: did not run",
+  "com.pholser.junit.quickcheck.examples.convention.ConventionGenTest: did not run",
+  "com.pholser.junit.quickcheck.examples.text.StringPropertiesTest: did not run",
+  "com.pholser.junit.quickcheck.examples.text.SSNTest: did not run",
+  "com.pholser.junit.quickcheck.examples.money.DollarsAndCentsPropertiesTest: did not run",
+  "com.pholser.junit.quickcheck.examples.dummy.AGeneratorTest: did not run",
+  "com.pholser.junit.quickcheck.examples.number.PrimeFactorsPropertiesTest: did not run",
+  "com.pholser.junit.quickcheck.examples.number.NumbersPropertiesTest: did not run",
+  "com.pholser.junit.quickcheck.examples.counter.CounterPropertiesTest: did not run"
+ ],
+ "regression_count": 20,
+ "dependency": "org.mockito:mockito-core",
+ "new_version": "5.3.1",
+ "resolved_versions": [
+  "5.3.1"
+ ],
+ "info": {
+  "files_changed": [
+   "core/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker"
+  ],
+  "test_files_changed": [
+   "core/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker"
+  ],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": []
+ },
+ "notes": [],
+ "log": "harness\\runs\\frozen_fixes_v2\\case89.log",
+ "image": "ghcr.io/chains-project/breaking-updates:7c90c61e90e9936d8a7e355de8900214c759cb61-breaking",
+ "source": "repair harness v2.1 (Claude); AI evaluation"
+}

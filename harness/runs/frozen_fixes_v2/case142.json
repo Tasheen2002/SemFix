@@ -1,0 +1,74 @@
+{
+ "case": 142,
+ "case_id": "bc73c14c4b588fd53f1f8e5f88be79f827ac6c6e",
+ "label": "frozen_fixes_v2",
+ "harness_version": "v2.2",
+ "patch": "fix_mining\\fixes_v1.0\\researcher_written_fixes\\case142.patch",
+ "date": "2026-11-23",
+ "verdict": "REPAIRED",
+ "inconclusive_reason": "",
+ "flaky": false,
+ "attempts": [
+  {
+   "attempt": 1,
+   "log": "harness\\runs\\frozen_fixes_v2\\case142.log",
+   "seconds": 229,
+   "verdict": "REPAIRED",
+   "failed": [],
+   "regressions": []
+  }
+ ],
+ "checks": {
+  "APPLIES": true,
+  "BUILD": true,
+  "TARGET_FIXED": true,
+  "NO_REGRESSION": true,
+  "UPDATE_KEPT": true
+ },
+ "failed_checks": [],
+ "evaluation_mode": "tests only (failing tests pass, nothing else breaks)",
+ "reference_group": "RESEARCHER_WRITTEN_ONLY",
+ "command": "mvn clean test -B",
+ "tree_command": "mvn -B -DskipTests test-compile dependency:tree -Dincludes=org.slf4j:slf4j-api",
+ "seconds": 229,
+ "build": {
+  "status": "SUCCESS",
+  "maven_exit": "0",
+  "tests": 72,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "pre_baseline": {
+  "tests": 72,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "target_classes": {
+  "com.github.searls.jasmine.format.JasmineResultLoggerTest": "passed"
+ },
+ "regressions": [],
+ "regression_count": 0,
+ "dependency": "org.slf4j:slf4j-api",
+ "new_version": "2.0.4",
+ "resolved_versions": [
+  "2.0.4"
+ ],
+ "info": {
+  "files_changed": [
+   "pom.xml",
+   "src/test/java/com/github/searls/jasmine/format/JasmineResultLoggerTest.java"
+  ],
+  "test_files_changed": [
+   "src/test/java/com/github/searls/jasmine/format/JasmineResultLoggerTest.java"
+  ],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": []
+ },
+ "notes": [],
+ "log": "harness\\runs\\frozen_fixes_v2\\case142.log",
+ "image": "ghcr.io/chains-project/breaking-updates:bc73c14c4b588fd53f1f8e5f88be79f827ac6c6e-breaking",
+ "source": "repair harness v2.2 (Claude); AI evaluation"
+}

@@ -1,0 +1,154 @@
+{
+ "case": 89,
+ "case_id": "7c90c61e90e9936d8a7e355de8900214c759cb61",
+ "label": "frozen_fixes_v2",
+ "harness_version": "v2",
+ "patch": "fix_mining\\fixes_v1.0\\researcher_written_fixes\\case89.patch",
+ "date": "2026-11-22",
+ "verdict": "NOT_REPAIRED",
+ "flaky": false,
+ "attempts": [
+  {
+   "attempt": 1,
+   "log": "harness\\runs\\frozen_fixes_v2\\case89.log",
+   "seconds": 0,
+   "verdict": "NOT_REPAIRED",
+   "failed": [
+    "APPLIES",
+    "BUILD",
+    "TARGET_FIXED",
+    "NO_REGRESSION"
+   ],
+   "regressions": [
+    "com.pholser.junit.quickcheck.GenericArrayPropertyParameterTypesTest: did not run",
+    "com.pholser.junit.quickcheck.ResolvingGenericPropertyParameterTypesTest: did not run",
+    "com.pholser.junit.quickcheck.PropertyParameterMarkedWithSuperfluousConfigurationTest: did not run",
+    "com.pholser.junit.quickcheck.LambdaPropertyParameterTypesTest: did not run",
+    "com.pholser.junit.quickcheck.PropertyParameterDiscardRatioTest: did not run",
+    "com.pholser.junit.quickcheck.internal.RangesUtilityClassTest: did not run",
+    "com.pholser.junit.quickcheck.internal.CartesianIteratorTest: did not run",
+    "com.pholser.junit.quickcheck.internal.generator.PropertyParameterGenerationContextWithNonShrinkingGeneratorTest: did not run",
+    "com.pholser.junit.quickcheck.internal.generator.ExplicitGroupOfGeneratorsChosenWithEqualProbabilityTest: did not run",
+    "com.pholser.junit.quickcheck.internal.generator.MissingGeneratorForGivenTypeTest: did not run",
+    "com.pholser.junit.quickcheck.internal.generator.ExplicitGroupOfGeneratorsChosenWithDiscreteProbabilityTest: did not run",
+    "com.pholser.junit.quickcheck.internal.generator.EnumGeneratorTest: did not run",
+    "com.pholser.junit.quickcheck.internal.generator.PropertyParameterGenerationContextTest: did not run",
+    "com.pholser.junit.quickcheck.internal.generator.ExplicitGeneratorsChosenWithEqualProbabilityTest: did not run",
+    "com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest: did not run",
+    "com.pholser.junit.quickcheck.internal.generator.RegisteringGeneratorsForHierarchyOfInterfaceTest: did not run",
+    "com.pholser.junit.quickcheck.internal.generator.RegisteringGeneratorsForHierarchyOfArrayListTest: did not run",
+    "com.pholser.junit.quickcheck.internal.generator.RegisterGeneratorsByConventionTest: did not run",
+    "com.pholser.junit.quickcheck.internal.generator.ConstrainingWhatGeneratorsCanAcceptCertainComponentsTest: did not run",
+    "com.pholser.junit.quickcheck.internal.generator.RegisteringGeneratorsForHierarchyOfBigDecimalTest: did not run"
+   ]
+  }
+ ],
+ "checks": {
+  "APPLIES": false,
+  "BUILD": false,
+  "TARGET_FIXED": false,
+  "NO_REGRESSION": false,
+  "UPDATE_KEPT": "UNKNOWN"
+ },
+ "failed_checks": [
+  "APPLIES",
+  "BUILD",
+  "TARGET_FIXED",
+  "NO_REGRESSION"
+ ],
+ "evaluation_mode": "tests only (failing tests pass, nothing else breaks)",
+ "reference_group": "RESEARCHER_WRITTEN_ONLY",
+ "command": "mvn clean test -B",
+ "tree_command": "mvn -B -DskipTests test-compile dependency:tree -Dincludes=org.mockito:mockito-core",
+ "seconds": 0,
+ "build": {
+  "status": "NONE",
+  "maven_exit": "",
+  "tests": 0,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "pre_baseline": {
+  "tests": 1114,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 20
+ },
+ "target_classes": {
+  "com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest": "did not run"
+ },
+ "regressions": [
+  "com.pholser.junit.quickcheck.GenericArrayPropertyParameterTypesTest: did not run",
+  "com.pholser.junit.quickcheck.ResolvingGenericPropertyParameterTypesTest: did not run",
+  "com.pholser.junit.quickcheck.PropertyParameterMarkedWithSuperfluousConfigurationTest: did not run",
+  "com.pholser.junit.quickcheck.LambdaPropertyParameterTypesTest: did not run",
+  "com.pholser.junit.quickcheck.PropertyParameterDiscardRatioTest: did not run",
+  "com.pholser.junit.quickcheck.internal.RangesUtilityClassTest: did not run",
+  "com.pholser.junit.quickcheck.internal.CartesianIteratorTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.PropertyParameterGenerationContextWithNonShrinkingGeneratorTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.ExplicitGroupOfGeneratorsChosenWithEqualProbabilityTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.MissingGeneratorForGivenTypeTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.ExplicitGroupOfGeneratorsChosenWithDiscreteProbabilityTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.EnumGeneratorTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.PropertyParameterGenerationContextTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.ExplicitGeneratorsChosenWithEqualProbabilityTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.RegisteringGeneratorsForHierarchyOfInterfaceTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.RegisteringGeneratorsForHierarchyOfArrayListTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.RegisterGeneratorsByConventionTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.ConstrainingWhatGeneratorsCanAcceptCertainComponentsTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.RegisteringGeneratorsForHierarchyOfBigDecimalTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.RegisteringGeneratorsForHierarchyOfHashMapTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.RegisteringGeneratorsWithServiceLoaderTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.OneOfSetOfGeneratorsTest: did not run",
+  "com.pholser.junit.quickcheck.internal.generator.ArrayGeneratorTest: did not run",
+  "com.pholser.junit.quickcheck.internal.ReflectionUtilityClassTest: did not run",
+  "com.pholser.junit.quickcheck.internal.ComparablesUtilityClassTest: did not run",
+  "com.pholser.junit.quickcheck.internal.SequencesUtilityClassTest: did not run",
+  "com.pholser.junit.quickcheck.internal.FakeAnnotatedTypeFactoryUtilityClassTest: did not run",
+  "com.pholser.junit.quickcheck.internal.RangesTest: did not run",
+  "com.pholser.junit.quickcheck.internal.WeightedTest: did not run",
+  "com.pholser.junit.quickcheck.internal.ItemsUtilityClassTest: did not run",
+  "com.pholser.junit.quickcheck.internal.GeometricDistributionTest: did not run",
+  "com.pholser.junit.quickcheck.internal.ReflectionTest: did not run",
+  "com.pholser.junit.quickcheck.internal.ListsUtilityClassTest: did not run",
+  "com.pholser.junit.quickcheck.internal.ListsTest: did not run",
+  "com.pholser.junit.quickcheck.internal.ComparablesTest: did not run",
+  "com.pholser.junit.quickcheck.internal.ItemsTest: did not run",
+  "com.pholser.junit.quickcheck.internal.constraint.ConstraintEvaluatorTest: did not run",
+  "com.pholser.junit.quickcheck.internal.SequencesTest: did not run",
+  "com.pholser.junit.quickcheck.generator.PrimitiveIntegerArrayPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.GenerationStatusOnPropertyParametersTest: did not run",
+  "com.pholser.junit.quickcheck.generator.SizeConstrainedPrimitiveIntegerArrayPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.LambdasUtilityClassTest: did not run",
+  "com.pholser.junit.quickcheck.generator.LambdasTest: did not run",
+  "com.pholser.junit.quickcheck.generator.ThreeDCharArrayPropertyParameterTest: did not run",
+  "com.pholser.junit.quickcheck.generator.PropertyParameterGenerationStatusTest: did not run",
+  "com.pholser.junit.quickcheck.generator.GenFrequencyTest: did not run",
+  "com.pholser.junit.quickcheck.generator.GenOneOfTest: did not run",
+  "com.pholser.junit.quickcheck.UsualJUnitMachineryOnTraitBasedPropertyTest: did not run",
+  "com.pholser.junit.quickcheck.PropertyParameterGenerationByConstructorTest: did not run"
+ ],
+ "regression_count": 256,
+ "dependency": "org.mockito:mockito-core",
+ "new_version": "5.3.1",
+ "resolved_versions": [],
+ "info": {
+  "files_changed": [
+   "core/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker"
+  ],
+  "test_files_changed": [
+   "core/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker"
+  ],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": []
+ },
+ "notes": [
+  "dependency:tree failed twice (plain and pinned 3.6.1); UPDATE_KEPT unknown"
+ ],
+ "log": "harness\\runs\\frozen_fixes_v2\\case89.log",
+ "image": "ghcr.io/chains-project/breaking-updates:7c90c61e90e9936d8a7e355de8900214c759cb61-breaking",
+ "source": "repair harness v2 (Claude); AI evaluation"
+}

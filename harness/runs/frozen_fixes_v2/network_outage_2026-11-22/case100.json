@@ -1,0 +1,136 @@
+{
+ "case": 100,
+ "case_id": "8e1f764e628fbcd6813c9dc0329854ac46375c83",
+ "label": "frozen_fixes_v2",
+ "harness_version": "v2",
+ "patch": "fix_mining\\fixes_v1.0\\reference_fixes\\case100.patch",
+ "date": "2026-11-22",
+ "verdict": "NOT_REPAIRED",
+ "flaky": false,
+ "attempts": [
+  {
+   "attempt": 1,
+   "log": "harness\\runs\\frozen_fixes_v2\\case100.log",
+   "seconds": 20,
+   "verdict": "NOT_REPAIRED",
+   "failed": [
+    "BUILD",
+    "TARGET_FIXED",
+    "NO_REGRESSION"
+   ],
+   "regressions": [
+    "net.jadler.matchers.RequestMatcherTest: did not run",
+    "net.jadler.matchers.ParameterRequestMatcherTest: did not run",
+    "net.jadler.matchers.HeaderRequestMatcherTest: did not run",
+    "net.jadler.matchers.QueryStringRequestMatcherTest: did not run",
+    "net.jadler.matchers.MethodRequestMatcherTest: did not run",
+    "net.jadler.matchers.RawBodyRequestMatcherTest: did not run",
+    "net.jadler.matchers.BodyRequestMatcherTest: did not run",
+    "net.jadler.matchers.PathRequestMatcherTest: did not run",
+    "net.jadler.RequestTest: did not run",
+    "net.jadler.mocking.VerifyingTest: did not run",
+    "net.jadler.AbstractRequestMatchingTest: did not run",
+    "net.jadler.JadlerMockerTest: did not run",
+    "net.jadler.KeyValuesTest: did not run",
+    "net.jadler.stubbing.StubbingTest: did not run",
+    "net.jadler.stubbing.StaticResponderTest: did not run",
+    "net.jadler.stubbing.MutableStubResponseTest: did not run",
+    "net.jadler.stubbing.StubResponseTest: did not run",
+    "net.jadler.stubbing.HttpStubTest: did not run",
+    "net.jadler.stubbing.server.jetty.RequestUtilsTest: did not run",
+    "net.jadler.junit.rule.JadlerRuleIntegrationTest: did not run"
+   ]
+  }
+ ],
+ "checks": {
+  "APPLIES": true,
+  "BUILD": false,
+  "TARGET_FIXED": false,
+  "NO_REGRESSION": false,
+  "UPDATE_KEPT": "UNKNOWN"
+ },
+ "failed_checks": [
+  "BUILD",
+  "TARGET_FIXED",
+  "NO_REGRESSION"
+ ],
+ "evaluation_mode": "compare to reference fix + tests",
+ "reference_group": "DEVELOPER_FIX",
+ "command": "mvn clean test -B",
+ "tree_command": "mvn -B -DskipTests test-compile dependency:tree -Dincludes=org.slf4j:slf4j-api",
+ "seconds": 20,
+ "build": {
+  "status": "FAILURE",
+  "maven_exit": "1",
+  "tests": 0,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "pre_baseline": {
+  "tests": 389,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "target_classes": {
+  "net.jadler.JadlerMockerTest": "did not run"
+ },
+ "regressions": [
+  "net.jadler.matchers.RequestMatcherTest: did not run",
+  "net.jadler.matchers.ParameterRequestMatcherTest: did not run",
+  "net.jadler.matchers.HeaderRequestMatcherTest: did not run",
+  "net.jadler.matchers.QueryStringRequestMatcherTest: did not run",
+  "net.jadler.matchers.MethodRequestMatcherTest: did not run",
+  "net.jadler.matchers.RawBodyRequestMatcherTest: did not run",
+  "net.jadler.matchers.BodyRequestMatcherTest: did not run",
+  "net.jadler.matchers.PathRequestMatcherTest: did not run",
+  "net.jadler.RequestTest: did not run",
+  "net.jadler.mocking.VerifyingTest: did not run",
+  "net.jadler.AbstractRequestMatchingTest: did not run",
+  "net.jadler.JadlerMockerTest: did not run",
+  "net.jadler.KeyValuesTest: did not run",
+  "net.jadler.stubbing.StubbingTest: did not run",
+  "net.jadler.stubbing.StaticResponderTest: did not run",
+  "net.jadler.stubbing.MutableStubResponseTest: did not run",
+  "net.jadler.stubbing.StubResponseTest: did not run",
+  "net.jadler.stubbing.HttpStubTest: did not run",
+  "net.jadler.stubbing.server.jetty.RequestUtilsTest: did not run",
+  "net.jadler.junit.rule.JadlerRuleIntegrationTest: did not run",
+  "net.jadler.junit.rule.JadlerFixedPortRuleTest: did not run",
+  "net.jadler.junit.rule.JadlerRuleTest: did not run",
+  "net.jadler.stubbing.server.jdk.RequestUtilsTest: did not run",
+  "net.jadler.stubbing.server.jdk.JdkStubHttpServerTest: did not run",
+  "net.jadler.stubbing.server.jdk.JdkHandlerTest: did not run",
+  "net.jadler.FacadeIntegrationTest: did not run",
+  "net.jadler.StubbingIntegrationTest: did not run",
+  "net.jadler.deprecated.DeprecatedDefaultsConfigurationTest: did not run",
+  "net.jadler.TimeoutIntegrationTest: did not run",
+  "net.jadler.ResetJettyIntegrationTest: did not run",
+  "net.jadler.SuperDefaultsIntegrationTest: did not run",
+  "net.jadler.ResetJDKIntegrationTest: did not run",
+  "net.jadler.StubbingResponseHeadersTest: did not run",
+  "net.jadler.VerificationIntegrationTest: did not run"
+ ],
+ "regression_count": 34,
+ "dependency": "org.slf4j:slf4j-api",
+ "new_version": "2.0.0",
+ "resolved_versions": [],
+ "info": {
+  "files_changed": [
+   "pom.xml"
+  ],
+  "test_files_changed": [],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": [],
+  "reference_fix_file_overlap": 1.0,
+  "identical_to_reference_fix": true
+ },
+ "notes": [
+  "dependency:tree failed twice (plain and pinned 3.6.1); UPDATE_KEPT unknown"
+ ],
+ "log": "harness\\runs\\frozen_fixes_v2\\case100.log",
+ "image": "ghcr.io/chains-project/breaking-updates:8e1f764e628fbcd6813c9dc0329854ac46375c83-breaking",
+ "source": "repair harness v2 (Claude); AI evaluation"
+}

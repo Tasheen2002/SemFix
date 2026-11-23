@@ -1,0 +1,129 @@
+{
+ "case": 78,
+ "case_id": "60d8c1a25e2d7fc688f1b2306be5675f089b74e9",
+ "label": "frozen_fixes_v2",
+ "harness_version": "v2",
+ "patch": "fix_mining\\fixes_v1.0\\researcher_written_fixes\\case78.patch",
+ "date": "2026-11-22",
+ "verdict": "NOT_REPAIRED",
+ "flaky": false,
+ "attempts": [
+  {
+   "attempt": 1,
+   "log": "harness\\runs\\frozen_fixes_v2\\case78.log",
+   "seconds": 0,
+   "verdict": "NOT_REPAIRED",
+   "failed": [
+    "APPLIES",
+    "BUILD",
+    "TARGET_FIXED",
+    "NO_REGRESSION"
+   ],
+   "regressions": [
+    "com.github.searls.jasmine.mojo.ServerMojoTest: did not run",
+    "com.github.searls.jasmine.mojo.AbstractJasmineMojoTest: did not run",
+    "com.github.searls.jasmine.mojo.ReporterRetrieverTest: did not run",
+    "com.github.searls.jasmine.mojo.ResourceRetrieverTest: did not run",
+    "com.github.searls.jasmine.mojo.TestMojoTest: did not run",
+    "com.github.searls.jasmine.model.AbstractJasmineResultTest: did not run",
+    "com.github.searls.jasmine.io.scripts.BasicScriptResolverTest: did not run",
+    "com.github.searls.jasmine.io.scripts.FindsScriptLocationsInDirectoryTest: did not run",
+    "com.github.searls.jasmine.io.scripts.ContextPathScriptResolverTest: did not run",
+    "com.github.searls.jasmine.io.RelativizesFilePathsTest: did not run",
+    "com.github.searls.jasmine.format.JasmineResultLoggerTest: did not run",
+    "com.github.searls.jasmine.format.FormatsScriptTagsTest: did not run",
+    "com.github.searls.jasmine.config.ServerConfigurationTest: did not run",
+    "com.github.searls.jasmine.thirdpartylibs.WebJarResourceHandlerTest: did not run",
+    "com.github.searls.jasmine.thirdpartylibs.ClassPathResourceHandlerTest: did not run",
+    "com.github.searls.jasmine.runner.HtmlGeneratorConfigurationFactoryTest: did not run",
+    "com.github.searls.jasmine.runner.WebDriverWaiterTest: did not run",
+    "com.github.searls.jasmine.runner.CreatesRunnerTest: did not run",
+    "com.github.searls.jasmine.runner.SpecRunnerExecutorTest: did not run",
+    "com.github.searls.jasmine.runner.ConsoleErrorCheckerTest: did not run"
+   ]
+  }
+ ],
+ "checks": {
+  "APPLIES": false,
+  "BUILD": false,
+  "TARGET_FIXED": false,
+  "NO_REGRESSION": false,
+  "UPDATE_KEPT": "UNKNOWN"
+ },
+ "failed_checks": [
+  "APPLIES",
+  "BUILD",
+  "TARGET_FIXED",
+  "NO_REGRESSION"
+ ],
+ "evaluation_mode": "tests only (failing tests pass, nothing else breaks)",
+ "reference_group": "RESEARCHER_WRITTEN_ONLY",
+ "command": "mvn clean test -B",
+ "tree_command": "mvn -B -DskipTests test-compile dependency:tree -Dincludes=org.slf4j:slf4j-api",
+ "seconds": 0,
+ "build": {
+  "status": "NONE",
+  "maven_exit": "",
+  "tests": 0,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "pre_baseline": {
+  "tests": 72,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "target_classes": {
+  "com.github.searls.jasmine.format.JasmineResultLoggerTest": "did not run"
+ },
+ "regressions": [
+  "com.github.searls.jasmine.mojo.ServerMojoTest: did not run",
+  "com.github.searls.jasmine.mojo.AbstractJasmineMojoTest: did not run",
+  "com.github.searls.jasmine.mojo.ReporterRetrieverTest: did not run",
+  "com.github.searls.jasmine.mojo.ResourceRetrieverTest: did not run",
+  "com.github.searls.jasmine.mojo.TestMojoTest: did not run",
+  "com.github.searls.jasmine.model.AbstractJasmineResultTest: did not run",
+  "com.github.searls.jasmine.io.scripts.BasicScriptResolverTest: did not run",
+  "com.github.searls.jasmine.io.scripts.FindsScriptLocationsInDirectoryTest: did not run",
+  "com.github.searls.jasmine.io.scripts.ContextPathScriptResolverTest: did not run",
+  "com.github.searls.jasmine.io.RelativizesFilePathsTest: did not run",
+  "com.github.searls.jasmine.format.JasmineResultLoggerTest: did not run",
+  "com.github.searls.jasmine.format.FormatsScriptTagsTest: did not run",
+  "com.github.searls.jasmine.config.ServerConfigurationTest: did not run",
+  "com.github.searls.jasmine.thirdpartylibs.WebJarResourceHandlerTest: did not run",
+  "com.github.searls.jasmine.thirdpartylibs.ClassPathResourceHandlerTest: did not run",
+  "com.github.searls.jasmine.runner.HtmlGeneratorConfigurationFactoryTest: did not run",
+  "com.github.searls.jasmine.runner.WebDriverWaiterTest: did not run",
+  "com.github.searls.jasmine.runner.CreatesRunnerTest: did not run",
+  "com.github.searls.jasmine.runner.SpecRunnerExecutorTest: did not run",
+  "com.github.searls.jasmine.runner.ConsoleErrorCheckerTest: did not run",
+  "com.github.searls.jasmine.driver.WebDriverFactoryTest: did not run",
+  "com.github.searls.jasmine.server.ResourceHandlerConfiguratorTest: did not run",
+  "com.github.searls.jasmine.server.JasmineResourceHandlerTest: did not run",
+  "com.github.searls.jasmine.server.ServerManagerTest: did not run"
+ ],
+ "regression_count": 24,
+ "dependency": "org.slf4j:slf4j-api",
+ "new_version": "2.0.2",
+ "resolved_versions": [],
+ "info": {
+  "files_changed": [
+   "pom.xml",
+   "src/test/java/com/github/searls/jasmine/format/JasmineResultLoggerTest.java"
+  ],
+  "test_files_changed": [
+   "src/test/java/com/github/searls/jasmine/format/JasmineResultLoggerTest.java"
+  ],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": []
+ },
+ "notes": [
+  "dependency:tree failed twice (plain and pinned 3.6.1); UPDATE_KEPT unknown"
+ ],
+ "log": "harness\\runs\\frozen_fixes_v2\\case78.log",
+ "image": "ghcr.io/chains-project/breaking-updates:60d8c1a25e2d7fc688f1b2306be5675f089b74e9-breaking",
+ "source": "repair harness v2 (Claude); AI evaluation"
+}

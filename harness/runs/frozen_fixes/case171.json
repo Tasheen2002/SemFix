@@ -1,0 +1,83 @@
+{
+ "case": 171,
+ "case_id": "e0f2562e849012538cd30e2730c82991983f4eba",
+ "label": "frozen_fixes",
+ "patch": "fix_mining\\fixes_v1.0\\reference_fixes\\case171.patch",
+ "date": "2026-11-22",
+ "verdict": "REPAIRED",
+ "checks": {
+  "APPLIES": true,
+  "BUILD": true,
+  "TARGET_FIXED": true,
+  "NO_REGRESSION": true,
+  "UPDATE_KEPT": true
+ },
+ "failed_checks": [],
+ "evaluation_mode": "compare to reference fix + tests",
+ "reference_group": "DEVELOPER_FIX",
+ "command": "mvn clean test -B",
+ "seconds": 148,
+ "build": {
+  "status": "SUCCESS",
+  "maven_exit": "0",
+  "tests": 16,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "pre_baseline": {
+  "tests": 16,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "target_classes": {
+  "org.pac4j.dropwizard.bundle.BundleFactoryTest": "passed",
+  "org.pac4j.dropwizard.e2e.EndToEndServletTest": "passed",
+  "org.pac4j.dropwizard.e2e.EndToEndTest": "passed"
+ },
+ "regressions": [],
+ "regression_count": 0,
+ "dependency": "org.slf4j:slf4j-api",
+ "new_version": "2.0.0",
+ "resolved_versions": [
+  "2.0.0"
+ ],
+ "info": {
+  "files_changed": [
+   "README.md",
+   "pom.xml",
+   "src/main/java/org/pac4j/dropwizard/DefaultFeatureSupport.java",
+   "src/main/java/org/pac4j/dropwizard/J2EHelper.java",
+   "src/main/java/org/pac4j/dropwizard/Pac4jBundle.java",
+   "src/main/java/org/pac4j/dropwizard/Pac4jConfiguration.java",
+   "src/main/java/org/pac4j/dropwizard/Pac4jFactory.java",
+   "src/main/java/org/pac4j/dropwizard/Pac4jFeatureSupport.java",
+   "src/test/java/org/pac4j/dropwizard/AbstractApplicationTest.java",
+   "src/test/java/org/pac4j/dropwizard/AbstractConfigurationTest.java",
+   "src/test/java/org/pac4j/dropwizard/bundle/BundleFactoryTest.java",
+   "src/test/java/org/pac4j/dropwizard/e2e/DogsResource.java",
+   "src/test/java/org/pac4j/dropwizard/e2e/EndToEndServletTest.java",
+   "src/test/java/org/pac4j/dropwizard/e2e/EndToEndTest.java",
+   "src/test/java/org/pac4j/dropwizard/factory/DefaultConfigurationTest.java"
+  ],
+  "test_files_changed": [
+   "src/test/java/org/pac4j/dropwizard/AbstractApplicationTest.java",
+   "src/test/java/org/pac4j/dropwizard/AbstractConfigurationTest.java",
+   "src/test/java/org/pac4j/dropwizard/bundle/BundleFactoryTest.java",
+   "src/test/java/org/pac4j/dropwizard/e2e/DogsResource.java",
+   "src/test/java/org/pac4j/dropwizard/e2e/EndToEndServletTest.java",
+   "src/test/java/org/pac4j/dropwizard/e2e/EndToEndTest.java",
+   "src/test/java/org/pac4j/dropwizard/factory/DefaultConfigurationTest.java"
+  ],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": [],
+  "reference_fix_file_overlap": 1.0,
+  "identical_to_reference_fix": true
+ },
+ "notes": [],
+ "log": "harness\\runs\\frozen_fixes\\case171.log",
+ "image": "ghcr.io/chains-project/breaking-updates:e0f2562e849012538cd30e2730c82991983f4eba-breaking",
+ "source": "repair harness v1 (Claude); AI evaluation"
+}

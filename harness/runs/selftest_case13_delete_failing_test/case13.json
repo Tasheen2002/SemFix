@@ -1,0 +1,68 @@
+{
+ "case": 13,
+ "case_id": "12684ee6cfd293b27c08495f97900bcd849b452c",
+ "label": "selftest_case13_delete_failing_test",
+ "patch": "harness\\selftest\\patches\\case13_delete_failing_test.patch",
+ "date": "2026-11-22",
+ "verdict": "NOT_REPAIRED",
+ "checks": {
+  "APPLIES": true,
+  "BUILD": true,
+  "TARGET_FIXED": false,
+  "NO_REGRESSION": false,
+  "UPDATE_KEPT": true
+ },
+ "failed_checks": [
+  "TARGET_FIXED",
+  "NO_REGRESSION"
+ ],
+ "evaluation_mode": "compare to reference fix + tests",
+ "reference_group": "DEVELOPER_FIX",
+ "command": "mvn clean test -B",
+ "seconds": 94,
+ "build": {
+  "status": "SUCCESS",
+  "maven_exit": "0",
+  "tests": 320,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 2
+ },
+ "pre_baseline": {
+  "tests": 345,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 2
+ },
+ "target_classes": {
+  "net.masterthought.cucumber.ReportBuilderTest": "did not run"
+ },
+ "regressions": [
+  "net.masterthought.cucumber.ReportBuilderTest: did not run"
+ ],
+ "regression_count": 1,
+ "dependency": "commons-io:commons-io",
+ "new_version": "2.11.0",
+ "resolved_versions": [
+  "2.11.0"
+ ],
+ "info": {
+  "files_changed": [
+   "src/test/java/net/masterthought/cucumber/ReportBuilderTest.java"
+  ],
+  "test_files_changed": [
+   "src/test/java/net/masterthought/cucumber/ReportBuilderTest.java"
+  ],
+  "test_files_deleted": [
+   "src/test/java/net/masterthought/cucumber/ReportBuilderTest.java"
+  ],
+  "net_test_annotations_removed": 25,
+  "classes_with_fewer_tests_than_pre": [],
+  "reference_fix_file_overlap": 0.0,
+  "identical_to_reference_fix": false
+ },
+ "notes": [],
+ "log": "harness\\runs\\selftest_case13_delete_failing_test\\case13.log",
+ "image": "ghcr.io/chains-project/breaking-updates:12684ee6cfd293b27c08495f97900bcd849b452c-breaking",
+ "source": "repair harness v1 (Claude); AI evaluation"
+}

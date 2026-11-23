@@ -1,0 +1,147 @@
+{
+ "case": 159,
+ "label": "dryrun_rag_L2",
+ "condition": "rag",
+ "level": "L2",
+ "k": 3,
+ "include_researcher_written": true,
+ "provider": "manual",
+ "model": null,
+ "effort": "high",
+ "date": "2026-11-23",
+ "retrieved": [
+  {
+   "case": 1,
+   "mechanism": "SLF4J2_IGNORES_LEGACY_BINDING",
+   "fix_author": "researcher-written (Claude); NOT a reference answer",
+   "score": 68.007
+  },
+  {
+   "case": 2,
+   "mechanism": "SLF4J2_IGNORES_LEGACY_BINDING",
+   "fix_author": "developer",
+   "score": 64.211
+  },
+  {
+   "case": 171,
+   "mechanism": "SLF4J2_IGNORES_LEGACY_BINDING",
+   "fix_author": "developer",
+   "score": 53.89
+  }
+ ],
+ "context_files": [
+  {
+   "path": "pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 18040
+  },
+  {
+   "path": "src/test/java/uk/gov/pay/adminusers/queue/event/EventMessageHandlerTest.java",
+   "kind": "failing test",
+   "chars": 18736
+  },
+  {
+   "path": "src/test/java/uk/gov/pay/adminusers/unit/service/ServiceResourceFindTest.java",
+   "kind": "failing test",
+   "chars": 12329
+  },
+  {
+   "path": "src/test/java/uk/gov/pay/adminusers/unit/service/ServiceResourceCreateTest.java",
+   "kind": "failing test",
+   "chars": 10935
+  },
+  {
+   "path": "src/test/java/uk/gov/pay/adminusers/unit/service/ServiceResourceSearchTest.java",
+   "kind": "failing test",
+   "chars": 40
+  },
+  {
+   "path": "src/test/java/uk/gov/pay/adminusers/unit/service/ServiceResourceUpdateTest.java",
+   "kind": "failing test",
+   "chars": 40
+  },
+  {
+   "path": "src/main/resources/META-INF/persistence.xml",
+   "kind": "resource file named in the failing test",
+   "chars": 40
+  },
+  {
+   "path": "src/test/resources/fixtures/resource/service/patch/array-add-gateway-account-ids.json",
+   "kind": "resource file named in the failing test",
+   "chars": 40
+  },
+  {
+   "path": "src/test/resources/fixtures/resource/service/patch/array-missing-op-service-name-en.json",
+   "kind": "resource file named in the failing test",
+   "chars": 40
+  },
+  {
+   "path": "src/test/resources/fixtures/resource/service/patch/array-replace-missing-path.json",
+   "kind": "resource file named in the failing test",
+   "chars": 40
+  },
+  {
+   "path": "src/test/resources/fixtures/resource/service/patch/array-replace-service-name-cy-blank.json",
+   "kind": "resource file named in the failing test",
+   "chars": 40
+  },
+  {
+   "path": "src/test/resources/fixtures/resource/service/patch/array-replace-service-name-cy.json",
+   "kind": "resource file named in the failing test",
+   "chars": 40
+  }
+ ],
+ "breakage": {
+  "dependency": "org.slf4j:slf4j-api",
+  "group_id": "org.slf4j",
+  "artifact_id": "slf4j-api",
+  "old_version": "1.7.36",
+  "new_version": "2.0.4",
+  "failing_test_classes": [
+   "uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest",
+   "uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest",
+   "uk.gov.pay.adminusers.unit.service.ServiceResourceCreateTest",
+   "uk.gov.pay.adminusers.unit.service.ServiceResourceSearchTest",
+   "uk.gov.pay.adminusers.unit.service.ServiceResourceUpdateTest"
+  ],
+  "exception_types": [
+   "java.lang.ClassCastException",
+   "java.lang.ExceptionInInitializerError",
+   "java.lang.NoClassDefFoundError",
+   "java.lang.IllegalStateException"
+  ],
+  "error_lines": [
+   "java.lang.ClassCastException: class org.slf4j.helpers.NOPLogger cannot be cast to class ch.qos.logback.classic.Logger (org.slf4j.helpers.NOPLogger and ch.qos.logback.classic.Logger are in unnamed module of loader 'app')",
+   "java.lang.Exception: java.lang.ExceptionInInitializerError",
+   "Caused by: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceFindTest",
+   "Caused by: java.lang.ExceptionInInitializerError",
+   "Caused by: java.lang.IllegalStateException: Unable to acquire the logger context",
+   "Caused by: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceCreateTest",
+   "Caused by: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceSearchTest",
+   "Caused by: java.lang.NoClassDefFoundError: Could not initialize class uk.gov.pay.adminusers.unit.service.ServiceResourceUpdateTest"
+  ],
+  "project_frames": [
+   {
+    "cls": "uk.gov.pay.adminusers.queue.event.EventMessageHandlerTest",
+    "file": "EventMessageHandlerTest.java",
+    "line": 111
+   }
+  ],
+  "slf4j_console": [
+   "SLF4J: No SLF4J providers were found.",
+   "SLF4J: Defaulting to no-operation (NOP) logger implementation",
+   "SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.",
+   "SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.",
+   "SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar!/org/slf4j/impl/StaticLoggerBinder.class]",
+   "SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation."
+  ]
+ },
+ "attempts": [
+  {
+   "attempt": 1,
+   "prompt_chars": 75233
+  }
+ ],
+ "final_verdict": "DRY_RUN",
+ "attempts_used": 1
+}

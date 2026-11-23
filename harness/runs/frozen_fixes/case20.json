@@ -1,0 +1,61 @@
+{
+ "case": 20,
+ "case_id": "19e20b0d69cb6dadbc54313cb6c6e5f70670ac93",
+ "label": "frozen_fixes",
+ "patch": "fix_mining\\fixes_v1.0\\reference_fixes\\case20.patch",
+ "date": "2026-11-22",
+ "verdict": "REPAIRED",
+ "checks": {
+  "APPLIES": true,
+  "BUILD": true,
+  "TARGET_FIXED": true,
+  "NO_REGRESSION": true,
+  "UPDATE_KEPT": true
+ },
+ "failed_checks": [],
+ "evaluation_mode": "compare to reference fix + tests",
+ "reference_group": "DEVELOPER_FIX",
+ "command": "mvn clean test -B",
+ "seconds": 66,
+ "build": {
+  "status": "SUCCESS",
+  "maven_exit": "0",
+  "tests": 5,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "pre_baseline": {
+  "tests": 5,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0
+ },
+ "target_classes": {
+  "org.apache.log4j.chainsaw.LogPanelPreferenceModelTest": "passed"
+ },
+ "regressions": [],
+ "regression_count": 0,
+ "dependency": "com.thoughtworks.xstream:xstream",
+ "new_version": "1.4.19",
+ "resolved_versions": [
+  "1.4.19"
+ ],
+ "info": {
+  "files_changed": [
+   "src/test/java/org/apache/log4j/chainsaw/LogPanelPreferenceModelTest.java"
+  ],
+  "test_files_changed": [
+   "src/test/java/org/apache/log4j/chainsaw/LogPanelPreferenceModelTest.java"
+  ],
+  "test_files_deleted": [],
+  "net_test_annotations_removed": 0,
+  "classes_with_fewer_tests_than_pre": [],
+  "reference_fix_file_overlap": 1.0,
+  "identical_to_reference_fix": true
+ },
+ "notes": [],
+ "log": "harness\\runs\\frozen_fixes\\case20.log",
+ "image": "ghcr.io/chains-project/breaking-updates:19e20b0d69cb6dadbc54313cb6c6e5f70670ac93-breaking",
+ "source": "repair harness v1 (Claude); AI evaluation"
+}
