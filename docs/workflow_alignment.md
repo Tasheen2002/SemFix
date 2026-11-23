@@ -4,6 +4,8 @@
 **Compared with:** the work in this repository as of commit `de04bb3`.
 **Purpose:** to show what already matches the handbook, what differs (with the reason), and what is still missing, before the experiments are built.
 
+**Status of the handbook:** a guide, not an authority. The researcher's instruction (2026-11-23) is not to depend on it completely, because it may contain issues. Each handbook choice is checked against our data and tests; where they conflict, the evidence decides and the reason is recorded here. §5 lists the issues found so far.
+
 ## 1. The experiment the handbook defines (this answers "what are A, B, C, D")
 
 | Condition | RAG | Attempts | READ_FILE tool |
@@ -113,7 +115,24 @@ That totals ≈ 14.2 M input and 2.0 M output tokens. List prices, before any pr
 
 **A cheap pilot** (5 cases, 1 trial, A and D only) costs well under $2 on any of these.
 
-## 5. Recommended order of work
+## 5. Issues found in the handbook itself
+
+Each issue below is backed by our own data or tests.
+
+| # | Handbook says | Issue | Evidence | Our choice |
+|---|---|---|---|---|
+| 1 | Block every `pom.xml` edit (§6.1) | Too broad. It also blocks legitimate companion upgrades, which is the actual developer repair for SLF4J provider selection | 36/56 cases are SLF4J; the developer fixes for pdb and jadler are logback upgrades; logback 1.3.5 validated for pay-adminusers | Allow POM edits; block downgrades with UPDATE_KEPT (verified by the self-test) |
+| 2 | Block every `src/test/**` edit (§6.1) | Also blocks updating expected values and test resources when the new behavior is intended | Developer fixes for Cases 20, 158 and 181 edit tests | Allow; flag every test edit; count them in the blind audit |
+| 3 | Regressions = failing now − failing at BREAKING (§6.2) | Misses tests that did not run, and tests that did not exist in the BREAKING failure set but passed in PRE | Deleting a failing test passed a plain build check (Case 13 self-test: BUILD SUCCESS, 320 tests) | Compare against the PRE baseline; a missing class counts as a failure (NO_REGRESSION) |
+| 4 | Success = build and tests pass (§6.2) | Does not check that the updated dependency is still the version that runs | Reverting slf4j 2.0.4 → 1.7.36 passed every test (Case 2 self-test) | UPDATE_KEPT via `dependency:tree` |
+| 5 | n = 3 trials at temperature 0 (§8.1) | With near-deterministic decoding, 3 trials may be almost identical, which triples the cost for little extra information | To be measured in the pilot | Pilot first; if trials agree, consider n = 1 plus a robustness check, or n = 3 with sampling |
+| 6 | Taxonomy of 6 categories (§3.1) | No category for provider/implementation selection, our largest group | 36/56 | Keep our frozen v1.0 labels; give a mapping table |
+| 7 | Infrastructure failures are not separated from repair failures | A network outage would count as failed repairs | 23 good fixes "failed" during the 22 Nov outage | INCONCLUSIVE verdict, then a re-run |
+| 8 | Flaky tests are handled only in Phase 2 triage | Random and timing tests also fail during repair evaluation | Case 148 (timing), Case 89 (random property test) | One re-run for test-only failures |
+| 9 | Model names and prices (`gpt-4o-mini`, etc.) | Dated; the handbook itself marks them `[Verify]` | – | Choose the current model when deciding |
+| 10 | Cost example assumes 40 cases | Our set is 56 cases, with a measured median prompt of 10.6k tokens | Dry run | Use our own estimate (§4) |
+
+## 6. Recommended order of work
 
 1. **Decide §3.1–§3.4** (knowledge-base source, guards, labels, second rater) and the model.
 2. **Fill the remaining gaps (no cost):**
