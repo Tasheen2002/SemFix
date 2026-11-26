@@ -1,0 +1,85 @@
+{
+ "case": 9,
+ "label": "dryrun_rrf_gate_L2",
+ "condition": "rag",
+ "level": "L2",
+ "k": 3,
+ "include_researcher_written": true,
+ "scorer": "rrf",
+ "gate": {
+  "min_cosine": 0.5,
+  "min_bm25": 50.0
+ },
+ "kb_sha256": "1324fe90a511ed2e5f1e2fa66945f2f15b78095a69f5ee5e1ab2bbcbed518c00",
+ "provider": "manual",
+ "model": null,
+ "effort": "high",
+ "date": "2026-11-26",
+ "retrieved": [
+  {
+   "case": 113,
+   "mechanism": "MOCKITO5_INLINE_DEFAULT",
+   "fix_author": "researcher-written (Claude); NOT a reference answer",
+   "score": 0.016393
+  }
+ ],
+ "context_files": [
+  {
+   "path": "pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 19114
+  },
+  {
+   "path": "core/pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 3565
+  },
+  {
+   "path": "generators/pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 3943
+  },
+  {
+   "path": "guava/pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 3736
+  },
+  {
+   "path": "core/src/test/java/com/pholser/junit/quickcheck/internal/generator/CompositeGeneratorTest.java",
+   "kind": "failing test",
+   "chars": 3575
+  }
+ ],
+ "breakage": {
+  "dependency": "org.mockito:mockito-core",
+  "group_id": "org.mockito",
+  "artifact_id": "mockito-core",
+  "old_version": "4.11.0",
+  "new_version": "5.1.1",
+  "failing_test_classes": [
+   "com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest"
+  ],
+  "exception_types": [
+   "java.lang.AssertionError"
+  ],
+  "error_lines": [
+   "java.lang.AssertionError: expected:<[3, 6]> but was:<[]>"
+  ],
+  "project_frames": [
+   {
+    "cls": "com.pholser.junit.quickcheck.internal.generator.CompositeGeneratorTest",
+    "file": "CompositeGeneratorTest.java",
+    "line": 90
+   }
+  ],
+  "slf4j_console": []
+ },
+ "attempts": [
+  {
+   "attempt": 1,
+   "prompt_chars": 37577
+  }
+ ],
+ "final_verdict": "DRY_RUN",
+ "attempts_used": 1
+}

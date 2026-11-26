@@ -23,16 +23,19 @@ Rebuild with `python -I kb/scripts/build_kb.py <root>`. `kb_manifest.json` holds
 - **Query:** only what a new breakage shows in its build log (dependency, versions, failing tests, exceptions, error lines). A new case has no classification yet.
 - **Scorers:**
   - `bm25`: identifier-aware tokens (dotted names and camelCase are split);
-  - `hybrid`: BM25 plus a boost for the same dependency group and the same artifact.
-
-  `Index.score()` is the single place to plug in an embedding scorer later.
+  - `hybrid`: BM25 plus a boost for the same dependency group and the same artifact;
+  - `dense`: cosine similarity of `all-MiniLM-L6-v2` embeddings (`scripts/dense.py`; document vectors cached in `index/`, tied to the model and the KB fingerprint);
+  - `rrf`: Reciprocal Rank Fusion of the dense rank (weight 0.6) and the hybrid rank, k = 60 (handbook 5.1). **This is the scorer for the experiments.**
+- **Relevance gate** (`DEFAULT_GATE`): a candidate is shown to the LLM only if cosine ≥ 0.5 **or** lexical ≥ 50. If nothing passes, no example is shown. See "Gate" below for how the values were chosen.
 - **Leakage:** the target case and its L1/L2/L3 exclusions are always removed.
 - **Researcher-written fixes:** retrievable only with `include_researcher_written=True`. Use `--no-researcher-written` on the command line to exclude them.
 - **Diversified:** at most one result per project-dependency group, so the LLM sees k different fixes rather than one fix k times.
 
 ```
 python -I kb/scripts/retrieve.py <root> --case 1 --level L2 --k 3
-python -I kb/scripts/retrieve.py <root> --evaluate        # writes kb/retrieval_evaluation.json
+python -I kb/scripts/retrieve.py <root> --case 1 --scorer rrf --gate
+python -I kb/scripts/retrieve.py <root> --evaluate        # lexical scorers only -> kb/retrieval_evaluation.json
+python -I kb/scripts/eval_retrieval.py <root>             # all scorers, negatives, gate sweep -> kb/retrieval_evaluation_v2.json
 ```
 
 ## Retrieval quality (hybrid, diversified, all 56 cases as queries)
@@ -54,9 +57,32 @@ python -I kb/scripts/retrieve.py <root> --evaluate        # writes kb/retrieval_
 - **Researcher-written fixes matter:** including them gives 5 more L2 cases a same-mechanism example. This is evidence for the pending decision.
 - **The hybrid boost changed no ranking compared with plain BM25:** the dependency name already dominates the lexical score.
 
+## Dense, RRF and the relevance gate (`eval_retrieval.py`, `retrieval_evaluation_v2.json`)
+
+**Negatives** (`retrieval_negatives.json`): 10 hand-written breakages whose mechanism is not in the KB. Seven are hard (realistic Java: Guava ordering, Jackson limits, Joda-Time, Hibernate, OkHttp, Commons Lang, Netty) and three are easy (non-Java or nonsense). The gate should return nothing for them.
+
+**Ungated (L2):** all four scorers reach Hit@1 = Hit@3 = MRR = 1.0 on the 41 cases that have a same-mechanism example. But they also return something for every negative, because ranking alone never says "nothing fits".
+
+**Score ranges (L2, RRF):**
+
+| | cosine | lexical |
+|---|---|---|
+| best true match of each positive | 0.558 – 0.923 | 27.3 – 59.4 |
+| top result for a negative | 0.080 – 0.458 | 1.5 – 23.4 |
+
+**Gate:** we chose cosine ≥ 0.5 OR lexical ≥ 50 from a sweep (cosine 0.4–0.7 × lexical 20–50/off). This is the least strict setting that keeps Hit@3 = 1.0 and rejects all negatives. The values were fixed before any LLM run and are not tuned on experiment results.
+
+| Level | Researcher-written | Hit@3 (of available) | Negatives rejected | "No example" cases given nothing |
+|---|---|---:|---:|---:|
+| L1 | with / without | 1.0 (48) / 1.0 (43) | 10/10 | 0.88 (8) / 0.92 (13) |
+| **L2** | **with** / without | **1.0 (41)** / 1.0 (36) | **10/10** | **0.93 (15)** / 0.95 (20) |
+| L3 | with / without | n/a (0) | 10/10 | 0.34 (56) |
+
+**Limits (report these):**
+- **The negatives are few and hand-written,** and the thresholds come from the same data. With so few examples, the gap between 0.458 and 0.558 may be optimistic.
+- **The gate filters *unrelated* examples, not *look-alike* ones.** At L3, two in three cases still get an example from a different mechanism, mostly logging cases that read alike. So the L3 condition really tests "misleading-but-similar" examples, which is what L3 is meant to measure.
+
 ## Not done yet (pending the researcher's decisions)
 
 1. Download the library change content (release notes or diffs) into `library_change`.
-2. An embedding scorer, if wanted.
-3. The prompt builder and the LLM step, once the model is chosen.
-4. The automated loop: retrieve → prompt → patch → `harness/scripts/evaluate_patch.py` → retry.
+2. The LLM step, once the model is chosen (the prompt builder and loop are in `pipeline/`).

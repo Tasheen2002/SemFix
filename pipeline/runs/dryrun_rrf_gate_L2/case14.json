@@ -1,0 +1,71 @@
+{
+ "case": 14,
+ "label": "dryrun_rrf_gate_L2",
+ "condition": "rag",
+ "level": "L2",
+ "k": 3,
+ "include_researcher_written": true,
+ "scorer": "rrf",
+ "gate": {
+  "min_cosine": 0.5,
+  "min_bm25": 50.0
+ },
+ "kb_sha256": "1324fe90a511ed2e5f1e2fa66945f2f15b78095a69f5ee5e1ab2bbcbed518c00",
+ "provider": "manual",
+ "model": null,
+ "effort": "high",
+ "date": "2026-11-26",
+ "retrieved": [],
+ "context_files": [
+  {
+   "path": "pom.xml",
+   "kind": "root build file",
+   "chars": 7127
+  },
+  {
+   "path": "src/cli/pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 4180
+  },
+  {
+   "path": "src/core/persistence/pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 10020
+  },
+  {
+   "path": "src/pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 6432
+  },
+  {
+   "path": "src/web/app/pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 11545
+  }
+ ],
+ "breakage": {
+  "dependency": "com.h2database:h2",
+  "group_id": "com.h2database",
+  "artifact_id": "h2",
+  "old_version": "1.3.175",
+  "new_version": "2.0.206",
+  "failing_test_classes": [],
+  "exception_types": [
+   "org.h2.jdbc.JdbcSQLSyntaxErrorException"
+  ],
+  "error_lines": [
+   "Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Precision (\"10000000\") must be between \"1\" and \"1048576\" inclusive; SQL statement:",
+   "Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table \"GS_STORED_DATA\" not found; SQL statement:"
+  ],
+  "project_frames": [],
+  "slf4j_console": []
+ },
+ "attempts": [
+  {
+   "attempt": 1,
+   "prompt_chars": 41932
+  }
+ ],
+ "final_verdict": "DRY_RUN",
+ "attempts_used": 1
+}

@@ -1,0 +1,89 @@
+{
+ "case": 39,
+ "label": "dryrun_rrf_gate_L2",
+ "condition": "rag",
+ "level": "L2",
+ "k": 3,
+ "include_researcher_written": true,
+ "scorer": "rrf",
+ "gate": {
+  "min_cosine": 0.5,
+  "min_bm25": 50.0
+ },
+ "kb_sha256": "1324fe90a511ed2e5f1e2fa66945f2f15b78095a69f5ee5e1ab2bbcbed518c00",
+ "provider": "manual",
+ "model": null,
+ "effort": "high",
+ "date": "2026-11-26",
+ "retrieved": [],
+ "context_files": [
+  {
+   "path": "pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 9955
+  },
+  {
+   "path": "src/test/java/uk/gov/pay/card/it/resources/CardIdResourceITest.java",
+   "kind": "failing test",
+   "chars": 6395
+  },
+  {
+   "path": "src/main/resources/config/config.yaml",
+   "kind": "resource file named in the failing test",
+   "chars": 1102
+  },
+  {
+   "path": "src/test/resources/card-id-resource-integration-test/discover-bin-ranges.csv",
+   "kind": "resource file named in the failing test",
+   "chars": 57
+  },
+  {
+   "path": "src/test/resources/card-id-resource-integration-test/test-bin-ranges.csv",
+   "kind": "resource file named in the failing test",
+   "chars": 127
+  },
+  {
+   "path": "src/test/resources/card-id-resource-integration-test/worldpay-bin-ranges.csv",
+   "kind": "resource file named in the failing test",
+   "chars": 782
+  },
+  {
+   "path": "src/test/resources/discover/discover-bin-ranges.csv",
+   "kind": "resource file named in the failing test",
+   "chars": 126
+  },
+  {
+   "path": "src/test/resources/worldpay/worldpay-bin-ranges.csv",
+   "kind": "resource file named in the failing test",
+   "chars": 532
+  }
+ ],
+ "breakage": {
+  "dependency": "org.dhatim:dropwizard-sentry",
+  "group_id": "org.dhatim",
+  "artifact_id": "dropwizard-sentry",
+  "old_version": "2.0.22",
+  "new_version": "2.0.26-3",
+  "failing_test_classes": [
+   "uk.gov.pay.card.it.resources.CardIdResourceITest"
+  ],
+  "exception_types": [
+   "io.dropwizard.configuration.ConfigurationParsingException",
+   "com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException"
+  ],
+  "error_lines": [
+   "io.dropwizard.configuration.ConfigurationParsingException:",
+   "Caused by: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException:"
+  ],
+  "project_frames": [],
+  "slf4j_console": []
+ },
+ "attempts": [
+  {
+   "attempt": 1,
+   "prompt_chars": 22235
+  }
+ ],
+ "final_verdict": "DRY_RUN",
+ "attempts_used": 1
+}

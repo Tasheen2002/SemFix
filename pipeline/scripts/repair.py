@@ -20,6 +20,8 @@ ap = argparse.ArgumentParser()
 ap.add_argument("root"); ap.add_argument("--cases", required=True); ap.add_argument("--label", required=True)
 ap.add_argument("--condition", choices=["rag", "no_rag"], default="rag"); ap.add_argument("--level", default="L2", choices=["L1", "L2", "L3"])
 ap.add_argument("--k", type=int, default=3); ap.add_argument("--no-researcher-written", action="store_true")
+ap.add_argument("--scorer", choices=["rrf", "hybrid", "bm25"], default="rrf",
+                help="rrf = dense+hybrid fusion with the relevance gate (experiment default); hybrid/bm25 = lexical, no gate")
 ap.add_argument("--provider", choices=["manual", "claude", "oracle", "oracle_retry"], default="manual")
 ap.add_argument("--model"); ap.add_argument("--effort", default="high"); ap.add_argument("--attempts", type=int, default=3)
 ap.add_argument("--context-budget", type=int, default=60000); ap.add_argument("--dry-run", action="store_true")
@@ -34,7 +36,10 @@ import retrieve
 cases = {c["case"]: c for c in json.load(open(P("fix_mining", "cases.json"), encoding="utf-8"))}
 cls = {r["case_id"]: r for r in csv.DictReader(open(P("results", "classification_v1.0", "behavioral_classification.csv"), encoding="utf-8"))}
 index = {int(r["case_number"]): r for r in csv.DictReader(open(P("fix_mining", "fixes_v1.0", "fix_index.csv"), encoding="utf-8"))}
-KB = retrieve.load(ROOT); IX = retrieve.Index(KB); KBN = {e["case_number"]: e for e in KB}
+KB = retrieve.load(ROOT); KB_SHA = retrieve.kb_fingerprint(ROOT)
+GATE = retrieve.DEFAULT_GATE if a.scorer == "rrf" else None
+IX = retrieve.Index(KB, dense_model="sentence-transformers/all-MiniLM-L6-v2" if a.scorer == "rrf" and a.condition == "rag" else None, root=ROOT)
+KBN = {e["case_number"]: e for e in KB}
 todo = sorted(cases) if a.cases == "all" else [int(x) for x in a.cases.split(",")]
 run_dir = P("pipeline", "runs", a.label); os.makedirs(os.path.join(run_dir, "patches"), exist_ok=True)
 
@@ -91,9 +96,10 @@ for n in todo:
     if a.condition == "rag":
         q = dict(case_number=n, breakage=dict(kbe["breakage"], **{k: breakage[k] for k in ("failing_test_classes", "exception_types", "error_lines", "slf4j_console")}),
                  leakage=kbe["leakage"])
-        retrieved = IX.retrieve(q, a.level, a.k, "hybrid", not a.no_researcher_written)
+        retrieved = IX.retrieve(q, a.level, a.k, a.scorer, not a.no_researcher_written, True, GATE)
         examples = [KBN[r["case_number"]] for r in retrieved]
     rec = dict(case=n, label=a.label, condition=a.condition, level=a.level, k=a.k, include_researcher_written=not a.no_researcher_written,
+               scorer=a.scorer, gate=GATE, kb_sha256=KB_SHA,
                provider=a.provider, model=a.model, effort=a.effort, date=datetime.date.today().isoformat(),
                retrieved=[dict(case=r["case_number"], mechanism=r["mechanism"], fix_author=r["fix_author"], score=r["score"]) for r in retrieved],
                context_files=[dict(path=p, kind=k, chars=len(t)) for p, k, t in ctx], breakage=breakage, attempts=[])

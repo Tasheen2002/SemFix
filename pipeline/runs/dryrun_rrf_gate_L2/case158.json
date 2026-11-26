@@ -1,0 +1,63 @@
+{
+ "case": 158,
+ "label": "dryrun_rrf_gate_L2",
+ "condition": "rag",
+ "level": "L2",
+ "k": 3,
+ "include_researcher_written": true,
+ "scorer": "rrf",
+ "gate": {
+  "min_cosine": 0.5,
+  "min_bm25": 50.0
+ },
+ "kb_sha256": "1324fe90a511ed2e5f1e2fa66945f2f15b78095a69f5ee5e1ab2bbcbed518c00",
+ "provider": "manual",
+ "model": null,
+ "effort": "high",
+ "date": "2026-11-26",
+ "retrieved": [],
+ "context_files": [
+  {
+   "path": "pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 8180
+  },
+  {
+   "path": "src/test/java/com/github/sardine/impl/SardineExceptionTest.java",
+   "kind": "failing test",
+   "chars": 419
+  }
+ ],
+ "breakage": {
+  "dependency": "org.apache.httpcomponents:httpclient",
+  "group_id": "org.apache.httpcomponents",
+  "artifact_id": "httpclient",
+  "old_version": "4.5.1",
+  "new_version": "4.5.13",
+  "failing_test_classes": [
+   "com.github.sardine.impl.SardineExceptionTest"
+  ],
+  "exception_types": [
+   "org.junit.ComparisonFailure"
+  ],
+  "error_lines": [
+   "org.junit.ComparisonFailure: expected:<[]m (400 response phra...> but was:<[status code: 400, reason phrase: ]m (400 response phra...>"
+  ],
+  "project_frames": [
+   {
+    "cls": "com.github.sardine.impl.SardineExceptionTest",
+    "file": "SardineExceptionTest.java",
+    "line": 14
+   }
+  ],
+  "slf4j_console": []
+ },
+ "attempts": [
+  {
+   "attempt": 1,
+   "prompt_chars": 11051
+  }
+ ],
+ "final_verdict": "DRY_RUN",
+ "attempts_used": 1
+}

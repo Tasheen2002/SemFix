@@ -1,0 +1,244 @@
+{
+ "case": 184,
+ "label": "dryrun_rrf_gate_L2",
+ "condition": "rag",
+ "level": "L2",
+ "k": 3,
+ "include_researcher_written": true,
+ "scorer": "rrf",
+ "gate": {
+  "min_cosine": 0.5,
+  "min_bm25": 50.0
+ },
+ "kb_sha256": "1324fe90a511ed2e5f1e2fa66945f2f15b78095a69f5ee5e1ab2bbcbed518c00",
+ "provider": "manual",
+ "model": null,
+ "effort": "high",
+ "date": "2026-11-26",
+ "retrieved": [
+  {
+   "case": 18,
+   "mechanism": "SLF4J2_IGNORES_LEGACY_BINDING",
+   "fix_author": "developer",
+   "score": 0.015718
+  },
+  {
+   "case": 145,
+   "mechanism": "SLF4J2_IGNORES_LEGACY_BINDING",
+   "fix_author": "researcher-written (Claude); NOT a reference answer",
+   "score": 0.015625
+  },
+  {
+   "case": 22,
+   "mechanism": "SLF4J2_IGNORES_LEGACY_BINDING",
+   "fix_author": "researcher-written (Claude); NOT a reference answer",
+   "score": 0.013579
+  }
+ ],
+ "context_files": [
+  {
+   "path": "pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 11944
+  },
+  {
+   "path": "jadler-core/pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 2501
+  },
+  {
+   "path": "jadler-jetty/pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 2858
+  },
+  {
+   "path": "jadler-core/src/test/java/net/jadler/JadlerMockerTest.java",
+   "kind": "failing test",
+   "chars": 7698
+  },
+  {
+   "path": "jadler-all/src/test/resources/logback.xml",
+   "kind": "resource file named in the failing test",
+   "chars": 518
+  },
+  {
+   "path": "jadler-core/src/test/resources/logback.xml",
+   "kind": "resource file named in the failing test",
+   "chars": 518
+  },
+  {
+   "path": "jadler-jdk/src/test/resources/logback.xml",
+   "kind": "resource file named in the failing test",
+   "chars": 518
+  },
+  {
+   "path": "jadler-jetty/src/test/resources/logback.xml",
+   "kind": "resource file named in the failing test",
+   "chars": 518
+  },
+  {
+   "path": "jadler-junit/src/test/resources/logback.xml",
+   "kind": "resource file named in the failing test",
+   "chars": 518
+  }
+ ],
+ "breakage": {
+  "dependency": "org.slf4j:slf4j-api",
+  "group_id": "org.slf4j",
+  "artifact_id": "slf4j-api",
+  "old_version": "1.7.36",
+  "new_version": "2.0.1",
+  "failing_test_classes": [
+   "net.jadler.JadlerMockerTest"
+  ],
+  "exception_types": [
+   "java.lang.ClassCastException"
+  ],
+  "error_lines": [
+   "java.lang.ClassCastException: class org.slf4j.helpers.NOPLoggerFactory cannot be cast to class ch.qos.logback.classic.LoggerContext (org.slf4j.helpers.NOPLoggerFactory and ch.qos.logback.classic.LoggerContext are in unnamed module of loader 'app')"
+  ],
+  "project_frames": [
+   {
+    "cls": "net.jadler.JadlerMockerTest",
+    "file": "JadlerMockerTest.java",
+    "line": 1092
+   },
+   {
+    "cls": "net.jadler.JadlerMockerTest",
+    "file": "JadlerMockerTest.java",
+    "line": 857
+   },
+   {
+    "cls": "org.junit.runners.model.FrameworkMethod$1",
+    "file": "FrameworkMethod.java",
+    "line": 59
+   },
+   {
+    "cls": "org.junit.internal.runners.model.ReflectiveCallable",
+    "file": "ReflectiveCallable.java",
+    "line": 12
+   },
+   {
+    "cls": "org.junit.runners.model.FrameworkMethod",
+    "file": "FrameworkMethod.java",
+    "line": 56
+   },
+   {
+    "cls": "org.junit.internal.runners.statements.InvokeMethod",
+    "file": "InvokeMethod.java",
+    "line": 17
+   },
+   {
+    "cls": "org.junit.runners.ParentRunner$3",
+    "file": "ParentRunner.java",
+    "line": 306
+   },
+   {
+    "cls": "org.junit.runners.BlockJUnit4ClassRunner$1",
+    "file": "BlockJUnit4ClassRunner.java",
+    "line": 100
+   },
+   {
+    "cls": "org.junit.runners.ParentRunner",
+    "file": "ParentRunner.java",
+    "line": 366
+   },
+   {
+    "cls": "org.junit.runners.BlockJUnit4ClassRunner",
+    "file": "BlockJUnit4ClassRunner.java",
+    "line": 103
+   },
+   {
+    "cls": "org.junit.runners.BlockJUnit4ClassRunner",
+    "file": "BlockJUnit4ClassRunner.java",
+    "line": 63
+   },
+   {
+    "cls": "org.junit.runners.ParentRunner$4",
+    "file": "ParentRunner.java",
+    "line": 331
+   },
+   {
+    "cls": "org.junit.runners.ParentRunner$1",
+    "file": "ParentRunner.java",
+    "line": 79
+   },
+   {
+    "cls": "org.junit.runners.ParentRunner",
+    "file": "ParentRunner.java",
+    "line": 329
+   },
+   {
+    "cls": "org.junit.runners.ParentRunner",
+    "file": "ParentRunner.java",
+    "line": 66
+   },
+   {
+    "cls": "org.junit.runners.ParentRunner$2",
+    "file": "ParentRunner.java",
+    "line": 293
+   },
+   {
+    "cls": "org.junit.runners.ParentRunner",
+    "file": "ParentRunner.java",
+    "line": 413
+   },
+   {
+    "cls": "org.apache.maven.surefire.junit4.JUnit4Provider",
+    "file": "JUnit4Provider.java",
+    "line": 316
+   },
+   {
+    "cls": "org.apache.maven.surefire.junit4.JUnit4Provider",
+    "file": "JUnit4Provider.java",
+    "line": 240
+   },
+   {
+    "cls": "org.apache.maven.surefire.junit4.JUnit4Provider",
+    "file": "JUnit4Provider.java",
+    "line": 214
+   },
+   {
+    "cls": "org.apache.maven.surefire.junit4.JUnit4Provider",
+    "file": "JUnit4Provider.java",
+    "line": 155
+   },
+   {
+    "cls": "org.apache.maven.surefire.booter.ForkedBooter",
+    "file": "ForkedBooter.java",
+    "line": 385
+   },
+   {
+    "cls": "org.apache.maven.surefire.booter.ForkedBooter",
+    "file": "ForkedBooter.java",
+    "line": 162
+   },
+   {
+    "cls": "org.apache.maven.surefire.booter.ForkedBooter",
+    "file": "ForkedBooter.java",
+    "line": 507
+   },
+   {
+    "cls": "org.apache.maven.surefire.booter.ForkedBooter",
+    "file": "ForkedBooter.java",
+    "line": 495
+   }
+  ],
+  "slf4j_console": [
+   "SLF4J: No SLF4J providers were found.",
+   "SLF4J: Defaulting to no-operation (NOP) logger implementation",
+   "SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.",
+   "SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.",
+   "SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar!/org/slf4j/impl/StaticLoggerBinder.class]",
+   "SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation."
+  ]
+ },
+ "attempts": [
+  {
+   "attempt": 1,
+   "prompt_chars": 35826
+  }
+ ],
+ "final_verdict": "DRY_RUN",
+ "attempts_used": 1
+}

@@ -1,0 +1,199 @@
+{
+ "case": 168,
+ "label": "dryrun_rrf_gate_L2",
+ "condition": "rag",
+ "level": "L2",
+ "k": 3,
+ "include_researcher_written": true,
+ "scorer": "rrf",
+ "gate": {
+  "min_cosine": 0.5,
+  "min_bm25": 50.0
+ },
+ "kb_sha256": "1324fe90a511ed2e5f1e2fa66945f2f15b78095a69f5ee5e1ab2bbcbed518c00",
+ "provider": "manual",
+ "model": null,
+ "effort": "high",
+ "date": "2026-11-26",
+ "retrieved": [],
+ "context_files": [
+  {
+   "path": "pom.xml",
+   "kind": "root build file",
+   "chars": 9632
+  },
+  {
+   "path": "json/pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 1779
+  },
+  {
+   "path": "json/src/main/java/org/btrplace/json/JSON.java",
+   "kind": "class in the failing stack trace",
+   "chars": 6783
+  },
+  {
+   "path": "choco/src/test/java/org/btrplace/scheduler/choco/IssuesTest.java",
+   "kind": "class in the failing stack trace",
+   "chars": 9137
+  },
+  {
+   "path": "json/src/main/java/org/btrplace/json/JSONObjectConverter.java",
+   "kind": "class in the failing stack trace",
+   "chars": 2534
+  }
+ ],
+ "breakage": {
+  "dependency": "net.minidev:json-smart",
+  "group_id": "net.minidev",
+  "artifact_id": "json-smart",
+  "old_version": "2.4.8",
+  "new_version": "2.4.9",
+  "failing_test_classes": [
+   "TestSuite"
+  ],
+  "exception_types": [
+   "java.lang.IllegalArgumentException",
+   "org.btrplace.json.JSONConverterException",
+   "net.minidev.json.parser.ParseException"
+  ],
+  "error_lines": [
+   "java.lang.IllegalArgumentException: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.",
+   "Caused by: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.",
+   "Caused by: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 141434.",
+   "java.lang.IllegalArgumentException: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876.",
+   "Caused by: org.btrplace.json.JSONConverterException: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876.",
+   "Caused by: net.minidev.json.parser.ParseException: Malicious payload, having non natural depths, parsing stoped on { at position 49876."
+  ],
+  "project_frames": [
+   {
+    "cls": "org.btrplace.json.JSON",
+    "file": "JSON.java",
+    "line": 78
+   },
+   {
+    "cls": "org.btrplace.json.JSON",
+    "file": "JSON.java",
+    "line": 60
+   },
+   {
+    "cls": "org.btrplace.scheduler.choco.IssuesTest",
+    "file": "IssuesTest.java",
+    "line": 515
+   },
+   {
+    "cls": "org.btrplace.scheduler.choco.IssuesTest",
+    "file": "IssuesTest.java",
+    "line": 535
+   },
+   {
+    "cls": "org.testng.internal.invokers.MethodInvocationHelper",
+    "file": "MethodInvocationHelper.java",
+    "line": 135
+   },
+   {
+    "cls": "org.testng.internal.invokers.TestInvoker",
+    "file": "TestInvoker.java",
+    "line": 673
+   },
+   {
+    "cls": "org.testng.internal.invokers.TestInvoker",
+    "file": "TestInvoker.java",
+    "line": 220
+   },
+   {
+    "cls": "org.testng.internal.invokers.MethodRunner",
+    "file": "MethodRunner.java",
+    "line": 50
+   },
+   {
+    "cls": "org.testng.internal.invokers.TestInvoker$MethodInvocationAgent",
+    "file": "TestInvoker.java",
+    "line": 945
+   },
+   {
+    "cls": "org.testng.internal.invokers.TestInvoker",
+    "file": "TestInvoker.java",
+    "line": 193
+   },
+   {
+    "cls": "org.testng.internal.invokers.TestMethodWorker",
+    "file": "TestMethodWorker.java",
+    "line": 146
+   },
+   {
+    "cls": "org.testng.internal.invokers.TestMethodWorker",
+    "file": "TestMethodWorker.java",
+    "line": 128
+   },
+   {
+    "cls": "org.btrplace.json.JSONObjectConverter",
+    "file": "JSONObjectConverter.java",
+    "line": 71
+   },
+   {
+    "cls": "org.btrplace.json.JSON",
+    "file": "JSON.java",
+    "line": 76
+   },
+   {
+    "cls": "net.minidev.json.parser.JSONParserBase",
+    "file": "JSONParserBase.java",
+    "line": 557
+   },
+   {
+    "cls": "net.minidev.json.parser.JSONParserBase",
+    "file": "JSONParserBase.java",
+    "line": 465
+   },
+   {
+    "cls": "net.minidev.json.parser.JSONParserBase",
+    "file": "JSONParserBase.java",
+    "line": 612
+   },
+   {
+    "cls": "net.minidev.json.parser.JSONParserBase",
+    "file": "JSONParserBase.java",
+    "line": 363
+   },
+   {
+    "cls": "net.minidev.json.parser.JSONParserBase",
+    "file": "JSONParserBase.java",
+    "line": 216
+   },
+   {
+    "cls": "net.minidev.json.parser.JSONParserReader",
+    "file": "JSONParserReader.java",
+    "line": 55
+   },
+   {
+    "cls": "net.minidev.json.parser.JSONParserReader",
+    "file": "JSONParserReader.java",
+    "line": 44
+   },
+   {
+    "cls": "net.minidev.json.parser.JSONParser",
+    "file": "JSONParser.java",
+    "line": 246
+   },
+   {
+    "cls": "org.btrplace.scheduler.choco.IssuesTest",
+    "file": "IssuesTest.java",
+    "line": 540
+   }
+  ],
+  "slf4j_console": [
+   "SLF4J: No SLF4J providers were found.",
+   "SLF4J: Defaulting to no-operation (NOP) logger implementation",
+   "SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details."
+  ]
+ },
+ "attempts": [
+  {
+   "attempt": 1,
+   "prompt_chars": 34471
+  }
+ ],
+ "final_verdict": "DRY_RUN",
+ "attempts_used": 1
+}

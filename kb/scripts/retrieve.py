@@ -7,9 +7,11 @@ Documents = the KB entries' retrieval_text (symptoms + behavior description; fix
 Scorers:
   bm25    : lexical BM25 (k1=1.2, b=0.75) over identifier-aware tokens
   hybrid  : bm25 + structured boosts for the same dependency group (+3) and the same artifact (+2)
+  dense   : cosine of all-MiniLM-L6-v2 embeddings (dense.py)
+  rrf     : Reciprocal Rank Fusion of dense (w=0.6) and hybrid ranks, k=60  (the experiment scorer, with DEFAULT_GATE)
 Results are diversified by default: at most one entry per project-dependency group.
 Evaluation: "same mechanism" never counts for the SINGLETON family (it groups unrelated one-off mechanisms).
-  (an embedding scorer can be added later; `score()` is the single plug-in point)
+  Full evaluation with negatives and the gate sweep: eval_retrieval.py -> kb/retrieval_evaluation_v2.json
 Leakage: for target case T, entries in T's exclusion list at level L1/L2/L3 are removed, and T itself always.
 Researcher-written fixes are retrievable only with include_researcher_written=True.
 
@@ -21,6 +23,12 @@ import argparse, json, math, os, re, sys
 from collections import Counter
 
 ROOT = sys.argv[1] if len(sys.argv) > 1 else "."
+
+
+# Relevance gate chosen from data (kb/retrieval_evaluation_v2.json, eval_retrieval.py): the best true match has
+# cosine >= 0.558, the strongest hand-written negative only 0.458; 0.5 sits in the gap. Lexical >= 50 is above every
+# negative (max 23.4). Chosen on this small set, so it is fixed now and not tuned again on experiment results.
+DEFAULT_GATE = dict(min_cosine=0.5, min_bm25=50.0)
 
 
 def kb_fingerprint(root):
@@ -65,8 +73,18 @@ def query_text(e):
 
 
 class Index:
-    def __init__(self, entries):
+    """Lexical index (BM25, optional dependency boost) plus an optional dense index (embeddings).
+
+    Scorers:  bm25 | hybrid (bm25 + dependency boost) | dense (cosine) | rrf (Reciprocal Rank Fusion of
+    dense and hybrid ranks, handbook 5.1: w=0.6 dense, k=60). Optional relevance gate (handbook 5.1 step D):
+    keep a candidate only if cosine >= min_cosine OR bm25 >= min_bm25; otherwise it is never shown to the LLM.
+    """
+    def __init__(self, entries, dense_model=None, root=None):
         self.entries = entries
+        self.dense = None
+        if dense_model:
+            from dense import DenseEncoder
+            self.dense = DenseEncoder(root or ROOT, entries, kb_fingerprint(root or ROOT), dense_model)
         self.docs = [Counter(tokens(e["retrieval_text"])) for e in entries]
         self.len = [sum(d.values()) for d in self.docs]
         self.avg = sum(self.len) / len(self.len)
@@ -83,19 +101,50 @@ class Index:
         return s
 
     def score(self, query_entry, i, scorer):
+        """Lexical score (bm25 or hybrid). Dense and RRF scores are computed in retrieve()."""
         q = tokens(query_text(query_entry))
         s = self.bm25(q, i)
-        if scorer == "hybrid":
+        if scorer in ("hybrid", "rrf"):
             qb, db = query_entry["breakage"], self.entries[i]["breakage"]
             s += 3.0 * (qb["group_id"] == db["group_id"]) + 2.0 * (qb["artifact_id"] == db["artifact_id"])
         return s
 
-    def retrieve(self, query_entry, level="L2", k=3, scorer="hybrid", include_researcher_written=True, diversify=True):
+    def _scores(self, query_entry, cand, scorer, semantic_weight=0.6, rrf_k=60):
+        """Return {i: (final_score, cosine, lexical)} for the candidates."""
+        lex = {i: self.score(query_entry, i, "hybrid" if scorer in ("rrf", "dense") else scorer) for i in cand}
+        cos = {}
+        if self.dense is not None:
+            all_cos = self.dense.cosines(query_text(query_entry))
+            cos = {i: float(all_cos[i]) for i in cand}
+        if scorer in ("bm25", "hybrid"):
+            return {i: (lex[i], cos.get(i), lex[i]) for i in cand}
+        if self.dense is None:
+            raise ValueError(f"scorer '{scorer}' needs a dense index: Index(entries, dense_model=...)")
+        if scorer == "dense":
+            return {i: (cos[i], cos[i], lex[i]) for i in cand}
+        d_rank = {i: r for r, i in enumerate(sorted(cand, key=lambda i: -cos[i]), start=1)}
+        l_rank = {i: r for r, i in enumerate(sorted([i for i in cand if lex[i] > 0], key=lambda i: -lex[i]), start=1)}
+        out = {}
+        for i in cand:
+            s = semantic_weight / (rrf_k + d_rank[i])
+            if i in l_rank:
+                s += (1 - semantic_weight) / (rrf_k + l_rank[i])
+            out[i] = (s, cos[i], lex[i])
+        return out
+
+    def retrieve(self, query_entry, level="L2", k=3, scorer="hybrid", include_researcher_written=True, diversify=True,
+                 gate=None):
+        """gate: None (off) or dict(min_cosine=..., min_bm25=...); a candidate passes if EITHER threshold is met."""
         t = query_entry["case_number"]
         excluded = set(query_entry["leakage"][f"exclude_{level}"]) | {t} if level != "NONE" else {t}
         cand = [i for i, e in enumerate(self.entries)
                 if e["case_number"] not in excluded and (include_researcher_written or e["fix"]["is_reference_answer"])]
-        ranked = sorted(cand, key=lambda i: -self.score(query_entry, i, scorer))
+        sc = self._scores(query_entry, cand, scorer)
+        if gate:
+            if self.dense is None:
+                raise ValueError("the relevance gate needs a dense index")
+            cand = [i for i in cand if sc[i][1] >= gate["min_cosine"] or sc[i][2] >= gate["min_bm25"]]
+        ranked = sorted(cand, key=lambda i: -sc[i][0])
         if diversify:   # at most one entry per project-dependency group: k different fixes, not one fix k times
             seen, keep = set(), []
             for i in ranked:
@@ -105,7 +154,8 @@ class Index:
             ranked = keep
         ranked = ranked[:k]
         return [dict(rank=r + 1, kb_id=self.entries[i]["kb_id"], case_number=self.entries[i]["case_number"],
-                     score=round(self.score(query_entry, i, scorer), 3), project=self.entries[i]["project"],
+                     score=round(sc[i][0], 6), cosine=None if sc[i][1] is None else round(sc[i][1], 4),
+                     lexical=round(sc[i][2], 3), project=self.entries[i]["project"],
                      dependency=self.entries[i]["breakage"]["dependency"], mechanism=self.entries[i]["behavior"]["mechanism_family"],
                      category=self.entries[i]["behavior"]["category"], fix_type=self.entries[i]["fix"]["fix_type"],
                      fix_author=self.entries[i]["fix"]["author"]) for r, i in enumerate(ranked)]
@@ -145,7 +195,8 @@ def evaluate(root):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("root"); ap.add_argument("--case", type=int); ap.add_argument("--level", default="L2", choices=["NONE", "L1", "L2", "L3"])
-    ap.add_argument("--k", type=int, default=3); ap.add_argument("--scorer", default="hybrid", choices=["bm25", "hybrid"])
+    ap.add_argument("--k", type=int, default=3); ap.add_argument("--scorer", default="hybrid", choices=["bm25", "hybrid", "dense", "rrf"])
+    ap.add_argument("--gate", action="store_true", help="apply DEFAULT_GATE (needs dense/rrf)")
     ap.add_argument("--no-researcher-written", action="store_true"); ap.add_argument("--evaluate", action="store_true")
     a = ap.parse_args()
     if a.evaluate:
@@ -156,4 +207,6 @@ if __name__ == "__main__":
                   f"cat@1 {v['category@1']:>6}  cat@3 {v['category@3']:>6}  MRR {v['mechanism_MRR']}")
     else:
         E = load(a.root); q = next(e for e in E if e["case_number"] == a.case)
-        print(json.dumps(Index(E).retrieve(q, a.level, a.k, a.scorer, not a.no_researcher_written), indent=1))
+        ix = Index(E, dense_model="sentence-transformers/all-MiniLM-L6-v2" if a.scorer in ("dense", "rrf") or a.gate else None, root=a.root)
+        print(json.dumps(ix.retrieve(q, a.level, a.k, a.scorer, not a.no_researcher_written, True,
+                                     DEFAULT_GATE if a.gate else None), indent=1))

@@ -1,0 +1,78 @@
+{
+ "case": 20,
+ "label": "dryrun_rrf_gate_L2",
+ "condition": "rag",
+ "level": "L2",
+ "k": 3,
+ "include_researcher_written": true,
+ "scorer": "rrf",
+ "gate": {
+  "min_cosine": 0.5,
+  "min_bm25": 50.0
+ },
+ "kb_sha256": "1324fe90a511ed2e5f1e2fa66945f2f15b78095a69f5ee5e1ab2bbcbed518c00",
+ "provider": "manual",
+ "model": null,
+ "effort": "high",
+ "date": "2026-11-26",
+ "retrieved": [],
+ "context_files": [
+  {
+   "path": "pom.xml",
+   "kind": "build file (declares the updated dependency)",
+   "chars": 18089
+  },
+  {
+   "path": "src/test/java/org/apache/log4j/chainsaw/LogPanelPreferenceModelTest.java",
+   "kind": "failing test",
+   "chars": 2481
+  },
+  {
+   "path": "src/main/resources/org/apache/log4j/chainsaw/favourites/package.html",
+   "kind": "resource file named in the failing test",
+   "chars": 1153
+  },
+  {
+   "path": "src/main/resources/org/apache/log4j/chainsaw/package.html",
+   "kind": "resource file named in the failing test",
+   "chars": 2848
+  },
+  {
+   "path": "src/main/resources/org/apache/log4j/chainsaw/prefs/default.properties",
+   "kind": "resource file named in the failing test",
+   "chars": 1735
+  }
+ ],
+ "breakage": {
+  "dependency": "com.thoughtworks.xstream:xstream",
+  "group_id": "com.thoughtworks.xstream",
+  "artifact_id": "xstream",
+  "old_version": "1.4.17",
+  "new_version": "1.4.19",
+  "failing_test_classes": [
+   "org.apache.log4j.chainsaw.LogPanelPreferenceModelTest"
+  ],
+  "exception_types": [
+   "com.thoughtworks.xstream.security.ForbiddenClassException"
+  ],
+  "error_lines": [
+   "com.thoughtworks.xstream.security.ForbiddenClassException: org.apache.log4j.chainsaw.LogPanelPreferenceModel"
+  ],
+  "project_frames": [
+   {
+    "cls": "org.apache.log4j.chainsaw.LogPanelPreferenceModelTest",
+    "file": "LogPanelPreferenceModelTest.java",
+    "line": 47
+   }
+  ],
+  "slf4j_console": []
+ },
+ "attempts": [
+  {
+   "attempt": 1,
+   "prompt_chars": 29159
+  }
+ ],
+ "final_verdict": "DRY_RUN",
+ "attempts_used": 1
+}
