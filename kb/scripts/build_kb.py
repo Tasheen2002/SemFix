@@ -116,6 +116,9 @@ for n in sorted(index):
     entries.append(e)
 
 os.makedirs(P("kb"), exist_ok=True)
+if os.path.exists(P("kb", "FROZEN.json")):
+    sys.exit("kb/FROZEN.json exists: the knowledge base is frozen for the experiments and will not be overwritten. "
+             "Build a changed KB as a new version (move FROZEN.json aside, rebuild, re-freeze with a new --version) and record why.")
 with open(P("kb", "entries.jsonl"), "w", encoding="utf-8", newline="\n") as fh:
     for e in entries:
         fh.write(json.dumps(e, ensure_ascii=False) + "\n")

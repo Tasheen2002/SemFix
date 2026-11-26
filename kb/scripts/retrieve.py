@@ -23,7 +23,27 @@ from collections import Counter
 ROOT = sys.argv[1] if len(sys.argv) > 1 else "."
 
 
+def kb_fingerprint(root):
+    """SHA-256 of kb/entries.jsonl (recorded with every experiment run)."""
+    import hashlib
+    return hashlib.sha256(open(os.path.join(root, "kb", "entries.jsonl"), "rb").read()).hexdigest()
+
+
+def verify_frozen(root):
+    """Return the frozen KB record; raise if the KB is frozen and entries.jsonl no longer matches it."""
+    path = os.path.join(root, "kb", "FROZEN.json")
+    if not os.path.exists(path):
+        return None
+    frozen = json.load(open(path, encoding="utf-8"))
+    actual = kb_fingerprint(root)
+    if actual != frozen["entries_sha256"]:
+        raise RuntimeError(f"kb/entries.jsonl changed after the freeze ({frozen['version']}): "
+                           f"expected {frozen['entries_sha256'][:16]}, found {actual[:16]}")
+    return frozen
+
+
 def load(root):
+    verify_frozen(root)
     return [json.loads(l) for l in open(os.path.join(root, "kb", "entries.jsonl"), encoding="utf-8")]
 
 
